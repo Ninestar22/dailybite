@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Bite — Best Food App Deals Today</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#191c23; --card2:#20242d; --ink:#f4f5f7;
+    --muted:#9aa3b2; --line:#2a2f3a; --accent:#ff5a3c; --accent2:#ffb020;
+    --good:#2ec16b; --chip:#242935;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+  header{padding:28px 20px 18px;text-align:center;background:
+    radial-gradient(120% 100% at 50% 0%, rgba(255,90,60,.18), transparent 60%);}
+  .logo{font-size:30px;font-weight:800;letter-spacing:-.5px}
+  .logo span{color:var(--accent)}
+  .tag{color:var(--muted);margin-top:6px;font-size:14px}
+  .date{margin-top:10px;display:inline-block;background:var(--chip);color:var(--ink);
+    padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600}
+  .wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}
+  .controls{position:sticky;top:0;z-index:5;background:rgba(15,17,21,.9);backdrop-filter:blur(8px);
+    padding:14px 0 12px;margin-top:8px}
+  .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
+    background:var(--card);color:var(--ink);font-size:15px;outline:none}
+  .search:focus{border-color:var(--accent)}
+  .filters{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .chip{white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--chip);color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;transition:.15s}
+  .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .count{color:var(--muted);font-size:13px;margin:6px 2px 2px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
+    display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+  .card.best{border-color:var(--accent2)}
+  .best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;
+    font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px;letter-spacing:.3px}
+  .brandrow{display:flex;align-items:center;gap:10px}
+  .brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+    font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}
+  .brand-name{font-weight:700;font-size:15px}
+  .brand-cat{color:var(--muted);font-size:12px}
+  .deal{font-size:16px;font-weight:700;line-height:1.3}
+  .desc{color:var(--muted);font-size:13px;line-height:1.45}
+  .metarow{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+  .pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}
+  .pill.free{background:rgba(46,193,107,.15);color:var(--good)}
+  .pill.app{background:rgba(255,176,32,.14);color:var(--accent2)}
+  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .expires{font-size:12px;color:var(--muted)}
+  .cta{background:var(--accent);color:#fff;text-decoration:none;font-size:13px;font-weight:700;
+    padding:8px 12px;border-radius:9px;white-space:nowrap}
+  .cta:hover{filter:brightness(1.08)}
+  .empty{text-align:center;color:var(--muted);padding:40px 10px}
+  footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}
+  footer a{color:var(--accent2)}
+  .note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px}
+  .promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);
+    border-radius:16px;padding:18px;margin-top:20px}
+  .promo h3{margin:0 0 4px;font-size:16px}
+  .promo p{margin:0 0 12px;color:var(--muted);font-size:13px}
+  .aff-row{display:flex;flex-wrap:wrap;gap:10px}
+  .aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;
+    font-size:14px;padding:12px;border-radius:11px}
+  .aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}
+  .news{display:flex;gap:8px;margin-top:12px}
+  .news input{flex:1;padding:11px 12px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg);color:var(--ink);font-size:14px;outline:none}
+  .news button{background:var(--accent);color:#fff;border:none;font-weight:700;font-size:14px;
+    padding:11px 16px;border-radius:10px;cursor:pointer}
+  .news-msg{color:var(--good);font-size:13px;margin-top:8px;min-height:16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Daily<span>Bite</span></div>
+  <div class="tag">The best food app deals across restaurants — refreshed daily</div>
+  <div class="date" id="today"></div>
+</header>
+
+<div class="wrap">
+  <div class="controls">
+    <input class="search" id="search" placeholder="Search deals or restaurants…" />
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">No deals match your search.</div>
+
+  <!-- ============================================================
+       AFFILIATE / EARNINGS SECTION
+       Replace the href="#" values below with YOUR referral links from
+       each program's affiliate dashboard. You earn when someone signs
+       up or orders through these links.
+         DoorDash:  https://www.doordash.com/refer  (or Impact affiliate)
+         Uber Eats: https://www.uber.com/us/en/deliver/  (Uber affiliate)
+         Instacart: https://www.instacart.com/  (Instacart affiliate/Impact)
+       ============================================================ -->
+  <div class="promo">
+    <h3>🛵 Order &amp; save on delivery</h3>
+    <p>New to these apps? Sign up through these links for delivery credit — and you support DailyBite.</p>
+    <div class="aff-row">
+      <a class="aff-btn aff-dd" href="#" target="_blank" rel="noopener sponsored">DoorDash</a>
+      <a class="aff-btn aff-ue" href="#" target="_blank" rel="noopener sponsored">Uber Eats</a>
+      <a class="aff-btn aff-ic" href="#" target="_blank" rel="noopener sponsored">Instacart</a>
+    </div>
+  </div>
+
+  <div class="promo">
+    <h3>📬 Get tomorrow's deals in your inbox</h3>
+    <p>One short email a day with the best food deals. No spam.</p>
+    <form class="news" id="newsForm">
+      <input type="email" id="newsEmail" placeholder="you@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="news-msg" id="newsMsg"></div>
+  </div>
+
+  <div class="note">
+    <strong>How this works.</strong> Deals below are the best current in-app offers from major US
+    chains. Offers, prices, and participation vary by location — always confirm in the restaurant's
+    own app before ordering. This page is auto-updated daily by an AI agent. Some links are affiliate
+    links — DailyBite may earn a commission at no extra cost to you.
+  </div>
+</div>
+
+<footer>
+  Sources &amp; deal aggregators: McDonald's, Taco Bell, Wendy's official apps, plus Brand Eating,
+  The Krazy Coupon Lady, DealsFinders, EatDrinkDeals. Prototype for personal use — not affiliated
+  with any restaurant. Last updated: <span id="updated"></span>.
+</footer>
+
+<script>
+/* ---- DEAL DATA ----
+   This array is the single source of truth. An AI agent can regenerate just this
+   block each day to keep the site fresh. */
+const DEALS = [
+  { brand:"McDonald's", cat:"Burgers", color:"#c8102e", ic:"M",
+    deal:"Free Medium Fries every Friday", desc:"Free medium fries with any $1+ purchase — app exclusive, every Friday.",
+    tags:["free","app"], value:5, expires:"Every Friday", url:"https://www.mcdonalds.com/us/en-us/deals.html", best:true },
+  { brand:"McDonald's", cat:"Burgers", color:"#c8102e", ic:"M",
+    deal:"2 for $6 McValue Mix & Match", desc:"Pick two: Big Mac, McCrispy, Filet-O-Fish, or 10pc McNuggets.",
+    tags:["app"], value:3, expires:"Ongoing", url:"https://www.mcdonalds.com/us/en-us/full-menu/mcvalue-menu.html" },
+  { brand:"Taco Bell", cat:"Mexican", color:"#702082", ic:"TB",
+    deal:"Free taco or burrito (Rewards)", desc:"Join Taco Bell Rewards for a free Cantina Chicken Crispy Taco, Beefy 5-Layer, or Soft Taco.",
+    tags:["free","app"], value:4, expires:"New members", url:"https://www.tacobell.com/rewards", best:true },
+  { brand:"Wendy's", cat:"Burgers", color:"#e2203d", ic:"W",
+    deal:"Free item for new app users", desc:"Download the app and get a free reward; earn 10 pts per $1 toward more free food.",
+    tags:["free","app"], value:3, expires:"New users", url:"https://www.wendys.com/" },
+  { brand:"Burger King", cat:"Burgers", color:"#d62300", ic:"BK",
+    deal:"BOGO Whopper", desc:"Buy one Whopper, get one free through the BK app this week.",
+    tags:["app"], value:4, expires:"This week", url:"https://www.bk.com/", best:true },
+  { brand:"Chipotle", cat:"Mexican", color:"#a81612", ic:"C",
+    deal:"Free guac with points", desc:"Redeem Chipotle Rewards points for free guacamole on any entree.",
+    tags:["free","app"], value:2, expires:"Ongoing", url:"https://www.chipotle.com/" },
+  { brand:"Chick-fil-A", cat:"Chicken", color:"#e51636", ic:"CF",
+    deal:"Rewards points stack on offers", desc:"Earn points that stack with app promos; frequent free-item drops for members.",
+    tags:["app"], value:2, expires:"Ongoing", url:"https://www.chick-fil-a.com/" },
+  { brand:"Starbucks", cat:"Coffee", color:"#00704a", ic:"S",
+    deal:"Free Mod Mondays", desc:"Rewards members get free drink modifications every Monday plus bonus-star days.",
+    tags:["free","app"], value:2, expires:"Every Monday", url:"https://www.starbucks.com/rewards/" },
+  { brand:"Panera", cat:"Cafe", color:"#5b8c3e", ic:"P",
+    deal:"40% off select bowls & salads", desc:"MyPanera members save 40% on featured warm bowls and salads.",
+    tags:["app"], value:3, expires:"Limited time", url:"https://www.panerabread.com/" },
+  { brand:"Pizza Hut", cat:"Pizza", color:"#ee3124", ic:"PH",
+    deal:"BOGO Create-Your-Own large", desc:"Buy one large Create Your Own pizza, get one free via the app.",
+    tags:["app"], value:4, expires:"This week", url:"https://www.pizzahut.com/" },
+  { brand:"Popeyes", cat:"Chicken", color:"#ff7000", ic:"PL",
+    deal:"App-exclusive combo discounts", desc:"Points-based rewards plus rotating app-only deals on chicken combos.",
+    tags:["app"], value:2, expires:"Ongoing", url:"https://www.popeyes.com/" },
+  { brand:"Dunkin'", cat:"Coffee", color:"#ff671f", ic:"D",
+    deal:"Free drink with Rewards", desc:"DD Perks members earn points fast; frequent free medium-drink rewards.",
+    tags:["free","app"], value:2, expires:"Ongoing", url:"https://www.dunkindonuts.com/" }
+];
+
+const today = new Date();
+const fmt = today.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+document.getElementById('today').textContent = fmt;
+document.getElementById('updated').textContent = fmt;
+
+const cats = ["All", ...Array.from(new Set(DEALS.map(d=>d.cat)))];
+let activeCat = "All", query = "";
+
+const filtersEl = document.getElementById('filters');
+cats.forEach((c,i)=>{
+  const b=document.createElement('button');
+  b.className='chip'+(i===0?' active':'');
+  b.textContent=c;
+  b.onclick=()=>{activeCat=c;[...filtersEl.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');render();};
+  filtersEl.appendChild(b);
+});
+
+document.getElementById('search').addEventListener('input',e=>{query=e.target.value.toLowerCase();render();});
+
+function render(){
+  const grid=document.getElementById('grid');
+  const list=DEALS
+    .filter(d=>activeCat==="All"||d.cat===activeCat)
+    .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
+    .sort((a,b)=>(b.best?1:0)-(a.best?1:0)||b.value-a.value);
+  document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
+  document.getElementById('empty').style.display=list.length?'none':'block';
+  grid.innerHTML=list.map(d=>`
+    <div class="card ${d.best?'best':''}">
+      ${d.best?'<div class="best-badge">★ TOP PICK</div>':''}
+      <div class="brandrow">
+        <div class="brand-ic" style="background:${d.color}">${d.ic}</div>
+        <div>
+          <div class="brand-name">${d.brand}</div>
+          <div class="brand-cat">${d.cat}</div>
+        </div>
+      </div>
+      <div class="deal">${d.deal}</div>
+      <div class="desc">${d.desc}</div>
+      <div class="metarow">
+        ${d.tags.map(t=>`<span class="pill ${t}">${t==='free'?'FREE':t==='app'?'APP ONLY':t}</span>`).join('')}
+      </div>
+      <div class="foot">
+        <span class="expires">⏱ ${d.expires}</span>
+        <a class="cta" href="${d.url}" target="_blank" rel="noopener">Get deal →</a>
+      </div>
+    </div>`).join('');
+}
+render();
+
+/* Newsletter capture. For a real list, point this at a form provider
+   (Mailchimp, Buttondown, ConvertKit, Google Form) by replacing the
+   handler with a fetch() POST to their endpoint. */
+document.getElementById('newsForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const email=document.getElementById('newsEmail').value;
+  document.getElementById('newsMsg').textContent='Thanks! You’re on the list: '+email;
+  document.getElementById('newsEmail').value='';
+});
+</script>
+</body>
+</html>
