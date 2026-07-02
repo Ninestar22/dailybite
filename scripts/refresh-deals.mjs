@@ -41,7 +41,7 @@ Rules:
 - "tags" may only contain "free" and/or "app".
 - "ic" is a 1-3 character brand initial; "color" is the brand's hex color.
 
-Output ONLY a single JSON object, no prose, no markdown fences, exactly this shape:
+Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
 {"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. This week | Every Friday | Ongoing","url":"https://...","best":true}]}`;
 
 function extractJson(text) {
@@ -91,7 +91,7 @@ async function generate() {
   // the accumulated turn until the model finishes.
   let response;
   for (let step = 0; step < 6; step++) {
-    response = await client.messages.create({ model: MODEL, max_tokens: 4096, tools, messages });
+    response = await client.messages.create({ model: MODEL, max_tokens: 16000, tools, messages });
     if (response.stop_reason === "pause_turn") {
       messages.push({ role: "assistant", content: response.content });
       continue;
