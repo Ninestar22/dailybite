@@ -6,46 +6,30 @@
       "cat": "Burgers",
       "color": "#DA291C",
       "ic": "M",
-      "deal": "Free Medium Fries Every Friday",
-      "desc": "MyMcDonald's Rewards members get free medium fries with any $1+ in-app purchase every Friday through year-end at participating locations.",
+      "deal": "Free Medium Fries every Friday with $1+ app purchase",
+      "desc": "Order anything for $1 or more on the McDonald's app every Friday to score free medium fries — a year-round ongoing deal.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
-      "expires": "Every Friday (ongoing)",
-      "url": "https://www.mcdonalds.com/us/en-us/mcvalue.html",
+      "expires": "Every Friday",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "best": true
     },
     {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#DA291C",
-      "ic": "M",
-      "deal": "McValue $5 Meal Deal",
-      "desc": "Score a sandwich, 4-pc nuggets, fries, and drink in one bundled McValue Meal Deal via the app.",
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "$9.99 Any Pizza, Any Crust, Up to 7 Toppings through July 26",
+      "desc": "Order online or in-app to get any large Domino's pizza with any crust — including Parmesan Stuffed Crust — and up to 7 toppings for $9.99.",
       "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/mcvalue.html",
-      "best": false
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2001A",
-      "ic": "W",
-      "deal": "Free Fries Every Friday",
-      "desc": "Wendy's Rewards members get free any-size Hot & Crispy Fries with any purchase via app or website every Friday through year-end.",
-      "tags": [
-        "free",
         "app"
       ],
       "value": 5,
-      "expires": "Every Friday (ongoing)",
-      "url": "https://www.wendys.com/deals",
+      "expires": "July 26, 2026",
+      "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
       "best": true
     },
     {
@@ -53,76 +37,29 @@
       "cat": "Burgers",
       "color": "#F5821F",
       "ic": "BK",
-      "deal": "Free Any-Size Fry Weekly (Royal Perks)",
-      "desc": "Royal Perks members get one free any-size fry per week with a $3+ app purchase — an ongoing loyalty perk.",
+      "deal": "BOGO Whopper via DoorDash this week (July 2–8)",
+      "desc": "DashPass members can snag a buy-one-get-one Whopper at Burger King through DoorDash during Watch Party Week July 2–8.",
       "tags": [
-        "free",
         "app"
       ],
       "value": 4,
-      "expires": "Weekly (ongoing)",
-      "url": "https://www.bk.com/rewards",
-      "best": false
+      "expires": "July 8, 2026",
+      "url": "https://www.bk.com/offers",
+      "best": true
     },
     {
       "brand": "Burger King",
       "cat": "Burgers",
       "color": "#F5821F",
       "ic": "BK",
-      "deal": "Whopper Wednesdays",
-      "desc": "Royal Perks members can score a discounted Whopper every Wednesday (prices vary by location) through the BK app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Every Wednesday",
-      "url": "https://www.bk.com/rewards",
-      "best": false
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "$9.99 Any Pizza — Any Crust, Up to 7 Toppings",
-      "desc": "Order any pizza with up to 7 toppings on any crust (including Parmesan Stuffed Crust) for $9.99 online or in-app through July 26, 2026.",
+      "deal": "$5 Duo or $7 Trio Meal Deal",
+      "desc": "Mix and match two items for $5 or three items for $7 from a select menu including Whopper Jr., Original Chicken Sandwich, fries, and drinks.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/order/",
-      "best": true
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Mix & Match: 2+ Items at $6.99 Each",
-      "desc": "Choose two or more medium 2-topping pizzas, chicken, sandwiches, pasta, cheesy breads, or loaded tots at $6.99 each when ordering online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.dominos.com/en/pages/order/",
-      "best": false
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Pie Rewards: Free Medium Pizza at 60 Points",
-      "desc": "Earn 10 Pie Rewards points per $5+ order; redeem 60 points for a free medium 2-topping pizza, or 20 points for a free drink or bread bites.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.dominos.com/en/pages/rewards/",
+      "url": "https://www.bk.com/offers",
       "best": false
     },
     {
@@ -130,8 +67,23 @@
       "cat": "Pizza",
       "color": "#EE3124",
       "ic": "PH",
-      "deal": "$7.99 Carryout Special",
-      "desc": "Get any 1-topping carryout pizza (excluding XL), 8-piece wings, or boneless chicken for $7.99 when ordering online or in the app.",
+      "deal": "BOGO Create Your Own Large Pizza via DoorDash (July 2–8)",
+      "desc": "DashPass members can get a buy-one-get-one deal on Create Your Own large pizzas at Pizza Hut during Watch Party Week.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "July 8, 2026",
+      "url": "https://www.pizzahut.com/deals",
+      "best": true
+    },
+    {
+      "brand": "Pizza Hut",
+      "cat": "Pizza",
+      "color": "#EE3124",
+      "ic": "PH",
+      "deal": "Any Large Pizza Up to 3 Toppings for $10",
+      "desc": "Score any large Pizza Hut pizza with up to three toppings for $10, available online, in-app, or in store.",
       "tags": [
         "app"
       ],
@@ -145,13 +97,13 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "$1 Off Cantina Chicken Rolled Quesadilla (New Sign-ups)",
-      "desc": "New Taco Bell Rewards sign-ups earn a $1-off Cantina Chicken Rolled Quesadilla reward automatically through July 22, 2026.",
+      "deal": "$1 off Cantina Chicken Rolled Quesadilla for new rewards sign-ups",
+      "desc": "New Taco Bell Rewards members receive an offer for $1 off a Cantina Chicken Rolled Quesadilla valid through July 22, 2026.",
       "tags": [
         "app"
       ],
-      "value": 2,
-      "expires": "Through July 22, 2026",
+      "value": 3,
+      "expires": "July 22, 2026",
       "url": "https://www.tacobell.com/rewards",
       "best": false
     },
@@ -160,136 +112,58 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "Tuesday Drops: 3 Snack Tacos from $2.49",
-      "desc": "Every Tuesday from 3–11 PM, rewards members can grab three Snack Tacos starting at $2.49 via the Taco Bell app.",
+      "deal": "3 Snack Tacos for $2.49 every Tuesday 3–11 PM",
+      "desc": "Every Tuesday from 3 PM to 11 PM, get three Snack Tacos starting at just $2.49 at participating Taco Bell locations.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Every Tuesday 3–11 PM",
+      "expires": "Every Tuesday",
       "url": "https://www.tacobell.com/rewards",
-      "best": false
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "Thursday Drops: 3 Grilled Chicken Tacos from $3.59",
-      "desc": "Every Thursday from 3–11 PM, rewards members can grab three Grilled Chicken Tacos starting at $3.59 via the Taco Bell app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Every Thursday 3–11 PM",
-      "url": "https://www.tacobell.com/rewards",
-      "best": false
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005BAC",
-      "ic": "SO",
-      "deal": "America $2.50 Menu Through July 12",
-      "desc": "Sonic is celebrating America 250 with select items — including a Slush Float, Jr. Double Cheeseburger, All-American Dog, and Medium Onion Rings — each for $2.50 through July 12.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": true
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005BAC",
-      "ic": "SO",
-      "deal": "Happy Hour: Half-Price Drinks & Slushes",
-      "desc": "Get half-price drinks and slushes every day from 2–4 PM (2–5 PM at some locations) when you order ahead with the Sonic mobile app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Daily 2–4 PM (ongoing)",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false
-    },
-    {
-      "brand": "Dunkin'",
-      "cat": "Coffee",
-      "color": "#FF6600",
-      "ic": "DD",
-      "deal": "Free Eagle Cup Beverage with Purchase",
-      "desc": "Dunkin' Rewards members get one free medium beverage with purchase via the patriotic Eagle Cup promotion at participating locations through July 31, 2026.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 31, 2026",
-      "url": "https://www.dunkindonuts.com/en/dunkinrewards",
-      "best": false
-    },
-    {
-      "brand": "Dunkin'",
-      "cat": "Coffee",
-      "color": "#FF6600",
-      "ic": "DD",
-      "deal": "Boosted Status: 12 Points/$1 for 3 Months",
-      "desc": "Visit Dunkin' 12 times in a calendar month to unlock Boosted Status and earn 12 points per $1 spent (vs. standard 10) for the next 3 months via the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dunkindonuts.com/en/dunkinrewards",
-      "best": false
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "KFC",
-      "deal": "$10 Bucket of the Day (Weekdays)",
-      "desc": "KFC app members can get a rotating daily bucket deal for $10 on weekdays — 24 nuggets Mon/Fri, 8 legs & thighs Tues, 8 tenders Thurs, 10 wings Wed.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Every weekday (ongoing)",
-      "url": "https://www.kfc.com/rewards",
-      "best": false
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "KFC",
-      "deal": "KFC Rewards Secret Recipe Vault",
-      "desc": "Earn 10 points per eligible dollar on digital orders; redeem through the rotating Secret Recipe Vault for free items like nuggets, chicken sandwiches, or a free side.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/rewards",
       "best": false
     },
     {
       "brand": "Arby's",
-      "cat": "Burgers",
+      "cat": "Chicken",
       "color": "#C8102E",
-      "ic": "AR",
-      "deal": "$7.99 Meat & 3 Box",
-      "desc": "Get a Roast Beef or Crispy Chicken Sandwich plus three sides and a small drink for $7.99 at participating Arby's locations.",
+      "ic": "AB",
+      "deal": "BOGO Any Size Side for Rewards Members (through July 5)",
+      "desc": "Arby's Rewards members can score a buy-one-get-one deal on any size side when ordering online, in-app, or in-store — limit once per week.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.arbys.com/deals",
+      "expires": "July 5, 2026",
+      "url": "https://www.arbys.com/rewards",
+      "best": false
+    },
+    {
+      "brand": "Arby's",
+      "cat": "Chicken",
+      "color": "#C8102E",
+      "ic": "AB",
+      "deal": "Any Slider for $1.99 each",
+      "desc": "For a limited time, get any Arby's Slider for $1.99 each at participating locations nationwide.",
+      "tags": [],
+      "value": 2,
+      "expires": "Limited time",
+      "url": "https://www.arbys.com/offers",
+      "best": false
+    },
+    {
+      "brand": "Dunkin'",
+      "cat": "Coffee",
+      "color": "#FF6E00",
+      "ic": "DD",
+      "deal": "Eagle Cup $10.99 + Free Medium Beverage + 30 Days of $3 Drinks",
+      "desc": "Buy the limited-edition Eagle Cup for $10.99, get a free medium beverage instantly, plus a code for $3 medium Dunkin' Zero or Refresher daily for 30 days.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "While supplies last",
+      "url": "https://www.dunkindonuts.com/en/dd-perks",
       "best": false
     },
     {
@@ -297,45 +171,108 @@
       "cat": "Mexican",
       "color": "#441500",
       "ic": "C",
-      "deal": "Free Guac Sign-Up Bonus",
-      "desc": "New Chipotle Rewards members receive a free guacamole reward with a $5+ minimum purchase when they join and order through the app.",
+      "deal": "BOGO Entree via PGA TOUR Hot Streak Promotion",
+      "desc": "Watch the PGA TOUR on X or Instagram for a keyword drop, text it to 888222, and claim a BOGO entree code — up to 50 drops through Dec. 31, 2026.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Dec. 31, 2026",
+      "url": "https://www.chipotle.com/rewards",
+      "best": false
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#006341",
+      "ic": "PB",
+      "deal": "Buy One Whole Sandwich/Salad/Soup, Get Another for $5",
+      "desc": "For a limited time, buy any whole sandwich, salad, Market Bowl, or bowl of soup and get a second item for just $5 at Panera Bread.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/mypanera.html",
+      "best": false
+    },
+    {
+      "brand": "KFC",
+      "cat": "Chicken",
+      "color": "#F40027",
+      "ic": "KF",
+      "deal": "Secret Recipe Vault: Free Food via KFC Rewards Points",
+      "desc": "KFC Rewards members earn 10 points per eligible dollar on digital orders and redeem them for rotating free items like nuggets, chicken sandwiches, or sides in the Secret Recipe Vault.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.kfc.com/rewards",
+      "best": false
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#005BA1",
+      "ic": "S",
+      "deal": "New America $2.50 Menu",
+      "desc": "Sonic launched a new America $2.50 Menu celebrating the U.S. 250th anniversary, featuring select items at just $2.50.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.sonicdrivein.com/deals",
+      "best": false
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#005BA1",
+      "ic": "S",
+      "deal": "Half-Price Drinks & Slushes 2–4 PM daily with app order-ahead",
+      "desc": "Every day from 2–4 PM (2–5 PM at some locations), order ahead on the Sonic app to get half-price drinks and slushes.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.sonicdrivein.com/deals",
+      "best": false
+    },
+    {
+      "brand": "McDonald's",
+      "cat": "Burgers",
+      "color": "#DA291C",
+      "ic": "M",
+      "deal": "Free FIFA World Cup Collectible Cup with $7+ App Purchase",
+      "desc": "Through the McDonald's app, get a free limited-edition FIFA World Cup collectible cup with any $7 minimum purchase during the tournament.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false
+    },
+    {
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "Pie Rewards: Free Medium 2-Topping Pizza at 60 Points",
+      "desc": "Join Domino's Pie Rewards and earn 10 points per $5 order — redeem 60 points for a free medium 2-topping pizza, or just 20 points for a free drink or bread bites.",
       "tags": [
         "free",
         "app"
       ],
       "value": 4,
-      "expires": "Ongoing (new members)",
-      "url": "https://www.chipotle.com/rewards",
-      "best": false
-    },
-    {
-      "brand": "Panera",
-      "cat": "Cafe",
-      "color": "#6B4226",
-      "ic": "PN",
-      "deal": "MyPanera Rewards: Free Delivery on $25+ Orders",
-      "desc": "MyPanera Rewards members get free delivery on any order of $25 or more as an ongoing loyalty benefit through the Panera app or website.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/mypanera.html",
-      "best": false
-    },
-    {
-      "brand": "Starbucks",
-      "cat": "Coffee",
-      "color": "#00704A",
-      "ic": "SB",
-      "deal": "Bring Your Own Reusable Cup",
-      "desc": "Starbucks now accepts any clean reusable cup for your drink order at participating locations, saving on waste and earning bonus Stars for Rewards members.",
-      "tags": [
-        "app"
-      ],
-      "value": 2,
-      "expires": "Ongoing",
-      "url": "https://www.starbucks.com/rewards",
+      "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
       "best": false
     }
   ]
