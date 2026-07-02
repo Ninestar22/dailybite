@@ -56,6 +56,12 @@ function extractJson(text) {
 function validate(deals) {
   const errors = [];
   if (!Array.isArray(deals)) return ["top-level 'deals' is not an array"];
+
+  // Normalize cosmetic fields before validating — don't fail a whole run
+  // over a brand initial that's a character too long.
+  deals.forEach(d => {
+    if (typeof d.ic === "string") d.ic = d.ic.trim().slice(0, 3);
+  });
   if (deals.length < MIN_DEALS) errors.push(`too few deals (${deals.length} < ${MIN_DEALS})`);
   if (deals.length > MAX_DEALS) errors.push(`too many deals (${deals.length} > ${MAX_DEALS})`);
 
