@@ -136,46 +136,189 @@
 
 <script>
 /* ---- DEAL DATA ----
-   This array is the single source of truth. An AI agent can regenerate just this
-   block each day to keep the site fresh. */
+   Do NOT edit this block by hand. It is regenerated daily from deals.json by
+   scripts/build.mjs. Edit deals.json (or let the refresh workflow update it) instead. */
+/* DEALS:START */
 const DEALS = [
-  { brand:"McDonald's", cat:"Burgers", color:"#c8102e", ic:"M",
-    deal:"Free Medium Fries every Friday", desc:"Free medium fries with any $1+ purchase — app exclusive, every Friday.",
-    tags:["free","app"], value:5, expires:"Every Friday", url:"https://www.mcdonalds.com/us/en-us/deals.html", best:true },
-  { brand:"McDonald's", cat:"Burgers", color:"#c8102e", ic:"M",
-    deal:"2 for $6 McValue Mix & Match", desc:"Pick two: Big Mac, McCrispy, Filet-O-Fish, or 10pc McNuggets.",
-    tags:["app"], value:3, expires:"Ongoing", url:"https://www.mcdonalds.com/us/en-us/full-menu/mcvalue-menu.html" },
-  { brand:"Taco Bell", cat:"Mexican", color:"#702082", ic:"TB",
-    deal:"Free taco or burrito (Rewards)", desc:"Join Taco Bell Rewards for a free Cantina Chicken Crispy Taco, Beefy 5-Layer, or Soft Taco.",
-    tags:["free","app"], value:4, expires:"New members", url:"https://www.tacobell.com/rewards", best:true },
-  { brand:"Wendy's", cat:"Burgers", color:"#e2203d", ic:"W",
-    deal:"Free item for new app users", desc:"Download the app and get a free reward; earn 10 pts per $1 toward more free food.",
-    tags:["free","app"], value:3, expires:"New users", url:"https://www.wendys.com/" },
-  { brand:"Burger King", cat:"Burgers", color:"#d62300", ic:"BK",
-    deal:"BOGO Whopper", desc:"Buy one Whopper, get one free through the BK app this week.",
-    tags:["app"], value:4, expires:"This week", url:"https://www.bk.com/", best:true },
-  { brand:"Chipotle", cat:"Mexican", color:"#a81612", ic:"C",
-    deal:"Free guac with points", desc:"Redeem Chipotle Rewards points for free guacamole on any entree.",
-    tags:["free","app"], value:2, expires:"Ongoing", url:"https://www.chipotle.com/" },
-  { brand:"Chick-fil-A", cat:"Chicken", color:"#e51636", ic:"CF",
-    deal:"Rewards points stack on offers", desc:"Earn points that stack with app promos; frequent free-item drops for members.",
-    tags:["app"], value:2, expires:"Ongoing", url:"https://www.chick-fil-a.com/" },
-  { brand:"Starbucks", cat:"Coffee", color:"#00704a", ic:"S",
-    deal:"Free Mod Mondays", desc:"Rewards members get free drink modifications every Monday plus bonus-star days.",
-    tags:["free","app"], value:2, expires:"Every Monday", url:"https://www.starbucks.com/rewards/" },
-  { brand:"Panera", cat:"Cafe", color:"#5b8c3e", ic:"P",
-    deal:"40% off select bowls & salads", desc:"MyPanera members save 40% on featured warm bowls and salads.",
-    tags:["app"], value:3, expires:"Limited time", url:"https://www.panerabread.com/" },
-  { brand:"Pizza Hut", cat:"Pizza", color:"#ee3124", ic:"PH",
-    deal:"BOGO Create-Your-Own large", desc:"Buy one large Create Your Own pizza, get one free via the app.",
-    tags:["app"], value:4, expires:"This week", url:"https://www.pizzahut.com/" },
-  { brand:"Popeyes", cat:"Chicken", color:"#ff7000", ic:"PL",
-    deal:"App-exclusive combo discounts", desc:"Points-based rewards plus rotating app-only deals on chicken combos.",
-    tags:["app"], value:2, expires:"Ongoing", url:"https://www.popeyes.com/" },
-  { brand:"Dunkin'", cat:"Coffee", color:"#ff671f", ic:"D",
-    deal:"Free drink with Rewards", desc:"DD Perks members earn points fast; frequent free medium-drink rewards.",
-    tags:["free","app"], value:2, expires:"Ongoing", url:"https://www.dunkindonuts.com/" }
+  {
+    "brand": "McDonald's",
+    "cat": "Burgers",
+    "color": "#c8102e",
+    "ic": "M",
+    "deal": "Free Medium Fries every Friday",
+    "desc": "Free medium fries with any $1+ purchase — app exclusive, every Friday.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 5,
+    "expires": "Every Friday",
+    "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+    "best": true
+  },
+  {
+    "brand": "McDonald's",
+    "cat": "Burgers",
+    "color": "#c8102e",
+    "ic": "M",
+    "deal": "2 for $6 McValue Mix & Match",
+    "desc": "Pick two: Big Mac, McCrispy, Filet-O-Fish, or 10pc McNuggets.",
+    "tags": [
+      "app"
+    ],
+    "value": 3,
+    "expires": "Ongoing",
+    "url": "https://www.mcdonalds.com/us/en-us/full-menu/mcvalue-menu.html"
+  },
+  {
+    "brand": "Taco Bell",
+    "cat": "Mexican",
+    "color": "#702082",
+    "ic": "TB",
+    "deal": "Free taco or burrito (Rewards)",
+    "desc": "Join Taco Bell Rewards for a free Cantina Chicken Crispy Taco, Beefy 5-Layer, or Soft Taco.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 4,
+    "expires": "New members",
+    "url": "https://www.tacobell.com/rewards",
+    "best": true
+  },
+  {
+    "brand": "Wendy's",
+    "cat": "Burgers",
+    "color": "#e2203d",
+    "ic": "W",
+    "deal": "Free item for new app users",
+    "desc": "Download the app and get a free reward; earn 10 pts per $1 toward more free food.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 3,
+    "expires": "New users",
+    "url": "https://www.wendys.com/"
+  },
+  {
+    "brand": "Burger King",
+    "cat": "Burgers",
+    "color": "#d62300",
+    "ic": "BK",
+    "deal": "BOGO Whopper",
+    "desc": "Buy one Whopper, get one free through the BK app this week.",
+    "tags": [
+      "app"
+    ],
+    "value": 4,
+    "expires": "This week",
+    "url": "https://www.bk.com/",
+    "best": true
+  },
+  {
+    "brand": "Chipotle",
+    "cat": "Mexican",
+    "color": "#a81612",
+    "ic": "C",
+    "deal": "Free guac with points",
+    "desc": "Redeem Chipotle Rewards points for free guacamole on any entree.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 2,
+    "expires": "Ongoing",
+    "url": "https://www.chipotle.com/"
+  },
+  {
+    "brand": "Chick-fil-A",
+    "cat": "Chicken",
+    "color": "#e51636",
+    "ic": "CF",
+    "deal": "Rewards points stack on offers",
+    "desc": "Earn points that stack with app promos; frequent free-item drops for members.",
+    "tags": [
+      "app"
+    ],
+    "value": 2,
+    "expires": "Ongoing",
+    "url": "https://www.chick-fil-a.com/"
+  },
+  {
+    "brand": "Starbucks",
+    "cat": "Coffee",
+    "color": "#00704a",
+    "ic": "S",
+    "deal": "Free Mod Mondays",
+    "desc": "Rewards members get free drink modifications every Monday plus bonus-star days.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 2,
+    "expires": "Every Monday",
+    "url": "https://www.starbucks.com/rewards/"
+  },
+  {
+    "brand": "Panera",
+    "cat": "Cafe",
+    "color": "#5b8c3e",
+    "ic": "P",
+    "deal": "40% off select bowls & salads",
+    "desc": "MyPanera members save 40% on featured warm bowls and salads.",
+    "tags": [
+      "app"
+    ],
+    "value": 3,
+    "expires": "Limited time",
+    "url": "https://www.panerabread.com/"
+  },
+  {
+    "brand": "Pizza Hut",
+    "cat": "Pizza",
+    "color": "#ee3124",
+    "ic": "PH",
+    "deal": "BOGO Create-Your-Own large",
+    "desc": "Buy one large Create Your Own pizza, get one free via the app.",
+    "tags": [
+      "app"
+    ],
+    "value": 4,
+    "expires": "This week",
+    "url": "https://www.pizzahut.com/"
+  },
+  {
+    "brand": "Popeyes",
+    "cat": "Chicken",
+    "color": "#ff7000",
+    "ic": "PL",
+    "deal": "App-exclusive combo discounts",
+    "desc": "Points-based rewards plus rotating app-only deals on chicken combos.",
+    "tags": [
+      "app"
+    ],
+    "value": 2,
+    "expires": "Ongoing",
+    "url": "https://www.popeyes.com/"
+  },
+  {
+    "brand": "Dunkin'",
+    "cat": "Coffee",
+    "color": "#ff671f",
+    "ic": "D",
+    "deal": "Free drink with Rewards",
+    "desc": "DD Perks members earn points fast; frequent free medium-drink rewards.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 2,
+    "expires": "Ongoing",
+    "url": "https://www.dunkindonuts.com/"
+  }
 ];
+/* DEALS:END */
 
 const today = new Date();
 const fmt = today.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
@@ -196,6 +339,18 @@ cats.forEach((c,i)=>{
 
 document.getElementById('search').addEventListener('input',e=>{query=e.target.value.toLowerCase();render();});
 
+// Escape untrusted text before inserting into innerHTML. Deal data is now
+// machine-generated, so treat every string field as untrusted.
+function esc(s){
+  return String(s==null?'':s).replace(/[&<>"']/g,c=>(
+    {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+// Only allow http(s) links; anything else falls back to '#'.
+function safeUrl(u){
+  try{const p=new URL(u,location.href);return (p.protocol==='http:'||p.protocol==='https:')?p.href:'#';}
+  catch{return '#';}
+}
+
 function render(){
   const grid=document.getElementById('grid');
   const list=DEALS
@@ -208,20 +363,20 @@ function render(){
     <div class="card ${d.best?'best':''}">
       ${d.best?'<div class="best-badge">★ TOP PICK</div>':''}
       <div class="brandrow">
-        <div class="brand-ic" style="background:${d.color}">${d.ic}</div>
+        <div class="brand-ic" style="background:${esc(d.color)}">${esc(d.ic)}</div>
         <div>
-          <div class="brand-name">${d.brand}</div>
-          <div class="brand-cat">${d.cat}</div>
+          <div class="brand-name">${esc(d.brand)}</div>
+          <div class="brand-cat">${esc(d.cat)}</div>
         </div>
       </div>
-      <div class="deal">${d.deal}</div>
-      <div class="desc">${d.desc}</div>
+      <div class="deal">${esc(d.deal)}</div>
+      <div class="desc">${esc(d.desc)}</div>
       <div class="metarow">
-        ${d.tags.map(t=>`<span class="pill ${t}">${t==='free'?'FREE':t==='app'?'APP ONLY':t}</span>`).join('')}
+        ${d.tags.map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
       </div>
       <div class="foot">
-        <span class="expires">⏱ ${d.expires}</span>
-        <a class="cta" href="${d.url}" target="_blank" rel="noopener">Get deal →</a>
+        <span class="expires">⏱ ${esc(d.expires)}</span>
+        <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal →</a>
       </div>
     </div>`).join('');
 }

@@ -1,0 +1,15 @@
+{
+  "name": "dailybite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily-refreshed fast-food deal aggregator (static site).",
+  "scripts": {
+    "refresh": "node scripts/refresh-deals.mjs",
+    "build": "node scripts/build.mjs",
+    "update": "npm run refresh && npm run build"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.109.1"
+  }
+}
