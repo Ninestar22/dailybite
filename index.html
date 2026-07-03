@@ -91,19 +91,32 @@
   .news button{background:var(--accent);color:#fff;border:none;font-weight:700;font-size:14px;
     padding:11px 16px;border-radius:10px;cursor:pointer}
   .news-msg{color:var(--good);font-size:13px;margin-top:8px;min-height:16px}
+  .verify{margin-top:8px;font-size:12px;color:var(--good);font-weight:600}
+  .pill.new{background:rgba(46,193,107,.2);color:var(--good)}
+  .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
+  .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .chip.freechip{border-color:var(--good);color:var(--good)}
+  .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
+  .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
+  .today-sub{color:var(--muted);font-size:12px;margin:2px 2px 4px}
 </style>
 </head>
 <body>
 <header>
   <div class="logo">Daily<span>Bite</span></div>
   <div class="tag">The best food app deals across restaurants — refreshed daily</div>
-  <div class="date" id="today"></div>
+  <div class="date" id="today"></div>\n  <div class="verify" id="verify"></div>
 </header>
 
 <div class="wrap">
   <div class="controls">
     <input class="search" id="search" placeholder="Search deals or restaurants…" />
     <div class="filters" id="filters"></div>
+  </div>
+  <div id="todaywrap" style="display:none">
+    <div class="today-head">&#128293; Worth grabbing today</div>
+    <div class="today-sub">Day-specific deals, new arrivals, and offers about to expire</div>
+    <div class="grid" id="todaygrid"></div>
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"></div>
@@ -170,7 +183,9 @@ const DEALS = [
     "value": 5,
     "expires": "Every Friday",
     "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-    "best": true
+    "best": true,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Domino's",
@@ -185,7 +200,9 @@ const DEALS = [
     "value": 5,
     "expires": "July 26, 2026",
     "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
-    "best": true
+    "best": true,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Burger King",
@@ -200,7 +217,9 @@ const DEALS = [
     "value": 4,
     "expires": "July 8, 2026",
     "url": "https://www.bk.com/offers",
-    "best": true
+    "best": true,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Burger King",
@@ -215,7 +234,9 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.bk.com/offers",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Pizza Hut",
@@ -230,7 +251,9 @@ const DEALS = [
     "value": 4,
     "expires": "July 8, 2026",
     "url": "https://www.pizzahut.com/deals",
-    "best": true
+    "best": true,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Pizza Hut",
@@ -245,7 +268,9 @@ const DEALS = [
     "value": 3,
     "expires": "Ongoing",
     "url": "https://www.pizzahut.com/deals",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Taco Bell",
@@ -260,7 +285,9 @@ const DEALS = [
     "value": 3,
     "expires": "July 22, 2026",
     "url": "https://www.tacobell.com/rewards",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Taco Bell",
@@ -275,7 +302,9 @@ const DEALS = [
     "value": 3,
     "expires": "Every Tuesday",
     "url": "https://www.tacobell.com/rewards",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Arby's",
@@ -290,7 +319,9 @@ const DEALS = [
     "value": 3,
     "expires": "July 5, 2026",
     "url": "https://www.arbys.com/rewards",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": true
   },
   {
     "brand": "Arby's",
@@ -303,7 +334,9 @@ const DEALS = [
     "value": 2,
     "expires": "Limited time",
     "url": "https://www.arbys.com/offers",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Dunkin'",
@@ -319,7 +352,9 @@ const DEALS = [
     "value": 4,
     "expires": "While supplies last",
     "url": "https://www.dunkindonuts.com/en/dd-perks",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Chipotle",
@@ -335,7 +370,9 @@ const DEALS = [
     "value": 5,
     "expires": "Dec. 31, 2026",
     "url": "https://www.chipotle.com/rewards",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Panera Bread",
@@ -350,7 +387,9 @@ const DEALS = [
     "value": 3,
     "expires": "Limited time",
     "url": "https://www.panerabread.com/en-us/mypanera.html",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "KFC",
@@ -366,7 +405,9 @@ const DEALS = [
     "value": 3,
     "expires": "Ongoing",
     "url": "https://www.kfc.com/rewards",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Sonic",
@@ -381,7 +422,9 @@ const DEALS = [
     "value": 3,
     "expires": "Limited time",
     "url": "https://www.sonicdrivein.com/deals",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Sonic",
@@ -396,7 +439,9 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.sonicdrivein.com/deals",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "McDonald's",
@@ -412,7 +457,9 @@ const DEALS = [
     "value": 3,
     "expires": "Limited time",
     "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   },
   {
     "brand": "Domino's",
@@ -428,9 +475,12 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
-    "best": false
+    "best": false,
+    "isNew": false,
+    "endingSoon": false
   }
 ];
+const META = {"verifiedAt":"2026-07-03T06:19:28.644Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -438,21 +488,34 @@ const fmt = today.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'n
 document.getElementById('today').textContent = fmt;
 document.getElementById('updated').textContent = fmt;
 
-const cats = ["All", ...Array.from(new Set(DEALS.map(d=>d.cat)))];
+// Trust line: when the daily pipeline last verified these deals (META injected by build)
+try{
+  const v = new Date(META.verifiedAt);
+  const sameDay = v.toDateString() === today.toDateString();
+  const t = v.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  document.getElementById('verify').textContent = sameDay
+    ? `\u2713 All deals verified today at ${t}`
+    : `\u2713 All deals verified ${v.toLocaleDateString('en-US',{month:'long',day:'numeric'})}`;
+}catch(e){}
+
+const WEEKDAY = today.toLocaleDateString('en-US',{weekday:'long'});
+function isTodayDeal(d){ return (d.deal+' '+d.desc+' '+d.expires).includes(WEEKDAY); }
+
+const cats = ["All","FREE", ...Array.from(new Set(DEALS.map(d=>d.cat)))];
 let activeCat = "All", query = "";
 
 const filtersEl = document.getElementById('filters');
 cats.forEach((c,i)=>{
   const b=document.createElement('button');
-  b.className='chip'+(i===0?' active':'');
-  b.textContent=c;
+  b.className='chip'+(i===0?' active':'')+(c==='FREE'?' freechip':'');
+  b.textContent=c==='FREE'?'\ud83c\udd93 FREE':c;
   b.onclick=()=>{activeCat=c;[...filtersEl.children].forEach(x=>x.classList.remove('active'));b.classList.add('active');render();};
   filtersEl.appendChild(b);
 });
 
 document.getElementById('search').addEventListener('input',e=>{query=e.target.value.toLowerCase();render();});
 
-// Escape untrusted text before inserting into innerHTML. Deal data is now
+// Escape untrusted text before inserting into innerHTML. Deal data is
 // machine-generated, so treat every string field as untrusted.
 function esc(s){
   return String(s==null?'':s).replace(/[&<>"']/g,c=>(
@@ -464,17 +527,10 @@ function safeUrl(u){
   catch{return '#';}
 }
 
-function render(){
-  const grid=document.getElementById('grid');
-  const list=DEALS
-    .filter(d=>activeCat==="All"||d.cat===activeCat)
-    .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
-    .sort((a,b)=>(b.best?1:0)-(a.best?1:0)||b.value-a.value);
-  document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
-  document.getElementById('empty').style.display=list.length?'none':'block';
-  grid.innerHTML=list.map(d=>`
+function cardHTML(d){
+  return `
     <div class="card ${d.best?'best':''}">
-      ${d.best?'<div class="best-badge">★ TOP PICK</div>':''}
+      ${d.best?'<div class="best-badge">\u2605 TOP PICK</div>':''}
       <div class="brandrow">
         <div class="brand-ic" style="background:${esc(d.color)}">${esc(d.ic)}</div>
         <div>
@@ -485,19 +541,40 @@ function render(){
       <div class="deal">${esc(d.deal)}</div>
       <div class="desc">${esc(d.desc)}</div>
       <div class="metarow">
-        ${d.tags.map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
+        ${d.isNew?'<span class="pill new">\u2728 NEW TODAY</span>':''}
+        ${d.endingSoon?'<span class="pill soon">\u23f3 ENDING SOON</span>':''}
+        ${isTodayDeal(d)?'<span class="pill todaypill">\ud83d\udcc5 '+WEEKDAY.toUpperCase()+'</span>':''}
+        ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
       </div>
       <div class="foot">
-        <span class="expires">⏱ ${esc(d.expires)}</span>
-        <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal →</a>
+        <span class="expires">\u23f1 ${esc(d.expires)}</span>
+        <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal \u2192</a>
       </div>
-    </div>`).join('');
+    </div>`;
+}
+
+function render(){
+  const grid=document.getElementById('grid');
+  const list=DEALS
+    .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
+    .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
+    .sort((a,b)=>(b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value);
+  document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
+  document.getElementById('empty').style.display=list.length?'none':'block';
+  grid.innerHTML=list.map(cardHTML).join('');
+
+  const wrap=document.getElementById('todaywrap');
+  if(activeCat==="All"&&!query){
+    const picks=DEALS.filter(d=>isTodayDeal(d)||d.endingSoon||d.isNew)
+      .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
+      .slice(0,4);
+    if(picks.length){wrap.style.display='block';document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');}
+    else{wrap.style.display='none';}
+  } else {
+    wrap.style.display='none';
+  }
 }
 render();
-
-/* Newsletter capture. For a real list, point this at a form provider
-   (Mailchimp, Buttondown, ConvertKit, Google Form) by replacing the
-   handler with a fetch() POST to their endpoint. */
 
 </script>
 </body>
