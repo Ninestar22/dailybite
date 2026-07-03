@@ -134,13 +134,36 @@ function main() {
     throw new Error("deals.json has no deals array — refusing to build an empty page.");
   }
 
+  // Flag new-since-yesterday and expiring-soon deals (badges rendered client-side)
+  let prev = [];
+  try {
+    const p = JSON.parse(readFileSync(join(root, "deals-prev.json"), "utf8"));
+    prev = Array.isArray(p) ? p : (p.deals || []);
+  } catch {}
+  const prevKeys = new Set(prev.map(d => (d.brand + "|" + d.deal).toLowerCase()));
+  const now = Date.now();
+  for (const d of deals) {
+    d.isNew = prevKeys.size > 0 && !prevKeys.has((d.brand + "|" + d.deal).toLowerCase());
+    d.endingSoon = false;
+    const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(, ?\d{4})?/);
+    if (m) {
+      let ds = m[0].replace(".", "");
+      if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
+      const t = Date.parse(ds);
+      if (!isNaN(t)) {
+        const diff = (t - now) / 86400000;
+        if (diff >= -0.5 && diff <= 2) d.endingSoon = true;
+      }
+    }
+  }
+
   // 1. Homepage injection
   const htmlPath = join(root, "index.html");
   const html = readFileSync(htmlPath, "utf8");
   const START = "/* DEALS:START */", END = "/* DEALS:END */";
   const s = html.indexOf(START), e = html.indexOf(END);
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
-  writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\n${END}` + html.slice(e + END.length));
+  writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
 
   // 2. Chain pages
