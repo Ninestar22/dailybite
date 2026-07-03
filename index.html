@@ -131,11 +131,7 @@
   <div class="promo">
     <h3>📬 Get tomorrow's deals in your inbox</h3>
     <p>One short email a day with the best food deals. No spam.</p>
-    <form class="news" id="newsForm">
-      <input type="email" id="newsEmail" placeholder="you@email.com" required />
-      <button type="submit">Subscribe</button>
-    </form>
-    <div class="news-msg" id="newsMsg"></div>
+    <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script>
   </div>
 
   <div class="note">
@@ -502,12 +498,7 @@ render();
 /* Newsletter capture. For a real list, point this at a form provider
    (Mailchimp, Buttondown, ConvertKit, Google Form) by replacing the
    handler with a fetch() POST to their endpoint. */
-document.getElementById('newsForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const email=document.getElementById('newsEmail').value;
-  document.getElementById('newsMsg').textContent='Thanks! You’re on the list: '+email;
-  document.getElementById('newsEmail').value='';
-});
+
 </script>
 </body>
 </html>
