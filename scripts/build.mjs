@@ -122,7 +122,7 @@ function chainPage(chain, deals) {
   <div class="note"><strong>How this works.</strong> Deals are found and verified daily from official ${esc(chain.name)} sources and reputable deal trackers. Offers vary by location &mdash; always confirm in the ${esc(chain.name)} app before ordering.</div>
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links.</footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
 </body>
 </html>`;
 }
@@ -150,7 +150,7 @@ function main() {
   console.log(`Built ${CHAINS.length} chain pages.`);
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, ...CHAINS.map(c => `${SITE}/${c.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
