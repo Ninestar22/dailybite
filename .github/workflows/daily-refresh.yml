@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Snapshot yesterday's deals for new-badge diff
+        run: cp deals.json deals-prev.json
+
       - name: Regenerate deals.json (fails closed on bad data)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
