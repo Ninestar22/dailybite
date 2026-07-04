@@ -737,7 +737,16 @@ function render(){
   const list=DEALS
     .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
     .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
-    .sort((a,b)=>(b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value);
+    .sort((a,b)=>{
+      // When distances are on, nearest deals come first; unknown-distance chains sink.
+      if(DIST){
+        const da=DIST[normBrand(a.brand)], db2=DIST[normBrand(b.brand)];
+        if(da!=null&&db2==null) return -1;
+        if(da==null&&db2!=null) return 1;
+        if(da!=null&&db2!=null&&da!==db2) return da-db2;
+      }
+      return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
+    });
   document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
   document.getElementById('empty').style.display=list.length?'none':'block';
   grid.innerHTML=list.map(cardHTML).join('');
