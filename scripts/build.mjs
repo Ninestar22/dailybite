@@ -115,7 +115,14 @@ function chainPage(chain, deals) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${chain.slug}">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:image" content="https://dailybitedeals.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <style>${CHAIN_CSS}</style>
 </head>
