@@ -42,6 +42,9 @@ Rules:
 - "ic" is a 1-3 character brand initial; "color" is the brand's hex color.
 - Include 2-5 deals from the healthier fast-casual chains whenever you can verify them, using natural categories like "Salads", "Bowls", or "Smoothies".
 - Include deals from halal-certified national chains (e.g. The Halal Guys) whenever you can verify them, with "cat":"Halal". Use the "Halal" category ONLY for chains that are fully halal-certified — never for general chains that merely offer some halal options.
+- PRACTICALITY FILTER — this site is for repeat, everyday savers. Do NOT include: first-order or new-customer-only promos (e.g. "15% off your first order", new-member signup bonuses, first catering-order codes); deals that require redeeming loyalty points (e.g. "free sandwich for 1,500 points") or that merely award bonus points (2x points days); birthday-only rewards; one-time-use codes tied to account creation. Every deal listed must be claimable TODAY by a typical person who already has (or can freely download) the brand's app.
+- Free-to-join rewards-member deals ARE allowed (e.g. "Free Upsize Friday for rewards members") since joining is free and instant — but point-redemption offers are not.
+- For "best" (Top Picks), additionally prioritize deals the MOST people can claim today AND again in the future, so visitors feel real value and come back.
 - Add "region":"National" for nationwide deals, or the specific region if limited (e.g. "Texas only", "California"). Leave out unverifiable regional deals.
 
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
