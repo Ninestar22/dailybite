@@ -647,7 +647,9 @@ let DIST = null; // { normalizedBrand: miles }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 function nearLabel(brand){
   const m = DIST && DIST[normBrand(brand)];
-  return m != null ? '\ud83d\udccd ' + m.toFixed(1) + ' mi' : '\ud83d\udccd Nearest';
+  if (m != null) return '\ud83d\udccd ' + m.toFixed(1) + ' mi';
+  // Distances on but this chain wasn't found within ~25 mi (or isn't mapped):
+  return DIST ? '\ud83d\udccd Find on Maps' : '\ud83d\udccd Nearest';
 }
 function haversineMiles(lat1, lon1, lat2, lon2){
   const R = 3958.8, toRad = x => x * Math.PI / 180;
