@@ -30,7 +30,7 @@ const client = new Anthropic(); // reads ANTHROPIC_API_KEY from env
 
 const PROMPT = `You maintain "DailyBite", a page listing the best current U.S. fast-food and coffee-chain app/rewards deals.
 
-Use web search to find TODAY'S real, currently-active in-app or rewards deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
+Use web search to find TODAY'S real, currently-active in-app or rewards deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's) AND healthier fast-casual chains (Sweetgreen, CAVA, Just Salad, Smoothie King, Tropical Smoothie Cafe, Jamba, Subway). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
 
 Rules:
 - Only include deals you found evidence for in search results. Do NOT invent deals, prices, or dates.
@@ -40,6 +40,8 @@ Rules:
 - "value" is a 1-5 usefulness score (5 = free item, low friction).
 - "tags" may only contain "free" and/or "app".
 - "ic" is a 1-3 character brand initial; "color" is the brand's hex color.
+- Include 2-5 deals from the healthier fast-casual chains whenever you can verify them. Use "cat":"Healthy" for those chains.
+- Add "region":"National" for nationwide deals, or the specific region if limited (e.g. "Texas only", "California"). Leave out unverifiable regional deals.
 
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
 {"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. This week | Every Friday | Ongoing","url":"https://...","best":true}]}`;
@@ -76,6 +78,7 @@ function validate(deals) {
     if (!Array.isArray(d.tags) || d.tags.some(t => !ALLOWED_TAGS.has(t))) errors.push(`${at}.tags invalid`);
     if (!Number.isFinite(d.value) || d.value < 1 || d.value > 5) errors.push(`${at}.value out of range`);
     if ("best" in d && typeof d.best !== "boolean") errors.push(`${at}.best not boolean`);
+    if ("region" in d && (typeof d.region !== "string" || d.region.length > 48)) errors.push(`${at}.region invalid`);
   });
 
   const bestCount = deals.filter(d => d.best === true).length;
