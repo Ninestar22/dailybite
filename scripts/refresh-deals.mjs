@@ -35,7 +35,7 @@ Use web search to find TODAY'S real, currently-active in-app or rewards deals fr
 Rules:
 - Only include deals you found evidence for in search results. Do NOT invent deals, prices, or dates.
 - If you cannot confirm a deal is current, leave it out.
-- ${MIN_DEALS}-${MAX_DEALS} deals total. Mark up to 4 of the strongest as "best": true.
+- ${MIN_DEALS}-${MAX_DEALS} deals total. Mark up to 4 deals as "best": true — these are the site's featured Top Picks and must mean something: reserve them for genuinely outstanding-value deals from HEALTHIER chains (Sweetgreen, CAVA, Just Salad, Smoothie King, Tropical Smoothie Cafe, Jamba, Panera, halal-certified chains). Never mark traditional fast food (burgers, fried chicken, pizza) as "best" unless zero healthy deals qualify that day.
 - "url" must be the brand's official https deals/rewards page.
 - "value" is a 1-5 usefulness score (5 = free item, low friction).
 - "tags" may only contain "free" and/or "app".
