@@ -133,7 +133,7 @@ function chainPage(chain, deals) {
   <h1>${esc(chain.name)} Deals &amp; App Offers &mdash; ${esc(monthYear)}</h1>
   <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
   ${body}
-  <div class="note"><strong>How this works.</strong> We keep this page fresh with the best current ${esc(chain.name)} offers. Deals vary by location &mdash; always confirm in the ${esc(chain.name)} app before ordering.</div>
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
