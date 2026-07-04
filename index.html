@@ -704,6 +704,16 @@ locBtn.addEventListener('click', () => {
   }, () => { locBtn.textContent = '\ud83d\udccd Location declined'; }, {timeout: 10000, maximumAge: 600000});
 });
 
+// Restore distances automatically on page load if enabled within the last 24h.
+try{
+  const c0 = JSON.parse(localStorage.getItem('db_dist') || 'null');
+  if(c0 && Date.now() - c0.t < 86400000){
+    DIST = c0.d;
+    locBtn.textContent = '\ud83d\udccd Distances on';
+    locBtn.classList.add('on');
+  }
+}catch(e){}
+
 function cardHTML(d){
   return `
     <div class="card ${d.best?'best':''}">
