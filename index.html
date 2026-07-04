@@ -97,6 +97,8 @@
   .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
   .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
   .near{color:#7aa5ff;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+  .locbtn{margin-top:8px;border-color:#7aa5ff;color:#7aa5ff}
+  .locbtn.on{background:#7aa5ff;color:#0f1115;border-color:#7aa5ff}
   .chip.freechip{border-color:var(--good);color:var(--good)}
   .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
   .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
@@ -115,6 +117,7 @@
   <div class="controls">
     <input class="search" id="search" placeholder="Search deals or restaurants…" />
     <div class="filters" id="filters"></div>
+    <button class="chip locbtn" id="locBtn" title="Show how far each restaurant is from you">&#128205; Show distances near me</button>
   </div>
   <div id="todaywrap" style="display:none">
     <div class="today-head">&#128293; Worth grabbing today</div>
@@ -639,6 +642,68 @@ function safeUrl(u){
   catch{return '#';}
 }
 
+/* ---- Distance engine (free OpenStreetMap lookup, opt-in via button) ---- */
+let DIST = null; // { normalizedBrand: miles }
+const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+function nearLabel(brand){
+  const m = DIST && DIST[normBrand(brand)];
+  return m != null ? '\ud83d\udccd ' + m.toFixed(1) + ' mi' : '\ud83d\udccd Nearest';
+}
+function haversineMiles(lat1, lon1, lat2, lon2){
+  const R = 3958.8, toRad = x => x * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+async function loadDistances(lat, lon){
+  const brands = [...new Set(DEALS.map(d => d.brand))];
+  const rx = brands.map(b => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const q = `[out:json][timeout:15];nwr["brand"~"${rx}",i](around:40000,${lat},${lon});out center 300;`;
+  const res = await fetch('https://overpass-api.de/api/interpreter', {
+    method: 'POST',
+    body: 'data=' + encodeURIComponent(q),
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  });
+  if(!res.ok) throw new Error('lookup failed');
+  const data = await res.json();
+  const best = {};
+  for(const el of data.elements || []){
+    const tags = el.tags || {};
+    const name = normBrand(tags.brand || tags.name || '');
+    if(!name) continue;
+    const eLat = el.lat ?? el.center?.lat, eLon = el.lon ?? el.center?.lon;
+    if(eLat == null) continue;
+    for(const b of brands){
+      const nb = normBrand(b);
+      if(name.includes(nb) || nb.includes(name)){
+        const mi = haversineMiles(lat, lon, eLat, eLon);
+        if(best[nb] == null || mi < best[nb]) best[nb] = mi;
+      }
+    }
+  }
+  return best;
+}
+const locBtn = document.getElementById('locBtn');
+locBtn.addEventListener('click', () => {
+  // Reuse a same-day cached result to be gentle on the free OSM servers.
+  try{
+    const c = JSON.parse(localStorage.getItem('db_dist') || 'null');
+    if(c && Date.now() - c.t < 86400000){ DIST = c.d; locBtn.textContent = '\ud83d\udccd Distances on'; locBtn.classList.add('on'); render(); return; }
+  }catch(e){}
+  if(!navigator.geolocation){ locBtn.textContent = '\ud83d\udccd Not supported'; return; }
+  locBtn.textContent = 'Locating\u2026';
+  navigator.geolocation.getCurrentPosition(async pos => {
+    try{
+      locBtn.textContent = 'Finding restaurants\u2026';
+      DIST = await loadDistances(pos.coords.latitude, pos.coords.longitude);
+      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST}));
+      locBtn.textContent = '\ud83d\udccd Distances on';
+      locBtn.classList.add('on');
+      render();
+    }catch(e){ locBtn.textContent = '\ud83d\udccd Lookup unavailable'; }
+  }, () => { locBtn.textContent = '\ud83d\udccd Location declined'; }, {timeout: 10000, maximumAge: 600000});
+});
+
 function cardHTML(d){
   return `
     <div class="card ${d.best?'best':''}">
@@ -661,7 +726,7 @@ function cardHTML(d){
       </div>
       <div class="foot">
         <span class="expires">\u23f1 ${esc(d.expires)}</span>
-        <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">\ud83d\udccd Nearest</a>
+        <a class="near" data-brand="${esc(d.brand)}" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">${nearLabel(d.brand)}</a>
         <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal \u2192</a>
       </div>
     </div>`;
