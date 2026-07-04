@@ -119,6 +119,11 @@
     <div class="filters" id="filters"></div>
     <button class="chip locbtn" id="locBtn" title="Show how far each restaurant is from you">&#128205; Show distances near me</button>
   </div>
+  <div id="topwrap" style="display:none">
+    <div class="today-head">&#11088; Top Picks</div>
+    <div class="today-sub">Today&#39;s strongest verified deals</div>
+    <div class="grid" id="topgrid"></div>
+  </div>
   <div id="todaywrap" style="display:none">
     <div class="today-head">&#128293; Worth grabbing today</div>
     <div class="today-sub">Day-specific deals, new arrivals, and offers about to expire</div>
@@ -763,9 +768,18 @@ function render(){
   document.getElementById('empty').style.display=list.length?'none':'block';
   grid.innerHTML=list.map(cardHTML).join('');
 
+  const topwrap=document.getElementById('topwrap');
+  if(activeCat==="All"&&!query){
+    const tops=DEALS.filter(d=>d.best)
+      .sort((a,b)=>b.value-a.value)
+      .slice(0,4);
+    if(tops.length){topwrap.style.display='block';document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join('');}
+    else{topwrap.style.display='none';}
+  } else { topwrap.style.display='none'; }
+
   const wrap=document.getElementById('todaywrap');
   if(activeCat==="All"&&!query){
-    const picks=DEALS.filter(d=>isTodayDeal(d)||d.endingSoon||d.isNew)
+    const picks=DEALS.filter(d=>!d.best&&(isTodayDeal(d)||d.endingSoon||d.isNew))
       .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
       .slice(0,4);
     if(picks.length){wrap.style.display='block';document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');}
