@@ -16,7 +16,7 @@
       "expires": "Every Friday",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "McDonald's",
@@ -31,7 +31,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "McDonald's",
@@ -46,7 +47,8 @@
       "value": 3,
       "expires": "Through July 19, 2026",
       "url": "https://www.mcdonalds.com/us/en-us/whats-hot.html",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Burger King",
@@ -62,7 +64,7 @@
       "expires": "Every Wednesday",
       "url": "https://www.bk.com/offers",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "Burger King",
@@ -78,7 +80,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.bk.com/rewards",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Taco Bell",
@@ -94,7 +97,8 @@
       "value": 5,
       "expires": "Ongoing",
       "url": "https://www.tacobell.com/rewards",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Taco Bell",
@@ -109,7 +113,8 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.tacobell.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Domino's",
@@ -125,7 +130,7 @@
       "expires": "Through July 26, 2026",
       "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "Domino's",
@@ -140,7 +145,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Pizza Hut",
@@ -155,7 +161,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.pizzahut.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Sonic",
@@ -170,7 +177,8 @@
       "value": 4,
       "expires": "Through July 12, 2026",
       "url": "https://www.sonicdrivein.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Sonic",
@@ -185,7 +193,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.sonicdrivein.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Wendy's",
@@ -201,7 +210,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.wendys.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Popeyes",
@@ -216,7 +226,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.popeyes.com/offers",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "KFC",
@@ -231,7 +242,8 @@
       "value": 4,
       "expires": "Weekdays",
       "url": "https://www.kfc.com/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Dunkin'",
@@ -247,7 +259,7 @@
       "expires": "Ongoing",
       "url": "https://www.dunkindonuts.com/en/dunkinrewards",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "Dunkin'",
@@ -262,7 +274,8 @@
       "value": 3,
       "expires": "Every Monday",
       "url": "https://www.dunkindonuts.com/en/dunkinrewards",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Starbucks",
@@ -278,7 +291,8 @@
       "value": 3,
       "expires": "Every Monday",
       "url": "https://www.starbucks.com/rewards",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Subway",
@@ -293,7 +307,8 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Sweetgreen",
@@ -308,7 +323,8 @@
       "value": 4,
       "expires": "Through July 31, 2026",
       "url": "https://www.sweetgreen.com/sweet-rewards/",
-      "region": "National"
+      "region": "National",
+      "best": true
     },
     {
       "brand": "Sweetgreen",
@@ -323,7 +339,8 @@
       "value": 3,
       "expires": "Through September 30, 2026",
       "url": "https://www.sweetgreen.com/sweet-rewards/",
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "CAVA",
@@ -339,7 +356,8 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://cava.com/rewards",
-      "region": "National"
+      "region": "National",
+      "best": true
     },
     {
       "brand": "Smoothie King",
@@ -355,7 +373,8 @@
       "value": 4,
       "expires": "Every Friday",
       "url": "https://www.smoothieking.com/healthy-rewards",
-      "region": "National"
+      "region": "National",
+      "best": true
     },
     {
       "brand": "Jamba",
@@ -370,7 +389,8 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.jamba.com/rewards",
-      "region": "National"
+      "region": "National",
+      "best": true
     }
   ]
 }
