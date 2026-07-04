@@ -95,6 +95,7 @@
   .pill.new{background:rgba(46,193,107,.2);color:var(--good)}
   .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
   .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
   .chip.freechip{border-color:var(--good);color:var(--good)}
   .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
   .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
@@ -515,7 +516,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-03T12:53:02.131Z"};
+const META = {"verifiedAt":"2026-07-04T00:49:53.793Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -578,6 +579,7 @@ function cardHTML(d){
       <div class="metarow">
         ${d.isNew?'<span class="pill new">\u2728 NEW TODAY</span>':''}
         ${d.endingSoon?'<span class="pill soon">\u23f3 ENDING SOON</span>':''}
+        ${d.region&&d.region!=='National'?'<span class="pill region">\ud83d\udccd '+esc(d.region.toUpperCase())+'</span>':''}
         ${isTodayDeal(d)?'<span class="pill todaypill">\ud83d\udcc5 '+WEEKDAY.toUpperCase()+'</span>':''}
         ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
       </div>
