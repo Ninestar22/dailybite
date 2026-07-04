@@ -545,6 +545,17 @@ async function loadDistances(lat, lon){
   return best;
 }
 const locBtn = document.getElementById('locBtn');
+function showLocTip(msg){
+  let tip = document.getElementById('locTip');
+  if(!tip){
+    tip = document.createElement('div');
+    tip.id = 'locTip';
+    tip.style.cssText = 'margin-top:8px;font-size:13px;color:#9aa3b2;max-width:560px;line-height:1.5';
+    locBtn.parentNode.insertBefore(tip, locBtn.nextSibling);
+  }
+  tip.textContent = msg;
+}
+function clearLocTip(){ const t = document.getElementById('locTip'); if(t) t.remove(); }
 locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
@@ -560,9 +571,19 @@ locBtn.addEventListener('click', () => {
       localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST}));
       locBtn.textContent = '\ud83d\udccd Distances on';
       locBtn.classList.add('on');
+      clearLocTip();
       render();
     }catch(e){ locBtn.textContent = '\ud83d\udccd Lookup unavailable'; }
-  }, () => { locBtn.textContent = '\ud83d\udccd Location declined'; }, {timeout: 10000, maximumAge: 600000});
+  }, err => {
+    if(err && err.code === 1){
+      locBtn.textContent = '\ud83d\udccd Location blocked';
+      showLocTip('Your browser is blocking location for this site. iPhone: Settings > Privacy & Security > Location Services > Safari Websites > Ask. Chrome app: Settings > Chrome > Location. Then reload and tap again.');
+    } else if(err && err.code === 3){
+      locBtn.textContent = '\ud83d\udccd Timed out \u2014 tap to retry';
+    } else {
+      locBtn.textContent = '\ud83d\udccd Unavailable \u2014 tap to retry';
+    }
+  }, {timeout: 15000, maximumAge: 600000});
 });
 
 // Restore distances automatically on page load if enabled within the last 24h.
