@@ -96,6 +96,7 @@
   .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
   .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
   .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .near{color:#7aa5ff;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
   .chip.freechip{border-color:var(--good);color:var(--good)}
   .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
   .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
@@ -505,7 +506,7 @@ const DEALS = [
   },
   {
     "brand": "Sweetgreen",
-    "cat": "Healthy",
+    "cat": "Salads",
     "color": "#3D7A47",
     "ic": "SG",
     "deal": "$12 Hot Honey Chicken Plate Offer (App)",
@@ -522,7 +523,7 @@ const DEALS = [
   },
   {
     "brand": "Sweetgreen",
-    "cat": "Healthy",
+    "cat": "Salads",
     "color": "#3D7A47",
     "ic": "SG",
     "deal": "15% Off First Catering Order $50+ (Code: FESTIVE15)",
@@ -539,7 +540,7 @@ const DEALS = [
   },
   {
     "brand": "CAVA",
-    "cat": "Healthy",
+    "cat": "Bowls",
     "color": "#C8A97E",
     "ic": "CV",
     "deal": "CAVA Rewards – Free Bowl on Birthday + Points for Free Dips",
@@ -557,7 +558,7 @@ const DEALS = [
   },
   {
     "brand": "Smoothie King",
-    "cat": "Healthy",
+    "cat": "Smoothies",
     "color": "#6B2D8B",
     "ic": "SK",
     "deal": "Free Upsize Friday for Rewards Members",
@@ -575,7 +576,7 @@ const DEALS = [
   },
   {
     "brand": "Jamba",
-    "cat": "Healthy",
+    "cat": "Smoothies",
     "color": "#F7941D",
     "ic": "Ja",
     "deal": "50% Off + FIFA World Cup Hat Trick Tango LTO",
@@ -591,7 +592,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-04T00:54:05.932Z"};
+const META = {"verifiedAt":"2026-07-04T02:00:17.102Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -660,6 +661,7 @@ function cardHTML(d){
       </div>
       <div class="foot">
         <span class="expires">\u23f1 ${esc(d.expires)}</span>
+        <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">\ud83d\udccd Nearest</a>
         <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal \u2192</a>
       </div>
     </div>`;

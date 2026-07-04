@@ -38,7 +38,7 @@
       "cat": "Burgers",
       "color": "#DA291C",
       "ic": "Mc",
-      "deal": "FIFA World Cup Meal – Collectible Cups + App Points",
+      "deal": "FIFA World Cup Meal \u2013 Collectible Cups + App Points",
       "desc": "Order the FIFA World Cup Meal via the app to earn rewards points redeemable for FIFA Rivals and Coca-Cola/Panini prizes through July 19, 2026.",
       "tags": [
         "app"
@@ -53,7 +53,7 @@
       "cat": "Burgers",
       "color": "#F5821F",
       "ic": "BK",
-      "deal": "Whopper Wednesdays – Discounted Whopper in App",
+      "deal": "Whopper Wednesdays \u2013 Discounted Whopper in App",
       "desc": "Royal Perks members can score a discounted Whopper or Impossible Whopper every Wednesday via the BK app.",
       "tags": [
         "app"
@@ -101,7 +101,7 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "$1 Drinks 2–5 PM Daily",
+      "deal": "$1 Drinks 2\u20135 PM Daily",
       "desc": "Score a medium fountain drink or freeze for just $1 every day from 2 PM to 5 PM local time.",
       "tags": [
         "app"
@@ -177,8 +177,8 @@
       "cat": "Burgers",
       "color": "#004B8D",
       "ic": "So",
-      "deal": "Happy Hour – Half-Price Drinks & Slushes Any Time in App",
-      "desc": "App users get half-price drinks and slushes all day long; everyone else gets the deal from 2–4 PM daily.",
+      "deal": "Happy Hour \u2013 Half-Price Drinks & Slushes Any Time in App",
+      "desc": "App users get half-price drinks and slushes all day long; everyone else gets the deal from 2\u20134 PM daily.",
       "tags": [
         "app"
       ],
@@ -192,7 +192,7 @@
       "cat": "Burgers",
       "color": "#E2001A",
       "ic": "We",
-      "deal": "Daily App Coupons – Free Frosty & $2 Off Combos",
+      "deal": "Daily App Coupons \u2013 Free Frosty & $2 Off Combos",
       "desc": "Wendy's app users get rotating daily coupons including a free Frosty and $2 off combo meals.",
       "tags": [
         "free",
@@ -208,7 +208,7 @@
       "cat": "Chicken",
       "color": "#FF6600",
       "ic": "Po",
-      "deal": "$6 Big Box – 2pc Chicken + 2 Sides + Biscuit",
+      "deal": "$6 Big Box \u2013 2pc Chicken + 2 Sides + Biscuit",
       "desc": "Get 2 pieces of chicken (or 3 tenders) plus 2 sides and a biscuit for just $6 via the Popeyes app.",
       "tags": [
         "app"
@@ -254,7 +254,7 @@
       "cat": "Coffee",
       "color": "#FF671F",
       "ic": "Dk",
-      "deal": "Mobile Mondays – 100 Bonus Points",
+      "deal": "Mobile Mondays \u2013 100 Bonus Points",
       "desc": "Earn 100 bonus Dunkin' Rewards points when you order ahead in the app on Mondays.",
       "tags": [
         "app"
@@ -297,7 +297,7 @@
     },
     {
       "brand": "Sweetgreen",
-      "cat": "Healthy",
+      "cat": "Salads",
       "color": "#3D7A47",
       "ic": "SG",
       "deal": "$12 Hot Honey Chicken Plate Offer (App)",
@@ -312,11 +312,11 @@
     },
     {
       "brand": "Sweetgreen",
-      "cat": "Healthy",
+      "cat": "Salads",
       "color": "#3D7A47",
       "ic": "SG",
       "deal": "15% Off First Catering Order $50+ (Code: FESTIVE15)",
-      "desc": "New catering customers get 15% off their first Sweetgreen catering order of $50+ placed July 1–Sept 30, 2026 with code FESTIVE15.",
+      "desc": "New catering customers get 15% off their first Sweetgreen catering order of $50+ placed July 1\u2013Sept 30, 2026 with code FESTIVE15.",
       "tags": [
         "app"
       ],
@@ -327,10 +327,10 @@
     },
     {
       "brand": "CAVA",
-      "cat": "Healthy",
+      "cat": "Bowls",
       "color": "#C8A97E",
       "ic": "CV",
-      "deal": "CAVA Rewards – Free Bowl on Birthday + Points for Free Dips",
+      "deal": "CAVA Rewards \u2013 Free Bowl on Birthday + Points for Free Dips",
       "desc": "CAVA app rewards members earn points redeemable for free dips and bowls, plus a free bowl during their birthday month.",
       "tags": [
         "free",
@@ -343,7 +343,7 @@
     },
     {
       "brand": "Smoothie King",
-      "cat": "Healthy",
+      "cat": "Smoothies",
       "color": "#6B2D8B",
       "ic": "SK",
       "deal": "Free Upsize Friday for Rewards Members",
@@ -359,7 +359,7 @@
     },
     {
       "brand": "Jamba",
-      "cat": "Healthy",
+      "cat": "Smoothies",
       "color": "#F7941D",
       "ic": "Ja",
       "deal": "50% Off + FIFA World Cup Hat Trick Tango LTO",
