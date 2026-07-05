@@ -605,7 +605,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-05T02:49:19.161Z"};
+const META = {"verifiedAt":"2026-07-05T03:00:33.975Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -790,6 +790,15 @@ function cardHTML(d){
     </div>`;
 }
 
+// Blend deal quality with proximity: value 2-10 pts, Top Pick +4,
+// fresh/expiring +1 each, and up to +10 for being close (fades out by 10 mi).
+function dealScore(d){
+  let s = (d.value||0)*2 + (d.best?4:0) + (d.isNew?1:0) + (d.endingSoon?1:0);
+  const mi = DIST ? DIST[normBrand(d.brand)] : null;
+  if(mi != null) s += Math.max(0, 10 - mi);
+  else if(DIST) s -= 3;
+  return s;
+}
 function render(){
   const grid=document.getElementById('grid');
   const list=DEALS
@@ -797,13 +806,8 @@ function render(){
     .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
     .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
     .sort((a,b)=>{
-      // When distances are on, nearest deals come first; unknown-distance chains sink.
-      if(DIST){
-        const da=DIST[normBrand(a.brand)], db2=DIST[normBrand(b.brand)];
-        if(da!=null&&db2==null) return -1;
-        if(da==null&&db2!=null) return 1;
-        if(da!=null&&db2!=null&&da!==db2) return da-db2;
-      }
+      // When distances are on, rank by deal quality AND proximity together.
+      if(DIST){ const ds=dealScore(b)-dealScore(a); if(ds) return ds; }
       return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
     });
   document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
