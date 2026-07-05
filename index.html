@@ -453,7 +453,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-04T18:29:47.794Z"};
+const META = {"verifiedAt":"2026-07-05T02:43:03.317Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -502,6 +502,19 @@ function safeUrl(u){
 
 /* ---- Distance engine (free OpenStreetMap lookup, opt-in via button) ---- */
 let DIST = null; // { normalizedBrand: miles }
+let STATE = null; // viewer's U.S. state, e.g. "Texas"
+async function stateLookup(lat, lon){
+  const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=5`);
+  if(!r.ok) return null;
+  const j = await r.json();
+  return (j.address && (j.address.state || j.address.region)) || null;
+}
+function regionOK(d){
+  if(!STATE || !d.region) return true;
+  if(/national/i.test(d.region)) return true;
+  return d.region.toLowerCase().includes(STATE.toLowerCase());
+}
+function locLabel(){ return STATE ? ('\ud83d\udccd Deals for ' + STATE) : '\ud83d\udccd Distances on'; }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 function nearLabel(brand){
   const m = DIST && DIST[normBrand(brand)];
@@ -559,7 +572,7 @@ locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
     const c = JSON.parse(localStorage.getItem('db_dist') || 'null');
-    if(c && Date.now() - c.t < 86400000){ DIST = c.d; locBtn.textContent = '\ud83d\udccd Distances on'; locBtn.classList.add('on'); render(); return; }
+    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
   }catch(e){}
   if(!navigator.geolocation){ locBtn.textContent = '\ud83d\udccd Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
@@ -567,8 +580,9 @@ locBtn.addEventListener('click', () => {
     try{
       locBtn.textContent = 'Finding restaurants\u2026';
       DIST = await loadDistances(pos.coords.latitude, pos.coords.longitude);
-      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST}));
-      locBtn.textContent = '\ud83d\udccd Distances on';
+      try{ STATE = await stateLookup(pos.coords.latitude, pos.coords.longitude); }catch(e){ STATE = null; }
+      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST, s: STATE}));
+      locBtn.textContent = locLabel();
       locBtn.classList.add('on');
       clearLocTip();
       render();
@@ -590,7 +604,8 @@ try{
   const c0 = JSON.parse(localStorage.getItem('db_dist') || 'null');
   if(c0 && Date.now() - c0.t < 86400000){
     DIST = c0.d;
-    locBtn.textContent = '\ud83d\udccd Distances on';
+    STATE = c0.s || null;
+    locBtn.textContent = locLabel();
     locBtn.classList.add('on');
   }
 }catch(e){}
@@ -626,6 +641,7 @@ function cardHTML(d){
 function render(){
   const grid=document.getElementById('grid');
   const list=DEALS
+    .filter(regionOK)
     .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
     .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
     .sort((a,b)=>{
@@ -644,7 +660,7 @@ function render(){
 
   const topwrap=document.getElementById('topwrap');
   if(activeCat==="All"&&!query){
-    const tops=DEALS.filter(d=>d.best)
+    const tops=DEALS.filter(d=>d.best&&regionOK(d))
       .sort((a,b)=>b.value-a.value)
       .slice(0,4);
     if(tops.length){topwrap.style.display='block';document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join('');}
@@ -653,7 +669,7 @@ function render(){
 
   const wrap=document.getElementById('todaywrap');
   if(activeCat==="All"&&!query){
-    const picks=DEALS.filter(d=>!d.best&&(isTodayDeal(d)||d.endingSoon||d.isNew))
+    const picks=DEALS.filter(d=>!d.best&&regionOK(d)&&(isTodayDeal(d)||d.endingSoon||d.isNew))
       .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
       .slice(0,4);
     if(picks.length){wrap.style.display='block';document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');}
