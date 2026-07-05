@@ -6,15 +6,15 @@
       "cat": "Bakery",
       "color": "#009A44",
       "ic": "KK",
-      "deal": "🎆 4th of July: Free Original Glazed Doughnut — Wear Red, White & Blue Today!",
+      "deal": "\ud83c\udf86 4th of July: Free Original Glazed Doughnut \u2014 Wear Red, White & Blue Today!",
       "desc": "Walk into any participating Krispy Kreme today in red, white and blue and score one free Original Glazed doughnut in celebration of America's 250th birthday.",
       "tags": [
         "free"
       ],
       "value": 5,
-      "expires": "Today — July 4 only",
+      "expires": "Today \u2014 July 4 only",
       "url": "https://www.krispykreme.com/promos",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
@@ -22,7 +22,7 @@
       "cat": "Bakery",
       "color": "#009A44",
       "ic": "KK",
-      "deal": "🎆 4th of July: Add a Dozen Original Glazed for Just $2.50 — Code USA",
+      "deal": "\ud83c\udf86 4th of July: Add a Dozen Original Glazed for Just $2.50 \u2014 Code USA",
       "desc": "Through July 5, use code USA online or in app to add an Original Glazed dozen to any dozen or 16-count Minis purchase for just $2.50.",
       "tags": [
         "app"
@@ -38,13 +38,13 @@
       "cat": "Burgers",
       "color": "#F5821F",
       "ic": "BK",
-      "deal": "🎆 4th of July: Whopper Jr. for $2.50 — Royal Perks App",
+      "deal": "\ud83c\udf86 4th of July: Whopper Jr. for $2.50 \u2014 Royal Perks App",
       "desc": "Royal Perks members can grab a Whopper Jr. for just $2.50 via the BK App or BK.com today in honor of America's 250th birthday.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Today — July 4 only",
+      "expires": "Today \u2014 July 4 only",
       "url": "https://www.bk.com/offers",
       "best": false,
       "region": "National"
@@ -54,8 +54,8 @@
       "cat": "Burgers",
       "color": "#004B8D",
       "ic": "SN",
-      "deal": "🎆 America $2.50 Menu — Hot Dog, Jr. Double, Onion Rings, or RWB Slush Float",
-      "desc": "Through July 12, snag a 6-inch All-American Hot Dog, Jr. Double Cheeseburger, Medium Onion Rings, or Red White & Blue Slush Float for just $2.50 each at participating locations — no app or loyalty card required.",
+      "deal": "\ud83c\udf86 America $2.50 Menu \u2014 Hot Dog, Jr. Double, Onion Rings, or RWB Slush Float",
+      "desc": "Through July 12, snag a 6-inch All-American Hot Dog, Jr. Double Cheeseburger, Medium Onion Rings, or Red White & Blue Slush Float for just $2.50 each at participating locations \u2014 no app or loyalty card required.",
       "tags": [],
       "value": 4,
       "expires": "Through July 12, 2026",
@@ -68,11 +68,11 @@
       "cat": "Desserts",
       "color": "#CC0000",
       "ic": "DQ",
-      "deal": "🎆 Stars & Stripes Misty Slush Float — $2.50 (Last Day!)",
-      "desc": "Today is the final day to grab DQ's patriotic Stars & Stripes Misty Slush Float in small for $2.50 — layers of cherry and blue raspberry slush topped with soft serve and star sprinkles.",
+      "deal": "\ud83c\udf86 Stars & Stripes Misty Slush Float \u2014 $2.50 (Last Day!)",
+      "desc": "Today is the final day to grab DQ's patriotic Stars & Stripes Misty Slush Float in small for $2.50 \u2014 layers of cherry and blue raspberry slush topped with soft serve and star sprinkles.",
       "tags": [],
       "value": 4,
-      "expires": "Today — July 5 last day",
+      "expires": "Today \u2014 July 5 last day",
       "url": "https://www.dairyqueen.com/en-us/offers/",
       "best": false,
       "region": "National"
@@ -82,14 +82,14 @@
       "cat": "Breakfast",
       "color": "#FFD700",
       "ic": "H",
-      "deal": "🎆 4th of July: FREE Star-Spangled Biscuit — MyRewards App (Last Day!)",
-      "desc": "Today is the last day MyRewards members can claim a free star-shaped, berry-flavored Star-Spangled Biscuit via the Hardee's app — no purchase necessary.",
+      "deal": "\ud83c\udf86 4th of July: FREE Star-Spangled Biscuit \u2014 MyRewards App (Last Day!)",
+      "desc": "Today is the last day MyRewards members can claim a free star-shaped, berry-flavored Star-Spangled Biscuit via the Hardee's app \u2014 no purchase necessary.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
-      "expires": "July 3–5, 2026",
+      "expires": "July 3\u20135, 2026",
       "url": "https://www.hardees.com/deals",
       "best": false,
       "region": "National"
@@ -99,14 +99,14 @@
       "cat": "Subs",
       "color": "#FFFFFF",
       "ic": "JJ",
-      "deal": "🎆 4th of July BOGO: Free Sandwich with Code FREEDOM (Last Day!)",
+      "deal": "\ud83c\udf86 4th of July BOGO: Free Sandwich with Code FREEDOM (Last Day!)",
       "desc": "JJ Rewards members can use code FREEDOM today through the Jimmy John's site or app for a buy-one-get-one-free Regular Toasted or Favorite Sandwich at participating locations.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
-      "expires": "July 3–5, 2026",
+      "expires": "July 3\u20135, 2026",
       "url": "https://www.jimmyjohns.com/deals",
       "best": false,
       "region": "National"
@@ -116,7 +116,7 @@
       "cat": "Chicken",
       "color": "#F40027",
       "ic": "KF",
-      "deal": "🎆 'Finger Lickin' Fourth' — 12-Pc Bucket for $15 Through July 11",
+      "deal": "\ud83c\udf86 'Finger Lickin' Fourth' \u2014 12-Pc Bucket for $15 Through July 11",
       "desc": "KFC's limited-time Fourth of July promotion offers a 12-piece bucket of Original or Extra Crispy fried chicken for just $15 at participating locations.",
       "tags": [],
       "value": 3,
@@ -130,8 +130,8 @@
       "cat": "Chicken",
       "color": "#F05A28",
       "ic": "PO",
-      "deal": "$6 Big Box — 2-Pc Chicken or 3 Tenders + 2 Sides + Biscuit",
-      "desc": "Through July 13, score Popeyes' $6 Big Box with your choice of 2-piece Signature Chicken or 3 Tenders, two regular sides, and a biscuit — valid in-store, online, or in-app.",
+      "deal": "$6 Big Box \u2014 2-Pc Chicken or 3 Tenders + 2 Sides + Biscuit",
+      "desc": "Through July 13, score Popeyes' $6 Big Box with your choice of 2-piece Signature Chicken or 3 Tenders, two regular sides, and a biscuit \u2014 valid in-store, online, or in-app.",
       "tags": [
         "app"
       ],
@@ -146,8 +146,8 @@
       "cat": "Burgers",
       "color": "#FFC72C",
       "ic": "Mc",
-      "deal": "Free Medium Fries Every Friday with $1+ Purchase — App",
-      "desc": "Every Friday, McDonald's app members can score free medium fries with any $1 or more purchase — a recurring weekly perk available all year.",
+      "deal": "Free Medium Fries Every Friday with $1+ Purchase \u2014 App",
+      "desc": "Every Friday, McDonald's app members can score free medium fries with any $1 or more purchase \u2014 a recurring weekly perk available all year.",
       "tags": [
         "free",
         "app"
@@ -163,7 +163,7 @@
       "cat": "Pizza",
       "color": "#006491",
       "ic": "DO",
-      "deal": "Any Pizza, Any Crust, Up to 7 Toppings for $9.99 — Online or App",
+      "deal": "Any Pizza, Any Crust, Up to 7 Toppings for $9.99 \u2014 Online or App",
       "desc": "Through July 26, get any Domino's pizza (excluding XL and specialty) with any crust including Parmesan Stuffed Crust and up to seven toppings for $9.99 when you select the offer online or in app.",
       "tags": [
         "app"
@@ -179,8 +179,8 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "3 Grilled Chicken Tacos for $3.59 — Every Thursday 3–11 PM (App)",
-      "desc": "Every Thursday from 3 to 11 PM, Taco Bell app members can grab three Grilled Chicken Tacos starting at just $3.59 — a recurring, app-exclusive weekly deal.",
+      "deal": "3 Grilled Chicken Tacos for $3.59 \u2014 Every Thursday 3\u201311 PM (App)",
+      "desc": "Every Thursday from 3 to 11 PM, Taco Bell app members can grab three Grilled Chicken Tacos starting at just $3.59 \u2014 a recurring, app-exclusive weekly deal.",
       "tags": [
         "app"
       ],
@@ -195,7 +195,7 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "$5.99 Luxe Cravings Box — Ongoing App Deal",
+      "deal": "$5.99 Luxe Cravings Box \u2014 Ongoing App Deal",
       "desc": "The Taco Bell app's ongoing Luxe Cravings Box packs a Beef Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips with nacho cheese, and a medium drink for $5.99.",
       "tags": [
         "app"
@@ -211,7 +211,7 @@
       "cat": "Burgers",
       "color": "#E2001A",
       "ic": "W",
-      "deal": "$5 Biggie Bag — App",
+      "deal": "$5 Biggie Bag \u2014 App",
       "desc": "Wendy's app offers the $5 Biggie Bag with your choice of Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-piece nuggets, junior fries, and a small drink.",
       "tags": [
         "app"
@@ -227,8 +227,8 @@
       "cat": "Bowls",
       "color": "#441600",
       "ic": "CH",
-      "deal": "Summer of Extras — Earn a FREE Entrée After 7 Visits/Month",
-      "desc": "Chipotle Rewards members who activate Summer of Extras in-app can earn bonus points with every entrée purchase and unlock a free entrée or 1,625 points after completing 7 visits in July — runs through August 31.",
+      "deal": "Summer of Extras \u2014 Earn a FREE Entr\u00e9e After 7 Visits/Month",
+      "desc": "Chipotle Rewards members who activate Summer of Extras in-app can earn bonus points with every entr\u00e9e purchase and unlock a free entr\u00e9e or 1,625 points after completing 7 visits in July \u2014 runs through August 31.",
       "tags": [
         "free",
         "app"
@@ -236,7 +236,7 @@
       "value": 5,
       "expires": "Through August 31, 2026",
       "url": "https://www.chipotle.com/rewards",
-      "best": true,
+      "best": false,
       "region": "National"
     },
     {
@@ -244,7 +244,7 @@
       "cat": "Cafe",
       "color": "#377A1A",
       "ic": "PA",
-      "deal": "BOGO $5: Buy One, Get a Second Entrée for $5 — Code BOGO5",
+      "deal": "BOGO $5: Buy One, Get a Second Entr\u00e9e for $5 \u2014 Code BOGO5",
       "desc": "For a limited time, Panera Rewards members can buy any whole sandwich, salad, Market Bowl, or soup and get a second for just $5 by entering code BOGO5 at checkout in the app or online.",
       "tags": [
         "app"
@@ -260,8 +260,8 @@
       "cat": "Cafe",
       "color": "#377A1A",
       "ic": "PA",
-      "deal": "Mix & Match $4.99 Menu — Up to 10 Half-Portion Items",
-      "desc": "Panera's Mix & Match deal prices eligible soups, salads, and sandwiches at $4.99 each when you order 2–10 items, with one free side per order — available through the app or in-cafe.",
+      "deal": "Mix & Match $4.99 Menu \u2014 Up to 10 Half-Portion Items",
+      "desc": "Panera's Mix & Match deal prices eligible soups, salads, and sandwiches at $4.99 each when you order 2\u201310 items, with one free side per order \u2014 available through the app or in-cafe.",
       "tags": [
         "app"
       ],
@@ -276,8 +276,8 @@
       "cat": "Chicken",
       "color": "#FF6600",
       "ic": "EP",
-      "deal": "$1 Chips & Guac Every Monday — Loco Rewards App",
-      "desc": "Every Monday, El Pollo Loco Loco Rewards members get a regular chips and guacamole for just $1 with any $11.99+ purchase — a recurring weekly drive-thru healthy deal, one use per week.",
+      "deal": "$1 Chips & Guac Every Monday \u2014 Loco Rewards App",
+      "desc": "Every Monday, El Pollo Loco Loco Rewards members get a regular chips and guacamole for just $1 with any $11.99+ purchase \u2014 a recurring weekly drive-thru healthy deal, one use per week.",
       "tags": [
         "app"
       ],
@@ -292,7 +292,7 @@
       "cat": "Pizza",
       "color": "#EE3124",
       "ic": "PH",
-      "deal": "BOGO Large Create Your Own Pizza (July 2–8 via DashPass)",
+      "deal": "BOGO Large Create Your Own Pizza (July 2\u20138 via DashPass)",
       "desc": "DashPass members can score a buy-one-get-one-free large Create Your Own pizza at Pizza Hut through July 8 as part of the FIFA World Cup Watch Party Week deals on DoorDash.",
       "tags": [
         "app"
@@ -308,8 +308,8 @@
       "cat": "Coffee",
       "color": "#FF671F",
       "ic": "DD",
-      "deal": "🎆 4th of July Eagle Cup — $10.99 Gets You a Free Medium Drink + 30-Day $3 Drink Codes",
-      "desc": "Dunkin's limited-edition Eagle Cup is $10.99 and includes a free medium beverage plus a code inside for $3 off any medium Dunkin' Zero or Refresher each day for 30 days — available while supplies last.",
+      "deal": "\ud83c\udf86 4th of July Eagle Cup \u2014 $10.99 Gets You a Free Medium Drink + 30-Day $3 Drink Codes",
+      "desc": "Dunkin's limited-edition Eagle Cup is $10.99 and includes a free medium beverage plus a code inside for $3 off any medium Dunkin' Zero or Refresher each day for 30 days \u2014 available while supplies last.",
       "tags": [
         "app"
       ],
