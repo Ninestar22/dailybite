@@ -330,6 +330,11 @@ function main() {
   });
   if (deals.length < beforeCount) console.log(`Excluded ${beforeCount - deals.length} expired deal(s).`);
 
+  // Exclude deals locked behind PAID subscriptions/memberships (DashPass, Uber One, etc.).
+  const beforeSub = deals.length;
+  deals = deals.filter(d => !/dashpass|uber one|grubhub\+|paid member|subscription|subscriber/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+  if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
+
   // 1. Homepage injection
   const htmlPath = join(root, "index.html");
   const html = readFileSync(htmlPath, "utf8");
