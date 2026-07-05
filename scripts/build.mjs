@@ -283,7 +283,7 @@ function dayPage(day, deals) {
 
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
-  const deals = Array.isArray(data) ? data : data.deals;
+  let deals = Array.isArray(data) ? data : data.deals;
   if (!Array.isArray(deals) || deals.length === 0) {
     throw new Error("deals.json has no deals array — refusing to build an empty page.");
   }
@@ -310,6 +310,25 @@ function main() {
       }
     }
   }
+
+  // Exclude deals whose end date has fully passed (holiday specials, LTOs).
+  // Recurring deals never expire; unparseable dates are kept (the daily AI
+  // refresh re-verifies currency) — this filter is the deterministic backstop.
+  const beforeCount = deals.length;
+  deals = deals.filter(d => {
+    const ex = String(d.expires || "");
+    if (/every|ongoing|daily|weekly|monthly/i.test(ex)) return true;
+    let latest = null;
+    for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(, ?\d{4})?/g)) {
+      let ds = m[0].replace(".", "");
+      if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
+      const t = Date.parse(ds);
+      if (!isNaN(t) && (latest == null || t > latest)) latest = t;
+    }
+    if (latest == null) return true;
+    return (latest - now) / 86400000 >= -1; // drop only after the end date's full day has passed
+  });
+  if (deals.length < beforeCount) console.log(`Excluded ${beforeCount - deals.length} expired deal(s).`);
 
   // 1. Homepage injection
   const htmlPath = join(root, "index.html");
