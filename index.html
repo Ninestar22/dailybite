@@ -130,6 +130,7 @@
     <input class="search" id="search" placeholder="Search deals or restaurants…" />
     <div class="filters" id="filters"></div>
     <button class="chip locbtn" id="locBtn" title="Show how far each restaurant is from you">&#128205; Show distances near me</button>
+    <button class="chip locbtn" id="installBtn" style="display:none" title="Install DailyBite on your phone">📲 Get the App</button>
   </div>
   <div id="topwrap" style="display:none">
     <div class="today-head">&#11088; Top Picks</div>
@@ -734,6 +735,39 @@ locBtn.addEventListener('click', () => {
     }
   }, {timeout: 15000, maximumAge: 600000});
 });
+
+// ===== Install the app =====
+const installBtn = document.getElementById('installBtn');
+let deferredInstall = null;
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstall = e;
+  if(!isStandalone) installBtn.style.display = 'inline-block';
+});
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+if(isIOS && !isStandalone) installBtn.style.display = 'inline-block';
+installBtn.addEventListener('click', async () => {
+  if(deferredInstall){
+    deferredInstall.prompt();
+    const choice = await deferredInstall.userChoice.catch(() => null);
+    if(choice && choice.outcome === 'accepted'){ installBtn.style.display = 'none'; }
+    deferredInstall = null;
+  } else if(isIOS){
+    showLocTipAt(installBtn, 'To install: tap the Share button in Safari, then "Add to Home Screen". DailyBite will appear on your home screen like any app.');
+  }
+});
+function showLocTipAt(el, msg){
+  let tip = document.getElementById('installTip');
+  if(!tip){
+    tip = document.createElement('div');
+    tip.id = 'installTip';
+    tip.style.cssText = 'margin-top:8px;font-size:13px;color:#9aa3b2;max-width:560px;line-height:1.5';
+    el.parentNode.insertBefore(tip, el.nextSibling);
+  }
+  tip.textContent = msg;
+}
+window.addEventListener('appinstalled', () => { installBtn.style.display = 'none'; });
 
 // Restore distances automatically on page load if enabled within the last 24h.
 try{
