@@ -104,6 +104,8 @@
   .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
   .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
   .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .pill.openpill{background:rgba(46,193,107,.15);color:var(--good)}
+  .pill.closedpill{background:rgba(255,90,60,.15);color:var(--accent)}
   .share{background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;padding:7px 10px;border-radius:9px;cursor:pointer;white-space:nowrap}
   .share:hover{color:var(--ink);border-color:var(--muted)}
   .near{color:#7aa5ff;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
@@ -579,6 +581,62 @@ function safeUrl(u){
 /* ---- Distance engine (free OpenStreetMap lookup, opt-in via button) ---- */
 let DIST = null; // { normalizedBrand: miles }
 let STATE = null; // viewer's U.S. state, e.g. "Texas"
+let HOURS = null; // { normalizedBrand: OSM opening_hours string of nearest location }
+// Evaluate common OSM opening_hours formats in the viewer's local time.
+// Returns true (open), false (closed), or null (unknown/unparseable — show nothing).
+function openNow(oh){
+  if(!oh) return null;
+  if(/24\s*\/\s*7/.test(oh)) return true;
+  try{
+    const days = ['su','mo','tu','we','th','fr','sa'];
+    const now = new Date(), d = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
+    let anyParsed = false, open = false;
+    for(const rule of oh.toLowerCase().split(';')){
+      const r = rule.trim();
+      if(!r || r === 'closed' || r.startsWith('ph')) continue;
+      const m = r.match(/^([a-z ,\-]*?)\s*(\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}(?:\s*,\s*\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2})*)$/);
+      if(!m) return null;
+      anyParsed = true;
+      let applies = true;
+      const dayPart = m[1].trim();
+      if(dayPart){
+        applies = false;
+        for(const seg of dayPart.split(',')){
+          const t = seg.trim();
+          const range = t.match(/^([a-z]{2})\s*-\s*([a-z]{2})$/);
+          if(range){
+            const a = days.indexOf(range[1]), b = days.indexOf(range[2]);
+            if(a < 0 || b < 0) return null;
+            if(a <= b ? (d >= a && d <= b) : (d >= a || d <= b)) applies = true;
+          } else {
+            const one = days.indexOf(t.slice(0,2));
+            if(one < 0) return null;
+            if(one === d) applies = true;
+          }
+        }
+      }
+      if(!applies) continue;
+      for(const t of m[2].split(',')){
+        const tm = t.trim().match(/(\d{1,2}):(\d{2})\s*-\s*(\d{1,2}):(\d{2})/);
+        if(!tm) return null;
+        const start = (+tm[1])*60 + (+tm[2]); const end = (+tm[3])*60 + (+tm[4]);
+        if(end <= start){ if(mins >= start || mins < end) open = true; }
+        else if(mins >= start && mins < end) open = true;
+      }
+    }
+    return anyParsed ? open : null;
+  }catch(e){ return null; }
+}
+function openState(brand){
+  if(!DIST || !HOURS) return null;
+  return openNow(HOURS[normBrand(brand)]);
+}
+function openPill(brand){
+  const st = openState(brand);
+  if(st === true) return '<span class="pill openpill">\ud83d\udfe2 OPEN NOW</span>';
+  if(st === false) return '<span class="pill closedpill">\ud83d\udd34 CLOSED</span>';
+  return '';
+}
 async function stateLookup(lat, lon){
   const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=5`);
   if(!r.ok) return null;
@@ -616,6 +674,7 @@ async function loadDistances(lat, lon){
   if(!res.ok) throw new Error('lookup failed');
   const data = await res.json();
   const best = {};
+  const hours = {};
   for(const el of data.elements || []){
     const tags = el.tags || {};
     const name = normBrand(tags.brand || tags.name || '');
@@ -626,11 +685,11 @@ async function loadDistances(lat, lon){
       const nb = normBrand(b);
       if(name.includes(nb) || nb.includes(name)){
         const mi = haversineMiles(lat, lon, eLat, eLon);
-        if(best[nb] == null || mi < best[nb]) best[nb] = mi;
+        if(best[nb] == null || mi < best[nb]){ best[nb] = mi; hours[nb] = tags.opening_hours || null; }
       }
     }
   }
-  return best;
+  return {best, hours};
 }
 const locBtn = document.getElementById('locBtn');
 function showLocTip(msg){
@@ -648,16 +707,17 @@ locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
     const c = JSON.parse(localStorage.getItem('db_dist') || 'null');
-    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
+    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
   }catch(e){}
   if(!navigator.geolocation){ locBtn.textContent = '\ud83d\udccd Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
   navigator.geolocation.getCurrentPosition(async pos => {
     try{
       locBtn.textContent = 'Finding restaurants\u2026';
-      DIST = await loadDistances(pos.coords.latitude, pos.coords.longitude);
+      const res = await loadDistances(pos.coords.latitude, pos.coords.longitude);
+      DIST = res.best; HOURS = res.hours;
       try{ STATE = await stateLookup(pos.coords.latitude, pos.coords.longitude); }catch(e){ STATE = null; }
-      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST, s: STATE}));
+      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST, s: STATE, h: HOURS}));
       locBtn.textContent = locLabel();
       locBtn.classList.add('on');
       clearLocTip();
@@ -681,6 +741,7 @@ try{
   if(c0 && Date.now() - c0.t < 86400000){
     DIST = c0.d;
     STATE = c0.s || null;
+    HOURS = c0.h || null;
     locBtn.textContent = locLabel();
     locBtn.classList.add('on');
   }
@@ -700,6 +761,7 @@ function cardHTML(d){
       <div class="deal">${esc(d.deal)}</div>
       <div class="desc">${esc(d.desc)}</div>
       <div class="metarow">
+        ${openPill(d.brand)}
         ${d.isNew?'<span class="pill new">\u2728 NEW TODAY</span>':''}
         ${d.endingSoon?'<span class="pill soon">\u23f3 ENDING SOON</span>':''}
         ${d.region&&d.region!=='National'?'<span class="pill region">\ud83d\udccd '+esc(d.region.toUpperCase())+'</span>':''}
@@ -733,6 +795,7 @@ function dealScore(d){
   let s = (d.value||0)*2 + (d.best?4:0) + (d.isNew?1:0) + (d.endingSoon?1:0);
   const mi = DIST ? DIST[normBrand(d.brand)] : null;
   if(mi != null) s += Math.max(0, 10 - mi);
+  if(openState(d.brand) === false) s -= 6; // closed right now sinks
   else if(DIST) s -= 3;
   return s;
 }
