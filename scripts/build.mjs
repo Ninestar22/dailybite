@@ -143,6 +143,84 @@ function chainPage(chain, deals) {
 </html>`;
 }
 
+function freeFoodPage(deals) {
+  const free = deals.filter(d => (d.tags || []).includes("free"));
+  const rest = deals.filter(d => !(d.tags || []).includes("free")).sort((a, b) => b.value - a.value).slice(0, 8);
+  const title = `Free Food Today \u2014 ${free.length} Verified Freebies & Deals (Updated ${prettyDate})`;
+  const desc = free.length
+    ? `${free.length} verified free food deals available today: ${free.slice(0, 2).map(d => d.deal).join("; ")}. Updated every morning \u2014 no signups, no points, no fine print.`
+    : `Today's best verified food deals, updated every morning. No signups, no points, no fine print.`;
+  const sec1 = free.length ? `<h2 style="font-size:19px;margin:20px 2px 8px">Free right now</h2><div class="grid">${free.map(dealCard).join("\n")}</div>` : "";
+  const sec2 = rest.length ? `<h2 style="font-size:19px;margin:24px 2px 8px">Nearly free \u2014 today's best cheap deals</h2><div class="grid">${rest.map(dealCard).join("\n")}</div>` : "";
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="max-image-preview:large">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T733JQ04GP');
+</script>
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${SITE}/free-food-today">
+<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${SITE}/free-food-today">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:image" content="https://dailybitedeals.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>${CHAIN_CSS}</style>
+</head>
+<body>
+<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<div class="wrap">
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>Free Food Today</h1>
+  <p class="tag">Every deal below is verified this morning and claimable by anyone on a single visit &mdash; no signups, no points, no fine print.</p>
+  ${sec1}
+  ${sec2}
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
+  <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+</div>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a></footer>
+</body>
+</html>`;
+}
+
+function rssFeed(deals) {
+  const items = deals.map(d => `  <item>
+    <title>${esc(d.brand)}: ${esc(d.deal)}</title>
+    <link>${SITE}/</link>
+    <guid isPermaLink="false">${esc(d.brand)}-${esc(d.deal).slice(0, 40)}-${iso}</guid>
+    <pubDate>${new Date().toUTCString()}</pubDate>
+    <description>${esc(d.desc)} (${esc(d.expires)})</description>
+  </item>`).join("\n");
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>DailyBite \u2014 Daily Food Deals</title>
+  <link>${SITE}</link>
+  <description>The best verified food deals, updated every morning.</description>
+  <language>en-us</language>
+${items}
+</channel>
+</rss>
+`;
+}
+
 const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
 
 function dayPage(day, deals) {
@@ -254,8 +332,13 @@ function main() {
   }
   console.log(`Built ${DAYS.length} day pages.`);
 
+  // 2c. Free-food hub + RSS feed
+  writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
+  writeFileSync(join(root, "feed.xml"), rssFeed(deals));
+  console.log("Built free-food-today.html and feed.xml.");
+
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`)];
+  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
