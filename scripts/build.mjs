@@ -34,6 +34,8 @@ const CHAINS = [
   { slug: "smoothie-king-deals", name: "Smoothie King" },
   { slug: "tropical-smoothie-deals", name: "Tropical Smoothie" },
   { slug: "jamba-deals",       name: "Jamba" },
+  { slug: "salad-and-go-deals", name: "Salad and Go" },
+  { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
 ];
 
