@@ -6,8 +6,8 @@
       "cat": "Desserts",
       "color": "#009f6b",
       "ic": "KK",
-      "deal": "🎆 Independence Day Free Doughnut — Wear Red, White & Blue",
-      "desc": "Walk into any participating Krispy Kreme on July 4 wearing red, white, and blue and score one free Original Glazed doughnut — no purchase required.",
+      "deal": "\ud83c\udf86 Independence Day Free Doughnut \u2014 Wear Red, White & Blue",
+      "desc": "Walk into any participating Krispy Kreme on July 4 wearing red, white, and blue and score one free Original Glazed doughnut \u2014 no purchase required.",
       "tags": [
         "free"
       ],
@@ -15,14 +15,14 @@
       "expires": "July 4 only",
       "url": "https://www.krispykreme.com/promos",
       "region": "National",
-      "best": false
+      "best": true
     },
     {
       "brand": "Krispy Kreme",
       "cat": "Desserts",
       "color": "#009f6b",
       "ic": "KK",
-      "deal": "🎆 $2.50 Original Glazed Dozen with Any Dozen Purchase",
+      "deal": "\ud83c\udf86 $2.50 Original Glazed Dozen with Any Dozen Purchase",
       "desc": "Use code USA online or in-app through July 5 to add an Original Glazed dozen for just $2.50 when you buy any dozen or 16-count Minis at regular price.",
       "tags": [
         "app"
@@ -38,7 +38,7 @@
       "cat": "Burgers",
       "color": "#f5821f",
       "ic": "BK",
-      "deal": "🎆 $2.50 Whopper Jr. — July 4th America 250 Special",
+      "deal": "\ud83c\udf86 $2.50 Whopper Jr. \u2014 July 4th America 250 Special",
       "desc": "Royal Perks members can grab a Whopper Jr. for just $2.50 on July 4 when ordering through the BK app or BK.com.",
       "tags": [
         "app"
@@ -54,7 +54,7 @@
       "cat": "Burgers",
       "color": "#005da8",
       "ic": "SN",
-      "deal": "🎆 America $2.50 Menu — Jr. Cheeseburger, Hot Dog, Rings & Float",
+      "deal": "\ud83c\udf86 America $2.50 Menu \u2014 Jr. Cheeseburger, Hot Dog, Rings & Float",
       "desc": "Through July 12, snag the Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or the Red, White & Blue Slush Float for just $2.50 each.",
       "tags": [
         "app"
@@ -70,7 +70,7 @@
       "cat": "Chicken",
       "color": "#f40027",
       "ic": "KFC",
-      "deal": "🎆 'Finger Lickin' Fourth' — 12-Piece Bucket for $15",
+      "deal": "\ud83c\udf86 'Finger Lickin' Fourth' \u2014 12-Piece Bucket for $15",
       "desc": "Score a 12-piece bucket of KFC's famous fried chicken for only $15 as part of its limited-time Fourth of July promotion.",
       "tags": [
         "app"
@@ -86,8 +86,8 @@
       "cat": "Coffee",
       "color": "#ff671f",
       "ic": "DD",
-      "deal": "🎆 $3 Medium Refreshers After 1 PM — July 4th Week",
-      "desc": "Get any medium Dunkin' Refresher for just $3 after 1 PM daily through July 7 — no code needed at participating locations.",
+      "deal": "\ud83c\udf86 $3 Medium Refreshers After 1 PM \u2014 July 4th Week",
+      "desc": "Get any medium Dunkin' Refresher for just $3 after 1 PM daily through July 7 \u2014 no code needed at participating locations.",
       "tags": [
         "app"
       ],
@@ -102,8 +102,8 @@
       "cat": "Coffee",
       "color": "#00704a",
       "ic": "SB",
-      "deal": "🎆 Firework Frappuccino — Limited-Edition 4th of July Drink",
-      "desc": "Celebrate America's 250th with Starbucks' new red, white, and blue Firework Frappuccino — available now through July 7 at participating stores.",
+      "deal": "\ud83c\udf86 Firework Frappuccino \u2014 Limited-Edition 4th of July Drink",
+      "desc": "Celebrate America's 250th with Starbucks' new red, white, and blue Firework Frappuccino \u2014 available now through July 7 at participating stores.",
       "tags": [
         "app"
       ],
@@ -118,8 +118,8 @@
       "cat": "Desserts",
       "color": "#c8102e",
       "ic": "DQ",
-      "deal": "🎆 $2.50 Stars & Stripes Misty Slush Float",
-      "desc": "DQ's patriotic cherry and blue-raspberry slush float topped with soft-serve and star sprinkles is just $2.50 through July 5 — rewards members also earn 250 bonus points.",
+      "deal": "\ud83c\udf86 $2.50 Stars & Stripes Misty Slush Float",
+      "desc": "DQ's patriotic cherry and blue-raspberry slush float topped with soft-serve and star sprinkles is just $2.50 through July 5 \u2014 rewards members also earn 250 bonus points.",
       "tags": [
         "app"
       ],
@@ -134,8 +134,8 @@
       "cat": "Mexican",
       "color": "#a81612",
       "ic": "CH",
-      "deal": "Summer of Extras — Free Entrées & Exclusive Offers All July",
-      "desc": "Chipotle Rewards members who opt in unlock free entrées, bonus points, and weekly Rewards Exchange deals through August 31 — July is the second of three months.",
+      "deal": "Summer of Extras \u2014 Free Entr\u00e9es & Exclusive Offers All July",
+      "desc": "Chipotle Rewards members who opt in unlock free entr\u00e9es, bonus points, and weekly Rewards Exchange deals through August 31 \u2014 July is the second of three months.",
       "tags": [
         "app"
       ],
@@ -143,14 +143,14 @@
       "expires": "Through Aug 31",
       "url": "https://www.chipotle.com/rewards",
       "region": "National",
-      "best": false
+      "best": true
     },
     {
       "brand": "Popeyes",
       "cat": "Chicken",
       "color": "#f47920",
       "ic": "PO",
-      "deal": "$6 Big Box — 2 Chicken Pieces, 2 Sides & Biscuit",
+      "deal": "$6 Big Box \u2014 2 Chicken Pieces, 2 Sides & Biscuit",
       "desc": "Popeyes' $6 Big Box is back nationwide through July 13, packing two pieces of chicken or three tenders, two sides, and a buttermilk biscuit into one deal.",
       "tags": [
         "app"
@@ -166,8 +166,8 @@
       "cat": "Pizza",
       "color": "#ee3124",
       "ic": "PH",
-      "deal": "$9.99 Any Pizza Deal — Includes Parmesan Stuffed Crust",
-      "desc": "Pizza Hut's $9.99 Any Pizza deal is back through July 26, now including Parmesan Stuffed Crust at no extra charge — order online or in-app.",
+      "deal": "$9.99 Any Pizza Deal \u2014 Includes Parmesan Stuffed Crust",
+      "desc": "Pizza Hut's $9.99 Any Pizza deal is back through July 26, now including Parmesan Stuffed Crust at no extra charge \u2014 order online or in-app.",
       "tags": [
         "app"
       ],
@@ -182,7 +182,7 @@
       "cat": "Pizza",
       "color": "#006491",
       "ic": "DO",
-      "deal": "$7.99 Carryout Special — Any 1-Topping Pizza or Wings",
+      "deal": "$7.99 Carryout Special \u2014 Any 1-Topping Pizza or Wings",
       "desc": "Pick up any 1-topping medium pizza, 8-piece wings, or boneless chicken for $7.99 each via the Domino's carryout deal (some areas $8.99 for 2-topping).",
       "tags": [
         "app"
@@ -215,8 +215,8 @@
       "cat": "Burgers",
       "color": "#f5821f",
       "ic": "BK",
-      "deal": "Free Any-Size Fries with $3 App Purchase — Weekly",
-      "desc": "Royal Perks members get a free any-size fry every week with a $3+ purchase when ordering through the BK app — an ongoing recurring deal.",
+      "deal": "Free Any-Size Fries with $3 App Purchase \u2014 Weekly",
+      "desc": "Royal Perks members get a free any-size fry every week with a $3+ purchase when ordering through the BK app \u2014 an ongoing recurring deal.",
       "tags": [
         "free",
         "app"
@@ -232,8 +232,8 @@
       "cat": "Chicken",
       "color": "#bc0000",
       "ic": "AR",
-      "deal": "$1.99 Sliders — Roast Beef, Chicken & More",
-      "desc": "Arby's new $1.99 Sliders lineup offers roast beef, buffalo chicken, chicken, and ham, each packed with 10–11g of protein — available nationwide now.",
+      "deal": "$1.99 Sliders \u2014 Roast Beef, Chicken & More",
+      "desc": "Arby's new $1.99 Sliders lineup offers roast beef, buffalo chicken, chicken, and ham, each packed with 10\u201311g of protein \u2014 available nationwide now.",
       "tags": [
         "app"
       ],
@@ -248,7 +248,7 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "Luxe Cravings Box — Chalupa, Burrito, Taco, Chips & Drink for $7",
+      "deal": "Luxe Cravings Box \u2014 Chalupa, Burrito, Taco, Chips & Drink for $7",
       "desc": "The Taco Bell app's Luxe Cravings Box packs a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips & nacho cheese, and a medium drink for $7.",
       "tags": [
         "app"
@@ -264,8 +264,8 @@
       "cat": "Smoothies",
       "color": "#6f2282",
       "ic": "SK",
-      "deal": "$3 Off Any Smoothie 20 oz or Larger — Rewards Members",
-      "desc": "Healthy Rewards members can claim $3 off any smoothie 20 oz or larger via the Smoothie King app — verified active this week.",
+      "deal": "$3 Off Any Smoothie 20 oz or Larger \u2014 Rewards Members",
+      "desc": "Healthy Rewards members can claim $3 off any smoothie 20 oz or larger via the Smoothie King app \u2014 verified active this week.",
       "tags": [
         "app"
       ],
@@ -290,7 +290,7 @@
       "expires": "Ongoing",
       "url": "https://www.tropicalsmoothiecafe.com/rewards",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "Chipotle",
@@ -298,7 +298,7 @@
       "color": "#a81612",
       "ic": "CH",
       "deal": "Free Chips & Guac for New Chipotle Rewards Members",
-      "desc": "New Chipotle Rewards members get free chips and guacamole after their first order when they sign up and opt in via the Chipotle app — available all summer.",
+      "desc": "New Chipotle Rewards members get free chips and guacamole after their first order when they sign up and opt in via the Chipotle app \u2014 available all summer.",
       "tags": [
         "free",
         "app"
@@ -307,15 +307,15 @@
       "expires": "Through Aug 31",
       "url": "https://www.chipotle.com/rewards",
       "region": "National",
-      "best": true
+      "best": false
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
       "color": "#c1392b",
       "ic": "PA",
-      "deal": "MyPanera Exclusive: New Iced Coffee Flavors — Hazelnut Mocha, Rocky Road & Snickerdoodle",
-      "desc": "MyPanera rewards members get exclusive access to three new seasonal Iced Coffees — Hazelnut Mocha, Rocky Road, and Snickerdoodle — only via the app.",
+      "deal": "MyPanera Exclusive: New Iced Coffee Flavors \u2014 Hazelnut Mocha, Rocky Road & Snickerdoodle",
+      "desc": "MyPanera rewards members get exclusive access to three new seasonal Iced Coffees \u2014 Hazelnut Mocha, Rocky Road, and Snickerdoodle \u2014 only via the app.",
       "tags": [
         "app"
       ],
@@ -330,8 +330,8 @@
       "cat": "Coffee",
       "color": "#ff671f",
       "ic": "DD",
-      "deal": "🎆 Patriotic 4th of July Menu — Rocket Pop Donut & Dazzleberry Coolatta",
-      "desc": "Dunkin' is serving a full America 250 lineup including the Rocket Pop Donut, Dazzleberry Coolatta, Strawberry Sparkler Cloud Latte, and Starlight Lemonade — available now through the holiday weekend.",
+      "deal": "\ud83c\udf86 Patriotic 4th of July Menu \u2014 Rocket Pop Donut & Dazzleberry Coolatta",
+      "desc": "Dunkin' is serving a full America 250 lineup including the Rocket Pop Donut, Dazzleberry Coolatta, Strawberry Sparkler Cloud Latte, and Starlight Lemonade \u2014 available now through the holiday weekend.",
       "tags": [
         "app"
       ],
@@ -346,8 +346,8 @@
       "cat": "Chicken",
       "color": "#f40027",
       "ic": "KFC",
-      "deal": "Weekday $10 Bucket of the Day — Mon–Fri",
-      "desc": "KFC app members unlock a different $10 chicken bucket each weekday — nuggets Monday/Friday, legs & thighs Tuesday, tenders Thursday, and wings Wednesday.",
+      "deal": "Weekday $10 Bucket of the Day \u2014 Mon\u2013Fri",
+      "desc": "KFC app members unlock a different $10 chicken bucket each weekday \u2014 nuggets Monday/Friday, legs & thighs Tuesday, tenders Thursday, and wings Wednesday.",
       "tags": [
         "app"
       ],
@@ -362,7 +362,7 @@
       "cat": "Smoothies",
       "color": "#f7941d",
       "ic": "JA",
-      "deal": "$10 Smoothie Bowls In-App — Acai & More",
+      "deal": "$10 Smoothie Bowls In-App \u2014 Acai & More",
       "desc": "Select Jamba smoothie bowls are available for $10 when the promotional price is shown in the app or website at participating U.S. locations.",
       "tags": [
         "app"
