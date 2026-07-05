@@ -143,6 +143,66 @@ function chainPage(chain, deals) {
 </html>`;
 }
 
+const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+
+function dayPage(day, deals) {
+  const cap = day[0].toUpperCase() + day.slice(1);
+  const rx = new RegExp(day, "i");
+  const todays = deals.filter(d => rx.test(d.expires || "") || rx.test(d.deal || ""));
+  const everyday = deals.filter(d => !todays.includes(d) && /ongoing|every day|daily/i.test(d.expires || "")).slice(0, 6);
+  const title = `${cap} Food Deals & Freebies — Updated Daily`;
+  const desc = todays.length
+    ? `${todays.length} verified ${cap} food deal${todays.length > 1 ? "s" : ""}: ${todays.slice(0, 2).map(d => d.deal).join("; ")}. Plus everyday deals — checked ${prettyDate}.`
+    : `The best verified food deals available on ${cap}s, updated every morning. Checked ${prettyDate}.`;
+  const sec1 = todays.length ? `<h2 style="font-size:19px;margin:20px 2px 8px">Deals that repeat every ${cap}</h2><div class="grid">${todays.map(dealCard).join("\n")}</div>` : "";
+  const sec2 = everyday.length ? `<h2 style="font-size:19px;margin:24px 2px 8px">Great any day of the week</h2><div class="grid">${everyday.map(dealCard).join("\n")}</div>` : "";
+  const body = (sec1 + sec2) || `<div class="empty">No ${cap}-specific deals verified today — check the <a href="/" style="color:var(--accent2)">full list</a>.</div>`;
+  const dayNav = DAYS.map(x => x === day ? `<strong>${x[0].toUpperCase()+x.slice(1)}</strong>` : `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ");
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T733JQ04GP');
+</script>
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${SITE}/${day}-food-deals">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${SITE}/${day}-food-deals">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#0f1115">
+<meta property="og:image" content="https://dailybitedeals.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<style>${CHAIN_CSS}</style>
+</head>
+<body>
+<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<div class="wrap">
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>${esc(cap)} Food Deals &amp; Freebies</h1>
+  <p class="tag">Every deal below is verified each morning and claimable by anyone &mdash; no signups, no points, no fine print.</p>
+  ${body}
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
+  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>
+</div>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
+</body>
+</html>`;
+}
+
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
   const deals = Array.isArray(data) ? data : data.deals;
@@ -188,8 +248,14 @@ function main() {
   }
   console.log(`Built ${CHAINS.length} chain pages.`);
 
+  // 2b. Day-of-week pages
+  for (const day of DAYS) {
+    writeFileSync(join(root, `${day}-food-deals.html`), dayPage(day, deals));
+  }
+  console.log(`Built ${DAYS.length} day pages.`);
+
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
