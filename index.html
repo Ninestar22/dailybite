@@ -104,6 +104,8 @@
   .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
   .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
   .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .share{background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;padding:7px 10px;border-radius:9px;cursor:pointer;white-space:nowrap}
+  .share:hover{color:var(--ink);border-color:var(--muted)}
   .near{color:#7aa5ff;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
   .locbtn{margin-top:8px;border-color:#7aa5ff;color:#7aa5ff}
   .locbtn.on{background:#7aa5ff;color:#0f1115;border-color:#7aa5ff}
@@ -173,6 +175,7 @@
 </div>
 
 <nav class="chains"><strong>Deals by restaurant:</strong> <a href="/mcdonalds-deals">McDonald&#39;s</a> &middot; <a href="/taco-bell-deals">Taco Bell</a> &middot; <a href="/wendys-deals">Wendy&#39;s</a> &middot; <a href="/burger-king-deals">Burger King</a> &middot; <a href="/chipotle-deals">Chipotle</a> &middot; <a href="/chick-fil-a-deals">Chick-fil-A</a> &middot; <a href="/starbucks-deals">Starbucks</a> &middot; <a href="/panera-deals">Panera</a> &middot; <a href="/pizza-hut-deals">Pizza Hut</a> &middot; <a href="/popeyes-deals">Popeyes</a> &middot; <a href="/dunkin-deals">Dunkin&#39;</a> &middot; <a href="/sonic-deals">Sonic</a> &middot; <a href="/arbys-deals">Arby&#39;s</a> &middot; <a href="/kfc-deals">KFC</a> &middot; <a href="/dominos-deals">Domino&#39;s</a> &middot; <a href="/subway-deals">Subway</a></nav>
+<nav class="chains"><strong>Deals by day:</strong> <a href="/monday-food-deals">Monday</a> &middot; <a href="/tuesday-food-deals">Tuesday</a> &middot; <a href="/wednesday-food-deals">Wednesday</a> &middot; <a href="/thursday-food-deals">Thursday</a> &middot; <a href="/friday-food-deals">Friday</a> &middot; <a href="/saturday-food-deals">Saturday</a> &middot; <a href="/sunday-food-deals">Sunday</a></nav>
 
 <footer>
   Sources &amp; deal aggregators: McDonald's, Taco Bell, Wendy's official apps, plus Brand Eating,
@@ -526,7 +529,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-05T03:12:04.238Z"};
+const META = {"verifiedAt":"2026-07-05T03:53:25.604Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -706,11 +709,24 @@ function cardHTML(d){
       <div class="foot">
         <span class="expires">\u23f1 ${esc(d.expires)}</span>
         <a class="near" data-brand="${esc(d.brand)}" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">${nearLabel(d.brand)}</a>
+        <button class="share" data-s="${encodeURIComponent(d.brand + ': ' + d.deal)}" onclick="shareDeal(this)" title="Share this deal">\u2197 Share</button>
         <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal \u2192</a>
       </div>
     </div>`;
 }
 
+function shareDeal(el){
+  const txt = decodeURIComponent(el.dataset.s);
+  const url = 'https://dailybitedeals.com';
+  if(navigator.share){
+    navigator.share({title: 'DailyBite deal', text: txt, url}).catch(()=>{});
+  } else if(navigator.clipboard){
+    navigator.clipboard.writeText(txt + ' \u2014 ' + url).then(()=>{
+      const t = el.textContent; el.textContent = '\u2713 Copied';
+      setTimeout(()=>{ el.textContent = t; }, 1400);
+    }).catch(()=>{});
+  }
+}
 // Blend deal quality with proximity: value 2-10 pts, Top Pick +4,
 // fresh/expiring +1 each, and up to +10 for being close (fades out by 10 mi).
 function dealScore(d){
