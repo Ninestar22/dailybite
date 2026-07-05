@@ -223,23 +223,6 @@
       "region": "National"
     },
     {
-      "brand": "Chipotle",
-      "cat": "Bowls",
-      "color": "#441600",
-      "ic": "CH",
-      "deal": "Summer of Extras \u2014 Earn a FREE Entr\u00e9e After 7 Visits/Month",
-      "desc": "Chipotle Rewards members who activate Summer of Extras in-app can earn bonus points with every entr\u00e9e purchase and unlock a free entr\u00e9e or 1,625 points after completing 7 visits in July \u2014 runs through August 31.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.chipotle.com/rewards",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Panera Bread",
       "cat": "Cafe",
       "color": "#377A1A",
