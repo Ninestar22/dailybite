@@ -138,7 +138,7 @@ function chainPage(chain, deals) {
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -195,7 +195,7 @@ function freeFoodPage(deals) {
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -276,7 +276,7 @@ function dayPage(day, deals) {
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
