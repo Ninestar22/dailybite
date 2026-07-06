@@ -333,6 +333,12 @@ function main() {
   // Exclude deals locked behind PAID subscriptions/memberships (DashPass, Uber One, etc.).
   const beforeSub = deals.length;
   deals = deals.filter(d => !/dashpass|uber one|grubhub\+|paid member|subscription|subscriber/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+
+  // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
+  deals = deals.filter(d => !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+
+  // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
+  deals = deals.filter(d => !/every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
   if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
 
   // 1. Homepage injection
