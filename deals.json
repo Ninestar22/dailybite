@@ -1,1 +1,187 @@
-{"updated":"2026-07-06","deals":[{"brand":"Burger King","cat":"Burgers","color":"#FF6600","ic":"BK","deal":"BOGO Whopper \u2014 Watch Party Week","desc":"Buy one Whopper, get one free via the BK App during the FIFA World Cup Watch Party Week promotion.","tags":["app"],"value":4,"expires":"Through July 8","url":"https://www.bk.com/offers","best":false,"region":"National"},{"brand":"Domino's","cat":"Pizza","color":"#006491","ic":"D","deal":"Any Pizza for $9.99","desc":"Order any pizza any crust (including Parmesan Stuffed Crust) with up to 7 toppings for just $9.99 via the app or online.","tags":["app"],"value":4,"expires":"Through July 26","url":"https://www.dominos.com/en/pages/content/locales/deals.html","best":false,"region":"National"},{"brand":"Pizza Hut","cat":"Pizza","color":"#EE3124","ic":"PH","deal":"BOGO Create Your Own Large Pizza","desc":"Buy one large Create Your Own pizza and get a second free through the Pizza Hut app during Watch Party Week.","tags":["app"],"value":4,"expires":"Through July 8","url":"https://www.pizzahut.com/deals","best":false,"region":"National"},{"brand":"Sonic","cat":"Burgers","color":"#FFBE00","ic":"SO","deal":"America $2.50 Menu","desc":"Score the Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or Red White & Blue Slush Float for just $2.50 each.","tags":["app"],"value":4,"expires":"Through July 12","url":"https://www.sonicdrivein.com/deals","best":false,"region":"National"},{"brand":"Taco Bell","cat":"Mexican","color":"#702082","ic":"TB","deal":"$5.99 Luxe Cravings Box","desc":"Get a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips & nacho cheese, and a medium drink for $5.99 via the app.","tags":["app"],"value":4,"expires":"Ongoing","url":"https://www.tacobell.com/offers","best":false,"region":"National"},{"brand":"Wendy's","cat":"Burgers","color":"#E2003A","ic":"W","deal":"$5 Biggie Bag","desc":"Get a Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-piece nuggets, jr. fries, and a small drink for just $5 in the app.","tags":["app"],"value":4,"expires":"Ongoing","url":"https://www.wendys.com/deals","best":false,"region":"National"},{"brand":"Chipotle","cat":"Mexican","color":"#441500","ic":"C","deal":"BOGO Entree \u2014 PGA TOUR Hot Streak","desc":"Watch the official @PGATOUR account on X or Instagram for a keyword drop, text it to 888222 for a BOGO entree code valid on a single visit.","tags":["app"],"value":4,"expires":"Through Dec 31, 2026","url":"https://www.chipotle.com/offers","best":true,"region":"National"},{"brand":"Panera Bread","cat":"Cafe","color":"#008000","ic":"P","deal":"Mix & Match Value Menu \u2014 $4.99 Each","desc":"Panera's Mix & Match menu offers a rotating selection of soups, sandwiches, and salads priced at $4.99 each via the app.","tags":["app"],"value":4,"expires":"Ongoing","url":"https://www.panerabread.com/en-us/app.html","best":true,"region":"National"},{"brand":"Domino's","cat":"Pizza","color":"#006491","ic":"D","deal":"$7.99 Carryout Special","desc":"Get any 1-topping carryout pizza (excludes XL), 8-piece wings, or boneless chicken for $7.99 when you order online or in the app.","tags":["app"],"value":3,"expires":"Ongoing","url":"https://www.dominos.com/en/pages/content/locales/deals.html","best":false,"region":"National"},{"brand":"Subway","cat":"Subs","color":"#009B3A","ic":"S","deal":"Classic Footlong for $5.99 via App","desc":"Rotating app promo codes offer a classic Footlong sub for $5.99 \u2014 check the Subway app for the current active code.","tags":["app"],"value":4,"expires":"Ongoing (rotating)","url":"https://www.subway.com/en-US/MenuNutrition/Menu/Deals","best":false,"region":"National"}]}
+{
+  "updated": "2026-07-06",
+  "deals": [
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#6d2b2e",
+      "ic": "Pa",
+      "deal": "BOGO $5 Entree — Code BOGO5",
+      "desc": "Buy any whole sandwich, salad, Market Bowl, Salad Stuffer, soup, or mac and get a second for just $5 using code BOGO5 at checkout.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#6d2b2e",
+      "ic": "Pa",
+      "deal": "Mix & Match $4.99 Menu",
+      "desc": "Order up to 10 half-portion items — soups, sandwiches, salads — each at $4.99, saving roughly 40% off regular prices.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "Ch",
+      "deal": "PGA TOUR Hot Streak BOGO Entree",
+      "desc": "During select PGA TOUR broadcasts, watch @PGATOUR on X or Instagram for a keyword drop, text it to 888222, and get a BOGO entree code.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through Dec 31, 2026",
+      "url": "https://www.chipotle.com/rewards",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "$9.99 Any Pizza, Any Crust",
+      "desc": "Get any pizza on any crust — including Parmesan Stuffed Crust — with up to 7 toppings for $9.99 when you order online or in app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.dominos.com/en/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Pizza Hut",
+      "cat": "Pizza",
+      "color": "#ee3124",
+      "ic": "PH",
+      "deal": "MyHut Box from $6.99",
+      "desc": "Pick any entree plus a side — 2-topping pizzas, Specialty Chicken, sandwiches, stuffed breads, boneless wings, pasta, or Loaded Tots — each for $6.99 (buy 2+).",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.pizzahut.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Dunkin'",
+      "cat": "Coffee",
+      "color": "#ff671f",
+      "ic": "Dk",
+      "deal": "$6 Meal Deal",
+      "desc": "Score a medium hot or iced coffee plus two Wake-Up Wrap Sandwiches for just $6 at Dunkin'.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.dunkindonuts.com/en/menu/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Sonic Drive-In",
+      "cat": "Burgers",
+      "color": "#004990",
+      "ic": "So",
+      "deal": "America $2.50 Menu",
+      "desc": "Four items — Red, White & Blue Slush Float, Jr. Double Cheeseburger, All-American Hot Dog, and Medium Onion Rings — all priced at $2.50 each.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through July 12, 2026",
+      "url": "https://www.sonicdrivein.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Papa John's",
+      "cat": "Pizza",
+      "color": "#ba0c2f",
+      "ic": "PJ",
+      "deal": "Toy Story Pizzas — $7.99 Each (Buy 2+)",
+      "desc": "Get Toy Story 5-themed pizzas (3 varieties) for $7.99 each (reg. $8.99) when you buy two or more; comes in a collectible Toy Story 5 box.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.papajohns.com/order/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Arby's",
+      "cat": "Chicken",
+      "color": "#c8102e",
+      "ic": "Ar",
+      "deal": "$7.99 Meat & 3 Box",
+      "desc": "Choose a Roast Beef or Crispy Chicken Sandwich, pick three sides, and get a small drink — all for $7.99.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.arbys.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Einstein Bros. Bagels",
+      "cat": "Cafe",
+      "color": "#005dab",
+      "ic": "EB",
+      "deal": "$1.99 Any-Size Iced Coffee",
+      "desc": "Grab any size iced coffee — Vanilla, Caramel, Chocolate, or Classic — for just $1.99 at participating Einstein Bros. locations nationwide.",
+      "tags": [],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.einsteinbros.com/coupons",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008c15",
+      "ic": "Su",
+      "deal": "Moana Meal Deal — Upgrade for $1",
+      "desc": "Upgrade any combo meal for just $1 more to receive one of five collectible Moana live-action film cups plus a $15 Fandango promo code.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/en-US/MenuNutrition/Menu/Deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Score a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips with nacho cheese, and a medium drink for $5.99 via the Taco Bell app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/deals",
+      "best": false,
+      "region": "National"
+    }
+  ]
+}
