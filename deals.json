@@ -1,68 +1,20 @@
 {
-  "updated": "2026-07-05",
+  "updated": "2026-07-06",
   "deals": [
     {
-      "brand": "Krispy Kreme",
-      "cat": "Desserts",
-      "color": "#006F3E",
-      "ic": "KK",
-      "deal": "4th of July: $2.50 Original Glazed Dozen Add-On (Last Day!)",
-      "desc": "Use code USA online or in-app to add an Original Glazed dozen for just $2.50 with any dozen purchase — America's 250th birthday special ends today.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "July 5 only",
-      "url": "https://www.krispykreme.com/promos",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Starbucks",
-      "cat": "Coffee",
-      "color": "#00704A",
-      "ic": "S",
-      "deal": "4th of July Firework Frappuccino",
-      "desc": "Limited-edition red, white & blue layered Firework Frappuccino with strawberry purée, pearls, and vanilla sweet cream — a holiday-exclusive drink through July 7.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through July 7",
-      "url": "https://www.starbucks.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#E04D1A",
-      "ic": "EPL",
-      "deal": "Loco Rewards App: Exclusive In-App Boosts & Deals",
-      "desc": "Download the Loco Rewards app for exclusive in-app Boosts and offers on fire-grilled chicken bowls, salads, and more — healthy drive-thru dining year-round.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.elpolloloco.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
+      "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#003B6F",
-      "ic": "SN",
-      "deal": "America $2.50 Menu — 4th of July Special",
-      "desc": "Snag the Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or Red, White & Blue Slush Float for just $2.50 each through July 12.",
+      "color": "#FF6600",
+      "ic": "BK",
+      "deal": "BOGO Whopper — Watch Party Week",
+      "desc": "Buy one Whopper, get one free via the BK App during the FIFA World Cup Watch Party Week promotion.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through July 12",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": true,
+      "expires": "Through July 8",
+      "url": "https://www.bk.com/offers",
+      "best": false,
       "region": "National"
     },
     {
@@ -70,60 +22,94 @@
       "cat": "Pizza",
       "color": "#006491",
       "ic": "D",
-      "deal": "Any Pizza Any Crust $9.99 — Parmesan Stuffed Crust Included",
-      "desc": "Order any pizza with any crust and up to 7 toppings for $9.99 online or in-app — Parmesan Stuffed Crust now included at no extra charge through July 26.",
+      "deal": "Any Pizza for $9.99",
+      "desc": "Order any pizza any crust (including Parmesan Stuffed Crust) with up to 7 toppings for just $9.99 via the app or online.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through July 26",
-      "url": "https://www.dominos.com/en/pages/content/local/best-deal-ever.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "K",
-      "deal": "Finger Lickin' Fourth: 12-Piece Bucket for $15",
-      "desc": "Grab a 12-piece Original or Extra Crispy chicken bucket for $15 as part of KFC's Finger Lickin' Fourth promotion through July 11.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 11",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dairy Queen",
-      "cat": "Desserts",
-      "color": "#E31837",
-      "ic": "DQ",
-      "deal": "$2.50 Stars & Stripes Misty Slush Float — Last Day!",
-      "desc": "Celebrate Independence Day weekend with a cherry and blue raspberry patriotic Misty Slush Float topped with soft-serve for $2.50 — final day today.",
-      "tags": [],
-      "value": 4,
-      "expires": "July 5 only",
-      "url": "https://www.dairyqueen.com/en-us/deals",
+      "url": "https://www.dominos.com/en/pages/content/locales/deals.html",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Pizza Hut",
       "cat": "Pizza",
-      "color": "#E31837",
+      "color": "#EE3124",
       "ic": "PH",
-      "deal": "$6.99 MyHut Box — Entree + Side",
-      "desc": "MyHut Box gets you an entree and side starting at $6.99 via the Pizza Hut app or online at participating locations.",
+      "deal": "BOGO Create Your Own Large Pizza",
+      "desc": "Buy one large Create Your Own pizza and get a second free through the Pizza Hut app during Watch Party Week.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 8",
+      "url": "https://www.pizzahut.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#FFBE00",
+      "ic": "SO",
+      "deal": "America $2.50 Menu",
+      "desc": "Score the Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or Red White & Blue Slush Float for just $2.50 each.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 12",
+      "url": "https://www.sonicdrivein.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Get a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips & nacho cheese, and a medium drink for $5.99 via the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$3.59 Three Grilled Chicken Tacos on Thursdays",
+      "desc": "Every Thursday from 3–11 PM, Taco Bell app rewards members can grab three Grilled Chicken Tacos starting at $3.59.",
       "tags": [
         "app"
       ],
       "value": 3,
+      "expires": "Every Thursday",
+      "url": "https://www.tacobell.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Burgers",
+      "color": "#E2003A",
+      "ic": "W",
+      "deal": "$5 Biggie Bag",
+      "desc": "Get a Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-piece nuggets, jr. fries, and a small drink for just $5 in the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.pizzahut.com/deals",
+      "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
     },
@@ -132,144 +118,209 @@
       "cat": "Burgers",
       "color": "#FFC72C",
       "ic": "M",
-      "deal": "Free Medium Fries Every Friday ($1 min. purchase)",
-      "desc": "Every Friday, order through the McDonald's app with any $1+ purchase and add a free medium fries — a recurring weekly app perk.",
+      "deal": "Free Medium Fries Every Friday",
+      "desc": "Get free medium fries with any $1+ purchase every Friday when you order through the McDonald's app.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Every Friday",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "BOGO Entree — PGA TOUR Hot Streak",
+      "desc": "Watch the official @PGATOUR account on X or Instagram for a keyword drop, text it to 888222 for a BOGO entree code valid on a single visit.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through Dec 31, 2026",
+      "url": "https://www.chipotle.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#008000",
+      "ic": "P",
+      "deal": "Mix & Match Value Menu — $4.99 Each",
+      "desc": "Panera's Mix & Match menu offers a rotating selection of soups, sandwiches, and salads priced at $4.99 each via the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/app.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Smoothie King",
+      "cat": "Smoothies",
+      "color": "#5A2D82",
+      "ic": "SK",
+      "deal": "Free Upsize Friday for Rewards Members",
+      "desc": "Every Friday, Healthy Rewards members can upgrade from a 20 oz to a 32 oz smoothie for free when ordering through the app.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
       "expires": "Every Friday",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
+      "url": "https://www.smoothieking.com/healthy-rewards",
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#FFC72C",
-      "ic": "M",
-      "deal": "$5 McValue Meal Deal",
-      "desc": "Bundle a sandwich, small fries, small drink, and 4-piece Chicken McNuggets for $5 via the McDonald's app at participating locations.",
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#FF6B00",
+      "ic": "TS",
+      "deal": "Morning Happy Hour — $4.99 Smoothies Before 9 AM",
+      "desc": "Score any 24 oz smoothie for just $4.99 every day during morning happy hour from 7–9 AM at participating locations.",
       "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Daily 7–9 AM",
+      "url": "https://www.tropicalsmoothiecafe.com/rewards",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#FF6B00",
+      "ic": "TS",
+      "deal": "Refer a Friend — Both Get a Free Smoothie",
+      "desc": "Refer a friend via your Tropic Rewards app referral code; once they join and spend $5, you both earn a free 24 oz smoothie.",
+      "tags": [
+        "free",
         "app"
       ],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "url": "https://www.tropicalsmoothiecafe.com/rewards",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2231A",
-      "ic": "W",
-      "deal": "Free 6-Piece Nuggets Every Wednesday ($5+ purchase)",
-      "desc": "Every Wednesday, get a free 6-piece chicken nuggets with a $5+ purchase via the Wendy's app — a recurring weekly reward for app users.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Every Wednesday",
-      "url": "https://www.wendys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2231A",
-      "ic": "W",
-      "deal": "Free Fries Every Friday ($5+ purchase)",
-      "desc": "Every Friday in the Wendy's app, get free fries with any $5+ purchase — a reliable weekly perk for rewards members.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Every Friday",
-      "url": "https://www.wendys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "3 Snack Tacos for $2.49 — Taco Tuesday Drop",
-      "desc": "Every Tuesday from 3–11 PM, Taco Bell app users can score three Snack Tacos starting at $2.49 — a recurring weekly digital deal.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Every Tuesday 3–11 PM",
-      "url": "https://www.tacobell.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "3 Grilled Chicken Tacos for $3.59 — Thursday Drop",
-      "desc": "Every Thursday from 3–11 PM, Taco Bell app users can grab three Grilled Chicken Tacos starting at $3.59 — a lean protein pick at a recurring low price.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Every Thursday 3–11 PM",
-      "url": "https://www.tacobell.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Chicken",
-      "color": "#E31837",
-      "ic": "A",
-      "deal": "$1.99 Sliders (Roast Beef, Chicken, Buffalo, Ham)",
-      "desc": "Arby's is offering any Slider — roast beef, chicken, buffalo chicken, or ham — for just $1.99 each at participating locations, each packed with 10–11g protein.",
-      "tags": [],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.arbys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dunkin'",
-      "cat": "Coffee",
-      "color": "#FF671F",
-      "ic": "DD",
-      "deal": "4th of July Patriotic Menu — Dazzleberry Coolatta & More",
-      "desc": "Dunkin' rolled out a limited America 250 menu featuring the Strawberry Sparkler Cloud Latte, Dazzleberry Coolatta, Starlight Lemonade, Rocket Pop Donut, and Stars & Stripes Munchkins.",
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "$7.99 Carryout Special",
+      "desc": "Get any 1-topping carryout pizza (excludes XL), 8-piece wings, or boneless chicken for $7.99 when you order online or in the app.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.dunkindonuts.com/en/promotions",
+      "expires": "Ongoing",
+      "url": "https://www.dominos.com/en/pages/content/locales/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Subs",
+      "color": "#009B3A",
+      "ic": "S",
+      "deal": "Classic Footlong for $5.99 via App",
+      "desc": "Rotating app promo codes offer a classic Footlong sub for $5.99 — check the Subway app for the current active code.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing (rotating)",
+      "url": "https://www.subway.com/en-US/MenuNutrition/Menu/Deals",
       "best": false,
       "region": "National"
     },
     {
       "brand": "El Pollo Loco",
       "cat": "Chicken",
-      "color": "#E04D1A",
-      "ic": "EPL",
-      "deal": "Loco Rewards: Free Chips & Salsa App Exclusive",
-      "desc": "Loco Rewards app members unlock exclusive in-app codes for free chips and salsa with any purchase — healthy drive-thru fire-grilled chicken for less.",
+      "color": "#FF8200",
+      "ic": "EP",
+      "deal": "Loco Rewards App Exclusive Offers",
+      "desc": "Download the El Pollo Loco app and join Loco Rewards for member-only digital coupons on fire-grilled chicken bowls, salads, and burritos.",
       "tags": [
-        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.elpolloloco.com/rewards/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#008000",
+      "ic": "P",
+      "deal": "Exclusive Iced Coffees for MyPanera Members",
+      "desc": "New Hazelnut Mocha, Rocky Road, and Snickerdoodle Iced Coffees are available exclusively to free MyPanera rewards app members.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/app.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "Summer of Extras — Bonus Entrees in App",
+      "desc": "Activate Summer of Extras in the Chipotle app to unlock badges and entree rewards throughout the summer season.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Summer 2026",
+      "url": "https://www.chipotle.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Burger King",
+      "cat": "Burgers",
+      "color": "#FF6600",
+      "ic": "BK",
+      "deal": "Whopper Wednesdays — Discounted Whopper",
+      "desc": "Every Wednesday, BK Royal Perks app members can grab a Whopper at a discounted price via the app or website.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Every Wednesday",
+      "url": "https://www.bk.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "Tuesday Drops — App-Exclusive Flash Deals",
+      "desc": "Every Tuesday at 2 PM PT / 5 PM ET, Taco Bell drops new limited-time deals exclusively in the app for rewards members.",
+      "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.elpolloloco.com/rewards",
+      "expires": "Every Tuesday",
+      "url": "https://www.tacobell.com/offers",
       "best": false,
       "region": "National"
     }
