@@ -37,6 +37,8 @@ const CHAINS = [
   { slug: "salad-and-go-deals", name: "Salad and Go" },
   { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
+  { slug: "papa-johns-deals",  name: "Papa John's" },
+  { slug: "einstein-bros-deals", name: "Einstein Bros." },
 ];
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -88,7 +90,9 @@ function chainPage(chain, deals) {
     : `Current ${chain.name} app deals and rewards offers, checked daily. See today's verified fast-food deals from all major chains.`;
   const body = list.length
     ? `<div class="grid">${list.map(dealCard).join("\n")}</div>`
-    : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now &mdash; check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>`;
+    : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now &mdash; check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
+<h2 style="font-size:18px;margin:26px 2px 4px">Today&#39;s top deals from other chains</h2>
+<div class="grid">${[...deals].filter(d => d.brand !== chain.name).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
   const ld = {
     "@context": "https://schema.org", "@type": "ItemList",
     "name": `${chain.name} deals for ${prettyDate}`,
@@ -339,6 +343,23 @@ function main() {
 
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   deals = deals.filter(d => !/every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+
+  // Top Picks balance: max 1 "best" per brand, 4 max total; promote other brands if fewer than 3.
+  {
+    const seen = new Set();
+    for (const d of deals) {
+      if (!d.best) continue;
+      const b = d.brand.toLowerCase();
+      if (seen.has(b)) d.best = false; else seen.add(b);
+    }
+    let n = deals.filter(d => d.best).length;
+    for (const d of deals) { if (d.best && n > 4) { d.best = false; n--; } }
+    if (n < 3) {
+      const cand = deals.filter(d => !d.best && !seen.has(d.brand.toLowerCase()))
+        .sort((a, b) => (b.value || 0) - (a.value || 0));
+      for (const d of cand) { if (n >= 3) break; d.best = true; seen.add(d.brand.toLowerCase()); n++; }
+    }
+  }
   if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
 
   // 1. Homepage injection

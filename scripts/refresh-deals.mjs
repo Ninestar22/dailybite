@@ -50,6 +50,8 @@ Rules:
 - NO MEMBERSHIP-GATED DEALS: never include deals that require rewards/loyalty/app MEMBER status to claim — no "rewards members get...", "app members only", member-exclusive items, referral bonuses, badge/challenge programs, or perks unlocked by joining a program (even free-to-join ones). A deal that is simply redeemed through the brand's app or a public promo code is fine; a deal gated on membership status is not. Also never include ONE-TIME freebies for NEW members or FIRST purchases ("free item when you join") — those are signup bonuses.
 - NO RECURRING DEALS: never include recurring day-of-week or time-window promos ("Every Friday", "Whopper Wednesdays", "Tuesday Drops", daily happy hours, "every day 2-5 PM"). Only include deals available ALL DAY TODAY to anyone: dated limited-time offers ("Through July 20") or standing everyday value menus ("Ongoing").
 - For "best" (Top Picks), additionally prioritize deals the MOST people can claim today AND again in the future, so visitors feel real value and come back.
+- Never mark more than ONE deal per brand as "best" — spread Top Picks across different chains.
+- In "expires", always give an explicit end date when one is published ("Through July 20, 2026"); use "Ongoing" for standing menus. Only write "Limited time" if genuinely no end date is published anywhere.
 - Add "region":"National" for nationwide deals, or the specific region if limited (e.g. "Texas only", "California"). Leave out unverifiable regional deals.
 
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
