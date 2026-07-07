@@ -116,7 +116,7 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.wendys.com/deals",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
@@ -136,22 +136,6 @@
       "region": "National"
     },
     {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#f5821f",
-      "ic": "EP",
-      "deal": "Fit Bowl & Fresca Salad App Deals via Loco Rewards",
-      "desc": "Download the Loco Rewards app for app-exclusive deals on Fit Bowls and Fresca Salads—fire-grilled chicken meals under 500 calories with 50g+ protein.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.elpolloloco.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Subway",
       "cat": "Subs",
       "color": "#008c15",
@@ -162,7 +146,7 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
-      "best": false,
+      "best": true,
       "region": "National"
     }
   ]
