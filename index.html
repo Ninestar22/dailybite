@@ -66,8 +66,9 @@
   .best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;
     font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px;letter-spacing:.3px}
   .brandrow{display:flex;align-items:center;gap:10px}
-  .brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  .brand-ic{position:relative;overflow:hidden;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
     font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}
+  .brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff}
   .brand-name{font-weight:700;font-size:15px}
   .brand-cat{color:var(--muted);font-size:12px}
   .deal{font-size:16px;font-weight:700;line-height:1.3}
@@ -403,7 +404,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-06T20:54:43.397Z"};
+const META = {"verifiedAt":"2026-07-07T02:27:15.327Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -440,6 +441,21 @@ document.getElementById('search').addEventListener('input',e=>{query=e.target.va
 
 // Escape untrusted text before inserting into innerHTML. Deal data is
 // machine-generated, so treat every string field as untrusted.
+const BRAND_DOMAIN_OVERRIDES = {
+  "chick-fil-a": "chick-fil-a.com",
+  "dunkin": "dunkindonuts.com",
+  "dunkin'": "dunkindonuts.com",
+  "the halal guys": "thehalalguys.com",
+  "einstein bros. bagels": "einsteinbros.com",
+  "einstein bros.": "einsteinbros.com",
+  "tropical smoothie": "tropicalsmoothiecafe.com",
+  "sonic": "sonicdrivein.com",
+};
+function brandDomain(brand) {
+  const key = String(brand).toLowerCase().trim();
+  for (const k in BRAND_DOMAIN_OVERRIDES) { if (key === k || key.startsWith(k + " ") || k.startsWith(key)) return BRAND_DOMAIN_OVERRIDES[k]; }
+  return key.replace(/['".,!]/g, "").replace(/[^a-z0-9]/g, "") + ".com";
+}
 function esc(s){
   return String(s==null?'':s).replace(/[&<>"']/g,c=>(
     {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -625,7 +641,7 @@ function cardHTML(d){
     <div class="card ${d.best?'best':''}">
       ${d.best?'<div class="best-badge">\u2605 TOP PICK</div>':''}
       <div class="brandrow">
-        <div class="brand-ic" style="background:${esc(d.color)}">${esc(d.ic)}</div>
+        <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://logo.clearbit.com/${brandDomain(d.brand)}?size=76" alt="" loading="lazy" onerror="this.remove()"></div>
         <div>
           <div class="brand-name">${esc(d.brand)}</div>
           <div class="brand-cat">${esc(d.cat)}</div>
