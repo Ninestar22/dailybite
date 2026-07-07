@@ -404,7 +404,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-07T02:27:15.327Z"};
+const META = {"verifiedAt":"2026-07-07T02:33:14.655Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -641,7 +641,7 @@ function cardHTML(d){
     <div class="card ${d.best?'best':''}">
       ${d.best?'<div class="best-badge">\u2605 TOP PICK</div>':''}
       <div class="brandrow">
-        <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://logo.clearbit.com/${brandDomain(d.brand)}?size=76" alt="" loading="lazy" onerror="this.remove()"></div>
+        <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="" loading="lazy" onerror="this.remove()"></div>
         <div>
           <div class="brand-name">${esc(d.brand)}</div>
           <div class="brand-cat">${esc(d.cat)}</div>
