@@ -82,7 +82,7 @@ function dealCard(d) {
   return `<div class="card${d.best ? " best" : ""}">
   ${d.best ? `<div class="best-badge">&#9733; TOP PICK</div>` : ""}
   <div class="brandrow">
-    <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://logo.clearbit.com/${brandDomain(d.brand)}?size=76" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
+    <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">${esc(d.brand)}</div><div class="brand-cat">${esc(d.cat)}</div></div>
   </div>
   <div class="deal">${esc(d.deal)}</div>
