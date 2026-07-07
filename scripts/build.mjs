@@ -227,6 +227,63 @@ ${items}
 
 const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
 
+// Food holidays: pages publish 21 days before the date and stay until 2 days after.
+const HOLIDAYS = [
+  { slug: "national-french-fry-day-deals", name: "National French Fry Day", date: "2026-07-13", emoji: "\u{1F35F}", kw: /fry|fries|frie/i,
+    blurb: "Every year on July 13, chains across the country give away free or discounted fries — often no purchase required in their apps." },
+  { slug: "national-ice-cream-day-deals", name: "National Ice Cream Day", date: "2026-07-19", emoji: "\u{1F366}", kw: /ice cream|cone|sundae|frosty|blizzard|milkshake|shake|slush/i,
+    blurb: "The third Sunday of July brings free cones, cheap sundaes, and app-only frozen treat deals from national chains." },
+  { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "\u{1F354}", kw: /burger|whopper|cheeseburger/i,
+    blurb: "September 18 is the biggest burger deal day of the year — expect free and $1 cheeseburgers in most major burger apps." },
+];
+
+function holidayPage(h, deals) {
+  const matched = deals.filter(d => h.kw.test(d.deal + " " + d.desc));
+  const rest = deals.filter(d => !matched.includes(d)).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6);
+  const dt = new Date(h.date + "T12:00:00");
+  const pretty = dt.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  const title = `${h.name} ${dt.getFullYear()} Deals & Freebies (${pretty})`;
+  const desc = `${h.name} is ${pretty}. ${h.blurb} Verified deals list, updated every morning.`;
+  const isDay = new Date().toDateString() === dt.toDateString();
+  const matchedBlock = matched.length
+    ? `<h2 style="font-size:18px;margin:26px 2px 4px">Deals live right now</h2><div class="grid">${matched.map(dealCard).join("\n")}</div>`
+    : `<div class="empty">${isDay ? "We're re-checking deals throughout the morning — check back shortly." : `Chains usually announce their ${esc(h.name)} specials in the final days before ${esc(pretty)}. We re-check every morning and verified deals will appear here the moment they're live.`}</div>`;
+  const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": `${h.name} deals`, "numberOfItems": matched.length,
+    "itemListElement": matched.map((d, i) => ({ "@type": "ListItem", "position": i + 1, "name": d.deal, "url": d.url })) };
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T733JQ04GP');</script>
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:image" content="https://dailybitedeals.com/og.png">
+<script type="application/ld+json">${JSON.stringify(ld)}</script>
+<style>${CHAIN_CSS}</style>
+</head>
+<body>
+<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
+<div class="wrap">
+<span class="date">Updated ${prettyDate}</span>
+<h1>${h.emoji} ${esc(h.name)} Deals &mdash; ${esc(pretty)}</h1>
+<p class="tag">${esc(h.blurb)}</p>
+${matchedBlock}
+<h2 style="font-size:18px;margin:26px 2px 4px">More verified deals today</h2>
+<div class="grid">${rest.map(dealCard).join("\n")}</div>
+<div class="note">Bookmark this page &mdash; it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
+<nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
+</div>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\u{1F4F7} Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">\u{1F4CC} Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">\u{1F3B5} TikTok</a></footer>
+</body>
+</html>`;
+}
+
 function dayPage(day, deals) {
   const cap = day[0].toUpperCase() + day.slice(1);
   const rx = new RegExp(day, "i");
@@ -383,13 +440,23 @@ function main() {
   }
   console.log(`Built ${DAYS.length} day pages.`);
 
+  // 2b-2. Food-holiday pages (within publish window)
+  const activeHolidays = HOLIDAYS.filter(h => {
+    const diff = (new Date(h.date + "T12:00:00") - now) / 86400000;
+    return diff <= 21 && diff >= -2;
+  });
+  for (const h of activeHolidays) {
+    writeFileSync(join(root, `${h.slug}.html`), holidayPage(h, deals));
+  }
+  console.log(`Built ${activeHolidays.length} holiday pages.`);
+
   // 2c. Free-food hub + RSS feed
   writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
   writeFileSync(join(root, "feed.xml"), rssFeed(deals));
   console.log("Built free-food-today.html and feed.xml.");
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`];
+  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
