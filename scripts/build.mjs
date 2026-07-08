@@ -41,6 +41,8 @@ const CHAINS = [
   { slug: "einstein-bros-deals", name: "Einstein Bros." },
 ];
 
+const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><strong>\u{1F4EC} Get tomorrow&#39;s deals in your inbox.</strong><br>One short email each morning with the day&#39;s best verified food deals. No spam, unsubscribe anytime.<br><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script></div>`;
+
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -49,7 +51,7 @@ const dealsFor = (name, deals) => deals.filter(d => {
   return b.includes(n) || n.includes(b);
 });
 
-const today = new Date();
+const today = new Date(Date.now() - 4 * 3600 * 1000); // effective US-Eastern date: day rolls at ~midnight ET, not UTC
 const iso = today.toISOString().slice(0, 10);
 const monthYear = today.toLocaleString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 const prettyDate = today.toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -121,7 +123,7 @@ function chainPage(chain, deals) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
 <script>
@@ -155,10 +157,11 @@ function chainPage(chain, deals) {
   <h1>${esc(chain.name)} Deals &amp; App Offers &mdash; ${esc(monthYear)}</h1>
   <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
   ${body}
+  ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>
+  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -166,7 +169,9 @@ function chainPage(chain, deals) {
 function freeFoodPage(deals) {
   const free = deals.filter(d => (d.tags || []).includes("free"));
   const rest = deals.filter(d => !(d.tags || []).includes("free")).sort((a, b) => b.value - a.value).slice(0, 8);
-  const title = `Free Food Today \u2014 ${free.length} Verified Freebies & Deals (Updated ${prettyDate})`;
+  const title = free.length
+    ? `Free Food Today \u2014 ${free.length} Verified Freebie${free.length > 1 ? "s" : ""} & Cheap Deals (Updated ${prettyDate})`
+    : `Free & Nearly-Free Fast Food Today (Updated ${prettyDate})`;
   const desc = free.length
     ? `${free.length} verified free food deals available today: ${free.slice(0, 2).map(d => d.deal).join("; ")}. Updated every morning \u2014 no signups, no points, no fine print.`
     : `Today's best verified food deals, updated every morning. No signups, no points, no fine print.`;
@@ -176,8 +181,7 @@ function freeFoodPage(deals) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
 <script>
@@ -209,13 +213,14 @@ function freeFoodPage(deals) {
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>Free Food Today</h1>
-  <p class="tag">Every deal below is verified this morning and claimable by anyone on a single visit &mdash; no signups, no points, no fine print.</p>
+  <p class="tag">${free.length ? "Every freebie below is verified this morning and claimable by anyone on a single visit &mdash; no signups, no points, no fine print." : "Nothing is strictly $0 at national chains right now &mdash; true freebies appear here the moment they drop. Below: today&#39;s closest-to-free deals, every one verified this morning."}</p>
   ${sec1}
+  ${EMAIL_CAPTURE}
   ${sec2}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -270,7 +275,7 @@ function holidayPage(h, deals) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-T733JQ04GP');</script>
 <title>${esc(title)}</title>
@@ -295,7 +300,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page &mdash; it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\u{1F4F7} Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">\u{1F4CC} Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">\u{1F3B5} TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\u{1F4F7} Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">\u{1F4CC} Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">\u{1F3B5} TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -317,7 +322,7 @@ function dayPage(day, deals) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T733JQ04GP"></script>
 <script>
@@ -350,10 +355,11 @@ function dayPage(day, deals) {
   <h1>${esc(cap)} Food Deals &amp; Freebies</h1>
   <p class="tag">Every deal below is verified each morning and claimable by anyone &mdash; no signups, no points, no fine print.</p>
   ${body}
+  ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>
+  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailyb2026/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -443,6 +449,19 @@ function main() {
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
   writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
+
+  // 1b. Server-render the footer date and a crawlable static deal grid
+  {
+    let out = readFileSync(htmlPath, "utf8");
+    out = out.replace(/(<span id="updated">)[^<]*(<\/span>)/, `$1${prettyDate}$2`);
+    const GS = "<!-- SSRGRID:START -->", GE = "<!-- SSRGRID:END -->";
+    const gs = out.indexOf(GS), ge = out.indexOf(GE);
+    if (gs !== -1 && ge !== -1 && ge > gs) {
+      out = out.slice(0, gs + GS.length) + "\n" + deals.map(dealCard).join("\n") + "\n" + out.slice(ge);
+    }
+    writeFileSync(htmlPath, out);
+    console.log("Server-rendered homepage grid and footer date.");
+  }
 
   // 2. Chain pages
   for (const chain of CHAINS) {
