@@ -36,23 +36,6 @@
       "region": "National"
     },
     {
-      "brand": "Chick-fil-A",
-      "cat": "Chicken",
-      "color": "#E4002B",
-      "ic": "CfA",
-      "deal": "Free Medium Waffle Fries — Spot the Cows App Game",
-      "desc": "Play the Spot the Cows game in the Chick-fil-A app to earn one free medium Waffle Fries reward, valid through July 13.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 13, 2026",
-      "url": "https://www.chick-fil-a.com/app",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Panera Bread",
       "cat": "Cafe",
       "color": "#4D7C0F",
@@ -82,7 +65,7 @@
       "value": 4,
       "expires": "Through July 15, 2026",
       "url": "https://www.chipotle.com/ordering",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
@@ -134,22 +117,6 @@
       "region": "National"
     },
     {
-      "brand": "Arby's",
-      "cat": "Chicken",
-      "color": "#DD1D2A",
-      "ic": "Ar",
-      "deal": "$1.99 XL Fry with $5+ Purchase — National French Fry Day",
-      "desc": "Arby's Rewards members can redeem an XL fry for $1.99 with a minimum $5 purchase through July 12 in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.arbys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Smashburger",
       "cat": "Burgers",
       "color": "#FFC20E",
@@ -178,22 +145,6 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4D7C0F",
-      "ic": "PB",
-      "deal": "$6.99+ MyHut Box — New Entree + Side Bundle",
-      "desc": "Panera's new MyHut Box bundles an entree and side starting at $6.99 — a filling value meal available online and in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/app.html",
       "best": false,
       "region": "National"
     }

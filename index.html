@@ -179,21 +179,6 @@
 <div class="card best">
   <div class="best-badge">&#9733; TOP PICK</div>
   <div class="brandrow">
-    <div class="brand-ic" style="background:#E4002B"><span>CfA</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chick-fil-a.com&amp;sz=128" alt="Chick-fil-A logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">Chick-fil-A</div><div class="brand-cat">Chicken</div></div>
-  </div>
-  <div class="deal">Free Medium Waffle Fries — Spot the Cows App Game</div>
-  <div class="desc">Play the Spot the Cows game in the Chick-fil-A app to earn one free medium Waffle Fries reward, valid through July 13.</div>
-  <div class="metarow"><span class="pill free">FREE</span><span class="pill app">APP ONLY</span></div>
-  <div class="foot">
-    <span class="expires">&#128337; Through July 13, 2026</span>
-    <a class="near" href="https://www.google.com/maps/search/Chick-fil-A+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
-    <a class="cta" href="https://www.chick-fil-a.com/app" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
-<div class="card best">
-  <div class="best-badge">&#9733; TOP PICK</div>
-  <div class="brandrow">
     <div class="brand-ic" style="background:#4D7C0F"><span>PB</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=panerabread.com&amp;sz=128" alt="Panera Bread logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Panera Bread</div><div class="brand-cat">Cafe</div></div>
   </div>
@@ -206,8 +191,8 @@
     <a class="cta" href="https://www.panerabread.com/en-us/app.html" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">&#9733; TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#A81612"><span>Ch</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Chipotle</div><div class="brand-cat">Mexican</div></div>
@@ -296,21 +281,6 @@
     <a class="cta" href="https://www.mcdonalds.com/us/en-us/deals.html" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card">
-  
-  <div class="brandrow">
-    <div class="brand-ic" style="background:#4D7C0F"><span>PB</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=panerabread.com&amp;sz=128" alt="Panera Bread logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">Panera Bread</div><div class="brand-cat">Cafe</div></div>
-  </div>
-  <div class="deal">$6.99+ MyHut Box — New Entree + Side Bundle</div>
-  <div class="desc">Panera&#39;s new MyHut Box bundles an entree and side starting at $6.99 — a filling value meal available online and in the app.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
-  <div class="foot">
-    <span class="expires">&#128337; Ongoing</span>
-    <a class="near" href="https://www.google.com/maps/search/Panera%20Bread+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
-    <a class="cta" href="https://www.panerabread.com/en-us/app.html" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
 <!-- SSRGRID:END --></div>
   <div class="empty" id="empty" style="display:none">No deals match your search.</div>
 
@@ -381,7 +351,7 @@ const DEALS = [
     "best": false,
     "region": "National",
     "isNew": true,
-    "endingSoon": false
+    "endingSoon": true
   },
   {
     "brand": "Wendy's",
@@ -400,26 +370,7 @@ const DEALS = [
     "best": false,
     "region": "National",
     "isNew": true,
-    "endingSoon": false
-  },
-  {
-    "brand": "Chick-fil-A",
-    "cat": "Chicken",
-    "color": "#E4002B",
-    "ic": "CfA",
-    "deal": "Free Medium Waffle Fries — Spot the Cows App Game",
-    "desc": "Play the Spot the Cows game in the Chick-fil-A app to earn one free medium Waffle Fries reward, valid through July 13.",
-    "tags": [
-      "free",
-      "app"
-    ],
-    "value": 5,
-    "expires": "Through July 13, 2026",
-    "url": "https://www.chick-fil-a.com/app",
-    "best": true,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": false
+    "endingSoon": true
   },
   {
     "brand": "Panera Bread",
@@ -453,7 +404,7 @@ const DEALS = [
     "value": 4,
     "expires": "Through July 15, 2026",
     "url": "https://www.chipotle.com/ordering",
-    "best": false,
+    "best": true,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -528,7 +479,7 @@ const DEALS = [
     "best": false,
     "region": "National",
     "isNew": true,
-    "endingSoon": false
+    "endingSoon": true
   },
   {
     "brand": "McDonald's",
@@ -547,27 +498,9 @@ const DEALS = [
     "region": "National",
     "isNew": true,
     "endingSoon": false
-  },
-  {
-    "brand": "Panera Bread",
-    "cat": "Cafe",
-    "color": "#4D7C0F",
-    "ic": "PB",
-    "deal": "$6.99+ MyHut Box — New Entree + Side Bundle",
-    "desc": "Panera's new MyHut Box bundles an entree and side starting at $6.99 — a filling value meal available online and in the app.",
-    "tags": [
-      "app"
-    ],
-    "value": 3,
-    "expires": "Ongoing",
-    "url": "https://www.panerabread.com/en-us/app.html",
-    "best": false,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-10T12:08:08.106Z"};
+const META = {"verifiedAt":"2026-07-10T12:17:32.760Z"};
 /* DEALS:END */
 
 const today = new Date();
