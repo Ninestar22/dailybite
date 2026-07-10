@@ -1,78 +1,80 @@
 {
-  "updated": "2026-07-09",
+  "updated": "2026-07-10",
   "deals": [
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#BC1E2D",
-      "ic": "Pa",
-      "deal": "FREE Sourdough Loaf — Today Only",
-      "desc": "Walk in to any participating cafe today, July 9, and claim one free loaf of sourdough bread with no purchase required, first-come first-served (13 per store).",
+      "brand": "McDonald's",
+      "cat": "Burgers",
+      "color": "#FFC72C",
+      "ic": "Mc",
+      "deal": "Free Medium Fries — National French Fry Day",
+      "desc": "Get a free medium order of fries with any $1+ purchase in the McDonald's app on July 10 for National French Fry Day.",
       "tags": [
-        "free"
+        "free",
+        "app"
       ],
       "value": 5,
-      "expires": "July 9, 2026 only",
-      "url": "https://www.panerabread.com/en-us/menu/categories/whats-new.html",
-      "best": true,
+      "expires": "July 10, 2026",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Burgers",
+      "color": "#E2231A",
+      "ic": "W",
+      "deal": "Free Any-Size Fry — National French Fry Day",
+      "desc": "Score a free fry in any size with a $5+ purchase made through the Wendy's app today only.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "July 10, 2026",
+      "url": "https://www.wendys.com/offers-coupons",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#BC1E2D",
-      "ic": "Pa",
-      "deal": "40% Off Bowls & Salads — Big Value Week",
-      "desc": "Save roughly 40% on select bowls and salads at Panera through July 15 as part of DoorDash's Big Value Week promo.",
+      "color": "#4D7C0F",
+      "ic": "PB",
+      "deal": "40% Off Select Bowls & Salads — Big Value Week",
+      "desc": "Save 40% on select bowls and salads in the Panera app or online through July 15 during Big Value Week.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through July 15, 2026",
-      "url": "https://www.panerabread.com/en-us/menu/categories/whats-new.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#BC1E2D",
-      "ic": "Pa",
-      "deal": "BOGO Entrée for $5 — Code BOGO5",
-      "desc": "Buy any whole sandwich, salad, Market Bowl, or soup and get a second for just $5 using promo code BOGO5 at online/app checkout.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/menu/categories/whats-new.html",
-      "best": false,
+      "url": "https://www.panerabread.com/en-us/app.html",
+      "best": true,
       "region": "National"
     },
     {
       "brand": "Chipotle",
       "cat": "Mexican",
-      "color": "#441500",
+      "color": "#A81612",
       "ic": "Ch",
-      "deal": "Free Entrée with $25+ Order — Big Value Week",
-      "desc": "Order $25 or more through the Chipotle app or website July 9–15 and receive a free entrée on your order.",
+      "deal": "Free Entree with $25+ Order — Big Value Week",
+      "desc": "Order $25 or more through the Chipotle app or website July 9–15 and receive a free entree automatically.",
       "tags": [
-        "app",
-        "free"
+        "free",
+        "app"
       ],
-      "value": 5,
+      "value": 4,
       "expires": "Through July 15, 2026",
-      "url": "https://www.chipotle.com/deals",
+      "url": "https://www.chipotle.com/ordering",
       "best": true,
       "region": "National"
     },
     {
       "brand": "Jamba",
       "cat": "Smoothies",
-      "color": "#F7A520",
-      "ic": "Ja",
-      "deal": "50% Off Any Smoothie In-App",
-      "desc": "Use the Jamba app to score 50% off any smoothie on your next order at participating locations nationwide.",
+      "color": "#F7941D",
+      "ic": "J",
+      "deal": "50% Off Any Smoothie — FIFA World Cup LTO",
+      "desc": "Download the Jamba app and activate the FIFA World Cup Hat Trick Tango smoothie offer to get 50% off any qualifying smoothie.",
       "tags": [
         "app"
       ],
@@ -83,126 +85,18 @@
       "region": "National"
     },
     {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#F68B1F",
-      "ic": "Po",
-      "deal": "$6 Big Box Meal",
-      "desc": "Get a 2-pc Signature Chicken or 3-pc Tenders with two regular sides and a biscuit for just $6 via online, in-app, or in-store order.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 13, 2026",
-      "url": "https://www.popeyes.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#F68B1F",
-      "ic": "Po",
-      "deal": "4-Pc Chicken + Side for $10",
-      "desc": "Order online or in the Popeyes app and get four pieces of Signature Chicken plus a regular side for $10.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.popeyes.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Domino's",
       "cat": "Pizza",
       "color": "#006491",
-      "ic": "Do",
-      "deal": "Any Pizza Any Toppings for $9.99",
-      "desc": "Order any Domino's pizza with any crust and any toppings — including Parmesan Stuffed Crust at no extra charge — for just $9.99 each.",
+      "ic": "D",
+      "deal": "Any Pizza Any Crust Any Toppings for $9.99",
+      "desc": "Order any pizza with any crust and any toppings for just $9.99 each online — Parmesan Stuffed Crust now included at no extra charge.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/promohub/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Pizza Hut",
-      "cat": "Pizza",
-      "color": "#EE3224",
-      "ic": "PH",
-      "deal": "Any Large Pizza Carryout — $9.99",
-      "desc": "Carry out any large pizza at Pizza Hut for $9.99, including the Big New Yorker — order online or in-app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.pizzahut.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#DD2D1E",
-      "ic": "Ar",
-      "deal": "Any Slider for $1.99",
-      "desc": "Grab any Arby's Slider for just $1.99 each at participating locations, available in-store and through the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.arbys.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#00A9E0",
-      "ic": "So",
-      "deal": "America $2.50 Menu",
-      "desc": "Order the Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or Red White & Blue Slush Float all for just $2.50 each at Sonic.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.sonicdrivein.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#DA291C",
-      "ic": "Mc",
-      "deal": "McValue Extra-Value Meals from $5",
-      "desc": "McDonald's McValue menu features meal deals starting at $5 for lunch and dinner with a rotating slate of app coupons available daily.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2231A",
-      "ic": "We",
-      "deal": "$4 / $6 / $8 Biggie Deals",
-      "desc": "Wendy's Biggie Bag Deals start at $4 and come in three tiers — choose from sandwiches, nuggets, and fries bundled at set prices.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.wendys.com/deals",
+      "url": "https://www.dominos.com/en/pages/order/",
       "best": false,
       "region": "National"
     },
@@ -211,73 +105,47 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "$5.99 Luxe Cravings Box",
-      "desc": "The Taco Bell Luxe Cravings Box packs a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips, nacho cheese, and a medium drink for $5.99.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.tacobell.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "KF",
-      "deal": "12-Piece Chicken Bucket for $15",
-      "desc": "Get a 12-piece KFC bucket of Original Recipe or Extra Crispy fried chicken for $15 at participating locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dunkin'",
-      "cat": "Coffee",
-      "color": "#FF671F",
-      "ic": "Du",
-      "deal": "Eagle Cup: $10.99 with Free Bev + 30 Days of $3 Drinks",
-      "desc": "Buy the limited-edition Eagle Cup for $10.99 and get a free medium beverage now plus a daily code for one $3 medium drink or refresher per day for 30 days.",
-      "tags": [],
-      "value": 4,
-      "expires": "While supplies last",
-      "url": "https://www.dunkindonuts.com/en/promotions",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009743",
-      "ic": "Su",
-      "deal": "Moana Meal Deal — Upgrade for $1 More",
-      "desc": "Upgrade any Subway combo meal for $1 more to receive one of five collectible Moana cups plus a $15 Fandango promo code for movie tickets.",
+      "deal": "Cravings Value Menu — 10 Items at $3 or Less",
+      "desc": "Order from Taco Bell's Cravings Value Menu featuring 10 fan-favorite items each priced at $3 or less, available in-app or in store.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.subway.com/en-US/MenuNutrition/Menu/SpecialOffers",
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/value",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Moe's Southwest Grill",
-      "cat": "Mexican",
-      "color": "#D7282F",
-      "ic": "Mo",
-      "deal": "BOGO Free Entrée",
-      "desc": "Get a buy-one-get-one free entrée at Moe's Southwest Grill through July 12 — bowls, burritos, and stacks all qualify.",
-      "tags": [],
+      "brand": "Smashburger",
+      "cat": "Burgers",
+      "color": "#FFC20E",
+      "ic": "Sm",
+      "deal": "Free Fries with $1+ Purchase — Promo Code FRYDAY26",
+      "desc": "Use promo code FRYDAY26 at checkout online or in-app on July 10 to get a free order of Smashfries, Sweet Potato Waffle Fries, or Scorchin' Fries with any $1+ purchase.",
+      "tags": [
+        "free"
+      ],
       "value": 5,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.moes.com/offers",
-      "best": true,
+      "expires": "July 10, 2026",
+      "url": "https://smashburger.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "McDonald's",
+      "cat": "Burgers",
+      "color": "#FFC72C",
+      "ic": "Mc",
+      "deal": "McValue $5 Meal Deal",
+      "desc": "Get a sandwich, side, and drink bundled together starting at $5 through the McDonald's app at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
       "region": "National"
     }
   ]
