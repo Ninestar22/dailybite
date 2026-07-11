@@ -41,6 +41,8 @@ const CHAINS = [
   { slug: "einstein-bros-deals", name: "Einstein Bros." },
 ];
 
+const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a></nav>`;
+
 const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><strong>\u{1F4EC} Get tomorrow&#39;s deals in your inbox.</strong><br>One short email each morning with the day&#39;s best verified food deals. No spam, unsubscribe anytime.<br><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script></div>`;
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -159,7 +161,7 @@ function chainPage(chain, deals) {
   ${body}
   ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
@@ -218,7 +220,7 @@ function freeFoodPage(deals) {
   ${EMAIL_CAPTURE}
   ${sec2}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+  <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
@@ -305,6 +307,16 @@ ${matchedBlock}
 </html>`;
 }
 
+const DAY_NOTES = {
+  monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. It\u2019s also bagel day \u2014 Einstein Bros. runs its $9 baker\u2019s dozen on Mondays at participating shops.",
+  tuesday: "Tuesday is the strongest deal day of the week. Taco Bell historically drops new app offers on Tuesdays, and taco specials across chains make this the cheapest dinner night on the calendar.",
+  wednesday: "Mid-week is sleeper-deal territory: Sonic locations have long run half-price cheeseburger promos on Wednesdays, and app bundles carry the rest.",
+  thursday: "Chains tend to preview weekend offers on Thursdays \u2014 check the app deal tabs tonight for anything expiring Sunday.",
+  friday: "Friday is freebie day: McDonald\u2019s runs Free Fries Friday (free medium fries with any $1+ app purchase), and high-tier Subway MVP members get free chips with purchase on Fridays.",
+  saturday: "Weekends skew toward family bundles and delivery-app promos \u2014 single-visit value boxes still apply, and breakfast deals run later than weekdays.",
+  sunday: "Sunday is prep-for-the-week day: stack what\u2019s left of weekend offers, and remember most app deal tabs refresh Monday morning.",
+};
+
 function dayPage(day, deals) {
   const cap = day[0].toUpperCase() + day.slice(1);
   const rx = new RegExp(day, "i");
@@ -353,11 +365,11 @@ function dayPage(day, deals) {
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(cap)} Food Deals &amp; Freebies</h1>
-  <p class="tag">Every deal below is verified each morning and claimable by anyone &mdash; no signups, no points, no fine print.</p>
+  <p class="tag">Every deal below is re-verified this morning against official sources.</p>\n  <p class="tag">${DAY_NOTES[day] || ""}</p>
   ${body}
   ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>
+  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>
 </div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
 </body>
@@ -491,7 +503,7 @@ function main() {
   console.log("Built free-food-today.html and feed.xml.");
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
