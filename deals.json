@@ -129,23 +129,6 @@
       "region": "National"
     },
     {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#E31837",
-      "ic": "DT",
-      "deal": "Free Regular Fries with $3+ Purchase",
-      "desc": "Get a free regular order of fries with any $3 minimum purchase in the Del Yeah! Rewards app — National French Fry Day celebration.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 5,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.deltaco.com/promotions",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Panera Bread",
       "cat": "Cafe",
       "color": "#6D8B2A",
