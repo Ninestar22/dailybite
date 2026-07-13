@@ -1,202 +1,52 @@
 {
-  "updated": "2026-07-11",
+  "updated": "2026-07-12",
   "deals": [
-    {
-      "brand": "The Halal Guys",
-      "cat": "Halal",
-      "color": "#f5a623",
-      "ic": "HG",
-      "deal": "World Cup Fan Feast Meal",
-      "desc": "Feeds 4–5 with protein, rice, pita, toppings and sauce packs — perfect for watch-party groups.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 19, 2026",
-      "url": "https://www.thehalalguys.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#006341",
-      "ic": "P",
-      "deal": "BOGO for $5 — Promo Code BOGO5",
-      "desc": "Buy one full sandwich, salad, bowl or soup and get a second for just $5 using code BOGO5.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/app.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#441600",
-      "ic": "C",
-      "deal": "Free Entrée with $25+ Order — Big Value Week",
-      "desc": "Order $25 or more via the Chipotle app or website this week and score a free entrée.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 15, 2026",
-      "url": "https://www.chipotle.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Moe's Southwest Grill",
-      "cat": "Mexican",
-      "color": "#e8212a",
-      "ic": "M",
-      "deal": "BOGO Free Entrees",
-      "desc": "Buy one entrée and get a second free at Moe's through July 12 — bowls, burritos and more qualify.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.moes.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "7-Eleven",
-      "cat": "Snacks",
-      "color": "#008542",
-      "ic": "7E",
-      "deal": "Free Small Slurpee — Slurpee Day (7/11)",
-      "desc": "Celebrate 60 years of Slurpees with a free small Slurpee at any 7-Eleven today — no purchase or membership required.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "July 11, 2026 only",
-      "url": "https://www.7-eleven.com/promos",
-      "region": "National"
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Any Pizza for $9.99 — Includes Stuffed Crust",
-      "desc": "Order any pizza with up to 7 toppings, including Parmesan Stuffed Crust, for just $9.99 via the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/localized/deal-details.html",
-      "region": "National"
-    },
-    {
-      "brand": "Pizza Hut",
-      "cat": "Pizza",
-      "color": "#ee3124",
-      "ic": "PH",
-      "deal": "$7.99 Carryout — Any 1-Topping Pizza or 8pc Wings",
-      "desc": "Score a 1-topping carryout pizza (not XL) or 8-piece wings or boneless chicken for just $7.99.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.pizzahut.com/deals",
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#004b8d",
-      "ic": "S",
-      "deal": "America $2.50 Menu — Last Days",
-      "desc": "Grab a Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, or Red White & Blue Slush Float for just $2.50 each.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 12, 2026",
-      "url": "https://www.sonicdrivein.com/deals",
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#e3001b",
-      "ic": "A",
-      "deal": "BOGO Free Sandwich — App Deal This Weekend",
-      "desc": "Use the Arby's app to buy one sandwich and get a second sandwich of your choice free, valid Friday through Sunday.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 5,
-      "expires": "July 13, 2026",
-      "url": "https://www.arbys.com/offers",
-      "region": "National"
-    },
     {
       "brand": "McDonald's",
       "cat": "Burgers",
-      "color": "#da291c",
+      "color": "#DA291C",
       "ic": "Mc",
-      "deal": "FIFA World Cup 26 Meal with Collectible Cup",
-      "desc": "Order the FIFA World Cup 26 Meal via the McDonald's app and receive a limited-edition gold-packaged collectible cup.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "K",
-      "deal": "Value Feast Boxes from $7",
-      "desc": "Choose from $7, $9, or $11 Value Feast Boxes — each includes a combo of KFC Snackers, nuggets, fries and a drink.",
-      "tags": [],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.kfc.com/deals",
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f26522",
-      "ic": "Po",
-      "deal": "$6 Big Box — Chicken + 2 Sides + Biscuit",
-      "desc": "Get two pieces of chicken or three tenders, two sides, and a biscuit for just $6 at the Popeyes app.",
+      "deal": "$5 Value Meal Box",
+      "desc": "Choose a McDouble or McChicken with 4-pc Nuggets, small fries, and a small drink for $5 via the app.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.popeyes.com/deals",
+      "expires": "Ongoing",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Burger King",
+      "cat": "Burgers",
+      "color": "#F5821F",
+      "ic": "BK",
+      "deal": "$5 Your Way Meal",
+      "desc": "Pick a Double Cheeseburger, Bacon Double Cheeseburger, or Crispy Chicken Jr. with nuggets, fries, and a drink for $5 in the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.bk.com/offers",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Wendy's",
       "cat": "Burgers",
-      "color": "#e2001a",
+      "color": "#E2001A",
       "ic": "W",
       "deal": "$5 Biggie Bag",
-      "desc": "Get a Jr. Bacon Cheeseburger, 4pc nuggets, small fries and small drink for $5 via the Wendy's app.",
+      "desc": "Jr. Bacon Cheeseburger or Crispy Chicken BLT plus nuggets, junior fries, and a small drink for $5 via the app.",
       "tags": [
         "app"
       ],
-      "value": 3,
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.wendys.com/deals",
+      "url": "https://www.wendys.com/offers",
+      "best": false,
       "region": "National"
     },
     {
@@ -205,54 +55,167 @@
       "color": "#702082",
       "ic": "TB",
       "deal": "$5.99 Luxe Cravings Box",
-      "desc": "The Luxe Cravings Box includes a Chalupa Supreme, Beefy 5-Layer Burrito, Crunchy Taco, chips, and medium drink for $5.99 in the app.",
+      "desc": "Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips with nacho cheese, and a medium drink for $5.99 in the app.",
       "tags": [
         "app"
       ],
-      "value": 3,
+      "value": 5,
       "expires": "Ongoing",
-      "url": "https://www.tacobell.com/offers",
+      "url": "https://www.tacobell.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "$9.99 Any Pizza — Any Toppings",
+      "desc": "Any pizza with up to 7 toppings (including Parmesan Stuffed Crust) for $9.99 via online or app order.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Pizza Hut",
+      "cat": "Pizza",
+      "color": "#EE3124",
+      "ic": "PH",
+      "deal": "$7.99 Carryout Special",
+      "desc": "Any 1-topping carryout pizza (excl. XL) or 8-pc wings or boneless chicken for $7.99 via online order.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.pizzahut.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Arby's",
+      "cat": "Sandwiches",
+      "color": "#E21B24",
+      "ic": "Arb",
+      "deal": "Buy One Get One Free Sandwich",
+      "desc": "Use the Arby's app this week to get a second sandwich of your choice free when you buy one.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.arbys.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#FF6600",
+      "ic": "Pop",
+      "deal": "$6 Big Box — Chicken + 2 Sides + Biscuit",
+      "desc": "Two pieces of signature chicken or 3 tenders, two regular sides, and a buttermilk biscuit for just $6 at participating locations.",
+      "tags": [],
+      "value": 5,
+      "expires": "Through July 13, 2026",
+      "url": "https://www.popeyes.com/offers",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#006341",
-      "ic": "P",
-      "deal": "Mix & Match $4.99 Half-Portion Menu",
-      "desc": "Pick any half-portion soup, sandwich or salad for $4.99 each — save about 40% vs. full price when building a combo.",
+      "color": "#6D8B2A",
+      "ic": "Pan",
+      "deal": "Buy One Sandwich or Salad, Get One for $5",
+      "desc": "Purchase any whole sandwich, salad, Market Bowl, or bowl of soup and get a second one for just $5 — a ~50% savings on your second item.",
       "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/app.html",
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/articles/offers-and-promotions.html",
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009743",
-      "ic": "Su",
-      "deal": "Moana Movie Meal Deal — $1 Upgrade",
-      "desc": "Upgrade any combo meal for $1 more to receive a collectible Moana cup plus a $15 Fandango promo code for movie tickets.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.subway.com/en-US/deals",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#6D8B2A",
+      "ic": "Pan",
+      "deal": "Mix & Match $4.99 Half Portions",
+      "desc": "Choose up to 10 half-portion menu items — soups, sandwiches, or salads — each for $4.99, saving ~40% off regular prices.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/articles/offers-and-promotions.html",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "El Pollo Loco",
       "cat": "Chicken",
-      "color": "#f7a800",
-      "ic": "EP",
-      "deal": "Frescas Salads & Wraps — Healthy LTO Menu",
-      "desc": "New Citrus Avocado and Mexican Cobb Fresca Salads and Wraps feature fire-grilled chicken under 500 calories — available at the drive-thru.",
-      "tags": [],
+      "color": "#FFBE00",
+      "ic": "EPL",
+      "deal": "20% Off Entire Order — Code FIREUP20",
+      "desc": "Apply promo code FIREUP20 at checkout online or in-app for 20% off your order of fire-grilled chicken bowls, salads, burritos, and more.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 15, 2026",
+      "url": "https://www.elpolloloco.com/promotions/general-offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#00A651",
+      "ic": "Jmb",
+      "deal": "World Cup Hat Trick Tango Smoothie + 50% Off",
+      "desc": "Limited-time FIFA World Cup 2026 Hat Trick Tango smoothie available now, with a 50% off promotional deal in the Jamba app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.jamba.com/deals",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#F7941D",
+      "ic": "TSC",
+      "deal": "'How Far You'll Mango' Disney Moana Smoothie",
+      "desc": "Limited-time Disney Moana collaboration smoothie available now at Tropical Smoothie Cafe — order ahead in the Tropic Rewards app.",
+      "tags": [
+        "app"
+      ],
       "value": 3,
       "expires": "Limited time",
-      "url": "https://www.elpolloloco.com/deals",
+      "url": "https://www.tropicalsmoothiecafe.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#003087",
+      "ic": "Son",
+      "deal": "America $2.50 Menu — Jr. Double Cheeseburger, Hot Dog & More",
+      "desc": "The Jr. Double Cheeseburger, All-American Hot Dog, medium Onion Rings, and Red White & Blue Slush Float are each just $2.50.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through July 12, 2026",
+      "url": "https://www.sonicdrivein.com/deals",
+      "best": false,
       "region": "National"
     }
   ]
