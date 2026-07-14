@@ -34,22 +34,6 @@
       "region": "National"
     },
     {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#441500",
-      "ic": "Ch",
-      "deal": "PGA TOUR Hot Streak — BOGO Free Entree via Keyword Text",
-      "desc": "Watch the official PGA TOUR social accounts for a keyword drop, text it to 888222, and claim a BOGO free entree code redeemable in the Chipotle app.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through December 31, 2026",
-      "url": "https://www.chipotle.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Domino's",
       "cat": "Pizza",
       "color": "#006491",
@@ -60,7 +44,7 @@
       "value": 4,
       "expires": "Through July 26, 2026",
       "url": "https://www.dominos.com/en/pages/order/",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
@@ -104,7 +88,7 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
