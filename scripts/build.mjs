@@ -45,6 +45,11 @@ const CHAINS = [
   { slug: "ihop-deals",         name: "IHOP" },
   { slug: "dennys-deals",       name: "Denny's" },
   { slug: "insomnia-cookies-deals", name: "Insomnia Cookies" },
+  { slug: "wingstop-deals",     name: "Wingstop" },
+  { slug: "qdoba-deals",        name: "Qdoba" },
+  { slug: "just-salad-deals",   name: "Just Salad" },
+  { slug: "naf-naf-grill-deals", name: "Naf Naf Grill" },
+  { slug: "krispy-kreme-deals", name: "Krispy Kreme" },
 ];
 
 const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a></nav>`;
