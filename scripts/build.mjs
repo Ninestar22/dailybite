@@ -272,10 +272,6 @@ const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sun
 
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
 const HOLIDAYS = [
-  { slug: "national-french-fry-day-deals", name: "National French Fry Day", date: "2026-07-13", emoji: "\u{1F35F}", kw: /fry|fries|frie/i,
-    blurb: "Every year on July 13, chains across the country give away free or discounted fries — often no purchase required in their apps." },
-  { slug: "national-ice-cream-day-deals", name: "National Ice Cream Day", date: "2026-07-19", emoji: "\u{1F366}", kw: /ice cream|cone|sundae|frosty|blizzard|milkshake|shake|slush/i,
-    blurb: "The third Sunday of July brings free cones, cheap sundaes, and app-only frozen treat deals from national chains." },
   { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "\u{1F354}", kw: /burger|whopper|cheeseburger/i,
     blurb: "September 18 is the biggest burger deal day of the year — expect free and $1 cheeseburgers in most major burger apps." },
 ];
