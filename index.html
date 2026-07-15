@@ -118,7 +118,18 @@
   .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
   .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
   .today-sub{color:var(--muted);font-size:12px;margin:2px 2px 4px}
+  .holiday-banner{display:block;max-width:600px;margin:16px auto 0;padding:12px 20px;background:linear-gradient(90deg,rgba(255,176,32,.14),rgba(255,90,60,.14));border:1px solid #ffb020;border-radius:12px;color:#ffb020;font-weight:700;font-size:14px;text-decoration:none;text-align:center}
+  .holiday-banner:hover{border-color:#ff5a3c}
+  .pill.codechip{background:rgba(255,90,60,.14);color:#ff5a3c;border:1px dashed #ff5a3c;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700}
+  .pill.late{background:rgba(122,165,255,.15);color:#9db9ff}
+  .faq{max-width:920px;margin:40px auto 0;padding:0 16px}
+  .faq h2{font-size:20px;margin:0 0 6px}
+  .faq p.faq-sub{color:#9aa3b2;font-size:13px;margin:0 0 14px}
+  .faq details{background:#191c23;border:1px solid #2a2f3a;border-radius:12px;padding:14px 18px;margin-bottom:10px}
+  .faq summary{font-weight:700;font-size:14px;cursor:pointer;color:#f4f5f7}
+  .faq details p{color:#9aa3b2;font-size:13px;line-height:1.55;margin:10px 0 0}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"Some links may be affiliate links that earn a small commission at no extra cost to you. It never affects which deals are listed."}}]}</script>
 </head>
 <body>
 <header>
@@ -126,6 +137,7 @@
   <div class="tag">The best food app deals across restaurants — refreshed daily</div>
   <div class="date" id="today"></div>
   <div class="verify" id="verify"></div>
+  <!-- HOLIDAY:START --><a class="holiday-banner" href="/national-ice-cream-day-deals">🍦 National Ice Cream Day is Sunday &mdash; see all the deals &rarr;</a><!-- HOLIDAY:END -->
 </header>
 
 <div class="wrap">
@@ -169,7 +181,7 @@
   </div>
   <div class="deal">BOGO for $5 — Buy One Entrée, Get Another for $5</div>
   <div class="desc">Use code BOGO5 at checkout to get a second whole sandwich, salad, soup, or bowl for just $5 with any qualifying purchase.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
+  <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('BOGO5');this.textContent='✓ COPIED!'" title="Tap to copy">&#9112; CODE: BOGO5</button><span class="pill app">APP ONLY</span></div>
   <div class="foot">
     <span class="expires">&#128337; Limited time</span>
     <a class="near" href="https://www.google.com/maps/search/Panera%20Bread+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
@@ -184,7 +196,7 @@
   </div>
   <div class="deal">$9.99 Any Pizza, Any Crust, Any Toppings</div>
   <div class="desc">Get any Domino&#39;s pizza with any crust and up to any toppings — including Parmesan Stuffed Crust — for $9.99 each.</div>
-  <div class="metarow"></div>
+  <div class="metarow"><span class="pill late">&#127769; OPEN LATE</span></div>
   <div class="foot">
     <span class="expires">&#128337; Through July 26, 2026</span>
     <a class="near" href="https://www.google.com/maps/search/Domino's+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
@@ -229,7 +241,7 @@
   </div>
   <div class="deal">$5 Value Meal — McDouble or McChicken Combo</div>
   <div class="desc">Order through the McDonald&#39;s app to get a $5 meal including your choice of McDouble or McChicken, 4-pc McNuggets, small fries, and a small drink.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
+  <div class="metarow"><span class="pill late">&#127769; OPEN LATE</span><span class="pill app">APP ONLY</span></div>
   <div class="foot">
     <span class="expires">&#128337; Ongoing</span>
     <a class="near" href="https://www.google.com/maps/search/McDonald's+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
@@ -244,7 +256,7 @@
   </div>
   <div class="deal">$5 Biggie Bag</div>
   <div class="desc">Get a Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-pc nuggets, small fries, and a small drink for $5 via the Wendy&#39;s app.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
+  <div class="metarow"><span class="pill late">&#127769; OPEN LATE</span><span class="pill app">APP ONLY</span></div>
   <div class="foot">
     <span class="expires">&#128337; Ongoing</span>
     <a class="near" href="https://www.google.com/maps/search/Wendy's+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
@@ -349,7 +361,7 @@
   </div>
   <div class="deal">Limited-Edition Eagle Cup — $10.99 with Free Medium Beverage</div>
   <div class="desc">Pick up the Dunkin&#39; Eagle Cup for $10.99 and receive a free medium beverage plus a code for a $3 medium drink or Refresher daily for 30 days.</div>
-  <div class="metarow"></div>
+  <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('FOR');this.textContent='✓ COPIED!'" title="Tap to copy">&#9112; CODE: FOR</button></div>
   <div class="foot">
     <span class="expires">&#128337; While supplies last</span>
     <a class="near" href="https://www.google.com/maps/search/Dunkin'+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
@@ -401,6 +413,16 @@
     <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script>
   </div>
 
+    <section class="faq">
+    <h2>Questions, answered</h2>
+    <p class="faq-sub">Everything you'd want to know before trusting a deals site.</p>
+    <details><summary>How often are deals updated?</summary><p>Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything on the page is re-verified against official sources before it goes live.</p></details>
+    <details><summary>Are these deals actually real?</summary><p>Yes — every deal links to the restaurant's own app or official page, and each one is re-checked daily. If we can't confirm a deal is still active, it comes off the list the same morning.</p></details>
+    <details><summary>Do I need to sign up for anything?</summary><p>No. DailyBite is free, there's no account, and we only list deals anyone can claim — no first-order-only promos, no loyalty-point games, no paid memberships.</p></details>
+    <details><summary>Why are so many deals "app only"?</summary><p>Restaurant chains put their best prices inside their own apps. The apps are free to download, and we tell you exactly which app each deal lives in.</p></details>
+    <details><summary>How does DailyBite make money?</summary><p>Some links may be affiliate links, meaning we can earn a small commission at no extra cost to you. It never affects which deals get listed — verified value is the only criterion.</p></details>
+  </section>
+
   <div class="note">
     <strong>Disclosure.</strong> Some links on this site are affiliate links — DailyBite may earn
     a commission at no extra cost to you.
@@ -414,7 +436,7 @@
 
 <footer>
   Every deal is re-verified each morning against the chains&#39; official apps and deal pages. Not affiliated
-  with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Tuesday, July 14, 2026</span>.
+  with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Wednesday, July 15, 2026</span>.
 </footer>
 
 <script>
@@ -678,7 +700,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-14T17:48:12.984Z"};
+const META = {"verifiedAt":"2026-07-15T09:10:33.578Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -692,8 +714,8 @@ try{
   const sameDay = v.toDateString() === today.toDateString();
   const t = v.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
   document.getElementById('verify').textContent = sameDay
-    ? `\u2713 All deals verified today at ${t}`
-    : `\u2713 All deals verified ${v.toLocaleDateString('en-US',{month:'long',day:'numeric'})}`;
+    ? `\u2713 ${DEALS.length} deals verified today at ${t} \u00b7 30+ chains checked`
+    : `\u2713 ${DEALS.length} deals verified ${v.toLocaleDateString('en-US',{month:'long',day:'numeric'})} \u00b7 30+ chains checked`;
 }catch(e){}
 
 const WEEKDAY = today.toLocaleDateString('en-US',{weekday:'long'});
@@ -910,6 +932,11 @@ try{
   }
 }catch(e){}
 
+const LATE_BRANDS=new Set(['taco bell','jack in the box','whataburger','del taco','ihop',"denny's",'dennys','insomnia cookies',"mcdonald's",'mcdonalds',"wendy's",'wendys',"domino's",'dominos','sonic drive-in','sonic']);
+function latePill(d){return LATE_BRANDS.has(String(d.brand).toLowerCase())?'<span class="pill late">\ud83c\udf19 OPEN LATE</span>':'';}
+function dealCode(d){const m=(d.deal+' '+d.desc).match(/\bcode[:\s]+([A-Z0-9]{3,14})\b/i);return m?m[1].toUpperCase():null;}
+function codeChip(d){const c=dealCode(d);return c?`<button class="pill codechip" onclick="copyCode(this,'${c}')" title="Tap to copy">\u2398 CODE: ${c}</button>`:'';}
+function copyCode(btn,code){(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>{const o=btn.textContent;btn.textContent='\u2713 COPIED!';setTimeout(()=>{btn.textContent=o;},1400);}).catch(()=>{});}
 function cardHTML(d){
   return `
     <div class="card ${d.best?'best':''}">
@@ -929,6 +956,8 @@ function cardHTML(d){
         ${d.endingSoon?'<span class="pill soon">\u23f3 ENDING SOON</span>':''}
         ${d.region&&d.region!=='National'?'<span class="pill region">\ud83d\udccd '+esc(d.region.toUpperCase())+'</span>':''}
         ${isTodayDeal(d)?'<span class="pill todaypill">\ud83d\udcc5 '+WEEKDAY.toUpperCase()+'</span>':''}
+        ${codeChip(d)}
+        ${latePill(d)}
         ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
       </div>
       <div class="foot">
