@@ -30,7 +30,7 @@ const client = new Anthropic(); // reads ANTHROPIC_API_KEY from env
 
 const PROMPT = `You maintain "DailyBite", a page listing the best current U.S. fast-food and coffee-chain app deals.
 
-Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's) AND healthier fast-casual chains (Sweetgreen, CAVA, Just Salad, Smoothie King, Tropical Smoothie Cafe, Jamba, Subway) AND healthier DRIVE-THRU chains (Salad and Go, El Pollo Loco) and halal-certified chains (The Halal Guys). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
+Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's) AND healthier fast-casual chains (Sweetgreen, CAVA, Just Salad, Smoothie King, Tropical Smoothie Cafe, Jamba, Subway) AND healthier DRIVE-THRU chains (Salad and Go, El Pollo Loco) AND late-night chains (Jack in the Box, Whataburger, Del Taco, IHOP, Denny's, Insomnia Cookies) and halal-certified chains (The Halal Guys). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
 
 Rules:
 - Only include deals you found evidence for in search results. Do NOT invent deals, prices, or dates.
@@ -42,6 +42,7 @@ Rules:
 - "ic" is a 1-3 character brand initial; "color" is the brand's hex color.
 - Include 2-5 deals from the healthier fast-casual chains whenever you can verify them, using natural categories like "Salads", "Bowls", or "Smoothies".
 - Include deals from halal-certified national chains (e.g. The Halal Guys) whenever you can verify them, with "cat":"Halal". Use the "Halal" category ONLY for chains that are fully halal-certified — never for general chains that merely offer some halal options.
+- LATE-NIGHT PRIORITY: actively search for current deals from chains open late or 24 hours (Taco Bell, Jack in the Box, Whataburger, Del Taco, IHOP, Denny's, Sonic, Insomnia Cookies — e.g. "Jack in the Box app deals", "Denny's deals"). Night owls are a core audience: include every verifiable late-night deal, and aim for at least 3-4 deals from late-open chains each day when they can be verified.
 - HEALTHY DRIVE-THRU PRIORITY: actively search for current deals from Salad and Go and El Pollo Loco (e.g. "Salad and Go deals", "El Pollo Loco app deals") — healthy food you can get without leaving the car is exactly what our audience wants. Include every verifiable one, and Chick-fil-A grilled-item or Chipotle app deals also count toward healthier options.
 - NO PAID SUBSCRIPTIONS: never include deals that require a paid subscription or membership to claim (DashPass, Uber One, Grubhub+, delivery-app member pricing, any monthly-fee program). Free-to-join rewards apps are fine; anything with a price tag to enter is not.
 - EXPIRY: NEVER include a deal whose end date has already passed. Holiday specials must be dropped starting the day AFTER the holiday or stated end date — yesterday's "July 4th only" deal must not appear on July 5th.
