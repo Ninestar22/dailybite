@@ -1,19 +1,51 @@
 {
-  "updated": "2026-07-16",
+  "updated": "2026-07-17",
   "deals": [
     {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#DA291C",
-      "ic": "M",
-      "deal": "$5 McValue Meal Deal",
-      "desc": "Choose a McDouble or McChicken plus 4pc Nuggets, small fries & small Coca-Cola for $5 at participating locations via app or in-store.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#5b9bd5",
+      "ic": "P",
+      "deal": "BOGO for $5 — Buy Any Whole Sandwich, Salad or Bowl, Get a Second for $5",
+      "desc": "Use code BOGO5 at checkout on Panera's site or app to get a second whole sandwich, salad, or bowl for just $5 (discount applies to lower-priced item).",
       "tags": [
         "app"
       ],
-      "value": 3,
+      "value": 4,
       "expires": "Limited time",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#f7931e",
+      "ic": "J",
+      "deal": "Hat Trick Tango — World Cup Limited-Time Smoothie + 50% Off",
+      "desc": "Jamba launched the limited-time Hat Trick Tango smoothie for FIFA World Cup 2026 with a 50% off in-app deal.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.jamba.com/offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
+      "desc": "Order any Domino's pizza with any crust (including Parmesan Stuffed Crust) and up to 7 toppings for just $9.99 online or in the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
       "best": false,
       "region": "National"
     },
@@ -22,13 +54,13 @@
       "cat": "Burgers",
       "color": "#DA291C",
       "ic": "M",
-      "deal": "BOGO Big Mac or 10pc Nuggets – Sweet Treat Week",
-      "desc": "Get a free Big Mac or 10-piece Chicken McNuggets with a qualifying order this week (July 16–22) via the McDonald's app.",
+      "deal": "$5 Meal Deal via App",
+      "desc": "Order in the McDonald's app to get a McDouble or McChicken with 4-piece McNuggets, small fries, and a small drink for $5.",
       "tags": [
         "app"
       ],
-      "value": 4,
-      "expires": "Through July 22, 2026",
+      "value": 3,
+      "expires": "Ongoing",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "best": false,
       "region": "National"
@@ -36,32 +68,16 @@
     {
       "brand": "Wendy's",
       "cat": "Burgers",
-      "color": "#E2203D",
+      "color": "#e2001a",
       "ic": "W",
-      "deal": "Free Frosty with $20+ Order",
-      "desc": "Order $20 or more this week and get a free Frosty added to your order — Sweet Treat Week deal active July 16–22.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 22, 2026",
-      "url": "https://www.wendys.com/offers-coupons",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2203D",
-      "ic": "W",
-      "deal": "Biggie Deals from $4",
-      "desc": "Grab a complete Biggie Deal meal — Jr. Bacon Cheeseburger or Crispy Chicken BLT with sides and drink — starting at $4 via the app.",
+      "deal": "$6 Biggie Bag",
+      "desc": "Pick a Jr. Bacon Cheeseburger, Crispy Chicken BLT, Double Stack, or Jr. Cheeseburger plus 4 nuggets, junior fries, and a small drink for $6.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.wendys.com/offers-coupons",
+      "expires": "Ongoing",
+      "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
     },
@@ -70,271 +86,178 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "Cravings Value Menu – Items $3 or Less",
-      "desc": "Pick from 10 fan-favorite menu items priced at $3 or less any day via the app or in-store, including burritos, tacos, and potato items.",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "App-exclusive box stacked with a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips & nacho cheese, and a medium drink.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Burger King",
+      "cat": "Burgers",
+      "color": "#ec1c24",
+      "ic": "BK",
+      "deal": "$5 Your Way Meal",
+      "desc": "Choose a Double Cheeseburger, Bacon Double Cheeseburger, or Crispy Chicken Jr. with 4-piece nuggets, small fries, and a small drink for $5 via app.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.tacobell.com/offers-and-deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Any Pizza Any Crust for $9.99",
-      "desc": "Order any pizza with any crust and any toppings for $9.99 each — Parmesan Stuffed Crust now included at no extra charge.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "$7.99 Carryout Special",
-      "desc": "Get any 1-topping carryout pizza (excl. XL), 8-piece wings, or boneless chicken for $7.99 when you order online for carryout.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4CAF50",
-      "ic": "P",
-      "deal": "BOGO Entree for $5 — Code BOGO5",
-      "desc": "Buy one whole sandwich, salad, Market Bowl, Salad Stuffer, bowl of soup, or mac and get a second for just $5 using promo code BOGO5 at checkout.",
-      "tags": [],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4CAF50",
-      "ic": "P",
-      "deal": "Mix & Match $4.99 Menu",
-      "desc": "Save ~40% off regular prices by ordering half-portion soups, sandwiches, and salads from the Mix & Match $4.99 menu — up to 10 items per order.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Starbucks",
-      "cat": "Coffee",
-      "color": "#00704A",
-      "ic": "S",
-      "deal": "$10 Off $25+ Order – Sweet Treat Week",
-      "desc": "Get $10 off any Starbucks order of $25 or more this week (July 16–22) — great for stocking up on drinks or treating a group.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 22, 2026",
-      "url": "https://www.starbucks.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Tropical Smoothie Cafe",
-      "cat": "Smoothies",
-      "color": "#FF6B35",
-      "ic": "TS",
-      "deal": "Free Smoothie with $20+ Order",
-      "desc": "Get a free smoothie added to your order of $20 or more this week (July 16–22) — Sweet Treat Week deal available online and in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 22, 2026",
-      "url": "https://www.tropicalsmoothiecafe.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "K",
-      "deal": "24-Piece Nugget Bucket for $10",
-      "desc": "Score a 24-piece Nugget Bucket for just $10 at KFC — one of the chain's best-value buckets available now.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#F40027",
-      "ic": "K",
-      "deal": "Taste of KFC 2-Piece Meal for $6",
-      "desc": "Get a 2-piece Signature Chicken meal for $6 at participating KFC locations — a solid everyday value.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
+      "url": "https://www.bk.com/offers",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Arby's",
       "cat": "Chicken",
-      "color": "#E31837",
+      "color": "#c8102e",
       "ic": "A",
-      "deal": "$1.99 Sliders",
-      "desc": "Get any Arby's Slider for just $1.99 each at participating locations for a limited time.",
+      "deal": "$7.99 Meat & 3 Box",
+      "desc": "Get a Roast Beef or Crispy Chicken Sandwich plus three sides and a small drink for $7.99 at participating locations.",
       "tags": [],
       "value": 3,
       "expires": "Limited time",
-      "url": "https://www.arbys.com/promotions",
+      "url": "https://www.arbys.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Dairy Queen",
-      "cat": "Treats",
-      "color": "#FF6D00",
-      "ic": "DQ",
-      "deal": "Free Dilly Bar with $1+ App Purchase",
-      "desc": "DQ app users get one free Dilly Bar with any in-app purchase of $1 or more — valid July 13–19 in the DQ app only.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 5,
-      "expires": "Through July 19, 2026",
-      "url": "https://www.dairyqueen.com/en-us/offers/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dairy Queen",
-      "cat": "Treats",
-      "color": "#FF6D00",
-      "ic": "DQ",
-      "deal": "$7 Meal Deal",
-      "desc": "Get 3 Crispy Chicken Strips or an Original Cheeseburger, regular fries, a 21-oz drink, dipping sauce, and a sundae for $7 in-store, online, or in-app.",
+      "brand": "Dunkin'",
+      "cat": "Coffee",
+      "color": "#ff671f",
+      "ic": "DD",
+      "deal": "$6 Meal Deal — Coffee + 2 Wake Up Wraps",
+      "desc": "Score a medium hot or iced coffee plus two Bacon, Egg & Cheese Wake Up Wraps for just $6 in the Dunkin' app.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.dairyqueen.com/en-us/offers/",
+      "url": "https://www.dunkindonuts.com/en/dd-perks",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Little Caesars",
-      "cat": "Pizza",
-      "color": "#FF6C00",
-      "ic": "LC",
-      "deal": "$5 Large Pizzas – App Exclusive",
-      "desc": "Get a large pizza exclusively through the Little Caesars app for just $5 at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://littlecaesars.com/en-us/offers/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#5BA500",
-      "ic": "SS",
-      "deal": "Classic Hot Dog Meal for $8 – Code SUMMERDOG",
-      "desc": "Get a classic hot dog paired with classic fries or classic lemonade for $8 using code SUMMERDOG in-app, online, or at a kiosk through July 19.",
+      "brand": "Subway",
+      "cat": "Cafe",
+      "color": "#00843d",
+      "ic": "S",
+      "deal": "$6.99 Meal of the Day",
+      "desc": "Get the $6.99 Meal of the Day in the Subway app, which includes a footlong sub, chips or 2 cookies, and a small drink.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Through July 19, 2026",
-      "url": "https://www.shakeshack.com/app/",
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/en-US/Deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Jack in the Box",
+      "cat": "Burgers",
+      "color": "#e4002b",
+      "ic": "JB",
+      "deal": "$5 Munch Better Meal + 2 Tacos for $0.99 (App)",
+      "desc": "Night-owl staple: grab the $5 Munch Better Meal (sandwich + fries + drink) and add 2 crispy tacos for just $0.99 — both available in the app 24/7.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.jackinthebox.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Del Taco",
+      "cat": "Mexican",
+      "color": "#da291c",
+      "ic": "DT",
+      "deal": "Del's Real Deals — Value Items from $1",
+      "desc": "Del Taco's Del's Real Deals value menu offers tacos, bean & cheese burritos, rollers, and more starting at just $1 — available all day, drive-thru open late.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.deltaco.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Whataburger",
+      "cat": "Burgers",
+      "color": "#f96302",
+      "ic": "WB",
+      "deal": "Whatadeals Value Menu — Starting at $3",
+      "desc": "Whataburger's Whatadeals menu offers value items from $3 (Big Ranch Wrap) to $5 (Whataburger Jr.) with a $2.50 meal upgrade — available at 24-hour locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.whataburger.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "IHOP",
+      "cat": "Cafe",
+      "color": "#003087",
+      "ic": "IH",
+      "deal": "$6 Value Menu Deals",
+      "desc": "IHOP's $6 Value Menu is available all day at participating locations, making it a solid late-night option for budget-friendly breakfast or dinner.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.ihop.com/en/deals",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Denny's",
       "cat": "Cafe",
-      "color": "#E8C22A",
+      "color": "#ffd700",
       "ic": "DN",
-      "deal": "America 250 Limited-Time Menu",
-      "desc": "Denny's has a special America 250 menu featuring a Red, White & Berry Float and a delivery-only Spicy All-American Burrito through August 18.",
+      "deal": "Slammin' Meal Deals — Starting Under $10",
+      "desc": "Denny's Slammin' Meal Deals offer hearty all-day breakfast, lunch, and dinner combos starting under $10 at participating 24-hour locations nationwide.",
       "tags": [],
       "value": 3,
-      "expires": "Through August 18, 2026",
+      "expires": "Ongoing",
       "url": "https://www.dennys.com/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Insomnia Cookies",
-      "cat": "Treats",
-      "color": "#8B1A1A",
-      "ic": "IC",
-      "deal": "Free Delivery on $15+ – Code SWEETSUMMER",
-      "desc": "Get free delivery on any Insomnia Cookies order of $15 or more when you enter promo code SWEETSUMMER at online checkout.",
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#74aa50",
+      "ic": "SS",
+      "deal": "Any Custard for $3 with Code CUSTARDTIME",
+      "desc": "Use code CUSTARDTIME in the Shake Shack app, online, or at a kiosk to get any custard for just $3 — a standout summer frozen treat deal.",
       "tags": [
-        "free"
+        "app"
       ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://insomniacookies.com/rewards",
+      "expires": "Through August 19, 2026",
+      "url": "https://www.shakeshack.com/shake-shack-deals/",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Wingstop",
       "cat": "Chicken",
-      "color": "#CC0000",
+      "color": "#c8102e",
       "ic": "WS",
-      "deal": "$16.99 Boneless Meal Deal",
-      "desc": "Wingstop's fan-favorite Boneless Meal Deal is back at $16.99 for soccer season — great value for wings fans ordering online or in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.wingstop.com/order",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#FF6600",
-      "ic": "EP",
-      "deal": "New Frescas Salads & Wraps",
-      "desc": "El Pollo Loco's new Citrus Avocado and Mexican Cobb Fresca Salads and Wraps are available for a limited time — flame-grilled chicken, drive-thru friendly.",
+      "deal": "$16.99 Boneless Meal Deal for Soccer Season",
+      "desc": "Wingstop has revived its $16.99 Boneless Meal Deal for the FIFA World Cup soccer season — a fan-favorite bundle at a solid discount.",
       "tags": [],
       "value": 3,
       "expires": "Limited time",
-      "url": "https://www.elpolloloco.com/deals",
+      "url": "https://www.wingstop.com/deals",
       "best": false,
       "region": "National"
     }
