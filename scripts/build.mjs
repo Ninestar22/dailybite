@@ -451,20 +451,26 @@ function main() {
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   deals = deals.filter(d => !/every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
-  // Top Picks balance: max 1 "best" per brand, 4 max total; promote other brands if fewer than 3.
+  // Top Picks: recomputed here every build — healthy-first, banned brands never.
+  // Jacob's policy: Top Picks must showcase genuinely healthy deals.
+  const BEST_BANNED = new Set(["mcdonald's","mcdonalds","kfc","dairy queen","taco bell","domino's","dominos"]);
+  const HEALTHY = new Set(["sweetgreen","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
   {
-    const seen = new Set();
-    for (const d of deals) {
-      if (!d.best) continue;
-      const b = d.brand.toLowerCase();
-      if (seen.has(b)) d.best = false; else seen.add(b);
-    }
-    let n = deals.filter(d => d.best).length;
-    for (const d of deals) { if (d.best && n > 4) { d.best = false; n--; } }
-    if (n < 3) {
-      const cand = deals.filter(d => !d.best && !seen.has(d.brand.toLowerCase()))
-        .sort((a, b) => (b.value || 0) - (a.value || 0));
-      for (const d of cand) { if (n >= 3) break; d.best = true; seen.add(d.brand.toLowerCase()); n++; }
+    for (const d of deals) d.best = false;
+    const byBrand = new Set();
+    const pick = (list, max) => {
+      for (const d of list) {
+        if (byBrand.size >= max) break;
+        const b = d.brand.toLowerCase();
+        if (byBrand.has(b) || BEST_BANNED.has(b)) continue;
+        d.best = true; byBrand.add(b);
+      }
+    };
+    const healthy = deals.filter(d => HEALTHY.has(d.brand.toLowerCase())).sort((a, b) => (b.value || 0) - (a.value || 0));
+    pick(healthy, 3);
+    if (byBrand.size < 2) {
+      const rest = deals.filter(d => !HEALTHY.has(d.brand.toLowerCase())).sort((a, b) => (b.value || 0) - (a.value || 0));
+      pick(rest, 2);
     }
   }
   if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
