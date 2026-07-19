@@ -46,7 +46,7 @@
       "value": 5,
       "expires": "Through July 19, 2026",
       "url": "https://insomniacookies.com/locations",
-      "best": true,
+      "best": false,
       "region": "National"
     },
     {
@@ -79,39 +79,6 @@
       "value": 5,
       "expires": "Through July 19, 2026",
       "url": "https://www.dairyqueen.com/en-us/dq-app/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "DT",
-      "deal": "National Ice Cream Day: BOGO Free Regular Shakes",
-      "desc": "Del Yeah! Rewards members get buy-one-get-one-free on regular shakes in classic flavors via the app or deltaco.com — today is the last day.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 19, 2026",
-      "url": "https://www.deltaco.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#e2111b",
-      "ic": "W",
-      "deal": "National Ice Cream Day: $1 Small Classic Frosty in App",
-      "desc": "Wendy's Rewards members can redeem a $1 small Classic Chocolate or Vanilla Frosty in-app today — available to all guests starting tomorrow.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 19, 2026",
-      "url": "https://www.wendys.com/app",
       "best": false,
       "region": "National"
     },
@@ -154,22 +121,6 @@
       "value": 3,
       "expires": "Limited time",
       "url": "https://www.arbys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008c15",
-      "ic": "Su",
-      "deal": "BOGO 50% Off All Footlong Subs",
-      "desc": "Buy one footlong sub and get a second footlong 50% off — valid all day today (Sunday) for Sub Club members through July 20.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 20, 2026",
-      "url": "https://www.subway.com/en-US/deals",
       "best": false,
       "region": "National"
     },
