@@ -112,22 +112,6 @@
       "region": "National"
     },
     {
-      "brand": "Subway",
-      "cat": "Subs",
-      "color": "#00943c",
-      "ic": "SU",
-      "deal": "BOGO 50% Off Any Footlong — Last Day Today!",
-      "desc": "Buy one Footlong at regular price and get a second at 50% off; valid through July 20 for Sub Club members in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 20, 2026",
-      "url": "https://www.subway.com/en-US/MenuNutrition/Menu/Offers",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Burger King",
       "cat": "Burgers",
       "color": "#d62300",
