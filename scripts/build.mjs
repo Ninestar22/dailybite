@@ -456,6 +456,7 @@ function main() {
   // Top Picks: recomputed here every build — healthy-first, banned brands never.
   // Jacob's policy: Top Picks must showcase genuinely healthy deals.
   const BEST_BANNED = new Set(["mcdonald's","mcdonalds","kfc","dairy queen","taco bell","domino's","dominos"]);
+  const GOLD = new Set(["chipotle", "chick-fil-a"]); // golden-standard brands: always Top Picks when they have a valid deal
   const HEALTHY = new Set(["sweetgreen","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
   {
     for (const d of deals) d.best = false;
@@ -468,8 +469,12 @@ function main() {
         d.best = true; byBrand.add(b);
       }
     };
-    const healthy = deals.filter(d => HEALTHY.has(d.brand.toLowerCase())).sort((a, b) => (b.value || 0) - (a.value || 0));
-    pick(healthy, 3);
+    const byVal = (a, b) => (b.value || 0) - (a.value || 0);
+    const gold = deals.filter(d => GOLD.has(d.brand.toLowerCase())).sort(byVal);
+    pick(gold, 2);
+    const goldCount = byBrand.size;
+    const healthy = deals.filter(d => HEALTHY.has(d.brand.toLowerCase())).sort(byVal);
+    pick(healthy, goldCount >= 2 ? 4 : 3);
     if (byBrand.size < 2) {
       const rest = deals.filter(d => !HEALTHY.has(d.brand.toLowerCase())).sort((a, b) => (b.value || 0) - (a.value || 0));
       pick(rest, 2);
