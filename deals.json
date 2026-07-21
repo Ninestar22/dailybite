@@ -233,23 +233,6 @@
       "url": "https://www.deltaco.com/deals",
       "best": false,
       "region": "National"
-    },
-    {
-      "brand": "Firehouse Subs",
-      "cat": "Cafe",
-      "color": "#cc0000",
-      "ic": "FS",
-      "deal": "Buy 2 Subs, Get 1 Free — In App",
-      "desc": "Order any two subs through the Firehouse Subs app and get a third sub free — offer valid through July 31, 2026 for Rewards members.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 31, 2026",
-      "url": "https://www.firehousesubs.com/deals",
-      "best": false,
-      "region": "National"
     }
   ]
 }
