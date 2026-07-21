@@ -161,21 +161,6 @@
 <div class="card best">
   <div class="best-badge">&#9733; TOP PICK</div>
   <div class="brandrow">
-    <div class="brand-ic" style="background:#ff69b4"><span>Cr</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=crumbl.com&amp;sz=128" alt="Crumbl logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">Crumbl</div><div class="brand-cat">Treats</div></div>
-  </div>
-  <div class="deal">Free Cookie Thin — No Purchase Needed (July 20 Only)</div>
-  <div class="desc">Walk into any Crumbl store today and claim one free Cookie Thin (Pink Sugar, Chocolate Chip, S&#39;mores, or Brownie Batter) — no app or rewards required.</div>
-  <div class="metarow"><span class="pill free">FREE</span></div>
-  <div class="foot">
-    <span class="expires">&#128337; July 20, 2026</span>
-    <a class="near" href="https://www.google.com/maps/search/Crumbl+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
-    <a class="cta" href="https://crumblcookies.com/deals" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
-<div class="card">
-  
-  <div class="brandrow">
     <div class="brand-ic" style="background:#e8201b"><span>Mo</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=moessouthwestgrill.com&amp;sz=128" alt="Moe&#39;s Southwest Grill logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Moe&#39;s Southwest Grill</div><div class="brand-cat">Mexican</div></div>
   </div>
@@ -436,7 +421,7 @@
 
 <footer>
   Every deal is re-verified each morning against the chains&#39; official apps and deal pages. Not affiliated
-  with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Monday, July 20, 2026</span>.
+  with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Tuesday, July 21, 2026</span>.
 </footer>
 
 <script>
@@ -445,24 +430,6 @@
    scripts/build.mjs. Edit deals.json (or let the refresh workflow update it) instead. */
 /* DEALS:START */
 const DEALS = [
-  {
-    "brand": "Crumbl",
-    "cat": "Treats",
-    "color": "#ff69b4",
-    "ic": "Cr",
-    "deal": "Free Cookie Thin — No Purchase Needed (July 20 Only)",
-    "desc": "Walk into any Crumbl store today and claim one free Cookie Thin (Pink Sugar, Chocolate Chip, S'mores, or Brownie Batter) — no app or rewards required.",
-    "tags": [
-      "free"
-    ],
-    "value": 5,
-    "expires": "July 20, 2026",
-    "url": "https://crumblcookies.com/deals",
-    "best": true,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": false
-  },
   {
     "brand": "Moe's Southwest Grill",
     "cat": "Mexican",
@@ -476,7 +443,7 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.moes.com/deals",
-    "best": false,
+    "best": true,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -708,7 +675,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-20T13:02:48.326Z"};
+const META = {"verifiedAt":"2026-07-21T09:55:38.838Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -773,6 +740,7 @@ function safeUrl(u){
 /* ---- Distance engine (free OpenStreetMap lookup, opt-in via button) ---- */
 let DIST = null; // { normalizedBrand: miles }
 let STATE = null; // viewer's U.S. state, e.g. "Texas"
+let CITY = null; // city/town from reverse geocode
 let HOURS = null; // { normalizedBrand: OSM opening_hours string of nearest location }
 // Evaluate common OSM opening_hours formats in the viewer's local time.
 // Returns true (open), false (closed), or null (unknown/unparseable — show nothing).
@@ -830,17 +798,21 @@ function openPill(brand){
   return '';
 }
 async function stateLookup(lat, lon){
-  const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=5`);
+  const r = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=10`);
   if(!r.ok) return null;
   const j = await r.json();
-  return (j.address && (j.address.state || j.address.region)) || null;
+  const a = j.address || {};
+  return {
+    state: a.state || a.region || null,
+    city: a.city || a.town || a.village || a.suburb || a.hamlet || a.county || null
+  };
 }
 function regionOK(d){
   if(!STATE || !d.region) return true;
   if(/national/i.test(d.region)) return true;
   return d.region.toLowerCase().includes(STATE.toLowerCase());
 }
-function locLabel(){ return STATE ? ('\ud83d\udccd Deals for ' + STATE) : '\ud83d\udccd Distances on'; }
+function locLabel(){ if(!STATE) return '\ud83d\udccd Distances on'; const place = CITY ? (CITY + ', ' + STATE) : STATE; return '\ud83d\udccd Deals for ' + place; }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 function nearLabel(brand){
   const m = DIST && DIST[normBrand(brand)];
@@ -898,8 +870,8 @@ function clearLocTip(){ const t = document.getElementById('locTip'); if(t) t.rem
 locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
-    const c = JSON.parse(localStorage.getItem('db_dist') || 'null');
-    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
+    const c = JSON.parse(localStorage.getItem('db_dist2') || 'null');
+    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
   }catch(e){}
   if(!navigator.geolocation){ locBtn.textContent = '\ud83d\udccd Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
@@ -908,8 +880,8 @@ locBtn.addEventListener('click', () => {
       locBtn.textContent = 'Finding restaurants\u2026';
       const res = await loadDistances(pos.coords.latitude, pos.coords.longitude);
       DIST = res.best; HOURS = res.hours;
-      try{ STATE = await stateLookup(pos.coords.latitude, pos.coords.longitude); }catch(e){ STATE = null; }
-      localStorage.setItem('db_dist', JSON.stringify({t: Date.now(), d: DIST, s: STATE, h: HOURS}));
+      try{ const loc = await stateLookup(pos.coords.latitude, pos.coords.longitude); STATE = loc && loc.state; CITY = loc && loc.city; }catch(e){ STATE = null; CITY = null; }
+      localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS}));
       locBtn.textContent = locLabel();
       locBtn.classList.add('on');
       clearLocTip();
@@ -930,10 +902,11 @@ locBtn.addEventListener('click', () => {
 
 // Restore distances automatically on page load if enabled within the last 24h.
 try{
-  const c0 = JSON.parse(localStorage.getItem('db_dist') || 'null');
+  const c0 = JSON.parse(localStorage.getItem('db_dist2') || 'null');
   if(c0 && Date.now() - c0.t < 86400000){
     DIST = c0.d;
     STATE = c0.s || null;
+    CITY = c0.c || null;
     HOURS = c0.h || null;
     locBtn.textContent = locLabel();
     locBtn.classList.add('on');
