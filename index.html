@@ -161,6 +161,21 @@
 <div class="card best">
   <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
+    <div class="brand-ic" style="background:#a81612"><span>Ch</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
+    <div><div class="brand-name">Chipotle</div><div class="brand-cat">Bowls</div></div>
+  </div>
+  <div class="deal">Free Delivery on $10+ Digital Orders</div>
+  <div class="desc">Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.</div>
+  <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('NEEDED');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: NEEDED</button><span class="pill app">APP ONLY</span></div>
+  <div class="foot">
+    <span class="expires">Limited time</span>
+    <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
+    <a class="cta" href="https://www.chipotle.com/" target="_blank" rel="noopener">Get deal &rarr;</a>
+  </div>
+</div>
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
+  <div class="brandrow">
     <div class="brand-ic" style="background:#3d7a4e"><span>Sg</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=sweetgreen.com&amp;sz=128" alt="Sweetgreen logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Sweetgreen</div><div class="brand-cat">Salads</div></div>
   </div>
@@ -188,8 +203,8 @@
     <a class="cta" href="https://www.wingstop.com/offers" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
+<div class="card">
+  
   <div class="brandrow">
     <div class="brand-ic" style="background:#e8a020"><span>EP</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=elpolloloco.com&amp;sz=128" alt="El Pollo Loco logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">El Pollo Loco</div><div class="brand-cat">Chicken</div></div>
@@ -491,6 +506,24 @@
 /* DEALS:START */
 const DEALS = [
   {
+    "brand": "Chipotle",
+    "cat": "Bowls",
+    "color": "#a81612",
+    "ic": "Ch",
+    "deal": "Free Delivery on $10+ Digital Orders",
+    "desc": "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.",
+    "tags": [
+      "app"
+    ],
+    "value": 4,
+    "expires": "Limited time",
+    "url": "https://www.chipotle.com/",
+    "best": true,
+    "region": "National",
+    "isNew": true,
+    "endingSoon": false
+  },
+  {
     "brand": "Sweetgreen",
     "cat": "Salads",
     "color": "#3d7a4e",
@@ -539,7 +572,7 @@ const DEALS = [
     "value": 4,
     "expires": "Limited time",
     "url": "https://www.elpolloloco.com/deals",
-    "best": true,
+    "best": false,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -813,7 +846,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-21T17:41:18.504Z"};
+const META = {"verifiedAt":"2026-07-21T18:02:01.158Z"};
 /* DEALS:END */
 
 const today = new Date();
