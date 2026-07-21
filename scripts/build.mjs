@@ -171,7 +171,7 @@ function chainPage(chain, deals) {
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <style>${CHAIN_CSS}</style>
-<script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://ninestar22.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
@@ -230,7 +230,7 @@ function freeFoodPage(deals) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <style>${CHAIN_CSS}</style>
-<script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://ninestar22.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
@@ -307,7 +307,7 @@ function holidayPage(h, deals) {
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <style>${CHAIN_CSS}</style>
-<script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://ninestar22.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
@@ -378,7 +378,7 @@ function dayPage(day, deals) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <style>${CHAIN_CSS}</style>
-<script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://ninestar22.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
