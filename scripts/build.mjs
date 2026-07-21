@@ -54,7 +54,7 @@ const CHAINS = [
 
 const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a></nav>`;
 
-const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><strong>\u{1F4EC} Get tomorrow&#39;s deals in your inbox.</strong><br>One short email each morning with the day&#39;s best verified food deals. No spam, unsubscribe anytime.<br><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script></div>`;
+const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><br>One short email each morning with the day&#39;s best verified food deals. No spam, unsubscribe anytime.<br><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="4d208e13-5701-4ef5-993d-c9b21dd4f588"></script></div>`;
 
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
@@ -92,29 +92,29 @@ function brandDomain(brand) {
 }
 
 const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
-function latePill(d) { return LATE_BRANDS.has(String(d.brand).toLowerCase()) ? '<span class="pill late">&#127769; OPEN LATE</span>' : ""; }
+function latePill(d) { return LATE_BRANDS.has(String(d.brand).toLowerCase()) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
   const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+([A-Z0-9]{3,14})\b/i);
   if (!m) return "";
   const c = m[1].toUpperCase();
-  return `<button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('${c}');this.textContent='\u2713 COPIED!'" title="Tap to copy">&#9112; CODE: ${c}</button>`;
+  return `<button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('${c}');this.textContent='\u2713 COPIED!'" title="Tap to copy">CODE: ${c}</button>`;
 }
 
 function dealCard(d) {
   const tags = (d.tags || []).map(t =>
     `<span class="pill ${t === "free" ? "free" : "app"}">${t === "free" ? "FREE" : "APP ONLY"}</span>`).join("");
   return `<div class="card${d.best ? " best" : ""}">
-  ${d.best ? `<div class="best-badge">&#9733; TOP PICK</div>` : ""}
+  ${d.best ? `<div class="best-badge">TOP PICK</div>` : ""}
   <div class="brandrow">
     <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">${esc(d.brand)}</div><div class="brand-cat">${esc(d.cat)}</div></div>
   </div>
   <div class="deal">${esc(d.deal)}</div>
   <div class="desc">${esc(d.desc)}</div>
-  <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">&#128205; ${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${latePill(d)}${tags}</div>
+  <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${latePill(d)}${tags}</div>
   <div class="foot">
-    <span class="expires">&#128337; ${esc(d.expires)}</span>
-    <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">&#128205; Nearest</a>
+    <span class="expires">${esc(d.expires)}</span>
+    <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">Nearest</a>
     <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>`;
@@ -181,9 +181,9 @@ function chainPage(chain, deals) {
   ${body}
   ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">\u{1F31F} Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -242,7 +242,7 @@ function freeFoodPage(deals) {
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\ud83d\udcf7 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -272,7 +272,7 @@ const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sun
 
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
 const HOLIDAYS = [
-  { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "\u{1F354}", kw: /burger|whopper|cheeseburger/i,
+  { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "", kw: /burger|whopper|cheeseburger/i,
     blurb: "September 18 is the biggest burger deal day of the year — expect free and $1 cheeseburgers in most major burger apps." },
 ];
 
@@ -310,7 +310,7 @@ function holidayPage(h, deals) {
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
 <span class="date">Updated ${prettyDate}</span>
-<h1>${h.emoji} ${esc(h.name)} Deals &mdash; ${esc(pretty)}</h1>
+<h1>${esc(h.name)} Deals &mdash; ${esc(pretty)}</h1>
 <p class="tag">${esc(h.blurb)}</p>
 ${matchedBlock}
 <h2 style="font-size:18px;margin:26px 2px 4px">More verified deals today</h2>
@@ -318,7 +318,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page &mdash; it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">\u{1F4F7} Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">\u{1F4CC} Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">\u{1F3B5} TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -385,15 +385,17 @@ function dayPage(day, deals) {
   ${body}
   ${EMAIL_CAPTURE}
   <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">\u{1F31F} Free Food Today</a></nav>
+  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">📷 Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">📌 Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">🎵 TikTok</a></footer>
+<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
 
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
+  const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
+  for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","title","desc","expires","badge","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
   let deals = Array.isArray(data) ? data : data.deals;
   if (!Array.isArray(deals) || deals.length === 0) {
     throw new Error("deals.json has no deals array — refusing to build an empty page.");
