@@ -1,238 +1,307 @@
 {
-  "updated": "2026-07-21",
-  "deals": [
-    {
-      "brand": "Sweetgreen",
-      "cat": "Salads",
-      "color": "#6db33f",
-      "ic": "Sg",
-      "deal": "Alice Waters Peach & Goat Cheese Salad",
-      "desc": "Limited-edition summer collab salad available at all Sweetgreen locations nationwide, with 1% of net sales donated to The Edible Schoolyard Project.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through August 10, 2026",
-      "url": "https://www.sweetgreen.com/menu",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Tropical Smoothie Cafe",
-      "cat": "Smoothies",
-      "color": "#ff6600",
-      "ic": "TS",
-      "deal": "Free 24oz Smoothie with $20+ Order — Sweet Treat Week",
-      "desc": "Order $20 or more this week and get a free 24oz smoothie; part of a national Sweet Treat Week promotion running July 16–22.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 22, 2026",
-      "url": "https://www.tropicalsmoothiecafe.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Jamba",
-      "cat": "Smoothies",
-      "color": "#f7941d",
-      "ic": "Jb",
-      "deal": "Hat Trick Tango Smoothie — 50% Off",
-      "desc": "Celebrate FIFA World Cup 2026 with Jamba's limited-time Hat Trick Tango smoothie at 50% off at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.jamba.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Wings",
-      "color": "#cc0000",
-      "ic": "Ws",
-      "deal": "$16.99 Boneless Meal Deal — Soccer Season",
-      "desc": "Score 20 boneless wings, a large fry, and two dips for $16.99 — Wingstop's revived fan-favorite bundle back for FIFA World Cup season.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.wingstop.com/order",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffcc00",
-      "ic": "Mc",
-      "deal": "$5 Value Meal Box",
-      "desc": "Daily in-app deal — McDouble or McChicken, small fries, 4-piece McNuggets, and a small drink for $5 at participating locations nationwide.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Burger King",
-      "cat": "Burgers",
-      "color": "#d62300",
-      "ic": "BK",
-      "deal": "$5 Your Way Meal + Free Fries",
-      "desc": "Build your own $5 combo with a Whopper Jr., Bacon Cheeseburger, or Chicken Jr. plus fries, nuggets, and a drink — available all summer.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.bk.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f26522",
-      "ic": "Po",
-      "deal": "$5 Faves Menu",
-      "desc": "Choose three pieces of chicken, two sides, or a sandwich from Popeyes' value-focused Faves Menu — no code needed, available in-store and in-app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.popeyes.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "Do",
-      "deal": "Any Pizza for $9.99 — Best Deal Ever",
-      "desc": "Order any pizza at any size for $9.99, now including Parmesan Stuffed Crust at no extra charge, via the Domino's app or online.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/local/bestdeal.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#f40027",
-      "ic": "KF",
-      "deal": "5 Tenders for $5 — Digital Deal",
-      "desc": "Grab five crispy chicken tenders for just $5 when you order through the KFC app on a weekday.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#ffcc00",
-      "ic": "So",
-      "deal": "$7 Big Deal Meal",
-      "desc": "Sonic Cheeseburger, small Premium Chicken Bites, medium fries or tots, and a medium drink — all for $7 at participating drive-ins.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#ffcc00",
-      "ic": "So",
-      "deal": "$1.99 Permanent Value Menu",
-      "desc": "Permanent everyday menu featuring a Jr. Bacon Cheeseburger, Cheesy Baja Crispy Tender Wrap, Vanilla Soft Serve Cup, and Small Root Beer Float — all at $1.99.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Jack in the Box",
-      "cat": "Burgers",
-      "color": "#e31837",
-      "ic": "JB",
-      "deal": "Hot Ones Menu — Limited Time",
-      "desc": "Jack in the Box is serving a special Hot Ones-branded spicy menu for a limited time — available late night at 24-hour locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.jackinthebox.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "IHOP",
-      "cat": "Cafe",
-      "color": "#003087",
-      "ic": "IH",
-      "deal": "$6 Value Menu",
-      "desc": "IHOP's ongoing $6 Value Menu offers budget-friendly breakfast and dinner plates around the clock — great for late-night diners.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.ihop.com/en/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Denny's",
-      "cat": "Cafe",
-      "color": "#ffcc00",
-      "ic": "Dn",
-      "deal": "'The Clock's Off' All-Day Menu",
-      "desc": "Denny's new around-the-clock menu spans breakfast, lunch, and dinner available at any hour — perfect for late-night runs at participating locations nationwide.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dennys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "DT",
-      "deal": "$1 Bean & Cheese Burrito — Value Menu",
-      "desc": "Del Taco's new value menu includes a $1 Bean & Cheese Burrito as one of its lowest-priced items, available all day at participating locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.deltaco.com/deals",
-      "best": false,
-      "region": "National"
-    }
-  ]
+ "updated": "2026-07-21",
+ "deals": [
+  {
+   "brand": "Chipotle",
+   "cat": "Bowls",
+   "color": "#a81612",
+   "ic": "Ch",
+   "deal": "Free Delivery on $10+ Digital Orders",
+   "desc": "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.chipotle.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Sweetgreen",
+   "cat": "Salads",
+   "color": "#3d7a4e",
+   "ic": "Sg",
+   "deal": "Alice Waters' Peach & Goat Cheese Salad",
+   "desc": "Limited-edition summer collab with chef Alice Waters — a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 10, 2026",
+   "url": "https://www.sweetgreen.com/sweet-rewards/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Wingstop",
+   "cat": "Wings",
+   "color": "#c8102e",
+   "ic": "Ws",
+   "deal": "$16.99 Boneless Meal Deal",
+   "desc": "Score 20 boneless wings, a large fry, and two dips for $16.99 — Wingstop's soccer-season fan-favorite bundle is back.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.wingstop.com/offers",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "El Pollo Loco",
+   "cat": "Chicken",
+   "color": "#e8a020",
+   "ic": "EP",
+   "deal": "20% Off Salads & Pollo Bowls",
+   "desc": "Use code FIREUP20 at elpolloloco.com for 20% off salads and Pollo Bowls — healthy fire-grilled chicken you can grab at the drive-thru.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.elpolloloco.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Subway",
+   "cat": "Sandwiches",
+   "color": "#008c15",
+   "ic": "Su",
+   "deal": "$5.99 Footlong in App",
+   "desc": "Enter code FL599 at checkout in the Subway app to score any Footlong sub for just $5.99.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.subway.com/en-US/menunutrition/subway-deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "McDonald's",
+   "cat": "Burgers",
+   "color": "#DA291C",
+   "ic": "Mc",
+   "deal": "$5 Value Meal Box",
+   "desc": "Get a McDouble or McChicken, small fries, 4-pc McNuggets, and a small drink for $5, available daily in the McDonald's app.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Ongoing",
+   "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Burger King",
+   "cat": "Burgers",
+   "color": "#f5821f",
+   "ic": "BK",
+   "deal": "$5 Your Way Meal + Free Fries",
+   "desc": "Get a Your Way Meal for $5 daily, plus free French fries in any size with any purchase — both available in the BK app.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.bk.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Popeyes",
+   "cat": "Chicken",
+   "color": "#f26522",
+   "ic": "Po",
+   "deal": "$5 Faves Menu",
+   "desc": "Three pieces of fried chicken, three tenders, or two regular sides — any of Popeyes' Faves for just $5 through August 31.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 31, 2026",
+   "url": "https://www.popeyes.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "KFC",
+   "cat": "Chicken",
+   "color": "#e4002b",
+   "ic": "KF",
+   "deal": "12-Piece Chicken Bucket for $15",
+   "desc": "Grab a 12-piece bucket in the KFC app for just $15 — a deeply discounted feed-the-family deal available while supplies last.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.kfc.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#005596",
+   "ic": "So",
+   "deal": "$7 Big Deal Meal",
+   "desc": "Sonic's $7 Big Deal Meal bundles a burger, tots or fries, and a drink — one of the best everyday drive-in values around.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#005596",
+   "ic": "So",
+   "deal": "$1.99 Menu — All Day, Every Day",
+   "desc": "Sonic's refreshed $1.99 Menu features a rotating lineup of snacks, drinks, and entrée items available all day at the drive-in.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Jack in the Box",
+   "cat": "Burgers",
+   "color": "#e03a3e",
+   "ic": "JB",
+   "deal": "2 Tacos for $0.99",
+   "desc": "Jack in the Box's legendary late-night deal: two tacos for just $0.99, claimable in the app — available 24 hours at most locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 5,
+   "expires": "Ongoing",
+   "url": "https://www.jackinthebox.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "IHOP",
+   "cat": "Cafe",
+   "color": "#003087",
+   "ic": "IH",
+   "deal": "$6 Value Menu",
+   "desc": "IHOP's $6 Value Menu offers budget-friendly breakfast and diner plates all day — great for late-night diners.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.ihop.com/en/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Little Caesars",
+   "cat": "Pizza",
+   "color": "#ff671f",
+   "ic": "LC",
+   "deal": "Free Crazy Bread on $25+ Orders",
+   "desc": "Use code 25CRAZY in the Little Caesars app or online to score free Crazy Bread on any order of $25 or more.",
+   "tags": [
+    "free",
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://littlecaesars.com/en-us/offers/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Domino's",
+   "cat": "Pizza",
+   "color": "#006491",
+   "ic": "Do",
+   "deal": "$9.99 Best Deal Ever",
+   "desc": "Domino's online-exclusive $9.99 Best Deal Ever lets you build your perfect pizza at a can't-beat price — valid through July 26.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through July 26, 2026",
+   "url": "https://www.dominos.com/en/pages/content/local/deals.html",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Pizza Hut",
+   "cat": "Pizza",
+   "color": "#ee3124",
+   "ic": "PH",
+   "deal": "$8.99 MyBox",
+   "desc": "Pizza Hut's MyBox gets you a personal pan pizza or melt plus fries or wings for just $8.99 — a solid everyday value.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.pizzahut.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Shake Shack",
+   "cat": "Burgers",
+   "color": "#74b94a",
+   "ic": "SS",
+   "deal": "Any Custard for $3 — Code CUSTARDTIME",
+   "desc": "Get any custard for $3 at Shake Shack using code CUSTARDTIME in the app, kiosk, or online through August 19 — kicked off on National Ice Cream Day.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 19, 2026",
+   "url": "https://www.shakeshack.com/deals/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Insomnia Cookies",
+   "cat": "Treats",
+   "color": "#c8102e",
+   "ic": "IC",
+   "deal": "Free Delivery on $15+ with Code SWEETSUMMER",
+   "desc": "Get free delivery on any order of $15 or more at Insomnia Cookies using promo code SWEETSUMMER at online checkout — perfect for late-night sweet cravings.",
+   "tags": [
+    "free",
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://insomniacookies.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Wendy's",
+   "cat": "Burgers",
+   "color": "#e2231a",
+   "ic": "We",
+   "deal": "Biggie Deals — $4, $6 & $8 Tiers",
+   "desc": "Wendy's Biggie Deals bundle fan favorites at $4, $6, and $8 price points, claimable daily in the Wendy's app.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.wendys.com/deals",
+   "best": false,
+   "region": "National"
+  }
+ ]
 }
