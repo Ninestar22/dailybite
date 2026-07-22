@@ -1,217 +1,233 @@
 {
-  "updated": "2026-07-22",
-  "deals": [
-    {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
-      "desc": "Order any Domino's pizza with any crust (including Parmesan Stuffed Crust) and up to 7 toppings for $9.99 online or in app — XL and Specialty pizzas excluded.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/specials/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Pizza Hut",
-      "cat": "Pizza",
-      "color": "#ee3524",
-      "ic": "PH",
-      "deal": "Large Pizza Any 3 Toppings for $10",
-      "desc": "Get any large Pizza Hut pizza with up to three toppings for $10 via the app or online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.pizzahut.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f47920",
-      "ic": "Po",
-      "deal": "$5 Faves Menu",
-      "desc": "Choose three pieces of chicken, two sides, or a chicken sandwich from the $5 Faves Menu — no app required at participating locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.popeyes.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Burger King",
-      "cat": "Burgers",
-      "color": "#d62300",
-      "ic": "BK",
-      "deal": "$5 Your Way Meal",
-      "desc": "Build your own combo — sandwich, fries, and drink — for $5 every day via the app or in-restaurant.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.bk.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "M",
-      "deal": "App Exclusive Value Offers",
-      "desc": "Download the McDonald's app to access rotating daily coupons including BOGO Breakfast Sandwiches and $6 Combo Meal deals.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009743",
-      "ic": "S",
-      "deal": "$5.99 Footlong with Code FL599",
-      "desc": "Use promo code FL599 in the Subway app to get a Footlong for $5.99 — availability varies by zip code, so check your local store.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.subway.com/en-US/menunutrition/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#e2001a",
-      "ic": "W",
-      "deal": "Biggie Deals — Combos from $4",
-      "desc": "Wendy's Biggie Deals offer full combos at $4, $6, and $8 price points every day — no app required.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.wendys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005aaa",
-      "ic": "So",
-      "deal": "$7 Big Deal Meal",
-      "desc": "Sonic's new $7 Big Deal Meal bundles a burger or sandwich with fries and a drink at one everyday price — available at the drive-in or via app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005aaa",
-      "ic": "So",
-      "deal": "$1.99 Value Menu Items",
-      "desc": "Sonic's refreshed $1.99 Menu features multiple food and drink items available all day every day.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "IHOP",
-      "cat": "Cafe",
-      "color": "#003087",
-      "ic": "IH",
-      "deal": "$6 Value Menu — All Day, All Night",
-      "desc": "IHOP's $6 Value Menu is available around the clock at participating locations, making it a strong pick for late-night diners.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.ihop.com/en/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Denny's",
-      "cat": "Cafe",
-      "color": "#ffcc00",
-      "ic": "De",
-      "deal": "The Clock's Off Menu — New All-Day Dishes",
-      "desc": "Denny's new The Clock's Off Menu brings fresh breakfast, lunch, and dinner options available 24 hours at participating locations nationwide.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dennys.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "DT",
-      "deal": "Value Menu Bean and Cheese Burritos Under $2",
-      "desc": "Del Taco's Value Menu regularly features Bean and Cheese Burritos for under $2 — a late-night budget staple available at most locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.deltaco.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#c8102e",
-      "ic": "WS",
-      "deal": "$16.99 Boneless Meal Deal",
-      "desc": "Get 20 Boneless Wings in up to four flavors plus a large fry and two dipping sauces for $16.99 via Wingstop.com or the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.wingstop.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Chick-fil-A",
-      "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "CF",
-      "deal": "2026 Summer Menu — Peach Milkshake Returns",
-      "desc": "Chick-fil-A's limited-time Peach Milkshake is back for summer 2026 — order via the free Chick-fil-A One app or in-store (free account helpful for ordering ahead).",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.chick-fil-a.com/menu/beverages",
-      "best": false,
-      "region": "National"
-    }
-  ]
+ "updated": "2026-07-22",
+ "deals": [
+  {
+   "brand": "Chipotle",
+   "cat": "Bowls",
+   "color": "#a81612",
+   "ic": "Ch",
+   "deal": "Free Delivery on $10+ Digital Orders",
+   "desc": "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.chipotle.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Sweetgreen",
+   "cat": "Salads",
+   "color": "#3d7a4e",
+   "ic": "Sg",
+   "deal": "Alice Waters' Peach & Goat Cheese Salad",
+   "desc": "Limited-edition summer collab with chef Alice Waters - a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 10, 2026",
+   "url": "https://www.sweetgreen.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Domino's",
+   "cat": "Pizza",
+   "color": "#006491",
+   "ic": "D",
+   "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
+   "desc": "Order any Domino's pizza with any crust (including Parmesan Stuffed Crust) and up to 7 toppings for $9.99 online or in app — XL and Specialty pizzas excluded.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through July 26, 2026",
+   "url": "https://www.dominos.com/en/pages/content/specials/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Pizza Hut",
+   "cat": "Pizza",
+   "color": "#ee3524",
+   "ic": "PH",
+   "deal": "Large Pizza Any 3 Toppings for $10",
+   "desc": "Get any large Pizza Hut pizza with up to three toppings for $10 via the app or online.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.pizzahut.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Popeyes",
+   "cat": "Chicken",
+   "color": "#f47920",
+   "ic": "Po",
+   "deal": "$5 Faves Menu",
+   "desc": "Choose three pieces of chicken, two sides, or a chicken sandwich from the $5 Faves Menu — no app required at participating locations.",
+   "tags": [],
+   "value": 3,
+   "expires": "Through August 31, 2026",
+   "url": "https://www.popeyes.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Burger King",
+   "cat": "Burgers",
+   "color": "#d62300",
+   "ic": "BK",
+   "deal": "$5 Your Way Meal",
+   "desc": "Build your own combo — sandwich, fries, and drink — for $5 every day via the app or in-restaurant.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.bk.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "McDonald's",
+   "cat": "Burgers",
+   "color": "#ffbc0d",
+   "ic": "M",
+   "deal": "App Exclusive Value Offers",
+   "desc": "Download the McDonald's app to access rotating daily coupons including BOGO Breakfast Sandwiches and $6 Combo Meal deals.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Subway",
+   "cat": "Sandwiches",
+   "color": "#009743",
+   "ic": "S",
+   "deal": "$5.99 Footlong with Code FL599",
+   "desc": "Use promo code FL599 in the Subway app to get a Footlong for $5.99 — availability varies by zip code, so check your local store.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.subway.com/en-US/menunutrition/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Wendy's",
+   "cat": "Burgers",
+   "color": "#e2001a",
+   "ic": "W",
+   "deal": "Biggie Deals — Combos from $4",
+   "desc": "Wendy's Biggie Deals offer full combos at $4, $6, and $8 price points every day — no app required.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.wendys.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#005aaa",
+   "ic": "So",
+   "deal": "$7 Big Deal Meal",
+   "desc": "Sonic's new $7 Big Deal Meal bundles a burger or sandwich with fries and a drink at one everyday price — available at the drive-in or via app.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#005aaa",
+   "ic": "So",
+   "deal": "$1.99 Value Menu Items",
+   "desc": "Sonic's refreshed $1.99 Menu features multiple food and drink items available all day every day.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "IHOP",
+   "cat": "Cafe",
+   "color": "#003087",
+   "ic": "IH",
+   "deal": "$6 Value Menu — All Day, All Night",
+   "desc": "IHOP's $6 Value Menu is available around the clock at participating locations, making it a strong pick for late-night diners.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.ihop.com/en/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Denny's",
+   "cat": "Cafe",
+   "color": "#ffcc00",
+   "ic": "De",
+   "deal": "The Clock's Off Menu — New All-Day Dishes",
+   "desc": "Denny's new The Clock's Off Menu brings fresh breakfast, lunch, and dinner options available 24 hours at participating locations nationwide.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.dennys.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Del Taco",
+   "cat": "Mexican",
+   "color": "#e31837",
+   "ic": "DT",
+   "deal": "Value Menu Bean and Cheese Burritos Under $2",
+   "desc": "Del Taco's Value Menu regularly features Bean and Cheese Burritos for under $2 — a late-night budget staple available at most locations.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.deltaco.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Wingstop",
+   "cat": "Chicken",
+   "color": "#c8102e",
+   "ic": "WS",
+   "deal": "$16.99 Boneless Meal Deal",
+   "desc": "Get 20 Boneless Wings in up to four flavors plus a large fry and two dipping sauces for $16.99 via Wingstop.com or the app.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.wingstop.com/deals",
+   "best": true,
+   "region": "National"
+  }
+ ]
 }
