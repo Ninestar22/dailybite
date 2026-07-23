@@ -6,109 +6,95 @@
   <description>The best verified food deals, updated every morning.</description>
   <language>en-us</language>
   <item>
-    <title>Chipotle: Free Delivery on $10+ Digital Orders</title>
+    <title>Panera Bread: Mix and Match $4.99 Menu</title>
     <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Chipotle-Free Delivery on $10+ Digital Orders-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone. (Limited time)</description>
-  </item>
-  <item>
-    <title>Sweetgreen: Alice Waters&#39; Peach &amp; Goat Cheese Salad</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Sweetgreen-Alice Waters&#39; Peach &amp; Goat Chees-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Limited-edition summer collab with chef Alice Waters - a seasonal peach &amp; goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project. (Through August 10, 2026)</description>
-  </item>
-  <item>
-    <title>Domino&#39;s: Any Pizza, Any Crust, Any Toppings for $9.99</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Domino&#39;s-Any Pizza, Any Crust, Any Toppings for $-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Order any Domino&#39;s pizza with any crust (including Parmesan Stuffed Crust) and up to 7 toppings for $9.99 online or in app — XL and Specialty pizzas excluded. (Through July 26, 2026)</description>
-  </item>
-  <item>
-    <title>Pizza Hut: Large Pizza Any 3 Toppings for $10</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Pizza Hut-Large Pizza Any 3 Toppings for $10-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Get any large Pizza Hut pizza with up to three toppings for $10 via the app or online. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Popeyes: $5 Faves Menu</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Popeyes-$5 Faves Menu-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Choose three pieces of chicken, two sides, or a chicken sandwich from the $5 Faves Menu — no app required at participating locations. (Through August 31, 2026)</description>
-  </item>
-  <item>
-    <title>Burger King: $5 Your Way Meal</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Burger King-$5 Your Way Meal-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Build your own combo — sandwich, fries, and drink — for $5 every day via the app or in-restaurant. (Ongoing)</description>
-  </item>
-  <item>
-    <title>McDonald&#39;s: App Exclusive Value Offers</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">McDonald&#39;s-App Exclusive Value Offers-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Download the McDonald&#39;s app to access rotating daily coupons including BOGO Breakfast Sandwiches and $6 Combo Meal deals. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Subway: $5.99 Footlong with Code FL599</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Subway-$5.99 Footlong with Code FL599-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Use promo code FL599 in the Subway app to get a Footlong for $5.99 — availability varies by zip code, so check your local store. (Limited time)</description>
-  </item>
-  <item>
-    <title>Wendy&#39;s: Biggie Deals — Combos from $4</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Wendy&#39;s-Biggie Deals — Combos from $4-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Wendy&#39;s Biggie Deals offer full combos at $4, $6, and $8 price points every day — no app required. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Sonic: $7 Big Deal Meal</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Sonic-$7 Big Deal Meal-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Sonic&#39;s new $7 Big Deal Meal bundles a burger or sandwich with fries and a drink at one everyday price — available at the drive-in or via app. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Sonic: $1.99 Value Menu Items</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Sonic-$1.99 Value Menu Items-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Sonic&#39;s refreshed $1.99 Menu features multiple food and drink items available all day every day. (Ongoing)</description>
-  </item>
-  <item>
-    <title>IHOP: $6 Value Menu — All Day, All Night</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">IHOP-$6 Value Menu — All Day, All Night-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>IHOP&#39;s $6 Value Menu is available around the clock at participating locations, making it a strong pick for late-night diners. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Denny&#39;s: The Clock&#39;s Off Menu — New All-Day Dishes</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Denny&#39;s-The Clock&#39;s Off Menu — New All-Day D-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Denny&#39;s new The Clock&#39;s Off Menu brings fresh breakfast, lunch, and dinner options available 24 hours at participating locations nationwide. (Ongoing)</description>
-  </item>
-  <item>
-    <title>Del Taco: Value Menu Bean and Cheese Burritos Under $2</title>
-    <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Del Taco-Value Menu Bean and Cheese Burritos Unde-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Del Taco&#39;s Value Menu regularly features Bean and Cheese Burritos for under $2 — a late-night budget staple available at most locations. (Ongoing)</description>
+    <guid isPermaLink="false">Panera Bread-Mix and Match $4.99 Menu-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Choose up to 10 half-portion soups, sandwiches, or salads at roughly 40% off regular prices — one side per order included. (Ongoing)</description>
   </item>
   <item>
     <title>Wingstop: $16.99 Boneless Meal Deal</title>
     <link>https://dailybitedeals.com/</link>
-    <guid isPermaLink="false">Wingstop-$16.99 Boneless Meal Deal-2026-07-22</guid>
-    <pubDate>Wed, 22 Jul 2026 15:42:22 GMT</pubDate>
-    <description>Get 20 Boneless Wings in up to four flavors plus a large fry and two dipping sauces for $16.99 via Wingstop.com or the app. (Limited time)</description>
+    <guid isPermaLink="false">Wingstop-$16.99 Boneless Meal Deal-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Revived fan-favorite soccer-season bundle: a large order of boneless wings plus sides at the $16.99 Meal Deal price. (Limited time)</description>
+  </item>
+  <item>
+    <title>Popeyes: $5 Faves Menu</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Popeyes-$5 Faves Menu-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Pick 3-piece Signature Chicken, 3-piece Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for $5 each — order in store, online, or in app. (Through August 30, 2026)</description>
+  </item>
+  <item>
+    <title>Domino&#39;s: $9.99 Any Pizza Any Crust</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Domino&#39;s-$9.99 Any Pizza Any Crust-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Any pizza with any crust — including Parmesan Stuffed Crust — and up to 7 toppings for $9.99 when selected online or in app. (Through July 26, 2026)</description>
+  </item>
+  <item>
+    <title>Arby&#39;s: $1.99 Sliders</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Arby&#39;s-$1.99 Sliders-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Any Arby&#39;s Slider is just $1.99 each at participating locations for a limited time — no code required. (Limited time)</description>
+  </item>
+  <item>
+    <title>McDonald&#39;s: Daily App Value Offers</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">McDonald&#39;s-Daily App Value Offers-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Rotating in-app deals including bundles with McDouble, McChicken, 4-piece McNuggets, small fries, and a small drink at steep discounts. (Ongoing)</description>
+  </item>
+  <item>
+    <title>Burger King: $5 Your Way Meal</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Burger King-$5 Your Way Meal-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Build a meal for $5 daily at Burger King — a solid everyday value with your choice of sandwich and sides. (Ongoing)</description>
+  </item>
+  <item>
+    <title>Wendy&#39;s: App Coupons Including $2 Off Breakfast Combo</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Wendy&#39;s-App Coupons Including $2 Off Breakfast C-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Check the Wendy&#39;s app for rotating coupons such as $2 off a Breakfast Combo and other sandwich and meal discounts. (Ongoing)</description>
+  </item>
+  <item>
+    <title>Taco Bell: $5.99 Luxe Cravings Box</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Taco Bell-$5.99 Luxe Cravings Box-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>The Luxe Cravings Box packs a Chalupa Supreme, Beefy 5-Layer Burrito, Crunchy Taco, chips and nacho cheese sauce, and a medium drink for $5.99 via app. (Ongoing)</description>
+  </item>
+  <item>
+    <title>KFC: 5 Tenders for $5 Digital Deal</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">KFC-5 Tenders for $5 Digital Deal-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Get 5 KFC Chicken Tenders for $5 when you order digitally through the app at participating locations. (Ongoing)</description>
+  </item>
+  <item>
+    <title>IHOP: $6 Value Menu</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">IHOP-$6 Value Menu-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>IHOP&#39;s $6 Value Menu offers pancakes, omelettes, and other diner staples at a flat $6 price point — no app required. (Ongoing)</description>
+  </item>
+  <item>
+    <title>Dairy Queen: Free Small Lemonade Sparkler or Cooler with App Order</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Dairy Queen-Free Small Lemonade Sparkler or Cooler w-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Get a free Small DQ Lemonade Sparkler or Cooler with any app or online order of $1 or more while the offer lasts. (Limited time)</description>
+  </item>
+  <item>
+    <title>Del Taco: Value Menu Under $2</title>
+    <link>https://dailybitedeals.com/</link>
+    <guid isPermaLink="false">Del Taco-Value Menu Under $2-2026-07-23</guid>
+    <pubDate>Thu, 23 Jul 2026 12:11:17 GMT</pubDate>
+    <description>Del Taco&#39;s Value Menu features Bean and Cheese Burritos and other items frequently priced under $2 at participating locations. (Ongoing)</description>
   </item>
 </channel>
 </rss>
