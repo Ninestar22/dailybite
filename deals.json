@@ -7,7 +7,7 @@
       "color": "#c8102e",
       "ic": "Pa",
       "deal": "Mix and Match $4.99 Menu",
-      "desc": "Choose up to 10 half-portion soups, sandwiches, or salads at roughly 40% off regular prices — one side per order included.",
+      "desc": "Choose up to 10 half-portion soups, sandwiches, or salads at roughly 40% off regular prices \u2014 one side per order included.",
       "tags": [
         "app"
       ],
@@ -39,7 +39,7 @@
       "color": "#f26522",
       "ic": "Po",
       "deal": "$5 Faves Menu",
-      "desc": "Pick 3-piece Signature Chicken, 3-piece Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for $5 each — order in store, online, or in app.",
+      "desc": "Pick 3-piece Signature Chicken, 3-piece Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for $5 each \u2014 order in store, online, or in app.",
       "tags": [
         "app"
       ],
@@ -55,7 +55,7 @@
       "color": "#006491",
       "ic": "Do",
       "deal": "$9.99 Any Pizza Any Crust",
-      "desc": "Any pizza with any crust — including Parmesan Stuffed Crust — and up to 7 toppings for $9.99 when selected online or in app.",
+      "desc": "Any pizza with any crust \u2014 including Parmesan Stuffed Crust \u2014 and up to 7 toppings for $9.99 when selected online or in app.",
       "tags": [
         "app"
       ],
@@ -71,27 +71,11 @@
       "color": "#dd2222",
       "ic": "Ar",
       "deal": "$1.99 Sliders",
-      "desc": "Any Arby's Slider is just $1.99 each at participating locations for a limited time — no code required.",
+      "desc": "Any Arby's Slider is just $1.99 each at participating locations for a limited time \u2014 no code required.",
       "tags": [],
       "value": 3,
       "expires": "Limited time",
       "url": "https://www.arbys.com/coupons",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "Mc",
-      "deal": "Daily App Value Offers",
-      "desc": "Rotating in-app deals including bundles with McDouble, McChicken, 4-piece McNuggets, small fries, and a small drink at steep discounts.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "best": false,
       "region": "National"
     },
@@ -101,27 +85,11 @@
       "color": "#d62300",
       "ic": "BK",
       "deal": "$5 Your Way Meal",
-      "desc": "Build a meal for $5 daily at Burger King — a solid everyday value with your choice of sandwich and sides.",
+      "desc": "Build a meal for $5 daily at Burger King \u2014 a solid everyday value with your choice of sandwich and sides.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.bk.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#e2001a",
-      "ic": "We",
-      "deal": "App Coupons Including $2 Off Breakfast Combo",
-      "desc": "Check the Wendy's app for rotating coupons such as $2 off a Breakfast Combo and other sandwich and meal discounts.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
     },
@@ -163,28 +131,11 @@
       "color": "#003087",
       "ic": "IH",
       "deal": "$6 Value Menu",
-      "desc": "IHOP's $6 Value Menu offers pancakes, omelettes, and other diner staples at a flat $6 price point — no app required.",
+      "desc": "IHOP's $6 Value Menu offers pancakes, omelettes, and other diner staples at a flat $6 price point \u2014 no app required.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.ihop.com/en/specials",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dairy Queen",
-      "cat": "Treats",
-      "color": "#d3222a",
-      "ic": "DQ",
-      "deal": "Free Small Lemonade Sparkler or Cooler with App Order",
-      "desc": "Get a free Small DQ Lemonade Sparkler or Cooler with any app or online order of $1 or more while the offer lasts.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.dairyqueen.com/en-us/deals/",
       "best": false,
       "region": "National"
     },
