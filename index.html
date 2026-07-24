@@ -159,7 +159,7 @@
   </div>
   <div class="deal">Free Delivery on $10+ Digital Orders</div>
   <div class="desc">Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.</div>
-  <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('NEEDED');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: NEEDED</button><span class="pill app">APP ONLY</span></div>
+  <div class="metarow"><span class="pill app">APP ONLY</span></div>
   <div class="foot">
     <span class="expires">Limited time</span>
     <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
@@ -309,7 +309,7 @@
   </div>
   <div class="deal">$1.99 Sliders</div>
   <div class="desc">Get any Arby&#39;s Slider for $1.99 each at participating locations for a limited time; no app or code required.</div>
-  <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('REQUIRED');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: REQUIRED</button></div>
+  <div class="metarow"></div>
   <div class="foot">
     <span class="expires">Limited time</span>
     <a class="near" href="https://www.google.com/maps/search/Arby's+near+me" target="_blank" rel="noopener">Nearest</a>
@@ -636,7 +636,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-24T21:53:50.894Z"};
+const META = {"verifiedAt":"2026-07-24T21:58:46.083Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -876,7 +876,7 @@ try{
 
 const LATE_BRANDS=new Set(['taco bell','jack in the box','whataburger','del taco','ihop',"denny's",'dennys','insomnia cookies',"mcdonald's",'mcdonalds',"wendy's",'wendys',"domino's",'dominos','sonic drive-in','sonic']);
 function latePill(d){return LATE_BRANDS.has(String(d.brand).toLowerCase())?'<span class="pill late">OPEN LATE</span>':'';}
-function dealCode(d){const m=(d.deal+' '+d.desc).match(/\bcode[:\s]+([A-Z0-9]{3,14})\b/i);return m?m[1].toUpperCase():null;}
+function dealCode(d){const m=(d.deal+' '+d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);return m?m[1].toUpperCase():null;}
 function codeChip(d){const c=dealCode(d);return c?`<button class="pill codechip" onclick="copyCode(this,'${c}')" title="Tap to copy">CODE: ${c}</button>`:'';}
 function copyCode(btn,code){(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>{const o=btn.textContent;btn.textContent='\u2713 COPIED!';setTimeout(()=>{btn.textContent=o;},1400);}).catch(()=>{});}
 function cardHTML(d){
