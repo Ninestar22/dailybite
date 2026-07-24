@@ -2,60 +2,28 @@
   "updated": "2026-07-23",
   "deals": [
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#c8102e",
-      "ic": "Pa",
-      "deal": "Mix and Match $4.99 Menu",
-      "desc": "Choose up to 10 half-portion soups, sandwiches, or salads at roughly 40% off regular prices \u2014 one side per order included.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/articles/menu-deals.html",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Wingstop",
       "cat": "Chicken",
-      "color": "#007741",
-      "ic": "Ws",
+      "color": "#cc0000",
+      "ic": "W",
       "deal": "$16.99 Boneless Meal Deal",
-      "desc": "Revived fan-favorite soccer-season bundle: a large order of boneless wings plus sides at the $16.99 Meal Deal price.",
+      "desc": "Get 20 boneless wings in up to four flavors, a large fry, and two dipping sauces for $16.99.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.wingstop.com/deals",
+      "url": "https://www.wingstop.com/offers",
       "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f26522",
-      "ic": "Po",
-      "deal": "$5 Faves Menu",
-      "desc": "Pick 3-piece Signature Chicken, 3-piece Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for $5 each \u2014 order in store, online, or in app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 30, 2026",
-      "url": "https://www.popeyes.com/offers",
-      "best": false,
       "region": "National"
     },
     {
       "brand": "Domino's",
       "cat": "Pizza",
       "color": "#006491",
-      "ic": "Do",
-      "deal": "$9.99 Any Pizza Any Crust",
-      "desc": "Any pizza with any crust \u2014 including Parmesan Stuffed Crust \u2014 and up to 7 toppings for $9.99 when selected online or in app.",
+      "ic": "D",
+      "deal": "Best Deal Ever: Any Pizza for $9.99",
+      "desc": "Order any pizza with any crust and any toppings — including Parmesan Stuffed Crust at no extra charge — for $9.99 each.",
       "tags": [
         "app"
       ],
@@ -66,30 +34,64 @@
       "region": "National"
     },
     {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#dd2222",
-      "ic": "Ar",
-      "deal": "$1.99 Sliders",
-      "desc": "Any Arby's Slider is just $1.99 each at participating locations for a limited time \u2014 no code required.",
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f26522",
+      "ic": "PO",
+      "deal": "$5 Faves Menu",
+      "desc": "Choose three pieces of chicken, two sides, or a chicken sandwich for just $5 at participating locations.",
       "tags": [],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.arbys.com/coupons",
+      "value": 4,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.popeyes.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Burger King",
+      "brand": "Arby's",
+      "cat": "Sandwiches",
+      "color": "#c8102e",
+      "ic": "A",
+      "deal": "$1.99 Sliders",
+      "desc": "Get any Arby's Slider for $1.99 each at participating locations in-restaurant, online, or in-app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.arbys.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "McDonald's",
       "cat": "Burgers",
-      "color": "#d62300",
-      "ic": "BK",
-      "deal": "$5 Your Way Meal",
-      "desc": "Build a meal for $5 daily at Burger King \u2014 a solid everyday value with your choice of sandwich and sides.",
-      "tags": [],
+      "color": "#ffcc00",
+      "ic": "M",
+      "deal": "$5 Value Meal in the App",
+      "desc": "Find daily in-app deals including combo meals, McDouble or McChicken bundles with nuggets, small fries, and a drink around $5.",
+      "tags": [
+        "app"
+      ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.bk.com/offers",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Burgers",
+      "color": "#e2001a",
+      "ic": "W",
+      "deal": "Biggie Deals: $4, $6, and $8 Meal Options",
+      "desc": "Choose from three tiers of Biggie Deal meal combos in the Wendy's app, starting at just $4.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
     },
@@ -99,29 +101,27 @@
       "color": "#702082",
       "ic": "TB",
       "deal": "$5.99 Luxe Cravings Box",
-      "desc": "The Luxe Cravings Box packs a Chalupa Supreme, Beefy 5-Layer Burrito, Crunchy Taco, chips and nacho cheese sauce, and a medium drink for $5.99 via app.",
+      "desc": "Get a filling meal box via the Taco Bell app featuring multiple items including a Chalupa Supreme, burrito, and more for $5.99.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.tacobell.com/deals",
+      "url": "https://www.tacobell.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#f40027",
-      "ic": "KF",
-      "deal": "5 Tenders for $5 Digital Deal",
-      "desc": "Get 5 KFC Chicken Tenders for $5 when you order digitally through the app at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
+      "brand": "Del Taco",
+      "cat": "Mexican",
+      "color": "#e31837",
+      "ic": "DT",
+      "deal": "Value Menu: Bean and Cheese Burrito Under $2",
+      "desc": "Del Taco's everyday value menu features Bean and Cheese Burritos frequently priced under $2 at participating locations.",
+      "tags": [],
+      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
+      "url": "https://www.deltaco.com/deals",
       "best": false,
       "region": "National"
     },
@@ -131,25 +131,42 @@
       "color": "#003087",
       "ic": "IH",
       "deal": "$6 Value Menu",
-      "desc": "IHOP's $6 Value Menu offers pancakes, omelettes, and other diner staples at a flat $6 price point \u2014 no app required.",
+      "desc": "IHOP's $6 Value Menu offers budget-friendly breakfast and all-day diner plates at participating locations open late.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.ihop.com/en/specials",
+      "url": "https://www.ihop.com/en/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#cc2529",
-      "ic": "DT",
-      "deal": "Value Menu Under $2",
-      "desc": "Del Taco's Value Menu features Bean and Cheese Burritos and other items frequently priced under $2 at participating locations.",
+      "brand": "Jimmy John's",
+      "cat": "Sandwiches",
+      "color": "#333333",
+      "ic": "JJ",
+      "deal": "Free Lemonade with Any 8-Inch Sandwich, Code SUMMERFRIDAY",
+      "desc": "Get a free house-made lemonade with any 8-inch sandwich or wrap order today using promo code SUMMERFRIDAY online or in the app.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through July 24, 2026",
+      "url": "https://www.jimmyjohns.com/deals",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#0075bf",
+      "ic": "SO",
+      "deal": "$7 Big Deal Meal",
+      "desc": "Score a cheeseburger, a small order of chicken bites, a medium drink, and medium fries or tots all for $7.",
       "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.deltaco.com/deals",
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.sonicdrivein.com/deals",
       "best": false,
       "region": "National"
     }
