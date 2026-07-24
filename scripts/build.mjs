@@ -94,7 +94,7 @@ function brandDomain(brand) {
 const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
 function latePill(d) { return LATE_BRANDS.has(String(d.brand).toLowerCase()) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
-  const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+([A-Z0-9]{3,14})\b/i);
+  const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
   if (!m) return "";
   const c = m[1].toUpperCase();
   return `<button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('${c}');this.textContent='\u2713 COPIED!'" title="Tap to copy">CODE: ${c}</button>`;
