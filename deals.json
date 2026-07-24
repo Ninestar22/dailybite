@@ -2,89 +2,130 @@
   "updated": "2026-07-24",
   "deals": [
     {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "Best Deal Ever: Any Pizza for $9.99",
-      "desc": "Get any pizza with any crust and any toppings, including Parmesan Stuffed Crust at no extra charge, for $9.99 each at participating locations.",
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#009f6b",
+      "ic": "TS",
+      "deal": "Tropic Fan Fest: Free 24oz Smoothie Daily with Bowl or Food Purchase",
+      "desc": "During Tropic Fan Fest, Tropic Rewards members (free to join) get a free 24oz smoothie every day with any Tropic Bowl or food purchase; redeem via app, online, or in-cafe scan.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Insomnia Cookies",
+      "cat": "Treats",
+      "color": "#c8102e",
+      "ic": "IC",
+      "deal": "Free Pint of Ice Cream with Any Pack Purchase Today",
+      "desc": "Today only (July 24), Insomnia Cookies is offering a free pint of ice cream with any cookie pack purchase, valid online or in the app.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "July 24, 2026",
+      "url": "https://insomniacookies.com/offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Jimmy John's",
+      "cat": "Sandwiches",
+      "color": "#005596",
+      "ic": "JJ",
+      "deal": "Free House-Made Lemonade with Any 8-Inch Sandwich or Wrap Today",
+      "desc": "Use promo code SUMMERFRIDAY at checkout online or in-app to get a free House-Made Lemonade with the purchase of any 8-inch sandwich, toasted sandwich, or wrap; also valid July 24.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "July 24, 2026",
+      "url": "https://www.jimmyjohns.com/deals",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#cc0000",
+      "ic": "WS",
+      "deal": "$16.99 Boneless Meal Deal",
+      "desc": "Wingstop has revived its fan-favorite $16.99 Boneless Meal Deal for soccer season, offering a large order of boneless wings at a bundled price.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com/deals",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Krispy Kreme",
+      "cat": "Treats",
+      "color": "#006243",
+      "ic": "KK",
+      "deal": "$5 Dozen Original Glazed Blueberry Doughnuts with Any Dozen Purchase",
+      "desc": "From July 23-26, add a dozen Original Glazed Blueberry Flavored Doughnuts to your order for just $5 when you buy any regular-priced dozen or 16ct Minis; use promo code BLUEBERRY online or in-app for pickup or delivery.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
+      "url": "https://www.krispykreme.com/promos",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#c8102e",
-      "ic": "A",
-      "deal": "$1.99 Sliders",
-      "desc": "Get any Arby's Slider for just $1.99 each at participating locations, available in-store and in the app for a limited time.",
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
+      "desc": "Order any pizza with your choice of crust and toppings for just $9.99, with Parmesan Stuffed Crust now included at no extra charge; available online or via the app.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.arbys.com/offers",
+      "expires": "Through July 26, 2026",
+      "url": "https://www.dominos.com/en/pages/content/specials",
       "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Wings",
-      "color": "#c8102e",
-      "ic": "W",
-      "deal": "$16.99 Boneless Meal Deal",
-      "desc": "Score 20 boneless wings, a large fry, and two dips for $16.99 — a strong value for a shareable spread.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.wingstop.com/offers",
-      "best": true,
       "region": "National"
     },
     {
       "brand": "Popeyes",
       "cat": "Chicken",
       "color": "#f26522",
-      "ic": "Po",
-      "deal": "$5 Faves Menu",
-      "desc": "Choose from a rotating selection of value items including a chicken sandwich or chicken pieces with sides for just $5 at participating locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.popeyes.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#da291c",
-      "ic": "M",
-      "deal": "McValue Menu: Items Under $3 Plus $5 Meal Deals",
-      "desc": "The McValue menu includes Sausage Biscuit, McDouble, McChicken, 4-piece Nuggets, and Small Fries under $3, with lunch and dinner meal deals starting at $5 in the app.",
+      "ic": "PO",
+      "deal": "$5 Faves Menu: Chicken, Tenders, or Sandwich",
+      "desc": "Order any of three $5 items including 3-piece Signature Chicken, 3 Tenders, or a Chicken Sandwich in-store, online, or in the app; request the $5 Faves offer when ordering in-store.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "value": 4,
+      "expires": "Through August 30, 2026",
+      "url": "https://www.popeyes.com/offers",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#f5821f",
+      "color": "#d62300",
       "ic": "BK",
       "deal": "$5 Your Way Meal",
-      "desc": "Build a meal your way for $5 daily at participating Burger King locations — a standing everyday value with no app required.",
-      "tags": [],
+      "desc": "Get a $5 Your Way Meal with a sandwich, small fries, and a small drink available every day through the Burger King app at participating locations.",
+      "tags": [
+        "app"
+      ],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.bk.com/offers",
@@ -92,64 +133,60 @@
       "region": "National"
     },
     {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "$5.99 Luxe Cravings Box",
-      "desc": "The Luxe Cravings Box includes a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips and nacho cheese sauce, and a medium drink for $5.99.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
+      "brand": "Denny's",
+      "cat": "Cafe",
+      "color": "#ffcc00",
+      "ic": "DN",
+      "deal": "Slammin' Meal Deals Starting at $5.99",
+      "desc": "Denny's is offering Slammin' Meal Deals starting at $5.99 at participating locations, available all day including late-night hours.",
+      "tags": [],
+      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.tacobell.com/offers",
+      "url": "https://www.dennys.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Arby's",
+      "cat": "Sandwiches",
+      "color": "#c8102e",
+      "ic": "AR",
+      "deal": "$1.99 Sliders",
+      "desc": "Get any Arby's Slider for $1.99 each at participating locations for a limited time; no app or code required.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.arbys.com/offers",
       "best": false,
       "region": "National"
     },
     {
       "brand": "KFC",
       "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "K",
-      "deal": "$10 for 24-Piece Nugget Bucket",
-      "desc": "Score a 24-piece Chicken Nugget Bucket for $10 at participating KFC locations — a strong per-piece value for groups or families.",
+      "color": "#c8102e",
+      "ic": "KF",
+      "deal": "24-Piece Nugget Bucket for $10",
+      "desc": "Pick up a 24-piece Nugget Bucket for $10 or a 12-piece Chicken Bucket for $15 at participating KFC locations.",
       "tags": [],
-      "value": 4,
+      "value": 3,
       "expires": "Ongoing",
       "url": "https://www.kfc.com/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Jimmy John's",
+      "brand": "Subway",
       "cat": "Sandwiches",
-      "color": "#cc0000",
-      "ic": "JJ",
-      "deal": "Free Lemonade with Any Sandwich Today — Code SUMMERFRIDAY",
-      "desc": "Use code SUMMERFRIDAY today, July 24, to get a free House-made Lemonade with any 8-inch sandwich or wrap order.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "July 24, 2026",
-      "url": "https://www.jimmyjohns.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#441500",
-      "ic": "C",
-      "deal": "Chipotle App Offers and Rewards",
-      "desc": "Check the Chipotle app for current limited-time digital offers including free-item promotions and seasonal deals; free account required.",
+      "color": "#009b3a",
+      "ic": "SB",
+      "deal": "$5.99 Footlong with Code FL599 in App",
+      "desc": "Order a Footlong sub for $5.99 when you enter code FL599 at checkout in the Subway app; availability varies by zip code.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.chipotle.com/rewards",
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
       "best": false,
       "region": "National"
     }

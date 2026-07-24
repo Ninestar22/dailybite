@@ -1,49 +1,19 @@
 {
-  "updated": "2026-07-23",
+  "updated": "2026-07-24",
   "deals": [
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#cc0000",
-      "ic": "W",
-      "deal": "$16.99 Boneless Meal Deal",
-      "desc": "Get 20 boneless wings in up to four flavors, a large fry, and two dipping sauces for $16.99.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.wingstop.com/offers",
-      "best": true,
-      "region": "National"
-    },
     {
       "brand": "Domino's",
       "cat": "Pizza",
       "color": "#006491",
       "ic": "D",
       "deal": "Best Deal Ever: Any Pizza for $9.99",
-      "desc": "Order any pizza with any crust and any toppings — including Parmesan Stuffed Crust at no extra charge — for $9.99 each.",
+      "desc": "Get any pizza with any crust and any toppings, including Parmesan Stuffed Crust at no extra charge, for $9.99 each at participating locations.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through July 26, 2026",
-      "url": "https://www.dominos.com/en/pages/content/localized/offers.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f26522",
-      "ic": "PO",
-      "deal": "$5 Faves Menu",
-      "desc": "Choose three pieces of chicken, two sides, or a chicken sandwich for just $5 at participating locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.popeyes.com/offers",
+      "url": "https://www.dominos.com/en/pages/content/local/deals.html",
       "best": false,
       "region": "National"
     },
@@ -53,7 +23,7 @@
       "color": "#c8102e",
       "ic": "A",
       "deal": "$1.99 Sliders",
-      "desc": "Get any Arby's Slider for $1.99 each at participating locations in-restaurant, online, or in-app.",
+      "desc": "Get any Arby's Slider for just $1.99 each at participating locations, available in-store and in the app for a limited time.",
       "tags": [
         "app"
       ],
@@ -64,12 +34,40 @@
       "region": "National"
     },
     {
+      "brand": "Wingstop",
+      "cat": "Wings",
+      "color": "#c8102e",
+      "ic": "W",
+      "deal": "$16.99 Boneless Meal Deal",
+      "desc": "Score 20 boneless wings, a large fry, and two dips for $16.99 — a strong value for a shareable spread.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.wingstop.com/offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f26522",
+      "ic": "Po",
+      "deal": "$5 Faves Menu",
+      "desc": "Choose from a rotating selection of value items including a chicken sandwich or chicken pieces with sides for just $5 at participating locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.popeyes.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
       "brand": "McDonald's",
       "cat": "Burgers",
-      "color": "#ffcc00",
+      "color": "#da291c",
       "ic": "M",
-      "deal": "$5 Value Meal in the App",
-      "desc": "Find daily in-app deals including combo meals, McDouble or McChicken bundles with nuggets, small fries, and a drink around $5.",
+      "deal": "McValue Menu: Items Under $3 Plus $5 Meal Deals",
+      "desc": "The McValue menu includes Sausage Biscuit, McDouble, McChicken, 4-piece Nuggets, and Small Fries under $3, with lunch and dinner meal deals starting at $5 in the app.",
       "tags": [
         "app"
       ],
@@ -80,18 +78,16 @@
       "region": "National"
     },
     {
-      "brand": "Wendy's",
+      "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#e2001a",
-      "ic": "W",
-      "deal": "Biggie Deals: $4, $6, and $8 Meal Options",
-      "desc": "Choose from three tiers of Biggie Deal meal combos in the Wendy's app, starting at just $4.",
-      "tags": [
-        "app"
-      ],
+      "color": "#f5821f",
+      "ic": "BK",
+      "deal": "$5 Your Way Meal",
+      "desc": "Build a meal your way for $5 daily at participating Burger King locations — a standing everyday value with no app required.",
+      "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.wendys.com/deals",
+      "url": "https://www.bk.com/offers",
       "best": false,
       "region": "National"
     },
@@ -101,7 +97,7 @@
       "color": "#702082",
       "ic": "TB",
       "deal": "$5.99 Luxe Cravings Box",
-      "desc": "Get a filling meal box via the Taco Bell app featuring multiple items including a Chalupa Supreme, burrito, and more for $5.99.",
+      "desc": "The Luxe Cravings Box includes a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips and nacho cheese sauce, and a medium drink for $5.99.",
       "tags": [
         "app"
       ],
@@ -112,61 +108,48 @@
       "region": "National"
     },
     {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "DT",
-      "deal": "Value Menu: Bean and Cheese Burrito Under $2",
-      "desc": "Del Taco's everyday value menu features Bean and Cheese Burritos frequently priced under $2 at participating locations.",
+      "brand": "KFC",
+      "cat": "Chicken",
+      "color": "#e4002b",
+      "ic": "K",
+      "deal": "$10 for 24-Piece Nugget Bucket",
+      "desc": "Score a 24-piece Chicken Nugget Bucket for $10 at participating KFC locations — a strong per-piece value for groups or families.",
       "tags": [],
-      "value": 3,
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.deltaco.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "IHOP",
-      "cat": "Cafe",
-      "color": "#003087",
-      "ic": "IH",
-      "deal": "$6 Value Menu",
-      "desc": "IHOP's $6 Value Menu offers budget-friendly breakfast and all-day diner plates at participating locations open late.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.ihop.com/en/deals",
+      "url": "https://www.kfc.com/deals",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Jimmy John's",
       "cat": "Sandwiches",
-      "color": "#333333",
+      "color": "#cc0000",
       "ic": "JJ",
-      "deal": "Free Lemonade with Any 8-Inch Sandwich, Code SUMMERFRIDAY",
-      "desc": "Get a free house-made lemonade with any 8-inch sandwich or wrap order today using promo code SUMMERFRIDAY online or in the app.",
+      "deal": "Free Lemonade with Any Sandwich Today — Code SUMMERFRIDAY",
+      "desc": "Use code SUMMERFRIDAY today, July 24, to get a free House-made Lemonade with any 8-inch sandwich or wrap order.",
       "tags": [
-        "free",
-        "app"
+        "free"
       ],
       "value": 5,
-      "expires": "Through July 24, 2026",
+      "expires": "July 24, 2026",
       "url": "https://www.jimmyjohns.com/deals",
-      "best": true,
+      "best": false,
       "region": "National"
     },
     {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#0075bf",
-      "ic": "SO",
-      "deal": "$7 Big Deal Meal",
-      "desc": "Score a cheeseburger, a small order of chicken bites, a medium drink, and medium fries or tots all for $7.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.sonicdrivein.com/deals",
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "Chipotle App Offers and Rewards",
+      "desc": "Check the Chipotle app for current limited-time digital offers including free-item promotions and seasonal deals; free account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.chipotle.com/rewards",
       "best": false,
       "region": "National"
     }
