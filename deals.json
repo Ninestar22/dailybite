@@ -2,23 +2,6 @@
   "updated": "2026-07-25",
   "deals": [
     {
-      "brand": "Tropical Smoothie Cafe",
-      "cat": "Smoothies",
-      "color": "#e8401c",
-      "ic": "TS",
-      "deal": "Tropic Fan Fest: Free Smoothie with Food Purchase",
-      "desc": "Get a free 24 oz smoothie every day through July 26 when you buy any Tropic Bowl or food item via the app or online; free Tropic Rewards account required.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Shake Shack",
       "cat": "Burgers",
       "color": "#74b649",
@@ -31,23 +14,7 @@
       "value": 4,
       "expires": "Through August 19, 2026",
       "url": "https://www.shakeshack.com/offers",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Noodles and Company",
-      "cat": "Cafe",
-      "color": "#e3232c",
-      "ic": "N&C",
-      "deal": "Side Salad for $1 for Rewards Members",
-      "desc": "Rewards members can add any side salad to their order for just $1 through August 31, 2026, with no minimum purchase required.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.noodles.com/rewards",
-      "best": true,
+      "best": false,
       "region": "National"
     },
     {
@@ -61,22 +28,6 @@
       "value": 4,
       "expires": "Through July 26, 2026",
       "url": "https://www.krispykreme.com/promos",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Chicken",
-      "color": "#e31b23",
-      "ic": "AR",
-      "deal": "50% Off Any Sandwich with $10+ In-App Order",
-      "desc": "Arby's Rewards members get 50% off any sandwich (excludes Pecan Chicken Salad and Angus Cheesesteak) when ordering $10 or more online or in-app; limit one use.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.arbys.com/offers",
       "best": false,
       "region": "National"
     },
@@ -173,22 +124,6 @@
       "value": 3,
       "expires": "Limited time",
       "url": "https://www.tacobell.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "KF",
-      "deal": "5 Chicken Tenders for $5 In-App",
-      "desc": "Get 5 chicken tenders for just $5 when you order through the KFC app on any weekday at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.kfc.com/deals",
       "best": false,
       "region": "National"
     },

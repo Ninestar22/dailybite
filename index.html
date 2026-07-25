@@ -151,21 +151,6 @@
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"><!-- SSRGRID:START -->
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
-  <div class="brandrow">
-    <div class="brand-ic" style="background:#e8401c"><span>TS</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=tropicalsmoothiecafe.com&amp;sz=128" alt="Tropical Smoothie Cafe logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">Tropical Smoothie Cafe</div><div class="brand-cat">Smoothies</div></div>
-  </div>
-  <div class="deal">Tropic Fan Fest: Free Smoothie with Food Purchase</div>
-  <div class="desc">Get a free 24 oz smoothie every day through July 26 when you buy any Tropic Bowl or food item via the app or online; free Tropic Rewards account required.</div>
-  <div class="metarow"><span class="pill free">FREE</span><span class="pill app">APP ONLY</span></div>
-  <div class="foot">
-    <span class="expires">Through July 26, 2026</span>
-    <a class="near" href="https://www.google.com/maps/search/Tropical%20Smoothie%20Cafe+near+me" target="_blank" rel="noopener">Nearest</a>
-    <a class="cta" href="https://www.tropicalsmoothiecafe.com/tropic-fan-fest" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
 <div class="card">
   
   <div class="brandrow">
@@ -289,21 +274,6 @@
 <div class="card">
   
   <div class="brandrow">
-    <div class="brand-ic" style="background:#e4002b"><span>KF</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=kfc.com&amp;sz=128" alt="KFC logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">KFC</div><div class="brand-cat">Chicken</div></div>
-  </div>
-  <div class="deal">5 Chicken Tenders for $5 In-App</div>
-  <div class="desc">Get 5 chicken tenders for just $5 when you order through the KFC app on any weekday at participating locations.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
-  <div class="foot">
-    <span class="expires">Limited time</span>
-    <a class="near" href="https://www.google.com/maps/search/KFC+near+me" target="_blank" rel="noopener">Nearest</a>
-    <a class="cta" href="https://www.kfc.com/deals" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
-<div class="card">
-  
-  <div class="brandrow">
     <div class="brand-ic" style="background:#ee3124"><span>PH</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=pizzahut.com&amp;sz=128" alt="Pizza Hut logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Pizza Hut</div><div class="brand-cat">Pizza</div></div>
   </div>
@@ -346,8 +316,8 @@
     <a class="cta" href="https://www.panerabread.com/" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#3d7a4e"><span>Sg</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=sweetgreen.com&amp;sz=128" alt="Sweetgreen logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Sweetgreen</div><div class="brand-cat">Salads</div></div>
@@ -422,25 +392,6 @@
    scripts/build.mjs. Edit deals.json (or let the refresh workflow update it) instead. */
 /* DEALS:START */
 const DEALS = [
-  {
-    "brand": "Tropical Smoothie Cafe",
-    "cat": "Smoothies",
-    "color": "#e8401c",
-    "ic": "TS",
-    "deal": "Tropic Fan Fest: Free Smoothie with Food Purchase",
-    "desc": "Get a free 24 oz smoothie every day through July 26 when you buy any Tropic Bowl or food item via the app or online; free Tropic Rewards account required.",
-    "tags": [
-      "free",
-      "app"
-    ],
-    "value": 5,
-    "expires": "Through July 26, 2026",
-    "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
-    "best": true,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": true
-  },
   {
     "brand": "Shake Shack",
     "cat": "Burgers",
@@ -584,24 +535,6 @@ const DEALS = [
     "endingSoon": false
   },
   {
-    "brand": "KFC",
-    "cat": "Chicken",
-    "color": "#e4002b",
-    "ic": "KF",
-    "deal": "5 Chicken Tenders for $5 In-App",
-    "desc": "Get 5 chicken tenders for just $5 when you order through the KFC app on any weekday at participating locations.",
-    "tags": [
-      "app"
-    ],
-    "value": 4,
-    "expires": "Limited time",
-    "url": "https://www.kfc.com/deals",
-    "best": false,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": false
-  },
-  {
     "brand": "Pizza Hut",
     "cat": "Pizza",
     "color": "#ee3124",
@@ -666,13 +599,13 @@ const DEALS = [
     "value": 4,
     "expires": "Through August 10, 2026",
     "url": "https://www.sweetgreen.com/",
-    "best": false,
+    "best": true,
     "region": "National",
     "isNew": false,
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-07-25T11:59:14.755Z"};
+const META = {"verifiedAt":"2026-07-25T12:06:53.860Z"};
 /* DEALS:END */
 
 const today = new Date();
