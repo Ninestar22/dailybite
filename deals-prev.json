@@ -1,207 +1,147 @@
 {
- "updated": "2026-07-24",
- "deals": [
-  {
-   "brand": "Chipotle",
-   "cat": "Bowls",
-   "color": "#a81612",
-   "ic": "Ch",
-   "deal": "Free Delivery on $10+ Digital Orders",
-   "desc": "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.chipotle.com/",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "Panera",
-   "cat": "Sandwiches",
-   "color": "#4a7c2f",
-   "ic": "Pa",
-   "deal": "$4.99 Mix & Match Value Menu",
-   "desc": "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.",
-   "tags": [],
-   "value": 5,
-   "expires": "Ongoing",
-   "url": "https://www.panerabread.com/",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "Sweetgreen",
-   "cat": "Salads",
-   "color": "#3d7a4e",
-   "ic": "Sg",
-   "deal": "Alice Waters' Peach & Goat Cheese Salad",
-   "desc": "Limited-edition summer collab with chef Alice Waters - a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through August 10, 2026",
-   "url": "https://www.sweetgreen.com/",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "Insomnia Cookies",
-   "cat": "Treats",
-   "color": "#c8102e",
-   "ic": "IC",
-   "deal": "Free Pint of Ice Cream with Any Pack Purchase Today",
-   "desc": "Today only (July 24), Insomnia Cookies is offering a free pint of ice cream with any cookie pack purchase, valid online or in the app.",
-   "tags": [
-    "free",
-    "app"
-   ],
-   "value": 5,
-   "expires": "July 24, 2026",
-   "url": "https://insomniacookies.com/offers",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Jimmy John's",
-   "cat": "Sandwiches",
-   "color": "#005596",
-   "ic": "JJ",
-   "deal": "Free House-Made Lemonade with Any 8-Inch Sandwich or Wrap Today",
-   "desc": "Use promo code SUMMERFRIDAY at checkout online or in-app to get a free House-Made Lemonade with the purchase of any 8-inch sandwich, toasted sandwich, or wrap; also valid July 24.",
-   "tags": [
-    "free",
-    "app"
-   ],
-   "value": 4,
-   "expires": "July 24, 2026",
-   "url": "https://www.jimmyjohns.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Krispy Kreme",
-   "cat": "Treats",
-   "color": "#006243",
-   "ic": "KK",
-   "deal": "$5 Dozen Original Glazed Blueberry Doughnuts with Any Dozen Purchase",
-   "desc": "From July 23-26, add a dozen Original Glazed Blueberry Flavored Doughnuts to your order for just $5 when you buy any regular-priced dozen or 16ct Minis; use promo code BLUEBERRY online or in-app for pickup or delivery.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through July 26, 2026",
-   "url": "https://www.krispykreme.com/promos",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Domino's",
-   "cat": "Pizza",
-   "color": "#006491",
-   "ic": "D",
-   "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
-   "desc": "Order any pizza with your choice of crust and toppings for just $9.99, with Parmesan Stuffed Crust now included at no extra charge; available online or via the app.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through July 26, 2026",
-   "url": "https://www.dominos.com/en/pages/content/specials",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Popeyes",
-   "cat": "Chicken",
-   "color": "#f26522",
-   "ic": "PO",
-   "deal": "$5 Faves Menu: Chicken, Tenders, or Sandwich",
-   "desc": "Order any of three $5 items including 3-piece Signature Chicken, 3 Tenders, or a Chicken Sandwich in-store, online, or in the app; request the $5 Faves offer when ordering in-store.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through August 30, 2026",
-   "url": "https://www.popeyes.com/offers",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Burger King",
-   "cat": "Burgers",
-   "color": "#d62300",
-   "ic": "BK",
-   "deal": "$5 Your Way Meal",
-   "desc": "Get a $5 Your Way Meal with a sandwich, small fries, and a small drink available every day through the Burger King app at participating locations.",
-   "tags": [
-    "app"
-   ],
-   "value": 3,
-   "expires": "Ongoing",
-   "url": "https://www.bk.com/offers",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Denny's",
-   "cat": "Cafe",
-   "color": "#ffcc00",
-   "ic": "DN",
-   "deal": "Slammin' Meal Deals Starting at $5.99",
-   "desc": "Denny's is offering Slammin' Meal Deals starting at $5.99 at participating locations, available all day including late-night hours.",
-   "tags": [],
-   "value": 3,
-   "expires": "Ongoing",
-   "url": "https://www.dennys.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Arby's",
-   "cat": "Sandwiches",
-   "color": "#c8102e",
-   "ic": "AR",
-   "deal": "$1.99 Sliders",
-   "desc": "Get any Arby's Slider for $1.99 each at participating locations for a limited time; no app or code required.",
-   "tags": [],
-   "value": 3,
-   "expires": "Limited time",
-   "url": "https://www.arbys.com/offers",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "KFC",
-   "cat": "Chicken",
-   "color": "#c8102e",
-   "ic": "KF",
-   "deal": "24-Piece Nugget Bucket for $10",
-   "desc": "Pick up a 24-piece Nugget Bucket for $10 or a 12-piece Chicken Bucket for $15 at participating KFC locations.",
-   "tags": [],
-   "value": 3,
-   "expires": "Ongoing",
-   "url": "https://www.kfc.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Subway",
-   "cat": "Sandwiches",
-   "color": "#009b3a",
-   "ic": "SB",
-   "deal": "$5.99 Footlong with Code FL599 in App",
-   "desc": "Order a Footlong sub for $5.99 when you enter code FL599 at checkout in the Subway app; availability varies by zip code.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
-   "best": false,
-   "region": "National"
-  }
- ]
+  "updated": "2026-07-25",
+  "deals": [
+    {
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#74b649",
+      "ic": "SS",
+      "deal": "Any Frozen Custard for $3 with Code CUSTARDTIME",
+      "desc": "Order any frozen custard for just $3 at a kiosk, online, or in the Shake Shack app using code CUSTARDTIME through August 19.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through August 19, 2026",
+      "url": "https://www.shakeshack.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Krispy Kreme",
+      "cat": "Treats",
+      "color": "#1a7c3e",
+      "ic": "KK",
+      "deal": "Second Dozen Original Glazed Blueberry Doughnuts for $5",
+      "desc": "Buy any dozen or 16-count Minis at regular price and add a dozen Original Glazed Blueberry Flavored Doughnuts for $5 in-shop, drive-thru, or online with code BLUEBERRY.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.krispykreme.com/promos",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f26522",
+      "ic": "PO",
+      "deal": "$5 Faves Menu",
+      "desc": "Choose from 3-piece Signature Chicken, 3-piece Tenders, 8-piece Butterfly Shrimp, or a Chicken Sandwich for just $5; order in-store, online, or in-app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.popeyes.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f26522",
+      "ic": "PO",
+      "deal": "12-Piece Wings or Tenders for $12",
+      "desc": "Get 12-piece bone-in or boneless wings or chicken tenders (3 flavors with sauces) for $12 via the Popeyes app or website.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.popeyes.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Burger King",
+      "cat": "Burgers",
+      "color": "#d62300",
+      "ic": "BK",
+      "deal": "$5 Your Way Meal Daily",
+      "desc": "Build your own $5 meal in the app choosing from sandwiches like the Whopper Jr., plus fries and a drink at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.bk.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "McDonald's",
+      "cat": "Burgers",
+      "color": "#ffbc0d",
+      "ic": "MC",
+      "deal": "$5 Breakfast Meal Deal In-App",
+      "desc": "Get a Sausage McMuffin Meal or Sausage Biscuit Meal including sandwich, hash brown, and coffee for $5 exclusively through the McDonald's app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Burgers",
+      "color": "#e2211c",
+      "ic": "WE",
+      "deal": "Jr. Bacon Cheeseburger App Bundle",
+      "desc": "Get a Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-piece nuggets, junior fries, and a small drink bundled together at a value price in the Wendy's app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.wendys.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Order the Luxe Cravings Box for $5.99 in the Taco Bell app; includes a Chalupa Supreme, beefy 5-layer burrito, double-stacked taco, chips, nacho cheese sauce, and medium drink.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.tacobell.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Pizza Hut",
+      "cat": "Pizza",
+      "color": "#ee3124",
+      "ic": "PH",
+      "deal": "Any Pizza for $9.99 Including Parmesan Stuffed Crust",
+      "desc": "Get any pizza for $9.99, now including Parmesan Stuffed Crust at no extra charge, when you order online or in-app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.pizzahut.com/deals",
+      "best": false,
+      "region": "National"
+    }
+  ]
 }
