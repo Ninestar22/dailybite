@@ -59,6 +59,11 @@ const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><br>One short
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
+// Canonical brand key: lowercases and folds known naming variants so per-brand
+// dedup, golden/healthy/banned lookups, and evergreen injection can't be
+// defeated by an alternate spelling of the same chain (e.g. "Panera Bread" vs "Panera").
+const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic" };
+const canonBrand = b => { const k = String(b || "").toLowerCase().trim().replace(/\s+/g, " "); return BRAND_ALIASES[k] || k; };
 const dealsFor = (name, deals) => deals.filter(d => {
   const b = norm(d.brand), n = norm(name);
   return b.includes(n) || n.includes(b);
@@ -92,7 +97,7 @@ function brandDomain(brand) {
 }
 
 const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
-function latePill(d) { return LATE_BRANDS.has(String(d.brand).toLowerCase()) ? '<span class="pill late">OPEN LATE</span>' : ""; }
+function latePill(d) { return LATE_BRANDS.has(canonBrand(d.brand)) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
   const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
   if (!m) return "";
@@ -132,7 +137,7 @@ function chainPage(chain, deals) {
     ? `<div class="grid">${list.map(dealCard).join("\n")}</div>`
     : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now &mdash; check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <h2 style="font-size:18px;margin:26px 2px 4px">Today&#39;s top deals from other chains</h2>
-<div class="grid">${[...deals].filter(d => d.brand !== chain.name).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
+<div class="grid">${[...deals].filter(d => canonBrand(d.brand) !== canonBrand(chain.name)).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
   const ld = {
     "@context": "https://schema.org", "@type": "ItemList",
     "name": `${chain.name} deals for ${prettyDate}`,
@@ -420,7 +425,7 @@ function main() {
     { until: "2026-08-10", deal: { brand: "Sweetgreen", cat: "Salads", color: "#3d7a4e", ic: "Sg", deal: "Alice Waters' Peach & Goat Cheese Salad", desc: "Limited-edition summer collab with chef Alice Waters - a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.", tags: ["app"], value: 4, expires: "Through August 10, 2026", url: "https://www.sweetgreen.com/", best: false, region: "National" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
-  for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","title","desc","expires","badge","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
+  for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
   let deals = Array.isArray(data) ? data : data.deals;
   if (!Array.isArray(deals) || deals.length === 0) {
     throw new Error("deals.json has no deals array — refusing to build an empty page.");
@@ -428,7 +433,7 @@ function main() {
   {
     const today = new Date().toISOString().slice(0, 10);
     for (const e of EVERGREEN) {
-      if (today <= e.until && !deals.some((d) => d.brand.toLowerCase() === e.deal.brand.toLowerCase())) deals.push({ ...e.deal });
+      if (today <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
     }
   }
 
@@ -481,7 +486,7 @@ function main() {
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
   const MEMBER_OK = new Set(["chipotle", "chick-fil-a"]);
-  deals = deals.filter(d => MEMBER_OK.has(d.brand.toLowerCase()) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+  deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   deals = deals.filter(d => !/every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
@@ -497,19 +502,19 @@ function main() {
     const pick = (list, max) => {
       for (const d of list) {
         if (byBrand.size >= max) break;
-        const b = d.brand.toLowerCase();
+        const b = canonBrand(d.brand);
         if (byBrand.has(b) || BEST_BANNED.has(b)) continue;
         d.best = true; byBrand.add(b);
       }
     };
     const byVal = (a, b) => (b.value || 0) - (a.value || 0);
-    const gold = deals.filter(d => GOLD.has(d.brand.toLowerCase())).sort(byVal);
+    const gold = deals.filter(d => GOLD.has(canonBrand(d.brand))).sort(byVal);
     pick(gold, 2);
     const goldCount = byBrand.size;
-    const healthy = deals.filter(d => HEALTHY.has(d.brand.toLowerCase())).sort(byVal);
+    const healthy = deals.filter(d => HEALTHY.has(canonBrand(d.brand))).sort(byVal);
     pick(healthy, goldCount >= 2 ? 4 : 3);
     if (byBrand.size < 2) {
-      const rest = deals.filter(d => !HEALTHY.has(d.brand.toLowerCase())).sort((a, b) => (b.value || 0) - (a.value || 0));
+      const rest = deals.filter(d => !HEALTHY.has(canonBrand(d.brand))).sort((a, b) => (b.value || 0) - (a.value || 0));
       pick(rest, 2);
     }
   }
