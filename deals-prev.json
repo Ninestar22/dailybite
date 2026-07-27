@@ -1,33 +1,50 @@
 {
-  "updated": "2026-07-25",
+  "updated": "2026-07-26",
   "deals": [
     {
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#00a651",
+      "ic": "TS",
+      "deal": "Tropic Fan Fest: Free 24 oz Smoothie with Any Bowl or Food Purchase",
+      "desc": "Get a free 24 oz smoothie daily with the purchase of any Tropic Bowl or food item through the Tropic Rewards app — today is the last day of this week-long event.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through July 26, 2026",
+      "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
+      "best": true,
+      "region": "National"
+    },
+    {
       "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#74b649",
+      "cat": "Cafe",
+      "color": "#6b2737",
       "ic": "SS",
-      "deal": "Any Frozen Custard for $3 with Code CUSTARDTIME",
-      "desc": "Order any frozen custard for just $3 at a kiosk, online, or in the Shake Shack app using code CUSTARDTIME through August 19.",
+      "deal": "Any Custard for $3 with Code CUSTARDTIME",
+      "desc": "Order any custard for just $3 at an in-restaurant kiosk or through the Shake Shack app using promo code CUSTARDTIME — no membership required.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through August 19, 2026",
       "url": "https://www.shakeshack.com/offers",
-      "best": false,
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "Krispy Kreme",
-      "cat": "Treats",
-      "color": "#1a7c3e",
-      "ic": "KK",
-      "deal": "Second Dozen Original Glazed Blueberry Doughnuts for $5",
-      "desc": "Buy any dozen or 16-count Minis at regular price and add a dozen Original Glazed Blueberry Flavored Doughnuts for $5 in-shop, drive-thru, or online with code BLUEBERRY.",
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "Any Pizza, Any Crust, Any Toppings for $9.99",
+      "desc": "Build any pizza on any crust with any toppings and pay just $9.99 each — Parmesan Stuffed Crust now included at no extra charge.",
       "tags": [],
       "value": 4,
       "expires": "Through July 26, 2026",
-      "url": "https://www.krispykreme.com/promos",
+      "url": "https://www.dominos.com/en/pages/content/locator/default.jsp",
       "best": false,
       "region": "National"
     },
@@ -35,31 +52,27 @@
       "brand": "Popeyes",
       "cat": "Chicken",
       "color": "#f26522",
-      "ic": "PO",
+      "ic": "P",
       "deal": "$5 Faves Menu",
-      "desc": "Choose from 3-piece Signature Chicken, 3-piece Tenders, 8-piece Butterfly Shrimp, or a Chicken Sandwich for just $5; order in-store, online, or in-app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
+      "desc": "Choose 3 pieces of fried chicken, 3 tenders, 2 regular sides, or a chicken sandwich for just $5 at participating locations.",
+      "tags": [],
+      "value": 4,
       "expires": "Through August 31, 2026",
       "url": "https://www.popeyes.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f26522",
-      "ic": "PO",
-      "deal": "12-Piece Wings or Tenders for $12",
-      "desc": "Get 12-piece bone-in or boneless wings or chicken tenders (3 flavors with sauces) for $12 via the Popeyes app or website.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.popeyes.com/offers",
+      "brand": "Denny's",
+      "cat": "Cafe",
+      "color": "#ffbe00",
+      "ic": "DN",
+      "deal": "Slammin' Meal Deals from $5.99",
+      "desc": "Denny's Slammin' Meal Deals offer full breakfast, lunch, or dinner plates starting at $5.99 with no app or membership required — available all day and late night.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.dennys.com/deals",
       "best": false,
       "region": "National"
     },
@@ -68,8 +81,8 @@
       "cat": "Burgers",
       "color": "#d62300",
       "ic": "BK",
-      "deal": "$5 Your Way Meal Daily",
-      "desc": "Build your own $5 meal in the app choosing from sandwiches like the Whopper Jr., plus fries and a drink at participating locations.",
+      "deal": "$5 Your Way Meal",
+      "desc": "Pick a Whopper Jr., Crispy Chicken Jr., or other sandwich with fries and a drink for $5 at participating locations via the app or in-store.",
       "tags": [
         "app"
       ],
@@ -83,63 +96,31 @@
       "brand": "McDonald's",
       "cat": "Burgers",
       "color": "#ffbc0d",
-      "ic": "MC",
-      "deal": "$5 Breakfast Meal Deal In-App",
-      "desc": "Get a Sausage McMuffin Meal or Sausage Biscuit Meal including sandwich, hash brown, and coffee for $5 exclusively through the McDonald's app.",
+      "ic": "Mc",
+      "deal": "$5 Value Meal Box in App",
+      "desc": "Grab the $5 Meal Deal in the McDonald's app — includes a McDouble or McChicken, 4-piece McNuggets, small fries, and a small drink.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Limited time",
+      "value": 4,
+      "expires": "Ongoing",
       "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#e2211c",
-      "ic": "WE",
-      "deal": "Jr. Bacon Cheeseburger App Bundle",
-      "desc": "Get a Jr. Bacon Cheeseburger or Crispy Chicken BLT, 4-piece nuggets, junior fries, and a small drink bundled together at a value price in the Wendy's app.",
+      "brand": "KFC",
+      "cat": "Chicken",
+      "color": "#e4002b",
+      "ic": "K",
+      "deal": "5 Tenders for $5 in App",
+      "desc": "Order 5 crispy chicken tenders for just $5 exclusively through the KFC app at participating locations nationwide.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.wendys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "$5.99 Luxe Cravings Box",
-      "desc": "Order the Luxe Cravings Box for $5.99 in the Taco Bell app; includes a Chalupa Supreme, beefy 5-layer burrito, double-stacked taco, chips, nacho cheese sauce, and medium drink.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.tacobell.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Pizza Hut",
-      "cat": "Pizza",
-      "color": "#ee3124",
-      "ic": "PH",
-      "deal": "Any Pizza for $9.99 Including Parmesan Stuffed Crust",
-      "desc": "Get any pizza for $9.99, now including Parmesan Stuffed Crust at no extra charge, when you order online or in-app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through July 26, 2026",
-      "url": "https://www.pizzahut.com/deals",
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.kfc.com/deals",
       "best": false,
       "region": "National"
     }
