@@ -1,60 +1,76 @@
 {
-  "updated": "2026-07-27",
+  "updated": "2026-07-28",
   "deals": [
     {
-      "brand": "Dairy Queen",
-      "cat": "Treats",
-      "color": "#EB0029",
-      "ic": "DQ",
-      "deal": "Free Mini Blizzard Treat with Any $1+ App Order",
-      "desc": "Download or open the DQ app, place any order of $1 or more, and a free mini Blizzard Treat is added automatically — today is the last day.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through July 27, 2026",
-      "url": "https://www.dairyqueen.com/en-us/offers/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Dairy Queen",
-      "cat": "Meals",
-      "color": "#EB0029",
-      "ic": "DQ",
-      "deal": "$7 Meal Deal — 4 Items Including a Sundae",
-      "desc": "Get three crispy chicken strips or an original cheeseburger, regular fries, a 21 oz drink, dipping sauce, and a sundae for $7 in store, online, or in app.",
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#f7941d",
+      "ic": "J",
+      "deal": "50% Off FIFA World Cup Hat Trick Tango Smoothie",
+      "desc": "Order the limited-time Hat Trick Tango smoothie in the app and get 50% off this World Cup-inspired blend while the promotion lasts.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.dairyqueen.com/en-us/menu/food/meal-deals/",
-      "best": false,
+      "url": "https://www.jamba.com/offers",
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#E2231A",
-      "ic": "W",
-      "deal": "$1 Small Classic Frosty",
-      "desc": "Get a small Classic Frosty for just $1 at the counter, drive-thru, or in the Wendy's app at participating locations nationwide — no promo code needed.",
+      "brand": "Tropical Smoothie Cafe",
+      "cat": "Smoothies",
+      "color": "#00a651",
+      "ic": "TS",
+      "deal": "Last Day: How Far You'll Mango Disney Moana Smoothie",
+      "desc": "Today is the final day to order the limited-time How Far You'll Mango smoothie — a mango, pineapple, and guava blend inspired by Disney's live-action Moana, available in 24 oz regular or 12 oz kids size with a collectible sticker pack while supplies last.",
       "tags": [],
+      "value": 3,
+      "expires": "Through July 28, 2026",
+      "url": "https://www.tropicalsmoothiecafe.com/offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#cd1f25",
+      "ic": "P",
+      "deal": "Buy One Entree, Get One for $5",
+      "desc": "Use a promo code at checkout online or in the app to get a second full-price entree for only $5 on any qualifying order.",
+      "tags": [
+        "app"
+      ],
       "value": 4,
-      "expires": "Through August 23, 2026",
-      "url": "https://www.wendys.com/deals",
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/app/offers-and-rewards.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#d4272a",
+      "ic": "WS",
+      "deal": "National Wing Day: 5 Free Bone-In Wings with $10+ Purchase (Code FREEWINGS, July 29)",
+      "desc": "Starting tomorrow July 29 for National Chicken Wing Day, use promo code FREEWINGS at checkout online or in the app with any qualifying $10 or more purchase to get 5 free classic bone-in wings.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through July 29, 2026",
+      "url": "https://www.wingstop.com/offers",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Popeyes",
       "cat": "Chicken",
-      "color": "#F47920",
+      "color": "#f47920",
       "ic": "PO",
-      "deal": "$5 Faves Menu — Chicken, Sides, or Sandwich",
-      "desc": "Choose from three pieces of chicken, two sides, or a chicken sandwich from the $5 Faves Menu at participating Popeyes locations.",
+      "deal": "$5 Faves Menu",
+      "desc": "Choose from three pieces of chicken, two sides, or a chicken sandwich for just $5 from the Faves Menu at participating locations.",
       "tags": [],
       "value": 4,
       "expires": "Through August 31, 2026",
@@ -65,13 +81,11 @@
     {
       "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#F5821F",
+      "color": "#d62300",
       "ic": "BK",
-      "deal": "$5 Your Way Meal — Daily Value Bundle",
-      "desc": "Pick a sandwich, 4-piece nuggets, small fries, and a small drink for $5 through the BK app at participating locations every day.",
-      "tags": [
-        "app"
-      ],
+      "deal": "$5 Your Way Meal Daily",
+      "desc": "Get a $5 Your Way Meal — a burger or sandwich, small fries, and a small drink — every day at participating Burger King locations, no app required.",
+      "tags": [],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.bk.com/offers",
@@ -81,10 +95,10 @@
     {
       "brand": "McDonald's",
       "cat": "Burgers",
-      "color": "#DA291C",
+      "color": "#ffbc0d",
       "ic": "M",
-      "deal": "$5 Value Meal Box — McDouble or McChicken Bundle",
-      "desc": "App deal includes your choice of McDouble or McChicken, 4-piece McNuggets, small fries, and a small drink for $5 at participating locations.",
+      "deal": "$5 Value Meal Box",
+      "desc": "Get a McDouble or McChicken, 4-piece McNuggets, small fries, and a small drink for $5 daily via the McDonald's app.",
       "tags": [
         "app"
       ],
@@ -95,65 +109,79 @@
       "region": "National"
     },
     {
-      "brand": "Shake Shack",
-      "cat": "Treats",
-      "color": "#00A94F",
-      "ic": "SS",
-      "deal": "Any Custard for $3 with Code CUSTARDTIME",
-      "desc": "Use code CUSTARDTIME at an in-restaurant kiosk, the Shake Shack app, or website to get any custard for just $3 at participating locations.",
+      "brand": "KFC",
+      "cat": "Chicken",
+      "color": "#e8192c",
+      "ic": "KF",
+      "deal": "5 Tenders for $5 In-App Deal",
+      "desc": "Order through the KFC app to get 5 Chicken Tenders for only $5 at participating locations on weekdays.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through August 19, 2026",
-      "url": "https://www.shakeshack.com/promotions",
-      "best": true,
+      "expires": "Ongoing",
+      "url": "https://www.kfc.com/deals",
+      "best": false,
       "region": "National"
     },
     {
-      "brand": "Panera",
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#005eb8",
+      "ic": "SO",
+      "deal": "$7 Big Deal Meal",
+      "desc": "Sonic's newly launched $7 Big Deal Meal gives you a hearty combo at a flat price — available nationwide at participating drive-in locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.sonicdrivein.com/offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Denny's",
       "cat": "Cafe",
-      "color": "#4E9D2D",
-      "ic": "PB",
-      "deal": "Buy One Entree, Get a Second for $5",
-      "desc": "Use a Panera promo code in the app or online to add a second entree to your order for only $5 — soups, sandwiches, and salads qualify at participating locations.",
+      "color": "#e8c000",
+      "ic": "D",
+      "deal": "Slammin' Meal Deals from $5.99",
+      "desc": "Denny's Slammin' Meal Deals start at $5.99 and are available all day at participating locations — great for late-night diners.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.dennys.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Get a chalupa, burrito, taco, chips, and a medium drink for $5.99 at participating Taco Bell locations — order in the app or in-store.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/mypanera/deals.html",
-      "best": true,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/offers",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Subway",
-      "cat": "Subs",
-      "color": "#009B48",
-      "ic": "SW",
-      "deal": "$6.99 Footlong with Code 699FORFTL",
-      "desc": "Enter code 699FORFTL in the Subway app or online at checkout to get any footlong sub for $6.99 at participating locations; availability may vary by zip code.",
+      "cat": "Sandwiches",
+      "color": "#008c15",
+      "ic": "SU",
+      "deal": "Footlong for $5.99 with Code FL599",
+      "desc": "Use promo code FL599 in the Subway app or online to get any Footlong sub for $5.99 — availability varies by zip code.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.subway.com/en-US/MenuNutrition/Deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "The Habit Burger Grill",
-      "cat": "Chicken",
-      "color": "#E4002B",
-      "ic": "HB",
-      "deal": "$5 Gotta Habit Grilled Chicken Wraps",
-      "desc": "Choose from the Avocado Ranch Chicken, Chicken Caesar, or BBQ Chicken Wrap for just $5 each — a lighter, high-protein drive-thru option for a limited time.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.habitburger.com/deals",
-      "best": true,
+      "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
+      "best": false,
       "region": "National"
     }
   ]
