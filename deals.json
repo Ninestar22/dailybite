@@ -19,40 +19,6 @@
       "region": "National"
     },
     {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "Q",
-      "deal": "National Avocado Day BOGO Free Entree",
-      "desc": "Buy one full-sized entree and a drink, get a second entree of equal or lesser value free — automatically added to your Qdoba Rewards Wallet starting July 31; quesadillas excluded.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through August 1, 2026",
-      "url": "https://www.qdoba.com/national-avocado-day",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Moe's Southwest Grill",
-      "cat": "Mexican",
-      "color": "#e4002b",
-      "ic": "Mo",
-      "deal": "Free Side of Guac with Entree Purchase - Last Day",
-      "desc": "Moe Rewards members get a free side of guacamole with any entree purchase today, July 30 — the final day of this National Avocado Day early-access offer.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "July 30, 2026",
-      "url": "https://www.moes.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Del Taco",
       "cat": "Mexican",
       "color": "#e31837",
