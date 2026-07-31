@@ -1,100 +1,82 @@
 {
-  "updated": "2026-07-29",
+  "updated": "2026-07-30",
   "deals": [
     {
-      "brand": "Wingstop",
-      "cat": "Wings",
-      "color": "#c8102e",
-      "ic": "W",
-      "deal": "National Chicken Wing Day: 5 Free Classic Wings",
-      "desc": "Get 5 free bone-in or boneless wings with any qualifying $10+ purchase using promo code FREEWINGS — today only for National Chicken Wing Day.",
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "Free Chips and Guac with Entree - Code AVO2026",
+      "desc": "Use code AVO2026 at checkout on the Chipotle app or Chipotle.com with any full-priced entree purchase to get free chips and guac for National Avocado Day — no account required beyond the app.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through August 1, 2026",
+      "url": "https://www.chipotle.com/national-avocado-day",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Del Taco",
+      "cat": "Mexican",
+      "color": "#e31837",
+      "ic": "DT",
+      "deal": "BOGO Epic Fresh Guac Burritos",
+      "desc": "Buy one Epic Fresh Guac Burrito and get a second one free at Del Taco through August 2 — no app required, available in-restaurant.",
       "tags": [
         "free"
       ],
       "value": 5,
-      "expires": "July 29, 2026",
-      "url": "https://www.wingstop.com/deals",
-      "best": true,
+      "expires": "Through August 2, 2026",
+      "url": "https://www.deltaco.com/deals",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Popeyes",
       "cat": "Chicken",
-      "color": "#f47920",
+      "color": "#f26522",
       "ic": "P",
       "deal": "$5 Faves Menu",
-      "desc": "Choose from 3-piece Signature Chicken, 3-piece Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for just $5 — order in store, online, or in the app.",
-      "tags": [
-        "app"
-      ],
+      "desc": "Choose from 3-piece Signature Chicken, 3 Chicken Tenders, a Chicken Sandwich, or Two Regular Sides for just $5 each — no app needed, available at all locations.",
+      "tags": [],
       "value": 4,
       "expires": "Through August 31, 2026",
       "url": "https://www.popeyes.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Buffalo Wild Wings",
-      "cat": "Wings",
-      "color": "#f5a623",
-      "ic": "BW",
-      "deal": "National Chicken Wing Day: Free Wings with $15 Dine-In Purchase",
-      "desc": "Dine in today and get a free order of boneless or traditional wings with any $15+ in-restaurant purchase — not valid with third-party delivery.",
-      "tags": [
-        "free"
-      ],
-      "value": 4,
-      "expires": "July 29, 2026",
-      "url": "https://www.buffalowildwings.com/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Bonchon",
-      "cat": "Wings",
-      "color": "#d40000",
-      "ic": "BC",
-      "deal": "National Chicken Wing Day: 5 Wings for $5",
-      "desc": "Order online, in the app, or at participating restaurants nationwide and get 5 wings for $5 today only for National Chicken Wing Day.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 4,
-      "expires": "July 29, 2026",
-      "url": "https://www.bonchon.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
+      "brand": "Wendy's",
       "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "M",
-      "deal": "$5 Value Meal Box",
-      "desc": "Get a McDouble or McChicken, 4-piece McNuggets, small fries, and a small drink for $5 — available daily in the McDonald's app throughout July.",
+      "color": "#e2003a",
+      "ic": "W",
+      "deal": "$1 Small Classic Frosty",
+      "desc": "Get a small Classic Chocolate or Vanilla Frosty for just $1 when you order online, in the app, at the drive-thru, or in-store — delivery excluded.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Through July 31, 2026",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+      "value": 4,
+      "expires": "Through August 23, 2026",
+      "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#f5a623",
+      "color": "#f5821f",
       "ic": "BK",
       "deal": "$5 Your Way Meal",
-      "desc": "Build your own $5 meal with a sandwich, side, and drink daily through the Burger King app or in-restaurant.",
+      "desc": "Build a meal with a sandwich, side, and drink for $5 every day via the BK app — a reliable everyday value with no minimum spend tricks.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.bk.com/deals",
+      "url": "https://www.bk.com/offers",
       "best": false,
       "region": "National"
     },
@@ -103,44 +85,44 @@
       "cat": "Chicken",
       "color": "#e4002b",
       "ic": "K",
-      "deal": "5 Tenders for $5 in App",
-      "desc": "Get 5 chicken tenders for just $5 when you order through the KFC app at participating locations.",
+      "deal": "5 Chicken Tenders for $5 (App)",
+      "desc": "Get five chicken tenders for $5 when you order through the KFC app — a straightforward digital deal with no purchase minimum.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
+      "value": 4,
+      "expires": "Limited time",
       "url": "https://www.kfc.com/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "$5.99 Luxe Cravings Box",
-      "desc": "The Luxe Cravings Box includes a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips, nacho cheese sauce, and a medium drink for $5.99.",
+      "brand": "Shake Shack",
+      "cat": "Cafe",
+      "color": "#80c342",
+      "ic": "SS",
+      "deal": "Any Custard for $3 with Code CUSTARDTIME",
+      "desc": "Use code CUSTARDTIME at checkout on the Shake Shack app, website, or in-restaurant kiosk to get any custard for $3 — National Ice Cream Day promo extended through mid-August.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.tacobell.com/deals",
+      "value": 4,
+      "expires": "Through August 19, 2026",
+      "url": "https://www.shakeshack.com/deals",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Checkers",
-      "cat": "Burgers",
-      "color": "#cc0000",
-      "ic": "CH",
-      "deal": "$4 Unbeatable Meal Deal",
-      "desc": "Get a burger, side, and drink in the $4 Unbeatable Meal Deal at Checkers and Rally's for a limited time — now updated to include the new Loaded Tender Wrap.",
+      "brand": "Denny's",
+      "cat": "Cafe",
+      "color": "#ffcd00",
+      "ic": "D",
+      "deal": "Slammin' Meal Deals from $5.99",
+      "desc": "Denny's Slammin' Meal Deals offer full breakfast and dinner combos starting at $5.99 all day, every day — perfect for late-night diners at this 24-hour chain.",
       "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.checkers.com/deals",
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.dennys.com/deals",
       "best": false,
       "region": "National"
     }
