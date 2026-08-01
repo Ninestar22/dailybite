@@ -1,20 +1,37 @@
 {
-  "updated": "2026-07-30",
+  "updated": "2026-07-31",
   "deals": [
     {
       "brand": "Chipotle",
       "cat": "Mexican",
       "color": "#441500",
       "ic": "C",
-      "deal": "Free Chips and Guac with Entree - Code AVO2026",
-      "desc": "Use code AVO2026 at checkout on the Chipotle app or Chipotle.com with any full-priced entree purchase to get free chips and guac for National Avocado Day — no account required beyond the app.",
+      "deal": "Free Chips and Guac for National Avocado Day",
+      "desc": "Use code AVO2026 at checkout in the Chipotle app or website with any entree purchase to get a free regular side of chips and guacamole, July 31 and August 1 only. Free account required.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
       "expires": "Through August 1, 2026",
-      "url": "https://www.chipotle.com/national-avocado-day",
+      "url": "https://www.chipotle.com/deals",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#d62b20",
+      "ic": "Q",
+      "deal": "National Avocado Day BOGO Entree",
+      "desc": "Qdoba Rewards members who buy a full-priced entree and a drink on July 31 or August 1 get a second entree of equal or lesser value free, automatically loaded to your Rewards Wallet. Quesadillas excluded.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through August 1, 2026",
+      "url": "https://www.qdoba.com/deals",
       "best": true,
       "region": "National"
     },
@@ -23,14 +40,30 @@
       "cat": "Mexican",
       "color": "#e31837",
       "ic": "DT",
-      "deal": "BOGO Epic Fresh Guac Burritos",
-      "desc": "Buy one Epic Fresh Guac Burrito and get a second one free at Del Taco through August 2 — no app required, available in-restaurant.",
+      "deal": "BOGO Epic Fresh Guac Burritos for National Avocado Day",
+      "desc": "Buy one Epic Fresh Guac Burrito and get a second one free at Del Taco, running July 30 through August 2 in celebration of National Avocado Day.",
       "tags": [
         "free"
       ],
-      "value": 5,
+      "value": 4,
       "expires": "Through August 2, 2026",
       "url": "https://www.deltaco.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Domino's",
+      "cat": "Pizza",
+      "color": "#006491",
+      "ic": "D",
+      "deal": "50% Off All Menu-Priced Pizzas",
+      "desc": "Get half off every menu-priced pizza in any size, crust, and topping combination including Specialty Pizzas, for delivery or carryout ordered online, via the app, by phone, or in person through August 2.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through August 2, 2026",
+      "url": "https://www.dominos.com/en/",
       "best": false,
       "region": "National"
     },
@@ -40,9 +73,11 @@
       "color": "#f26522",
       "ic": "P",
       "deal": "$5 Faves Menu",
-      "desc": "Choose from 3-piece Signature Chicken, 3 Chicken Tenders, a Chicken Sandwich, or Two Regular Sides for just $5 each — no app needed, available at all locations.",
-      "tags": [],
-      "value": 4,
+      "desc": "Get three pieces of chicken, two sides, or a chicken sandwich for just $5 via the Popeyes app or online order through August 31, 2026.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
       "expires": "Through August 31, 2026",
       "url": "https://www.popeyes.com/deals",
       "best": false,
@@ -51,15 +86,15 @@
     {
       "brand": "Wendy's",
       "cat": "Burgers",
-      "color": "#e2003a",
+      "color": "#e2203d",
       "ic": "W",
-      "deal": "$1 Small Classic Frosty",
-      "desc": "Get a small Classic Chocolate or Vanilla Frosty for just $1 when you order online, in the app, at the drive-thru, or in-store — delivery excluded.",
+      "deal": "Biggie Deals Value Bundle in App",
+      "desc": "Grab Wendy's app for daily Biggie Deals including a four-item combo for $6 or a two-sandwich Biggie Bundle for $8, available every day.",
       "tags": [
         "app"
       ],
-      "value": 4,
-      "expires": "Through August 23, 2026",
+      "value": 3,
+      "expires": "Ongoing",
       "url": "https://www.wendys.com/deals",
       "best": false,
       "region": "National"
@@ -67,10 +102,10 @@
     {
       "brand": "Burger King",
       "cat": "Burgers",
-      "color": "#f5821f",
+      "color": "#d62300",
       "ic": "BK",
       "deal": "$5 Your Way Meal",
-      "desc": "Build a meal with a sandwich, side, and drink for $5 every day via the BK app — a reliable everyday value with no minimum spend tricks.",
+      "desc": "Order a $5 Your Way Meal daily through the Burger King app, combining a sandwich, fries, and drink at a bundled price.",
       "tags": [
         "app"
       ],
@@ -81,48 +116,18 @@
       "region": "National"
     },
     {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "K",
-      "deal": "5 Chicken Tenders for $5 (App)",
-      "desc": "Get five chicken tenders for $5 when you order through the KFC app — a straightforward digital deal with no purchase minimum.",
+      "brand": "Subway",
+      "cat": "Subs",
+      "color": "#009241",
+      "ic": "S",
+      "deal": "$5.99 Footlong with Code FL599",
+      "desc": "Use promo code FL599 in the Subway app to get a Footlong sub for $5.99 at participating locations; availability varies by zip code.",
       "tags": [
         "app"
       ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Cafe",
-      "color": "#80c342",
-      "ic": "SS",
-      "deal": "Any Custard for $3 with Code CUSTARDTIME",
-      "desc": "Use code CUSTARDTIME at checkout on the Shake Shack app, website, or in-restaurant kiosk to get any custard for $3 — National Ice Cream Day promo extended through mid-August.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 19, 2026",
-      "url": "https://www.shakeshack.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Denny's",
-      "cat": "Cafe",
-      "color": "#ffcd00",
-      "ic": "D",
-      "deal": "Slammin' Meal Deals from $5.99",
-      "desc": "Denny's Slammin' Meal Deals offer full breakfast and dinner combos starting at $5.99 all day, every day — perfect for late-night diners at this 24-hour chain.",
-      "tags": [],
       "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dennys.com/deals",
+      "expires": "Limited time",
+      "url": "https://www.subway.com/en-US/MenuNutrition/Menu/Deals",
       "best": false,
       "region": "National"
     }
