@@ -7,7 +7,7 @@
       "color": "#441500",
       "ic": "C",
       "deal": "National Avocado Day: Free Chips and Guac with Entree",
-      "desc": "Use code AVO2026 at checkout on the Chipotle app or chipotle.com with any full-priced entree purchase to get a free regular side of chips and guacamole — today is the last day.",
+      "desc": "Use code AVO2026 at checkout on the Chipotle app or chipotle.com with any full-priced entree purchase to get a free regular side of chips and guacamole — today is the last day. Free Chipotle account required for digital orders.",
       "tags": [
         "free",
         "app"
@@ -15,23 +15,6 @@
       "value": 5,
       "expires": "August 1, 2026",
       "url": "https://www.chipotle.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#c8102e",
-      "ic": "Q",
-      "deal": "National Avocado Day: Free Entree with Entree and Drink Purchase",
-      "desc": "Qdoba Rewards members (free to join) get a free entree of equal or lesser value when they buy any full-sized entree and a drink in-restaurant or via the app or qdoba.com — today is the final day to redeem.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "August 1, 2026",
-      "url": "https://www.qdoba.com/national-avocado-day",
       "best": true,
       "region": "National"
     },
@@ -94,22 +77,6 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "M",
-      "deal": "Daily App Coupons: 40% Off Quarter Pounder and More",
-      "desc": "The McDonald's app features rotating daily coupons including 40% off a Quarter Pounder and free fries with a purchase — open the app to see today's offers.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
       "best": false,
       "region": "National"
     },
