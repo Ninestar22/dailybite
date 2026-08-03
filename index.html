@@ -138,6 +138,11 @@
     <input class="search" id="search" placeholder="Search deals or restaurants…" />
     <div class="filters" id="filters"></div>
     <button class="chip locbtn" id="locBtn" title="Show how far each restaurant is from you">Show distances near me</button>
+    <button class="chip" id="locPickBtn" title="See deals and distances for another city or ZIP">Choose a location</button>
+    <span id="locPickWrap" style="display:none">
+      <input id="locInput" placeholder="City or ZIP" style="background:var(--chip);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:13px;width:150px;outline:none">
+      <button class="chip" id="locGo">Go</button>
+    </span>
   </div>
   <div id="topwrap" style="display:none">
     <div class="today-head">&#11088; Top Picks</div>
@@ -700,7 +705,7 @@ locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
     const c = JSON.parse(localStorage.getItem('db_dist2') || 'null');
-    if(c && Date.now() - c.t < 86400000){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
+    if(c && Date.now() - c.t < 86400000 && !c.m){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
   }catch(e){}
   if(!navigator.geolocation){ locBtn.textContent = 'Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
@@ -728,6 +733,57 @@ locBtn.addEventListener('click', () => {
   }, {timeout: 15000, maximumAge: 600000});
 });
 
+// Manual location picker: type a city or ZIP, see deals and distances for that place.
+const locPickBtn = document.getElementById('locPickBtn');
+const locPickWrap = document.getElementById('locPickWrap');
+const locInput = document.getElementById('locInput');
+const locGo = document.getElementById('locGo');
+locPickBtn.addEventListener('click', () => {
+  const open = locPickWrap.style.display !== 'none';
+  locPickWrap.style.display = open ? 'none' : 'inline';
+  if(!open){ locInput.focus(); }
+});
+async function applyManualLocation(query){
+  const r = await fetch('https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&addressdetails=1&countrycodes=us&q=' + encodeURIComponent(query));
+  if(!r.ok) throw new Error('geocode failed');
+  const hits = await r.json();
+  if(!hits.length) return false;
+  const hit = hits[0];
+  const a = hit.address || {};
+  const state = a.state || a.region || null;
+  const city = a.city || a.town || a.village || a.suburb || a.hamlet || a.county || null;
+  const res = await loadDistances(+hit.lat, +hit.lon);
+  DIST = res.best; HOURS = res.hours; STATE = state; CITY = city;
+  localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, m: 1}));
+  locBtn.textContent = locLabel();
+  locBtn.classList.add('on');
+  clearLocTip();
+  render();
+  return true;
+}
+async function runManualLookup(){
+  const q = (locInput.value || '').trim();
+  if(!q) { locInput.focus(); return; }
+  locGo.textContent = '\u2026';
+  locGo.disabled = true;
+  try{
+    const ok = await applyManualLocation(q);
+    if(ok){
+      locPickWrap.style.display = 'none';
+      locPickBtn.textContent = 'Change location';
+      locInput.value = '';
+    } else {
+      showLocTip("Couldn't find that place. Try a city with its state (like Austin, TX) or a 5-digit ZIP code.");
+    }
+  }catch(e){
+    showLocTip('Location lookup is briefly unavailable. Please try again in a moment.');
+  }
+  locGo.textContent = 'Go';
+  locGo.disabled = false;
+}
+locGo.addEventListener('click', runManualLookup);
+locInput.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); runManualLookup(); } });
+
 
 // Restore distances automatically on page load if enabled within the last 24h.
 try{
@@ -739,6 +795,7 @@ try{
     HOURS = c0.h || null;
     locBtn.textContent = locLabel();
     locBtn.classList.add('on');
+    if(c0.m){ const p = document.getElementById('locPickBtn'); if(p) p.textContent = 'Change location'; }
   }
 }catch(e){}
 
