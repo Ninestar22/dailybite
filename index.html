@@ -151,8 +151,8 @@
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"><!-- SSRGRID:START -->
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#6bc04b"><span>SS</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=shakeshack.com&amp;sz=128" alt="Shake Shack logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Shake Shack</div><div class="brand-cat">Burgers</div></div>
@@ -181,8 +181,8 @@
     <a class="cta" href="https://www.panerabread.com/en-us/offers.html" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#00a850"><span>KK</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=krispykreme.com&amp;sz=128" alt="Krispy Kreme logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Krispy Kreme</div><div class="brand-cat">Treats</div></div>
@@ -271,34 +271,19 @@
     <a class="cta" href="https://www.arbys.com/deals" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
+<div class="card">
+  
   <div class="brandrow">
     <div class="brand-ic" style="background:#a81612"><span>Ch</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Chipotle</div><div class="brand-cat">Bowls</div></div>
   </div>
   <div class="deal">Free Delivery on $10+ Digital Orders</div>
-  <div class="desc">Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.</div>
+  <div class="desc">Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.</div>
   <div class="metarow"><span class="pill app">APP ONLY</span></div>
   <div class="foot">
     <span class="expires">Limited time</span>
     <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
     <a class="cta" href="https://www.chipotle.com/" target="_blank" rel="noopener">Get deal &rarr;</a>
-  </div>
-</div>
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
-  <div class="brandrow">
-    <div class="brand-ic" style="background:#3d7a4e"><span>Sg</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=sweetgreen.com&amp;sz=128" alt="Sweetgreen logo" loading="lazy" onerror="this.remove()"></div>
-    <div><div class="brand-name">Sweetgreen</div><div class="brand-cat">Salads</div></div>
-  </div>
-  <div class="deal">Alice Waters&#39; Peach &amp; Goat Cheese Salad</div>
-  <div class="desc">Limited-edition summer collab with chef Alice Waters - a seasonal peach &amp; goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.</div>
-  <div class="metarow"><span class="pill app">APP ONLY</span></div>
-  <div class="foot">
-    <span class="expires">Through August 10, 2026</span>
-    <a class="near" href="https://www.google.com/maps/search/Sweetgreen+near+me" target="_blank" rel="noopener">Nearest</a>
-    <a class="cta" href="https://www.sweetgreen.com/" target="_blank" rel="noopener">Get deal &rarr;</a>
   </div>
 </div>
 <!-- SSRGRID:END --></div>
@@ -375,7 +360,7 @@ const DEALS = [
     "value": 4,
     "expires": "Through August 19, 2026",
     "url": "https://www.shakeshack.com/promotions/",
-    "best": false,
+    "best": true,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -407,7 +392,7 @@ const DEALS = [
     "value": 4,
     "expires": "Limited time",
     "url": "https://www.krispykreme.com/deals",
-    "best": false,
+    "best": true,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -506,38 +491,20 @@ const DEALS = [
     "color": "#a81612",
     "ic": "Ch",
     "deal": "Free Delivery on $10+ Digital Orders",
-    "desc": "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.",
+    "desc": "Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.",
     "tags": [
       "app"
     ],
-    "value": 4,
+    "value": 3,
     "expires": "Limited time",
     "url": "https://www.chipotle.com/",
-    "best": true,
-    "region": "National",
-    "isNew": true,
-    "endingSoon": false
-  },
-  {
-    "brand": "Sweetgreen",
-    "cat": "Salads",
-    "color": "#3d7a4e",
-    "ic": "Sg",
-    "deal": "Alice Waters' Peach & Goat Cheese Salad",
-    "desc": "Limited-edition summer collab with chef Alice Waters - a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.",
-    "tags": [
-      "app"
-    ],
-    "value": 4,
-    "expires": "Through August 10, 2026",
-    "url": "https://www.sweetgreen.com/",
-    "best": true,
+    "best": false,
     "region": "National",
     "isNew": true,
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-08-03T13:35:01.341Z"};
+const META = {"verifiedAt":"2026-08-03T18:06:35.607Z"};
 /* DEALS:END */
 
 const today = new Date();

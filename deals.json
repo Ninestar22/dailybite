@@ -1,127 +1,127 @@
 {
-  "updated": "2026-08-03",
-  "deals": [
-    {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#6bc04b",
-      "ic": "SS",
-      "deal": "Any Frozen Custard for $3",
-      "desc": "Use promo code CUSTARDTIME at any in-restaurant kiosk, the Shake Shack app, or online to get any frozen custard for $3 — no membership needed.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 19, 2026",
-      "url": "https://www.shakeshack.com/promotions/",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#c4172c",
-      "ic": "PB",
-      "deal": "Mix & Match Menu at $4.99 Each",
-      "desc": "Save about 40% off regular prices by ordering from the Mix & Match $4.99 menu — choose up to 10 half-portions of soups, sandwiches, and salads, plus one side per order.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/offers.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Krispy Kreme",
-      "cat": "Treats",
-      "color": "#00a850",
-      "ic": "KK",
-      "deal": "Orange Dreamsicle Dozen for $5 with Any Dozen Purchase",
-      "desc": "Buy any dozen at regular price and add an Orange Dreamsicle Original Glazed Dozen to your order for just $5 — available in-shop, drive-thru, or online for pickup or delivery, no membership required.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.krispykreme.com/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#6bc04b",
-      "ic": "SS",
-      "deal": "App Everyday Menu: $2 Sodas, $4 Fries, $6 Shakes",
-      "desc": "Order through the Shake Shack app or website at participating locations to unlock $2 sodas, $4 crinkle-cut fries, and $6 shakes all day.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/promotions/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "Build Your Own Luxe Cravings Box for $7",
-      "desc": "Pick a specialty item like a Crunchwrap, plus a taco or Beefy 5-Layer Burrito, a side, and a drink — all in one box for $7 via app or in-store.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.tacobell.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Papa Johns",
-      "cat": "Pizza",
-      "color": "#e31837",
-      "ic": "PJ",
-      "deal": "50% Off Regular Menu-Price Pizzas on Carryout",
-      "desc": "Order carryout at Papa Johns for a limited time and get 50% off regular menu-price pizzas — no promo code required, just order online or in the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.papajohns.com/order/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Jack in the Box",
-      "cat": "Burgers",
-      "color": "#e31837",
-      "ic": "JB",
-      "deal": "2 Tacos for $1.29 in the App",
-      "desc": "Order through the Jack in the Box app and grab two classic tacos for just $1.29 — a standing digital exclusive deal available any time, day or night.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.jackinthebox.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Chicken",
-      "color": "#e31837",
-      "ic": "AR",
-      "deal": "Meat & 3 Box for $7.99",
-      "desc": "Get a Roast Beef or Crispy Chicken Sandwich, your choice of three sides, and a small drink for $7.99 — a standing everyday value box available in-store and online.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.arbys.com/deals",
-      "best": false,
-      "region": "National"
-    }
-  ]
+ "updated": "2026-08-03",
+ "deals": [
+  {
+   "brand": "Shake Shack",
+   "cat": "Burgers",
+   "color": "#6bc04b",
+   "ic": "SS",
+   "deal": "Any Frozen Custard for $3",
+   "desc": "Use promo code CUSTARDTIME at any in-restaurant kiosk, the Shake Shack app, or online to get any frozen custard for $3 — no membership needed.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 19, 2026",
+   "url": "https://www.shakeshack.com/promotions/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Panera Bread",
+   "cat": "Cafe",
+   "color": "#c4172c",
+   "ic": "PB",
+   "deal": "Mix & Match Menu at $4.99 Each",
+   "desc": "Save about 40% off regular prices by ordering from the Mix & Match $4.99 menu — choose up to 10 half-portions of soups, sandwiches, and salads, plus one side per order.",
+   "tags": [],
+   "value": 4,
+   "expires": "Ongoing",
+   "url": "https://www.panerabread.com/en-us/offers.html",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Krispy Kreme",
+   "cat": "Treats",
+   "color": "#00a850",
+   "ic": "KK",
+   "deal": "Orange Dreamsicle Dozen for $5 with Any Dozen Purchase",
+   "desc": "Buy any dozen at regular price and add an Orange Dreamsicle Original Glazed Dozen to your order for just $5 — available in-shop, drive-thru, or online for pickup or delivery, no membership required.",
+   "tags": [],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.krispykreme.com/deals",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Shake Shack",
+   "cat": "Burgers",
+   "color": "#6bc04b",
+   "ic": "SS",
+   "deal": "App Everyday Menu: $2 Sodas, $4 Fries, $6 Shakes",
+   "desc": "Order through the Shake Shack app or website at participating locations to unlock $2 sodas, $4 crinkle-cut fries, and $6 shakes all day.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.shakeshack.com/promotions/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Taco Bell",
+   "cat": "Mexican",
+   "color": "#702082",
+   "ic": "TB",
+   "deal": "Build Your Own Luxe Cravings Box for $7",
+   "desc": "Pick a specialty item like a Crunchwrap, plus a taco or Beefy 5-Layer Burrito, a side, and a drink — all in one box for $7 via app or in-store.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.tacobell.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Papa Johns",
+   "cat": "Pizza",
+   "color": "#e31837",
+   "ic": "PJ",
+   "deal": "50% Off Regular Menu-Price Pizzas on Carryout",
+   "desc": "Order carryout at Papa Johns for a limited time and get 50% off regular menu-price pizzas — no promo code required, just order online or in the app.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.papajohns.com/order/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Jack in the Box",
+   "cat": "Burgers",
+   "color": "#e31837",
+   "ic": "JB",
+   "deal": "2 Tacos for $1.29 in the App",
+   "desc": "Order through the Jack in the Box app and grab two classic tacos for just $1.29 — a standing digital exclusive deal available any time, day or night.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Ongoing",
+   "url": "https://www.jackinthebox.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Arby's",
+   "cat": "Chicken",
+   "color": "#e31837",
+   "ic": "AR",
+   "deal": "Meat & 3 Box for $7.99",
+   "desc": "Get a Roast Beef or Crispy Chicken Sandwich, your choice of three sides, and a small drink for $7.99 — a standing everyday value box available in-store and online.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.arbys.com/deals",
+   "best": false,
+   "region": "National"
+  }
+ ]
 }
