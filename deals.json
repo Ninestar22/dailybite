@@ -1,79 +1,63 @@
 {
-  "updated": "2026-08-02",
+  "updated": "2026-08-03",
   "deals": [
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4a7c3f",
-      "ic": "Pb",
-      "deal": "Mix & Match $4.99 Menu",
-      "desc": "Save roughly 40% off regular prices by choosing up to 10 half-portion soups, sandwiches, and salads from the $4.99 Mix & Match menu, plus one side per order.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/articles/menu-specials.html",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Shake Shack",
-      "cat": "Treats",
-      "color": "#6b2f1a",
+      "cat": "Burgers",
+      "color": "#6bc04b",
       "ic": "SS",
-      "deal": "Any Custard for $3 with Code CUSTARDTIME",
-      "desc": "Order any custard for just $3 at the kiosk, Shake Shack app, or mobile website using promo code CUSTARDTIME, valid through August 19.",
+      "deal": "Any Frozen Custard for $3",
+      "desc": "Use promo code CUSTARDTIME at any in-restaurant kiosk, the Shake Shack app, or online to get any frozen custard for $3 — no membership needed.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through August 19, 2026",
-      "url": "https://www.shakeshack.com/deals/",
+      "url": "https://www.shakeshack.com/promotions/",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Domino's",
-      "cat": "Pizza",
-      "color": "#006491",
-      "ic": "D",
-      "deal": "50% Off All Menu-Priced Pizzas - Last Day",
-      "desc": "Get half off every menu-priced pizza ordered online at participating U.S. locations today, August 2 — the final day of this summer deal covering specialty pies, build-your-own, and all crust types.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through August 2, 2026",
-      "url": "https://www.dominos.com/en/pages/content/localized/deals.html",
-      "best": false,
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#c4172c",
+      "ic": "PB",
+      "deal": "Mix & Match Menu at $4.99 Each",
+      "desc": "Save about 40% off regular prices by ordering from the Mix & Match $4.99 menu — choose up to 10 half-portions of soups, sandwiches, and salads, plus one side per order.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/offers.html",
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "Pizza Hut",
-      "cat": "Pizza",
-      "color": "#ee3124",
-      "ic": "PH",
-      "deal": "Throwback Value Menu: $3 Personal Pan Pizza",
-      "desc": "For a limited time this summer, Pizza Hut's Throwback Value Menu offers a one-topping Personal Pan Pizza for $3 plus other value items like $4 breadsticks and a $10 medium Stuffed Crust.",
+      "brand": "Krispy Kreme",
+      "cat": "Treats",
+      "color": "#00a850",
+      "ic": "KK",
+      "deal": "Orange Dreamsicle Dozen for $5 with Any Dozen Purchase",
+      "desc": "Buy any dozen at regular price and add an Orange Dreamsicle Original Glazed Dozen to your order for just $5 — available in-shop, drive-thru, or online for pickup or delivery, no membership required.",
       "tags": [],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.pizzahut.com/deals",
-      "best": false,
+      "url": "https://www.krispykreme.com/deals",
+      "best": true,
       "region": "National"
     },
     {
-      "brand": "Popeyes",
-      "cat": "Chicken",
-      "color": "#f47920",
-      "ic": "Po",
-      "deal": "$5 Faves Menu",
-      "desc": "Pick any item from the $5 Faves Menu — including three pieces of chicken, two sides, or a chicken sandwich — through the end of August.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.popeyes.com/deals",
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#6bc04b",
+      "ic": "SS",
+      "deal": "App Everyday Menu: $2 Sodas, $4 Fries, $6 Shakes",
+      "desc": "Order through the Shake Shack app or website at participating locations to unlock $2 sodas, $4 crinkle-cut fries, and $6 shakes all day.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.shakeshack.com/promotions/",
       "best": false,
       "region": "National"
     },
@@ -82,86 +66,40 @@
       "cat": "Mexican",
       "color": "#702082",
       "ic": "TB",
-      "deal": "$5 Classic Luxe Cravings Box",
-      "desc": "The $5 Classic Luxe Cravings Box includes a burrito, taco, side, and drink — one of the best everyday fast-food value bundles available right now.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.tacobell.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "Mc",
-      "deal": "$5 Value Meal Box",
-      "desc": "The McDonald's app features a $5 Value Meal Box daily, typically including a McDouble or McChicken, 4-piece McNuggets, small fries, and a small drink.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Burger King",
-      "cat": "Burgers",
-      "color": "#f5821f",
-      "ic": "BK",
-      "deal": "$5 Your Way Meal",
-      "desc": "Build your own value meal for $5 daily at Burger King, available in the app.",
+      "deal": "Build Your Own Luxe Cravings Box for $7",
+      "desc": "Pick a specialty item like a Crunchwrap, plus a taco or Beefy 5-Layer Burrito, a side, and a drink — all in one box for $7 via app or in-store.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.bk.com/offers",
+      "url": "https://www.tacobell.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#f40027",
-      "ic": "KF",
-      "deal": "5 Tenders for $5 In-App Deal",
-      "desc": "Grab five chicken tenders for just $5 when you order through the KFC app at participating locations.",
+      "brand": "Papa Johns",
+      "cat": "Pizza",
+      "color": "#e31837",
+      "ic": "PJ",
+      "deal": "50% Off Regular Menu-Price Pizzas on Carryout",
+      "desc": "Order carryout at Papa Johns for a limited time and get 50% off regular menu-price pizzas — no promo code required, just order online or in the app.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#e02b20",
-      "ic": "Ar",
-      "deal": "$7.99 Meat & 3 Box",
-      "desc": "Choose a Roast Beef or Crispy Chicken Sandwich plus three sides and a small drink for $7.99 — solid everyday value at Arby's.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.arbys.com/deals/",
+      "expires": "Limited time",
+      "url": "https://www.papajohns.com/order/deals",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Jack in the Box",
       "cat": "Burgers",
-      "color": "#e8272b",
+      "color": "#e31837",
       "ic": "JB",
-      "deal": "2 Tacos for $1.29 Digital Deal",
-      "desc": "Late-night go-to: snag two classic tacos for just $1.29 as a standing digital special in the Jack in the Box app.",
+      "deal": "2 Tacos for $1.29 in the App",
+      "desc": "Order through the Jack in the Box app and grab two classic tacos for just $1.29 — a standing digital exclusive deal available any time, day or night.",
       "tags": [
         "app"
       ],
@@ -172,32 +110,16 @@
       "region": "National"
     },
     {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005bac",
-      "ic": "So",
-      "deal": "$1.99 Everyday Value Menu",
-      "desc": "Sonic's $1.99 everyday menu features items like the Jr. Bacon Cheeseburger and Chicken Wrap — available any time, no app required.",
+      "brand": "Arby's",
+      "cat": "Chicken",
+      "color": "#e31837",
+      "ic": "AR",
+      "deal": "Meat & 3 Box for $7.99",
+      "desc": "Get a Roast Beef or Crispy Chicken Sandwich, your choice of three sides, and a small drink for $7.99 — a standing everyday value box available in-store and online.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Treats",
-      "color": "#6b2f1a",
-      "ic": "SS",
-      "deal": "$2 Sodas, $4 Fries, $6 Shakes App Prices",
-      "desc": "Order through the Shake Shack app or website for reduced pricing: $2 sodas, $4 fries, and $6 shakes at participating locations nationwide.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/deals/",
+      "url": "https://www.arbys.com/deals",
       "best": false,
       "region": "National"
     }
