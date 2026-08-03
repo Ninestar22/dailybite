@@ -420,9 +420,8 @@ function main() {
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).
   // Injected only when the daily AI refresh did not supply a deal for that brand.
   const EVERGREEN = [
-    { until: "2026-08-15", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Delivery on $10+ Digital Orders", desc: "Chipotle is waiving the delivery fee on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed, open to everyone.", tags: ["app"], value: 4, expires: "Limited time", url: "https://www.chipotle.com/", best: false, region: "National" } },
+    { until: "2026-08-15", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Delivery on $10+ Digital Orders", desc: "Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.", tags: ["app"], value: 3, expires: "Limited time", url: "https://www.chipotle.com/", best: false, region: "National" } },
     { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/", best: false, region: "National" } },
-    { until: "2026-08-10", deal: { brand: "Sweetgreen", cat: "Salads", color: "#3d7a4e", ic: "Sg", deal: "Alice Waters' Peach & Goat Cheese Salad", desc: "Limited-edition summer collab with chef Alice Waters - a seasonal peach & goat cheese salad available nationwide in-app and in stores, with 1% of proceeds donated to the Edible Schoolyard Project.", tags: ["app"], value: 4, expires: "Through August 10, 2026", url: "https://www.sweetgreen.com/", best: false, region: "National" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
@@ -508,14 +507,14 @@ function main() {
       }
     };
     const byVal = (a, b) => (b.value || 0) - (a.value || 0);
-    const gold = deals.filter(d => GOLD.has(canonBrand(d.brand))).sort(byVal);
+    const gold = deals.filter(d => GOLD.has(canonBrand(d.brand)) && (d.value || 0) >= 4).sort(byVal);
     pick(gold, 2);
     const goldCount = byBrand.size;
-    const healthy = deals.filter(d => HEALTHY.has(canonBrand(d.brand))).sort(byVal);
+    const healthy = deals.filter(d => HEALTHY.has(canonBrand(d.brand)) && (d.value || 0) >= 4).sort(byVal);
     pick(healthy, goldCount >= 2 ? 4 : 3);
     if (byBrand.size < 2) {
       const rest = deals.filter(d => !HEALTHY.has(canonBrand(d.brand))).sort((a, b) => (b.value || 0) - (a.value || 0));
-      pick(rest, 2);
+      pick(rest, 3);
     }
   }
   if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
