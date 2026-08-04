@@ -1,205 +1,189 @@
 {
-  "updated": "2026-08-04",
-  "deals": [
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#8c0015",
-      "ic": "Pa",
-      "deal": "Buy One Entree, Get a Second for $5",
-      "desc": "Use code BOGO5 at online or app checkout to get a second entree for just $5 with the purchase of any full-price entree at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/articles/panera-promo-codes.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#8c0015",
-      "ic": "Pa",
-      "deal": "Any Cup of Soup for $1",
-      "desc": "Use code SOUP at online or app checkout to get any cup of soup for just $1 on your order at participating Panera Bread locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/articles/panera-promo-codes.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "$1 Meximelt - Today Only (Aug 4)",
-      "desc": "Get a Meximelt for $1 via the Taco Bell app at participating locations today, August 4, 2026, from 8 AM to 11:59 PM PT.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "August 4, 2026",
-      "url": "https://www.tacobell.com/offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Krispy Kreme",
-      "cat": "Treats",
-      "color": "#009444",
-      "ic": "KK",
-      "deal": "24-Count Doughnut Dots for $5 with Code DOTS",
-      "desc": "Use promo code DOTS at online or in-app checkout to get a 24-count Original Glazed Doughnut Dots for $5 with any purchase of $5 or more; limit one per order.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.krispykreme.com/promos",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Whataburger",
-      "cat": "Burgers",
-      "color": "#f26522",
-      "ic": "Wh",
-      "deal": "76th Birthday App Deals All August - BOGO Aug 8",
-      "desc": "Whataburger is running app-only 76-cent deals on select August dates including a BOGO Whataburger on National Whataburger Day (Aug 8, 11 AM - 8 PM) and 76-cent items on Aug 5, 12, and 19; free app account required.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through August 2026",
-      "url": "https://www.whataburger.com/app",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Del Taco",
-      "cat": "Mexican",
-      "color": "#e31837",
-      "ic": "DT",
-      "deal": "$1 Value Menu - Over 10 Items",
-      "desc": "Del Taco's everyday $1 value menu includes Value Bean and Cheese Burritos and other items, no app or code required.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.deltaco.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "Mc",
-      "deal": "Daily App Deals Including $6 Combo Meals",
-      "desc": "Open the McDonald's app daily for rotating coupons including $6 Extra Value Meals and discounts on core items like the Quarter Pounder; deals vary by day.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Church's Chicken",
-      "cat": "Chicken",
-      "color": "#e31837",
-      "ic": "CC",
-      "deal": "$5.99 Smokehouse Chicken",
-      "desc": "Get the juicy marinated Smokehouse Chicken half-chicken fried without batter in your choice of five dry rub flavors for $5.99, or as a combo for about $11, at participating locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Through August 23, 2026",
-      "url": "https://www.churchs.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#f40027",
-      "ic": "KF",
-      "deal": "Taste of KFC 2-Piece Meal for $5.99",
-      "desc": "Get a 2-piece Taste of KFC meal at participating locations for $5.99 when you order online or via the KFC app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Papa John's",
-      "cat": "Pizza",
-      "color": "#ba0c2f",
-      "ic": "PJ",
-      "deal": "50% Off Any Pizza for Carryout Online",
-      "desc": "Order carryout online at Papa John's and get 50% off the regular menu price of any pizza; no code needed, discount applied at checkout.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.papajohns.com/order/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Arby's",
-      "cat": "Sandwiches",
-      "color": "#c8102e",
-      "ic": "Ar",
-      "deal": "$7.99 Meat and 3 Box",
-      "desc": "Get a Roast Beef or Crispy Chicken Sandwich plus three sides and a small drink for $7.99 via the Arby's app or online at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.arbys.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#005aaa",
-      "ic": "So",
-      "deal": "$1.99 Everyday Value Menu",
-      "desc": "Sonic's $1.99 daily menu includes items like a Jr. Bacon Cheeseburger and a Chicken Wrap available every day with no app required at participating Drive-In locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Burgers",
-      "color": "#e2203d",
-      "ic": "We",
-      "deal": "$2 Off Breakfast Combo via App",
-      "desc": "Check the Wendy's app for current rotating coupons including $2 off a Breakfast Combo at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.wendys.com/deals",
-      "best": false,
-      "region": "National"
-    }
-  ]
+ "updated": "2026-08-04",
+ "deals": [
+  {
+   "brand": "Panera Bread",
+   "cat": "Cafe",
+   "color": "#8c0015",
+   "ic": "Pa",
+   "deal": "Buy One Entree, Get a Second for $5",
+   "desc": "Use code BOGO5 at online or app checkout to get a second entree for just $5 with the purchase of any full-price entree at participating locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.panerabread.com/en-us/articles/panera-promo-codes.html",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Panera Bread",
+   "cat": "Cafe",
+   "color": "#8c0015",
+   "ic": "Pa",
+   "deal": "Any Cup of Soup for $1",
+   "desc": "Use code SOUP at online or app checkout to get any cup of soup for just $1 on your order at participating Panera Bread locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.panerabread.com/en-us/articles/panera-promo-codes.html",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Taco Bell",
+   "cat": "Mexican",
+   "color": "#702082",
+   "ic": "TB",
+   "deal": "$1 Meximelt - Today Only (Aug 4)",
+   "desc": "Get a Meximelt for $1 via the Taco Bell app at participating locations today, August 4, 2026, from 8 AM to 11:59 PM PT.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "August 4, 2026",
+   "url": "https://www.tacobell.com/offers",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Krispy Kreme",
+   "cat": "Treats",
+   "color": "#009444",
+   "ic": "KK",
+   "deal": "24-Count Doughnut Dots for $5 with Code DOTS",
+   "desc": "Use promo code DOTS at online or in-app checkout to get a 24-count Original Glazed Doughnut Dots for $5 with any purchase of $5 or more; limit one per order.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.krispykreme.com/promos",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Del Taco",
+   "cat": "Mexican",
+   "color": "#e31837",
+   "ic": "DT",
+   "deal": "$1 Value Menu - Over 10 Items",
+   "desc": "Del Taco's everyday $1 value menu includes Value Bean and Cheese Burritos and other items, no app or code required.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.deltaco.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "McDonald's",
+   "cat": "Burgers",
+   "color": "#ffbc0d",
+   "ic": "Mc",
+   "deal": "Daily App Deals Including $6 Combo Meals",
+   "desc": "Open the McDonald's app daily for rotating coupons including $6 Extra Value Meals and discounts on core items like the Quarter Pounder; deals vary by day.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Church's Chicken",
+   "cat": "Chicken",
+   "color": "#e31837",
+   "ic": "CC",
+   "deal": "$5.99 Smokehouse Chicken",
+   "desc": "Get the juicy marinated Smokehouse Chicken half-chicken fried without batter in your choice of five dry rub flavors for $5.99, or as a combo for about $11, at participating locations.",
+   "tags": [],
+   "value": 3,
+   "expires": "Through August 23, 2026",
+   "url": "https://www.churchs.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "KFC",
+   "cat": "Chicken",
+   "color": "#f40027",
+   "ic": "KF",
+   "deal": "Taste of KFC 2-Piece Meal for $5.99",
+   "desc": "Get a 2-piece Taste of KFC meal at participating locations for $5.99 when you order online or via the KFC app.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.kfc.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Papa John's",
+   "cat": "Pizza",
+   "color": "#ba0c2f",
+   "ic": "PJ",
+   "deal": "50% Off Any Pizza for Carryout Online",
+   "desc": "Order carryout online at Papa John's and get 50% off the regular menu price of any pizza; no code needed, discount applied at checkout.",
+   "tags": [],
+   "value": 4,
+   "expires": "Ongoing",
+   "url": "https://www.papajohns.com/order/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Arby's",
+   "cat": "Sandwiches",
+   "color": "#c8102e",
+   "ic": "Ar",
+   "deal": "$7.99 Meat and 3 Box",
+   "desc": "Get a Roast Beef or Crispy Chicken Sandwich plus three sides and a small drink for $7.99 via the Arby's app or online at participating locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.arbys.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#005aaa",
+   "ic": "So",
+   "deal": "$1.99 Everyday Value Menu",
+   "desc": "Sonic's $1.99 daily menu includes items like a Jr. Bacon Cheeseburger and a Chicken Wrap available every day with no app required at participating Drive-In locations.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Wendy's",
+   "cat": "Burgers",
+   "color": "#e2203d",
+   "ic": "We",
+   "deal": "$2 Off Breakfast Combo via App",
+   "desc": "Check the Wendy's app for current rotating coupons including $2 off a Breakfast Combo at participating locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Limited time",
+   "url": "https://www.wendys.com/deals",
+   "best": false,
+   "region": "National"
+  }
+ ]
 }
