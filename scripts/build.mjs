@@ -499,12 +499,14 @@ function main() {
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY"].map(canonBrand));
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     const pick = (list, max) => {
       for (const d of list) {
         if (byBrand.size >= max) break;
         const b = canonBrand(d.brand);
         if (byBrand.has(b) || BEST_BANNED.has(b)) continue;
+        if (REGIONAL_ONLY.has(b)) continue; // regional-footprint chains never badge - most visitors cannot claim them
         if (isTreatDeal(d)) continue; // owner rule: Top Picks are filling meals, never desserts
         d.best = true; byBrand.add(b);
       }
