@@ -156,8 +156,8 @@
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"><!-- SSRGRID:START -->
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
+<div class="card">
+  
   <div class="brandrow">
     <div class="brand-ic" style="background:#f37021"><span>W</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=whataburger.com&amp;sz=128" alt="Whataburger logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Whataburger</div><div class="brand-cat">Burgers</div></div>
@@ -425,7 +425,7 @@ const DEALS = [
     "value": 5,
     "expires": "August 5, 2026",
     "url": "https://www.whataburger.com/deals",
-    "best": true,
+    "best": false,
     "region": "National",
     "isNew": true,
     "endingSoon": false
@@ -776,7 +776,19 @@ async function stateLookup(lat, lon){
     city: a.city || a.town || a.village || a.suburb || a.hamlet || a.county || null
   };
 }
+const BRAND_STATES = {
+  'whataburger': ['Texas','Oklahoma','New Mexico','Arizona','Florida','Georgia','Alabama','Mississippi','Louisiana','Tennessee','North Carolina','South Carolina','Arkansas','Kansas','Missouri','Colorado','Nevada','Kentucky'],
+  'del taco': ['California','Nevada','Arizona','Utah','Colorado','New Mexico','Oregon','Washington','Idaho','Texas','Oklahoma','Arkansas','Louisiana','Alabama','Georgia','Florida','Tennessee','North Carolina','South Carolina','Ohio','Michigan'],
+  'el pollo loco': ['California','Nevada','Arizona','Texas','Utah','Colorado','Louisiana'],
+  'salad and go': ['Arizona','Texas','Oklahoma','Nevada'],
+  'jack in the box': ['California','Nevada','Arizona','Washington','Oregon','Texas','Oklahoma','Missouri','Kansas','Illinois','Indiana','Ohio','North Carolina','South Carolina','Tennessee','Colorado','New Mexico','Idaho','Utah','Hawaii','Louisiana','Arkansas'],
+  'in-n-out': ['California','Nevada','Arizona','Utah','Texas','Oregon','Colorado','Idaho']
+};
 function regionOK(d){
+  if(STATE){
+    const fp = BRAND_STATES[(d.brand || '').toLowerCase()];
+    if(fp && !fp.includes(STATE)) return false;
+  }
   if(!STATE || !d.region) return true;
   if(/national/i.test(d.region)) return true;
   return d.region.toLowerCase().includes(STATE.toLowerCase());
