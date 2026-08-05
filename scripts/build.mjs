@@ -31,6 +31,9 @@ const CHAINS = [
   { slug: "subway-deals",      name: "Subway" },
   { slug: "sweetgreen-deals",  name: "Sweetgreen" },
   { slug: "potbelly-deals",  name: "Potbelly" },
+  { slug: "noodles-and-company-deals",  name: "Noodles & Company" },
+  { slug: "chilis-deals",  name: "Chili’s" },
+  { slug: "five-guys-deals",  name: "Five Guys" },
   { slug: "cava-deals",        name: "CAVA" },
   { slug: "smoothie-king-deals", name: "Smoothie King" },
   { slug: "tropical-smoothie-deals", name: "Tropical Smoothie" },
@@ -97,7 +100,7 @@ function brandDomain(brand) {
   return key.replace(/['".,!]/g, "").replace(/[^a-z0-9]/g, "") + ".com";
 }
 
-const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
+const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","burger king","burgerking","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
 function latePill(d) { return LATE_BRANDS.has(canonBrand(d.brand)) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
   const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
@@ -423,6 +426,7 @@ function main() {
   const EVERGREEN = [
     { until: "2026-08-15", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Delivery on $10+ Digital Orders", desc: "Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.", tags: ["app"], value: 3, expires: "Limited time", url: "https://www.chipotle.com/", best: false, region: "National" } },
     { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/", best: false, region: "National" } },
+    { until: "2026-12-31", deal: { brand: "Chili’s", cat: "Sit-Down", color: "#ee3a43", ic: "CH", deal: "3 For Me: Drink + App + Entree from $10.99", desc: "Chili’s all-day 3 For Me bundles a bottomless drink, an appetizer (chips and salsa or house salad), and a full entree starting at $10.99, with $14.99 and $16.99 tiers - every day at participating locations, no membership needed.", tags: [], value: 4, expires: "Ongoing", url: "https://www.chilis.com/", best: false, region: "National" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
@@ -485,6 +489,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
+  deals = deals.filter(d => !["mcdonalds", "burgerking"].includes(canonBrand(d.brand))); // owner: quality focus - McDonald's and Burger King never listed
   const MEMBER_OK = new Set(["chipotle", "chick-fil-a"]);
   deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
@@ -495,7 +500,7 @@ function main() {
   // Jacob's policy: Top Picks must showcase genuinely healthy deals.
   const BEST_BANNED = new Set(["mcdonald's","mcdonalds","kfc","dairy queen","taco bell","domino's","dominos"]);
   const GOLD = new Set(["chipotle", "chick-fil-a"]); // golden-standard brands: always Top Picks when they have a valid deal
-  const HEALTHY = new Set(["sweetgreen","potbelly","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
+  const HEALTHY = new Set(["sweetgreen","potbelly","noodles & company","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
