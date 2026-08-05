@@ -30,6 +30,7 @@ const CHAINS = [
   { slug: "dominos-deals",     name: "Domino's" },
   { slug: "subway-deals",      name: "Subway" },
   { slug: "sweetgreen-deals",  name: "Sweetgreen" },
+  { slug: "potbelly-deals",  name: "Potbelly" },
   { slug: "cava-deals",        name: "CAVA" },
   { slug: "smoothie-king-deals", name: "Smoothie King" },
   { slug: "tropical-smoothie-deals", name: "Tropical Smoothie" },
@@ -182,8 +183,8 @@ function chainPage(chain, deals) {
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
 <div class="promo">
-<h3>Order delivery &amp; support DailyBite</h3>
-<p>Ordering tonight? Using these links costs you nothing extra and helps keep DailyBite running.</p>
+<h3>Pickup &amp; delivery app deals</h3>
+<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -244,8 +245,8 @@ function freeFoodPage(deals) {
   <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
 <div class="promo">
-<h3>Order delivery &amp; support DailyBite</h3>
-<p>Ordering tonight? Using these links costs you nothing extra and helps keep DailyBite running.</p>
+<h3>Pickup &amp; delivery app deals</h3>
+<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -329,8 +330,8 @@ ${matchedBlock}
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
 <div class="promo">
-<h3>Order delivery &amp; support DailyBite</h3>
-<p>Ordering tonight? Using these links costs you nothing extra and helps keep DailyBite running.</p>
+<h3>Pickup &amp; delivery app deals</h3>
+<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -401,8 +402,8 @@ function dayPage(day, deals) {
   <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
 <div class="promo">
-<h3>Order delivery &amp; support DailyBite</h3>
-<p>Ordering tonight? Using these links costs you nothing extra and helps keep DailyBite running.</p>
+<h3>Pickup &amp; delivery app deals</h3>
+<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -494,15 +495,17 @@ function main() {
   // Jacob's policy: Top Picks must showcase genuinely healthy deals.
   const BEST_BANNED = new Set(["mcdonald's","mcdonalds","kfc","dairy queen","taco bell","domino's","dominos"]);
   const GOLD = new Set(["chipotle", "chick-fil-a"]); // golden-standard brands: always Top Picks when they have a valid deal
-  const HEALTHY = new Set(["sweetgreen","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
+  const HEALTHY = new Set(["sweetgreen","potbelly","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a"]);
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
+    const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     const pick = (list, max) => {
       for (const d of list) {
         if (byBrand.size >= max) break;
         const b = canonBrand(d.brand);
         if (byBrand.has(b) || BEST_BANNED.has(b)) continue;
+        if (isTreatDeal(d)) continue; // owner rule: Top Picks are filling meals, never desserts
         d.best = true; byBrand.add(b);
       }
     };

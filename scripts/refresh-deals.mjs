@@ -30,7 +30,7 @@ const client = new Anthropic(); // reads ANTHROPIC_API_KEY from env
 
 const PROMPT = `You maintain "DailyBite", a page listing the best current U.S. fast-food and coffee-chain app deals.
 
-Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's) AND healthier fast-casual chains (Sweetgreen, CAVA, Just Salad, Qdoba, Wingstop, Naf Naf Grill, Smoothie King, Tropical Smoothie Cafe, Jamba, Subway) AND healthier DRIVE-THRU chains (Salad and Go, El Pollo Loco) AND late-night chains (Jack in the Box, Whataburger, Del Taco, IHOP, Denny's, Insomnia Cookies) and halal-certified chains (The Halal Guys, Naf Naf Grill) and treat chains with frequent free-item promos (Krispy Kreme, Insomnia Cookies). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
+Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals from major national chains (e.g. McDonald's, Taco Bell, Wendy's, Burger King, Chipotle, Chick-fil-A, Starbucks, Panera, Pizza Hut, Popeyes, Dunkin', Sonic, Arby's, KFC, Domino's) AND healthier fast-casual chains (Sweetgreen, Potbelly, CAVA, Just Salad, Qdoba, Wingstop, Naf Naf Grill, Smoothie King, Tropical Smoothie Cafe, Jamba, Subway) AND healthier DRIVE-THRU chains (Salad and Go, El Pollo Loco) AND late-night chains (Jack in the Box, Whataburger, Del Taco, IHOP, Denny's, Insomnia Cookies) and halal-certified chains (The Halal Guys, Naf Naf Grill) and treat chains with frequent free-item promos (Krispy Kreme, Insomnia Cookies). Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
 
 Rules:
 - Only include deals you found evidence for in search results. Do NOT invent deals, prices, or dates.
@@ -48,6 +48,7 @@ Rules:
 - EXPIRY: NEVER include a deal whose end date has already passed. Holiday specials must be dropped starting the day AFTER the holiday or stated end date — yesterday's "July 4th only" deal must not appear on July 5th.
 - HOLIDAY AWARENESS: If today is a U.S. holiday or national food day (July 4th, Memorial Day, National French Fry Day, National Ice Cream Day, etc.), actively search for verified holiday specials (e.g. "July 4th food deals 2026"), include them, name the occasion in the deal title, and prefer strong holiday specials for "best" — they are exactly the timely, high-value deals visitors come for.
 - PRACTICALITY FILTER — this site is for repeat, everyday savers. Do NOT include: first-order or new-customer-only promos (e.g. "15% off your first order", new-member signup bonuses, first catering-order codes); ANY deal involving loyalty-point mechanics — redeeming points, earning bonus points, or multi-visit challenges (e.g. "free entree after 7 visits") — every listed deal must be claimable outright on a SINGLE visit by anyone; birthday-only rewards; one-time-use codes tied to account creation. Every deal listed must be claimable TODAY by a typical person who already has (or can freely download) the brand's app.
+- FILLING MEALS FIRST: prioritize deals on real meals - sandwiches, bowls, salads, entrees, meal boxes. Desserts and sweets (donuts, cookies, custard, froyo, ice cream, milkshakes) are NEVER marked best - Top Picks are filling meals only - and sweets may be at most a small minority of the overall list. Label desserts with cat "Treats" honestly. Also search Potbelly on every refresh - their BOGO and sandwich promo codes are frequent and strong.
 - CONCRETE SAVINGS: every deal must make the saving obvious in dollars - a stated price, a percent discount, a freebie with purchase, or a working code. Vague perks (free delivery, new or returning menu items, collabs, sweepstakes) are never marked best and are rarely worth listing.
 - OWNER QUALITY BAR: the owner personally tests listed deals in-store. Every deal must hold up exactly as described. Never mark Wingstop boneless-wing promotions as best (owner-tested, quality complaint); bone-in wing deals are fine. Prefer deals a person would genuinely brag about finding.
 - NOT A DEAL: new menu items, returning seasonal items, or product launches at regular price are NOT deals. Only list offers with a genuine discount, freebie, bundle value, or working promo code.
@@ -57,6 +58,7 @@ Rules:
 - NO RECURRING DEALS: never include recurring day-of-week or time-window promos ("Every Friday", "Whopper Wednesdays", "Tuesday Drops", daily happy hours, "every day 2-5 PM"). Only include deals available ALL DAY TODAY to anyone: dated limited-time offers ("Through July 20") or standing everyday value menus ("Ongoing").
 - FEATURED BAN: NEVER mark deals from McDonald's, KFC, Dairy Queen, Taco Bell, or Domino's as "best" under any circumstances. Their deals may appear in the regular list, but Top Picks belongs to healthier chains.
 - GOLDEN STANDARD BRANDS: Chipotle and Chick-fil-A set the quality bar for this site. On EVERY refresh, search these two chains FIRST and include their best currently-active deal whenever one exists. EXCEPTION for these two brands ONLY: deals requiring a FREE app account (Chipotle Rewards / Chick-fil-A One) ARE allowed - state "free account required" plainly in the description. Paid memberships remain banned everywhere, and the membership ban still applies to every other chain. Never invent or stretch a deal if nothing qualifies today.
+- PLATFORM PICKUP DEALS: also search DoorDash, Uber Eats, and Grubhub for publicized NATIONAL promos anyone can claim - percent-off pickup events, sitewide promo codes, free-delivery weekends. Use brand "DoorDash" / "Uber Eats" / "Grubhub", cat "Pickup", and the platform's official page as the url. All the usual bans apply fully: no new-customer or first-order codes, no DashPass / Uber One / Grubhub+ member perks. Location- or user-personalized app offers never qualify - national and verifiable only.
 - HEALTHY QUOTA: aim for at least 4-6 verified deals per day from healthier chains (Sweetgreen, CAVA, Just Salad, Qdoba, Panera, Chipotle, Wingstop, Naf Naf Grill, Smoothie King, Tropical Smoothie, Jamba, Salad and Go, El Pollo Loco, The Halal Guys). Search these chains FIRST and most thoroughly — they are the site's identity. A day with zero healthy deals is a failed refresh.
 - PORK-LIGHT FEATURED PICKS: never mark a pork-centric deal (bacon burgers, pepperoni pizza promos, ham/sausage items) as "best". Top Picks should favor chicken, Mediterranean, salad/bowl, smoothie, and plant-forward deals. Pork-centric deals may still appear in the regular list, just never featured.
 - For "best" (Top Picks), additionally prioritize deals the MOST people can claim today AND again in the future, so visitors feel real value and come back.
@@ -66,6 +68,25 @@ Rules:
 
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
 {"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. Through July 20 | This week | Ongoing","url":"https://...","best":true}]}`;
+
+
+async function validateDealUrls(deals) {
+  // Replace any deal URL that hard-404s with the brand's homepage so "Get deal" never dead-ends.
+  const domainFor = (brand) => brand.toLowerCase().replace(/['\u2019]/g, "").replace(/[^a-z0-9]/g, "") + ".com";
+  for (const d of deals) {
+    if (!d.url) { d.url = "https://www." + domainFor(d.brand) + "/"; continue; }
+    try {
+      const res = await fetch(d.url, { method: "GET", redirect: "follow", headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36" }, signal: AbortSignal.timeout(12000) });
+      if (res.status === 404 || res.status === 410) {
+        console.log(`URL 404 for ${d.brand} (${d.url}) -> homepage fallback`);
+        d.url = "https://www." + domainFor(d.brand) + "/";
+      }
+    } catch (e) {
+      console.log(`URL check failed for ${d.brand} (${d.url}): ${e.message} -> homepage fallback`);
+      d.url = "https://www." + domainFor(d.brand) + "/";
+    }
+  }
+}
 
 function extractJson(text) {
   let t = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/i, "").trim();
@@ -158,6 +179,7 @@ async function main() {
   }
 
   const out = { updated: new Date().toISOString().slice(0, 10), deals };
+  await validateDealUrls(deals);
   writeFileSync(dataPath, JSON.stringify(out, null, 2) + "\n");
   console.log(`Wrote deals.json with ${deals.length} deals (updated ${out.updated}).`);
 }
