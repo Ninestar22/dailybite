@@ -1,172 +1,172 @@
 {
-  "updated": "2026-08-04",
-  "deals": [
-    {
-      "brand": "Shake Shack",
-      "cat": "Cafe",
-      "color": "#4a1942",
-      "ic": "SS",
-      "deal": "Any Frozen Custard for $3",
-      "desc": "Use code CUSTARDTIME at any kiosk, on the Shake Shack app, or at shakeshack.com to get any frozen custard for $3 — valid through August 19.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 19, 2026",
-      "url": "https://www.shakeshack.com/offers/",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "TCBY",
-      "cat": "Treats",
-      "color": "#e31837",
-      "ic": "TC",
-      "deal": "BOGO 45% Off — 45th Anniversary",
-      "desc": "Today only, August 4, TCBY celebrates its 45th birthday with a buy-one-get-one 45% off deal on a second purchase of equal or lesser value all day at participating locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "August 4, 2026",
-      "url": "https://www.tcby.com/",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Krispy Kreme",
-      "cat": "Treats",
-      "color": "#00a651",
-      "ic": "KK",
-      "deal": "Buy Any Dozen, Get a Dozen Glazed for $1",
-      "desc": "Purchase any dozen doughnuts and add a dozen Original Glazed for just $1 — a verified current offer reported active this week.",
-      "tags": [],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.krispykreme.com/promos/deals",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Insomnia Cookies",
-      "cat": "Treats",
-      "color": "#d6001c",
-      "ic": "IC",
-      "deal": "Buy 12 Cookies, Get 4 Free",
-      "desc": "Order 12 warm cookies online or in the app and get 4 additional cookies free — a standing late-night deal at participating locations.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://insomniacookies.com/locations",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Papa Johns",
-      "cat": "Pizza",
-      "color": "#006b38",
-      "ic": "PJ",
-      "deal": "50% Off All Regular-Price Pizzas — Carryout",
-      "desc": "Get half off any size pizza with any crust and toppings when you choose carryout online or in the app; use code 50OFFCO if the discount does not apply automatically.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 16, 2026",
-      "url": "https://www.papajohns.com/specials/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Taco Bell",
-      "cat": "Mexican",
-      "color": "#702082",
-      "ic": "TB",
-      "deal": "$1 Meximelt — Today Only",
-      "desc": "For August 4, 2026 only, get a Meximelt for $1 from 8 AM to 11:59 PM PT at participating Taco Bell locations nationwide.",
-      "tags": [],
-      "value": 4,
-      "expires": "August 4, 2026",
-      "url": "https://www.tacobell.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Cafe",
-      "color": "#009843",
-      "ic": "SU",
-      "deal": "BOGO Footlong Deal — $5",
-      "desc": "Buy one footlong sub and get a second footlong for $5 — a current limited-time offer reported active through the Subway app this week.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.subway.com/en-US/menunutrition/menu/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#0057b8",
-      "ic": "SO",
-      "deal": "$7 Big Deal Meal",
-      "desc": "Sonic's $7 Big Deal Meal is available every day, plus a $1.99 everyday value menu featuring a Jr. Bacon Cheeseburger, Chicken Wrap, and more.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sonicdrivein.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Denny's",
-      "cat": "Cafe",
-      "color": "#e21f26",
-      "ic": "DN",
-      "deal": "Slammin' Meal Deals from $5.99",
-      "desc": "Denny's all-day Slammin' Meal Deals value menu offers breakfast, lunch, and dinner options starting at $5.99, available at participating locations anytime — great for late-night visits.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.dennys.com/deals/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "KFC",
-      "cat": "Chicken",
-      "color": "#f40027",
-      "ic": "KF",
-      "deal": "$7 Box Feast Meal",
-      "desc": "Get a KFC Snacker, 5-piece Nuggets, fries, a medium drink, and a dipping sauce bundled for $7 — available online and in the app at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.kfc.com/deals",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "McDonald's",
-      "cat": "Burgers",
-      "color": "#ffbc0d",
-      "ic": "MC",
-      "deal": "Extra Value Meals for $4",
-      "desc": "McDonald's is currently offering Extra Value Meals at the $4 price point, part of its ongoing value-focused lineup available via the app and in-restaurant.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.mcdonalds.com/us/en-us/deals.html",
-      "best": false,
-      "region": "National"
-    }
-  ]
+ "updated": "2026-08-04",
+ "deals": [
+  {
+   "brand": "Shake Shack",
+   "cat": "Cafe",
+   "color": "#4a1942",
+   "ic": "SS",
+   "deal": "Any Frozen Custard for $3",
+   "desc": "Use code CUSTARDTIME at any kiosk, on the Shake Shack app, or at shakeshack.com to get any frozen custard for $3 - valid through August 19.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 19, 2026",
+   "url": "https://www.shakeshack.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "TCBY",
+   "cat": "Treats",
+   "color": "#e31837",
+   "ic": "TC",
+   "deal": "BOGO 45% Off - 45th Anniversary",
+   "desc": "Today only, August 4, TCBY celebrates its 45th birthday with a buy-one-get-one 45% off deal on a second purchase of equal or lesser value all day at participating locations.",
+   "tags": [],
+   "value": 4,
+   "expires": "August 4, 2026",
+   "url": "https://www.tcby.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Krispy Kreme",
+   "cat": "Treats",
+   "color": "#00a651",
+   "ic": "KK",
+   "deal": "Buy Any Dozen, Get a Dozen Glazed for $1",
+   "desc": "Purchase any dozen doughnuts and add a dozen Original Glazed for just $1 - a verified current offer reported active this week.",
+   "tags": [],
+   "value": 5,
+   "expires": "Limited time",
+   "url": "https://www.krispykreme.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Insomnia Cookies",
+   "cat": "Treats",
+   "color": "#d6001c",
+   "ic": "IC",
+   "deal": "Buy 12 Cookies, Get 4 Free",
+   "desc": "Order 12 warm cookies online or in the app and get 4 additional cookies free - a standing late-night deal at participating locations.",
+   "tags": [
+    "free",
+    "app"
+   ],
+   "value": 5,
+   "expires": "Limited time",
+   "url": "https://insomniacookies.com/",
+   "best": true,
+   "region": "National"
+  },
+  {
+   "brand": "Papa Johns",
+   "cat": "Pizza",
+   "color": "#006b38",
+   "ic": "PJ",
+   "deal": "50% Off All Regular-Price Pizzas - Carryout",
+   "desc": "Get half off any size pizza with any crust and toppings when you choose carryout online or in the app; use code 50OFFCO if the discount does not apply automatically.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Through August 16, 2026",
+   "url": "https://www.papajohns.com/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Taco Bell",
+   "cat": "Mexican",
+   "color": "#702082",
+   "ic": "TB",
+   "deal": "$1 Meximelt - Today Only",
+   "desc": "For August 4, 2026 only, get a Meximelt for $1 from 8 AM to 11:59 PM PT at participating Taco Bell locations nationwide.",
+   "tags": [],
+   "value": 4,
+   "expires": "August 4, 2026",
+   "url": "https://www.tacobell.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Subway",
+   "cat": "Cafe",
+   "color": "#009843",
+   "ic": "SU",
+   "deal": "BOGO Footlong Deal - $5",
+   "desc": "Buy one footlong sub and get a second footlong for $5 - a current limited-time offer reported active through the Subway app this week.",
+   "tags": [
+    "app"
+   ],
+   "value": 4,
+   "expires": "Limited time",
+   "url": "https://www.subway.com/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Sonic",
+   "cat": "Burgers",
+   "color": "#0057b8",
+   "ic": "SO",
+   "deal": "$7 Big Deal Meal",
+   "desc": "Sonic's $7 Big Deal Meal is available every day, plus a $1.99 everyday value menu featuring a Jr. Bacon Cheeseburger, Chicken Wrap, and more.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.sonicdrivein.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "Denny's",
+   "cat": "Cafe",
+   "color": "#e21f26",
+   "ic": "DN",
+   "deal": "Slammin' Meal Deals from $5.99",
+   "desc": "Denny's all-day Slammin' Meal Deals value menu offers breakfast, lunch, and dinner options starting at $5.99, available at participating locations anytime - great for late-night visits.",
+   "tags": [],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.dennys.com/deals/",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "KFC",
+   "cat": "Chicken",
+   "color": "#f40027",
+   "ic": "KF",
+   "deal": "$7 Box Feast Meal",
+   "desc": "Get a KFC Snacker, 5-piece Nuggets, fries, a medium drink, and a dipping sauce bundled for $7 - available online and in the app at participating locations.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.kfc.com/deals",
+   "best": false,
+   "region": "National"
+  },
+  {
+   "brand": "McDonald's",
+   "cat": "Burgers",
+   "color": "#ffbc0d",
+   "ic": "MC",
+   "deal": "Extra Value Meals for $4",
+   "desc": "McDonald's is currently offering Extra Value Meals at the $4 price point, part of its ongoing value-focused lineup available via the app and in-restaurant.",
+   "tags": [
+    "app"
+   ],
+   "value": 3,
+   "expires": "Ongoing",
+   "url": "https://www.mcdonalds.com/us/en-us/deals.html",
+   "best": false,
+   "region": "National"
+  }
+ ]
 }
