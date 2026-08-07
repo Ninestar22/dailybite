@@ -2,22 +2,6 @@
   "updated": "2026-08-07",
   "deals": [
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#c5392b",
-      "ic": "PB",
-      "deal": "Buy One Entree, Get One for $5",
-      "desc": "Use code BOGO5 at checkout on Panera.com or in the app to get a second entree (soup, salad, or sandwich) for only $5; free MyPanera account required.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
-      "best": true,
-      "region": "National"
-    },
-    {
       "brand": "Popeyes",
       "cat": "Chicken",
       "color": "#f47920",
