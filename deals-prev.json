@@ -1,178 +1,150 @@
 {
- "updated": "2026-08-05",
- "deals": [
-  {
-   "brand": "Whataburger",
-   "cat": "Burgers",
-   "color": "#f37021",
-   "ic": "W",
-   "deal": "76-Cent Taquito with Cheese - Today Only",
-   "desc": "On Aug. 5 only, get a Taquito with Cheese for just 76 cents via the Whataburger App (6-11 AM, participating locations) as part of the chain's 76th anniversary celebration.",
-   "tags": [
-    "app"
-   ],
-   "value": 5,
-   "expires": "August 5, 2026",
-   "url": "https://www.whataburger.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Whataburger",
-   "cat": "Burgers",
-   "color": "#f37021",
-   "ic": "W",
-   "deal": "BOGO Free Whataburger on National Whataburger Day",
-   "desc": "On Aug. 8 (National Whataburger Day), Rewards app members score a Buy One, Get One Free Whataburger entree from 11 AM to 8 PM at participating locations.",
-   "tags": [
-    "app",
-    "free"
-   ],
-   "value": 5,
-   "expires": "August 8, 2026",
-   "url": "https://www.whataburger.com/deals",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "Popeyes",
-   "cat": "Chicken",
-   "color": "#f47920",
-   "ic": "P",
-   "deal": "$5 Faves Menu",
-   "desc": "Choose from 3pc Signature Chicken, 3pc Tenders, a Chicken Sandwich, or 8pc Butterfly Shrimp for just $5 - order in store, online, or in the app.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through August 30, 2026",
-   "url": "https://www.popeyes.com/offers",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "Arby's",
-   "cat": "Sandwiches",
-   "color": "#c8102e",
-   "ic": "A",
-   "deal": "50% Off a Sandwich with $10 Purchase",
-   "desc": "Arby's Rewards app members (free to join) get 50% off a sandwich when the order reaches $10 or more - excludes Pecan Chicken Salad and Angus Cheesesteak.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.arbys.com/",
-   "best": true,
-   "region": "National"
-  },
-  {
-   "brand": "KFC",
-   "cat": "Chicken",
-   "color": "#f40027",
-   "ic": "KF",
-   "deal": "5 Chicken Tenders for $5",
-   "desc": "Grab five crispy KFC Chicken Tenders for just $5 when you order digitally through the KFC app or website.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.kfc.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Taco Bell",
-   "cat": "Mexican",
-   "color": "#702082",
-   "ic": "TB",
-   "deal": "$5.99 Luxe Cravings Box",
-   "desc": "The Luxe Cravings Box includes a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips and nacho cheese sauce, and a medium drink - order in app or in store.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Ongoing",
-   "url": "https://www.tacobell.com/offers",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Arby's",
-   "cat": "Sandwiches",
-   "color": "#c8102e",
-   "ic": "A",
-   "deal": "Meat and 3 Box for $7.99",
-   "desc": "The Meat and 3 Box includes a Crispy Chicken or Ham and Swiss Sandwich, small fry, 2-piece Mozzarella Sticks, Peach Cobbler Roll, and a small drink for $7.99.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.arbys.com/",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Sonic",
-   "cat": "Burgers",
-   "color": "#005596",
-   "ic": "S",
-   "deal": "$1.99 Everyday Value Menu",
-   "desc": "Sonic's $1.99 Menu is available every day and includes items like the Jr. Bacon Cheeseburger and Chicken Wrap - order in-app or at the drive-in.",
-   "tags": [
-    "app"
-   ],
-   "value": 3,
-   "expires": "Ongoing",
-   "url": "https://www.sonicdrivein.com/deals",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Krispy Kreme",
-   "cat": "Treats",
-   "color": "#009f6b",
-   "ic": "KK",
-   "deal": "Buy Any Dozen, Get a Dozen Glazed for $1",
-   "desc": "Buy any dozen doughnuts and add a dozen Original Glazed for just $1 at Krispy Kreme - one of the brand's best recurring value offers.",
-   "tags": [],
-   "value": 4,
-   "expires": "Limited time",
-   "url": "https://www.krispykreme.com/promos",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Dairy Queen",
-   "cat": "Treats",
-   "color": "#e31837",
-   "ic": "DQ",
-   "deal": "BOGO Blizzard for 99 Cents Through August 30",
-   "desc": "Buy one Blizzard Treat and get a second Blizzard for 99 cents via the DQ app or online order - valid daily through August 30, 2026.",
-   "tags": [
-    "app"
-   ],
-   "value": 4,
-   "expires": "Through August 30, 2026",
-   "url": "https://www.dairyqueen.com/",
-   "best": false,
-   "region": "National"
-  },
-  {
-   "brand": "Chili’s",
-   "cat": "Sit-Down",
-   "color": "#ee3a43",
-   "ic": "CH",
-   "deal": "3 For Me: Drink + App + Entree from $10.99",
-   "desc": "Chili’s all-day 3 For Me bundles a bottomless drink, an appetizer (chips and salsa or house salad), and a full entree starting at $10.99, with $14.99 and $16.99 tiers - every day at participating locations, no membership needed.",
-   "tags": [],
-   "value": 4,
-   "expires": "Ongoing",
-   "url": "https://www.chilis.com/",
-   "best": false,
-   "region": "National"
-  }
- ]
+  "updated": "2026-08-06",
+  "deals": [
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#418b40",
+      "ic": "PB",
+      "deal": "Free Pastry or Sweet with Any Purchase — Code TREAT4UCR",
+      "desc": "Add code TREAT4UCR at checkout on the Panera app or website to receive a free pastry or sweet item with any purchase, no minimum required.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/offers.html",
+      "best": false
+    },
+    {
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f26522",
+      "ic": "PO",
+      "deal": "$5 Faves Menu — 3-Piece Chicken, 2 Sides, or Sandwich",
+      "desc": "Pick any item from the $5 Faves Menu including three pieces of chicken, two individual sides, or a chicken sandwich for just $5 at participating locations nationwide.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.popeyes.com/offers",
+      "best": false
+    },
+    {
+      "brand": "Arby's",
+      "cat": "Chicken",
+      "color": "#e31837",
+      "ic": "AR",
+      "deal": "$7.99 Meat and 3 Box",
+      "desc": "Get a Ham and Swiss Melt, Crispy Chicken Sandwich, or Buffalo Chicken Sandwich plus three sides and a small drink for $7.99 at participating Arby's locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.arbys.com/",
+      "best": false
+    },
+    {
+      "brand": "Subway",
+      "cat": "Cafe",
+      "color": "#008c15",
+      "ic": "SU",
+      "deal": "$6.99 Footlong — Code 699FORFTL",
+      "desc": "Enter promo code 699FORFTL at checkout on the Subway app or website to get any footlong sub for $6.99, a strong everyday value on a filling meal.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/",
+      "best": false
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Order the Luxe Cravings Box via the Taco Bell app for $5.99 — includes a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, chips, nacho cheese, and a medium drink.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/",
+      "best": false
+    },
+    {
+      "brand": "Pizza Hut",
+      "cat": "Pizza",
+      "color": "#ee3124",
+      "ic": "PH",
+      "deal": "$10 Medium 1-Topping Stuffed Crust — Throwback Value Menu",
+      "desc": "Order a medium one-topping Stuffed Crust pizza for just $10 through the Pizza Hut app or website via the Throwback Value Menu, available at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.pizzahut.com/",
+      "best": false
+    },
+    {
+      "brand": "KFC",
+      "cat": "Chicken",
+      "color": "#f40027",
+      "ic": "KF",
+      "deal": "$10 Bucket of the Day — Weekdays",
+      "desc": "On any weekday, order the $10 Bucket of the Day through the KFC app or in-store to get a full bucket of fried chicken at a deeply discounted price.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.kfc.com/deals",
+      "best": false
+    },
+    {
+      "brand": "Sonic",
+      "cat": "Burgers",
+      "color": "#fbce07",
+      "ic": "SO",
+      "deal": "$1.99 Everyday Value Menu",
+      "desc": "Order a Jr. Bacon Cheeseburger, Chicken Wrap, or other select items for just $1.99 any day through the Sonic app or at the drive-in, with no special code needed.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.sonicdrivein.com/deals",
+      "best": false
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Treats",
+      "color": "#e2203d",
+      "ic": "WE",
+      "deal": "$1 Small Classic Frosty",
+      "desc": "Get a small Classic Frosty for just $1 at any Wendy's location through August 23 — no app required, available at the counter or drive-through.",
+      "tags": [],
+      "value": 3,
+      "expires": "Through August 23, 2026",
+      "url": "https://www.wendys.com/deals",
+      "best": false
+    },
+    {
+      "brand": "Noodles and Company",
+      "cat": "Bowls",
+      "color": "#c8202f",
+      "ic": "NC",
+      "deal": "Delicious Duo — Entree and Side Starting at $9.95",
+      "desc": "Order the Delicious Duo on the Noodles and Company app or website to get a full entree plus a side dish starting at $9.95, a strong everyday value on a filling bowl meal.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.noodlesandcompany.com/",
+      "best": false
+    }
+  ]
 }
