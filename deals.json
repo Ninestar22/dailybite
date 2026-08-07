@@ -6,21 +6,6 @@
       "cat": "Cafe",
       "color": "#418b40",
       "ic": "PB",
-      "deal": "Buy One Entree, Get Another for $5 — Code BOGO5",
-      "desc": "Use promo code BOGO5 at online or app checkout to get a second entree for only $5 when you buy one at full price; a free MyPanera account is required to apply the code.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/offers.html",
-      "best": true
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#418b40",
-      "ic": "PB",
       "deal": "Free Pastry or Sweet with Any Purchase — Code TREAT4UCR",
       "desc": "Add code TREAT4UCR at checkout on the Panera app or website to receive a free pastry or sweet item with any purchase, no minimum required.",
       "tags": [
@@ -144,21 +129,6 @@
       "value": 3,
       "expires": "Through August 23, 2026",
       "url": "https://www.wendys.com/deals",
-      "best": false
-    },
-    {
-      "brand": "A&W Restaurants",
-      "cat": "Treats",
-      "color": "#f7941d",
-      "ic": "AW",
-      "deal": "Free Root Beer Float Day — Free Small Float Today Only",
-      "desc": "Today is National Root Beer Float Day and A&W is giving away a free small Root Beer Float at participating A&W locations nationwide — no purchase required.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "August 6, 2026 only",
-      "url": "https://www.awrestaurants.com/",
       "best": false
     },
     {
