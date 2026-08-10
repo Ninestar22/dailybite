@@ -4,7 +4,7 @@ on:
   schedule:
     # 11:00 UTC daily (~6-7am US Eastern). GitHub may delay scheduled runs
     # by several minutes under load — this is expected.
-    - cron: "0 11 * * *"
+    - cron: "0 15 * * *"
   workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
 
 # Prevent overlapping runs.
