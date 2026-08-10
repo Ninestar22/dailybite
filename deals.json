@@ -66,23 +66,6 @@
       "region": "National"
     },
     {
-      "brand": "Jamba",
-      "cat": "Smoothies",
-      "color": "#f26522",
-      "ic": "Jam",
-      "deal": "50% Off a Smoothie When You Sign Up for Jamba Rewards",
-      "desc": "Download the Jamba app and enroll in Jamba Rewards to receive a one-time offer for 50% off a qualifying smoothie; redemption instructions and any required code are delivered in the signup confirmation.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.jamba.com/rewards",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Tropical Smoothie Cafe",
       "cat": "Smoothies",
       "color": "#f7941d",
@@ -163,22 +146,6 @@
       "region": "National"
     },
     {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#e6002d",
-      "ic": "QDB",
-      "deal": "Qdoba Rewards: Free Queso with App Sign-Up at Participating Locations",
-      "desc": "Download the Qdoba app and check the current Rewards and Offers tab for any live single-visit deals on burritos, bowls, and quesadillas; Qdoba leans heavily on app-based promotions for its best savings.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.qdoba.com/rewards",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "El Pollo Loco",
       "cat": "Chicken",
       "color": "#f7a600",
@@ -195,12 +162,12 @@
       "region": "CA, AZ, TX, NV and select Western states"
     },
     {
-      "brand": "Chili's",
+      "brand": "Chili’s",
       "cat": "Sit-Down",
       "color": "#c8102e",
       "ic": "Chi",
-      "deal": "Chili's 3 For Me: Starter, Entree, and Non-Alcoholic Drink from $10.99",
-      "desc": "Chili's 3 For Me bundle includes an appetizer, a full entree, and a drink at a single stated price starting at $10.99 at participating locations; no promo code needed, just order in-restaurant or via the Chili's app.",
+      "deal": "Chili’s 3 For Me: Starter, Entree, and Non-Alcoholic Drink from $10.99",
+      "desc": "Chili’s 3 For Me bundle includes an appetizer, a full entree, and a drink at a single stated price starting at $10.99 at participating locations; no promo code needed, just order in-restaurant or via the Chili’s app.",
       "tags": [
         "app"
       ],
@@ -243,7 +210,7 @@
       "region": "National"
     },
     {
-      "brand": "Noodles and Company",
+      "brand": "Noodles & Company",
       "cat": "Bowls",
       "color": "#e8232a",
       "ic": "N&C",
