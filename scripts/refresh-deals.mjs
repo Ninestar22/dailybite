@@ -33,6 +33,8 @@ const PROMPT = `You maintain "DailyBite", a page listing the best current U.S. f
 Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals ONLY from this approved list of quality and healthy chains: Sweetgreen, CAVA, Chipotle, Chick-fil-A, Panera Bread, Potbelly, Noodles & Company, Just Salad, Qdoba, Wingstop, Naf Naf Grill, Smoothie King, Tropical Smoothie Cafe, Jamba, Salad and Go, El Pollo Loco, The Halal Guys, Chili’s, Five Guys, Shake Shack, Subway, and Starbucks - plus national platform promos from DoorDash, Uber Eats, and Grubhub. Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
 
 Rules:
+- NO BONELESS ITEMS: never include any boneless wing deal from any brand, in any position. The owner has tried them and rejects them outright.
+- NO DESSERT DEALS AT ALL: never include deals whose main item is custard, milkshakes, donuts, cookies, ice cream, froyo, or any dessert - not as picks, not as regular listings. Fries/drink combos are fine.
 - APPROVED BRANDS ONLY: deals may come ONLY from the approved list above. NEVER include any other restaurant - no McDonald’s, Burger King, KFC, Taco Bell, Wendy’s, Popeyes, Sonic, Arby’s, Dairy Queen, Domino’s, Pizza Hut, Papa Johns, Little Caesars, Jack in the Box, Whataburger, Del Taco, IHOP, Denny’s, Krispy Kreme, Insomnia Cookies, or TCBY, regardless of how good their deal looks. The owner eats healthy and this site reflects that.
 - Only include deals you found evidence for in search results. Do NOT invent deals, prices, or dates.
 - If you cannot confirm a deal is current, leave it out.
