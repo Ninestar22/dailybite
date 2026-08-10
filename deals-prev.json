@@ -1,13 +1,13 @@
 {
-  "updated": "2026-08-08",
+  "updated": "2026-08-09",
   "deals": [
     {
       "brand": "Sweetgreen",
       "cat": "Salads",
-      "color": "#4a7c59",
-      "ic": "Sg",
-      "deal": "$3 Off Any Order via Cash App Pay",
-      "desc": "Pay with Cash App in the Sweetgreen app or online after opting in through Cash App to get $3 off your order, valid once per customer through August 15.",
+      "color": "#3d7a3d",
+      "ic": "SG",
+      "deal": "$3 Off Your Order via Cash App Pay",
+      "desc": "Opt in through Cash App, then pay with Cash App Pay in the Sweetgreen app or online to get $3 off any order — valid once per customer.",
       "tags": [
         "app"
       ],
@@ -20,57 +20,24 @@
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#c5372c",
-      "ic": "Pb",
-      "deal": "BOGO $5 Entree with Code BOGO5",
-      "desc": "Use promo code BOGO5 at online or in-app checkout to buy one whole sandwich, market bowl, salad, or soup and get another for just $5.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/app/offers/deal.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Just Salad",
-      "cat": "Smoothies",
-      "color": "#6ab04c",
-      "ic": "JS",
-      "deal": "50% Off All Smoothies in August",
-      "desc": "Visit any Just Salad location or order online to get 50% off smoothies throughout the month of August 2026.",
+      "color": "#c0272d",
+      "ic": "PB",
+      "deal": "Mix and Match Menu — $4.99 Each",
+      "desc": "Pick any combination of half sandwiches, half salads, or small soups from Panera's value menu at $4.99 each; minimum two items required, no membership needed.",
       "tags": [],
       "value": 4,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.justsalad.com/",
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/menu/categories/mix-and-match.html",
       "best": true,
       "region": "National"
-    },
-    {
-      "brand": "Whataburger",
-      "cat": "Burgers",
-      "color": "#f47521",
-      "ic": "Wb",
-      "deal": "BOGO Free Whataburger Today (76th Birthday)",
-      "desc": "In honor of Whataburger's 76th birthday on August 8, get a buy-one-get-one-free Whataburger through the app from 11 AM to 8 PM today only, one redemption per Rewards account.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "August 8, 2026",
-      "url": "https://www.whataburger.com/app",
-      "best": false,
-      "region": "TX and the South"
     },
     {
       "brand": "Popeyes",
       "cat": "Chicken",
-      "color": "#f77f00",
-      "ic": "Po",
-      "deal": "$5 Faves Menu - Chicken, Tenders or Sandwich",
-      "desc": "Order from the $5 Faves menu in-store, online, or in the app to get 3-piece Signature Chicken, 3 Tenders, a Chicken Sandwich, or 8-piece Butterfly Shrimp for just $5.",
+      "color": "#f28500",
+      "ic": "PO",
+      "deal": "$5 Faves Menu",
+      "desc": "Choose from 3-piece Signature Chicken, 3-piece Tenders, a Classic Chicken Sandwich, or two regular Southern-style sides for just $5 each — order in-store, online, or in-app.",
       "tags": [
         "app"
       ],
@@ -81,30 +48,136 @@
       "region": "National"
     },
     {
-      "brand": "Sonic",
-      "cat": "Burgers",
-      "color": "#004a97",
-      "ic": "So",
-      "deal": "$7 Big Deal Meal - Burger, Chicken Bites, Fries, Drink",
-      "desc": "Get a Sonic Cheeseburger, small Premium Chicken Bites, choice of medium fries or tots, and a medium soft drink or iced tea for $7 at participating locations nationwide.",
-      "tags": [],
+      "brand": "Popeyes",
+      "cat": "Chicken",
+      "color": "#f28500",
+      "ic": "PO",
+      "deal": "4-Piece Tenders Meal for $9.99",
+      "desc": "Get four chicken tenders, one regular side, one regular drink, and a biscuit for $9.99 — order in-store, online, or in the Popeyes app.",
+      "tags": [
+        "app"
+      ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.sonicdrivein.com/deals",
+      "expires": "Through August 30, 2026",
+      "url": "https://www.popeyes.com/offers",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Arby's",
-      "cat": "Chicken",
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$5.99 Luxe Cravings Box",
+      "desc": "Get a Chalupa Supreme, Beefy 5-Layer Burrito, Double Stacked Taco, Chips and Nacho Cheese or Cinnamon Twists, and a medium drink for $5.99 — order in the app or online.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.tacobell.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Taco Bell",
+      "cat": "Mexican",
+      "color": "#702082",
+      "ic": "TB",
+      "deal": "$3 Fresca Steak Burrito",
+      "desc": "Grab a Fresca Steak Burrito or Melty Pepper Jack Steak Burrito for $3 each from Taco Bell's Luxe Value Menu, available in-store, online, and in the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.tacobell.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wendy's",
+      "cat": "Treats",
+      "color": "#e2171b",
+      "ic": "W",
+      "deal": "$1 Small Classic Frosty",
+      "desc": "Any guest can get a small Chocolate or Vanilla Classic Frosty for $1 at participating Wendy's locations in-restaurant, drive-thru, in-app, or on Wendys.com (delivery excluded).",
+      "tags": [],
+      "value": 3,
+      "expires": "Through August 23, 2026",
+      "url": "https://www.wendys.com/deals",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Jimmy John's",
+      "cat": "Sandwiches",
       "color": "#c8102e",
-      "ic": "Ar",
-      "deal": "$7.99 Meat and 3 Box",
-      "desc": "Get your choice of Ham and Swiss Melt, Crispy Chicken Sandwich, or Buffalo Chicken Sandwich plus three sides and a small drink for $7.99 at participating locations.",
+      "ic": "JJ",
+      "deal": "$5.99 Select 8-Inch Sandwiches",
+      "desc": "Get any 8-inch Turkey Tom, The Pepe, Vito, or The Veggie for $5.99 each for a limited time — offer does not apply to combos.",
       "tags": [],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.arbys.com/",
+      "url": "https://www.jimmyjohns.com/deals/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#cc0000",
+      "ic": "CH",
+      "deal": "3 For Me Starting at $10.99",
+      "desc": "Dine-in guests get a non-alcoholic drink, a starter, and a choice of entree including the Big Smasher Burger for $10.99 at participating Chili's locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Dunkin'",
+      "cat": "Coffee",
+      "color": "#ff671f",
+      "ic": "DD",
+      "deal": "$6 Meal Deal: Coffee and 2 Wake-Up Wraps",
+      "desc": "Order a medium hot or iced coffee plus two Wake-Up Wrap Sandwiches for $6 at participating Dunkin' locations nationwide.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.dunkin.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Dunkin'",
+      "cat": "Coffee",
+      "color": "#ff671f",
+      "ic": "DD",
+      "deal": "48 oz Iced Beverage Bucket for $12.99",
+      "desc": "Fill a giant 48-ounce bucket with your choice of cold beverage at Dunkin' for $12.99 while supplies last — back starting August 7.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.dunkin.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Wings",
+      "color": "#cc9900",
+      "ic": "WS",
+      "deal": "$16.99 Boneless Meal Deal",
+      "desc": "Get 20 boneless wings in up to four flavors, a large fry, and two dips for $16.99 — order online or in the Wingstop app for pickup or delivery.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com/deals",
       "best": false,
       "region": "National"
     },
@@ -112,41 +185,15 @@
       "brand": "Domino's",
       "cat": "Pizza",
       "color": "#006491",
-      "ic": "Do",
-      "deal": "$9.99 Any Pizza, Any Crust, Any Toppings",
-      "desc": "Order any pizza at any size with any crust and any toppings for $9.99 online at participating Domino's locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.dominos.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Moe's Southwest Grill",
-      "cat": "Mexican",
-      "color": "#e8261f",
-      "ic": "Mo",
-      "deal": "$9.95 Value Meal - Burrito, Chips, Queso and Drink",
-      "desc": "Get a full burrito, chips and queso, and a drink bundled for $9.95 at participating Moe's Southwest Grill locations.",
-      "tags": [],
+      "ic": "DO",
+      "deal": "Mix and Match Deal — $6.99 Each",
+      "desc": "Order two or more menu items from eligible pizzas, pastas, sandwiches, and more at $6.99 each when you mix and match — order online or in the app.",
+      "tags": [
+        "app"
+      ],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.moessouthwestgrill.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wendy's",
-      "cat": "Treats",
-      "color": "#e2211c",
-      "ic": "We",
-      "deal": "$1 Small Frosty (Chocolate or Vanilla)",
-      "desc": "Get a small Classic Chocolate or Vanilla Frosty for $1 when you order online, in the app, drive-thru, or in store through August 23.",
-      "tags": [],
-      "value": 3,
-      "expires": "Through August 23, 2026",
-      "url": "https://www.wendys.com/deals",
+      "url": "https://www.dominos.com/",
       "best": false,
       "region": "National"
     }
