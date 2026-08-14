@@ -1,45 +1,45 @@
 {
-  "updated": "2026-08-12",
+  "updated": "2026-08-13",
   "deals": [
     {
-      "brand": "Jamba",
-      "cat": "Smoothies",
-      "color": "#f7941d",
-      "ic": "JA",
-      "deal": "50% Off Hat Trick Tango Smoothie",
-      "desc": "Get 50% off the limited-time Hat Trick Tango smoothie, launched for the FIFA World Cup 2026, via the Jamba app.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#c4272e",
+      "ic": "PB",
+      "deal": "BOGO $5 Entree with Code BOGO5",
+      "desc": "Use promo code BOGO5 at online or in-app checkout to get a second whole sandwich, whole salad, bowl of soup, market bowl, or mac and cheese for only $5.",
       "tags": [
         "app"
       ],
-      "value": 4,
+      "value": 5,
       "expires": "Limited time",
-      "url": "https://www.jamba.com/rewards",
+      "url": "https://www.panerabread.com/en-us/offers.html",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Smoothie King",
+      "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#6a1990",
-      "ic": "SK",
-      "deal": "$5.99 Chicken Flatbread",
-      "desc": "Grilled chicken, tomatoes, and cheese on toasted lavash with your choice of chipotle, ranch, or pesto sauce for $5.99 - a promotional price on this filling flatbread sandwich.",
+      "color": "#c4272e",
+      "ic": "PB",
+      "deal": "Mix and Match $4.99 Half-Portions",
+      "desc": "Build a meal from up to 10 half-portion menu items including soups, sandwiches, and salads at $4.99 each, saving roughly 40% off regular prices with one included side.",
       "tags": [],
-      "value": 3,
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.smoothieking.com/",
-      "best": true,
+      "url": "https://www.panerabread.com/en-us/offers.html",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#cc0000",
+      "color": "#7b0000",
       "ic": "CH",
-      "deal": "3 For Me Meal - $10.99",
-      "desc": "Get a Big Crispy Chicken Sandwich (or Spicy Big Crispy), plus an appetizer and a fountain drink for just $10.99 - a $25+ value at dine-in.",
+      "deal": "3 for Me Meal for $10.99",
+      "desc": "Get a Big Crispy Chicken Sandwich or Spicy Big Crispy Chicken Sandwich plus an appetizer and a drink for $10.99 — a bundle valued well over $25 at regular menu prices.",
       "tags": [],
-      "value": 4,
+      "value": 5,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
       "best": false,
@@ -48,10 +48,10 @@
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#cc0000",
+      "color": "#7b0000",
       "ic": "CH",
-      "deal": "Shark Attack Margarita - $6",
-      "desc": "Chili's Margarita of the Month for August is the Shark Attack Margarita, available every day this month at participating locations for $6.",
+      "deal": "Shark Attack Margarita for $6",
+      "desc": "Chili's margarita of the month is available all day every day throughout August for just $6 at participating locations, no code required.",
       "tags": [],
       "value": 3,
       "expires": "Through August 31, 2026",
@@ -60,34 +60,34 @@
       "region": "National"
     },
     {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#6bba45",
-      "ic": "SS",
-      "deal": "$4 Fries + $2 Sodas In-App",
-      "desc": "Order Crinkle Cut Fries for $4 and fountain sodas for $2 any time you order through the Shake Shack app or website at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
       "brand": "Wingstop",
-      "cat": "Wings",
+      "cat": "Chicken",
       "color": "#c8102e",
       "ic": "WS",
-      "deal": "$24.99 Flavor Lineup Bundle",
-      "desc": "Feeds 3-4 people: order classic bone-in wings in up to three flavors (including Sweet Heat Chamoy, Lemon Pepper, Hot Honey Rub, Mango Habanero, Original Hot, or Garlic Parmesan) plus a large fry and large ranch for $24.99 online or in app.",
+      "deal": "$24.99 Flavor Lineup Bundle for 3-4",
+      "desc": "Order online or in the app and choose a Flavor Lineup of traditional wings in up to four flavors including Lemon Pepper, Hot Honey Rub, Mango Habanero, and more, plus a large fry and large ranch — feeds three to four people.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.wingstop.com/order",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#74aa50",
+      "ic": "SS",
+      "deal": "$4 Crinkle Cut Fries In-App",
+      "desc": "Order through the Shake Shack mobile app or website to score Crinkle Cut Fries for $4 — no promo code needed, available any day at participating locations chain-wide.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.shakeshack.com/",
       "best": false,
       "region": "National"
     }
