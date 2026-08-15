@@ -1,15 +1,15 @@
 {
-  "updated": "2026-08-13",
+  "updated": "2026-08-14",
   "deals": [
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#c4272e",
-      "ic": "PB",
-      "deal": "BOGO $5 Entree with Code BOGO5",
-      "desc": "Use promo code BOGO5 at online or in-app checkout to get a second whole sandwich, whole salad, bowl of soup, market bowl, or mac and cheese for only $5.",
+      "color": "#4a7c2f",
+      "ic": "Pa",
+      "deal": "Free Half Sandwich or Salad with $5+ Order",
+      "desc": "Enter code FREEHALFENTREE at checkout online or in the Panera app to get a free half sandwich or half salad (a $6-9 item) with any order of $5 or more - sign in with a free MyPanera account to apply the code.",
       "tags": [
-        "app"
+        "free"
       ],
       "value": 5,
       "expires": "Limited time",
@@ -20,15 +20,31 @@
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#c4272e",
-      "ic": "PB",
-      "deal": "Mix and Match $4.99 Half-Portions",
-      "desc": "Build a meal from up to 10 half-portion menu items including soups, sandwiches, and salads at $4.99 each, saving roughly 40% off regular prices with one included side.",
+      "color": "#4a7c2f",
+      "ic": "Pa",
+      "deal": "$5.99 Strawberry Poppyseed Salad with Code SUMMER",
+      "desc": "Code SUMMER drops the full-size Strawberry Poppyseed Salad with grilled chicken - or the Chicken Bacon Rancher sandwich - to $5.99 on online and app orders, roughly half off the regular $12-13 price.",
       "tags": [],
       "value": 4,
-      "expires": "Ongoing",
+      "expires": "Limited time",
       "url": "https://www.panerabread.com/en-us/offers.html",
       "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#c8102e",
+      "ic": "WS",
+      "deal": "$24.99 Flavor Lineup: 10 Tenders Bundle for 3-4",
+      "desc": "The Flavor Lineup tenders bundle packs 10 crispy tenders in up to four flavors like Lemon Pepper and Hickory Smoked BBQ plus a large fry and a large ranch - order online or in the app, feeds three to four people.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com/order",
+      "best": true,
       "region": "National"
     },
     {
@@ -36,10 +52,10 @@
       "cat": "Sit-Down",
       "color": "#7b0000",
       "ic": "CH",
-      "deal": "3 for Me Meal for $10.99",
-      "desc": "Get a Big Crispy Chicken Sandwich or Spicy Big Crispy Chicken Sandwich plus an appetizer and a drink for $10.99 — a bundle valued well over $25 at regular menu prices.",
+      "deal": "3 For Me: Drink + App + Entree from $10.99",
+      "desc": "The all-day 3 For Me bundle includes a bottomless drink, chips and salsa or a house salad, and a full entree like the Big Crispy Chicken Sandwich starting at $10.99, with $14.99 and $16.99 tiers at participating locations.",
       "tags": [],
-      "value": 5,
+      "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
       "best": false,
@@ -51,27 +67,11 @@
       "color": "#7b0000",
       "ic": "CH",
       "deal": "Shark Attack Margarita for $6",
-      "desc": "Chili's margarita of the month is available all day every day throughout August for just $6 at participating locations, no code required.",
+      "desc": "August's margarita of the month is $6 all day at participating locations - a Lunazul Blanco tequila marg with a candy shark on top, no code needed.",
       "tags": [],
       "value": 3,
       "expires": "Through August 31, 2026",
-      "url": "https://www.chilis.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#c8102e",
-      "ic": "WS",
-      "deal": "$24.99 Flavor Lineup Bundle for 3-4",
-      "desc": "Order online or in the app and choose a Flavor Lineup of traditional wings in up to four flavors including Lemon Pepper, Hot Honey Rub, Mango Habanero, and more, plus a large fry and large ranch — feeds three to four people.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.wingstop.com/order",
+      "url": "https://www.chilis.com/cocktails-and-bar-drinks/margarita-of-the-month",
       "best": false,
       "region": "National"
     },
@@ -80,14 +80,58 @@
       "cat": "Burgers",
       "color": "#74aa50",
       "ic": "SS",
-      "deal": "$4 Crinkle Cut Fries In-App",
-      "desc": "Order through the Shake Shack mobile app or website to score Crinkle Cut Fries for $4 — no promo code needed, available any day at participating locations chain-wide.",
+      "deal": "$1 Sodas and $3 Crinkle Cut Fries In-App",
+      "desc": "Order through the Shake Shack app or shakeshack.com and any size soda is $1 and crinkle cut fries are $3 at participating locations - no code needed.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
+      "url": "https://shakeshack.com/national-regional-offers",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Subs",
+      "color": "#009645",
+      "ic": "SU",
+      "deal": "$3.99 Deli Faves 6-Inch Subs",
+      "desc": "Subway's first standing value menu prices 6-inch Deli Faves subs at $3.99 and lists 15 entrees under $5 - no coupon, code, or app required at participating U.S. locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Starbucks",
+      "cat": "Coffee",
+      "color": "#00704a",
+      "ic": "SB",
+      "deal": "Free Refills on Brewed Coffee and Tea In-Cafe",
+      "desc": "Order any drink in a for-here mug or a clean personal cup and get free same-visit refills of hot or iced brewed coffee and hot or iced tea while you stay in the cafe - no account or purchase tier required.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.starbucks.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Bowls",
+      "color": "#c41230",
+      "ic": "NC",
+      "deal": "$1 Side Salad with $15+ Order",
+      "desc": "Add a side salad for $1 with any online or app order of $15 or more through August 31 - an easy fresh add-on when you are already picking up dinner for the table.",
+      "tags": [],
+      "value": 2,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.noodles.com/",
       "best": false,
       "region": "National"
     }
