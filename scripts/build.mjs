@@ -41,6 +41,7 @@ const CHAINS = [
   { slug: "salad-and-go-deals", name: "Salad and Go" },
   { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
+  { slug: "tijuana-flats-deals", name: "Tijuana Flats" },
   { slug: "papa-johns-deals",  name: "Papa John's" },
   { slug: "einstein-bros-deals", name: "Einstein Bros." },
   { slug: "jack-in-the-box-deals", name: "Jack in the Box" },
@@ -66,7 +67,7 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
 // Canonical brand key: lowercases and folds known naming variants so per-brand
 // dedup, golden/healthy/banned lookups, and evergreen injection can't be
 // defeated by an alternate spelling of the same chain (e.g. "Panera Bread" vs "Panera").
-const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic" };
+const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats" };
 const canonBrand = b => { const k = String(b || "").toLowerCase().trim().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " "); return BRAND_ALIASES[k] || k; };
 const dealsFor = (name, deals) => deals.filter(d => {
   const b = norm(d.brand), n = norm(name);
@@ -427,6 +428,9 @@ function main() {
     { until: "2026-08-15", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Delivery on $10+ Digital Orders", desc: "Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.", tags: ["app"], value: 3, expires: "Limited time", url: "https://www.chipotle.com/", best: false, region: "National" } },
     { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/", best: false, region: "National" } },
     { until: "2026-12-31", deal: { brand: "Chili’s", cat: "Sit-Down", color: "#ee3a43", ic: "CH", deal: "3 For Me: Drink + App + Entree from $10.99", desc: "Chili’s all-day 3 For Me bundles a bottomless drink, an appetizer (chips and salsa or house salad), and a full entree starting at $10.99, with $14.99 and $16.99 tiers - every day at participating locations, no membership needed.", tags: [], value: 4, expires: "Ongoing", url: "https://www.chilis.com/", best: false, region: "National" } },
+    // Owner request (Jacob, 2026-08-14): Tijuana Flats day specials, injected only on their active weekday (dow: 0=Sun..6=Sat).
+    { until: "2026-12-31", dow: 2, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Taco Tuesdaze: 2 Tacos + Chips + Drink for $7.99", desc: "Every Tuesday at participating locations: two tacos, chips, and a drink for $7.99 in-store, online, or in the app - no third-party delivery, and pricing varies slightly by location.", tags: [], value: 4, expires: "Tuesdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
+    { until: "2026-12-31", dow: 4, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99", desc: "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.", tags: [], value: 4, expires: "Thursdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
@@ -435,9 +439,11 @@ function main() {
     throw new Error("deals.json has no deals array — refusing to build an empty page.");
   }
   {
-    const today = new Date().toISOString().slice(0, 10);
+    const todayIso = new Date().toISOString().slice(0, 10);
+    const dowNow = today.getUTCDay(); // ET-adjusted weekday from the shared `today` date
     for (const e of EVERGREEN) {
-      if (today <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
+      if (e.dow !== undefined && e.dow !== dowNow) continue;
+      if (todayIso <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
     }
   }
 
@@ -489,7 +495,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
-  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","DoorDash","Uber Eats","Grubhub"].map(canonBrand));
+  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","DoorDash","Uber Eats","Grubhub"].map(canonBrand));
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands only
   deals = deals.filter(d => !/boneless/i.test((d.deal||"") + " " + (d.desc||""))); // owner: no boneless items ever
   deals = deals.filter(d => !(new RegExp("custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie", "i")).test((d.deal||"") + " " + (d.desc||"")) || (d.cat||"") === "Pickup"); // owner: no dessert deals at all
@@ -498,7 +504,14 @@ function main() {
   deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
-  deals = deals.filter(d => !/every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+  // Owner exception (Jacob, 2026-08-14): Tijuana Flats' published day specials may run ON their active day.
+  const DOW_NAME = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][today.getUTCDay()];
+  deals = deals.filter(d => {
+    const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).toLowerCase();
+    const recurring = /every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(txt);
+    if (recurring && canonBrand(d.brand) === "tijuana flats" && txt.includes(DOW_NAME)) return true;
+    return !recurring;
+  });
 
   // Top Picks: recomputed here every build — healthy-first, banned brands never.
   // Jacob's policy: Top Picks must showcase genuinely healthy deals.
@@ -508,7 +521,7 @@ function main() {
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
-    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY"].map(canonBrand));
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats"].map(canonBrand));
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     const pick = (list, max) => {
       for (const d of list) {
