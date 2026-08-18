@@ -745,8 +745,21 @@ function dealScore(d){
 }
 function render(){
   const grid=document.getElementById('grid');
+  // Top Picks first: when this section is visible, its deals appear ONLY here,
+  // never repeated in the main grid below (owner request, 2026-08-18).
+  const topwrap=document.getElementById('topwrap');
+  let tops=[];
+  if(activeCat==="All"&&!query){
+    tops=DEALS.filter(d=>d.best&&regionOK(d))
+      .sort((a,b)=>b.value-a.value)
+      .slice(0,4);
+  }
+  if(tops.length){topwrap.style.display='block';document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join('');}
+  else{topwrap.style.display='none';}
+  const topShown=new Set(tops);
   const list=DEALS
     .filter(regionOK)
+    .filter(d=>!topShown.has(d))
     .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
     .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
     .sort((a,b)=>{
@@ -754,18 +767,10 @@ function render(){
       if(DIST){ const ds=dealScore(b)-dealScore(a); if(ds) return ds; }
       return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
     });
-  document.getElementById('count').textContent=`${list.length} deal${list.length!==1?'s':''} today`;
-  document.getElementById('empty').style.display=list.length?'none':'block';
+  const total=list.length+tops.length;
+  document.getElementById('count').textContent=`${total} deal${total!==1?'s':''} today`;
+  document.getElementById('empty').style.display=total?'none':'block';
   grid.innerHTML=list.map(cardHTML).join('');
-
-  const topwrap=document.getElementById('topwrap');
-  if(activeCat==="All"&&!query){
-    const tops=DEALS.filter(d=>d.best&&regionOK(d))
-      .sort((a,b)=>b.value-a.value)
-      .slice(0,4);
-    if(tops.length){topwrap.style.display='block';document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join('');}
-    else{topwrap.style.display='none';}
-  } else { topwrap.style.display='none'; }
 
   const wrap=document.getElementById('todaywrap');
   if(activeCat==="All"&&!query){
