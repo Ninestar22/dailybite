@@ -242,12 +242,22 @@ function freeFoodPage(deals) {
 }
 
 function rssFeed(deals) {
-  const items = deals.map(d => `  <item>
-    <title>${esc(d.brand)}: ${esc(d.deal)}</title>
-    <link>${SITE}/</link>
+  // This feed doubles as the source for the daily subscriber email (RSS-to-email
+  // campaign): date-suffixed GUIDs make each morning's deals count as NEW items,
+  // so the campaign sends one digest per day containing the full current list.
+  // Top Picks lead, each item links to its chain page, regional deals say so.
+  const chainLink = (brand) => {
+    const b = norm(brand);
+    const c = CHAINS.find(x => { const n = norm(x.name); return b.includes(n) || n.includes(b); });
+    return c ? `${SITE}/${c.slug}` : `${SITE}/`;
+  };
+  const ordered = [...deals].sort((a, b) => (b.best ? 1 : 0) - (a.best ? 1 : 0) || (b.value || 0) - (a.value || 0));
+  const items = ordered.map(d => `  <item>
+    <title>${d.best ? "Top Pick: " : ""}${esc(d.brand)}: ${esc(d.deal)}</title>
+    <link>${chainLink(d.brand)}</link>
     <guid isPermaLink="false">${esc(d.brand)}-${esc(d.deal).slice(0, 40)}-${iso}</guid>
     <pubDate>${new Date().toUTCString()}</pubDate>
-    <description>${esc(d.desc)} (${esc(d.expires)})</description>
+    <description>${esc(d.desc)}${d.region && d.region !== "National" ? " (" + esc(d.region) + " only)" : ""} (${esc(d.expires)})</description>
   </item>`).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -256,6 +266,7 @@ function rssFeed(deals) {
   <link>${SITE}</link>
   <description>The best verified food deals, updated every morning.</description>
   <language>en-us</language>
+  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${items}
 </channel>
 </rss>
