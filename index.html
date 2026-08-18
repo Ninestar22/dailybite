@@ -219,6 +219,21 @@
 <div class="card">
   
   <div class="brandrow">
+    <div class="brand-ic" style="background:#CC0000"><span>CL</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chilis.com&amp;sz=128" alt="Chili&#39;s logo" loading="lazy" onerror="this.remove()"></div>
+    <div><div class="brand-name">Chili&#39;s</div><div class="brand-cat">Sit-Down</div></div>
+  </div>
+  <div class="deal">August Shark Attack Margarita — $6 All Day</div>
+  <div class="desc">The August Margarita of the Month is the Shark Attack Margarita for just $6 all day every day at participating locations — a full handcrafted margarita at a price that beats most happy hours.</div>
+  <div class="metarow"></div>
+  <div class="foot">
+    <span class="expires">Through August 31, 2026</span>
+    <a class="near" href="https://www.google.com/maps/search/Chili's+near+me" target="_blank" rel="noopener">Nearest</a>
+    <a class="cta" href="https://www.chilis.com/" target="_blank" rel="noopener">Get deal &rarr;</a>
+  </div>
+</div>
+<div class="card">
+  
+  <div class="brandrow">
     <div class="brand-ic" style="background:#E8702A"><span>TF</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=tijuanaflats.com&amp;sz=128" alt="Tijuana Flats logo" loading="lazy" onerror="this.remove()"></div>
     <div><div class="brand-name">Tijuana Flats</div><div class="brand-cat">Mexican</div></div>
   </div>
@@ -364,6 +379,22 @@ const DEALS = [
     "endingSoon": false
   },
   {
+    "brand": "Chili's",
+    "cat": "Sit-Down",
+    "color": "#CC0000",
+    "ic": "CL",
+    "deal": "August Shark Attack Margarita — $6 All Day",
+    "desc": "The August Margarita of the Month is the Shark Attack Margarita for just $6 all day every day at participating locations — a full handcrafted margarita at a price that beats most happy hours.",
+    "tags": [],
+    "value": 3,
+    "expires": "Through August 31, 2026",
+    "url": "https://www.chilis.com/",
+    "best": false,
+    "region": "National",
+    "isNew": true,
+    "endingSoon": false
+  },
+  {
     "brand": "Tijuana Flats",
     "cat": "Mexican",
     "color": "#E8702A",
@@ -382,7 +413,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-08-18T08:06:40.450Z"};
+const META = {"verifiedAt":"2026-08-18T08:38:36.918Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -522,6 +553,7 @@ const BRAND_STATES = {
   'jack in the box': ['California','Nevada','Arizona','Washington','Oregon','Texas','Oklahoma','Missouri','Kansas','Illinois','Indiana','Ohio','North Carolina','South Carolina','Tennessee','Colorado','New Mexico','Idaho','Utah','Hawaii','Louisiana','Arkansas'],
   'in-n-out': ['California','Nevada','Arizona','Utah','Texas','Oregon','Colorado','Idaho']
 };
+const STATE_ABBR = {'alabama':'AL','alaska':'AK','arizona':'AZ','arkansas':'AR','california':'CA','colorado':'CO','connecticut':'CT','delaware':'DE','florida':'FL','georgia':'GA','hawaii':'HI','idaho':'ID','illinois':'IL','indiana':'IN','iowa':'IA','kansas':'KS','kentucky':'KY','louisiana':'LA','maine':'ME','maryland':'MD','massachusetts':'MA','michigan':'MI','minnesota':'MN','mississippi':'MS','missouri':'MO','montana':'MT','nebraska':'NE','nevada':'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND','ohio':'OH','oklahoma':'OK','oregon':'OR','pennsylvania':'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD','tennessee':'TN','texas':'TX','utah':'UT','vermont':'VT','virginia':'VA','washington':'WA','west virginia':'WV','wisconsin':'WI','wyoming':'WY'};
 function regionOK(d){
   if(STATE){
     const fp = BRAND_STATES[(d.brand || '').toLowerCase()];
@@ -529,7 +561,11 @@ function regionOK(d){
   }
   if(!STATE || !d.region) return true;
   if(/national/i.test(d.region)) return true;
-  return d.region.toLowerCase().includes(STATE.toLowerCase());
+  // Match the full state name OR its USPS abbreviation as a word, so a
+  // "FL & Southeast" deal shows for a visitor located in "Florida".
+  if(d.region.toLowerCase().includes(STATE.toLowerCase())) return true;
+  const ab = STATE_ABBR[STATE.toLowerCase()];
+  return !!(ab && new RegExp('\\b'+ab+'\\b').test(d.region));
 }
 function locLabel(){ if(!STATE) return 'Distances on'; const place = CITY ? (CITY + ', ' + STATE) : STATE; return 'Deals for ' + place; }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
