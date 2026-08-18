@@ -177,8 +177,16 @@ async function generate() {
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not set.");
 
-  const deals = await generate();
-  const errors = validate(deals);
+  let deals = await generate();
+  let errors = validate(deals);
+  if (errors.length) {
+    // One retry: search variance sometimes yields a short list (e.g. 2026-08-17,
+    // "too few deals (4 < 6)"). A fresh attempt usually recovers before failing closed.
+    console.error("First attempt failed validation — retrying once:");
+    for (const e of errors) console.error("  - " + e);
+    deals = await generate();
+    errors = validate(deals);
+  }
   if (errors.length) {
     console.error("Validation failed — NOT writing deals.json:");
     for (const e of errors) console.error("  - " + e);
