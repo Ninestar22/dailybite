@@ -1,100 +1,98 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-08-18",
   "deals": [
     {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#6f1e2e",
-      "ic": "SS",
-      "deal": "Free Chicken Shack Every Sunday with $10+ Order",
-      "desc": "Order $10 or more in-app, at a kiosk, or on shakeshack.com any Sunday and receive a free Chicken Shack sandwich; valid through December 27, 2026 at participating locations excluding airports and stadiums.",
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "CH",
+      "deal": "Chipotle IQ Trivia — Win BOGO Entree Codes & Free Add-Ons",
+      "desc": "Play the 5-question trivia game at ChipotleIQ.com today through August 20 for a chance to win a BOGO free entree code, free Queso Blanco, or free Cilantro Lime Sauce — the first 8,000 perfect scores each hour win a food reward; free Chipotle Rewards account required.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
-      "expires": "Through December 27, 2026",
-      "url": "https://www.shakeshack.com/national-regional-offers",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Sides",
-      "color": "#6f1e2e",
-      "ic": "SS",
-      "deal": "$4 Crinkle Cut Fries and $2 Sodas In-App",
-      "desc": "Order through the Shake Shack app or website and get Crinkle Cut fries for $4 and fountain sodas for $2 at participating locations chain-wide; no promo code needed.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/national-regional-offers",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Smoothie King",
-      "cat": "Smoothies",
-      "color": "#5c2d91",
-      "ic": "SK",
-      "deal": "Chicken Flatbreads for $5.99 Each",
-      "desc": "Grilled chicken, tomatoes, and cheese wrapped in a toasted lavash flatbread with choice of chipotle, ranch, or pesto sauce for $5.99 each at Smoothie King.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.smoothieking.com/",
+      "expires": "Through August 20, 2026",
+      "url": "https://www.chipotle.com/rewards",
       "best": true,
       "region": "National"
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#007A3D",
-      "ic": "PB",
-      "deal": "Value Duets: Half Sandwich or Salad plus Cup of Soup",
-      "desc": "Pre-set Value Duet combos pair a half sandwich or salad with a cup of soup at a lower price than ordering separately; check the app or panera.com for current pricing at your location.",
+      "color": "#B5222E",
+      "ic": "PN",
+      "deal": "BOGO $5 — Whole Sandwiches, Bowls, Salads & Soup",
+      "desc": "Buy any whole sandwich, whole market bowl, salad stuffer, whole salad, or bowl of soup or mac at full price and get a second one for just $5, limited time via the Panera app or online.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/app.html",
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/app/panera-app.html",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009b48",
-      "ic": "SU",
-      "deal": "Select Subway Series Subs for $6.99",
-      "desc": "A selection of Subway Series footlong subs is available for $6.99 each at participating locations; order in-app or online.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#B5222E",
+      "ic": "PN",
+      "deal": "Mix & Match $4.99 Menu — Up to 10 Half-Portions",
+      "desc": "Order up to 10 half-portion items — soups, sandwiches, and salads — at $4.99 each, saving roughly 40% off regular prices; available via the Panera app or in-restaurant.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.subway.com/",
+      "url": "https://www.panerabread.com/en-us/app/panera-app.html",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#c8102e",
-      "ic": "CH",
-      "deal": "3 For Me Meals Starting at $10.99",
-      "desc": "Chili's 3 For Me value menu bundles a starter, an entree, and a non-alcoholic drink starting at $10.99 at participating locations nationwide; no code required.",
+      "color": "#CC0000",
+      "ic": "CL",
+      "deal": "3 For Me — Drink, Appetizer & Full Entree from $10.99",
+      "desc": "Get a bottomless non-alcoholic drink, a starter (including bottomless chips and salsa), and a full entree all in one bundle starting at $10.99 all day every day at participating Chili's locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com/",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#CC0000",
+      "ic": "CL",
+      "deal": "August Shark Attack Margarita — $6 All Day",
+      "desc": "The August Margarita of the Month is the Shark Attack Margarita for just $6 all day every day at participating locations — a full handcrafted margarita at a price that beats most happy hours.",
       "tags": [],
       "value": 3,
-      "expires": "Ongoing",
+      "expires": "Through August 31, 2026",
       "url": "https://www.chilis.com/",
       "best": false,
       "region": "National"
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#E8702A",
+      "ic": "TF",
+      "deal": "Taco Tuesdaze — Two Tacos, Chips & Drink from $7.99",
+      "desc": "Every Tuesday, get two tacos (chicken, beef, or beans) with freshly made chips and a medium drink starting at about $7.99 — available all day in-store and via the Tijuana Flats app or online at participating Florida and Southeast locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "best": false,
+      "region": "FL & Southeast"
     }
   ]
 }
