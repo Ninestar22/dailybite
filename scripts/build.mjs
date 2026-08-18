@@ -183,20 +183,9 @@ function chainPage(chain, deals) {
   <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
   ${body}
   ${EMAIL_CAPTURE}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
-<div class="promo">
-<h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
-<div class="aff-row">
-<a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
-<a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
-<a class="aff-btn aff-ic" href="https://sovrn.co/h3j79g9" target="_blank" rel="noopener sponsored">Instacart</a>
-</div>
-<p style="font-size:11px;color:#9aa3b2;margin:8px 0 0">Disclosure: DailyBite may earn a commission when you order through links on this site.</p>
-</div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. Some links may be affiliate links. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -245,18 +234,7 @@ function freeFoodPage(deals) {
   ${sec1}
   ${EMAIL_CAPTURE}
   ${sec2}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
-</div>
-<div class="promo">
-<h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
-<div class="aff-row">
-<a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
-<a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
-<a class="aff-btn aff-ic" href="https://sovrn.co/h3j79g9" target="_blank" rel="noopener sponsored">Instacart</a>
-</div>
-<p style="font-size:11px;color:#9aa3b2;margin:8px 0 0">Disclosure: DailyBite may earn a commission when you order through links on this site.</p>
+    <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
@@ -333,16 +311,6 @@ ${matchedBlock}
 <div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<div class="promo">
-<h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
-<div class="aff-row">
-<a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
-<a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
-<a class="aff-btn aff-ic" href="https://sovrn.co/h3j79g9" target="_blank" rel="noopener sponsored">Instacart</a>
-</div>
-<p style="font-size:11px;color:#9aa3b2;margin:8px 0 0">Disclosure: DailyBite may earn a commission when you order through links on this site.</p>
-</div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
@@ -402,18 +370,7 @@ function dayPage(day, deals) {
   <p class="tag">Every deal below is re-verified this morning against official sources.</p>\n  <p class="tag">${DAY_NOTES[day] || ""}</p>
   ${body}
   ${EMAIL_CAPTURE}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
-  <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
-</div>
-<div class="promo">
-<h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
-<div class="aff-row">
-<a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
-<a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
-<a class="aff-btn aff-ic" href="https://sovrn.co/h3j79g9" target="_blank" rel="noopener sponsored">Instacart</a>
-</div>
-<p style="font-size:11px;color:#9aa3b2;margin:8px 0 0">Disclosure: DailyBite may earn a commission when you order through links on this site.</p>
+    <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
