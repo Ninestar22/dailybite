@@ -508,7 +508,11 @@ function main() {
   const DOW_NAME = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][today.getUTCDay()];
   deals = deals.filter(d => {
     const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).toLowerCase();
-    const recurring = /every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|happy hour|every day \d|daily \d/i.test(txt);
+    // Day-of-week / time-window patterns scan everything; "happy hour" only the
+    // title+expiry — a desc merely COMPARING to happy hours (e.g. "beats most
+    // happy hours", Chili's margarita 2026-08-18) must not kill an all-day deal.
+    const recurring = /every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|every day \d|daily \d/i.test(txt)
+      || /happy hour/i.test(d.deal + " " + (d.expires || ""));
     if (recurring && canonBrand(d.brand) === "tijuana flats" && txt.includes(DOW_NAME)) return true;
     return !recurring;
   });
