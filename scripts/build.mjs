@@ -134,13 +134,13 @@ const CHAIN_CSS = `:root{--bg:#0f1115;--card:#191c23;--card2:#20242d;--ink:#f4f5
 
 function chainPage(chain, deals) {
   const list = dealsFor(chain.name, deals);
-  const title = `${chain.name} Deals & App Offers — ${monthYear} (Updated Daily)`;
+  const title = `${chain.name} Deals & App Offers: ${monthYear} (Updated Daily)`;
   const desc = list.length
     ? `${list.length} verified ${chain.name} deal${list.length > 1 ? "s" : ""} today: ${list.slice(0, 2).map(d => d.deal).join("; ")}. Checked ${prettyDate}.`
     : `Current ${chain.name} app deals and rewards offers, checked daily. See today's verified fast-food deals from all major chains.`;
   const body = list.length
     ? `<div class="grid">${list.map(dealCard).join("\n")}</div>`
-    : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now &mdash; check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
+    : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now: check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <h2 style="font-size:18px;margin:26px 2px 4px">Today&#39;s top deals from other chains</h2>
 <div class="grid">${[...deals].filter(d => canonBrand(d.brand) !== canonBrand(chain.name)).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
   const ld = {
@@ -179,16 +179,16 @@ function chainPage(chain, deals) {
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
-  <h1>${esc(chain.name)} Deals &amp; App Offers &mdash; ${esc(monthYear)}</h1>
+  <h1>${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}</h1>
   <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
   ${body}
   ${EMAIL_CAPTURE}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
 </div>
 <div class="promo">
 <h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
+<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -205,13 +205,13 @@ function freeFoodPage(deals) {
   const free = deals.filter(d => (d.tags || []).includes("free"));
   const rest = deals.filter(d => !(d.tags || []).includes("free")).sort((a, b) => b.value - a.value).slice(0, 8);
   const title = free.length
-    ? `Free Food Today \u2014 ${free.length} Verified Freebie${free.length > 1 ? "s" : ""} & Cheap Deals (Updated ${prettyDate})`
+    ? `Free Food Today: ${free.length} Verified Freebie${free.length > 1 ? "s" : ""} & Cheap Deals (Updated ${prettyDate})`
     : `Free & Nearly-Free Fast Food Today (Updated ${prettyDate})`;
   const desc = free.length
-    ? `${free.length} verified free food deals available today: ${free.slice(0, 2).map(d => d.deal).join("; ")}. Updated every morning \u2014 no signups, no points, no fine print.`
+    ? `${free.length} verified free food deals available today: ${free.slice(0, 2).map(d => d.deal).join("; ")}. Updated every morning: no signups, no points, no fine print.`
     : `Today's best verified food deals, updated every morning. No signups, no points, no fine print.`;
   const sec1 = free.length ? `<h2 style="font-size:19px;margin:20px 2px 8px">Free right now</h2><div class="grid">${free.map(dealCard).join("\n")}</div>` : "";
-  const sec2 = rest.length ? `<h2 style="font-size:19px;margin:24px 2px 8px">Nearly free \u2014 today's best cheap deals</h2><div class="grid">${rest.map(dealCard).join("\n")}</div>` : "";
+  const sec2 = rest.length ? `<h2 style="font-size:19px;margin:24px 2px 8px">Nearly free: today's best cheap deals</h2><div class="grid">${rest.map(dealCard).join("\n")}</div>` : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -241,16 +241,16 @@ function freeFoodPage(deals) {
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>Free Food Today</h1>
-  <p class="tag">${free.length ? "Every freebie below is verified this morning and claimable by anyone on a single visit &mdash; no signups, no points, no fine print." : "Nothing is strictly $0 at national chains right now &mdash; true freebies appear here the moment they drop. Below: today&#39;s closest-to-free deals, every one verified this morning."}</p>
+  <p class="tag">${free.length ? "Every freebie below is verified this morning and claimable by anyone on a single visit: no signups, no points, no fine print." : "Nothing is strictly $0 at national chains right now: true freebies appear here the moment they drop. Below: today&#39;s closest-to-free deals, every one verified this morning."}</p>
   ${sec1}
   ${EMAIL_CAPTURE}
   ${sec2}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
 <div class="promo">
 <h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
+<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -274,7 +274,7 @@ function rssFeed(deals) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>DailyBite \u2014 Daily Food Deals</title>
+  <title>DailyBite: Daily Food Deals</title>
   <link>${SITE}</link>
   <description>The best verified food deals, updated every morning.</description>
   <language>en-us</language>
@@ -289,7 +289,7 @@ const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sun
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
 const HOLIDAYS = [
   { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "", kw: /burger|whopper|cheeseburger/i,
-    blurb: "September 18 is the biggest burger deal day of the year — expect free and $1 cheeseburgers in most major burger apps." },
+    blurb: "September 18 is the biggest burger deal day of the year: expect free and $1 cheeseburgers in most major burger apps." },
 ];
 
 function holidayPage(h, deals) {
@@ -302,7 +302,7 @@ function holidayPage(h, deals) {
   const isDay = new Date().toDateString() === dt.toDateString();
   const matchedBlock = matched.length
     ? `<h2 style="font-size:18px;margin:26px 2px 4px">Deals live right now</h2><div class="grid">${matched.map(dealCard).join("\n")}</div>`
-    : `<div class="empty">${isDay ? "We're re-checking deals throughout the morning — check back shortly." : `Chains usually announce their ${esc(h.name)} specials in the final days before ${esc(pretty)}. We re-check every morning and verified deals will appear here the moment they're live.`}</div>`;
+    : `<div class="empty">${isDay ? "We're re-checking deals throughout the morning: check back shortly." : `Chains usually announce their ${esc(h.name)} specials in the final days before ${esc(pretty)}. We re-check every morning and verified deals will appear here the moment they're live.`}</div>`;
   const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": `${h.name} deals`, "numberOfItems": matched.length,
     "itemListElement": matched.map((d, i) => ({ "@type": "ListItem", "position": i + 1, "name": d.deal, "url": d.url })) };
   return `<!DOCTYPE html>
@@ -325,17 +325,17 @@ function holidayPage(h, deals) {
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
 <span class="date">Updated ${prettyDate}</span>
-<h1>${esc(h.name)} Deals &mdash; ${esc(pretty)}</h1>
+<h1>${esc(h.name)} Deals: ${esc(pretty)}</h1>
 <p class="tag">${esc(h.blurb)}</p>
 ${matchedBlock}
 <h2 style="font-size:18px;margin:26px 2px 4px">More verified deals today</h2>
 <div class="grid">${rest.map(dealCard).join("\n")}</div>
-<div class="note">Bookmark this page &mdash; it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
+<div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
 <div class="promo">
 <h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
+<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -349,12 +349,12 @@ ${matchedBlock}
 }
 
 const DAY_NOTES = {
-  monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. It\u2019s also bagel day \u2014 Einstein Bros. runs its $9 baker\u2019s dozen on Mondays at participating shops.",
+  monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. It\u2019s also bagel day: Einstein Bros. runs its $9 baker\u2019s dozen on Mondays at participating shops.",
   tuesday: "Tuesday is the strongest deal day of the week. Taco Bell historically drops new app offers on Tuesdays, and taco specials across chains make this the cheapest dinner night on the calendar.",
   wednesday: "Mid-week is sleeper-deal territory: Sonic locations have long run half-price cheeseburger promos on Wednesdays, and app bundles carry the rest.",
-  thursday: "Chains tend to preview weekend offers on Thursdays \u2014 check the app deal tabs tonight for anything expiring Sunday.",
+  thursday: "Chains tend to preview weekend offers on Thursdays: check the app deal tabs tonight for anything expiring Sunday.",
   friday: "Friday is freebie day: McDonald\u2019s runs Free Fries Friday (free medium fries with any $1+ app purchase), and high-tier Subway MVP members get free chips with purchase on Fridays.",
-  saturday: "Weekends skew toward family bundles and delivery-app promos \u2014 single-visit value boxes still apply, and breakfast deals run later than weekdays.",
+  saturday: "Weekends skew toward family bundles and delivery-app promos: single-visit value boxes still apply, and breakfast deals run later than weekdays.",
   sunday: "Sunday is prep-for-the-week day: stack what\u2019s left of weekend offers, and remember most app deal tabs refresh Monday morning.",
 };
 
@@ -363,13 +363,13 @@ function dayPage(day, deals) {
   const rx = new RegExp(day, "i");
   const todays = deals.filter(d => rx.test(d.expires || "") || rx.test(d.deal || ""));
   const everyday = deals.filter(d => !todays.includes(d) && /ongoing|every day|daily/i.test(d.expires || "")).slice(0, 6);
-  const title = `${cap} Food Deals & Freebies — Updated Daily`;
+  const title = `${cap} Food Deals & Freebies: Updated Daily`;
   const desc = todays.length
-    ? `${todays.length} verified ${cap} food deal${todays.length > 1 ? "s" : ""}: ${todays.slice(0, 2).map(d => d.deal).join("; ")}. Plus everyday deals — checked ${prettyDate}.`
+    ? `${todays.length} verified ${cap} food deal${todays.length > 1 ? "s" : ""}: ${todays.slice(0, 2).map(d => d.deal).join("; ")}. Plus everyday deals: checked ${prettyDate}.`
     : `The best verified food deals available on ${cap}s, updated every morning. Checked ${prettyDate}.`;
   const sec1 = todays.length ? `<h2 style="font-size:19px;margin:20px 2px 8px">Deals that repeat every ${cap}</h2><div class="grid">${todays.map(dealCard).join("\n")}</div>` : "";
   const sec2 = everyday.length ? `<h2 style="font-size:19px;margin:24px 2px 8px">Great any day of the week</h2><div class="grid">${everyday.map(dealCard).join("\n")}</div>` : "";
-  const body = (sec1 + sec2) || `<div class="empty">No ${cap}-specific deals verified today — check the <a href="/" style="color:var(--accent2)">full list</a>.</div>`;
+  const body = (sec1 + sec2) || `<div class="empty">No ${cap}-specific deals verified today: check the <a href="/" style="color:var(--accent2)">full list</a>.</div>`;
   const dayNav = DAYS.map(x => x === day ? `<strong>${x[0].toUpperCase()+x.slice(1)}</strong>` : `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ");
   return `<!DOCTYPE html>
 <html lang="en">
@@ -402,12 +402,12 @@ function dayPage(day, deals) {
   <p class="tag">Every deal below is re-verified this morning against official sources.</p>\n  <p class="tag">${DAY_NOTES[day] || ""}</p>
   ${body}
   ${EMAIL_CAPTURE}
-  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links &mdash; DailyBite may earn a commission at no extra cost to you.</div>
+  <div class="note"><strong>Disclosure.</strong> Some links on this page are affiliate links: DailyBite may earn a commission at no extra cost to you.</div>
   <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
 <div class="promo">
 <h3>Pickup &amp; delivery app deals</h3>
-<p>DoorDash and Uber Eats run app-only promos all the time &mdash; percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you &mdash; it costs nothing extra and supports DailyBite.</p>
+<p>DoorDash and Uber Eats run app-only promos all the time: percent-off pickup orders, BOGOs, and flash deals tied to your address. Choosing pickup also skips delivery and service fees entirely. Open the offers tab through these links to see what&#39;s live near you: it costs nothing extra and supports DailyBite.</p>
 <div class="aff-row">
 <a class="aff-btn aff-dd" href="https://sovrn.co/lq1ij3l" target="_blank" rel="noopener sponsored">DoorDash</a>
 <a class="aff-btn aff-ue" href="https://sovrn.co/t3iezct" target="_blank" rel="noopener sponsored">Uber Eats</a>
@@ -436,7 +436,7 @@ function main() {
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
   let deals = Array.isArray(data) ? data : data.deals;
   if (!Array.isArray(deals) || deals.length === 0) {
-    throw new Error("deals.json has no deals array — refusing to build an empty page.");
+    throw new Error("deals.json has no deals array: refusing to build an empty page.");
   }
   {
     const todayIso = new Date().toISOString().slice(0, 10);
@@ -446,6 +446,21 @@ function main() {
       if (todayIso <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
     }
   }
+
+  // Owner style rule (Jacob, 2026-08-18): no em dashes anywhere on the site.
+  // Paired dashes become parentheses; a single dash becomes a colon.
+  // Runs after evergreen injection so every deal from every source is covered.
+  const deDash = (s) => {
+    if (typeof s !== "string" || !/—|&mdash;|&#8212;|&#x2014;/i.test(s)) return s;
+    let t = s.replace(/&mdash;|&#8212;|&#x2014;/gi, "—");
+    for (;;) {
+      const m = t.match(/ — ([^—]*?) — /);
+      if (m && !/[.!?<>:]/.test(m[1])) { t = t.replace(m[0], " (" + m[1] + ") "); continue; }
+      break;
+    }
+    return t.replace(/ — /g, ": ").replace(/\s*—\s*/g, ", ");
+  };
+  for (const d of deals) for (const k of ["brand", "deal", "title", "desc", "expires", "badge", "cat", "category", "region"]) if (d[k]) d[k] = deDash(d[k]);
 
   // Flag new-since-yesterday and expiring-soon deals (badges rendered client-side)
   let prev = [];
@@ -578,7 +593,7 @@ function main() {
       if (soon) {
         const d2 = new Date(soon.h.date + "T12:00:00");
         const when = soon.diff < 0.5 ? "TODAY" : soon.diff < 1.5 ? "tomorrow" : d2.toLocaleDateString("en-US", { weekday: "long" });
-        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji} ${esc(soon.h.name)} is ${when} &mdash; see all the deals &rarr;</a>`;
+        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji} ${esc(soon.h.name)} is ${when}: see all the deals &rarr;</a>`;
       }
       out = out.slice(0, hs2 + HB_START.length) + banner + out.slice(he2);
     }
