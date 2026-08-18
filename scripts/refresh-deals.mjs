@@ -21,7 +21,7 @@ const dataPath = join(root, "deals.json");
 
 // Confirm the current model string in your Anthropic Console; models change.
 const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-4-6";
-const MAX_SEARCHES = 8;
+const MAX_SEARCHES = 14; // raised from 8 (2026-08-18): the rulebook mandates many per-brand checks and runs were coming back with too few deals
 const ALLOWED_TAGS = new Set(["free", "app"]);
 const MIN_DEALS = 6;
 const MAX_DEALS = 24;
@@ -31,6 +31,8 @@ const client = new Anthropic(); // reads ANTHROPIC_API_KEY from env
 const PROMPT = `You maintain "DailyBite", a page listing the best current U.S. fast-food and coffee-chain app deals.
 
 Use web search to find TODAY'S real, currently-active in-app and publicly claimable deals ONLY from this approved list of quality and healthy chains: Sweetgreen, CAVA, Chipotle, Chick-fil-A, Panera Bread, Potbelly, Noodles & Company, Just Salad, Qdoba, Wingstop, Naf Naf Grill, Smoothie King, Tropical Smoothie Cafe, Jamba, Salad and Go, El Pollo Loco, The Halal Guys, Tijuana Flats, Chili’s, Five Guys, Shake Shack, Subway, and Starbucks - plus national platform promos from DoorDash, Uber Eats, and Grubhub. Prefer official brand sources and reputable deal trackers (Brand Eating, EatDrinkDeals, The Krazy Coupon Lady).
+
+SEARCH STRATEGY: your search budget is limited, so never spend it one brand at a time from the start. Use your FIRST 1-2 searches on multi-chain roundups (EatDrinkDeals, The Krazy Coupon Lady food deals calendar, Brand Eating current promotions) to harvest many verifiable deals at once, then spend remaining searches confirming details and covering priority chains a roundup did not mention. If a roundup already evidences a chain's deal, do not re-search that chain.
 
 Rules:
 - NO BONELESS ITEMS: never include any boneless wing deal from any brand, in any position. The owner has tried them and rejects them outright.
