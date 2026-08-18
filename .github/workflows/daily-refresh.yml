@@ -34,6 +34,11 @@ jobs:
         run: cp deals.json deals-prev.json
 
       - name: Regenerate deals.json (fails closed on bad data)
+        id: refresh
+        # continue-on-error: a failed refresh keeps yesterday's known-good deals.json,
+        # but the build below STILL runs so date-gated logic (expiry drops, weekday
+        # specials, footer date) stays current. Fixes the 2026-08-17 site freeze.
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}   # optional repo variable; falls back to script default
@@ -51,6 +56,15 @@ jobs:
           if git diff --cached --quiet; then
             echo "No deal changes today."
           else
-            git commit -m "chore: daily deal refresh ($(date -u +%Y-%m-%d))"
+            MSG="chore: daily deal refresh ($(date -u +%Y-%m-%d))"
+            if [ "${{ steps.refresh.outcome }}" != "success" ]; then
+              MSG="chore: daily rebuild - refresh failed, kept last good deals ($(date -u +%Y-%m-%d))"
+            fi
+            git commit -m "$MSG"
             git push
           fi
+
+      - name: Surface refresh failure in run status
+        if: steps.refresh.outcome != 'success'
+        run: |
+          echo "::warning::Deal refresh failed today - site was rebuilt from the last good deals.json. Check the refresh step log."
