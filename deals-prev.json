@@ -4,95 +4,92 @@
     {
       "brand": "Chipotle",
       "cat": "Mexican",
-      "color": "#441500",
-      "ic": "CH",
-      "deal": "Chipotle IQ Trivia — Win BOGO Entree Codes & Free Add-Ons",
-      "desc": "Play the 5-question trivia game at ChipotleIQ.com today through August 20 for a chance to win a BOGO free entree code, free Queso Blanco, or free Cilantro Lime Sauce — the first 8,000 perfect scores each hour win a food reward; free Chipotle Rewards account required.",
+      "color": "#a81612",
+      "ic": "C",
+      "deal": "Chipotle IQ: Play Trivia for a BOGO Free Entree",
+      "desc": "Score 5 out of 5 at ChipotleIQ.com today through August 20 for a chance at a BOGO free entree code, free Queso Blanco, or Cilantro Lime Sauce: free Chipotle Rewards account required, no purchase necessary.",
       "tags": [
-        "free",
-        "app"
+        "free"
       ],
       "value": 5,
       "expires": "Through August 20, 2026",
       "url": "https://www.chipotle.com/rewards",
-      "best": true,
-      "region": "National"
+      "region": "National",
+      "best": true
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#B5222E",
-      "ic": "PN",
-      "deal": "BOGO $5 — Whole Sandwiches, Bowls, Salads & Soup",
-      "desc": "Buy any whole sandwich, whole market bowl, salad stuffer, whole salad, or bowl of soup or mac at full price and get a second one for just $5, limited time via the Panera app or online.",
-      "tags": [
-        "app"
-      ],
+      "color": "#527a28",
+      "ic": "P",
+      "deal": "Value Menu: 10 Classics at $4.99 Each",
+      "desc": "Mix and match from 10 Panera favorites including three salads, three soups, and four half sandwiches, each priced at just $4.99.",
+      "tags": [],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/app/panera-app.html",
-      "best": true,
-      "region": "National"
+      "expires": "Ongoing",
+      "url": "https://www.panerabread.com/en-us/deals",
+      "region": "National",
+      "best": true
     },
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#B5222E",
-      "ic": "PN",
-      "deal": "Mix & Match $4.99 Menu — Up to 10 Half-Portions",
-      "desc": "Order up to 10 half-portion items — soups, sandwiches, and salads — at $4.99 each, saving roughly 40% off regular prices; available via the Panera app or in-restaurant.",
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#6bbc52",
+      "ic": "SS",
+      "deal": "$4 Fries and $2 Sodas via App or Online Order",
+      "desc": "Order through the Shake Shack app or website and get fries for $4 and sodas for $2 at participating locations.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/app/panera-app.html",
-      "best": false,
-      "region": "National"
+      "url": "https://www.shakeshack.com/",
+      "region": "National",
+      "best": false
     },
     {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#CC0000",
-      "ic": "CL",
-      "deal": "3 For Me — Drink, Appetizer & Full Entree from $10.99",
-      "desc": "Get a bottomless non-alcoholic drink, a starter (including bottomless chips and salsa), and a full entree all in one bundle starting at $10.99 all day every day at participating Chili's locations.",
-      "tags": [],
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009b48",
+      "ic": "Sub",
+      "deal": "Two Footlong Subs for $12.99: Code FTL1299",
+      "desc": "Enter promo code FTL1299 at checkout on the Subway app or website to get any two footlong subs for $12.99 at participating locations.",
+      "tags": [
+        "app"
+      ],
       "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com/",
-      "best": true,
-      "region": "National"
+      "expires": "Through December 31, 2026",
+      "url": "https://www.subway.com/",
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#CC0000",
-      "ic": "CL",
-      "deal": "August Shark Attack Margarita — $6 All Day",
-      "desc": "The August Margarita of the Month is the Shark Attack Margarita for just $6 all day every day at participating locations — a full handcrafted margarita at a price that beats most happy hours.",
+      "color": "#ce0e2d",
+      "ic": "Ch",
+      "deal": "$6 Shark Attack Margarita All August",
+      "desc": "Chili's August margarita of the month is the Shark Attack Margarita, available every day in August for $6 at participating locations nationwide.",
       "tags": [],
-      "value": 3,
+      "value": 2,
       "expires": "Through August 31, 2026",
       "url": "https://www.chilis.com/",
-      "best": false,
-      "region": "National"
+      "region": "National",
+      "best": false
     },
     {
       "brand": "Tijuana Flats",
       "cat": "Mexican",
-      "color": "#E8702A",
+      "color": "#e87722",
       "ic": "TF",
-      "deal": "Taco Tuesdaze — Two Tacos, Chips & Drink from $7.99",
-      "desc": "Every Tuesday, get two tacos (chicken, beef, or beans) with freshly made chips and a medium drink starting at about $7.99 — available all day in-store and via the Tijuana Flats app or online at participating Florida and Southeast locations.",
-      "tags": [
-        "app"
-      ],
+      "deal": "Taco Tuesdaze: 2 Tacos, Chips, and a Drink for about $7.99",
+      "desc": "On Tuesdays, Tijuana Flats serves two tacos, chips, and a fountain drink as a combo for around $7.99: the deal is active in-store today, Tuesday August 18.",
+      "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "best": false,
-      "region": "FL & Southeast"
+      "url": "https://www.tijuanaflats.com/",
+      "region": "FL & Southeast",
+      "best": false
     }
   ]
 }
