@@ -62,6 +62,7 @@ Rules:
 - OFFICIAL URLS ONLY: the url field must point to a page on the brand's own official domain (their deals/offers page, or homepage if no better page exists). Never link to coupon aggregators, news articles, or any third-party site.
 - NO EMOJIS: never use emojis or decorative unicode symbols in any field (brand, title, desc, expires, badge). Plain professional text only.
 - NO EM DASHES: never use the em dash character in any field. Where you would reach for one, use a colon, a comma, or parentheses instead. Example: write "BOGO $5: whole sandwiches, bowls and salads" not "BOGO $5" followed by an em dash.
+- VALID JSON ONLY: the reply must parse with JSON.parse. Never put a double-quote character inside any field value (write Chili's 3 For Me or Chili's '3 For Me', never Chili's "3 For Me"), no trailing commas, no comments, and no text before or after the JSON object.
 - NO MEMBERSHIP-GATED DEALS: never include deals that require rewards/loyalty/app MEMBER status to claim: no "rewards members get...", "app members only", member-exclusive items, referral bonuses, badge/challenge programs, or perks unlocked by joining a program (even free-to-join ones). A deal that is simply redeemed through the brand's app or a public promo code is fine; a deal gated on membership status is not. Also never include ONE-TIME freebies for NEW members or FIRST purchases ("free item when you join"): those are signup bonuses.
 - NO RECURRING DEALS: never include recurring day-of-week or time-window promos ("Every Friday", "Whopper Wednesdays", "Tuesday Drops", daily happy hours, "every day 2-5 PM"). Only include deals available ALL DAY TODAY to anyone: dated limited-time offers ("Through July 20") or standing everyday value menus ("Ongoing"). Single exception: Tijuana Flats day specials, see the TIJUANA FLATS rule.
 - TIJUANA FLATS (owner request, 2026-08-14 - the owner is in Florida): search Tijuana Flats on every refresh. EXCEPTION to the no-recurring rule for this brand ONLY: its published day-of-week specials may be listed ON their active day only - Taco Tuesdaze (Tuesdays: two tacos, chips, and a drink, about $7.99) and Throwback Thursdaze (Thursdays: burrito or bowl, chips, and a drink, about $8.99). Verify current details on tijuanaflats.com, name the weekday plainly in the description, use cat "Mexican" and region "FL & Southeast", and never mark them "best" (regional chain). On other days include Tijuana Flats only if a normal all-day deal is verified.
@@ -196,25 +197,50 @@ async function generate() {
 
   const text = response.content.filter(b => b.type === "text").map(b => b.text).join("\n").trim();
   if (!text) throw new Error("Model returned no text output.");
-  const parsed = extractJson(text);
+  let parsed;
+  try {
+    parsed = extractJson(text);
+  } catch (e) {
+    // A stray double quote inside one field ("Expected ',' or '}' after property value",
+    // run #78 on 2026-08-20) used to throw away a whole 14-search run. Ask the model to
+    // repair its own output first: one cheap call, no web search, same deals.
+    console.error(`Model output was not valid JSON (${e.message}): asking the model to repair it.`);
+    parsed = extractJson(await repairJson(text));
+  }
   return Array.isArray(parsed) ? parsed : parsed.deals;
+}
+
+async function repairJson(text) {
+  const res = await client.messages.create({
+    model: MODEL, max_tokens: 16000,
+    messages: [{ role: "user", content: `The text below was meant to be ONE minified JSON object of the shape {"deals":[...]} but it does not parse. Return the SAME content as a single valid minified JSON object: escape or remove stray double quotes inside string values, remove trailing commas, comments, markdown fences and any prose. Do not add, drop, or reword deals. Output ONLY the JSON.\n\n${text}` }],
+  });
+  return res.content.filter(b => b.type === "text").map(b => b.text).join("\n").trim();
 }
 
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not set.");
 
-  let deals = dedupe(await generate());
-  let errors = validate(deals);
+  // One attempt = generate (with JSON repair) + dedupe + validate. ANY failure, including
+  // a reply that is not JSON or an API error, gets exactly one retry before failing closed:
+  // search variance sometimes yields a short list (2026-08-17, "too few deals (4 < 6)") and
+  // malformed JSON killed the 2026-08-20 run outright because only validation used to retry.
+  async function attempt() {
+    try {
+      const deals = dedupe(await generate());
+      return { deals, errors: validate(deals) };
+    } catch (e) {
+      return { deals: null, errors: [e.message || String(e)] };
+    }
+  }
+  let { deals, errors } = await attempt();
   if (errors.length) {
-    // One retry: search variance sometimes yields a short list (e.g. 2026-08-17,
-    // "too few deals (4 < 6)"). A fresh attempt usually recovers before failing closed.
-    console.error("First attempt failed validation: retrying once:");
+    console.error("First attempt failed: retrying once:");
     for (const e of errors) console.error("  - " + e);
-    deals = dedupe(await generate());
-    errors = validate(deals);
+    ({ deals, errors } = await attempt());
   }
   if (errors.length) {
-    console.error("Validation failed: NOT writing deals.json:");
+    console.error("Refresh failed: NOT writing deals.json:");
     for (const e of errors) console.error("  - " + e);
     process.exit(1);
   }
