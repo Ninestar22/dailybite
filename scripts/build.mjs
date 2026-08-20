@@ -430,6 +430,26 @@ function main() {
   };
   for (const d of deals) for (const k of ["brand", "deal", "title", "desc", "expires", "badge", "cat", "category", "region"]) if (d[k]) d[k] = deDash(d[k]);
 
+  // DEDUPE (2026-08-20): the same offer must never be listed twice anywhere on the
+  // site. Two deals are the same offer when they share a brand and a title (after
+  // normalizing case, punctuation, and brand aliases), or a brand and a promo code
+  // (the AI refresh sometimes describes one code-based deal under two titles).
+  // First occurrence wins; Top Picks are recomputed below so nothing is lost.
+  {
+    const beforeDedupe = deals.length;
+    const seen = new Set();
+    deals = deals.filter(d => {
+      const brand = canonBrand(d.brand);
+      const keys = [brand + "|" + norm(d.deal)];
+      const code = ((d.deal || "") + " " + (d.desc || "")).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
+      if (code) keys.push(brand + "|code:" + code[1].toUpperCase());
+      if (keys.some(k => seen.has(k))) return false;
+      for (const k of keys) seen.add(k);
+      return true;
+    });
+    if (deals.length < beforeDedupe) console.log(`Removed ${beforeDedupe - deals.length} duplicate deal(s).`);
+  }
+
   // Flag new-since-yesterday and expiring-soon deals (badges rendered client-side)
   let prev = [];
   try {

@@ -126,6 +126,27 @@ function extractJson(text) {
   throw new Error("No complete JSON object found in model output.");
 }
 
+// Drop duplicate offers before validation so MIN_DEALS counts distinct deals and
+// deals.json never carries the same offer twice. Same brand + same title (ignoring
+// case/punctuation), or same brand + same promo code, is the same offer. First wins.
+// build.mjs applies the same rule (with brand aliases) as the deterministic backstop.
+function dedupe(deals) {
+  if (!Array.isArray(deals)) return deals;
+  const key = s => String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  const seen = new Set();
+  const out = deals.filter(d => {
+    const brand = key(d && d.brand);
+    const keys = [brand + "|" + key(d && d.deal)];
+    const code = String((d && d.deal) || "").concat(" ", (d && d.desc) || "").match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
+    if (code) keys.push(brand + "|code:" + code[1].toUpperCase());
+    if (keys.some(k => seen.has(k))) return false;
+    for (const k of keys) seen.add(k);
+    return true;
+  });
+  if (out.length < deals.length) console.log(`Dropped ${deals.length - out.length} duplicate deal(s) from model output.`);
+  return out;
+}
+
 function validate(deals) {
   const errors = [];
   if (!Array.isArray(deals)) return ["top-level 'deals' is not an array"];
@@ -182,14 +203,14 @@ async function generate() {
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not set.");
 
-  let deals = await generate();
+  let deals = dedupe(await generate());
   let errors = validate(deals);
   if (errors.length) {
     // One retry: search variance sometimes yields a short list (e.g. 2026-08-17,
     // "too few deals (4 < 6)"). A fresh attempt usually recovers before failing closed.
     console.error("First attempt failed validation: retrying once:");
     for (const e of errors) console.error("  - " + e);
-    deals = await generate();
+    deals = dedupe(await generate());
     errors = validate(deals);
   }
   if (errors.length) {
