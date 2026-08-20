@@ -323,7 +323,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-08-20T11:54:49.888Z"};
+const META = {"verifiedAt":"2026-08-20T12:24:40.248Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -691,21 +691,41 @@ function dealScore(d){
 }
 function render(){
   const grid=document.getElementById('grid');
+  // The two featured sections (Top Picks, Worth grabbing today) only show on the
+  // unfiltered view. A deal is rendered in exactly ONE place on the page: the
+  // featured sections claim their deals first and the main grid gets the rest.
+  const featured=activeCat==="All"&&!query;
+  const shown=new Set(); // every deal already rendered in a featured section
   // Top Picks first: when this section is visible, its deals appear ONLY here,
   // never repeated in the main grid below (owner request, 2026-08-18).
   const topwrap=document.getElementById('topwrap');
   let tops=[];
-  if(activeCat==="All"&&!query){
+  if(featured){
     tops=DEALS.filter(d=>d.best&&regionOK(d))
       .sort((a,b)=>b.value-a.value)
       .slice(0,4);
   }
-  if(tops.length){topwrap.style.display='block';document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join('');}
-  else{topwrap.style.display='none';}
-  const topShown=new Set(tops);
+  topwrap.style.display=tops.length?'block':'none';
+  document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join(''); // cleared when hidden: no stale cards
+  tops.forEach(d=>shown.add(d));
+
+  // Worth grabbing today: day-specific, new, and expiring deals. Same rule as
+  // Top Picks: a deal shown here is NOT repeated in the main grid (fixes the
+  // duplicate cards, e.g. Tijuana Flats Thursdaze listed twice, 2026-08-20).
+  const wrap=document.getElementById('todaywrap');
+  let picks=[];
+  if(featured){
+    picks=DEALS.filter(d=>!d.best&&!shown.has(d)&&regionOK(d)&&(isTodayDeal(d)||d.endingSoon||d.isNew))
+      .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
+      .slice(0,4);
+  }
+  wrap.style.display=picks.length?'block':'none';
+  document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');
+  picks.forEach(d=>shown.add(d));
+
   const list=DEALS
     .filter(regionOK)
-    .filter(d=>!topShown.has(d))
+    .filter(d=>!shown.has(d))
     .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
     .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
     .sort((a,b)=>{
@@ -713,21 +733,10 @@ function render(){
       if(DIST){ const ds=dealScore(b)-dealScore(a); if(ds) return ds; }
       return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
     });
-  const total=list.length+tops.length;
+  const total=list.length+shown.size;
   document.getElementById('count').textContent=`${total} deal${total!==1?'s':''} today`;
   document.getElementById('empty').style.display=total?'none':'block';
   grid.innerHTML=list.map(cardHTML).join('');
-
-  const wrap=document.getElementById('todaywrap');
-  if(activeCat==="All"&&!query){
-    const picks=DEALS.filter(d=>!d.best&&regionOK(d)&&(isTodayDeal(d)||d.endingSoon||d.isNew))
-      .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
-      .slice(0,4);
-    if(picks.length){wrap.style.display='block';document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');}
-    else{wrap.style.display='none';}
-  } else {
-    wrap.style.display='none';
-  }
 }
 render();
 
