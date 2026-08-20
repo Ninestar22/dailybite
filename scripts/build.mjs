@@ -41,7 +41,7 @@ const CHAINS = [
   { slug: "salad-and-go-deals", name: "Salad and Go" },
   { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
-  { slug: "tijuana-flats-deals", name: "Tijuana Flats" },
+  { slug: "tijuana-flats-deals", name: "Tijuana Flats", note: "Tijuana Flats runs Taco Tuesdaze (2 tacos, chips and a drink, about $7.99) and Throwback Thursdaze (burrito or bowl, chips and a drink, about $8.99) at participating FL & Southeast locations: each appears below on its day." },
   { slug: "papa-johns-deals",  name: "Papa John's" },
   { slug: "einstein-bros-deals", name: "Einstein Bros." },
   { slug: "jack-in-the-box-deals", name: "Jack in the Box" },
@@ -55,6 +55,7 @@ const CHAINS = [
   { slug: "just-salad-deals",   name: "Just Salad" },
   { slug: "naf-naf-grill-deals", name: "Naf Naf Grill" },
   { slug: "krispy-kreme-deals", name: "Krispy Kreme" },
+  { slug: "publix-deals",       name: "Publix", note: "Publix's standing deal is $5 Sushi Wednesday: select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 at stores with a sushi counter across FL & the Southeast, no coupon or app needed. It appears below every Wednesday." },
 ];
 
 const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a></nav>`;
@@ -67,7 +68,7 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
 // Canonical brand key: lowercases and folds known naming variants so per-brand
 // dedup, golden/healthy/banned lookups, and evergreen injection can't be
 // defeated by an alternate spelling of the same chain (e.g. "Panera Bread" vs "Panera").
-const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke" };
+const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke", "publix super markets": "publix", "publix supermarkets": "publix", "publix sushi": "publix" };
 const canonBrand = b => { const k = String(b || "").toLowerCase().trim().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " "); return BRAND_ALIASES[k] || k; };
 const dealsFor = (name, deals) => deals.filter(d => {
   const b = norm(d.brand), n = norm(name);
@@ -181,6 +182,7 @@ function chainPage(chain, deals) {
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}</h1>
   <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
+  ${chain.note ? `<p class="tag">${esc(chain.note)}</p>` : ""}
   ${body}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
@@ -330,7 +332,7 @@ ${matchedBlock}
 const DAY_NOTES = {
   monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. It\u2019s also bagel day: Einstein Bros. runs its $9 baker\u2019s dozen on Mondays at participating shops.",
   tuesday: "Tuesday is the strongest deal day of the week. Taco Bell historically drops new app offers on Tuesdays, and taco specials across chains make this the cheapest dinner night on the calendar.",
-  wednesday: "Mid-week is sleeper-deal territory: Sonic locations have long run half-price cheeseburger promos on Wednesdays, and app bundles carry the rest.",
+  wednesday: "Wednesday is sushi day in the Southeast: Publix stores with a sushi counter sell select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 every Wednesday, no coupon or app needed. Elsewhere, mid-week is sleeper-deal territory and app bundles carry the rest.",
   thursday: "Chains tend to preview weekend offers on Thursdays: check the app deal tabs tonight for anything expiring Sunday.",
   friday: "Friday is freebie day: McDonald\u2019s runs Free Fries Friday (free medium fries with any $1+ app purchase), and high-tier Subway MVP members get free chips with purchase on Fridays.",
   saturday: "Weekends skew toward family bundles and delivery-app promos: single-visit value boxes still apply, and breakfast deals run later than weekdays.",
@@ -399,6 +401,10 @@ function main() {
     // Owner request (Jacob, 2026-08-14): Tijuana Flats day specials, injected only on their active weekday (dow: 0=Sun..6=Sat).
     { until: "2026-12-31", dow: 2, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Taco Tuesdaze: 2 Tacos + Chips + Drink for $7.99", desc: "Every Tuesday at participating locations: two tacos, chips, and a drink for $7.99 in-store, online, or in the app - no third-party delivery, and pricing varies slightly by location.", tags: [], value: 4, expires: "Tuesdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
     { until: "2026-12-31", dow: 4, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99", desc: "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.", tags: [], value: 4, expires: "Thursdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
+    // Owner request (Jacob, 2026-08-20): grocery-store prepared-food deals are welcome when the value is real.
+    // Publix $5 Sushi Wednesday, seen in store by the owner (spicy tuna and Philadelphia rolls at his Publix);
+    // confirmed by Chowhound and the AFC/Zenshi sushi counters that run it. Wednesdays only (dow 3).
+    { until: "2026-12-31", dow: 3, deal: { brand: "Publix", cat: "Sushi", color: "#3d8a3a", ic: "PX", deal: "$5 Sushi Wednesday: Select Fresh Rolls for $5", desc: "Every Wednesday at Publix stores with a sushi counter, select fresh-made rolls (spicy tuna, California, spicy shrimp, cream cheese/Philadelphia-style, vegetable and more; selection varies by store) are $5 each instead of the usual $6 to $10. Walk in and grab them from the sushi case: no app, coupon, or membership needed, while supplies last.", tags: [], value: 4, expires: "Wednesdays only", url: "https://www.publix.com/locations", best: false, region: "FL & Southeast" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
@@ -498,7 +504,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
-  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","DoorDash","Uber Eats","Grubhub"].map(canonBrand));
+  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub"].map(canonBrand));
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands only
   deals = deals.filter(d => !/boneless/i.test((d.deal||"") + " " + (d.desc||""))); // owner: no boneless items ever
   deals = deals.filter(d => !(new RegExp("custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie", "i")).test((d.deal||"") + " " + (d.desc||"")) || (d.cat||"") === "Pickup"); // owner: no dessert deals at all
@@ -517,7 +523,9 @@ function main() {
   deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
-  // Owner exception (Jacob, 2026-08-14): Tijuana Flats' published day specials may run ON their active day.
+  // Owner exceptions: Tijuana Flats' published day specials (2026-08-14) and Publix $5 Sushi Wednesday
+  // (2026-08-20) may run ON their active day only.
+  const DAY_SPECIAL_BRANDS = new Set(["tijuana flats", "publix"]);
   const DOW_NAME = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][today.getUTCDay()];
   deals = deals.filter(d => {
     const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).toLowerCase();
@@ -526,7 +534,7 @@ function main() {
     // happy hours", Chili's margarita 2026-08-18) must not kill an all-day deal.
     const recurring = /every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|every day \d|daily \d/i.test(txt)
       || /happy hour/i.test(d.deal + " " + (d.expires || ""));
-    if (recurring && canonBrand(d.brand) === "tijuana flats" && txt.includes(DOW_NAME)) return true;
+    if (recurring && DAY_SPECIAL_BRANDS.has(canonBrand(d.brand)) && txt.includes(DOW_NAME)) return true;
     return !recurring;
   });
 
@@ -542,7 +550,7 @@ function main() {
     const byBrand = new Set();
     // Regional-footprint chains never badge (most visitors cannot claim them); the three
     // regional sushi/poke chains from the prompt's REGIONAL HONESTY rule are listed too.
-    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke"].map(canonBrand));
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Publix"].map(canonBrand));
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     const pick = (list, max) => {
       for (const d of list) {
