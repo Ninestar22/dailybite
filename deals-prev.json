@@ -1,95 +1,97 @@
 {
-  "updated": "2026-08-18",
+  "updated": "2026-08-19",
   "deals": [
-    {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#a81612",
-      "ic": "C",
-      "deal": "Chipotle IQ: Play Trivia for a BOGO Free Entree",
-      "desc": "Score 5 out of 5 at ChipotleIQ.com today through August 20 for a chance at a BOGO free entree code, free Queso Blanco, or Cilantro Lime Sauce: free Chipotle Rewards account required, no purchase necessary.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "Through August 20, 2026",
-      "url": "https://www.chipotle.com/rewards",
-      "region": "National",
-      "best": true
-    },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#527a28",
-      "ic": "P",
-      "deal": "Value Menu: 10 Classics at $4.99 Each",
-      "desc": "Mix and match from 10 Panera favorites including three salads, three soups, and four half sandwiches, each priced at just $4.99.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/deals",
-      "region": "National",
-      "best": true
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#6bbc52",
-      "ic": "SS",
-      "deal": "$4 Fries and $2 Sodas via App or Online Order",
-      "desc": "Order through the Shake Shack app or website and get fries for $4 and sodas for $2 at participating locations.",
+      "color": "#4a1942",
+      "ic": "PB",
+      "deal": "BOGO5: Second Entree for $5",
+      "desc": "Enter code BOGO5 at checkout online or in the app to get a second full-size soup, salad, or sandwich for just $5 when you buy one entree; free MyPanera account required.",
       "tags": [
         "app"
       ],
-      "value": 3,
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "CH",
+      "deal": "3 For Me Bundle from $10.99",
+      "desc": "Get a bottomless non-alcoholic drink, chips and salsa, and a full-size entree (your choice from about a dozen options) for $10.99; no code needed, just order in-restaurant or via the app.",
+      "tags": [],
+      "value": 5,
       "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
-      "region": "National",
-      "best": false
+      "url": "https://www.chilis.com/specials",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "CH",
+      "deal": "Shark Attack Margarita: $6 All August",
+      "desc": "Chili's featured margarita of the month is the Shark Attack Margarita at a flat $6, available every day in August at participating locations nationwide.",
+      "tags": [],
+      "value": 3,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.chilis.com/specials",
+      "best": false,
+      "region": "National"
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
-      "color": "#009b48",
-      "ic": "Sub",
-      "deal": "Two Footlong Subs for $12.99: Code FTL1299",
-      "desc": "Enter promo code FTL1299 at checkout on the Subway app or website to get any two footlong subs for $12.99 at participating locations.",
+      "color": "#009246",
+      "ic": "SW",
+      "deal": "Any Footlong for $6.99",
+      "desc": "Use promo code FOOTLONG699 at online or app checkout to get any footlong sub for $6.99 at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through September 12, 2026",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009246",
+      "ic": "SW",
+      "deal": "Footlong Meal for $9.99",
+      "desc": "Use promo code MEAL999 for a footlong sub plus chips or a cookie and a drink bundled for $9.99 at participating Subway locations via the app or website.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through December 31, 2026",
       "url": "https://www.subway.com/",
-      "region": "National",
-      "best": false
+      "best": false,
+      "region": "National"
     },
     {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#ce0e2d",
-      "ic": "Ch",
-      "deal": "$6 Shark Attack Margarita All August",
-      "desc": "Chili's August margarita of the month is the Shark Attack Margarita, available every day in August for $6 at participating locations nationwide.",
-      "tags": [],
-      "value": 2,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.chilis.com/",
-      "region": "National",
-      "best": false
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#e87722",
-      "ic": "TF",
-      "deal": "Taco Tuesdaze: 2 Tacos, Chips, and a Drink for about $7.99",
-      "desc": "On Tuesdays, Tijuana Flats serves two tacos, chips, and a fountain drink as a combo for around $7.99: the deal is active in-store today, Tuesday August 18.",
-      "tags": [],
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#6bbf4e",
+      "ic": "SS",
+      "deal": "App Prices: $4 Fries and $2 Sodas",
+      "desc": "Order through the Shake Shack app or website to unlock discounted pricing on fries ($4) and sodas ($2) at participating locations chainwide; the deal does not include limited-time shakes.",
+      "tags": [
+        "app"
+      ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.tijuanaflats.com/",
-      "region": "FL & Southeast",
-      "best": false
+      "url": "https://www.shakeshack.com/",
+      "best": false,
+      "region": "National"
     }
   ]
 }
