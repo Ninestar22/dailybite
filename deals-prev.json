@@ -2,93 +2,109 @@
   "updated": "2026-08-21",
   "deals": [
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009B77",
-      "ic": "SB",
-      "deal": "Footlong for $6.99",
-      "desc": "Use code FOOTLONG699 at checkout on the Subway app or subway.com to get any footlong for $6.99 at participating U.S. locations.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#9C2026",
+      "ic": "PB",
+      "deal": "Second Entree for $5 with Code BOGO5",
+      "desc": "Order any entree online or in-app, add a second entree, and apply code BOGO5 at checkout to get the second for $5 instead of full price.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through September 12, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009B77",
-      "ic": "SB",
-      "deal": "Two Footlongs for $12.99",
-      "desc": "Use code 1299FL at checkout on the Subway app or subway.com to get two footlong subs for $12.99, saving up to $8 versus regular prices.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through September 12, 2026",
-      "url": "https://www.subway.com/",
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#67A944",
-      "ic": "SS",
-      "deal": "$4 Crinkle Fries + $2 Sodas via App",
-      "desc": "Order online through the Shake Shack app or shakeshack.com and pay just $4 for Crinkle Fries and $2 for sodas at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#EF3E42",
+      "ic": "SW",
+      "deal": "$5 Sushi Friday: Zenshi 10-Piece Rolls",
+      "desc": "Every Friday, select Safeway locations with a sushi counter offer 10-piece Zenshi rolls for $5; free Just4U loyalty card required, while supplies last.",
+      "tags": [],
+      "value": 5,
       "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
+      "url": "https://www.safeway.com/",
       "best": false,
-      "region": "National"
+      "region": "West and select states"
+    },
+    {
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "color": "#003DA5",
+      "ic": "HT",
+      "deal": "$5 Sushi Friday: Select Sushi Entrees",
+      "desc": "Harris Teeter offers select sushi entrees at the prepared-food counter for just $5 on Fridays at most locations; free VIC loyalty card required, while supplies last.",
+      "tags": [],
+      "value": 5,
+      "expires": "Ongoing",
+      "url": "https://www.harristeeter.com/",
+      "best": false,
+      "region": "Southeast and Mid-Atlantic"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
       "color": "#C8102E",
       "ic": "CH",
-      "deal": "3 For Me from $10.99",
-      "desc": "All day, every day: pick a non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full-size entree for one flat price starting at $10.99.",
+      "deal": "3 For Me: Drink, Starter, and Entree from $10.99",
+      "desc": "Choose a non-alcoholic drink, an appetizer or side salad, and a full entree from the 3 For Me menu starting at $10.99; upgrade tiers go up to $16.99 for sirloin or pasta.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com/menu/3-for-me",
+      "url": "https://www.chilis.com/",
       "best": false,
       "region": "National"
     },
     {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#F47920",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito/Bowl Meal for about $8.99",
-      "desc": "Today only (Thursday): order a burrito or bowl with chips and a drink for approximately $8.99 at participating Tijuana Flats locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Today only (Thursdays)",
-      "url": "https://www.tijuanaflats.com/",
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009743",
+      "ic": "SU",
+      "deal": "Any Footlong for $6.99 with Code FOOTLONG699",
+      "desc": "Apply promo code FOOTLONG699 on the Subway app or website at checkout and get any footlong sub for $6.99; select participating locations, pickup order.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through September 12, 2026",
+      "url": "https://www.subway.com/",
       "best": false,
-      "region": "FL & Southeast"
+      "region": "National"
     },
     {
-      "brand": "Noodles & Company",
-      "cat": "Bowls",
-      "color": "#E06B2D",
-      "ic": "NC",
-      "deal": "Delicious Duo: Entree + Side from $9.95",
-      "desc": "Pair any entree with a side like a Garden Salad, Lemon Parmesan Broccoli, or Caesar Salad starting at just $9.95 all day.",
-      "tags": [],
-      "value": 3,
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009743",
+      "ic": "SU",
+      "deal": "Two Footlong Subs for $12.99 with Code 1299FL",
+      "desc": "Use code 1299FL on the Subway app or website to get two footlong subs for $12.99 total; great value for two people, pickup order at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through September 12, 2026",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#D4002A",
+      "ic": "WS",
+      "deal": "15-Piece Meal for 2 at $25 (Classic Bone-In Wings)",
+      "desc": "Order online or in the app for 15 classic bone-in wings in up to 2 flavors, large fries or veggie sticks, 2 dips, and 2 drinks for $25; choose classic (bone-in) at checkout.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.noodles.com/menu",
-      "best": true,
+      "url": "https://www.wingstop.com/deals",
+      "best": false,
       "region": "National"
     }
   ]
