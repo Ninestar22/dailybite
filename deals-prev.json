@@ -4,106 +4,116 @@
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#9C2026",
+      "color": "#006341",
       "ic": "PB",
-      "deal": "Second Entree for $5 with Code BOGO5",
-      "desc": "Order any entree online or in-app, add a second entree, and apply code BOGO5 at checkout to get the second for $5 instead of full price.",
+      "deal": "BOGO $5: Whole Sandwiches, Bowls, Salads, and Soups",
+      "desc": "Buy one whole sandwich, market bowl, salad, or soup and get a second for just $5 using promo code BOGO5 at online or in-app checkout; valid for delivery, pickup, or kiosk orders.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/articles/deals.html",
+      "best": true
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "Free Chips and Queso with Any Entree",
+      "desc": "Order any full-priced entree on the Chipotle app or website and add a side of Chips and Queso Blanco for free; free Chipotle Rewards account required at checkout.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Safeway",
-      "cat": "Sushi",
-      "color": "#EF3E42",
-      "ic": "SW",
-      "deal": "$5 Sushi Friday: Zenshi 10-Piece Rolls",
-      "desc": "Every Friday, select Safeway locations with a sushi counter offer 10-piece Zenshi rolls for $5; free Just4U loyalty card required, while supplies last.",
-      "tags": [],
-      "value": 5,
-      "expires": "Ongoing",
-      "url": "https://www.safeway.com/",
-      "best": false,
-      "region": "West and select states"
+      "expires": "Through August 23, 2026",
+      "url": "https://www.chipotle.com/rewards",
+      "best": true
     },
     {
       "brand": "Harris Teeter",
       "cat": "Sushi",
-      "color": "#003DA5",
+      "color": "#e31837",
       "ic": "HT",
-      "deal": "$5 Sushi Friday: Select Sushi Entrees",
-      "desc": "Harris Teeter offers select sushi entrees at the prepared-food counter for just $5 on Fridays at most locations; free VIC loyalty card required, while supplies last.",
+      "deal": "Sushi Friday: Sushi Entrees for $5",
+      "desc": "Every Friday, Harris Teeter offers select sushi entrees for just $5.00 at most stores while supplies last; free VIC card may be required at some locations.",
       "tags": [],
-      "value": 5,
-      "expires": "Ongoing",
+      "value": 4,
+      "expires": "Ongoing (Fridays only)",
       "url": "https://www.harristeeter.com/",
       "best": false,
-      "region": "Southeast and Mid-Atlantic"
+      "region": "Mid-Atlantic and Southeast"
     },
     {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#C8102E",
-      "ic": "CH",
-      "deal": "3 For Me: Drink, Starter, and Entree from $10.99",
-      "desc": "Choose a non-alcoholic drink, an appetizer or side salad, and a full entree from the 3 For Me menu starting at $10.99; upgrade tiers go up to $16.99 for sirloin or pasta.",
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "SW",
+      "deal": "$5 Friday Sushi: Zenshi Rolls for $5",
+      "desc": "Select Safeway stores with a fresh sushi counter offer Zenshi-brand rolls as part of the $5 Friday promotion; no purchase minimum required, while supplies last.",
       "tags": [],
       "value": 4,
+      "expires": "Ongoing (Fridays only)",
+      "url": "https://www.safeway.com/",
+      "best": false,
+      "region": "Select states"
+    },
+    {
+      "brand": "Noodles and Company",
+      "cat": "Bowls",
+      "color": "#f15a22",
+      "ic": "N",
+      "deal": "Delicious Duo: Entree and Side from $9.95",
+      "desc": "Order any entree paired with a side dish starting at $9.95 at Noodles and Company; no promo code needed, available online and in-store at participating locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.noodlesandcompany.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009f6b",
+      "ic": "S",
+      "deal": "6-Inch Sub of the Day Combo for $6.99",
+      "desc": "Get the featured 6-inch sub of the day plus chips and a drink for $6.99 every day at participating Subway locations; no app required.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#73b345",
+      "ic": "SS",
+      "deal": "App Pricing: $2 Sodas and $4 Fries",
+      "desc": "Order through the Shake Shack app or website at participating locations and pay just $2 for fountain sodas and $4 for crinkle-cut fries, saving versus in-store prices.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.shakeshack.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chilis",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "CH",
+      "deal": "3 For Me Value Menu from $10.99",
+      "desc": "Dine in at Chilis and choose an appetizer or non-alcoholic drink, an entree, and a non-alcoholic beverage from the 3 For Me menu starting at $10.99 per person.",
+      "tags": [],
+      "value": 3,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009743",
-      "ic": "SU",
-      "deal": "Any Footlong for $6.99 with Code FOOTLONG699",
-      "desc": "Apply promo code FOOTLONG699 on the Subway app or website at checkout and get any footlong sub for $6.99; select participating locations, pickup order.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through September 12, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009743",
-      "ic": "SU",
-      "deal": "Two Footlong Subs for $12.99 with Code 1299FL",
-      "desc": "Use code 1299FL on the Subway app or website to get two footlong subs for $12.99 total; great value for two people, pickup order at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through September 12, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#D4002A",
-      "ic": "WS",
-      "deal": "15-Piece Meal for 2 at $25 (Classic Bone-In Wings)",
-      "desc": "Order online or in the app for 15 classic bone-in wings in up to 2 flavors, large fries or veggie sticks, 2 dips, and 2 drinks for $25; choose classic (bone-in) at checkout.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.wingstop.com/deals",
       "best": false,
       "region": "National"
     }
