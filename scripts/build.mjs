@@ -480,7 +480,8 @@ function main() {
   for (const d of deals) {
     d.isNew = prevKeys.size > 0 && !prevKeys.has((d.brand + "|" + d.deal).toLowerCase());
     d.endingSoon = false;
-    const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(, ?\d{4})?/);
+    // (?!\d) stops "August 2026" from being read as "August 20" (Pokeworks, 2026-08-22).
+    const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/);
     if (m) {
       let ds = m[0].replace(".", "");
       if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
@@ -500,7 +501,7 @@ function main() {
     const ex = String(d.expires || "");
     if (/every|ongoing|daily|weekly|monthly/i.test(ex)) return true;
     let latest = null;
-    for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(, ?\d{4})?/g)) {
+    for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/g)) {
       let ds = m[0].replace(".", "");
       if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
       const t = Date.parse(ds);
@@ -521,7 +522,10 @@ function main() {
   for (const g of GROCERY) APPROVED.add(g);
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands + grocery roster only
   deals = deals.filter(d => !/boneless/i.test((d.deal||"") + " " + (d.desc||""))); // owner: no boneless items ever
-  deals = deals.filter(d => !(new RegExp("custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie", "i")).test((d.deal||"") + " " + (d.desc||"")) || (d.cat||"") === "Pickup"); // owner: no dessert deals at all
+  // Owner: no dessert deals at all. A cookie or brownie offered as one SIDE OPTION of a meal combo
+  // ("chips or a cookie", Subway Sub of the Day, 2026-08-22) is not a dessert deal and is blanked first.
+  const SIDE_OPTION = /\b(?:or|and|plus|with|choice of)\s+(?:a\s+|an\s+)?(?:cookies?|brownies?)\b|\b(?:cookies?|brownies?)\s+or\s+(?:chips|fries|a side|apple)/gi;
+  deals = deals.filter(d => !(new RegExp("custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie", "i")).test(((d.deal||"") + " " + (d.desc||"")).replace(SIDE_OPTION, " ")) || (d.cat||"") === "Pickup");
   // Owner rule (Jacob, 2026-08-18): food, smoothies, and NON-alcoholic drinks only — no alcohol deals ever.
   // Phrases that mention alcohol only to say an item is NOT alcoholic are blanked out
   // before the check, so "bottomless non-alcoholic drink" (Chili's 3 For Me, wrongly
@@ -537,6 +541,14 @@ function main() {
   // every shopper has one, so those deals stay; the paid-membership filter above still applies.
   const MEMBER_OK = new Set(["chipotle", "chick-fil-a", ...GROCERY]);
   deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+
+  // CONCRETE SAVINGS backstop (prompt rule "NOT A DEAL"): a listing must state a price, a percent
+  // off, a freebie, a BOGO, a code, or an N-for-$ bundle. Menu launches "at regular pricing"
+  // (Kura Sushi x Persona, 2026-08-22) are not deals and must not occupy a card.
+  const SAVINGS = /\$\s?\d|\d+\s?%|\bfree\b|\bbogo\b|buy one|\bcode\b|half[- ]price|\b\d+ for \$|\btwo for\b|\b2 for\b|\d+\s?(?:cents?|¢)\b/i;
+  const beforeSavings = deals.length;
+  deals = deals.filter(d => SAVINGS.test((d.deal || "") + " " + (d.desc || "")));
+  if (deals.length < beforeSavings) console.log(`Excluded ${beforeSavings - deals.length} listing(s) with no concrete saving (menu launch / regular price).`);
 
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   // Owner exceptions: Tijuana Flats' published day specials (2026-08-14) and grocery-store day deals such
