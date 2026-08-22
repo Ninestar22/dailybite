@@ -13,7 +13,12 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - **`scripts/refresh-deals.mjs`** is the "AI agent." It calls the Claude API with the
   web search tool to find current deals, validates the result hard, and rewrites `deals.json`.
   If validation fails, it exits non-zero and writes nothing, so the last good file survives.
-- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit daily.
+- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit every morning at
+  about **6:40 AM Eastern** (owner request, 2026-08-22), so the day's deals are live by 7.
+  GitHub cron is UTC-only, so the file schedules four UTC slots (10:40, 11:40, 12:40, 13:40)
+  and a guard step lets only the right one work: it proceeds when the Eastern clock reads
+  6-9 AM **and** `deals.json` has not been refreshed today. Daylight-saving time therefore
+  needs no edits, and a failed morning refresh is retried automatically by the later slots.
 
 ## One-time setup
 
@@ -25,8 +30,9 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
    - (Optional) Add a **variable** named `CLAUDE_MODEL` if you want to override the
      default model string. Confirm the current model name in your Console — model
      names change over time.
-3. Commit these files. The workflow runs daily at 11:00 UTC, or on demand via
-   **Actions → Daily Deal Refresh → Run workflow**.
+3. Commit these files. The workflow runs every morning at about 6:40 AM Eastern (see
+   above), or on demand via **Actions → Daily Deal Refresh → Run workflow** (manual runs
+   always proceed, whatever the time).
 
 ## Run it locally
 
