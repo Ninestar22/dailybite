@@ -255,7 +255,10 @@ async function main() {
     process.exit(1);
   }
 
-  const out = { updated: new Date().toISOString().slice(0, 10), deals };
+  // Effective US-Eastern date (same convention as build.mjs): the workflow's morning guard
+  // compares this to today's Eastern date, so a late-evening manual run must not stamp
+  // tomorrow's UTC date and silently cancel the next morning's refresh.
+  const out = { updated: new Date(Date.now() - 4 * 3600 * 1000).toISOString().slice(0, 10), deals };
   await validateDealUrls(deals);
   writeFileSync(dataPath, JSON.stringify(out, null, 2) + "\n");
   console.log(`Wrote deals.json with ${deals.length} deals (updated ${out.updated}).`);
