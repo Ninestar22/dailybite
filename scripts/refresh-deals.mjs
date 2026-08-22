@@ -258,7 +258,9 @@ async function main() {
   // Effective US-Eastern date (same convention as build.mjs): the workflow's morning guard
   // compares this to today's Eastern date, so a late-evening manual run must not stamp
   // tomorrow's UTC date and silently cancel the next morning's refresh.
-  const out = { updated: new Date(Date.now() - 4 * 3600 * 1000).toISOString().slice(0, 10), deals };
+  // updatedAt (exact UTC timestamp) lets the workflow's noon guard tell "refreshed this morning
+  // by hand" from "refreshed since noon", so the scheduled noon check always happens.
+  const out = { updated: new Date(Date.now() - 4 * 3600 * 1000).toISOString().slice(0, 10), updatedAt: new Date().toISOString(), deals };
   await validateDealUrls(deals);
   writeFileSync(dataPath, JSON.stringify(out, null, 2) + "\n");
   console.log(`Wrote deals.json with ${deals.length} deals (updated ${out.updated}).`);
