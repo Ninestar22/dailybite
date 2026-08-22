@@ -2,20 +2,30 @@ name: Daily Deal Refresh
 
 on:
   schedule:
-    # Owner request (Jacob, 2026-08-22): refresh at about 7 AM Eastern every morning.
-    # GitHub cron is UTC-only and cannot follow daylight-saving time, so FOUR slots are
-    # scheduled and the guard step below lets exactly the right one do the work:
-    #   10:40 UTC = 6:40 AM EDT (Mar-Nov)    11:40 UTC = 6:40 AM EST (Nov-Mar) / 7:40 AM EDT
-    #   12:40 UTC and 13:40 UTC = same-morning RETRIES, used only if the first refresh failed.
-    # The guard runs the job only while deals.json has NOT been refreshed today and the
-    # Eastern clock reads 6 to 9 AM, so a normal day gets one run (~6:40 AM ET, finishing
-    # well before 7) and a bad day gets up to three more tries before 10 AM. The :40 minute
-    # is deliberate: GitHub delays top-of-the-hour schedules the most.
-    - cron: "40 10 * * *"
-    - cron: "40 11 * * *"
-    - cron: "40 12 * * *"
-    - cron: "40 13 * * *"
-  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab (always runs)
+    # Owner request (Jacob, 2026-08-22): check deals at 12:00 PM Eastern, when the day's
+    # promotions have been published, so the site captures the best deals of the day.
+    # GitHub cron is UTC-only and cannot follow daylight-saving time, so several UTC slots
+    # are scheduled and the guard step below lets only the right one do the work:
+    #
+    #   16:05 UTC = 12:05 PM EDT (Mar-Nov)   17:05 UTC = 12:05 PM EST (Nov-Mar) / 1:05 PM EDT
+    #   18:05 and 19:05 UTC = same-afternoon RETRIES, used only if the noon refresh failed.
+    #   -> REFRESH mode: AI search + rebuild. Runs once per day, the first slot whose
+    #      Eastern clock reads 12-3 PM while deals.json has not been refreshed since noon.
+    #
+    #   10:05 UTC = 6:05 AM EDT              11:05 UTC = 6:05 AM EST / 7:05 AM EDT
+    #   -> REBUILD mode (no AI, no cost): re-runs the build with yesterday's deals so
+    #      expired and wrong-weekday deals drop and today's weekday specials (Sushi
+    #      Wednesday, Thursdaze) appear at the start of the day, before the noon refresh.
+    #
+    # Manual runs (Actions -> Run workflow) always do a full refresh, whatever the time.
+    # The :05 minute is deliberate: GitHub delays top-of-the-hour schedules the most.
+    - cron: "5 10 * * *"
+    - cron: "5 11 * * *"
+    - cron: "5 16 * * *"
+    - cron: "5 17 * * *"
+    - cron: "5 18 * * *"
+    - cron: "5 19 * * *"
+  workflow_dispatch: {}
 
 # Prevent overlapping runs.
 concurrency:
@@ -32,79 +42,93 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Decide whether this run should proceed (6-9 AM Eastern and not yet refreshed today)
+      - name: Decide what this run should do (refresh at 12-3 PM Eastern, rebuild at 6-7 AM, else skip)
         id: guard
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Manual run: proceeding."
+            echo "mode=refresh" >> "$GITHUB_OUTPUT"
+            echo "Manual run: full refresh."
             exit 0
           fi
-          HOUR=$(TZ=America/New_York date +%H)
-          TODAY=$(TZ=America/New_York date +%Y-%m-%d)
-          UPDATED=$(grep -o '"updated": *"[0-9-]*"' deals.json | head -1 | grep -o '[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' || true)
-          echo "Eastern time: $(TZ=America/New_York date '+%A %Y-%m-%d %H:%M %Z'); deals.json updated: ${UPDATED:-unknown}"
-          if [ "$UPDATED" = "$TODAY" ]; then
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping: deals were already refreshed today."
-          elif [ "$HOUR" -ge 6 ] && [ "$HOUR" -le 9 ]; then
-            echo "run=true" >> "$GITHUB_OUTPUT"
-            echo "Proceeding: morning window and no refresh yet today."
+          export TZ=America/New_York
+          HOUR=$(date +%H)
+          TODAY=$(date +%Y-%m-%d)
+          NOON=$(date -d "$TODAY 12:00" +%s)
+          UPDATED_AT=$(grep -o '"updatedAt": *"[^"]*"' deals.json | head -1 | sed 's/.*"\([^"]*\)"$/\1/' || true)
+          UPDATED_EPOCH=$(date -d "${UPDATED_AT:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
+          BUILT_AT=$(grep -o '"verifiedAt":"[^"]*"' index.html | head -1 | cut -d'"' -f4 || true)
+          BUILT_DATE=$(date -d "${BUILT_AT:-1970-01-01T00:00:00Z}" +%Y-%m-%d 2>/dev/null || echo 1970-01-01)
+          echo "Eastern time: $(date '+%A %Y-%m-%d %H:%M %Z'); last refresh: ${UPDATED_AT:-unknown}; last build: ${BUILT_AT:-unknown}"
+          if [ "$HOUR" -ge 12 ] && [ "$HOUR" -le 15 ]; then
+            if [ "$UPDATED_EPOCH" -ge "$NOON" ]; then
+              echo "mode=skip" >> "$GITHUB_OUTPUT"; echo "Skipping: deals were already refreshed since noon today."
+            else
+              echo "mode=refresh" >> "$GITHUB_OUTPUT"; echo "Noon window and no refresh since noon: full refresh."
+            fi
+          elif [ "$HOUR" -ge 6 ] && [ "$HOUR" -le 7 ]; then
+            if [ "$BUILT_DATE" = "$TODAY" ]; then
+              echo "mode=skip" >> "$GITHUB_OUTPUT"; echo "Skipping: site was already rebuilt today."
+            else
+              echo "mode=rebuild" >> "$GITHUB_OUTPUT"; echo "Morning window: rebuild only (date-gated deals roll over; no AI call)."
+            fi
           else
-            echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping: outside the 6-9 AM Eastern window (this slot serves the other half of the year)."
+            echo "mode=skip" >> "$GITHUB_OUTPUT"; echo "Skipping: this slot serves the other half of the year (Eastern hour $HOUR)."
           fi
 
       - name: Set up Node
-        if: steps.guard.outputs.run == 'true'
+        if: steps.guard.outputs.mode != 'skip'
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Install dependencies
-        if: steps.guard.outputs.run == 'true'
+        if: steps.guard.outputs.mode != 'skip'
         run: npm install --no-audit --no-fund
 
       - name: Snapshot yesterday's deals for new-badge diff
-        if: steps.guard.outputs.run == 'true'
+        if: steps.guard.outputs.mode == 'refresh'
         run: cp deals.json deals-prev.json
 
       - name: Regenerate deals.json (fails closed on bad data)
         id: refresh
-        if: steps.guard.outputs.run == 'true'
-        # continue-on-error: a failed refresh keeps yesterday's known-good deals.json,
+        if: steps.guard.outputs.mode == 'refresh'
+        # continue-on-error: a failed refresh keeps the last known-good deals.json,
         # but the build below STILL runs so date-gated logic (expiry drops, weekday
         # specials, footer date) stays current. Fixes the 2026-08-17 site freeze.
-        # A failed scheduled refresh is retried automatically by the later cron slots.
+        # A failed scheduled refresh is retried automatically by the later afternoon slots.
         continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}   # optional repo variable; falls back to script default
         run: npm run refresh
 
-      - name: Rebuild index.html from deals.json
-        if: steps.guard.outputs.run == 'true'
+      - name: Rebuild the site from deals.json
+        if: steps.guard.outputs.mode != 'skip'
         run: npm run build
 
       - name: Commit and push if changed
-        if: steps.guard.outputs.run == 'true'
+        if: steps.guard.outputs.mode != 'skip'
         run: |
           git config user.name "dailybite-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm -r --cached node_modules --quiet 2>/dev/null || true
           git add -A
           if git diff --cached --quiet; then
-            echo "No deal changes today."
+            echo "No changes to commit."
           else
-            MSG="chore: daily deal refresh ($(TZ=America/New_York date +%Y-%m-%d))"
-            if [ "${{ steps.refresh.outcome }}" != "success" ]; then
-              MSG="chore: daily rebuild - refresh failed, kept last good deals ($(TZ=America/New_York date +%Y-%m-%d))"
+            DAY=$(TZ=America/New_York date +%Y-%m-%d)
+            if [ "${{ steps.guard.outputs.mode }}" = "rebuild" ]; then
+              MSG="chore: morning rebuild ($DAY): date-gated deals rolled over"
+            elif [ "${{ steps.refresh.outcome }}" != "success" ]; then
+              MSG="chore: daily rebuild - refresh failed, kept last good deals ($DAY)"
+            else
+              MSG="chore: daily deal refresh ($DAY)"
             fi
             git commit -m "$MSG"
             git push
           fi
 
       - name: Surface refresh failure in run status
-        if: steps.guard.outputs.run == 'true' && steps.refresh.outcome != 'success'
+        if: steps.guard.outputs.mode == 'refresh' && steps.refresh.outcome != 'success'
         run: |
-          echo "::warning::Deal refresh failed in this run - site was rebuilt from the last good deals.json. A later morning slot will retry automatically (until 9 AM Eastern). Check the refresh step log."
+          echo "::warning::Deal refresh failed in this run - site was rebuilt from the last good deals.json. A later afternoon slot will retry automatically (until 4 PM Eastern). Check the refresh step log."
