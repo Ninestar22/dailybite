@@ -419,7 +419,7 @@ const DEALS = [
     "endingSoon": false
   }
 ];
-const META = {"verifiedAt":"2026-08-22T11:25:43.926Z"};
+const META = {"verifiedAt":"2026-08-22T19:14:31.762Z"};
 /* DEALS:END */
 
 const today = new Date();
@@ -860,6 +860,42 @@ render();
 </script>
 <script>
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js').catch(function(){}); }
+</script>
+<script>
+/* ---- Keep the installed app and the website in sync (owner request, 2026-08-22) ----
+   The home-screen app (PWA) keeps this page alive for days, so it could show yesterday's
+   build after the noon refresh or the 6 AM rollover. Whenever the page becomes visible,
+   comes back online, is restored from the back/forward cache, or every 15 minutes while
+   open, fetch the live index.html (bypassing every cache) and compare its build stamp
+   with ours: if a newer build is live, reload. Also reload after midnight so the date and
+   day-specific sections never go stale. Silent on failure (offline keeps the last build). */
+(function(){
+  var BUILD = (typeof META === 'object' && META && META.verifiedAt) || '';
+  var loadedDate = new Date().toDateString();
+  var lastCheck = 0, busy = false;
+  function reloadFresh(){ try { location.reload(); } catch(e){} }
+  function check(force){
+    var now = Date.now();
+    if (busy || document.visibilityState === 'hidden') return;
+    if (!force && now - lastCheck < 60000) return;
+    lastCheck = now; busy = true;
+    if (new Date().toDateString() !== loadedDate) { reloadFresh(); return; }
+    if (!BUILD || location.protocol === 'file:' || !navigator.onLine) { busy = false; return; }
+    fetch('/index.html?sync=' + now, { cache: 'no-store', credentials: 'same-origin' })
+      .then(function(r){ return r.ok ? r.text() : ''; })
+      .then(function(html){
+        var m = html.match(/"verifiedAt":"([^"]+)"/);
+        if (m && m[1] !== BUILD) reloadFresh();
+      })
+      .catch(function(){})
+      .then(function(){ busy = false; });
+  }
+  document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'visible') check(false); });
+  window.addEventListener('pageshow', function(e){ if (e.persisted) check(true); });
+  window.addEventListener('online', function(){ check(true); });
+  window.addEventListener('focus', function(){ check(false); });
+  setInterval(function(){ check(false); }, 15 * 60 * 1000);
+})();
 </script>
 <script>/*renderOnLoadSafety*/try{if(typeof render==="function")render();}catch(e){}</script>
 </body>

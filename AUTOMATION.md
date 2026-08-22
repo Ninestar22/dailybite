@@ -13,12 +13,19 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - **`scripts/refresh-deals.mjs`** is the "AI agent." It calls the Claude API with the
   web search tool to find current deals, validates the result hard, and rewrites `deals.json`.
   If validation fails, it exits non-zero and writes nothing, so the last good file survives.
-- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit every morning at
-  about **6:40 AM Eastern** (owner request, 2026-08-22), so the day's deals are live by 7.
-  GitHub cron is UTC-only, so the file schedules four UTC slots (10:40, 11:40, 12:40, 13:40)
-  and a guard step lets only the right one work: it proceeds when the Eastern clock reads
-  6-9 AM **and** `deals.json` has not been refreshed today. Daylight-saving time therefore
-  needs no edits, and a failed morning refresh is retried automatically by the later slots.
+- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit every day at
+  about **12:05 PM Eastern** (owner request, 2026-08-22: by noon the day's promotions are
+  published, so the site captures the best deals of the day). GitHub cron is UTC-only, so
+  the file schedules several UTC slots and a guard step decides what each one does:
+  - **12-3 PM Eastern slots** (16:05-19:05 UTC): a full AI refresh, once per day; if the
+    noon run fails, the later slots retry automatically until 4 PM.
+  - **6-7 AM Eastern slots** (10:05/11:05 UTC): a free rebuild with no AI call, so expired
+    and wrong-weekday deals drop and today's weekday specials appear at the start of the
+    day, before the noon refresh.
+  Daylight-saving time therefore needs no edits. Manual runs always do a full refresh.
+- The homepage re-checks for a newer build whenever it is reopened, comes back online, or
+  every 15 minutes, and reloads itself, so the installed home-screen app and the website
+  always show the same build (see the sync script at the bottom of `index.html`).
 
 ## One-time setup
 
@@ -30,9 +37,9 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
    - (Optional) Add a **variable** named `CLAUDE_MODEL` if you want to override the
      default model string. Confirm the current model name in your Console — model
      names change over time.
-3. Commit these files. The workflow runs every morning at about 6:40 AM Eastern (see
-   above), or on demand via **Actions → Daily Deal Refresh → Run workflow** (manual runs
-   always proceed, whatever the time).
+3. Commit these files. The workflow refreshes every day at about 12:05 PM Eastern and
+   rebuilds at about 6:05 AM (see above), or on demand via **Actions → Daily Deal
+   Refresh → Run workflow** (manual runs always do a full refresh, whatever the time).
 
 ## Run it locally
 
