@@ -1,125 +1,107 @@
 {
   "updated": "2026-08-22",
+  "updatedAt": "2026-08-22T19:23:53.308Z",
   "deals": [
+    {
+      "brand": "Kura Sushi",
+      "cat": "Sushi",
+      "color": "#d12126",
+      "ic": "KS",
+      "deal": "Persona x Kura Sushi Special Menu + Bikkura Pon Capsule Game",
+      "desc": "Through Sept. 17, all Kura Revolving Sushi Bar locations nationwide feature a Persona-themed menu with exclusive rolls and a beef bowl, plus capsule-prize gameplay triggered after every 5 plates.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through September 17, 2026",
+      "url": "https://www.kurasushi.com/",
+      "best": true
+    },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#6b3f2a",
-      "ic": "PB",
-      "deal": "BOGO $5 Entrees: code BOGO5",
-      "desc": "Buy one whole sandwich, salad, bowl of soup, or mac and cheese and get a second for only $5 with promo code BOGO5 at checkout (free MyPanera account required, $10 minimum).",
+      "color": "#c4242b",
+      "ic": "P",
+      "deal": "BOGO $5: Second Entree for Just $5 with Code BOGO5",
+      "desc": "Order any full-priced entree online or via the Panera app and add a second entree for only $5 at checkout using promo code BOGO5; free MyPanera account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/offers.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#c4242b",
+      "ic": "P",
+      "deal": "$1 Cup of Soup with Code SOUP",
+      "desc": "Add any cup of soup to your online or app order and pay just $1 at checkout with promo code SOUP; free MyPanera account required.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/articles/promo.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Pokeworks",
-      "cat": "Poke",
-      "color": "#00a0c6",
-      "ic": "PW",
-      "deal": "Free Avocado with Any Entree: code AVOSUMMER",
-      "desc": "Get a free scoop of avocado with any entree purchase using code AVOSUMMER, redeemable in-store, online, or through the Pokeworks app throughout August 2026.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through August 2026",
-      "url": "https://www.pokeworks.com/",
-      "best": true,
+      "url": "https://www.panerabread.com/en-us/offers.html",
       "region": "National"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#c41230",
+      "color": "#b5111d",
       "ic": "CH",
-      "deal": "3 For Me Meal from $10.99",
-      "desc": "Get a bottomless non-alcoholic drink, your choice of starter (chips and salsa or house salad), and a full entree starting at $10.99, available all day every day at participating locations.",
+      "deal": "3 For Me: Drink, Starter, and Entree from $10.99",
+      "desc": "All day every day, pick a bottomless non-alcoholic drink, a starter (chips and salsa, salad, or soup), and a full entree starting at $10.99 at participating Chili's locations.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com/menu/3-for-me",
-      "best": false,
+      "url": "https://www.chilis.com/restaurant-specials",
       "region": "National"
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
-      "color": "#009b48",
+      "color": "#00853f",
       "ic": "SW",
-      "deal": "6-Inch Sub of the Day Combo: $6.99",
-      "desc": "Get a 6-inch sub of the day, plus chips or a cookie and a drink for $6.99 every day at participating Subway locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
+      "deal": "$6.99 Footlong BOGO Deal with Code BOGO1",
+      "desc": "Use promo code BOGO1 at checkout on the Subway app or website to unlock a BOGO deal on footlong subs; select pickup to skip delivery fees.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through December 31, 2026",
       "url": "https://www.subway.com/",
-      "best": false,
       "region": "National"
     },
     {
-      "brand": "Noodles and Company",
+      "brand": "Noodles & Company",
       "cat": "Bowls",
-      "color": "#e8202a",
-      "ic": "N&C",
-      "deal": "Delicious Duo: Entree and Side from $9.95",
-      "desc": "Order any entree paired with a side dish for a bundle price starting at $9.95, available every day at Noodles and Company locations nationwide.",
+      "color": "#ef8c33",
+      "ic": "NC",
+      "deal": "Delicious Duo: Entree and a Side from $9.95",
+      "desc": "Order any Delicious Duo combo meal with your choice of entree and a side starting at $9.95; no code needed, available in-restaurant, online, or via app.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.noodles.com/menu",
-      "best": false,
       "region": "National"
     },
     {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#74a842",
-      "ic": "SS",
-      "deal": "App Prices: $2 Sodas and $4 Fries",
-      "desc": "Order through the Shake Shack app or website to unlock $2 sodas and $4 fries at participating locations chainwide (not valid on limited-time items).",
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#cf2327",
+      "ic": "WS",
+      "deal": "30 Crispy Tenders for $56",
+      "desc": "Feed a group with 30 Crispy Tenders (not boneless) in your choice of flavors for $56; order online or via the Wingstop app at participating locations.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Jamba",
-      "cat": "Smoothies",
-      "color": "#f7941d",
-      "ic": "JB",
-      "deal": "$5 Acai Bowls",
-      "desc": "Get any acai bowl for $5 at participating Jamba locations for a limited time, available in-store and through the Jamba app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.jamba.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Kura Sushi",
-      "cat": "Sushi",
-      "color": "#e00034",
-      "ic": "KS",
-      "deal": "Persona x Kura Sushi Limited Menu: Through Sept 17",
-      "desc": "A specially curated Persona-themed sushi menu (including the Weird Takoyaki Tempura Roll and Persona-inspired rolls) is available at all Kura Revolving Sushi Bar locations August 1 through September 17, 2026, with Bikkura-Pon capsule prize rounds at regular conveyor-belt pricing.",
-      "tags": [],
-      "value": 2,
-      "expires": "Through September 17, 2026",
-      "url": "https://www.kurasushi.com/",
-      "best": false,
+      "url": "https://www.wingstop.com/specials",
       "region": "National"
     }
   ]
