@@ -115,7 +115,15 @@ jobs:
               MSG="chore: deal refresh ($DAY $HHMM ET)"
             fi
             git commit -m "$MSG"
-            git push
+            # main can move while this run works (a web-UI commit landed mid-run and the
+            # plain push was rejected in run #89, 2026-08-23): rebase and retry.
+            for i in 1 2 3; do
+              if git push; then exit 0; fi
+              echo "Push rejected (main moved). Rebasing and retrying ($i/3)..."
+              git pull --rebase origin main || exit 1
+            done
+            echo "Could not push after 3 attempts."
+            exit 1
           fi
 
       - name: Surface refresh failure in run status
