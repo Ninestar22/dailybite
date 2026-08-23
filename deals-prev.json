@@ -1,107 +1,98 @@
 {
-  "updated": "2026-08-22",
-  "updatedAt": "2026-08-22T19:23:53.308Z",
+  "updated": "2026-08-23",
+  "updatedAt": "2026-08-23T10:05:24.126Z",
   "deals": [
     {
-      "brand": "Kura Sushi",
-      "cat": "Sushi",
-      "color": "#d12126",
-      "ic": "KS",
-      "deal": "Persona x Kura Sushi Special Menu + Bikkura Pon Capsule Game",
-      "desc": "Through Sept. 17, all Kura Revolving Sushi Bar locations nationwide feature a Persona-themed menu with exclusive rolls and a beef bowl, plus capsule-prize gameplay triggered after every 5 plates.",
+      "brand": "Shake Shack",
+      "cat": "Chicken",
+      "color": "#5ba655",
+      "ic": "SS",
+      "deal": "Free Chicken Shack with $10+ Purchase (Chicken Sunday)",
+      "desc": "Use code CHICKENSUNDAY at the kiosk, Shake Shack app, or shakeshack.com to get a free Chicken Shack Sandwich or Lettuce Wrap with any $10+ food/beverage order, every Sunday through December 27, 2026; not valid at drive-thrus or third-party apps.",
       "tags": [
+        "free"
+      ],
+      "value": 5,
+      "expires": "Through December 27, 2026",
+      "url": "https://www.shakeshack.com/national-regional-offers",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Shake Shack",
+      "cat": "Chicken",
+      "color": "#5ba655",
+      "ic": "SS",
+      "deal": "Free Small Lemonade with Any Sandwich or Burger (Code FREESIP)",
+      "desc": "Add a Small Lemonade and any Sandwich or Burger to your cart and enter code FREESIP at checkout via the Shake Shack app, kiosk, or shakeshack.com; offer valid August 20-23, 2026 at participating locations, today is the last day.",
+      "tags": [
+        "free",
         "app"
       ],
       "value": 4,
-      "expires": "Through September 17, 2026",
-      "url": "https://www.kurasushi.com/",
-      "best": true
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#c4242b",
-      "ic": "P",
-      "deal": "BOGO $5: Second Entree for Just $5 with Code BOGO5",
-      "desc": "Order any full-priced entree online or via the Panera app and add a second entree for only $5 at checkout using promo code BOGO5; free MyPanera account required.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/offers.html",
-      "best": true,
+      "expires": "Through August 23, 2026",
+      "url": "https://www.shakeshack.com/national-regional-offers",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#c4242b",
-      "ic": "P",
-      "deal": "$1 Cup of Soup with Code SOUP",
-      "desc": "Add any cup of soup to your online or app order and pay just $1 at checkout with promo code SOUP; free MyPanera account required.",
+      "color": "#c8392b",
+      "ic": "PB",
+      "deal": "BOGO $5 Entree: Code BOGO5",
+      "desc": "Buy one full-price entree (soups, salads, or sandwiches) and get a second entree for just $5 using promo code BOGO5 at checkout on panerabread.com or in the Panera app; requires a free MyPanera account and works at most but not all locations.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/offers.html",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
       "region": "National"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#b5111d",
+      "color": "#7b0d2b",
       "ic": "CH",
-      "deal": "3 For Me: Drink, Starter, and Entree from $10.99",
-      "desc": "All day every day, pick a bottomless non-alcoholic drink, a starter (chips and salsa, salad, or soup), and a full entree starting at $10.99 at participating Chili's locations.",
+      "deal": "3 For Me Meal from $10.99",
+      "desc": "Get a bottomless non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full-size entree all for one flat price starting at $10.99; available all day for dine-in or pickup at participating locations.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com/restaurant-specials",
+      "url": "https://www.chilis.com/",
+      "best": false,
       "region": "National"
     },
     {
       "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#00853f",
+      "cat": "Cafe",
+      "color": "#009b3a",
       "ic": "SW",
-      "deal": "$6.99 Footlong BOGO Deal with Code BOGO1",
-      "desc": "Use promo code BOGO1 at checkout on the Subway app or website to unlock a BOGO deal on footlong subs; select pickup to skip delivery fees.",
+      "deal": "6-Inch Sub + Chips + Drink for $6.99",
+      "desc": "Get the featured 6-inch sub of the day bundled with chips or a cookie and a drink for $6.99 every day at participating Subway locations; check the Subway app or website for your location's featured sub.",
       "tags": [
         "app"
       ],
-      "value": 5,
-      "expires": "Through December 31, 2026",
+      "value": 3,
+      "expires": "Ongoing",
       "url": "https://www.subway.com/",
+      "best": false,
       "region": "National"
     },
     {
-      "brand": "Noodles & Company",
+      "brand": "Noodles and Company",
       "cat": "Bowls",
-      "color": "#ef8c33",
+      "color": "#e85528",
       "ic": "NC",
-      "deal": "Delicious Duo: Entree and a Side from $9.95",
-      "desc": "Order any Delicious Duo combo meal with your choice of entree and a side starting at $9.95; no code needed, available in-restaurant, online, or via app.",
+      "deal": "Delicious Duo: Entree and Side from $9.95",
+      "desc": "Order any entree and a side together as a Delicious Duo starting at $9.95, available every day at participating Noodles and Company locations online and in-store.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.noodles.com/menu",
-      "region": "National"
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#cf2327",
-      "ic": "WS",
-      "deal": "30 Crispy Tenders for $56",
-      "desc": "Feed a group with 30 Crispy Tenders (not boneless) in your choice of flavors for $56; order online or via the Wingstop app at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.wingstop.com/specials",
+      "url": "https://www.noodlesandcompany.com/",
+      "best": false,
       "region": "National"
     }
   ]
