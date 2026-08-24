@@ -525,6 +525,8 @@ const BRAND_STATES = {
   'salad and go': ['Arizona','Texas','Oklahoma','Nevada'],
   'jack in the box': ['California','Nevada','Arizona','Washington','Oregon','Texas','Oklahoma','Missouri','Kansas','Illinois','Indiana','Ohio','North Carolina','South Carolina','Tennessee','Colorado','New Mexico','Idaho','Utah','Hawaii','Louisiana','Arkansas'],
   'in-n-out': ['California','Nevada','Arizona','Utah','Texas','Oregon','Colorado','Idaho'],
+  // Verified 2026-08-24 (Pokeworks is NOT in Virginia: a "National" mislabel showed its deal to a Reston, VA visitor)
+  'pokeworks': ['Texas','California','New York','Georgia','Massachusetts','Connecticut','Tennessee','Michigan','North Carolina','Arizona','Nebraska','Vermont','Rhode Island','Washington','Wisconsin','Florida','New Jersey'],
   'publix': ['Florida','Georgia','Alabama','South Carolina','North Carolina','Tennessee','Virginia','Kentucky'],
   // Grocery chains (prepared-food deals, 2026-08-20). Missing brands fall back to the region text.
   'sprouts': ['Alabama','Arizona','California','Colorado','Delaware','Florida','Georgia','Kansas','Louisiana','Maryland','Missouri','Nevada','New Jersey','New Mexico','North Carolina','Oklahoma','Pennsylvania','South Carolina','Tennessee','Texas','Utah','Virginia','Washington','Wyoming'],
@@ -548,9 +550,20 @@ const STATE_ABBR = {'alabama':'AL','alaska':'AK','arizona':'AZ','arkansas':'AR',
 function regionOK(d){
   if(!STATE) return true;
   // Known brand footprints are authoritative: outside them, never show the deal.
+  // A location confirmed nearby by the map lookup beats every static rule below:
+  // footprint lists can lag a chain's expansion. "<state> only" labels still win.
+  if(DIST && DIST[normBrand(d.brand)] != null && !/\bonly\b/i.test(d.region || '')) return true;
   const fp = BRAND_STATES[(d.brand || '').toLowerCase()] || null;
   if(fp && !fp.includes(STATE)) return false;
-  if(!d.region || /national/i.test(d.region)) return true;
+  if(!d.region || /national/i.test(d.region)){
+    // Don't blindly trust a "National" label (the refresh mislabeled 22-state Pokeworks
+    // "National" and a Virginia visitor saw it, 2026-08-24): when the map lookup worked
+    // and found other chains nearby but not this one within ~25 mi, hide the deal.
+    // Delivery platforms have no storefronts and are exempt.
+    const nb = normBrand(d.brand);
+    if(DIST && Object.keys(DIST).length >= 3 && !PLATFORM_BRANDS.has(nb) && DIST[nb] == null) return false;
+    return true;
+  }
   // Match the full state name OR its USPS abbreviation as a word, so a
   // "FL & Southeast" deal shows for a visitor located in "Florida".
   if(d.region.toLowerCase().includes(STATE.toLowerCase())) return true;
@@ -563,6 +576,9 @@ function regionOK(d){
 }
 function locLabel(){ if(!STATE) return 'Distances on'; const place = CITY ? (CITY + ', ' + STATE) : STATE; return 'Deals for ' + place; }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+const PLATFORM_BRANDS = new Set(['doordash','ubereats','grubhub']); // no storefronts: never map-checked
+// Brands whose OpenStreetMap name differs enough that substring matching misses them.
+const OSM_ALIASES = { 'Kura Sushi': 'Kura Revolving Sushi Bar' };
 function nearLabel(brand){
   const m = DIST && DIST[normBrand(brand)];
   if (m != null) return '' + m.toFixed(1) + ' mi';
@@ -577,7 +593,8 @@ function haversineMiles(lat1, lon1, lat2, lon2){
 }
 async function loadDistances(lat, lon){
   const brands = [...new Set(DEALS.map(d => d.brand))];
-  const rx = brands.map(b => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const rx = brands.concat(brands.map(b => OSM_ALIASES[b]).filter(Boolean))
+    .map(b => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
   const q = `[out:json][timeout:15];nwr["brand"~"${rx}",i](around:40000,${lat},${lon});out center 300;`;
   const res = await fetch('https://overpass-api.de/api/interpreter', {
     method: 'POST',
@@ -596,7 +613,8 @@ async function loadDistances(lat, lon){
     if(eLat == null) continue;
     for(const b of brands){
       const nb = normBrand(b);
-      if(name.includes(nb) || nb.includes(name)){
+      const na = OSM_ALIASES[b] ? normBrand(OSM_ALIASES[b]) : null;
+      if(name.includes(nb) || nb.includes(name) || (na && (name.includes(na) || na.includes(name)))){
         const mi = haversineMiles(lat, lon, eLat, eLon);
         if(best[nb] == null || mi < best[nb]){ best[nb] = mi; hours[nb] = tags.opening_hours || null; }
       }
