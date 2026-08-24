@@ -1,30 +1,14 @@
 {
   "updated": "2026-08-23",
-  "updatedAt": "2026-08-23T10:05:24.126Z",
+  "updatedAt": "2026-08-23T15:31:44.627Z",
   "deals": [
     {
       "brand": "Shake Shack",
-      "cat": "Chicken",
-      "color": "#5ba655",
+      "cat": "Burgers",
+      "color": "#ef3e42",
       "ic": "SS",
-      "deal": "Free Chicken Shack with $10+ Purchase (Chicken Sunday)",
-      "desc": "Use code CHICKENSUNDAY at the kiosk, Shake Shack app, or shakeshack.com to get a free Chicken Shack Sandwich or Lettuce Wrap with any $10+ food/beverage order, every Sunday through December 27, 2026; not valid at drive-thrus or third-party apps.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "Through December 27, 2026",
-      "url": "https://www.shakeshack.com/national-regional-offers",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Chicken",
-      "color": "#5ba655",
-      "ic": "SS",
-      "deal": "Free Small Lemonade with Any Sandwich or Burger (Code FREESIP)",
-      "desc": "Add a Small Lemonade and any Sandwich or Burger to your cart and enter code FREESIP at checkout via the Shake Shack app, kiosk, or shakeshack.com; offer valid August 20-23, 2026 at participating locations, today is the last day.",
+      "deal": "Free Small Lemonade with Any Sandwich or Burger: Last Day Today",
+      "desc": "Order any sandwich or burger via the app, shakeshack.com, or in-shack kiosk and get a free small lemonade (up to $4.99 savings) through August 23, 2026.",
       "tags": [
         "free",
         "app"
@@ -32,66 +16,81 @@
       "value": 4,
       "expires": "Through August 23, 2026",
       "url": "https://www.shakeshack.com/national-regional-offers",
-      "best": false,
-      "region": "National"
+      "best": false
     },
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#c8392b",
-      "ic": "PB",
-      "deal": "BOGO $5 Entree: Code BOGO5",
-      "desc": "Buy one full-price entree (soups, salads, or sandwiches) and get a second entree for just $5 using promo code BOGO5 at checkout on panerabread.com or in the Panera app; requires a free MyPanera account and works at most but not all locations.",
+      "brand": "Shake Shack",
+      "cat": "Burgers",
+      "color": "#ef3e42",
+      "ic": "SS",
+      "deal": "App Prices: $2 Sodas, $4 Fries, $6 Shakes",
+      "desc": "Order through the Shake Shack app or shakeshack.com to unlock discounted app prices: $2 sodas, $4 fries, and $6 shakes at participating locations nationwide.",
       "tags": [
         "app"
       ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#7b0d2b",
-      "ic": "CH",
-      "deal": "3 For Me Meal from $10.99",
-      "desc": "Get a bottomless non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full-size entree all for one flat price starting at $10.99; available all day for dine-in or pickup at participating locations.",
-      "tags": [],
-      "value": 4,
+      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com/",
+      "url": "https://www.shakeshack.com/",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Subway",
-      "cat": "Cafe",
-      "color": "#009b3a",
+      "cat": "Sandwiches",
+      "color": "#009b48",
       "ic": "SW",
-      "deal": "6-Inch Sub + Chips + Drink for $6.99",
-      "desc": "Get the featured 6-inch sub of the day bundled with chips or a cookie and a drink for $6.99 every day at participating Subway locations; check the Subway app or website for your location's featured sub.",
+      "deal": "Two Footlongs for $12.99 with Code FTL1299",
+      "desc": "Use promo code FTL1299 on the Subway app or subway.com to get two footlong subs for $12.99 at participating locations.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
+      "value": 4,
+      "expires": "Through December 31, 2026",
       "url": "https://www.subway.com/",
       "best": false,
       "region": "National"
     },
     {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009b48",
+      "ic": "SW",
+      "deal": "$6.99 Footlong with Code FL699",
+      "desc": "Use promo code FL699 on the Subway app or subway.com to get any footlong sub for $6.99 at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through December 31, 2026",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "CH",
+      "deal": "3 For Me from $10.99: Drink + Starter + Full Entree",
+      "desc": "Every day at Chili's, pick a non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full entree starting at just $10.99 with no app required.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com/",
+      "best": true,
+      "region": "National"
+    },
+    {
       "brand": "Noodles and Company",
       "cat": "Bowls",
-      "color": "#e85528",
+      "color": "#ff6600",
       "ic": "NC",
       "deal": "Delicious Duo: Entree and Side from $9.95",
-      "desc": "Order any entree and a side together as a Delicious Duo starting at $9.95, available every day at participating Noodles and Company locations online and in-store.",
+      "desc": "Order a Delicious Duo at Noodles and Company and get a full entree plus a side dish starting at $9.95 at participating locations, no app required.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.noodlesandcompany.com/",
+      "url": "https://www.noodles.com/menu",
       "best": false,
       "region": "National"
     }
