@@ -1,96 +1,92 @@
 {
-  "updated": "2026-08-23",
-  "updatedAt": "2026-08-23T15:31:44.627Z",
+  "updated": "2026-08-24",
+  "updatedAt": "2026-08-24T10:02:12.854Z",
   "deals": [
     {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#ef3e42",
-      "ic": "SS",
-      "deal": "Free Small Lemonade with Any Sandwich or Burger: Last Day Today",
-      "desc": "Order any sandwich or burger via the app, shakeshack.com, or in-shack kiosk and get a free small lemonade (up to $4.99 savings) through August 23, 2026.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 23, 2026",
-      "url": "https://www.shakeshack.com/national-regional-offers",
-      "best": false
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Burgers",
-      "color": "#ef3e42",
-      "ic": "SS",
-      "deal": "App Prices: $2 Sodas, $4 Fries, $6 Shakes",
-      "desc": "Order through the Shake Shack app or shakeshack.com to unlock discounted app prices: $2 sodas, $4 fries, and $6 shakes at participating locations nationwide.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#e2231a",
+      "ic": "PB",
+      "deal": "BOGO $5: Whole Sandwiches, Salads, Bowls, and Soups",
+      "desc": "Buy one full-size sandwich, salad, market bowl, or bowl of soup and get a second for just $5 using code BOGO5 at online or in-app checkout.",
       "tags": [
         "app"
       ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009b48",
-      "ic": "SW",
-      "deal": "Two Footlongs for $12.99 with Code FTL1299",
-      "desc": "Use promo code FTL1299 on the Subway app or subway.com to get two footlong subs for $12.99 at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through December 31, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009b48",
-      "ic": "SW",
-      "deal": "$6.99 Footlong with Code FL699",
-      "desc": "Use promo code FL699 on the Subway app or subway.com to get any footlong sub for $6.99 at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through December 31, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#c8102e",
-      "ic": "CH",
-      "deal": "3 For Me from $10.99: Drink + Starter + Full Entree",
-      "desc": "Every day at Chili's, pick a non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full entree starting at just $10.99 with no app required.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com/",
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/deals.html",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Noodles and Company",
-      "cat": "Bowls",
-      "color": "#ff6600",
-      "ic": "NC",
-      "deal": "Delicious Duo: Entree and Side from $9.95",
-      "desc": "Order a Delicious Duo at Noodles and Company and get a full entree plus a side dish starting at $9.95 at participating locations, no app required.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#e2231a",
+      "ic": "PB",
+      "deal": "Mix and Match Menu: 10 Items at $4.99 Each",
+      "desc": "Choose from 10 classic Panera options including three salads, three soups, and four half sandwiches, all priced at $4.99 per item.",
       "tags": [],
-      "value": 3,
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.noodles.com/menu",
+      "url": "https://www.panerabread.com/en-us/deals.html",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Pokeworks",
+      "cat": "Poke",
+      "color": "#00c5b3",
+      "ic": "PW",
+      "deal": "Free Avocado with Any Entree: Code AVOSUMMER",
+      "desc": "Get a free scoop of avocado added to any poke bowl or poke burrito order in-store or online using code AVOSUMMER at checkout.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through August 31, 2026",
+      "url": "https://www.pokeworks.com/",
+      "best": true,
+      "region": "Select states"
+    },
+    {
+      "brand": "Starbucks",
+      "cat": "Coffee",
+      "color": "#006241",
+      "ic": "SB",
+      "deal": "Free Popping Pearls with Any Iced Handcrafted Beverage (Last Day Today)",
+      "desc": "Score free Mango-Pineapple Popping Pearls added to any eligible iced handcrafted beverage at participating Starbucks locations today only.",
+      "tags": [],
+      "value": 4,
+      "expires": "Through August 24, 2026",
+      "url": "https://www.starbucks.com/",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009B3A",
+      "ic": "SW",
+      "deal": "Footlong Sub for $6.99: Code FL699",
+      "desc": "Order any footlong sub online or through the Subway app and apply promo code FL699 at checkout to lock in the $6.99 price at participating locations.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Chilis",
+      "cat": "Sit-Down",
+      "color": "#CC0000",
+      "ic": "CL",
+      "deal": "Big Crispy 3 for Me at $10.99",
+      "desc": "Get your choice of a Big Crispy or Spicy Big Crispy chicken sandwich with bottomless Chips and Salsa, a side of fries, and a non-alcoholic drink for $10.99.",
+      "tags": [],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.chilis.com/",
       "best": false,
       "region": "National"
     }
