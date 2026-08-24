@@ -566,6 +566,15 @@ function main() {
   deals = deals.filter(d => SAVINGS.test((d.deal || "") + " " + (d.desc || "")));
   if (deals.length < beforeSavings) console.log(`Excluded ${beforeSavings - deals.length} listing(s) with no concrete saving (menu launch / regular price).`);
 
+  // NO MYSTERY REWARDS backstop (owner rule, 2026-08-24): collectible prizes, capsule toys,
+  // and surprise/mystery rewards are not savings no matter how the model frames them. The
+  // Kura x Persona "Free Bikkura-Pon Prizes" collab (regular-price rolls plus a trinket
+  // after 15 plates) passed the SAVINGS regex on the word "free" and became a Top Pick.
+  const PRIZE = /\b(mystery|surprise|prizes?|collectibles?|capsule|figurines?|keychains?|plush(?:ie)?s?|merch(?:andise)?|sweepstakes?|giveaway|raffle|spin[- ]?to[- ]?win|scratch[- ]?off)\b/i;
+  const beforePrize = deals.length;
+  deals = deals.filter(d => !PRIZE.test((d.deal || "") + " " + (d.desc || "")));
+  if (deals.length < beforePrize) console.log(`Excluded ${beforePrize - deals.length} mystery-reward/prize listing(s) (owner rule: state the dollars or it isn't a deal).`);
+
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   // Owner exceptions: Tijuana Flats' published day specials (2026-08-14) and grocery-store day deals such
   // as Publix/Sprouts/Kroger Sushi Wednesday or Safeway $5 Friday (2026-08-20) may run ON their active day only.
@@ -597,6 +606,9 @@ function main() {
     const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke"].map(canonBrand));
     for (const g of GROCERY) if (!NATIONAL_GROCERY.has(g)) REGIONAL_ONLY.add(g);
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
+    // A Top Pick's TITLE must state the money (owner rule, 2026-08-24): a price, a percent,
+    // a BOGO, or a named free item. Vague titles cannot be the face of the site.
+    const TITLE_DOLLARS = /\$\s?\d|\d+\s?%|\bfree\b|\bbogo\b|half[- ]price|\b\d+ for \$|\d+\s?(?:cents?|¢)\b/i;
     const pick = (list, max) => {
       for (const d of list) {
         if (byBrand.size >= max) break;
@@ -604,6 +616,7 @@ function main() {
         if (byBrand.has(b) || BEST_BANNED.has(b)) continue;
         if (REGIONAL_ONLY.has(b)) continue; // regional-footprint chains never badge - most visitors cannot claim them
         if (isTreatDeal(d)) continue; // owner rule: Top Picks are filling meals, never desserts
+        if (!TITLE_DOLLARS.test(d.deal || "")) continue; // owner rule: Top Pick titles state the dollars
         d.best = true; byBrand.add(b);
       }
     };

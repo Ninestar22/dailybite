@@ -54,8 +54,8 @@ npm run build       # rebuild index.html from deals.json (no key)
 ## Costs
 
 Web search is billed at about **$10 per 1,000 searches** plus token usage. Each daily
-run uses up to `MAX_SEARCHES` (18) searches; at one run a day a full year is well under
-~6,600 searches (≈ $66/yr) plus a small amount of token cost. Lower `MAX_SEARCHES` in `refresh-deals.mjs`
+run uses up to `MAX_SEARCHES` (24) searches; at one run a day a full year is well under
+~8,800 searches (≈ $88/yr) plus a small amount of token cost. Lower `MAX_SEARCHES` in `refresh-deals.mjs`
 to reduce it further.
 
 ## Important caveats
