@@ -13,14 +13,12 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - **`scripts/refresh-deals.mjs`** is the "AI agent." It calls the Claude API with the
   web search tool to find current deals, validates the result hard, and rewrites `deals.json`.
   If validation fails, it exits non-zero and writes nothing, so the last good file survives.
-- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit TWICE a day
-  (owner decision, 2026-08-23): at about **5:05 AM Eastern**, so the site is fresh for
-  early risers with the day's specials already in place, and at about **11:05 AM**, to
-  catch deals announced during the morning before the lunch crowd decides. GitHub cron is
-  UTC-only, so each window gets several UTC slots and a guard step runs a slot only when
-  the Eastern clock is inside its window (5-7 AM or 11 AM-1 PM) and deals.json has not
-  been refreshed since the window opened: each window runs once, the later slots retry
-  automatically if the first attempt fails, and daylight-saving time needs no edits.
+- **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit ONCE a day
+  (owner decision, 2026-08-24) at about **7:05 AM Eastern**. GitHub cron is UTC-only,
+  so the window gets several UTC slots and a guard step runs a slot only when the
+  Eastern clock is inside the window (7-9 AM) and deals.json has not been refreshed
+  since the window opened: the window runs once, the later slots retry automatically
+  if the first attempt fails, and daylight-saving time needs no edits.
 - The homepage re-checks for a newer build whenever it is reopened, comes back online, or
   every 15 minutes, and reloads itself, so the installed home-screen app and the website
   always show the same build (see the sync script at the bottom of `index.html`).
@@ -35,8 +33,8 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
    - (Optional) Add a **variable** named `CLAUDE_MODEL` if you want to override the
      default model string. Confirm the current model name in your Console — model
      names change over time.
-3. Commit these files. The workflow refreshes every day at about 5:05 AM and 11:05 AM
-   Eastern (see above), or on demand via **Actions → Daily Deal Refresh → Run workflow**
+3. Commit these files. The workflow refreshes every day at about 7:05 AM Eastern
+   (see above), or on demand via **Actions → Daily Deal Refresh → Run workflow**
    (manual runs always do a full refresh, whatever the time).
 
 ## Run it locally
@@ -53,8 +51,8 @@ npm run build       # rebuild index.html from deals.json (no key)
 ## Costs
 
 Web search is billed at about **$10 per 1,000 searches** plus token usage. Each daily
-run uses up to `MAX_SEARCHES` (18) searches; at two runs a day a full year is well under
-~13,500 searches (≈ $135/yr) plus a small amount of token cost. Lower `MAX_SEARCHES` in `refresh-deals.mjs`
+run uses up to `MAX_SEARCHES` (18) searches; at one run a day a full year is well under
+~6,600 searches (≈ $66/yr) plus a small amount of token cost. Lower `MAX_SEARCHES` in `refresh-deals.mjs`
 to reduce it further.
 
 ## Important caveats

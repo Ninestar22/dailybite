@@ -2,25 +2,18 @@ name: Daily Deal Refresh
 
 on:
   schedule:
-    # Owner decision (Jacob, 2026-08-23): refresh TWICE a day, Eastern time.
-    #   ~5:05 AM - the site is fresh for early risers (the owner is up at 5:30), with the
-    #              day's specials (Sushi Wednesday, $5 Friday) already in place.
-    #   ~11:05 AM - catches deals announced during the morning, right before lunch.
-    # GitHub cron is UTC-only and cannot follow daylight-saving time, so each window gets
-    # several UTC slots and the guard step lets the right ones do the work: a slot runs a
-    # full refresh when the Eastern clock is inside its window (5-7 AM or 11 AM-1 PM) and
-    # deals.json has not been refreshed since that window opened. So each window normally
-    # runs once, the later slots double as automatic retries if the first attempt fails,
-    # and winter/summer both work without touching this file.
+    # Owner decision (Jacob, 2026-08-24): refresh ONCE a day at ~7:05 AM Eastern.
+    # GitHub cron is UTC-only and cannot follow daylight-saving time, so the window gets
+    # several UTC slots and the guard step lets the right one do the work: a slot runs a
+    # full refresh when the Eastern clock is inside the window (7-9 AM) and deals.json
+    # has not been refreshed since the window opened. So the window normally runs once,
+    # the later slots double as automatic retries if the first attempt fails, and
+    # winter/summer both work without touching this file.
     # The :05 minute is deliberate: GitHub delays top-of-the-hour schedules the most.
-    - cron: "5 9 * * *"    # 5:05 AM EDT            (4:05 EST -> skipped)
-    - cron: "5 10 * * *"   # 6:05 AM EDT retry      / 5:05 AM EST
-    - cron: "5 11 * * *"   # 7:05 AM EDT retry      / 6:05 AM EST retry
-    - cron: "5 12 * * *"   # (8:05 EDT -> skipped)  / 7:05 AM EST retry
-    - cron: "5 15 * * *"   # 11:05 AM EDT           (10:05 EST -> skipped)
-    - cron: "5 16 * * *"   # 12:05 PM EDT retry     / 11:05 AM EST
-    - cron: "5 17 * * *"   # 1:05 PM EDT retry      / 12:05 PM EST retry
-    - cron: "5 18 * * *"   # (2:05 EDT -> skipped)  / 1:05 PM EST retry
+    - cron: "5 11 * * *"   # 7:05 AM EDT            (6:05 EST -> skipped)
+    - cron: "5 12 * * *"   # 8:05 AM EDT retry      / 7:05 AM EST
+    - cron: "5 13 * * *"   # 9:05 AM EDT retry      / 8:05 AM EST retry
+    - cron: "5 14 * * *"   # (10:05 EDT -> skipped) / 9:05 AM EST retry
   workflow_dispatch: {}   # manual runs always do a full refresh, whatever the time
 
 # Prevent overlapping runs.
@@ -38,7 +31,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Decide whether this run should proceed (5-7 AM / 11 AM-1 PM Eastern, once per window)
+      - name: Decide whether this run should proceed (7-9 AM Eastern, once per day)
         id: guard
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then
@@ -53,11 +46,10 @@ jobs:
           UPDATED_EPOCH=$(date -d "${UPDATED_AT:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
           echo "Eastern time: $(date '+%A %Y-%m-%d %H:%M %Z'); last refresh: ${UPDATED_AT:-unknown}"
           WINDOW_OPEN=""
-          if [ "$HOUR" -ge 5 ] && [ "$HOUR" -le 7 ]; then WINDOW_OPEN=$(date -d "$TODAY 05:00" +%s); LABEL="morning (5 AM)"; fi
-          if [ "$HOUR" -ge 11 ] && [ "$HOUR" -le 13 ]; then WINDOW_OPEN=$(date -d "$TODAY 11:00" +%s); LABEL="midday (11 AM)"; fi
+          if [ "$HOUR" -ge 7 ] && [ "$HOUR" -le 9 ]; then WINDOW_OPEN=$(date -d "$TODAY 07:00" +%s); LABEL="morning (7 AM)"; fi
           if [ -z "$WINDOW_OPEN" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Skipping: Eastern hour $HOUR is outside both windows (this slot serves the other half of the year)."
+            echo "Skipping: Eastern hour $HOUR is outside the window (this slot serves the other half of the year)."
           elif [ "$UPDATED_EPOCH" -ge "$WINDOW_OPEN" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Skipping: deals were already refreshed in the $LABEL window."
