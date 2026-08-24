@@ -82,10 +82,15 @@ const dealsFor = (name, deals) => deals.filter(d => {
   return b.includes(n) || n.includes(b);
 });
 
-const today = new Date(Date.now() - 4 * 3600 * 1000); // effective US-Eastern date: day rolls at ~midnight ET, not UTC
-const iso = today.toISOString().slice(0, 10);
-const monthYear = today.toLocaleString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
-const prettyDate = today.toLocaleString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+// Real US-Eastern calendar date via the IANA timezone: the day rolls at midnight ET in
+// both EST and EDT (the old fixed UTC-4 offset was an hour off all winter).
+const ET = { timeZone: "America/New_York" };
+const nowDate = new Date();
+const iso = nowDate.toLocaleDateString("en-CA", ET); // YYYY-MM-DD
+const monthYear = nowDate.toLocaleDateString("en-US", { month: "long", year: "numeric", ...ET });
+const prettyDate = nowDate.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", ...ET });
+const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const dowET = WEEKDAYS.indexOf(nowDate.toLocaleDateString("en-US", { weekday: "long", ...ET }));
 
 function chainNav(current) {
   return CHAINS.map(c => c.slug === current
@@ -109,7 +114,9 @@ function brandDomain(brand) {
   return key.replace(/['".,!]/g, "").replace(/[^a-z0-9]/g, "") + ".com";
 }
 
-const LATE_BRANDS = new Set(["taco bell","jack in the box","whataburger","del taco","ihop","denny's","dennys","insomnia cookies","mcdonald's","mcdonalds","burger king","burgerking","wendy's","wendys","domino's","dominos","sonic drive-in","sonic"]);
+// Approved-roster chains that genuinely stay open late (the old list held only banned
+// fast-food brands, so the OPEN LATE pill could never render after the healthy whitelist).
+const LATE_BRANDS = new Set(["wingstop"]);
 function latePill(d) { return LATE_BRANDS.has(canonBrand(d.brand)) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
   const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
@@ -192,7 +199,7 @@ function chainPage(chain, deals) {
   ${chain.note ? `<p class="tag">${esc(chain.note)}</p>` : ""}
   ${body}
   ${EMAIL_CAPTURE}
-    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>
+    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
@@ -297,7 +304,7 @@ function holidayPage(h, deals) {
   const pretty = dt.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" });
   const title = `${h.name} ${dt.getFullYear()} Deals & Freebies (${pretty})`;
   const desc = `${h.name} is ${pretty}. ${h.blurb} Verified deals list, updated every morning.`;
-  const isDay = new Date().toDateString() === dt.toDateString();
+  const isDay = iso === h.date;
   const matchedBlock = matched.length
     ? `<h2 style="font-size:18px;margin:26px 2px 4px">Deals live right now</h2><div class="grid">${matched.map(dealCard).join("\n")}</div>`
     : `<div class="empty">${isDay ? "We're re-checking deals throughout the morning: check back shortly." : `Chains usually announce their ${esc(h.name)} specials in the final days before ${esc(pretty)}. We re-check every morning and verified deals will appear here the moment they're live.`}</div>`;
@@ -337,11 +344,11 @@ ${matchedBlock}
 }
 
 const DAY_NOTES = {
-  monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. It\u2019s also bagel day: Einstein Bros. runs its $9 baker\u2019s dozen on Mondays at participating shops.",
-  tuesday: "Tuesday is the strongest deal day of the week. Taco Bell historically drops new app offers on Tuesdays, and taco specials across chains make this the cheapest dinner night on the calendar.",
+  monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. Most app deal tabs refresh Monday morning, so check Chipotle and Chick-fil-A first for the week\u2019s new offers.",
+  tuesday: "Tuesday is taco night: Tijuana Flats runs Taco Tuesdaze (two tacos, chips, and a drink for about $7.99) at participating FL & Southeast locations, and taco specials across chains make this one of the cheapest dinner nights of the week.",
   wednesday: "Wednesday is sushi day in the Southeast: Publix stores with a sushi counter sell select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 every Wednesday, no coupon or app needed. Elsewhere, mid-week is sleeper-deal territory and app bundles carry the rest.",
   thursday: "Chains tend to preview weekend offers on Thursdays: check the app deal tabs tonight for anything expiring Sunday.",
-  friday: "Friday is freebie day: McDonald\u2019s runs Free Fries Friday (free medium fries with any $1+ app purchase), and high-tier Subway MVP members get free chips with purchase on Fridays.",
+  friday: "Friday is grocery deal day: many Safeway and Albertsons divisions run $5 Friday on prepared foods like sushi and 8-piece chicken, and Harris Teeter runs $5 sushi Fridays in some markets (free VIC card).",
   saturday: "Weekends skew toward family bundles and delivery-app promos: single-visit value boxes still apply, and breakfast deals run later than weekdays.",
   sunday: "Sunday is prep-for-the-week day: stack what\u2019s left of weekend offers, and remember most app deal tabs refresh Monday morning.",
 };
@@ -390,7 +397,7 @@ function dayPage(day, deals) {
   <p class="tag">Every deal below is re-verified this morning against official sources.</p>\n  <p class="tag">${DAY_NOTES[day] || ""}</p>
   ${body}
   ${EMAIL_CAPTURE}
-    <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
+    <nav class="chains"><strong>Deals by day:</strong> ${dayNav} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
@@ -426,11 +433,9 @@ function main() {
     throw new Error("deals.json has no deals array: refusing to build an empty page.");
   }
   {
-    const todayIso = new Date().toISOString().slice(0, 10);
-    const dowNow = today.getUTCDay(); // ET-adjusted weekday from the shared `today` date
     for (const e of EVERGREEN) {
-      if (e.dow !== undefined && e.dow !== dowNow) continue;
-      if (todayIso <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
+      if (e.dow !== undefined && e.dow !== dowET) continue;
+      if (iso <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
     }
   }
 
@@ -484,7 +489,7 @@ function main() {
     const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/);
     if (m) {
       let ds = m[0].replace(".", "");
-      if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
+      if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
       const t = Date.parse(ds);
       if (!isNaN(t)) {
         const diff = (t - now) / 86400000;
@@ -503,7 +508,7 @@ function main() {
     let latest = null;
     for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/g)) {
       let ds = m[0].replace(".", "");
-      if (!/\d{4}/.test(ds)) ds += ", " + new Date().getFullYear();
+      if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
       const t = Date.parse(ds);
       if (!isNaN(t) && (latest == null || t > latest)) latest = t;
     }
@@ -554,7 +559,7 @@ function main() {
   // Owner exceptions: Tijuana Flats' published day specials (2026-08-14) and grocery-store day deals such
   // as Publix/Sprouts/Kroger Sushi Wednesday or Safeway $5 Friday (2026-08-20) may run ON their active day only.
   const DAY_SPECIAL_BRANDS = new Set(["tijuana flats", ...GROCERY]);
-  const DOW_NAME = ["sunday","monday","tuesday","wednesday","thursday","friday","saturday"][today.getUTCDay()];
+  const DOW_NAME = WEEKDAYS[dowET].toLowerCase();
   deals = deals.filter(d => {
     const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).toLowerCase();
     // Day-of-week / time-window patterns scan everything; "happy hour" only the
