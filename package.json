@@ -7,9 +7,12 @@
   "scripts": {
     "refresh": "node scripts/refresh-deals.mjs",
     "build": "node scripts/build.mjs",
-    "update": "npm run refresh && npm run build"
+    "update": "npm run refresh && npm run build",
+    "social:image": "node scripts/social-image.mjs",
+    "social:post": "node scripts/post-social.mjs"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.109.1"
+    "@anthropic-ai/sdk": "^0.109.1",
+    "sharp": "^0.33.5"
   }
 }

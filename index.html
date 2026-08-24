@@ -121,7 +121,7 @@
   .faq summary{font-weight:700;font-size:14px;cursor:pointer;color:#f4f5f7}
   .faq details p{color:#9aa3b2;font-size:13px;line-height:1.55;margin:10px 0 0}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"Right now it doesn\u2019t: DailyBite is free to use, has no ads, and every deal link goes straight to the restaurant\u2019s own site or app."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"DailyBite is free and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link. Deal listings are never sponsored and every deal link goes straight to the restaurant's own site or app."}}]}</script>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
@@ -148,6 +148,7 @@
     <div class="today-head">&#11088; Top Picks</div>
     <div class="today-sub">The best healthier deals, hand-picked and verified today</div>
     <div class="grid" id="topgrid"></div>
+    <div class="note" style="text-align:center;font-size:13px;color:var(--muted)">Want picks like these every morning? <a href="#signup" style="color:var(--accent2);font-weight:700" onclick="var f=document.getElementById('signup');if(f){f.scrollIntoView({behavior:'smooth'});return false;}">Get the free daily email &rarr;</a></div>
   </div>
   <div id="todaywrap" style="display:none">
     <div class="today-head">Worth grabbing today</div>
@@ -249,7 +250,7 @@
 <!-- SSRGRID:END --></div>
   <div class="empty" id="empty" style="display:none">No deals match your search.</div>
 
-    <div class="promo">
+    <div class="promo" id="signup">
     <script>(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account', '2582509');</script>
     <div class="ml-embedded" data-form="phh0LU"></div>
   </div>
@@ -261,7 +262,7 @@
     <details><summary>Are these deals actually real?</summary><p>Yes: every deal links to the restaurant's own app or official page, and each one is re-checked daily. If we can't confirm a deal is still active, it comes off the list the same morning.</p></details>
     <details><summary>Do I need to sign up for anything?</summary><p>No. DailyBite is free, there's no account, and we only list deals anyone can claim: no first-order-only promos, no loyalty-point games, no paid memberships.</p></details>
     <details><summary>Why are so many deals "app only"?</summary><p>Restaurant chains put their best prices inside their own apps. The apps are free to download, and we tell you exactly which app each deal lives in.</p></details>
-    <details><summary>How does DailyBite make money?</summary><p>Right now it doesn&#39;t: DailyBite is free to use, has no ads, and every Get deal link goes straight to the restaurant&#39;s own site or app. If that ever changes, it will be disclosed here first.</p></details>
+    <details><summary>How does DailyBite make money?</summary><p>DailyBite is free to use and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link, at no extra cost to you. Deal listings are never sponsored: every Get deal link goes straight to the restaurant&#39;s own site or app, and commissions never influence which deals we list or feature.</p></details>
   </section>
 
   </div>

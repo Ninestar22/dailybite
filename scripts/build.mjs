@@ -292,9 +292,20 @@ ${items}
 const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
 
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
+// Healthy-fit calendar only (owner whitelist, 2026-08-10): no burger/dessert holidays.
 const HOLIDAYS = [
-  { slug: "national-cheeseburger-day-deals", name: "National Cheeseburger Day", date: "2026-09-18", emoji: "", kw: /burger|whopper|cheeseburger/i,
-    blurb: "September 18 is the biggest burger deal day of the year: expect free and $1 cheeseburgers in most major burger apps." },
+  { slug: "national-coffee-day-deals", name: "National Coffee Day", date: "2026-09-29", emoji: "", kw: /coffee|latte|espresso|cold brew/i,
+    blurb: "September 29 is the biggest coffee deal day of the year: expect free and heavily discounted drinks in the major coffee apps, Starbucks included." },
+  { slug: "national-taco-day-deals", name: "National Taco Day", date: "2026-10-06", emoji: "", kw: /taco/i,
+    blurb: "National Taco Day now lands on the first Tuesday of October: expect taco specials across chains, and Tijuana Flats' Taco Tuesdaze stacks right on top of it." },
+  { slug: "national-sandwich-day-deals", name: "National Sandwich Day", date: "2026-11-03", emoji: "", kw: /sandwich|\bsub\b|footlong|hoagie/i,
+    blurb: "November 3 brings sandwich deals from Subway, Potbelly, Panera and more: BOGOs and promo codes are the usual pattern." },
+  { slug: "international-sushi-day-deals", name: "International Sushi Day", date: "2027-06-18", emoji: "", kw: /sushi|poke|\broll\b/i,
+    blurb: "June 18 is sushi's big day: look for roll specials at sushi chains and grocery sushi counters, on top of the weekly $5 sushi days." },
+  { slug: "national-smoothie-day-deals", name: "National Smoothie Day", date: "2027-06-21", emoji: "", kw: /smoothie/i,
+    blurb: "June 21 is National Smoothie Day: Smoothie King, Tropical Smoothie Cafe and Jamba have all run freebies or steep discounts on the day in past years." },
+  { slug: "national-avocado-day-deals", name: "National Avocado Day", date: "2027-07-31", emoji: "", kw: /avocado|guac/i,
+    blurb: "July 31 is National Avocado Day: free guac at Mexican chains and avocado add-ons at bowl and poke spots are the classic offers." },
 ];
 
 function holidayPage(h, deals) {

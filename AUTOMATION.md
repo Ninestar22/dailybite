@@ -22,6 +22,9 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - The homepage re-checks for a newer build whenever it is reopened, comes back online, or
   every 15 minutes, and reloads itself, so the installed home-screen app and the website
   always show the same build (see the sync script at the bottom of `index.html`).
+- After a successful refresh, the workflow also generates a "today's deals" share image
+  (`scripts/social-image.mjs`) and posts it to Pinterest and Instagram
+  (`scripts/post-social.mjs`) once their API secrets are configured: see `SOCIAL.md`.
 
 ## One-time setup
 
