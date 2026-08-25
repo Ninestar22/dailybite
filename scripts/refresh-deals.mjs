@@ -46,6 +46,8 @@ SEARCH STRATEGY: your search budget is limited, so never spend it one brand at a
 
 LIST SIZE (owner request, 2026-08-24): aim for 12 to 18 deals every day: a 6-deal day is a weak page. If the roundups leave the list short, spend the remaining search budget going chain by chain through the approved list ("Sweetgreen promo code", "CAVA deal this week", "Wingstop promo", "El Pollo Loco app deals", "Qdoba coupon") until the list fills out. Standing value menus with stated prices (Chili's 3 For Me, Subway Sub of the Day, Noodles Delicious Duo) count and are worth re-verifying daily. Never pad with vague, expired, or dollar-less offers to hit the number: stated-dollars quality first, then quantity.
 
+SEARCH DISCIPLINE (cost control): every web search costs real money. STOP searching the moment you hold 15 or more verified, dollars-stated deals: unspent budget is pure savings. Never search to re-confirm a detail you already have evidence for, never re-search a chain a roundup already covered, and never spend a search out of curiosity about a non-approved brand.
+
 Rules:
 - NO BONELESS ITEMS: never include any boneless wing deal from any brand, in any position. The owner has tried them and rejects them outright.
 - NO DESSERT DEALS AT ALL: never include deals whose main item is custard, milkshakes, donuts, cookies, ice cream, froyo, or any dessert - not as picks, not as regular listings. Fries/drink combos are fine.
@@ -160,35 +162,43 @@ function dedupe(deals) {
   return out;
 }
 
-function validate(deals) {
+function dealFieldErrors(d, i) {
   const errors = [];
-  if (!Array.isArray(deals)) return ["top-level 'deals' is not an array"];
-
-  // Normalize cosmetic fields before validating — don't fail a whole run
-  // over a brand initial that's a character too long.
-  deals.forEach(d => {
-    if (typeof d.ic === "string") d.ic = d.ic.trim().slice(0, 3);
-  });
-  if (deals.length < MIN_DEALS) errors.push(`too few deals (${deals.length} < ${MIN_DEALS})`);
-  if (deals.length > MAX_DEALS) errors.push(`too many deals (${deals.length} > ${MAX_DEALS})`);
-
-  deals.forEach((d, i) => {
-    const at = `deal[${i}]`;
-    for (const f of ["brand", "cat", "ic", "deal", "desc", "expires", "url"]) {
-      if (typeof d[f] !== "string" || !d[f].trim()) errors.push(`${at}.${f} missing/empty`);
-    }
-    if (typeof d.color !== "string" || !/^#[0-9a-fA-F]{6}$/.test(d.color)) errors.push(`${at}.color not a hex color`);
-    if (typeof d.url === "string" && !/^https:\/\//i.test(d.url)) errors.push(`${at}.url not https`);
-    if (typeof d.ic === "string" && d.ic.length > 3) errors.push(`${at}.ic too long`);
-    if (!Array.isArray(d.tags) || d.tags.some(t => !ALLOWED_TAGS.has(t))) errors.push(`${at}.tags invalid`);
-    if (!Number.isFinite(d.value) || d.value < 1 || d.value > 5) errors.push(`${at}.value out of range`);
-    if ("best" in d && typeof d.best !== "boolean") errors.push(`${at}.best not boolean`);
-    if ("region" in d && (typeof d.region !== "string" || d.region.length > 48)) errors.push(`${at}.region invalid`);
-  });
-
-  const bestCount = deals.filter(d => d.best === true).length;
-  if (bestCount > 4) errors.push(`too many 'best' deals (${bestCount})`);
+  const at = `deal[${i}]`;
+  for (const f of ["brand", "cat", "ic", "deal", "desc", "expires", "url"]) {
+    if (typeof d[f] !== "string" || !d[f].trim()) errors.push(`${at}.${f} missing/empty`);
+  }
+  if (typeof d.color !== "string" || !/^#[0-9a-fA-F]{6}$/.test(d.color)) errors.push(`${at}.color not a hex color`);
+  if (typeof d.url === "string" && !/^https:\/\//i.test(d.url)) errors.push(`${at}.url not https`);
+  if (!Array.isArray(d.tags) || d.tags.some(t => !ALLOWED_TAGS.has(t))) errors.push(`${at}.tags invalid`);
+  if (!Number.isFinite(d.value) || d.value < 1 || d.value > 5) errors.push(`${at}.value out of range`);
+  if ("best" in d && typeof d.best !== "boolean") errors.push(`${at}.best not boolean`);
+  if ("region" in d && (typeof d.region !== "string" || d.region.length > 48)) errors.push(`${at}.region invalid`);
   return errors;
+}
+
+// Cost control (2026-08-25): a retry re-spends the ENTIRE search budget, so a run is
+// only allowed to fail when it is truly unusable. One malformed deal is dropped with a
+// log line, cosmetic overflows are trimmed, an over-long list keeps its highest-value
+// deals, and extra "best" flags are cleared (build.mjs recomputes Top Picks anyway).
+// Only a list that ends up below MIN_DEALS still triggers the retry.
+function salvage(deals) {
+  if (!Array.isArray(deals)) return { deals: null, errors: ["top-level 'deals' is not an array"] };
+  deals.forEach(d => { if (d && typeof d.ic === "string") d.ic = d.ic.trim().slice(0, 3); });
+  const kept = deals.filter((d, i) => {
+    const errs = d ? dealFieldErrors(d, i) : ["not an object"];
+    if (errs.length) console.error(`Dropping ${(d && d.brand) || `deal[${i}]`} instead of retrying: ${errs.join("; ")}`);
+    return errs.length === 0;
+  });
+  if (kept.length > MAX_DEALS) {
+    kept.sort((a, b) => (b.value || 0) - (a.value || 0));
+    kept.length = MAX_DEALS;
+    console.error(`Trimmed to the ${MAX_DEALS} highest-value deals instead of retrying.`);
+  }
+  let best = 0;
+  for (const d of kept) if (d.best === true && ++best > 4) d.best = false;
+  const errors = kept.length < MIN_DEALS ? [`too few valid deals (${kept.length} < ${MIN_DEALS})`] : [];
+  return { deals: kept, errors };
 }
 
 async function generate() {
@@ -233,14 +243,13 @@ async function repairJson(text) {
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not set.");
 
-  // One attempt = generate (with JSON repair) + dedupe + validate. ANY failure, including
-  // a reply that is not JSON or an API error, gets exactly one retry before failing closed:
-  // search variance sometimes yields a short list (2026-08-17, "too few deals (4 < 6)") and
-  // malformed JSON killed the 2026-08-20 run outright because only validation used to retry.
+  // One attempt = generate (with JSON repair) + dedupe + salvage. Only an unusable run
+  // (API error, unparseable output, or fewer than MIN_DEALS valid deals) gets the single
+  // retry, because a retry re-spends the full search budget: individually-broken deals
+  // are dropped by salvage() rather than failing the run (cost cleanup, 2026-08-25).
   async function attempt() {
     try {
-      const deals = dedupe(await generate());
-      return { deals, errors: validate(deals) };
+      return salvage(dedupe(await generate()));
     } catch (e) {
       return { deals: null, errors: [e.message || String(e)] };
     }
