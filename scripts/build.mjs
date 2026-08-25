@@ -420,7 +420,7 @@ function main() {
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).
   // Injected only when the daily AI refresh did not supply a deal for that brand.
   const EVERGREEN = [
-    { until: "2026-08-15", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Delivery on $10+ Digital Orders", desc: "Chipotle is waiving its delivery fee (typically $1-$3 per order) on digital orders of $10 or more for a limited time. Order in the app or at chipotle.com - no code needed. Only a saving if you were ordering delivery anyway; service fees still apply.", tags: ["app"], value: 3, expires: "Limited time", url: "https://www.chipotle.com/", best: false, region: "National" } },
+    // (Chipotle free-delivery evergreen removed 2026-08-25: its until-date of 2026-08-15 passed.)
     { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/", best: false, region: "National" } },
     { until: "2026-12-31", deal: { brand: "Chili’s", cat: "Sit-Down", color: "#ee3a43", ic: "CH", deal: "3 For Me: Drink + App + Entree from $10.99", desc: "Chili’s all-day 3 For Me bundles a bottomless drink, an appetizer (chips and salsa or house salad), and a full entree starting at $10.99, with $14.99 and $16.99 tiers - every day at participating locations, no membership needed.", tags: [], value: 4, expires: "Ongoing", url: "https://www.chilis.com/", best: false, region: "National" } },
     // Owner request (Jacob, 2026-08-14): Tijuana Flats day specials, injected only on their active weekday (dow: 0=Sun..6=Sat).
@@ -596,6 +596,19 @@ function main() {
     if (recurring && DAY_SPECIAL_BRANDS.has(canonBrand(d.brand)) && txt.includes(DOW_NAME)) return true;
     return !recurring;
   });
+
+  // A deal whose TITLE names a weekday is only valid on that weekday: a failed refresh
+  // must not leave "Tuna Tuesday Sub of the Day" on the site on a Wednesday (2026-08-25).
+  {
+    const DAY_STEMS = ["sun", "mon", "tues", "wednes", "thurs", "fri", "satur"];
+    const beforeDay = deals.length;
+    deals = deals.filter(d => {
+      const t = (d.deal || "").toLowerCase();
+      const named = DAY_STEMS.map((s, i) => ({ s, i })).filter(x => new RegExp(`\\b${x.s}(?:days?|daze)\\b`).test(t));
+      return !named.length || named.some(x => x.i === dowET);
+    });
+    if (deals.length < beforeDay) console.log(`Excluded ${beforeDay - deals.length} wrong-weekday deal(s) (title names a day that is not today).`);
+  }
 
   // Top Picks: recomputed here every build — healthy-first, banned brands never.
   // Jacob's policy: Top Picks must showcase genuinely healthy deals.
