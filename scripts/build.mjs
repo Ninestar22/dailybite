@@ -12,22 +12,25 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://dailybitedeals.com";
 
 // Fixed roster so chain-page URLs never disappear (good for SEO).
+// banned: true = chain is excluded by the healthy whitelist and is NEVER refreshed;
+// its page stays live as an honest "why we don't list this" page (authenticity
+// decision, Jacob, 2026-08-26) but it is dropped from site navigation.
 const CHAINS = [
-  { slug: "mcdonalds-deals",   name: "McDonald's" },
-  { slug: "taco-bell-deals",   name: "Taco Bell" },
-  { slug: "wendys-deals",      name: "Wendy's" },
-  { slug: "burger-king-deals", name: "Burger King" },
+  { slug: "mcdonalds-deals",   name: "McDonald's", banned: true },
+  { slug: "taco-bell-deals",   name: "Taco Bell", banned: true },
+  { slug: "wendys-deals",      name: "Wendy's", banned: true },
+  { slug: "burger-king-deals", name: "Burger King", banned: true },
   { slug: "chipotle-deals",    name: "Chipotle" },
   { slug: "chick-fil-a-deals", name: "Chick-fil-A" },
   { slug: "starbucks-deals",   name: "Starbucks" },
   { slug: "panera-deals",      name: "Panera" },
-  { slug: "pizza-hut-deals",   name: "Pizza Hut" },
-  { slug: "popeyes-deals",     name: "Popeyes" },
-  { slug: "dunkin-deals",      name: "Dunkin'" },
-  { slug: "sonic-deals",       name: "Sonic" },
-  { slug: "arbys-deals",       name: "Arby's" },
-  { slug: "kfc-deals",         name: "KFC" },
-  { slug: "dominos-deals",     name: "Domino's" },
+  { slug: "pizza-hut-deals",   name: "Pizza Hut", banned: true },
+  { slug: "popeyes-deals",     name: "Popeyes", banned: true },
+  { slug: "dunkin-deals",      name: "Dunkin'", banned: true },
+  { slug: "sonic-deals",       name: "Sonic", banned: true },
+  { slug: "arbys-deals",       name: "Arby's", banned: true },
+  { slug: "kfc-deals",         name: "KFC", banned: true },
+  { slug: "dominos-deals",     name: "Domino's", banned: true },
   { slug: "subway-deals",      name: "Subway" },
   { slug: "sweetgreen-deals",  name: "Sweetgreen" },
   { slug: "potbelly-deals",  name: "Potbelly" },
@@ -42,19 +45,25 @@ const CHAINS = [
   { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
   { slug: "tijuana-flats-deals", name: "Tijuana Flats", note: "Tijuana Flats runs Taco Tuesdaze (2 tacos, chips and a drink, about $7.99) and Throwback Thursdaze (burrito or bowl, chips and a drink, about $8.99) at participating FL & Southeast locations: each appears below on its day." },
-  { slug: "papa-johns-deals",  name: "Papa John's" },
-  { slug: "einstein-bros-deals", name: "Einstein Bros." },
-  { slug: "jack-in-the-box-deals", name: "Jack in the Box" },
-  { slug: "whataburger-deals",  name: "Whataburger" },
-  { slug: "del-taco-deals",     name: "Del Taco" },
-  { slug: "ihop-deals",         name: "IHOP" },
-  { slug: "dennys-deals",       name: "Denny's" },
-  { slug: "insomnia-cookies-deals", name: "Insomnia Cookies" },
+  { slug: "papa-johns-deals",  name: "Papa John's", banned: true },
+  { slug: "einstein-bros-deals", name: "Einstein Bros.", banned: true },
+  { slug: "jack-in-the-box-deals", name: "Jack in the Box", banned: true },
+  { slug: "whataburger-deals",  name: "Whataburger", banned: true },
+  { slug: "del-taco-deals",     name: "Del Taco", banned: true },
+  { slug: "ihop-deals",         name: "IHOP", banned: true },
+  { slug: "dennys-deals",       name: "Denny's", banned: true },
+  { slug: "insomnia-cookies-deals", name: "Insomnia Cookies", banned: true },
   { slug: "wingstop-deals",     name: "Wingstop" },
   { slug: "qdoba-deals",        name: "Qdoba" },
   { slug: "just-salad-deals",   name: "Just Salad" },
   { slug: "naf-naf-grill-deals", name: "Naf Naf Grill" },
-  { slug: "krispy-kreme-deals", name: "Krispy Kreme" },
+  { slug: "krispy-kreme-deals", name: "Krispy Kreme", banned: true },
+  { slug: "kura-sushi-deals",   name: "Kura Sushi" },
+  { slug: "pokeworks-deals",    name: "Pokeworks" },
+  { slug: "sarku-japan-deals",  name: "Sarku Japan" },
+  { slug: "shake-shack-deals",  name: "Shake Shack" },
+  { slug: "safeway-deals",      name: "Safeway", note: "Safeway's standing deal is $5 Friday: every Friday the lineup includes fresh sushi rolls for $5 (regularly $8 to $10) plus other prepared foods like an 8-piece chicken bag. The lineup posts Wednesdays in the weekly ad and varies by division; a free Safeway for U account may be needed. It appears below every Friday." },
+  { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $5 Sushi Friday: most stores sell select fresh sushi entrees for $5 (regularly $7 to $9) every Friday, in-store only, while supplies last, with the free VIC card. It appears below every Friday." },
   { slug: "kroger-deals",       name: "Kroger", note: "Kroger-family stores (Kroger, Fred Meyer, Fry's, King Soopers, Smith's, QFC, Ralphs) run a Wednesday Only sushi promo at their Snowfox and Zenshi counters: select rolls, spicy tuna and Philly included, at a flat promo price that is typically $5. It appears below every Wednesday." },
   { slug: "sprouts-deals",      name: "Sprouts", note: "Sprouts runs Sushi Wednesday in most markets: select Oumi rolls from the in-store sushi case for $5 every Wednesday, no coupon or app needed. It appears below every Wednesday, alongside any other verified Sprouts deli deal." },
   { slug: "publix-deals",       name: "Publix", note: "Publix's standing deal is $5 Sushi Wednesday: select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 at stores with a sushi counter across FL & the Southeast, no coupon or app needed. It appears below every Wednesday." },
@@ -93,7 +102,10 @@ const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 const dowET = WEEKDAYS.indexOf(nowDate.toLocaleDateString("en-US", { weekday: "long", ...ET }));
 
 function chainNav(current) {
-  return CHAINS.map(c => c.slug === current
+  // Navigation lists only chains the daily refresh actually covers: linking banned
+  // chains next to the healthy roster undercut the site's identity (Jacob, 2026-08-26).
+  // Banned chains keep their honest standalone pages, reachable via search/sitemap.
+  return CHAINS.filter(c => !c.banned || c.slug === current).map(c => c.slug === current
     ? `<strong>${esc(c.name)}</strong>`
     : `<a href="/${c.slug}">${esc(c.name)}</a>`).join(" &middot; ");
 }
@@ -149,15 +161,27 @@ const CHAIN_CSS = `:root{--bg:#0f1115;--card:#191c23;--card2:#20242d;--ink:#f4f5
 
 function chainPage(chain, deals) {
   const list = dealsFor(chain.name, deals);
-  const title = `${chain.name} Deals & App Offers: ${monthYear} (Updated Daily)`;
-  const desc = list.length
+  // Banned chains get an honest page: the old copy ("check back tomorrow") implied we
+  // might list them, and we never will. Saying so plainly builds more trust than an
+  // empty promise (authenticity decision, Jacob, 2026-08-26).
+  const title = chain.banned
+    ? `${chain.name} Deals: Why DailyBite Doesn't List Them`
+    : `${chain.name} Deals & App Offers: ${monthYear} (Updated Daily)`;
+  const desc = chain.banned
+    ? `DailyBite verifies deals from healthier, quality chains only, so ${chain.name} isn't listed. See today's verified healthier deals instead: checked ${prettyDate}.`
+    : list.length
     ? `${list.length} verified ${chain.name} deal${list.length > 1 ? "s" : ""} today: ${list.slice(0, 2).map(d => d.deal).join("; ")}. Checked ${prettyDate}.`
     : `Current ${chain.name} app deals and rewards offers, checked daily. See today's verified fast-food deals from all major chains.`;
-  const body = list.length
+  const alternatives = `<div class="grid">${[...deals].filter(d => canonBrand(d.brand) !== canonBrand(chain.name)).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
+  const body = chain.banned
+    ? `<div class="empty" style="text-align:left">An honest answer instead of an empty page: <strong style="color:var(--ink)">DailyBite doesn&#39;t list ${esc(chain.name)} deals, on purpose.</strong> We verify deals only from healthier, quality chains, and ${esc(chain.name)} doesn&#39;t meet that bar: no exceptions, even when a promo looks tempting. If you searched for ${esc(chain.name)} deals to eat cheap today, the verified deals below are where we&#39;d spend the same money.</div>
+<h2 style="font-size:18px;margin:26px 2px 4px">Today&#39;s verified healthier deals instead</h2>
+${alternatives}`
+    : list.length
     ? `<div class="grid">${list.map(dealCard).join("\n")}</div>`
     : `<div class="empty">No verified ${esc(chain.name)} deals passed our checks today. That usually means nothing solid is running right now: check back tomorrow, or browse <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <h2 style="font-size:18px;margin:26px 2px 4px">Today&#39;s top deals from other chains</h2>
-<div class="grid">${[...deals].filter(d => canonBrand(d.brand) !== canonBrand(chain.name)).sort((a, b) => (b.value || 0) - (a.value || 0)).slice(0, 6).map(dealCard).join("\n")}</div>`;
+${alternatives}`;
   const ld = {
     "@context": "https://schema.org", "@type": "ItemList",
     "name": `${chain.name} deals for ${prettyDate}`,
@@ -194,8 +218,8 @@ function chainPage(chain, deals) {
 <header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
-  <h1>${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}</h1>
-  <p class="tag">Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.</p>
+  <h1>${chain.banned ? `${esc(chain.name)} Deals: Not on DailyBite (Here&#39;s Why)` : `${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}`}</h1>
+  <p class="tag">${chain.banned ? `DailyBite lists verified deals from healthier, quality chains only. This page exists because people search for ${esc(chain.name)} deals, and we&#39;d rather tell you where the healthier value is than pretend to cover them.` : `Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.`}</p>
   ${chain.note ? `<p class="tag">${esc(chain.note)}</p>` : ""}
   ${body}
   ${EMAIL_CAPTURE}
