@@ -1,74 +1,46 @@
 {
-  "updated": "2026-08-24",
-  "updatedAt": "2026-08-24T14:09:45.364Z",
+  "updated": "2026-08-25",
+  "updatedAt": "2026-08-25T11:39:46.057Z",
   "deals": [
     {
       "brand": "Panera Bread",
       "cat": "Cafe",
-      "color": "#6b3c2a",
+      "color": "#52aa41",
       "ic": "PB",
-      "deal": "Mix and Match Menu: 10 Items at $4.99 Each",
-      "desc": "Choose from half sandwiches, half salads, and cups of soup at $4.99 each (minimum two items) through August 31, 2026 at participating locations.",
-      "tags": [],
+      "deal": "Mix & Match Value Menu: Items from $4.99 Each",
+      "desc": "Pick any 2 to 10 items (half sandwiches, cups of soup, half salads) at $4.99 each, plus one free side per pair, in-restaurant or via app.",
+      "tags": [
+        "app"
+      ],
       "value": 4,
       "expires": "Through August 31, 2026",
-      "url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
+      "url": "https://www.panerabread.com/en-us/menu.html",
       "best": true,
       "region": "National"
     },
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008c15",
-      "ic": "SW",
-      "deal": "Deli Faves 6-inch Subs for $3.99 Each",
-      "desc": "Four classic 6-inch subs (BLT, Cold Cut Combo, Spicy Pepperoni, Ham and Salami) freshly made for $3.99 each, no code needed, at 18,000-plus locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through December 31, 2026",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008c15",
-      "ic": "SW",
-      "deal": "2 Footlong Subs for $12.99 with Code FTL1299",
-      "desc": "Enter promo code FTL1299 at checkout on Subway.com or the app to get two footlong subs for $12.99 total at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through December 31, 2026",
-      "url": "https://www.subway.com/",
-      "best": false,
-      "region": "National"
-    },
-    {
-      "brand": "Chipotle",
+      "brand": "Tijuana Flats",
       "cat": "Mexican",
-      "color": "#a81612",
-      "ic": "CH",
-      "deal": "Free Entree with Code SUNDAYS: Next Date August 30",
-      "desc": "Order two or more entrees after 3 PM on the Chipotle app or website with code SUNDAYS to get a third entree free; available August 30 and September 6 (not today).",
+      "color": "#e8171c",
+      "ic": "TF",
+      "deal": "Taco Tuesdaze: 2 Tacos, Chips, and a Drink for $7.99",
+      "desc": "Every Tuesday, get two tacos with your choice of protein, freshly made chips, and a medium drink for $7.99, available in-store and via app.",
       "tags": [
         "app"
       ],
-      "value": 5,
-      "expires": "Through September 6, 2026",
-      "url": "https://www.chipotle.com/",
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
       "best": false,
-      "region": "National"
+      "region": "FL & Southeast"
     },
     {
-      "brand": "Chilis",
+      "brand": "Chili's",
       "cat": "Sit-Down",
       "color": "#c8102e",
-      "ic": "CL",
-      "deal": "3 For Me from $10.99: Entree, Starter, and Drink",
-      "desc": "Get a full-size entree, a starter (chips and salsa, soup, or side salad), and a bottomless non-alcoholic drink starting at $10.99 all day at participating locations.",
+      "ic": "CH",
+      "deal": "3 For Me: Starter, Entree, and Drink from $10.99",
+      "desc": "Choose any starter, a full entree (burgers, crispers, bowls), and a bottomless non-alcoholic drink for one flat price starting at $10.99, available every day.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
@@ -77,50 +49,48 @@
       "region": "National"
     },
     {
-      "brand": "Noodles and Company",
-      "cat": "Bowls",
-      "color": "#f05a28",
-      "ic": "NC",
-      "deal": "Delicious Duos: Two Items for $10.95",
-      "desc": "Order a duo-sized protein portion plus a side from the Delicious Duos menu for $10.95 at participating locations, no rewards membership required.",
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009843",
+      "ic": "SW",
+      "deal": "Tuna Tuesday Sub of the Day: 6-Inch Classic Tuna for $4.99",
+      "desc": "Today's Sub of the Day is the Classic Tuna 6-inch; add chips and a drink for $2 more to make it the Meal of the Day at $6.99.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.noodlesandcompany.com/",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009843",
+      "ic": "SW",
+      "deal": "Protein Pockets from $3.99 Each",
+      "desc": "Grab-and-go Protein Pockets with over 20g of protein in a soft tortilla for just $3.99 at participating locations nationwide.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/",
       "best": false,
       "region": "National"
     },
     {
       "brand": "Pokeworks",
       "cat": "Poke",
-      "color": "#00a0dc",
+      "color": "#0077b6",
       "ic": "PW",
-      "deal": "Free Avocado with Any Entree: Code AVOSUMMER",
-      "desc": "Use code AVOSUMMER online or in the Pokeworks app, or ask in-store, to get a free scoop of avocado with any bowl or burrito purchase throughout August.",
+      "deal": "Free Avocado with Any Entree, Code AVOSUMMER",
+      "desc": "Use code AVOSUMMER in-store or online to add a free scoop of avocado to any poke bowl or burrito entree at participating locations.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Through August 31, 2026",
-      "url": "https://www.pokeworks.com/rewards",
-      "best": true,
-      "region": "National"
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008c15",
-      "ic": "SW",
-      "deal": "Footlong Meal for $9.99 with Code MEAL999",
-      "desc": "Enter promo code MEAL999 to get a footlong sub, chips or cookie, and a 20 oz fountain drink for $9.99 at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through December 31, 2026",
-      "url": "https://www.subway.com/",
+      "expires": "Through August 2026",
+      "url": "https://www.pokeworks.com/",
       "best": false,
-      "region": "National"
+      "region": "Select states"
     }
   ]
 }
