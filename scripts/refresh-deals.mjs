@@ -20,7 +20,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "deals.json");
 
 // Confirm the current model string in your Anthropic Console; models change.
-const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-4-6";
+// claude-sonnet-5 (2026-08-26): current-generation Sonnet, and a third cheaper than
+// the claude-sonnet-4-6 it replaces ($2/$10 vs $3/$15 per MTok).
+const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-5";
+// JSON repair is mechanical clean-up: Haiku handles it at a fifth of Sonnet's price.
+const REPAIR_MODEL = process.env.CLAUDE_REPAIR_MODEL || "claude-haiku-4-5";
 const MAX_SEARCHES = 24; // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24): owner wants a 12-18 deal list, so the budget covers chain-by-chain sweeps after the roundups
 const ALLOWED_TAGS = new Set(["free", "app"]);
 const MIN_DEALS = 6;
@@ -203,13 +207,17 @@ function salvage(deals) {
 
 async function generate() {
   const messages = [{ role: "user", content: PROMPT }];
-  const tools = [{ type: "web_search_20250305", name: "web_search", max_uses: MAX_SEARCHES }];
+  // web_search_20260209 is the current web-search tool for Sonnet 5 (the older
+  // web_search_20250305 variant is for pre-4.6 models). Searches bill the same.
+  const tools = [{ type: "web_search_20260209", name: "web_search", max_uses: MAX_SEARCHES }];
 
   // Server tools can return stop_reason "pause_turn" for long chains; resend
   // the accumulated turn until the model finishes.
   let response;
   for (let step = 0; step < 6; step++) {
-    response = await client.messages.create({ model: MODEL, max_tokens: 16000, tools, messages });
+    // effort "medium" trims thinking/output tokens: this is extraction over search
+    // results, not deep reasoning, and the validator + build backstops catch slips.
+    response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, tools, messages });
     if (response.stop_reason === "pause_turn") {
       messages.push({ role: "assistant", content: response.content });
       continue;
@@ -234,7 +242,7 @@ async function generate() {
 
 async function repairJson(text) {
   const res = await client.messages.create({
-    model: MODEL, max_tokens: 16000,
+    model: REPAIR_MODEL, max_tokens: 16000,
     messages: [{ role: "user", content: `The text below was meant to be ONE minified JSON object of the shape {"deals":[...]} but it does not parse. Return the SAME content as a single valid minified JSON object: escape or remove stray double quotes inside string values, remove trailing commas, comments, markdown fences and any prose. Do not add, drop, or reword deals. Output ONLY the JSON.\n\n${text}` }],
   });
   return res.content.filter(b => b.type === "text").map(b => b.text).join("\n").trim();
@@ -258,7 +266,12 @@ async function main() {
   if (errors.length) {
     console.error("First attempt failed: retrying once:");
     for (const e of errors) console.error("  - " + e);
-    ({ deals, errors } = await attempt());
+    // Merge the first attempt's valid deals into the retry (cost control, 2026-08-26):
+    // a "too few deals" first attempt still found real deals with real search spend,
+    // so the retry only has to top the list up, never rebuild it from zero.
+    const firstDeals = deals || [];
+    const second = await attempt();
+    ({ deals, errors } = salvage(dedupe([...firstDeals, ...(second.deals || [])])));
   }
   if (errors.length) {
     console.error("Refresh failed: NOT writing deals.json:");
