@@ -30,7 +30,10 @@ const ALLOWED_TAGS = new Set(["free", "app"]);
 const MIN_DEALS = 6;
 const MAX_DEALS = 24;
 
-const client = new Anthropic(); // reads ANTHROPIC_API_KEY from env
+// Reads ANTHROPIC_API_KEY from env. The explicit timeout caps any single hung request
+// at 8 minutes (the SDK's default scales far higher for large max_tokens, which let a
+// stalled request eat 30+ minutes of the 2026-08-27 run); one retry, then fail closed.
+const client = new Anthropic({ timeout: 8 * 60 * 1000, maxRetries: 1 });
 
 // The model does not know the date: without it, day-of-week specials get listed on the wrong
 // day (run #81 on Friday 2026-08-21 returned a Thursday-only deal) and day-specific grocery

@@ -90,6 +90,10 @@ jobs:
       - name: Regenerate deals.json (fails closed on bad data)
         id: refresh
         if: steps.guard.outputs.run == 'true'
+        # A hung API request must not stall the whole run (the 2026-08-27 push-triggered
+        # run sat in this step 30+ minutes): kill it and let the build reuse the last
+        # good deals.json; the later cron slots retry the refresh automatically.
+        timeout-minutes: 20
         # continue-on-error: a failed refresh keeps the last known-good deals.json,
         # but the build below STILL runs so date-gated logic (expiry drops, weekday
         # specials, footer date) stays current. Fixes the 2026-08-17 site freeze.
