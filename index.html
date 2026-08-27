@@ -545,6 +545,9 @@ function safeUrl(u){
 
 /* ---- Distance engine (free OpenStreetMap lookup, opt-in via button) ---- */
 let DIST = null; // { normalizedBrand: miles }
+let QB = null; // Set of brands the map lookup actually searched: the "not found nearby"
+               // veto may only judge brands that were part of the query (a cached lookup
+               // from Tuesday knows nothing about a brand that first appeared Thursday).
 let STATE = null; // viewer's U.S. state, e.g. "Texas"
 let CITY = null; // city/town from reverse geocode
 let HOURS = null; // { normalizedBrand: OSM opening_hours string of nearest location }
@@ -662,7 +665,7 @@ function regionOK(d){
     // and found other chains nearby but not this one within ~25 mi, hide the deal.
     // Delivery platforms have no storefronts and are exempt.
     const nb = normBrand(d.brand);
-    if(DIST && Object.keys(DIST).length >= 3 && !PLATFORM_BRANDS.has(nb) && DIST[nb] == null) return false;
+    if(DIST && QB && QB.has(nb) && !MAJOR_EVERYWHERE.has(nb) && Object.keys(DIST).length >= 3 && !PLATFORM_BRANDS.has(nb) && DIST[nb] == null) return false;
     return true;
   }
   // Match the full state name OR its USPS abbreviation as a word, so a
@@ -678,6 +681,10 @@ function regionOK(d){
 function locLabel(){ if(!STATE) return 'Distances on'; const place = CITY ? (CITY + ', ' + STATE) : STATE; return 'Deals for ' + place; }
 const normBrand = s => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 const PLATFORM_BRANDS = new Set(['doordash','ubereats','grubhub']); // no storefronts: never map-checked
+// Chains with thousands of U.S. locations (owner rule, 2026-08-27): a map-data gap must
+// never hide a Chipotle-scale chain's national deal. The veto exists for mid-size chains
+// whose "National" label is doubtful, not for brands that are genuinely everywhere.
+const MAJOR_EVERYWHERE = new Set(['chipotle','chickfila','subway','starbucks','panera','panerabread','chilis','wingstop','fiveguys','walmart','wholefoodsmarket']);
 // Brands whose OpenStreetMap name differs enough that substring matching misses them.
 const OSM_ALIASES = { 'Kura Sushi': 'Kura Revolving Sushi Bar' };
 function nearLabel(brand){
@@ -721,7 +728,7 @@ async function loadDistances(lat, lon){
       }
     }
   }
-  return {best, hours};
+  return {best, hours, qb: brands.map(normBrand)};
 }
 const locBtn = document.getElementById('locBtn');
 function showLocTip(msg){
@@ -739,7 +746,7 @@ locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
   try{
     const c = JSON.parse(localStorage.getItem('db_dist2') || 'null');
-    if(c && Date.now() - c.t < 86400000 && !c.m){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
+    if(c && Date.now() - c.t < 86400000 && !c.m){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; QB = c.b ? new Set(c.b) : null; locBtn.textContent = locLabel(); locBtn.classList.add('on'); render(); return; }
   }catch(e){}
   if(!navigator.geolocation){ locBtn.textContent = 'Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
@@ -747,9 +754,9 @@ locBtn.addEventListener('click', () => {
     try{
       locBtn.textContent = 'Finding restaurants\u2026';
       const res = await loadDistances(pos.coords.latitude, pos.coords.longitude);
-      DIST = res.best; HOURS = res.hours;
+      DIST = res.best; HOURS = res.hours; QB = new Set(res.qb);
       try{ const loc = await stateLookup(pos.coords.latitude, pos.coords.longitude); STATE = loc && loc.state; CITY = loc && loc.city; }catch(e){ STATE = null; CITY = null; }
-      localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS}));
+      localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, b: res.qb}));
       locBtn.textContent = locLabel();
       locBtn.classList.add('on');
       clearLocTip();
@@ -787,8 +794,8 @@ async function applyManualLocation(query){
   const state = a.state || a.region || null;
   const city = a.city || a.town || a.village || a.suburb || a.hamlet || a.county || null;
   const res = await loadDistances(+hit.lat, +hit.lon);
-  DIST = res.best; HOURS = res.hours; STATE = state; CITY = city;
-  localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, m: 1}));
+  DIST = res.best; HOURS = res.hours; STATE = state; CITY = city; QB = new Set(res.qb);
+  localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, m: 1, b: res.qb}));
   locBtn.textContent = locLabel();
   locBtn.classList.add('on');
   clearLocTip();
@@ -827,6 +834,7 @@ try{
     STATE = c0.s || null;
     CITY = c0.c || null;
     HOURS = c0.h || null;
+    QB = c0.b ? new Set(c0.b) : null;
     locBtn.textContent = locLabel();
     locBtn.classList.add('on');
     if(c0.m){ const p = document.getElementById('locPickBtn'); if(p) p.textContent = 'Change location'; }
@@ -945,7 +953,7 @@ function render(){
     const place=CITY?(CITY+', '+STATE):STATE;
     countEl.innerHTML=`${total} of ${DEALS.length} verified deals are claimable near ${esc(place)} (${DEALS.length-total} hidden as out of area) · <a href="#" id="showAllDeals" style="color:var(--accent2)">show all ${DEALS.length}</a>`;
     const sa=document.getElementById('showAllDeals');
-    if(sa)sa.onclick=function(e){e.preventDefault();DIST=null;STATE=null;CITY=null;HOURS=null;try{localStorage.removeItem('db_dist2');}catch(err){}locBtn.textContent='Show distances near me';locBtn.classList.remove('on');const p=document.getElementById('locPickBtn');if(p)p.textContent='Choose a location';render();};
+    if(sa)sa.onclick=function(e){e.preventDefault();DIST=null;STATE=null;CITY=null;HOURS=null;QB=null;try{localStorage.removeItem('db_dist2');}catch(err){}locBtn.textContent='Show distances near me';locBtn.classList.remove('on');const p=document.getElementById('locPickBtn');if(p)p.textContent='Choose a location';render();};
   }else{
     countEl.textContent=`${total} deal${total!==1?'s':''} today`;
   }
