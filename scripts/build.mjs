@@ -661,7 +661,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
-  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub"].map(canonBrand));
+  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis"].map(canonBrand)); // roster widened 2026-08-27: healthy fast-casual expansion for deal depth
   for (const g of GROCERY) APPROVED.add(g);
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands + grocery roster only
   deals = deals.filter(d => !/boneless/i.test((d.deal||"") + " " + (d.desc||""))); // owner: no boneless items ever
@@ -737,13 +737,13 @@ function main() {
   const GOLD = new Set(["chipotle", "chick-fil-a"]); // golden-standard brands: always Top Picks when they have a valid deal
   // Sushi/poke chains (owner request, 2026-08-18: sushi is the owner's favorite food) count as
   // healthy here too, so a strong sushi deal can be a Top Pick as the refresh prompt promises.
-  const HEALTHY = new Set(["sweetgreen","potbelly","noodles & company","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a","kura sushi","sarku japan","rock n roll sushi","sushi maki","pokeworks","island fin poke"]);
+  const HEALTHY = new Set(["sweetgreen","potbelly","noodles & company","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a","kura sushi","sarku japan","rock n roll sushi","sushi maki","pokeworks","island fin poke","pollo tropical","rubio's","rubio's coastal grill","waba grill","pei wei","pei wei asian kitchen","teriyaki madness","honeygrow","playa bowls","nekter juice bar","jason's deli","mcalister's deli","chicken salad chick","taziki's","taziki's mediterranean cafe"]);
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
     // Regional-footprint chains never badge (most visitors cannot claim them); the three
     // regional sushi/poke chains from the prompt's REGIONAL HONESTY rule are listed too.
-    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke"].map(canonBrand));
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Waba Grill","Honeygrow","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe"].map(canonBrand));
     for (const g of GROCERY) if (!NATIONAL_GROCERY.has(g)) REGIONAL_ONLY.add(g);
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     // A Top Pick's TITLE must state the money (owner rule, 2026-08-24): a price, a percent,
