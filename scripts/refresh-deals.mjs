@@ -20,9 +20,11 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "deals.json");
 
 // Confirm the current model string in your Anthropic Console; models change.
-// claude-sonnet-5 (2026-08-26): current-generation Sonnet, and a third cheaper than
-// the claude-sonnet-4-6 it replaces ($2/$10 vs $3/$15 per MTok).
-const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-5";
+// REVERTED to claude-sonnet-4-6 (2026-08-27): the claude-sonnet-5 + web_search_20260209
+// combo hung its first-ever live run 30+ minutes with the site visibly stale. 4-6 ran
+// reliably for months. Re-try Sonnet 5 ($2/$10, a third cheaper) in a supervised manual
+// run before trusting it with the morning schedule again.
+const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-4-6";
 // JSON repair is mechanical clean-up: Haiku handles it at a fifth of Sonnet's price.
 const REPAIR_MODEL = process.env.CLAUDE_REPAIR_MODEL || "claude-haiku-4-5";
 const MAX_SEARCHES = 24; // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24): owner wants a 12-18 deal list, so the budget covers chain-by-chain sweeps after the roundups
@@ -210,9 +212,10 @@ function salvage(deals) {
 
 async function generate() {
   const messages = [{ role: "user", content: PROMPT }];
-  // web_search_20260209 is the current web-search tool for Sonnet 5 (the older
-  // web_search_20250305 variant is for pre-4.6 models). Searches bill the same.
-  const tools = [{ type: "web_search_20260209", name: "web_search", max_uses: MAX_SEARCHES }];
+  // web_search_20250305: the basic variant that ran reliably for months (reverted with
+  // the model, 2026-08-27; the 20260209 dynamic-filtering variant is part of the combo
+  // that hung). Searches bill the same either way.
+  const tools = [{ type: "web_search_20250305", name: "web_search", max_uses: MAX_SEARCHES }];
 
   // Server tools can return stop_reason "pause_turn" for long chains; resend
   // the accumulated turn until the model finishes.

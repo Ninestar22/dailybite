@@ -31,10 +31,12 @@ on:
                                  # .refresh-trigger to force a full refresh NOW.
                                  # Push events are delivered reliably, unlike cron.
 
-# Prevent overlapping runs.
+# Newest run wins: a fresh trigger cancels a stuck in-progress run instead of queueing
+# behind it (flipped 2026-08-27 after a hung run blocked the morning refresh; the only
+# risk window, cancelling mid-push, is seconds wide and the next slot self-heals).
 concurrency:
   group: daily-refresh
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 permissions:
   contents: write   # needed to push the regenerated files
