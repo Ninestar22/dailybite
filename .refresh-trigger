@@ -1,4 +1,4 @@
 # Commit any change to this file to force a full deal refresh immediately.
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
-Last manual trigger: 2026-08-27 (healthy roster expansion: 12 new chains; verify deal depth)
+Last manual trigger: 2026-08-28 (growth plan fixes: materialize guide layers, freshness schema, verification log)
