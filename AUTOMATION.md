@@ -16,9 +16,11 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - **`.github/workflows/daily-refresh.yml`** runs refresh → build → commit ONCE a day
   (owner decision, 2026-08-24) at about **7:05 AM Eastern**. GitHub cron is UTC-only,
   so the window gets several UTC slots and a guard step runs a slot only when the
-  Eastern clock is inside the window (7-9 AM) and deals.json has not been refreshed
-  since the window opened: the window runs once, the later slots retry automatically
-  if the first attempt fails, and daylight-saving time needs no edits.
+  Eastern clock is inside the window (7-11 AM) and deals.json has not been refreshed
+  since the window opened: the refresh still runs at most once per day, the later
+  slots exist because GitHub sometimes delays or outright DROPS scheduled events
+  under load (it dropped two slots on 2026-08-27), and daylight-saving time needs
+  no edits.
 - The homepage re-checks for a newer build whenever it is reopened, comes back online, or
   every 15 minutes, and reloads itself, so the installed home-screen app and the website
   always show the same build (see the sync script at the bottom of `index.html`).

@@ -10,10 +10,16 @@ on:
     # the later slots double as automatic retries if the first attempt fails, and
     # winter/summer both work without touching this file.
     # The :05 minute is deliberate: GitHub delays top-of-the-hour schedules the most.
+    # GitHub can also DROP scheduled events entirely under load (it dropped both the
+    # 11:05 and 12:05 slots on 2026-08-27), so the slots run through late morning:
+    # a late refresh beats a skipped day, and the updatedAt guard still ensures the
+    # refresh runs at most once per day.
     - cron: "5 11 * * *"   # 7:05 AM EDT            (6:05 EST -> skipped)
     - cron: "5 12 * * *"   # 8:05 AM EDT retry      / 7:05 AM EST
     - cron: "5 13 * * *"   # 9:05 AM EDT retry      / 8:05 AM EST retry
-    - cron: "5 14 * * *"   # (10:05 EDT -> skipped) / 9:05 AM EST retry
+    - cron: "5 14 * * *"   # 10:05 AM EDT retry     / 9:05 AM EST retry
+    - cron: "5 15 * * *"   # 11:05 AM EDT retry     / 10:05 AM EST retry
+    - cron: "5 16 * * *"   # (12:05 EDT -> skipped) / 11:05 AM EST retry
   workflow_dispatch: {}   # manual runs always do a full refresh, whatever the time
 
 # Prevent overlapping runs.
@@ -31,7 +37,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Decide whether this run should proceed (7-9 AM Eastern, once per day)
+      - name: Decide whether this run should proceed (7-11 AM Eastern, once per day)
         id: guard
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then
@@ -46,7 +52,7 @@ jobs:
           UPDATED_EPOCH=$(date -d "${UPDATED_AT:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
           echo "Eastern time: $(date '+%A %Y-%m-%d %H:%M %Z'); last refresh: ${UPDATED_AT:-unknown}"
           WINDOW_OPEN=""
-          if [ "$HOUR" -ge 7 ] && [ "$HOUR" -le 9 ]; then WINDOW_OPEN=$(date -d "$TODAY 07:00" +%s); LABEL="morning (7 AM)"; fi
+          if [ "$HOUR" -ge 7 ] && [ "$HOUR" -le 11 ]; then WINDOW_OPEN=$(date -d "$TODAY 07:00" +%s); LABEL="morning (7 AM, late slots are dropped-cron insurance)"; fi
           if [ -z "$WINDOW_OPEN" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Skipping: Eastern hour $HOUR is outside the window (this slot serves the other half of the year)."
