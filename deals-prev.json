@@ -1,178 +1,116 @@
 {
-  "updated": "2026-08-26",
-  "updatedAt": "2026-08-26T11:51:52.122Z",
+  "updated": "2026-08-27",
+  "updatedAt": "2026-08-27T14:16:56.430Z",
   "deals": [
     {
-      "brand": "Potbelly",
-      "cat": "Sandwiches",
-      "color": "#E8272A",
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#441500",
+      "ic": "C",
+      "deal": "Free Chips and Queso with Any Entree",
+      "desc": "Order any entree in the Chipotle app and a free chips and queso dip is added to your bag; free Chipotle Rewards account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through September 9, 2026",
+      "url": "https://www.chipotle.com",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#006341",
       "ic": "PB",
-      "deal": "BOGO Free Sandwich: Back-to-School Week, Aug 24-28",
-      "desc": "Buy any BIG or Original Sandwich and get a free Original Sandwich or Wrap via the Potbelly app or website; find the offer under My Perks in your free Perks account.",
+      "deal": "BOGO $5: Second Entree for $5 with Code BOGO5",
+      "desc": "Buy one full-price entree via the app or online and add a second for only $5 at checkout using code BOGO5; free MyPanera account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#e8291c",
+      "ic": "TF",
+      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips, and Drink for about $8.99",
+      "desc": "Every Thursday, enjoy a Tijuana Burrito or Burrito Bowl with chips and a drink for around $8.99 all day in-store or online at participating locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing (Thursdays only)",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "best": false,
+      "region": "FL & Southeast"
+    },
+    {
+      "brand": "Chilis",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "CG",
+      "deal": "3 For Me from $10.99: Drink, Starter, and Full Entree",
+      "desc": "Choose a non-alcoholic drink, a starter (chips and salsa, soup, or side salad), and a full entree from the 3 For Me menu starting at $10.99, every day.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#009b48",
+      "ic": "SW",
+      "deal": "BOGO Footlong: Buy One Footlong, Get One Free (Code BOGO1)",
+      "desc": "Use promo code BOGO1 at checkout on the Subway website or app to get a second footlong sub free with purchase of the first at participating locations.",
       "tags": [
         "free",
         "app"
       ],
       "value": 5,
-      "expires": "Through August 28, 2026",
-      "url": "https://www.potbelly.com",
-      "best": true
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#2D6926",
-      "ic": "PB",
-      "deal": "BOGO $5 Entree with Code BOGO5",
-      "desc": "Buy one entree and get a second entree for only $5 using promo code BOGO5 at checkout online or in the app; free MyPanera account required.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com",
-      "best": true
-    },
-    {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#C8102E",
-      "ic": "QD",
-      "deal": "$5 Off Orders of $25 or More with Code 5OFF25",
-      "desc": "Use promo code 5OFF25 at checkout on qdoba.com or in the app to knock $5 off a qualifying order; build a bowl or burrito with free guac and queso included.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.qdoba.com",
-      "best": true
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#E4002B",
-      "ic": "CH",
-      "deal": "3 For Me Meal from $10.99: Drink, Starter, and Entree",
-      "desc": "Choose a bottomless non-alcoholic drink, chips and salsa starter, and a full entree all day every day starting at $10.99; premium tier at $13.99 with upgraded starters and entrees.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com",
-      "best": false
+      "expires": "Through December 31, 2026",
+      "url": "https://www.subway.com/",
+      "best": false,
+      "region": "National"
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
-      "color": "#009B48",
+      "color": "#009b48",
       "ic": "SW",
-      "deal": "Two Footlong Subs for $12.99 with Code 1299FL",
-      "desc": "Get any two Footlong subs for $12.99 total using promo code 1299FL at checkout on Subway.com or in the app at participating locations.",
+      "deal": "2 Footlong Subs for $12.99 (Code FTL1299)",
+      "desc": "Use promo code FTL1299 at checkout on the Subway website or app to get any two qualifying footlong subs for $12.99 at participating locations.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through September 12, 2026",
+      "expires": "Through December 31, 2026",
       "url": "https://www.subway.com/",
-      "best": false
+      "best": false,
+      "region": "National"
     },
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#009B48",
-      "ic": "SW",
-      "deal": "Footlong Sub for $6.99 with Code FOOTLONG699",
-      "desc": "Get any Footlong sub for $6.99 using promo code FOOTLONG699 at checkout online or in the app at participating locations.",
+      "brand": "Wingstop",
+      "cat": "Wings",
+      "color": "#c8102e",
+      "ic": "WS",
+      "deal": "10 Crispy Tenders for $25 with Large Fry and Ranch",
+      "desc": "Order 10 Flavor Lineup Crispy Tenders in any sauce through the Wingstop website or app and receive a large fry and large ranch included for $25.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Through September 12, 2026",
-      "url": "https://www.subway.com/",
-      "best": false
-    },
-    {
-      "brand": "Publix",
-      "cat": "Sushi",
-      "color": "#1B6B37",
-      "ic": "PX",
-      "deal": "$5 Sushi Wednesday: Zenshi Rolls In-Store Today",
-      "desc": "Every Wednesday, select Zenshi Handcrafted Sushi rolls are just $5 at Publix deli counters that carry sushi; no loyalty card needed, freshly made in-store daily.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.zenshisushi.com/store-locator-publix-5-dollars",
-      "region": "FL & Southeast",
-      "best": false
-    },
-    {
-      "brand": "Sprouts",
-      "cat": "Sushi",
-      "color": "#3E8B2C",
-      "ic": "SP",
-      "deal": "$5 Sushi Wednesday: Select Oumi Rolls Today",
-      "desc": "Every Wednesday, select Oumi Sushi rolls drop to $5 at Sprouts Farmers Market in most markets; no loyalty card required, sushi is freshly made in-store daily by staff.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.sprouts.com/faqs/what-is-sushi-wednesday/",
-      "region": "Most markets",
-      "best": false
-    },
-    {
-      "brand": "Kroger",
-      "cat": "Sushi",
-      "color": "#0057A8",
-      "ic": "KR",
-      "deal": "$5 to $6 Sushi Wednesday at the Deli Counter Today",
-      "desc": "On Wednesdays, Kroger-family stores (including Ralphs, Fred Meyer, King Soopers, Fry's, Smith's, QFC) offer select Snowfox or AFC sushi rolls for $5 to $6; no coupon needed, look for the orange Wednesday sticker.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.kroger.com/",
-      "region": "Select states",
-      "best": false
-    },
-    {
-      "brand": "Food Lion",
-      "cat": "Sushi",
-      "color": "#E31837",
-      "ic": "FL",
-      "deal": "$5 Sushi Wednesday at Participating Stores Today",
-      "desc": "Select Food Lion locations in the Carolinas and Mid-Atlantic mark down fresh sushi to $5 every Wednesday; availability varies by store, so check your local deli counter.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.foodlion.com",
-      "region": "Carolinas & Mid-Atlantic",
-      "best": false
-    },
-    {
-      "brand": "Lowe's Foods",
-      "cat": "Sushi",
-      "color": "#003087",
-      "ic": "LF",
-      "deal": "$4.99 Sushi Wednesday at the Deli Counter Today",
-      "desc": "Every Wednesday, Lowe's Foods locations in the Carolinas offer fresh sushi for just $4.99; sushi is made daily in-store, availability varies by location.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.lowesfoods.com",
-      "region": "Carolinas",
-      "best": false
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#E4002B",
-      "ic": "CH",
-      "deal": "Triple Dipper Appetizer Trio for $15.99",
-      "desc": "Pick any three appetizers from the Chili's menu including Southwestern Eggrolls, Loaded Potato Skins, and more, served with three dipping sauces for a flat $15.99.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com",
-      "best": false
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com",
+      "best": false,
+      "region": "National"
     }
   ]
 }
