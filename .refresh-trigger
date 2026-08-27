@@ -1,4 +1,4 @@
 # Commit any change to this file to force a full deal refresh immediately.
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
-Last manual trigger: 2026-08-27 (supervised test 2: verify the automatic top-up sweep for short lists)
+Last manual trigger: 2026-08-27 (dedupe fix: same brand + same title prices = same offer; clean the 4 live duplicates)

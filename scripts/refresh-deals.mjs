@@ -162,6 +162,12 @@ function dedupe(deals) {
   const out = deals.filter(d => {
     const brand = key(d && d.brand);
     const keys = [brand + "|" + key(d && d.deal)];
+    // Same brand + same dollar amounts in the TITLE = the same offer worded twice.
+    // The top-up sweep merge produced 4 paraphrase duplicates on 2026-08-27 ("3 For
+    // Me: Drink, Starter and Entree From $10.99" vs "3 For Me Combo from $10.99")
+    // that exact-title dedupe cannot catch; titles always state dollars (owner rule).
+    const prices = (String((d && d.deal) || "").match(/\$\s?\d+(?:\.\d{2})?/g) || []).map(p => p.replace(/[^0-9.]/g, "")).sort().join(",");
+    if (prices) keys.push(brand + "|$" + prices);
     const code = String((d && d.deal) || "").concat(" ", (d && d.desc) || "").match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
     if (code) keys.push(brand + "|code:" + code[1].toUpperCase());
     if (keys.some(k => seen.has(k))) return false;

@@ -582,6 +582,10 @@ function main() {
     deals = deals.filter(d => {
       const brand = canonBrand(d.brand);
       const keys = [brand + "|" + norm(d.deal)];
+      // Same brand + same dollar amounts in the TITLE = the same offer worded twice
+      // (paraphrase duplicates from the refresh's two-sweep merge, 2026-08-27).
+      const prices = (String(d.deal || "").match(/\$\s?\d+(?:\.\d{2})?/g) || []).map(p => p.replace(/[^0-9.]/g, "")).sort().join(",");
+      if (prices) keys.push(brand + "|$" + prices);
       const code = ((d.deal || "") + " " + (d.desc || "")).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
       if (code) keys.push(brand + "|code:" + code[1].toUpperCase());
       if (keys.some(k => seen.has(k))) return false;
