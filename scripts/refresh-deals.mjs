@@ -283,6 +283,15 @@ async function main() {
     const firstDeals = deals || [];
     const second = await attempt();
     ({ deals, errors } = salvage(dedupe([...firstDeals, ...(second.deals || [])])));
+  } else if (deals.length < 12) {
+    // Deterministic top-up (owner, 2026-08-27): prompt-level "keep searching" pleas
+    // still produced 7-deal sweeps, so a short-but-valid first sweep now always gets a
+    // second independent sweep, merged and deduped. Prompt caching keeps it cheap, and
+    // a top-up can only grow the list: if it underperforms, the first sweep stands.
+    console.log(`Only ${deals.length} deals from the first sweep: running a top-up sweep.`);
+    const second = await attempt();
+    const merged = salvage(dedupe([...deals, ...(second.deals || [])]));
+    if (merged.deals && merged.deals.length > deals.length) deals = merged.deals;
   }
   if (errors.length) {
     console.error("Refresh failed: NOT writing deals.json:");
