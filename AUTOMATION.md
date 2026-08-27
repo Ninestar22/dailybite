@@ -55,13 +55,16 @@ npm run build       # rebuild index.html from deals.json (no key)
 
 ## Costs
 
-Web search is billed at about **$10 per 1,000 searches** plus token usage. Each daily
-run uses up to `MAX_SEARCHES` (24) searches (the prompt tells the model to stop early
-once it holds 15+ solid deals); at one run a day a full year is well under ~8,800
-searches (≈ $88/yr) plus a small amount of token cost. The refresh runs on
-**Claude Sonnet 5** (`claude-sonnet-5`, $2/$10 per MTok) at effort "medium", with JSON
-repair on Haiku; a repo variable `CLAUDE_MODEL` overrides the model if ever needed.
-Lower `MAX_SEARCHES` in `refresh-deals.mjs` to reduce cost further.
+Honest accounting (measured 2026-08-27): a run cost about **$3**, and searches were only
+~$0.24 of it. The dominant cost is INPUT TOKENS: the refresh is a multi-round tool
+conversation and every round used to re-send the whole accumulated context (prompt +
+all search results) at full price. Prompt caching (added 2026-08-27) re-reads that
+prefix at ~10% instead, which should cut a run to roughly **$1 to $1.50 (~$30-45/mo)**:
+check the Console after a few days to confirm the real number. The refresh runs on
+`claude-sonnet-4-6` at effort "medium" (Sonnet 5 hung its first live run 2026-08-27 and
+was reverted; re-test it supervised before switching back), with JSON repair on Haiku.
+A repo variable `CLAUDE_MODEL` overrides the model; lower `MAX_SEARCHES` (24) in
+`refresh-deals.mjs` to cut cost further at the price of a shorter deal list.
 
 ## Important caveats
 

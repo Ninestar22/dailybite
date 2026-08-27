@@ -55,7 +55,7 @@ SEARCH STRATEGY: your search budget is limited, so never spend it one brand at a
 
 LIST SIZE (owner request, 2026-08-24): aim for 12 to 18 deals every day: a 6-deal day is a weak page. If the roundups leave the list short, spend the remaining search budget going chain by chain through the approved list ("Sweetgreen promo code", "CAVA deal this week", "Wingstop promo", "El Pollo Loco app deals", "Qdoba coupon") until the list fills out. Standing value menus with stated prices (Chili's 3 For Me, Subway Sub of the Day, Noodles Delicious Duo) count and are worth re-verifying daily. Never pad with vague, expired, or dollar-less offers to hit the number: stated-dollars quality first, then quantity.
 
-SEARCH DISCIPLINE (cost control): every web search costs real money. STOP searching the moment you hold 15 or more verified, dollars-stated deals: unspent budget is pure savings. Never search to re-confirm a detail you already have evidence for, never re-search a chain a roundup already covered, and never spend a search out of curiosity about a non-approved brand.
+SEARCH DISCIPLINE (cost control): every web search costs real money, but a THIN LIST COSTS MORE: the site's whole value is deal count and quality. STOP searching the moment you hold 15 or more verified, dollars-stated deals: unspent budget is pure savings. But while you hold FEWER than 12 deals, KEEP SEARCHING until the budget is spent: never end a run early with a short list (a 7-deal day, 2026-08-27, made the site look weak). Never search to re-confirm a detail you already have evidence for, never re-search a chain a roundup already covered, and never spend a search out of curiosity about a non-approved brand.
 
 Rules:
 - NO BONELESS ITEMS: never include any boneless wing deal from any brand, in any position. The owner has tried them and rejects them outright.
@@ -223,7 +223,11 @@ async function generate() {
   for (let step = 0; step < 6; step++) {
     // effort "medium" trims thinking/output tokens: this is extraction over search
     // results, not deep reasoning, and the validator + build backstops catch slips.
-    response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, tools, messages });
+    // cache_control (2026-08-27): each pause_turn round RESENDS the whole accumulated
+    // conversation (prompt + every search result so far) at full input price: that,
+    // not the searches, is most of the ~$3/run cost. Top-level auto-caching marks the
+    // latest prefix each round, so the next round reads it back at ~10% of the price.
+    response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, cache_control: { type: "ephemeral" }, tools, messages });
     if (response.stop_reason === "pause_turn") {
       messages.push({ role: "assistant", content: response.content });
       continue;
