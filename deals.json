@@ -1,138 +1,140 @@
 {
   "updated": "2026-08-27",
-  "updatedAt": "2026-08-27T15:41:24.263Z",
+  "updatedAt": "2026-08-27T15:49:03.491Z",
   "deals": [
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#4a7729",
+      "ic": "P",
+      "deal": "Buy One Entree, Get One for $5",
+      "desc": "Use a current Panera promo code to buy one entree and get a second for just $5, a real everyday-meal discount for two.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/",
+      "best": true
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Bowls",
+      "color": "#e2231a",
+      "ic": "N",
+      "deal": "Delicious Duo Entrees Starting at $9.95",
+      "desc": "Pick a smaller entree plus a side for a standing value price starting at $9.95, a filling healthy-leaning bowl meal.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.noodles.com/",
+      "best": true
+    },
     {
       "brand": "Naf Naf Grill",
       "cat": "Mediterranean",
-      "color": "#c8102e",
+      "color": "#f47920",
       "ic": "NN",
       "deal": "$9.99 Pita Meal Deal",
-      "desc": "Naf Naf Grill's Pita Meal Deal bundles a pita sandwich, a side, and a drink for one flat price with no coupon needed.",
+      "desc": "Get a pita sandwich, a side, and a drink for $9.99, no coupon code needed, at this fresh Mediterranean grill.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.nafnafgrill.com/",
+      "url": "https://nafnafgrill.com/",
       "best": true
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#f26522",
+      "ic": "TF",
+      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $8.99",
+      "desc": "Every Thursday, get a burrito or bowl with chips and a drink for $8.99 in-store or through the app and online.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Today only (Thursdays)",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "region": "FL & Southeast"
     },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#a31f2e",
+      "color": "#a02128",
       "ic": "C",
-      "deal": "3 For Me from $10.99",
-      "desc": "Chili's standing value menu lets you pick a non-alcoholic beverage, a starter, and a full-size entree for one flat price starting at $10.99, available all day in-store, online, or in-app.",
+      "deal": "3 For Me Meals from $10.99",
+      "desc": "Get a drink, a starter, and a full entree for one flat price starting at $10.99, available all day dine-in or via the app.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
-      "best": false
-    },
-    {
-      "brand": "Noodles & Company",
-      "cat": "Bowls",
-      "color": "#c8963c",
-      "ic": "N",
-      "deal": "Delicious Duo entree and side from $9.95",
-      "desc": "Noodles & Company's standing Delicious Duo combo pairs an entree with a side starting at $9.95.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.noodles.com/",
-      "best": false
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#f7941e",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: burrito or bowl, chips and a drink for $8.99",
-      "desc": "On Thursdays only, Tijuana Flats offers a burrito or burrito bowl with chips and a drink for $8.99 in-store or via app and online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Thursdays only",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "best": false
+      "region": "National"
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008c15",
       "ic": "S",
-      "deal": "6 inch Sub of the Day plus chips and a drink for $6.99",
-      "desc": "Every day at Subway you can get the 6 inch sub of the day with chips or cookies and a drink for $6.99.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.subway.com/",
-      "best": false
-    },
-    {
-      "brand": "Meijer",
-      "cat": "Grocery",
-      "color": "#0033a0",
-      "ic": "M",
-      "deal": "Rotisserie Chicken Meal Deal for $15",
-      "desc": "Meijer's grab and go meal deal bundles one rotisserie chicken, a prepacked deli salad, and a 2 liter drink for $15 at the deli counter.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.meijer.com/shopping/departments/fresh/meat/chicken/rotisserie-chicken.html",
-      "best": false,
-      "region": "Midwest"
-    },
-    {
-      "brand": "Shake Shack",
-      "cat": "Sides",
-      "color": "#6e1e22",
-      "ic": "SS",
-      "deal": "$4 Fries and $2 Sodas",
-      "desc": "Shake Shack offers $2 sodas and $4 fries chain wide when ordering online through the Shake Shack app or website at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 2,
-      "expires": "Ongoing",
-      "url": "https://www.shakeshack.com/",
-      "best": false
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#00954c",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $7.99",
-      "desc": "Every Thursday get a Tijuana Burrito or Burrito Bowl plus chips and a drink for about $7.99.",
+      "deal": "Sub of the Day: $4.99 Six-Inch, Add Chips and a Drink for $2 More",
+      "desc": "A different featured six-inch sub is $4.99 every day, with chips and a drink addable for just $2 more per Subway's new Fresh Value Menu.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Ongoing (Thursdays only)",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "region": "FL & Southeast"
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/",
+      "region": "National"
     },
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#5a8f29",
-      "ic": "P",
-      "deal": "Buy One Entree, Get One for $5 with code BOGO5",
-      "desc": "Buy a whole sandwich, salad, bowl of soup or mac and cheese and get a second for just $5 using promo code BOGO5, free MyPanera account required.",
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#d5232c",
+      "ic": "W",
+      "deal": "Chicken Sandwich Combo for $10",
+      "desc": "Get a crispy chicken sandwich with fries or veggie sticks, a dip, and a 20oz drink for $10, a bone-in-free combo option.",
       "tags": [
         "app"
       ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com/",
+      "region": "National"
+    },
+    {
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#d2232a",
+      "ic": "C",
+      "deal": "Triple Dipper: 3 Apps Plus 3 Sauces for $15.99",
+      "desc": "Build your own trio of shareable appetizers with three dipping sauces for one flat price.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com",
+      "best": false,
+      "region": "National"
+    },
+    {
+      "brand": "Shake Shack",
+      "cat": "Chicken",
+      "color": "#90803c",
+      "ic": "SS",
+      "deal": "Free Chicken Shack Sandwich with $10 Purchase",
+      "desc": "Get a free Chicken Shack sandwich added to your order when you spend $10 or more through the Shake Shack app.",
+      "tags": [
+        "app",
+        "free"
+      ],
       "value": 5,
       "expires": "Limited time",
-      "url": "https://www.panerabread.com",
-      "best": true
+      "url": "https://www.shakeshack.com",
+      "best": true,
+      "region": "National"
     }
   ]
 }
