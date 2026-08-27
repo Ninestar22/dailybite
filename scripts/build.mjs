@@ -116,6 +116,11 @@ function chainNav(current) {
 }
 
 const BRAND_DOMAIN_OVERRIDES = {
+  "noodles & company": "noodles.com",
+  "noodles and company": "noodles.com",
+  "taziki's mediterranean cafe": "tazikis.com",
+  "taziki's": "tazikis.com",
+  "nekter juice bar": "nekterjuicebar.com",
   "chick-fil-a": "chick-fil-a.com",
   "dunkin": "dunkindonuts.com",
   "dunkin'": "dunkindonuts.com",
@@ -454,9 +459,9 @@ function rssFeed(deals) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>DailyBite: Daily Food Deals</title>
+  <title>DailyBite: Daily Healthy Food Deals</title>
   <link>${SITE}</link>
-  <description>The best verified food deals, updated every morning.</description>
+  <description>The best verified healthy food deals, updated every morning.</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${items}

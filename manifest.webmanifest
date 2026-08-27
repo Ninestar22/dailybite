@@ -1,7 +1,7 @@
 {
-  "name": "DailyBite — Daily Food Deals",
+  "name": "DailyBite: Daily Healthy Food Deals",
   "short_name": "DailyBite",
-  "description": "The best food deals near you — verified daily.",
+  "description": "The best healthy food deals near you, verified daily.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
