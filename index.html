@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#0f1115">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="https://dailybitedeals.com/feed.xml">
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
@@ -22,10 +22,20 @@
 <meta property="og:image:height" content="630">
 <meta name='impact-site-verification' value='30a843bc-2605-441e-a328-bba6f68b4c54'>
 <style>
+  /* Dark-first palette (owner decision, 2026-08-27): dark is the site's signature look
+     and the default; the warm light palette serves visitors whose devices explicitly
+     prefer light, where it reads fresher and pins/screenshots better. */
   :root{
     --bg:#0f1115; --card:#191c23; --card2:#20242d; --ink:#f4f5f7;
     --muted:#9aa3b2; --line:#2a2f3a; --accent:#ff5a3c; --accent2:#ffb020;
-    --good:#2ec16b; --chip:#242935;
+    --good:#2ec16b; --chip:#242935; --blue:#7aa5ff; --controlsbg:rgba(15,17,21,.9);
+  }
+  @media (prefers-color-scheme:light){
+    :root{
+      --bg:#faf7f2; --card:#ffffff; --card2:#f0ebe2; --ink:#20262e;
+      --muted:#5c6674; --line:#e6dfd2; --accent:#e04a2f; --accent2:#b57a00;
+      --good:#188a4a; --chip:#efe9dd; --blue:#2f66c4; --controlsbg:rgba(250,247,242,.92);
+    }
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -39,7 +49,7 @@
   .date{margin-top:10px;display:inline-block;background:var(--chip);color:var(--ink);
     padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600}
   .wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}
-  .controls{position:sticky;top:0;z-index:5;background:rgba(15,17,21,.9);backdrop-filter:blur(8px);
+  .controls{position:sticky;top:0;z-index:5;background:var(--controlsbg);backdrop-filter:blur(8px);
     padding:14px 0 12px;margin-top:8px}
   .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);
     background:var(--card);color:var(--ink);font-size:15px;outline:none}
@@ -97,29 +107,29 @@
   .verify{margin-top:8px;font-size:12px;color:var(--good);font-weight:600}
   .pill.new{background:rgba(46,193,107,.2);color:var(--good)}
   .pill.soon{background:rgba(255,90,60,.18);color:var(--accent)}
-  .pill.todaypill{background:rgba(122,165,255,.15);color:#7aa5ff}
-  .pill.region{background:rgba(122,165,255,.15);color:#7aa5ff}
+  .pill.todaypill{background:rgba(122,165,255,.15);color:var(--blue)}
+  .pill.region{background:rgba(122,165,255,.15);color:var(--blue)}
   .pill.openpill{background:rgba(46,193,107,.15);color:var(--good)}
   .pill.closedpill{background:rgba(255,90,60,.15);color:var(--accent)}
   .share{background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;padding:7px 10px;border-radius:9px;cursor:pointer;white-space:nowrap}
   .share:hover{color:var(--ink);border-color:var(--muted)}
-  .near{color:#7aa5ff;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
-  .locbtn{margin-top:8px;border-color:#7aa5ff;color:#7aa5ff}
-  .locbtn.on{background:#7aa5ff;color:#0f1115;border-color:#7aa5ff}
+  .near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+  .locbtn{margin-top:8px;border-color:var(--blue);color:var(--blue)}
+  .locbtn.on{background:var(--blue);color:var(--bg);border-color:var(--blue)}
   .chip.freechip{border-color:var(--good);color:var(--good)}
   .chip.freechip.active{background:var(--good);color:#fff;border-color:var(--good)}
   .today-head{font-size:16px;font-weight:800;margin:18px 2px 0}
   .today-sub{color:var(--muted);font-size:12px;margin:2px 2px 4px}
-  .holiday-banner{display:block;max-width:600px;margin:16px auto 0;padding:12px 20px;background:linear-gradient(90deg,rgba(255,176,32,.14),rgba(255,90,60,.14));border:1px solid #ffb020;border-radius:12px;color:#ffb020;font-weight:700;font-size:14px;text-decoration:none;text-align:center}
-  .holiday-banner:hover{border-color:#ff5a3c}
-  .pill.codechip{background:rgba(255,90,60,.14);color:#ff5a3c;border:1px dashed #ff5a3c;cursor:pointer;font-family:inherit;font-size:11px;font-weight:700}
-  .pill.late{background:rgba(122,165,255,.15);color:#9db9ff}
+  .holiday-banner{display:block;max-width:600px;margin:16px auto 0;padding:12px 20px;background:linear-gradient(90deg,rgba(255,176,32,.14),rgba(255,90,60,.14));border:1px solid var(--accent2);border-radius:12px;color:var(--accent2);font-weight:700;font-size:14px;text-decoration:none;text-align:center}
+  .holiday-banner:hover{border-color:var(--accent)}
+  .pill.codechip{background:rgba(255,90,60,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit;font-size:11px;font-weight:700}
+  .pill.late{background:rgba(122,165,255,.15);color:var(--blue)}
   .faq{max-width:920px;margin:40px auto 0;padding:0 16px}
   .faq h2{font-size:20px;margin:0 0 6px}
-  .faq p.faq-sub{color:#9aa3b2;font-size:13px;margin:0 0 14px}
-  .faq details{background:#191c23;border:1px solid #2a2f3a;border-radius:12px;padding:14px 18px;margin-bottom:10px}
-  .faq summary{font-weight:700;font-size:14px;cursor:pointer;color:#f4f5f7}
-  .faq details p{color:#9aa3b2;font-size:13px;line-height:1.55;margin:10px 0 0}
+  .faq p.faq-sub{color:var(--muted);font-size:13px;margin:0 0 14px}
+  .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+  .faq summary{font-weight:700;font-size:14px;cursor:pointer;color:var(--ink)}
+  .faq details p{color:var(--muted);font-size:13px;line-height:1.55;margin:10px 0 0}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"DailyBite is free and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link. Deal listings are never sponsored and every deal link goes straight to the restaurant's own site or app."}}]}</script>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -733,7 +743,7 @@ function showLocTip(msg){
   if(!tip){
     tip = document.createElement('div');
     tip.id = 'locTip';
-    tip.style.cssText = 'margin-top:8px;font-size:13px;color:#9aa3b2;max-width:560px;line-height:1.5';
+    tip.style.cssText = 'margin-top:8px;font-size:13px;color:var(--muted);max-width:560px;line-height:1.5';
     locBtn.parentNode.insertBefore(tip, locBtn.nextSibling);
   }
   tip.textContent = msg;
