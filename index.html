@@ -37,6 +37,19 @@
       --good:#188a4a; --chip:#efe9dd; --blue:#2f66c4; --controlsbg:rgba(250,247,242,.92);
     }
   }
+  /* The visitor's explicit toggle choice (stored in localStorage) outranks both. */
+  :root[data-theme=light]{
+    --bg:#faf7f2; --card:#ffffff; --card2:#f0ebe2; --ink:#20262e;
+    --muted:#5c6674; --line:#e6dfd2; --accent:#e04a2f; --accent2:#b57a00;
+    --good:#188a4a; --chip:#efe9dd; --blue:#2f66c4; --controlsbg:rgba(250,247,242,.92);
+  }
+  :root[data-theme=dark]{
+    --bg:#0f1115; --card:#191c23; --card2:#20242d; --ink:#f4f5f7;
+    --muted:#9aa3b2; --line:#2a2f3a; --accent:#ff5a3c; --accent2:#ffb020;
+    --good:#2ec16b; --chip:#242935; --blue:#7aa5ff; --controlsbg:rgba(15,17,21,.9);
+  }
+  header{position:relative}
+  .themebtn{position:absolute;top:14px;right:14px;background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit}
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
@@ -132,10 +145,11 @@
   .faq details p{color:var(--muted);font-size:13px;line-height:1.55;margin:10px 0 0}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"DailyBite is free and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link. Deal listings are never sponsored and every deal link goes straight to the restaurant's own site or app."}}]}</script>
-<script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <header>
+  <button class="themebtn" id="themeBtn" onclick="dbToggleTheme()" title="Switch color theme">Light mode</button>
   <div class="logo"><img src="/icon-192.png" alt="DailyBite logo" width="38" height="38">Daily<span>Bite</span></div>
   <div class="tag">The best healthy food deals, verified every morning</div>
   <div class="date" id="today"></div>
