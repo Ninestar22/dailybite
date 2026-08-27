@@ -592,6 +592,23 @@ function main() {
       for (const k of keys) seen.add(k);
       return true;
     });
+    // Second pass: same-brand titles sharing most of their words are the same offer
+    // even when the stated price conflicts (Throwback Thursdaze $8.99 vs $7.99,
+    // 2026-08-27). First listing wins.
+    const words = t => new Set(String(t || "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !/^\d+$/.test(w)));
+    const kept = [];
+    for (const d of deals) {
+      const w = words(d.deal), b = canonBrand(d.brand);
+      const dup = kept.some(k => {
+        if (canonBrand(k.brand) !== b) return false;
+        const kw = words(k.deal);
+        let inter = 0; for (const x of w) if (kw.has(x)) inter++;
+        const union = new Set([...w, ...kw]).size;
+        return union > 0 && inter / union >= 0.6;
+      });
+      if (!dup) kept.push(d);
+    }
+    deals = kept;
     if (deals.length < beforeDedupe) console.log(`Removed ${beforeDedupe - deals.length} duplicate deal(s).`);
   }
 

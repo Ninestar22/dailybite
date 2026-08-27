@@ -174,8 +174,25 @@ function dedupe(deals) {
     for (const k of keys) seen.add(k);
     return true;
   });
-  if (out.length < deals.length) console.log(`Dropped ${deals.length - out.length} duplicate deal(s) from model output.`);
-  return out;
+  // Second pass: same-brand titles sharing most of their words are the same offer even
+  // when the stated PRICE conflicts ("Throwback Thursdaze ... for $8.99" vs the same
+  // sentence at $7.99 survived the price key, 2026-08-27). First listing wins.
+  const words = t => new Set(String(t || "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter(w => w.length >= 3 && !/^\d+$/.test(w)));
+  const kept = [];
+  for (const d of out) {
+    const w = words(d && d.deal), b = key(d && d.brand);
+    const dup = kept.some(k => {
+      if (key(k.brand) !== b) return false;
+      const kw = words(k.deal);
+      let inter = 0; for (const x of w) if (kw.has(x)) inter++;
+      const union = new Set([...w, ...kw]).size;
+      return union > 0 && inter / union >= 0.6;
+    });
+    if (dup) console.log(`Dropped near-duplicate: ${d.brand}: ${d.deal}`);
+    else kept.push(d);
+  }
+  if (kept.length < deals.length) console.log(`Dropped ${deals.length - kept.length} duplicate deal(s) from model output.`);
+  return kept;
 }
 
 function dealFieldErrors(d, i) {
