@@ -966,7 +966,18 @@ function render(){
       return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
     });
   const total=list.length+shown.size;
-  document.getElementById('count').textContent=`${total} deal${total!==1?'s':''} today`;
+  // When location filtering hides deals, say so plainly: "5 deals today" next to
+  // "10 deals verified today" reads as a bug (owner report, 2026-08-27) when the
+  // truth is that 5 of the 10 are not claimable in the visitor's area.
+  const countEl=document.getElementById('count');
+  if(STATE&&total<DEALS.length){
+    const place=CITY?(CITY+', '+STATE):STATE;
+    countEl.innerHTML=`${total} of ${DEALS.length} verified deals are claimable near ${esc(place)} (${DEALS.length-total} hidden as out of area) · <a href="#" id="showAllDeals" style="color:var(--accent2)">show all ${DEALS.length}</a>`;
+    const sa=document.getElementById('showAllDeals');
+    if(sa)sa.onclick=function(e){e.preventDefault();DIST=null;STATE=null;CITY=null;HOURS=null;try{localStorage.removeItem('db_dist2');}catch(err){}locBtn.textContent='Show distances near me';locBtn.classList.remove('on');const p=document.getElementById('locPickBtn');if(p)p.textContent='Choose a location';render();};
+  }else{
+    countEl.textContent=`${total} deal${total!==1?'s':''} today`;
+  }
   document.getElementById('empty').style.display=total?'none':'block';
   grid.innerHTML=list.map(cardHTML).join('');
 }
