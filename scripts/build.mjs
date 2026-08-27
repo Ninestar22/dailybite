@@ -69,7 +69,7 @@ const CHAINS = [
   { slug: "publix-deals",       name: "Publix", note: "Publix's standing deal is $5 Sushi Wednesday: select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 at stores with a sushi counter across FL & the Southeast, no coupon or app needed. It appears below every Wednesday." },
 ];
 
-const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a></nav>`;
+const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a></nav>`;
 
 const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><script>(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account', '2582509');</script><div class="ml-embedded" data-form="phh0LU"></div></div>`;
 
@@ -100,6 +100,11 @@ const monthYear = nowDate.toLocaleDateString("en-US", { month: "long", year: "nu
 const prettyDate = nowDate.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", ...ET });
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const dowET = WEEKDAYS.indexOf(nowDate.toLocaleDateString("en-US", { weekday: "long", ...ET }));
+
+// Machine-readable freshness (growth plan Fix 2, 2026-08-28): a WebPage dateModified
+// block on every generated page tells Google, in its own language, that the page was
+// updated today: the daily-true signal competitors fake.
+const freshLdFor = t => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "name": t, "dateModified": iso, "isPartOf": { "@type": "WebSite", "name": "DailyBite", "url": SITE } })}</script>`;
 
 function chainNav(current) {
   // Navigation lists only chains the daily refresh actually covers: linking banned
@@ -159,6 +164,68 @@ function dealCard(d) {
 
 const CHAIN_CSS = `:root{--bg:#0f1115;--card:#191c23;--card2:#20242d;--ink:#f4f5f7;--muted:#9aa3b2;--line:#2a2f3a;--accent:#ff5a3c;--accent2:#ffb020;--good:#2ec16b;--chip:#242935;--blue:#7aa5ff;--controlsbg:rgba(15,17,21,.9)}@media (prefers-color-scheme:light){:root{--bg:#faf7f2;--card:#ffffff;--card2:#f0ebe2;--ink:#20262e;--muted:#5c6674;--line:#e6dfd2;--accent:#e04a2f;--accent2:#b57a00;--good:#188a4a;--chip:#efe9dd;--blue:#2f66c4;--controlsbg:rgba(250,247,242,.92)}}:root[data-theme=light]{--bg:#faf7f2;--card:#ffffff;--card2:#f0ebe2;--ink:#20262e;--muted:#5c6674;--line:#e6dfd2;--accent:#e04a2f;--accent2:#b57a00;--good:#188a4a;--chip:#efe9dd;--blue:#2f66c4;--controlsbg:rgba(250,247,242,.92)}:root[data-theme=dark]{--bg:#0f1115;--card:#191c23;--card2:#20242d;--ink:#f4f5f7;--muted:#9aa3b2;--line:#2a2f3a;--accent:#ff5a3c;--accent2:#ffb020;--good:#2ec16b;--chip:#242935;--blue:#7aa5ff;--controlsbg:rgba(15,17,21,.9)}header{position:relative}.themebtn{position:absolute;top:14px;right:14px;background:none;border:1px solid var(--line);color:var(--muted);font-size:12px;font-weight:600;padding:6px 12px;border-radius:999px;cursor:pointer;font-family:inherit}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink)}header{padding:28px 20px 18px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(255,90,60,.18),transparent 60%)}.logo{font-size:26px;font-weight:800}.logo a{display:inline-flex;align-items:center;gap:8px}.logo img{width:30px;height:30px}.logo a{color:var(--ink);text-decoration:none}.logo span{color:var(--accent)}.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}h1{font-size:24px;margin:18px 2px 6px}.tag{color:var(--muted);font-size:14px;margin:0 2px 14px}.date{display:inline-block;background:var(--chip);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:10px}@media(max-width:640px){.grid{grid-template-columns:1fr}}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}.card.best{border-color:var(--accent2)}.best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px}.brandrow{display:flex;align-items:center;gap:10px}.brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}.brand-name{font-weight:700;font-size:15px}.brand-cat{color:var(--muted);font-size:12px}.deal{font-size:16px;font-weight:700;line-height:1.3}.desc{color:var(--muted);font-size:13px;line-height:1.45}.metarow{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}.pill.free{background:rgba(46,193,107,.15);color:var(--good)}.pill.app{background:rgba(255,176,32,.14);color:var(--accent2)}.pill.region{background:rgba(122,165,255,.15);color:var(--blue)}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.expires{font-size:12px;color:var(--muted)}.cta{background:var(--accent);color:#fff;text-decoration:none;font-size:13px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap}.near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}.empty{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--muted);line-height:1.5}.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;color:var(--muted);font-size:13px;line-height:1.6}.chains{margin-top:22px;font-size:13px;color:var(--muted);line-height:2}.chains a{color:var(--accent2);text-decoration:none}footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}footer a{color:var(--accent2)}.brand-ic{position:relative;overflow:hidden}.brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff}.pill.codechip{background:rgba(255,90,60,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit}.pill.late{background:rgba(122,165,255,.15);color:var(--blue)}.promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}.promo h3{margin:0 0 4px;font-size:16px}.promo p{margin:0 0 12px;color:var(--muted);font-size:13px}.aff-row{display:flex;flex-wrap:wrap;gap:10px}.aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:11px}.aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}`;
 
+// Evergreen layers (growth plan, 2026-08-28): the top healthy chain pages carry
+// standing content: how the chain's deals actually work, the typical deal cadence, and
+// Q&A that matches what people ask Google (rendered with FAQPage structured data), so
+// these pages have substance and rank 365 days a year, deals or no deals. Facts are
+// deliberately general and stable (free programs, seasonal patterns): no prices here.
+const GUIDES = {
+  "chipotle-deals": {
+    how: "Chipotle's best offers run through Chipotle Rewards, the free account in the app and at chipotle.com. Deals usually arrive as promo codes entered at digital checkout or as offers loaded straight to your account. Chipotle is one of two chains on this site allowed to list free-account deals, so when a code drops, you'll see it here the same morning.",
+    cadence: "Chipotle skips the standing value menu and leans on limited-time codes instead: expect bursts around National Burrito Day (first Thursday of April), Halloween's Boorito tradition, back-to-school, and big sports moments, plus occasional free-delivery windows in between.",
+    qa: [
+      ["Does Chipotle have a value menu?", "No. Chipotle runs promo codes and app offers instead of a standing value menu, so deals come and go. This page lists whatever is verified as active today, re-checked every morning."],
+      ["Is Chipotle Rewards free to join?", "Yes. It's free in the app or at chipotle.com, and it's how most Chipotle deals are claimed. No paid membership is ever required for a deal listed here."],
+      ["When do new Chipotle codes usually drop?", "Irregularly, but the reliable big moments are National Burrito Day in early April, Halloween's Boorito deal, and promotions tied to major sporting events."]
+    ]
+  },
+  "chick-fil-a-deals": {
+    how: "Chick-fil-A's offers live in the free Chick-fil-A One app: points on every purchase, tiered status, and a rewards tab where the actual deals appear. Chick-fil-A publishes no deals page of its own, which is exactly why we track it daily.",
+    cadence: "Most Chick-fil-A One offers are regional: local operators load different freebies in different markets, so the app is worth checking even when nothing national is running. Summers typically bring a chain-wide game with free-food codes, and new-item launches often pair with app offers.",
+    qa: [
+      ["Does Chick-fil-A have a value menu?", "No, and it rarely discounts publicly. Its deals are almost entirely app offers through Chick-fil-A One, which is why verified chain-wide Chick-fil-A deals are genuinely rare finds."],
+      ["Why do my Chick-fil-A app offers look different from a friend's?", "Offers are loaded regionally by local operators, so two cities often see different freebies the same week. We list offers verified as broadly available."],
+      ["Can I get Chick-fil-A deals on Sunday?", "No: every location is closed on Sundays, so app offers are redeemable Monday through Saturday only."]
+    ]
+  },
+  "starbucks-deals": {
+    how: "Starbucks deals flow through free Starbucks Rewards accounts and the app: member-targeted offers in the app's offers tab, occasional public promotions anyone can claim, and stars that stack on top. We list only the publicly claimable kind: no member-exclusive fine print.",
+    cadence: "Promo activity clusters around seasonal launches: fall (pumpkin season) and the winter holiday cups are the two biggest windows, with periodic afternoon-focused deals and bring-back promotions in between.",
+    qa: [
+      ["Does Starbucks have a value menu?", "No. Starbucks runs rotating promotions instead: seasonal offers, occasional day-specific deals, and app promotions, which is why this page changes through the year."],
+      ["Do I need Starbucks Rewards for the deals listed here?", "We only list deals a typical person can claim, and we say plainly when a free account is involved. Paid memberships are never required for anything on this site."],
+      ["When is the best time of year for Starbucks deals?", "Early fall and the holiday season: seasonal launches historically bring the most frequent and strongest promotions."]
+    ]
+  },
+  "panera-deals": {
+    how: "Panera's everyday anchor is its value menu of mix-and-match items with a free side, and its promo codes for online and app orders through the free MyPanera program. Codes apply at checkout on panerabread.com or in the app.",
+    cadence: "The value menu is standing, and promo codes (BOGO-style and percent-off) rotate every few weeks. Panera is one of the most consistently deal-active chains we track, which is why it appears here most mornings.",
+    qa: [
+      ["Does Panera have a value menu?", "Yes: a standing mix-and-match menu of half sandwiches, soups, and salads, with a free side included per item. We verify its details every morning along with any active codes."],
+      ["Is MyPanera free?", "Yes, free to join, and it's where Panera's codes and offers are usable. No paid tier is required for anything listed here."],
+      ["How often do Panera codes change?", "Typically every few weeks. When a code expires we drop it the same morning, so anything listed on this page worked as of today's check."]
+    ]
+  },
+  "subway-deals": {
+    how: "Subway is the promo-code chain: nearly always at least one working footlong or meal code for app and online orders, layered on top of its rotating Sub of the Day pricing at participating locations.",
+    cadence: "National codes rotate roughly monthly, and the Sub of the Day changes daily at a set price that varies by region. Because codes churn fast, this page is worth a daily check: yesterday's code may already be dead.",
+    qa: [
+      ["What is Subway's Sub of the Day?", "A different featured 6-inch sub each weekday at a discounted price at participating locations. We list it with the verified price whenever it checks out that morning."],
+      ["Do Subway promo codes work in-store?", "Most codes are app and online-order only. We say in each listing where a code actually works, and every listed code was verified the same morning."],
+      ["Why did a Subway code stop working?", "Subway rotates codes frequently and participation varies by franchise. Anything listed here worked at this morning's check; if it's gone tomorrow, so is the listing."]
+    ]
+  },
+  "wingstop-deals": {
+    how: "Wingstop's deals run through wingstop.com and its app: promo codes, combo pricing, and limited-time flavor promotions. Per this site's standards, we list bone-in and tender deals and never boneless-only promotions.",
+    cadence: "The sports calendar drives Wingstop: football season and March Madness bring its biggest promos, with code-based combo deals appearing year-round.",
+    qa: [
+      ["Does Wingstop have a value menu?", "Not a formal one, but combo pricing and rotating promo codes fill the same role. We list combos only when the full price is stated and verified."],
+      ["When does Wingstop run its best deals?", "Around big sports moments: NFL season and March Madness historically bring the strongest promotions."],
+      ["Why don't you list boneless wing deals?", "Owner policy after personal testing: this site lists bone-in wing, tender, and sandwich deals from Wingstop, never boneless-only promotions."]
+    ]
+  }
+};
+
 function chainPage(chain, deals) {
   const list = dealsFor(chain.name, deals);
   // Banned chains get an honest page: the old copy ("check back tomorrow") implied we
@@ -190,6 +257,17 @@ ${alternatives}`;
       "@type": "ListItem", "position": i + 1, "name": d.deal, "url": d.url
     }))
   };
+  const g = !chain.banned && GUIDES[chain.slug];
+  const faqLd = g ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": g.qa.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) })}</script>` : "";
+  const freshLd = `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "name": title, "dateModified": iso, "isPartOf": { "@type": "WebSite", "name": "DailyBite", "url": SITE } })}</script>`;
+  const guideHtml = g ? `
+  <h2 style="font-size:18px;margin:26px 2px 4px">How ${esc(chain.name)} deals actually work</h2>
+  <p class="tag" style="font-size:13.5px">${esc(g.how)}</p>
+  <h2 style="font-size:18px;margin:20px 2px 4px">Deal cadence: when to check back</h2>
+  <p class="tag" style="font-size:13.5px">${esc(g.cadence)}</p>
+  <h2 style="font-size:18px;margin:20px 2px 4px">Questions, answered</h2>
+  ${g.qa.map(([q, a]) => `<details style="background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:8px"><summary style="font-weight:700;font-size:14px;cursor:pointer">${esc(q)}</summary><p class="tag" style="font-size:13px;margin:8px 0 0">${esc(a)}</p></details>`).join("\n  ")}
+  <p class="tag" style="font-size:12px">Last verified: ${esc(prettyDate)}. Deals above are re-checked every morning; this section covers the standing facts that don't change day to day.</p>` : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -211,6 +289,7 @@ ${alternatives}`;
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+${faqLd}${freshLd}
 <style>${CHAIN_CSS}</style>
 <script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -222,6 +301,7 @@ ${alternatives}`;
   <p class="tag">${chain.banned ? `DailyBite lists verified deals from healthier, quality chains only. This page exists because people search for ${esc(chain.name)} deals, and we&#39;d rather tell you where the healthier value is than pretend to cover them.` : `Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.`}</p>
   ${chain.note ? `<p class="tag">${esc(chain.note)}</p>` : ""}
   ${body}
+  ${guideHtml}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; ${DAYS.map(x => `<a href="/${x}-food-deals">${x[0].toUpperCase()+x.slice(1)}</a>`).join(" &middot; ")}</nav>\n  ${GUIDES_NAV}
 </div>
@@ -275,6 +355,7 @@ function sushiPage(deals) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+${freshLdFor(title)}
 <style>${CHAIN_CSS}
 .tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
 <script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -332,6 +413,7 @@ function freeFoodPage(deals) {
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+${freshLdFor(title)}
 <style>${CHAIN_CSS}</style>
 <script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -384,6 +466,50 @@ ${items}
 }
 
 const DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+
+// Public verification log (growth plan Fix 5, 2026-08-28): nobody in this niche shows
+// their work. This page is the crawlable, dated proof of the daily checks: it converts
+// skeptical visitors and gives Google a growing record of genuine freshness.
+function verificationLogPage(entries) {
+  const title = "The DailyBite Verification Log: Every Daily Check, Dated";
+  const desc = `Public proof of the daily deal verification: ${entries.length} logged morning checks, newest ${prettyDate}. Every deal on DailyBite is re-verified each morning; this is the record.`;
+  const rows = entries.map(e => `<tr><td>${esc(e.d)}</td><td>${esc(e.t)}</td><td>${e.n} deals verified</td></tr>`).join("\n");
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="max-image-preview:large">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${SITE}/verification-log">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="${SITE}/verification-log">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0f1115" media="(prefers-color-scheme: dark)">
+${freshLdFor(title)}
+<style>${CHAIN_CSS}
+.tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
+<script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div><button class="themebtn" id="themeBtn" onclick="dbToggleTheme()" title="Switch color theme">Light mode</button></header>
+<div class="wrap">
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>The Verification Log</h1>
+  <p class="tag">Every morning, an automated check re-verifies every deal on DailyBite against official sources: expired offers are dropped, prices are confirmed, and anything that can't be verified never publishes. Most deal sites ask you to trust that. We'd rather show the receipts: below is the dated record of every daily check.</p>
+  <div class="tblwrap"><table class="tbl"><tr><th>Date</th><th>Checked at</th><th>Result</th></tr>
+${rows}
+</table></div>
+  <div class="note">How to read this: "deals verified" is the count that passed every check that morning (stated dollars, active today, approved healthier chains only). The count varies day to day because we only list what's verifiably true: a smaller honest list over a padded one, every time.</div>
+  <nav class="chains"><strong>More:</strong> <a href="/">Today&#39;s deals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/free-food-today">Free Food Today</a> &middot; <a href="/about">About</a></nav>
+</div>
+<footer>DailyBite is updated daily and is not affiliated with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
+</body>
+</html>`;
+}
 
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
 // Healthy-fit calendar only (owner whitelist, 2026-08-10): no burger/dessert holidays.
@@ -491,6 +617,7 @@ function dayPage(day, deals) {
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+${freshLdFor(title)}
 <style>${CHAIN_CSS}</style>
 <script>(function(){try{var t=localStorage.getItem("db_theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}})();function dbTheme(){var a=document.documentElement.getAttribute("data-theme");if(a)return a;return matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}function dbToggleTheme(){var n=dbTheme()==="dark"?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("db_theme",n)}catch(e){}var b=document.getElementById("themeBtn");if(b)b.textContent=n==="dark"?"Light mode":"Dark mode"}window.addEventListener("DOMContentLoaded",function(){var b=document.getElementById("themeBtn");if(b)b.textContent=dbTheme()==="dark"?"Light mode":"Dark mode"});</script><script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -787,6 +914,8 @@ function main() {
   {
     let out = readFileSync(htmlPath, "utf8");
     out = out.replace(/(<span id="updated">)[^<]*(<\/span>)/, `$1${prettyDate}$2`);
+    // Refresh the homepage's structured-data dateModified daily (growth plan Fix 2).
+    out = out.replace(/(<script type="application\/ld\+json" id="freshld">[^<]*"dateModified":")[^"]*(")/, `$1${iso}$2`);
     const GS = "<!-- SSRGRID:START -->", GE = "<!-- SSRGRID:END -->";
     const gs = out.indexOf(GS), ge = out.indexOf(GE);
     if (gs !== -1 && ge !== -1 && ge > gs) {
@@ -838,8 +967,19 @@ function main() {
   writeFileSync(join(root, "feed.xml"), rssFeed(deals));
   console.log("Built free-food-today.html, sushi-deals.html and feed.xml.");
 
+  // 2d. Public verification log: append today's check, keep 90 days, publish the page.
+  let vlog = [];
+  try { vlog = JSON.parse(readFileSync(join(root, "verify-log.json"), "utf8")).entries || []; } catch {}
+  const checkedAt = data.updatedAt
+    ? new Date(data.updatedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", ...ET }) + " ET"
+    : "morning check";
+  vlog = [{ d: iso, t: checkedAt, n: deals.length }, ...vlog.filter(e => e && e.d !== iso)].slice(0, 90);
+  writeFileSync(join(root, "verify-log.json"), JSON.stringify({ entries: vlog }, null, 2) + "\n");
+  writeFileSync(join(root, "verification-log.html"), verificationLogPage(vlog));
+  console.log(`Built verification-log.html (${vlog.length} entries).`);
+
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
