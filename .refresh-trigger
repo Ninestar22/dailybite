@@ -1,4 +1,4 @@
 # Commit any change to this file to force a full deal refresh immediately.
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
-Last manual trigger: 2026-08-27 10:10 ET (cancel the hung Sonnet-5 run; re-run on the proven config)
+Last manual trigger: 2026-08-27 (supervised Sonnet 5 test: new model, proven search tool, hard timeouts)
