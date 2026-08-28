@@ -299,7 +299,7 @@ ${faqLd}${freshLd}
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${chain.banned ? `${esc(chain.name)} Deals: Not on DailyBite (Here&#39;s Why)` : `${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}`}</h1>
@@ -366,7 +366,7 @@ ${freshLdFor(title)}
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>Grocery Store Sushi Days: $5 Sushi, by Day of the Week</h1>
@@ -423,7 +423,7 @@ ${freshLdFor(title)}
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>Free Food Today</h1>
@@ -500,7 +500,7 @@ ${freshLdFor(title)}
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>The Verification Log</h1>
@@ -563,7 +563,7 @@ function holidayPage(h, deals) {
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
 <span class="date">Updated ${prettyDate}</span>
 <h1>${esc(h.name)} Deals: ${esc(pretty)}</h1>
@@ -627,7 +627,7 @@ ${freshLdFor(title)}
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
-<header><div class="logo"><a href="/"><img src="/icon-192.png" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="30" height="30">Daily<span>Bite</span></a></div></header>
 <div class="wrap">
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(cap)} Food Deals &amp; Freebies</h1>
