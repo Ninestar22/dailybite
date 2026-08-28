@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dailybitedeals.com/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e1310">
@@ -31,6 +31,9 @@
     --muted:#9ab3a3; --line:#27352c; --accent:#31c96e; --accent2:#ffd166;
     --good:#4cd9a1; --chip:#1f2b23; --blue:#63d3c1; --controlsbg:rgba(14,19,16,.92);
   }
+  :root[data-theme="light"]{--bg:#f2f6f2;--card:#ffffff;--card2:#eaf1ea;--ink:#18211b;--muted:#54655a;--line:#d9e3da;--accent:#1f9e54;--accent2:#b9830a;--good:#178f52;--chip:#e6efe7;--blue:#0e7f74;--controlsbg:rgba(242,246,242,.92)}
+  :root[data-theme="light"] body{background:radial-gradient(70% 40% at -10% 40%,rgba(31,158,84,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(185,131,10,.05),transparent 60%),linear-gradient(180deg,#eaf2ea,var(--bg) 600px)}
+  .themetog{position:fixed;top:14px;right:14px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;cursor:pointer;line-height:1}
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:radial-gradient(70% 40% at -10% 40%,rgba(76,217,161,.05),transparent 60%),
@@ -39,7 +42,7 @@
     color:var(--ink);-webkit-font-smoothing:antialiased}
   header{padding:32px 20px 20px;text-align:center;background:
     radial-gradient(120% 100% at 50% 0%, rgba(49,201,110,.16), transparent 60%);}
-  .logo{font-size:34px;font-weight:800;letter-spacing:-.5px;display:flex;align-items:center;justify-content:center;gap:9px}
+  .logo{font-family:"Poppins",-apple-system,"Segoe UI",Arial,sans-serif;font-size:34px;font-weight:700;letter-spacing:-.3px;display:flex;align-items:center;justify-content:center;gap:9px}
   .logo img{width:48px;height:48px}
   .logo span{color:var(--accent)}
   .tag{color:var(--muted);margin-top:6px;font-size:14px}
@@ -131,10 +134,10 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"DailyBite is free and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link. Deal listings are never sponsored and every deal link goes straight to the restaurant's own site or app."}}]}</script>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
-<body>
+<body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light";try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}};</script>
 <header>
   
-  <div class="logo"><img src="/logo.svg" alt="DailyBite logo" width="48" height="48">Daily<span>Bite</span></div>
+  <div class="logo"><img src="/logo.svg" alt="DailyBite logo" width="48" height="48"><b>Daily<span>Bite</span></b></div>
   <div class="tag">The best healthy food deals, verified every morning</div>
   <div class="date" id="today"></div>
   <div class="verify" id="verify"></div>
