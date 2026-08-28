@@ -286,7 +286,7 @@ ${alternatives}`;
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${chain.slug}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e1310">
@@ -352,7 +352,7 @@ function sushiPage(deals) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/sushi-deals">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e1310">
@@ -411,7 +411,7 @@ function freeFoodPage(deals) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/free-food-today">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e1310">
@@ -492,7 +492,7 @@ function verificationLogPage(entries) {
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/verification-log">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <meta name="theme-color" content="#0e1310">
 ${freshLdFor(title)}
 <style>${CHAIN_CSS}
@@ -554,7 +554,7 @@ function holidayPage(h, deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
@@ -615,7 +615,7 @@ function dayPage(day, deals) {
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${day}-food-deals">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#0e1310">
