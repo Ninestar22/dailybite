@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="160 116 704 704">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="184 162 656 656">
   <mask id="bite"><rect width="1024" height="1024" fill="#fff"/><circle cx="782" cy="510" r="116" fill="#000"/></mask>
   <g mask="url(#bite)">
     <path d="M218 528 A294 252 0 0 0 806 528 Z" fill="#31c96e" stroke="#31c96e" stroke-width="24" stroke-linejoin="round"/>
     <rect x="412" y="752" width="200" height="64" rx="30" fill="#31c96e"/>
   </g>
-  <line x1="446" y1="362" x2="578" y2="158" stroke="#ffd166" stroke-width="45" stroke-linecap="round"/>
-  <circle cx="428" cy="178" r="54" fill="#ffd166"/>
-  <circle cx="596" cy="342" r="54" fill="#ffd166"/>
+  <line x1="446" y1="406" x2="578" y2="202" stroke="#ffd166" stroke-width="45" stroke-linecap="round"/>
+  <circle cx="428" cy="222" r="54" fill="#ffd166"/>
+  <circle cx="596" cy="386" r="54" fill="#ffd166"/>
 </svg>
