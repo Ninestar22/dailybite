@@ -68,6 +68,7 @@ Rules:
 - ${MIN_DEALS}-${MAX_DEALS} deals total. Mark up to 4 deals as "best": true: these are the site's featured Top Picks and must mean something: reserve them for genuinely outstanding-value deals from HEALTHIER chains (Sweetgreen, CAVA, Just Salad, Smoothie King, Tropical Smoothie Cafe, Jamba, Panera, sushi and poke chains, halal-certified chains). Never mark traditional fast food (burgers, fried chicken, pizza) as "best" unless zero healthy deals qualify that day.
 - "url" must be the brand's official https deals/rewards page.
 - "value" scores the dollars a typical visitor actually keeps: 5 = free food item or $5+ saved, 4 = roughly $3-5 saved, 3 = $1-3 saved, 1-2 = marginal. Score what stays in the visitor's pocket, not how exciting the promo sounds.
+- "est_savings" (owner request, 2026-08-28, read by the iOS app: keep this exact name and meaning): OPTIONAL number, US dollars, the editorial estimate of what a customer saves by using this deal versus paying regular price. Round to the nearest $0.50. Keep it in 0-100. Verify it against the deal's official source page (the url field) the same way the deals themselves are verified. Owner's computation rules, per deal type: '$X off' -> X. 'N% off orders of $M or more' -> N% x M (the minimum-spend case, e.g. 20% off $20+ -> 4). BOGO / 'buy one get one free (or for $X)' -> the regular price of the second item (minus X if it isn't free). Fixed-price bundles and value menus ('2 tacos, chips and a drink for $7.99', '3 For Me from $10.99') -> typical a-la-carte total of the included items minus the bundle price. Flat-price specials ('$5 sushi Friday') -> typical regular price minus the deal price. If a deal's savings genuinely can't be estimated, omit the field for that deal rather than inventing a number: but that should be rare. These estimates get shown to users labeled 'estimated,' so they need to be defensible, not inflated.
 - "tags" may only contain "free" and/or "app".
 - "ic" is a 1-3 character brand initial; "color" is the brand's hex color.
 - Include 2-5 deals from the healthier fast-casual chains whenever you can verify them, using natural categories like "Salads", "Bowls", or "Smoothies".
@@ -104,7 +105,7 @@ Rules:
 - Add "region":"National" for nationwide deals, or the specific region if limited (e.g. "Texas only", "California"). Leave out unverifiable regional deals.
 
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
-{"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. Through July 20 | This week | Ongoing","url":"https://...","best":true}]}`;
+{"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. Through July 20 | This week | Ongoing","url":"https://...","best":true,"est_savings":4}]}`;
 
 
 async function validateDealUrls(deals) {
@@ -218,6 +219,17 @@ function dealFieldErrors(d, i) {
 function salvage(deals) {
   if (!Array.isArray(deals)) return { deals: null, errors: ["top-level 'deals' is not an array"] };
   deals.forEach(d => { if (d && typeof d.ic === "string") d.ic = d.ic.trim().slice(0, 3); });
+  // est_savings (additive feed field, 2026-08-28; the iOS app reads it as a finite
+  // number 0-100): optional editorial savings estimate in US dollars. Normalize to
+  // the nearest $0.50 within 0-100; anything non-numeric or out of range is
+  // STRIPPED, never invented and never fatal - the field is optional per deal.
+  deals.forEach(d => {
+    if (d && "est_savings" in d) {
+      const n = Number(d.est_savings);
+      if (Number.isFinite(n) && n >= 0 && n <= 100) d.est_savings = Math.round(n * 2) / 2;
+      else { delete d.est_savings; console.error(`Stripped invalid est_savings on ${(d && d.brand) || "unknown deal"}`); }
+    }
+  });
   const kept = deals.filter((d, i) => {
     const errs = d ? dealFieldErrors(d, i) : ["not an object"];
     if (errs.length) console.error(`Dropping ${(d && d.brand) || `deal[${i}]`} instead of retrying: ${errs.join("; ")}`);

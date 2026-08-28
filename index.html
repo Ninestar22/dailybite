@@ -78,7 +78,7 @@
   .metarow{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
   .pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}
   .pill.free{background:rgba(46,193,107,.15);color:var(--good)}
-  .pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}
+  .pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}.pill.save{background:rgba(255,209,102,.14);color:var(--accent2);border:1px solid rgba(255,209,102,.35)}
   .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
   .expires{font-size:12px;color:var(--muted)}
   .cta{background:var(--accent);color:#0a140d;text-decoration:none;font-size:13px;font-weight:700;
@@ -365,6 +365,7 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.chilis.com/",
+      "est_savings": 6,
     "region": "National",
     "isNew": true,
     "endingSoon": false,
@@ -381,6 +382,7 @@ const DEALS = [
     "value": 3,
     "expires": "Ongoing",
     "url": "https://www.noodles.com/menu/",
+      "est_savings": 3,
     "best": false,
     "region": "National",
     "isNew": true,
@@ -399,6 +401,7 @@ const DEALS = [
     "value": 3,
     "expires": "Ongoing",
     "url": "https://www.subway.com/",
+      "est_savings": 4,
     "region": "National",
     "isNew": true,
     "endingSoon": false,
@@ -417,6 +420,7 @@ const DEALS = [
     "value": 4,
     "expires": "Ongoing",
     "url": "https://www.nekterjuicebar.com/",
+      "est_savings": 4,
     "best": true,
     "region": "National",
     "isNew": true,
@@ -435,6 +439,7 @@ const DEALS = [
     "value": 4,
     "expires": "Limited time",
     "url": "https://www.panerabread.com/en-us/deals-offers.html",
+      "est_savings": 6.5,
     "best": true,
     "region": "National",
     "isNew": true,
@@ -453,6 +458,7 @@ const DEALS = [
     "value": 3,
     "expires": "Limited time",
     "url": "https://www.wingstop.com/deals",
+      "est_savings": 3,
     "region": "National",
     "isNew": true,
     "endingSoon": false,
@@ -471,6 +477,7 @@ const DEALS = [
     "value": 5,
     "expires": "Limited time",
     "url": "https://www.fiveguys.com/",
+      "est_savings": 11,
     "region": "National",
     "isNew": true,
     "endingSoon": false,
@@ -487,6 +494,7 @@ const DEALS = [
     "value": 5,
     "expires": "Today only",
     "url": "https://www.harristeeter.com/",
+      "est_savings": 3.5,
     "best": false,
     "isNew": true,
     "endingSoon": false
@@ -502,6 +510,7 @@ const DEALS = [
     "value": 5,
     "expires": "Today only",
     "url": "https://www.safeway.com/",
+      "est_savings": 3.5,
     "best": false,
     "isNew": true,
     "endingSoon": false
@@ -915,6 +924,7 @@ function cardHTML(d){
         ${codeChip(d)}
         ${latePill(d)}
         ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
+        ${Number.isFinite(d.est_savings)&&d.est_savings>0?'<span class="pill save" title="Estimated savings vs regular price">SAVE ~$'+(d.est_savings%1?d.est_savings.toFixed(2):d.est_savings)+'</span>':''}
       </div>
       <div class="foot">
         <span class="expires">${esc(d.expires)}</span>

@@ -13,6 +13,7 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
+      "est_savings": 6,
       "region": "National"
     },
     {
@@ -26,6 +27,7 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.noodles.com/menu/",
+      "est_savings": 3,
       "best": true,
       "region": "National"
     },
@@ -42,6 +44,7 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/",
+      "est_savings": 4,
       "region": "National"
     },
     {
@@ -57,6 +60,7 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.nekterjuicebar.com/",
+      "est_savings": 4,
       "best": true,
       "region": "National"
     },
@@ -73,6 +77,7 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.panerabread.com/en-us/deals-offers.html",
+      "est_savings": 6.5,
       "best": true,
       "region": "National"
     },
@@ -89,6 +94,7 @@
       "value": 3,
       "expires": "Limited time",
       "url": "https://www.wingstop.com/deals",
+      "est_savings": 3,
       "region": "National"
     },
     {
@@ -104,6 +110,7 @@
       "value": 5,
       "expires": "Limited time",
       "url": "https://www.fiveguys.com/",
+      "est_savings": 11,
       "region": "National"
     },
     {
@@ -117,6 +124,7 @@
       "value": 5,
       "expires": "Today only",
       "url": "https://www.harristeeter.com/",
+      "est_savings": 3.5,
       "best": false
     },
     {
@@ -130,6 +138,7 @@
       "value": 5,
       "expires": "Today only",
       "url": "https://www.safeway.com/",
+      "est_savings": 3.5,
       "best": false
     }
   ]
