@@ -1,50 +1,18 @@
 {
-  "updated": "2026-08-27",
-  "updatedAt": "2026-08-27T19:38:28.003Z",
+  "updated": "2026-08-28",
+  "updatedAt": "2026-08-28T12:54:06.926Z",
   "deals": [
-    {
-      "brand": "Pokeworks",
-      "cat": "Poke",
-      "color": "#f47b20",
-      "ic": "PW",
-      "deal": "Free Scoop of Avocado with Any Entree",
-      "desc": "Use code AVOSUMMER online or in-store for a free avocado scoop with any poke bowl or burrito purchase this August.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through August 2026",
-      "url": "https://pokeworks.com",
-      "region": "Select states",
-      "best": true
-    },
-    {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4a7729",
-      "ic": "P",
-      "deal": "Buy One Entree, Get One for $5",
-      "desc": "Buy any whole sandwich, salad, or bowl of soup or mac and get a second for just $5 with a current Panera promo code.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.panerabread.com",
-      "region": "National",
-      "best": true
-    },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#c8102e",
+      "color": "#c8202f",
       "ic": "C",
-      "deal": "3 For Me Meal from $10.99",
-      "desc": "Get a full sit-down meal with a starter, entree such as a burger or Crispers, and a bottomless non-alcoholic drink starting at $10.99, available all day, every day.",
+      "deal": "3 For Me from $10.99",
+      "desc": "Pick a drink, an appetizer and a full entree like the Big Smasher Burger or Chicken Crispers for one flat price, available all day every day.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com",
+      "url": "https://www.chilis.com/",
       "region": "National"
     },
     {
@@ -52,40 +20,116 @@
       "cat": "Bowls",
       "color": "#8dc63f",
       "ic": "N",
-      "deal": "Delicious Duo Entree and Side from $9.95",
-      "desc": "Pick a smaller entree plus a side starting at $9.95 on the standing Delicious Duo value menu.",
+      "deal": "Delicious Duo entree plus a side from $9.95",
+      "desc": "Pair a smaller portion of a noodle or bowl favorite with a side like a salad or breadstick for one everyday value price.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.noodles.com",
+      "url": "https://www.noodles.com/menu/",
+      "best": true,
       "region": "National"
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#f7941d",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $7.99",
-      "desc": "Every Thursday only, get a Tijuana Burrito or Burrito Bowl plus chips and a drink for about $7.99 at participating Florida and Southeast locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Every Thursday",
-      "url": "https://www.tijuanaflats.com",
-      "region": "FL & Southeast"
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008938",
       "ic": "S",
-      "deal": "Sub of the Day Combo for $6.99",
-      "desc": "Get the featured 6 inch sub of the day plus chips or a cookie and a drink for $6.99, every day.",
+      "deal": "6 inch Sub of the Day with chips and a drink for $6.99",
+      "desc": "Grab the daily featured 6 inch sub bundled with chips or a cookie and a fountain drink for one set price.",
       "tags": [
         "app"
       ],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/",
+      "region": "National"
+    },
+    {
+      "brand": "Nekter Juice Bar",
+      "cat": "Smoothies",
+      "color": "#8cc63f",
+      "ic": "N",
+      "deal": "20% off any purchase of $20 or more",
+      "desc": "The Summer of Savings Celebration knocks 20% off smoothies, juices and acai bowls on any order of $20 or more through the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.nekterjuicebar.com/",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#5a8f29",
+      "ic": "P",
+      "deal": "Buy one whole sandwich, salad or soup, get one for $5",
+      "desc": "Order a full-size sandwich, salad, or bowl of soup or mac and cheese and get a second one for just $5 with a $10 minimum order.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com/en-us/deals-offers.html",
+      "best": true,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "color": "#f7941d",
+      "ic": "W",
+      "deal": "10 Classic bone-in wings for $10",
+      "desc": "Get ten classic bone-in wings in your choice of flavor for $10 through Wingstop.com or the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.wingstop.com/deals",
+      "region": "National"
+    },
+    {
+      "brand": "Five Guys",
+      "cat": "Burgers",
+      "color": "#e01a2b",
+      "ic": "F",
+      "deal": "Buy any burger, get one free with code FGAFTERPARTY",
+      "desc": "Order online or in the app, apply the promo code at checkout, and get a second burger of equal or lesser value free.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.fiveguys.com/",
+      "region": "National"
+    },
+    {
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "color": "#e4002b",
+      "ic": "HT",
+      "deal": "$5 Sushi Friday entrees",
+      "desc": "Fresh-made sushi entrees drop to just $5 today only at most Harris Teeter stores while supplies last, with a free VIC card.",
+      "tags": [],
+      "value": 5,
+      "expires": "Today only",
+      "url": "https://www.harristeeter.com/",
+      "best": false
+    },
+    {
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "SW",
+      "deal": "$5 Friday Sushi rolls",
+      "desc": "Select fresh sushi rolls like California and Philly rolls are priced at $5 today at Safeway and Albertsons stores, free Just4U card required.",
+      "tags": [],
+      "value": 5,
+      "expires": "Today only",
+      "url": "https://www.safeway.com/",
       "best": false
     }
   ]
