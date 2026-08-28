@@ -54,20 +54,20 @@ function renderSVG(W, H, count) {
     const textX = pad + Math.round(W * 0.02);
     const brandY = y + Math.round(cardH * 0.3);
     const firstLineY = y + Math.round(cardH * 0.56);
-    const best = d.best ? `<rect x="${W - pad - Math.round(W * 0.17)}" y="${y}" width="${Math.round(W * 0.17)}" height="${Math.round(cardH * 0.24)}" rx="6" fill="#ffb020"/><text x="${W - pad - Math.round(W * 0.085)}" y="${y + Math.round(cardH * 0.17)}" font-family="${FONT}" font-size="${Math.round(cardH * 0.12)}" font-weight="bold" fill="#1a1200" text-anchor="middle">TOP PICK</text>` : "";
-    return `<rect x="${pad}" y="${y}" width="${W - pad * 2}" height="${cardH}" rx="16" fill="#191c23" stroke="#2a2f3a" stroke-width="2"/>
+    const best = d.best ? `<rect x="${W - pad - Math.round(W * 0.17)}" y="${y}" width="${Math.round(W * 0.17)}" height="${Math.round(cardH * 0.24)}" rx="6" fill="#ffd166"/><text x="${W - pad - Math.round(W * 0.085)}" y="${y + Math.round(cardH * 0.17)}" font-family="${FONT}" font-size="${Math.round(cardH * 0.12)}" font-weight="bold" fill="#1a1200" text-anchor="middle">TOP PICK</text>` : "";
+    return `<rect x="${pad}" y="${y}" width="${W - pad * 2}" height="${cardH}" rx="16" fill="#161f19" stroke="#27352c" stroke-width="2"/>
 ${best}
-<text x="${textX}" y="${brandY}" font-family="${FONT}" font-size="${brandFS}" font-weight="bold" fill="#ffb020">${esc(d.brand)}</text>
-${lines.map((ln, j) => `<text x="${textX}" y="${firstLineY + j * Math.round(dealFS * 1.25)}" font-family="${FONT}" font-size="${dealFS}" font-weight="bold" fill="#f4f5f7">${esc(ln)}</text>`).join("\n")}`;
+<text x="${textX}" y="${brandY}" font-family="${FONT}" font-size="${brandFS}" font-weight="bold" fill="#ffd166">${esc(d.brand)}</text>
+${lines.map((ln, j) => `<text x="${textX}" y="${firstLineY + j * Math.round(dealFS * 1.25)}" font-family="${FONT}" font-size="${dealFS}" font-weight="bold" fill="#f2f7f3">${esc(ln)}</text>`).join("\n")}`;
   }).join("\n");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-<rect width="${W}" height="${H}" fill="#0f1115"/>
-<rect width="${W}" height="${Math.round(H * 0.004)}" fill="#ff5a3c"/>
-<text x="${W / 2}" y="${Math.round(headerH * 0.42)}" font-family="${FONT}" font-size="${Math.round(W * 0.062)}" font-weight="bold" text-anchor="middle"><tspan fill="#f4f5f7">Daily</tspan><tspan fill="#ff5a3c">Bite</tspan></text>
-<text x="${W / 2}" y="${Math.round(headerH * 0.63)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" text-anchor="middle" fill="#9aa3b2">Today's Verified Food Deals</text>
-<text x="${W / 2}" y="${Math.round(headerH * 0.82)}" font-family="${FONT}" font-size="${Math.round(W * 0.026)}" font-weight="bold" text-anchor="middle" fill="#ffb020">${esc(prettyDate)}</text>
+<rect width="${W}" height="${H}" fill="#0e1310"/>
+<rect width="${W}" height="${Math.round(H * 0.004)}" fill="#31c96e"/>
+<text x="${W / 2}" y="${Math.round(headerH * 0.42)}" font-family="${FONT}" font-size="${Math.round(W * 0.062)}" font-weight="bold" text-anchor="middle"><tspan fill="#f2f7f3">Daily</tspan><tspan fill="#31c96e">Bite</tspan></text>
+<text x="${W / 2}" y="${Math.round(headerH * 0.63)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" text-anchor="middle" fill="#9ab3a3">Today's Verified Food Deals</text>
+<text x="${W / 2}" y="${Math.round(headerH * 0.82)}" font-family="${FONT}" font-size="${Math.round(W * 0.026)}" font-weight="bold" text-anchor="middle" fill="#ffd166">${esc(prettyDate)}</text>
 ${cards}
-<text x="${W / 2}" y="${H - Math.round(footerH * 0.4)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" font-weight="bold" text-anchor="middle" fill="#ff5a3c">dailybitedeals.com</text>
+<text x="${W / 2}" y="${H - Math.round(footerH * 0.4)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" font-weight="bold" text-anchor="middle" fill="#31c96e">dailybitedeals.com</text>
 </svg>`;
 }
 
