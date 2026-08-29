@@ -474,6 +474,10 @@ const BRAND_DOMAIN_OVERRIDES = {
   "einstein bros. bagels": "einsteinbros.com",
   "einstein bros.": "einsteinbros.com",
   "tropical smoothie": "tropicalsmoothiecafe.com",
+  "chopt": "choptsalad.com",
+  "crisp & green": "crispandgreen.com",
+  "modern market eatery": "modernmarket.com",
+  "dig": "diginn.com",
   "sonic": "sonicdrivein.com",
 };
 function brandDomain(brand) {
@@ -580,6 +584,17 @@ const BRAND_STATES = {
   'waba grill': ['California','Arizona'],
   'honeygrow': ['Pennsylvania','New Jersey','Delaware','Maryland','Virginia','District of Columbia','New York','Massachusetts'],
   'publix': ['Florida','Georgia','Alabama','South Carolina','North Carolina','Tennessee','Virginia','Kentucky'],
+  // Salad/bowl expansion (2026-08-29, owner request): approximate footprints, veto-side conservative
+  'chopt': ['New York','New Jersey','Connecticut','Maryland','Virginia','District of Columbia','North Carolina','South Carolina','Georgia','Tennessee','Florida'],
+  'saladworks': ['Pennsylvania','New Jersey','Delaware','Maryland','Virginia','New York','Connecticut','Massachusetts','Ohio','Florida'],
+  'salata': ['Texas','Louisiana','Georgia','North Carolina','California','Illinois'],
+  'crisp & green': ['Minnesota','Wisconsin','Iowa','North Dakota','Florida','Arizona','Texas','Georgia'],
+  'bibibop': ['Ohio','Illinois','Indiana','Kentucky','Maryland','Virginia','Pennsylvania','Kansas','Missouri','California','Washington'],
+  'cafe zupas': ['Utah','Idaho','Nevada','Arizona','Minnesota','Wisconsin','Illinois','Kansas','Missouri','Texas','Oklahoma','Colorado'],
+  'robeks': ['California','Virginia','Maryland','Connecticut','New York','New Jersey','Pennsylvania','Illinois','Texas','Florida'],
+  'luna grill': ['California','Texas'],
+  'modern market eatery': ['Colorado','Texas','Arizona','Maryland','Virginia','Indiana','New Mexico'],
+  'dig': ['New York','New Jersey','Connecticut','Massachusetts','Pennsylvania','Maryland','Virginia','District of Columbia','Rhode Island'],
   // Grocery chains (prepared-food deals, 2026-08-20). Missing brands fall back to the region text.
   'sprouts': ['Alabama','Arizona','California','Colorado','Delaware','Florida','Georgia','Kansas','Louisiana','Maryland','Missouri','Nevada','New Jersey','New Mexico','North Carolina','Oklahoma','Pennsylvania','South Carolina','Tennessee','Texas','Utah','Virginia','Washington','Wyoming'],
   'wegmans': ['New York','Pennsylvania','New Jersey','Maryland','Massachusetts','Virginia','North Carolina','Delaware','District of Columbia'],
