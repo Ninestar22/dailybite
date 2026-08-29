@@ -803,6 +803,40 @@ function main() {
   const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis","Chopt","Chopt Creative Salad","Chopt Creative Salad Co.","Saladworks","Salata","Salata Salad Kitchen","Crisp & Green","Crisp and Green","Bibibop","Bibibop Asian Grill","Cafe Zupas","Zupas","Clean Juice","Robeks","Luna Grill","Modern Market","Modern Market Eatery","Dig","Dig Inn"].map(canonBrand)); // roster widened 2026-08-27 (healthy fast-casual) and 2026-08-29 (salad/bowl expansion, owner request)
   for (const g of GROCERY) APPROVED.add(g);
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands + grocery roster only
+
+  // Deterministic REGIONAL HONESTY backstop (2026-08-29): the refresh prompt forbids
+  // labeling these chains "National" and forbids marking them best, but the model can
+  // and does slip - Naf Naf Grill shipped with NO region field and best:true today and
+  // was shown to a Florida visitor (the chain has no Florida stores). Prompt rules are
+  // requests; this map is the law. For each regional brand: a missing or "National"
+  // region is replaced with the real footprint, and best is always stripped.
+  const REGIONAL_DEFAULTS = Object.fromEntries(Object.entries({
+    "Naf Naf Grill": "Midwest & East", "Just Salad": "Northeast & Select states",
+    "Salad and Go": "AZ, TX, OK & NV", "El Pollo Loco": "West & Southwest",
+    "The Halal Guys": "Select states", "Tijuana Flats": "FL & Southeast",
+    "Kura Sushi": "Select states", "Pokeworks": "Select states",
+    "Rock N Roll Sushi": "South & Southeast", "Sushi Maki": "South Florida",
+    "Island Fin Poke": "FL & Southeast", "Pollo Tropical": "Florida",
+    "Rubio's": "CA, AZ & NV", "Waba Grill": "CA & AZ",
+    "Honeygrow": "Mid-Atlantic & Northeast", "Playa Bowls": "East Coast",
+    "Jason's Deli": "South & Central", "McAlister's Deli": "South & Central",
+    "Chicken Salad Chick": "South", "Taziki's": "South",
+    "Chopt": "East Coast", "Saladworks": "Northeast & Mid-Atlantic",
+    "Salata": "Texas & South", "Crisp & Green": "Midwest & Select states",
+    "Bibibop": "Midwest & Select states", "Cafe Zupas": "Mountain West & Midwest",
+    "Clean Juice": "South & East", "Robeks": "Select states",
+    "Luna Grill": "SoCal & Texas", "Modern Market Eatery": "CO & TX",
+    "Dig": "Northeast",
+  }).map(([b, r]) => [canonBrand(b), r]));
+  for (const d of deals) {
+    const footprint = REGIONAL_DEFAULTS[canonBrand(d.brand)];
+    if (!footprint) continue;
+    if (!d.region || /national/i.test(d.region)) {
+      console.log(`Regional backstop: ${d.brand} region "${d.region || "(missing)"}" -> "${footprint}"`);
+      d.region = footprint;
+    }
+    if (d.best) { console.log(`Regional backstop: stripped best from ${d.brand}`); d.best = false; }
+  }
   deals = deals.filter(d => !/boneless/i.test((d.deal||"") + " " + (d.desc||""))); // owner: no boneless items ever
   // Owner: no dessert deals at all. A cookie or brownie offered as one SIDE OPTION of a meal combo
   // ("chips or a cookie", Subway Sub of the Day, 2026-08-22) is not a dessert deal and is blanked first.

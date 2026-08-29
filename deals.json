@@ -22,13 +22,14 @@
       "color": "#e4002b",
       "ic": "NN",
       "deal": "Pita Meal Deal: Stuffed Pita, Side and Drink for $9.99",
-      "desc": "A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat nationwide price.",
+      "desc": "A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat price.",
       "tags": [],
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.nafnafgrill.com/",
       "est_savings": 6.5,
-      "best": true
+      "best": false,
+      "region": "Midwest & East"
     },
     {
       "brand": "Noodles & Company",

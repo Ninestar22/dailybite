@@ -190,7 +190,7 @@
     <div><div class="brand-name">Naf Naf Grill</div><div class="brand-cat">Mediterranean</div></div>
   </div>
   <div class="deal">Pita Meal Deal: Stuffed Pita, Side and Drink for $9.99</div>
-  <div class="desc">A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat nationwide price.</div>
+  <div class="desc">A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat price.</div>
   <div class="metarow"></div>
   <div class="foot">
     <span class="expires">Limited time</span>
@@ -331,13 +331,14 @@ const DEALS = [
     "color": "#e4002b",
     "ic": "NN",
     "deal": "Pita Meal Deal: Stuffed Pita, Side and Drink for $9.99",
-    "desc": "A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat nationwide price.",
+    "desc": "A complete meal with a chicken shawarma or falafel stuffed pita, a side of Naf fries or lentil soup, and a fountain drink for one flat price.",
     "tags": [],
     "value": 4,
     "expires": "Limited time",
     "url": "https://www.nafnafgrill.com/",
       "est_savings": 6.5,
-    "best": true,
+    "best": false,
+    "region": "Midwest & East",
     "isNew": true,
     "endingSoon": false
   },
@@ -584,6 +585,8 @@ const BRAND_STATES = {
   'waba grill': ['California','Arizona'],
   'honeygrow': ['Pennsylvania','New Jersey','Delaware','Maryland','Virginia','District of Columbia','New York','Massachusetts'],
   'publix': ['Florida','Georgia','Alabama','South Carolina','North Carolina','Tennessee','Virginia','Kentucky'],
+  // 2026-08-29: Naf Naf shipped region-less and was shown to the owner in Florida (nearest store: Tennessee)
+  'naf naf grill': ['Illinois','Wisconsin','Minnesota','Michigan','Ohio','Indiana','Kansas','Pennsylvania','New Jersey','New York','Maryland','Virginia','District of Columbia','Tennessee'],
   // Salad/bowl expansion (2026-08-29, owner request): approximate footprints, veto-side conservative
   'chopt': ['New York','New Jersey','Connecticut','Maryland','Virginia','District of Columbia','North Carolina','South Carolina','Georgia','Tennessee','Florida'],
   'saladworks': ['Pennsylvania','New Jersey','Delaware','Maryland','Virginia','New York','Connecticut','Massachusetts','Ohio','Florida'],
