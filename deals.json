@@ -13,6 +13,7 @@
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com/",
+      "est_savings": 6,
       "best": false
     },
     {
@@ -26,6 +27,7 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.nafnafgrill.com/",
+      "est_savings": 6.5,
       "best": true
     },
     {
@@ -39,6 +41,7 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.noodles.com/",
+      "est_savings": 3,
       "best": false
     },
     {
@@ -52,6 +55,7 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/",
+      "est_savings": 4,
       "best": false
     },
     {
