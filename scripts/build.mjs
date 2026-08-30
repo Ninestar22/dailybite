@@ -880,10 +880,17 @@ function main() {
   // Exclude recurring day-of-week / time-window deals ("Every Friday", "Whopper Wednesdays", happy hours).
   // Owner exceptions: Tijuana Flats' published day specials (2026-08-14) and grocery-store day deals such
   // as Publix/Sprouts/Kroger Sushi Wednesday or Safeway $5 Friday (2026-08-20) may run ON their active day only.
-  const DAY_SPECIAL_BRANDS = new Set(["tijuana flats", ...GROCERY]);
+  // Golden brands added 2026-08-30: Chipotle's published "SUNDAYS" promo (free entree
+  // with two, Sundays through Sept 6) is exactly the day-special the exception exists
+  // for - listed ON its day, auto-dropped the rest of the week.
+  const DAY_SPECIAL_BRANDS = new Set(["tijuana flats", "chipotle", "chick-fil-a", ...GROCERY]);
   const DOW_NAME = WEEKDAYS[dowET].toLowerCase();
+  // Promo CODES are often named after days ("code SUNDAYS", Chipotle 2026-08-30) without
+  // making the deal recurring - a one-day offer whose code is a day word was wrongly
+  // dropped, hiding the day's best deal. Blank code tokens before the recurring test.
+  const CODE_TOKEN = /\b(?:with |use |promo )?code[:\s]+[A-Z0-9]{3,14}\b|\([A-Z0-9]{3,14} code\)/gi;
   deals = deals.filter(d => {
-    const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).toLowerCase();
+    const txt = (d.deal + " " + d.desc + " " + (d.expires || "")).replace(CODE_TOKEN, " ").toLowerCase();
     // Day-of-week / time-window patterns scan everything; "happy hour" only the
     // title+expiry — a desc merely COMPARING to happy hours (e.g. "beats most
     // happy hours", Chili's margarita 2026-08-18) must not kill an all-day deal.
@@ -899,7 +906,7 @@ function main() {
     const DAY_STEMS = ["sun", "mon", "tues", "wednes", "thurs", "fri", "satur"];
     const beforeDay = deals.length;
     deals = deals.filter(d => {
-      const t = (d.deal || "").toLowerCase();
+      const t = (d.deal || "").replace(CODE_TOKEN, " ").toLowerCase(); // day-named promo CODES don't date a deal
       const named = DAY_STEMS.map((s, i) => ({ s, i })).filter(x => new RegExp(`\\b${x.s}(?:days?|daze)\\b`).test(t));
       return !named.length || named.some(x => x.i === dowET);
     });
