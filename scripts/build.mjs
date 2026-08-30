@@ -857,8 +857,11 @@ function main() {
   deals = deals.filter(d => !["mcdonalds", "burgerking"].includes(canonBrand(d.brand))); // owner: quality focus - McDonald's and Burger King never listed
   // Grocery stores may require their FREE loyalty card or app (Kroger Plus, VIC, for U): practically
   // every shopper has one, so those deals stay; the paid-membership filter above still applies.
-  const MEMBER_OK = new Set(["chipotle", "chick-fil-a", "tropical smoothie", "tropical smoothie cafe", ...GROCERY]); // Tropical Smoothie added 2026-08-30 (owner listed the $6 acai Tropic Rewards offer himself)
-  deals = deals.filter(d => MEMBER_OK.has(canonBrand(d.brand)) || !/rewards? member|loyalty member|perks member|members?[- ]only|member[- ]exclusive|exclusively (?:to|for) [^.]*members|refer a friend|join [^.]*rewards|rewards app member|unlock badges/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
+  // Owner decision 2026-08-30: FREE rewards accounts are acceptable from EVERY approved
+  // brand (anyone can join free in a minute), so member-phrasing no longer excludes a
+  // deal. Referral bonuses and badge/challenge mechanics are still not deals, and the
+  // paid-membership filter above still bans anything with a price tag to enter.
+  deals = deals.filter(d => !/refer a friend|unlock badges|referral bonus/i.test(d.deal + " " + d.desc + " " + (d.expires || "")));
 
   // CONCRETE SAVINGS backstop (prompt rule "NOT A DEAL"): a listing must state a price, a percent
   // off, a freebie, a BOGO, a code, or an N-for-$ bundle. Menu launches "at regular pricing"
