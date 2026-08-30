@@ -3,6 +3,21 @@
   "updatedAt": "2026-08-30T11:08:57.051Z",
   "deals": [
     {
+    "brand": "Tropical Smoothie Cafe",
+    "cat": "Bowls",
+    "color": "#00a19b",
+    "ic": "TS",
+    "deal": "$6 Acai Bowls: Any Bowl, Last Day Today",
+    "desc": "Any acai bowl is $6 (regularly $8 and up) at participating cafes nationwide through today: order in the app or scan it in cafe, free Tropic Rewards account required, redeemable more than once.",
+    "tags": ["app"],
+    "value": 4,
+    "expires": "Today only",
+    "url": "https://www.tropicalsmoothiecafe.com/back-to-school-acai-promo",
+    "region": "National",
+    "best": true,
+    "est_savings": 3.5
+  },
+    {
       "brand": "Chipotle",
       "cat": "Mexican",
       "color": "#A81612",
