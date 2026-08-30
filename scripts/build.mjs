@@ -240,9 +240,11 @@ function chainPage(chain, deals) {
   // Banned chains get an honest page: the old copy ("check back tomorrow") implied we
   // might list them, and we never will. Saying so plainly builds more trust than an
   // empty promise (authenticity decision, Jacob, 2026-08-26).
+  // "Coupons" added 2026-08-29: GSC shows searchers use coupon language ("chick fil a
+  // coupons", 43 impressions) far more than "app offers"; "Verified Daily" is the moat.
   const title = chain.banned
     ? `${chain.name} Deals: Why DailyBite Doesn't List Them`
-    : `${chain.name} Deals & App Offers: ${monthYear} (Updated Daily)`;
+    : `${chain.name} Deals, Coupons & App Offers: ${monthYear} (Verified Daily)`;
   const desc = chain.banned
     ? `DailyBite verifies deals from healthier, quality chains only, so ${chain.name} isn't listed. See today's verified healthier deals instead: checked ${prettyDate}.`
     : list.length
@@ -325,7 +327,7 @@ ${faqLd}${freshLd}
 function sushiPage(deals) {
   const SUSHI_CHAINS = new Set(["kura sushi", "sarku japan", "rock n roll sushi", "sushi maki", "pokeworks", "island fin poke"]);
   const todays = deals.filter(d => /sushi|poke/i.test(d.cat || "") || SUSHI_CHAINS.has(canonBrand(d.brand)));
-  const title = "Grocery Store Sushi Days: $5 Sushi Deals by Day of the Week";
+  const title = "$5 Sushi Days: Publix Wednesday, Kroger, Safeway $5 Friday & More (2026)";
   const desc = `$5 Sushi Wednesday at Publix, Sprouts and Kroger stores; $5 Friday sushi at Safeway and Harris Teeter. Every verified weekly sushi day in one place, re-checked daily. Updated ${prettyDate}.`;
   const ROWS = [
     ["Wednesday", "Publix", "$5 select fresh-made rolls (spicy tuna, California, spicy shrimp and more)", "FL & Southeast; no card or app needed"],
