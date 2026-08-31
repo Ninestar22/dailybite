@@ -1,4 +1,4 @@
 # Commit any change to this file to force a full deal refresh immediately.
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
-Last routine trigger: 2026-08-30T11:03:55Z
+Last routine trigger: 2026-08-31T11:04:57Z
