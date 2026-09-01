@@ -39,6 +39,18 @@ function wrap(text, maxChars, maxLines) {
 }
 
 const FONT = "DejaVu Sans, Verdana, Arial, sans-serif";
+
+// The Bowl Bite brand mark (same geometry as /logo.svg: bowl with a bite, honey
+// percent), inlined so the daily social image carries the logo without a raster.
+// x, y = top-left of the mark's box; size = box width/height in output pixels.
+function brandMark(x, y, size) {
+  const s = size / 704;
+  return `<g transform="translate(${x} ${y}) scale(${s}) translate(-160 -116)">
+<mask id="bite"><rect x="0" y="0" width="1024" height="1024" fill="#fff"/><circle cx="782" cy="510" r="116" fill="#000"/></mask>
+<g mask="url(#bite)"><path d="M218 528 A294 252 0 0 0 806 528 Z" fill="#31c96e" stroke="#31c96e" stroke-width="24" stroke-linejoin="round"/><rect x="412" y="752" width="200" height="64" rx="30" fill="#31c96e"/></g>
+<line x1="446" y1="406" x2="578" y2="202" stroke="#ffd166" stroke-width="45" stroke-linecap="round"/><circle cx="428" cy="222" r="54" fill="#ffd166"/><circle cx="596" cy="386" r="54" fill="#ffd166"/>
+</g>`;
+}
 function renderSVG(W, H, count) {
   const deals = ranked.slice(0, count);
   const pad = Math.round(W * 0.05);
@@ -63,9 +75,10 @@ ${lines.map((ln, j) => `<text x="${textX}" y="${firstLineY + j * Math.round(deal
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
 <rect width="${W}" height="${H}" fill="#0e1310"/>
 <rect width="${W}" height="${Math.round(H * 0.004)}" fill="#31c96e"/>
-<text x="${W / 2}" y="${Math.round(headerH * 0.42)}" font-family="${FONT}" font-size="${Math.round(W * 0.062)}" font-weight="bold" text-anchor="middle"><tspan fill="#f2f7f3">Daily</tspan><tspan fill="#31c96e">Bite</tspan></text>
-<text x="${W / 2}" y="${Math.round(headerH * 0.63)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" text-anchor="middle" fill="#9ab3a3">Today's Verified Food Deals</text>
-<text x="${W / 2}" y="${Math.round(headerH * 0.82)}" font-family="${FONT}" font-size="${Math.round(W * 0.026)}" font-weight="bold" text-anchor="middle" fill="#ffd166">${esc(prettyDate)}</text>
+${brandMark(W / 2 - Math.round(W * 0.036), Math.round(headerH * 0.05), Math.round(W * 0.072))}
+<text x="${W / 2}" y="${Math.round(headerH * 0.56)}" font-family="${FONT}" font-size="${Math.round(W * 0.058)}" font-weight="bold" text-anchor="middle"><tspan fill="#f2f7f3">Daily</tspan><tspan fill="#31c96e">Bite</tspan></text>
+<text x="${W / 2}" y="${Math.round(headerH * 0.73)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" text-anchor="middle" fill="#9ab3a3">Today's Verified Healthy Food Deals</text>
+<text x="${W / 2}" y="${Math.round(headerH * 0.89)}" font-family="${FONT}" font-size="${Math.round(W * 0.026)}" font-weight="bold" text-anchor="middle" fill="#ffd166">${esc(prettyDate)}</text>
 ${cards}
 <text x="${W / 2}" y="${H - Math.round(footerH * 0.4)}" font-family="${FONT}" font-size="${Math.round(W * 0.03)}" font-weight="bold" text-anchor="middle" fill="#31c96e">dailybitedeals.com</text>
 </svg>`;
@@ -77,17 +90,17 @@ async function main() {
 
   const top = ranked.slice(0, 5);
   const caption = [
-    `Today's verified food deals (${shortDate}):`,
+    `Today's verified healthy food deals (${shortDate}):`,
     "",
-    ...top.map(d => `- ${d.brand}: ${d.deal}`),
+    ...top.map(d => `- ${d.brand}: ${d.deal}${Number.isFinite(d.est_savings) && d.est_savings > 0 ? ` (save ~$${d.est_savings % 1 ? d.est_savings.toFixed(2) : d.est_savings})` : ""}`),
     "",
-    "Every deal checked this morning against official sources. Full list at dailybitedeals.com (link in bio).",
+    "Every deal checked this morning against official sources. Healthy chains only, no junk food. Full list at dailybitedeals.com (link in bio).",
     "",
-    "#fooddeals #cheapeats #healthyfastfood #dealoftheday #foodie #savemoney",
+    "#healthyfooddeals #healthyeating #fooddeals #dealoftheday #healthyfastfood #mealdeals #savemoney",
   ].join("\n");
   const meta = {
     date: prettyDate,
-    pinTitle: `Today's Verified Food Deals: ${shortDate}`,
+    pinTitle: `Today's Verified Healthy Food Deals: ${shortDate}`,
     pinDescription: `${top.slice(0, 3).map(d => `${d.brand}: ${d.deal}`).join(". ")}. Updated every morning at dailybitedeals.com`.slice(0, 500),
     caption,
   };
