@@ -1,101 +1,93 @@
 {
-  "updated": "2026-09-01",
-  "updatedAt": "2026-09-01T11:25:42.179Z",
+  "updated": "2026-09-02",
+  "updatedAt": "2026-09-02T11:09:41.623Z",
   "deals": [
     {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#00843D",
-      "ic": "TF",
-      "deal": "Taco Tuesdaze: 2 Tacos, Chips and a Drink for $7.99",
-      "desc": "On Tuesdays only, get two tacos, chips and a drink for $7.99 in-store or via the app/online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing (Tuesdays only)",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "region": "FL & Southeast",
-      "est_savings": 2.5
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#C8102E",
-      "ic": "C",
-      "deal": "3 For Me: Entree, Side and Drink from $10.99",
-      "desc": "Chili's everyday value bundle gives you a full entree, a starter or side, and a bottomless non-alcoholic drink starting at $10.99.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com",
-      "region": "National",
-      "est_savings": 6,
-      "best": true
-    },
-    {
-      "brand": "Wingstop",
-      "cat": "Chicken",
-      "color": "#E4002B",
-      "ic": "W",
-      "deal": "20 Classic (Bone-In) Wings for $20",
-      "desc": "Everyday bundle of 20 bone-in classic wings for a flat $20 through Wingstop.com or the app.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.wingstop.com",
-      "region": "National",
-      "est_savings": 6
-    },
-    {
-      "brand": "Nekter Juice Bar",
-      "cat": "Smoothies",
-      "color": "#6FBE44",
-      "ic": "N",
-      "deal": "20% Off Any Purchase of $20 or More",
-      "desc": "Part of Nekter's Summer of Savings, get 20 percent off any smoothie, juice, or bowl order of $20 or more every day, no card required beyond a free account.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.nekterjuicebar.com/",
-      "region": "Select states",
-      "best": true,
-      "est_savings": 4
-    },
-    {
       "brand": "Tropical Smoothie Cafe",
-      "cat": "Cafe",
-      "color": "#F26522",
-      "ic": "TS",
-      "deal": "Any Flatbread Plus a 24oz Smoothie for $8.99",
-      "desc": "Combo deal bundles any flatbread with a 24oz smoothie for $8.99 using code 1155, a solid discount off ordering each item separately.",
+      "cat": "Smoothies",
+      "color": "#e2231a",
+      "ic": "TSC",
+      "deal": "Flatbread Combo: Any Flatbread + 24oz Smoothie for $8.99",
+      "desc": "Use code 1155 to pair any flatbread with a 24oz smoothie for one bundled price, valid at participating cafes.",
       "tags": [
         "app"
       ],
       "value": 4,
       "expires": "Through October 31, 2026",
       "url": "https://www.tropicalsmoothiecafe.com/",
-      "region": "National",
       "best": true,
-      "est_savings": 6
+      "est_savings": 3,
+      "region": "National"
     },
     {
-      "brand": "Walmart",
-      "cat": "Deli",
-      "color": "#0071CE",
-      "ic": "WM",
-      "deal": "Rotisserie Chicken Bundle with Two Sides Under $10",
-      "desc": "Walmart's deli counter offers a ready-to-heat rotisserie chicken bundle with two sides for under $10, a quick prepared-food alternative to takeout.",
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#c8102e",
+      "ic": "C",
+      "deal": "3 For Me: Drink, Starter and Entree from $10.99",
+      "desc": "Pick a non-alcoholic drink, a starter and a full-size entree for one flat price starting at $10.99, available all day dine-in or online.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com/",
+      "est_savings": 8,
+      "region": "National"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Pasta",
+      "color": "#f7941e",
+      "ic": "N",
+      "deal": "Delicious Duos: Entree, Protein and Side from $9.95",
+      "desc": "Pair a small noodle or mac entree with a duo-sized protein and a side like broccoli or a Caesar salad for one bundled price.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.walmart.com/",
-      "region": "National",
-      "est_savings": 1.5
+      "url": "https://www.noodles.com/menu",
+      "est_savings": 2,
+      "region": "National"
+    },
+    {
+      "brand": "Publix",
+      "cat": "Sushi",
+      "color": "#2a7a3b",
+      "ic": "P",
+      "deal": "$5 Sushi Wednesday: Select AFC Rolls",
+      "desc": "Select handmade sushi rolls like California, spicy shrimp and cream cheese rolls drop to $5 each every Wednesday, no card needed.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.publix.com/",
+      "est_savings": 3,
+      "region": "FL & Southeast"
+    },
+    {
+      "brand": "Sprouts Farmers Market",
+      "cat": "Sushi",
+      "color": "#6cb33f",
+      "ic": "S",
+      "deal": "$5 Sushi Wednesday: Select Oumi Rolls",
+      "desc": "Select Oumi sushi rolls made fresh in-store are $5 each every Wednesday at most Sprouts locations, no card required.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/",
+      "est_savings": 3,
+      "region": "Select states"
+    },
+    {
+      "brand": "Kroger",
+      "cat": "Sushi",
+      "color": "#004990",
+      "ic": "K",
+      "deal": "$6 Wednesday-Only Snowfox Sushi Rolls",
+      "desc": "Private Selection sushi rolls made by Snowfox drop to a special Wednesday-only price of about $6 at Kroger-family stores.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.kroger.com/",
+      "est_savings": 3,
+      "region": "Select states"
     }
   ]
 }

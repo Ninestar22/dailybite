@@ -1,93 +1,94 @@
 {
-  "updated": "2026-09-02",
-  "updatedAt": "2026-09-02T11:09:41.623Z",
+  "updated": "2026-09-03",
+  "updatedAt": "2026-09-03T11:09:52.282Z",
   "deals": [
     {
-      "brand": "Tropical Smoothie Cafe",
-      "cat": "Smoothies",
-      "color": "#e2231a",
-      "ic": "TSC",
-      "deal": "Flatbread Combo: Any Flatbread + 24oz Smoothie for $8.99",
-      "desc": "Use code 1155 to pair any flatbread with a 24oz smoothie for one bundled price, valid at participating cafes.",
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#cf102d",
+      "ic": "C",
+      "deal": "3 For Me: Drink, Starter and Entree from $10.99",
+      "desc": "Standing value bundle: pick a non-alcoholic drink, a starter and a full-size entree for one flat price starting at $10.99.",
+      "tags": [],
+      "value": 5,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com",
+      "best": true,
+      "est_savings": 5
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#f6921e",
+      "ic": "TF",
+      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $8.99",
+      "desc": "Every Thursday, get a burrito or bowl with chips and a drink for one flat price at Tijuana Flats; valid in-store and via app/online.",
       "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through October 31, 2026",
-      "url": "https://www.tropicalsmoothiecafe.com/",
-      "best": true,
-      "est_savings": 3,
-      "region": "National"
+      "expires": "Thursdays only",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "region": "FL & Southeast",
+      "est_savings": 3.5
     },
     {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#c8102e",
-      "ic": "C",
-      "deal": "3 For Me: Drink, Starter and Entree from $10.99",
-      "desc": "Pick a non-alcoholic drink, a starter and a full-size entree for one flat price starting at $10.99, available all day dine-in or online.",
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008938",
+      "ic": "S",
+      "deal": "Sub of the Day: Featured 6-inch Sub for $4.99",
+      "desc": "A different 6-inch sub is featured daily for $4.99, with an upgrade to a combo (chips or cookies plus a drink) for $2 more.",
       "tags": [],
-      "value": 4,
+      "value": 3,
       "expires": "Ongoing",
-      "url": "https://www.chilis.com/",
-      "est_savings": 8,
-      "region": "National"
+      "url": "https://www.subway.com/",
+      "region": "National",
+      "est_savings": 2
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#4B7F3A",
+      "ic": "P",
+      "deal": "BOGO $5: Whole Sandwiches, Bowls, Salads or Soup",
+      "desc": "Buy any whole sandwich, whole market bowl, salad, salad stuffer, or bowl of soup/mac and get a second for just $5 with code BOGO5 online, in-app, or at a cafe kiosk.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.panerabread.com",
+      "best": true,
+      "est_savings": 7
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#4B7F3A",
+      "ic": "P",
+      "deal": "$0 Delivery Fee on Orders $8 to $10 with a Ciabatta Dipper",
+      "desc": "MyPanera rewards members (free to join) get a waived delivery fee on qualifying online or in-app orders that include a Ciabatta Dipper.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through September 6, 2026",
+      "url": "https://www.panerabread.com",
+      "est_savings": 4
     },
     {
       "brand": "Noodles & Company",
-      "cat": "Pasta",
-      "color": "#f7941e",
+      "cat": "Noodles",
+      "color": "#C8102E",
       "ic": "N",
-      "deal": "Delicious Duos: Entree, Protein and Side from $9.95",
-      "desc": "Pair a small noodle or mac entree with a duo-sized protein and a side like broccoli or a Caesar salad for one bundled price.",
+      "deal": "Delicious Duo: Entree and a Side from $9.95",
+      "desc": "Pick any entree plus a side for one flat starting price, a standing value menu bundle available every day.",
       "tags": [],
-      "value": 3,
+      "value": 4,
       "expires": "Ongoing",
-      "url": "https://www.noodles.com/menu",
-      "est_savings": 2,
-      "region": "National"
-    },
-    {
-      "brand": "Publix",
-      "cat": "Sushi",
-      "color": "#2a7a3b",
-      "ic": "P",
-      "deal": "$5 Sushi Wednesday: Select AFC Rolls",
-      "desc": "Select handmade sushi rolls like California, spicy shrimp and cream cheese rolls drop to $5 each every Wednesday, no card needed.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.publix.com/",
-      "est_savings": 3,
-      "region": "FL & Southeast"
-    },
-    {
-      "brand": "Sprouts Farmers Market",
-      "cat": "Sushi",
-      "color": "#6cb33f",
-      "ic": "S",
-      "deal": "$5 Sushi Wednesday: Select Oumi Rolls",
-      "desc": "Select Oumi sushi rolls made fresh in-store are $5 each every Wednesday at most Sprouts locations, no card required.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/",
-      "est_savings": 3,
-      "region": "Select states"
-    },
-    {
-      "brand": "Kroger",
-      "cat": "Sushi",
-      "color": "#004990",
-      "ic": "K",
-      "deal": "$6 Wednesday-Only Snowfox Sushi Rolls",
-      "desc": "Private Selection sushi rolls made by Snowfox drop to a special Wednesday-only price of about $6 at Kroger-family stores.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.kroger.com/",
-      "est_savings": 3,
-      "region": "Select states"
+      "url": "https://www.noodles.com",
+      "est_savings": 5
     }
   ]
 }
