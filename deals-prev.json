@@ -1,94 +1,200 @@
 {
-  "updated": "2026-09-03",
-  "updatedAt": "2026-09-03T11:09:52.282Z",
+  "updated": "2026-09-04",
+  "updatedAt": "2026-09-04T11:21:01.379Z",
   "deals": [
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#cf102d",
+      "color": "#c8102e",
       "ic": "C",
-      "deal": "3 For Me: Drink, Starter and Entree from $10.99",
-      "desc": "Standing value bundle: pick a non-alcoholic drink, a starter and a full-size entree for one flat price starting at $10.99.",
+      "deal": "3 For Me from $10.99",
+      "desc": "Pick a drink, starter and full entree for one flat price starting at $10.99, available all day at participating locations.",
       "tags": [],
-      "value": 5,
+      "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com",
-      "best": true,
-      "est_savings": 5
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#f6921e",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $8.99",
-      "desc": "Every Thursday, get a burrito or bowl with chips and a drink for one flat price at Tijuana Flats; valid in-store and via app/online.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Thursdays only",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "region": "FL & Southeast",
-      "est_savings": 3.5
+      "est_savings": 6
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008938",
       "ic": "S",
-      "deal": "Sub of the Day: Featured 6-inch Sub for $4.99",
-      "desc": "A different 6-inch sub is featured daily for $4.99, with an upgrade to a combo (chips or cookies plus a drink) for $2 more.",
+      "deal": "Sub of the Day 6 inch Meal for $6.99",
+      "desc": "Get a rotating 6 inch Sub of the Day with chips and a drink for $6.99, or upgrade to a footlong meal for $9.99.",
       "tags": [],
       "value": 3,
       "expires": "Ongoing",
       "url": "https://www.subway.com/",
-      "region": "National",
-      "est_savings": 2
+      "est_savings": 4
     },
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4B7F3A",
-      "ic": "P",
-      "deal": "BOGO $5: Whole Sandwiches, Bowls, Salads or Soup",
-      "desc": "Buy any whole sandwich, whole market bowl, salad, salad stuffer, or bowl of soup/mac and get a second for just $5 with code BOGO5 online, in-app, or at a cafe kiosk.",
+      "brand": "Noodles & Company",
+      "cat": "Bowls",
+      "color": "#8dc63f",
+      "ic": "N",
+      "deal": "Delicious Duos from $9.95",
+      "desc": "Build a small entree with your choice of protein plus a side like soup, salad or potstickers for one fixed price starting at $9.95, open to all guests.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.noodlescompany.com/",
+      "est_savings": 3
+    },
+    {
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#d52b1e",
+      "ic": "S",
+      "deal": "$5 Friday Sushi Rolls",
+      "desc": "Fresh, chef-made sushi rolls including California and Tiger rolls are $5 every Friday at participating Safeway and Albertsons-family stores, no card needed.",
+      "tags": [],
+      "value": 5,
+      "expires": "Ongoing (Fridays only)",
+      "url": "https://www.safeway.com",
+      "region": "Multiple divisions (West, Mountain, Northeast)",
+      "est_savings": 4.5
+    },
+    {
+      "brand": "Five Guys",
+      "cat": "Burgers",
+      "color": "#e51937",
+      "ic": "F",
+      "deal": "Buy One Burger, Get One Free (code FGAFTERPARTY)",
+      "desc": "Log into your free Five Guys account and apply promo code FGAFTERPARTY online or in the app to get a second burger of equal or lesser value free.",
       "tags": [
         "app"
       ],
       "value": 5,
       "expires": "Limited time",
-      "url": "https://www.panerabread.com",
-      "best": true,
-      "est_savings": 7
+      "url": "https://www.fiveguys.com",
+      "region": "National",
+      "est_savings": 8.5
     },
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#4B7F3A",
-      "ic": "P",
-      "deal": "$0 Delivery Fee on Orders $8 to $10 with a Ciabatta Dipper",
-      "desc": "MyPanera rewards members (free to join) get a waived delivery fee on qualifying online or in-app orders that include a Ciabatta Dipper.",
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "ic": "HT",
+      "color": "#00a651",
+      "deal": "$5 Sushi Friday",
+      "desc": "Select AFC and Zenshi sushi entrees are just $5 today only at participating Harris Teeter stores with a free VIC card.",
+      "tags": [],
+      "value": 4,
+      "expires": "Today only",
+      "url": "https://www.harristeeter.com/",
+      "est_savings": 3,
+      "region": "Mid-Atlantic & Southeast"
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "ic": "CH",
+      "color": "#a81612",
+      "deal": "$0 Delivery Fee on Pollo Asado Orders of $10 or More",
+      "desc": "Order Pollo Asado through the Chipotle app or site and get the delivery fee waived on orders of $10 or more.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Through Sept 13, 2026",
+      "url": "https://www.chipotle.com",
+      "est_savings": 5,
+      "region": "National"
+    },
+    {
+      "brand": "Chicken Salad Chick",
+      "cat": "Sandwiches",
+      "ic": "CSC",
+      "color": "#e75480",
+      "deal": "15% Off Catering Orders of $200 or More",
+      "desc": "Enter promo code TAKE15 at online checkout to save 15% on a catering order of $200 or more at participating locations.",
       "tags": [
         "app"
       ],
       "value": 3,
-      "expires": "Through September 6, 2026",
-      "url": "https://www.panerabread.com",
-      "est_savings": 4
+      "expires": "Through Sept 11, 2026",
+      "url": "https://www.chickensaladchick.com",
+      "est_savings": 30,
+      "region": "South"
+    },
+    {
+      "brand": "Saladworks",
+      "cat": "Salads",
+      "ic": "SW",
+      "color": "#4c9a2a",
+      "deal": "10% Off Online Catering Orders",
+      "desc": "Use promo code SWBTS26 at online checkout to save 10% on a Saladworks catering order.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Through Sept 30, 2026",
+      "url": "https://www.saladworks.com",
+      "region": "Northeast & Mid-Atlantic"
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "ic": "Q",
+      "color": "#e2231a",
+      "deal": "$2 Off Digital Orders with Queso Fundido",
+      "desc": "Enter promo code FUNDIDO on a digital order that includes Queso Fundido to save $2 through online or in-app checkout.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Through Sept 6, 2026",
+      "url": "https://www.qdoba.com",
+      "est_savings": 2,
+      "region": "National"
+    },
+    {
+      "brand": "Wingstop",
+      "cat": "Chicken",
+      "ic": "WS",
+      "color": "#f36c21",
+      "deal": "16pc Wings, 6pc Tenders and Fries Bundle for $19.99",
+      "desc": "Get a bundle of classic wings, crispy tenders and fries for one flat price of $19.99 through the app or website.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.wingstop.com",
+      "est_savings": 10,
+      "region": "National"
+    },
+    {
+      "brand": "Jason's Deli",
+      "cat": "Cafe",
+      "ic": "JD",
+      "color": "#00a651",
+      "deal": "$1 Large Dr Pepper with Code DOLLARDP",
+      "desc": "Enter promo code DOLLARDP during online or in-app checkout to get a 24 or 32 ounce Dr Pepper for $1.",
+      "tags": [
+        "app"
+      ],
+      "value": 1,
+      "expires": "Limited time",
+      "url": "https://www.jasonsdeli.com",
+      "est_savings": 1.5,
+      "region": "South & Central"
     },
     {
       "brand": "Noodles & Company",
-      "cat": "Noodles",
-      "color": "#C8102E",
-      "ic": "N",
-      "deal": "Delicious Duo: Entree and a Side from $9.95",
-      "desc": "Pick any entree plus a side for one flat starting price, a standing value menu bundle available every day.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
+      "cat": "Treats",
+      "ic": "NC",
+      "color": "#f2a900",
+      "deal": "$1 Dessert for Rewards Members",
+      "desc": "Free rewards members can get any dessert for $1 with a regular entree purchase.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Through Sept 30, 2026",
       "url": "https://www.noodles.com",
-      "est_savings": 5
+      "est_savings": 2.5,
+      "region": "National"
     }
   ]
 }
