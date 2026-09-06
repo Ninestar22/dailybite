@@ -1,200 +1,144 @@
 {
-  "updated": "2026-09-04",
-  "updatedAt": "2026-09-04T11:21:01.379Z",
+  "updated": "2026-09-05",
+  "updatedAt": "2026-09-05T11:09:06.240Z",
   "deals": [
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#A81612",
+      "ic": "C",
+      "deal": "$0 Delivery Fee on Pollo Asado Orders",
+      "desc": "Order the returning Pollo Asado through the Chipotle app, Chipotle.com, or Chipotle.ca and delivery fees are waived through September 13.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through September 13, 2026",
+      "url": "https://www.chipotle.com",
+      "region": "National",
+      "est_savings": 4
+    },
     {
       "brand": "Chili's",
       "cat": "Sit-Down",
-      "color": "#c8102e",
+      "color": "#C8102E",
       "ic": "C",
-      "deal": "3 For Me from $10.99",
-      "desc": "Pick a drink, starter and full entree for one flat price starting at $10.99, available all day at participating locations.",
+      "deal": "3 For Me Meal from $10.99",
+      "desc": "Pick a non-alcoholic drink, a starter, and a full entree for one flat price, available all day every day at participating Chili's locations.",
       "tags": [],
       "value": 4,
       "expires": "Ongoing",
       "url": "https://www.chilis.com",
-      "est_savings": 6
+      "region": "National",
+      "est_savings": 4
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008C15",
+      "ic": "S",
+      "deal": "Sub of the Day 6-inch for $4.99",
+      "desc": "Subway's Fresh Value Menu features a different discounted 6-inch sub every day, all day, at participating U.S. restaurants.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
+      "region": "National",
+      "est_savings": 2
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008C15",
+      "ic": "S",
+      "deal": "Protein Pockets for $3.99",
+      "desc": "Subway's Fresh Value Menu includes protein-packed pocket sandwiches with over 20 grams of protein, priced at $3.99 at participating locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
+      "region": "National",
+      "est_savings": 2
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#6F1D46",
+      "ic": "Q",
+      "deal": "Free Guacamole and Queso with Any Entree",
+      "desc": "Order any full-size entree through the Qdoba app or website and add hand-crafted guacamole and 3-cheese queso at no extra charge, no points required.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.qdoba.com",
+      "region": "National",
+      "est_savings": 4,
+      "best": true
     },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008938",
       "ic": "S",
-      "deal": "Sub of the Day 6 inch Meal for $6.99",
-      "desc": "Get a rotating 6 inch Sub of the Day with chips and a drink for $6.99, or upgrade to a footlong meal for $9.99.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.subway.com/",
-      "est_savings": 4
-    },
-    {
-      "brand": "Noodles & Company",
-      "cat": "Bowls",
-      "color": "#8dc63f",
-      "ic": "N",
-      "deal": "Delicious Duos from $9.95",
-      "desc": "Build a small entree with your choice of protein plus a side like soup, salad or potstickers for one fixed price starting at $9.95, open to all guests.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.noodlescompany.com/",
-      "est_savings": 3
-    },
-    {
-      "brand": "Safeway",
-      "cat": "Sushi",
-      "color": "#d52b1e",
-      "ic": "S",
-      "deal": "$5 Friday Sushi Rolls",
-      "desc": "Fresh, chef-made sushi rolls including California and Tiger rolls are $5 every Friday at participating Safeway and Albertsons-family stores, no card needed.",
-      "tags": [],
-      "value": 5,
-      "expires": "Ongoing (Fridays only)",
-      "url": "https://www.safeway.com",
-      "region": "Multiple divisions (West, Mountain, Northeast)",
-      "est_savings": 4.5
-    },
-    {
-      "brand": "Five Guys",
-      "cat": "Burgers",
-      "color": "#e51937",
-      "ic": "F",
-      "deal": "Buy One Burger, Get One Free (code FGAFTERPARTY)",
-      "desc": "Log into your free Five Guys account and apply promo code FGAFTERPARTY online or in the app to get a second burger of equal or lesser value free.",
+      "deal": "Sub of the Day for $4.99, Protein Pockets and Deli Faves from $3.99",
+      "desc": "Subway's standing Fresh Value Menu features a different discounted 6 inch sub each day plus permanent $3.99 Protein Pockets and Deli Faves options.",
       "tags": [
         "app"
       ],
-      "value": 5,
-      "expires": "Limited time",
-      "url": "https://www.fiveguys.com",
-      "region": "National",
-      "est_savings": 8.5
-    },
-    {
-      "brand": "Harris Teeter",
-      "cat": "Sushi",
-      "ic": "HT",
-      "color": "#00a651",
-      "deal": "$5 Sushi Friday",
-      "desc": "Select AFC and Zenshi sushi entrees are just $5 today only at participating Harris Teeter stores with a free VIC card.",
-      "tags": [],
       "value": 4,
-      "expires": "Today only",
-      "url": "https://www.harristeeter.com/",
-      "est_savings": 3,
-      "region": "Mid-Atlantic & Southeast"
-    },
-    {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "ic": "CH",
-      "color": "#a81612",
-      "deal": "$0 Delivery Fee on Pollo Asado Orders of $10 or More",
-      "desc": "Order Pollo Asado through the Chipotle app or site and get the delivery fee waived on orders of $10 or more.",
-      "tags": [
-        "app"
-      ],
-      "value": 2,
-      "expires": "Through Sept 13, 2026",
-      "url": "https://www.chipotle.com",
-      "est_savings": 5,
-      "region": "National"
-    },
-    {
-      "brand": "Chicken Salad Chick",
-      "cat": "Sandwiches",
-      "ic": "CSC",
-      "color": "#e75480",
-      "deal": "15% Off Catering Orders of $200 or More",
-      "desc": "Enter promo code TAKE15 at online checkout to save 15% on a catering order of $200 or more at participating locations.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through Sept 11, 2026",
-      "url": "https://www.chickensaladchick.com",
-      "est_savings": 30,
-      "region": "South"
-    },
-    {
-      "brand": "Saladworks",
-      "cat": "Salads",
-      "ic": "SW",
-      "color": "#4c9a2a",
-      "deal": "10% Off Online Catering Orders",
-      "desc": "Use promo code SWBTS26 at online checkout to save 10% on a Saladworks catering order.",
-      "tags": [
-        "app"
-      ],
-      "value": 2,
-      "expires": "Through Sept 30, 2026",
-      "url": "https://www.saladworks.com",
-      "region": "Northeast & Mid-Atlantic"
+      "expires": "Ongoing",
+      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
+      "est_savings": 4
     },
     {
       "brand": "Qdoba",
       "cat": "Mexican",
+      "color": "#7a1f2b",
       "ic": "Q",
-      "color": "#e2231a",
-      "deal": "$2 Off Digital Orders with Queso Fundido",
-      "desc": "Enter promo code FUNDIDO on a digital order that includes Queso Fundido to save $2 through online or in-app checkout.",
+      "deal": "$2 Off Orders with New Queso Fundido",
+      "desc": "Get $2 off digital app or website orders that include the new Queso Fundido dip using code FUNDIDO as part of Qdoba's Diptember kickoff.",
       "tags": [
         "app"
       ],
       "value": 2,
-      "expires": "Through Sept 6, 2026",
+      "expires": "Through September 6, 2026",
       "url": "https://www.qdoba.com",
-      "est_savings": 2,
-      "region": "National"
+      "est_savings": 2
     },
     {
-      "brand": "Wingstop",
+      "brand": "Chick-fil-A",
       "cat": "Chicken",
-      "ic": "WS",
-      "color": "#f36c21",
-      "deal": "16pc Wings, 6pc Tenders and Fries Bundle for $19.99",
-      "desc": "Get a bundle of classic wings, crispy tenders and fries for one flat price of $19.99 through the app or website.",
+      "color": "#dd0031",
+      "ic": "C",
+      "deal": "Free Breakfast Entree Weekly",
+      "desc": "Chick-fil-A One app members at participating Los Angeles metro locations get one free breakfast entree per week, including grilled chicken options, through November 9.",
       "tags": [
+        "free",
         "app"
       ],
       "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.wingstop.com",
-      "est_savings": 10,
-      "region": "National"
-    },
-    {
-      "brand": "Jason's Deli",
-      "cat": "Cafe",
-      "ic": "JD",
-      "color": "#00a651",
-      "deal": "$1 Large Dr Pepper with Code DOLLARDP",
-      "desc": "Enter promo code DOLLARDP during online or in-app checkout to get a 24 or 32 ounce Dr Pepper for $1.",
-      "tags": [
-        "app"
-      ],
-      "value": 1,
-      "expires": "Limited time",
-      "url": "https://www.jasonsdeli.com",
-      "est_savings": 1.5,
-      "region": "South & Central"
+      "expires": "Through November 9, 2026",
+      "url": "https://www.chick-fil-a.com",
+      "est_savings": 4.5,
+      "region": "Los Angeles metro only"
     },
     {
       "brand": "Noodles & Company",
       "cat": "Treats",
-      "ic": "NC",
-      "color": "#f2a900",
-      "deal": "$1 Dessert for Rewards Members",
-      "desc": "Free rewards members can get any dessert for $1 with a regular entree purchase.",
+      "color": "#8b1e3f",
+      "ic": "N",
+      "deal": "$1 Dessert with $15 Purchase",
+      "desc": "Noodles Rewards members (free to join) can add a Rice Crispy or cookie dessert for $1 with any purchase of $15 or more.",
       "tags": [
         "app"
       ],
       "value": 2,
-      "expires": "Through Sept 30, 2026",
-      "url": "https://www.noodles.com",
-      "est_savings": 2.5,
-      "region": "National"
+      "expires": "Through October 31, 2026",
+      "url": "https://www.noodles.com/app-termsandconditions",
+      "est_savings": 2
     }
   ]
 }
