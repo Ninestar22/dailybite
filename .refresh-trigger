@@ -2,3 +2,4 @@
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
 Last routine trigger: 2026-09-07T11:12:26Z
+Last manual trigger: 2026-09-07T23:36:20Z (healthy-only roster + grouped cards)
