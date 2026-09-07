@@ -1,144 +1,132 @@
 {
-  "updated": "2026-09-05",
-  "updatedAt": "2026-09-05T11:09:06.240Z",
+  "updated": "2026-09-06",
+  "updatedAt": "2026-09-06T11:09:07.523Z",
   "deals": [
     {
       "brand": "Chipotle",
       "cat": "Mexican",
       "color": "#A81612",
       "ic": "C",
-      "deal": "$0 Delivery Fee on Pollo Asado Orders",
-      "desc": "Order the returning Pollo Asado through the Chipotle app, Chipotle.com, or Chipotle.ca and delivery fees are waived through September 13.",
+      "deal": "Free entree with purchase of 2 entrees (code SUNDAYS)",
+      "desc": "Order two or more entrees after 3pm today on the Chipotle app or website and get a third entree free with code SUNDAYS, the last of three Chipotle Sundays this back-to-school run.",
       "tags": [
+        "free",
         "app"
       ],
-      "value": 3,
-      "expires": "Through September 13, 2026",
-      "url": "https://www.chipotle.com",
-      "region": "National",
-      "est_savings": 4
-    },
-    {
-      "brand": "Chili's",
-      "cat": "Sit-Down",
-      "color": "#C8102E",
-      "ic": "C",
-      "deal": "3 For Me Meal from $10.99",
-      "desc": "Pick a non-alcoholic drink, a starter, and a full entree for one flat price, available all day every day at participating Chili's locations.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.chilis.com",
-      "region": "National",
-      "est_savings": 4
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008C15",
-      "ic": "S",
-      "deal": "Sub of the Day 6-inch for $4.99",
-      "desc": "Subway's Fresh Value Menu features a different discounted 6-inch sub every day, all day, at participating U.S. restaurants.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "region": "National",
-      "est_savings": 2
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008C15",
-      "ic": "S",
-      "deal": "Protein Pockets for $3.99",
-      "desc": "Subway's Fresh Value Menu includes protein-packed pocket sandwiches with over 20 grams of protein, priced at $3.99 at participating locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "region": "National",
-      "est_savings": 2
+      "value": 5,
+      "expires": "Through September 6, 2026",
+      "url": "https://www.chipotle.com/sundays",
+      "best": true,
+      "est_savings": 10,
+      "region": "National"
     },
     {
       "brand": "Qdoba",
       "cat": "Mexican",
-      "color": "#6F1D46",
+      "color": "#DA291C",
       "ic": "Q",
-      "deal": "Free Guacamole and Queso with Any Entree",
-      "desc": "Order any full-size entree through the Qdoba app or website and add hand-crafted guacamole and 3-cheese queso at no extra charge, no points required.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.qdoba.com",
-      "region": "National",
-      "est_savings": 4,
-      "best": true
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008938",
-      "ic": "S",
-      "deal": "Sub of the Day for $4.99, Protein Pockets and Deli Faves from $3.99",
-      "desc": "Subway's standing Fresh Value Menu features a different discounted 6 inch sub each day plus permanent $3.99 Protein Pockets and Deli Faves options.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "est_savings": 4
-    },
-    {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#7a1f2b",
-      "ic": "Q",
-      "deal": "$2 Off Orders with New Queso Fundido",
-      "desc": "Get $2 off digital app or website orders that include the new Queso Fundido dip using code FUNDIDO as part of Qdoba's Diptember kickoff.",
+      "deal": "$2 off digital orders with Queso Fundido (code FUNDIDO)",
+      "desc": "Get $2 off any digital order on the Qdoba app or website that includes the new Queso Fundido dip using code FUNDIDO, the last day of this launch promo.",
       "tags": [
         "app"
       ],
       "value": 2,
       "expires": "Through September 6, 2026",
       "url": "https://www.qdoba.com",
-      "est_savings": 2
+      "est_savings": 2,
+      "region": "National"
     },
     {
-      "brand": "Chick-fil-A",
-      "cat": "Chicken",
-      "color": "#dd0031",
-      "ic": "C",
-      "deal": "Free Breakfast Entree Weekly",
-      "desc": "Chick-fil-A One app members at participating Los Angeles metro locations get one free breakfast entree per week, including grilled chicken options, through November 9.",
+      "brand": "Chili's",
+      "cat": "Sit-Down",
+      "color": "#901922",
+      "ic": "CH",
+      "deal": "3 For Me combo from $10.99",
+      "desc": "Pick a non-alcoholic drink, a starter, and a full entree like the Big Smasher Burger for one flat price starting at $10.99, available all day every day, no app or sign-up required.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.chilis.com",
+      "est_savings": 10,
+      "region": "National"
+    },
+    {
+      "brand": "Jason's Deli",
+      "cat": "Cafe",
+      "color": "#00693E",
+      "ic": "JD",
+      "deal": "Dr Pepper for $1 with code DOLLARDP",
+      "desc": "Get a Dr Pepper fountain drink for just $1 at Jason's Deli when you enter promo code DOLLARDP at online or in-app checkout, pair it with a sandwich or salad bar visit.",
       "tags": [
-        "free",
+        "app"
+      ],
+      "value": 1,
+      "expires": "Limited time",
+      "url": "https://www.jasonsdeli.com",
+      "est_savings": 2,
+      "region": "South & Central"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008938",
+      "ic": "S",
+      "deal": "Sub of the Day 6 inch for $4.99",
+      "desc": "A different featured six-inch sub is $4.99 every day of the week as part of Subway's Fresh Value Menu; today's Sunday special is the Spicy Italian.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.subway.com/",
+      "est_savings": 3,
+      "region": "National"
+    },
+    {
+      "brand": "Clean Juice",
+      "cat": "Smoothies",
+      "color": "#6aa62b",
+      "ic": "CJ",
+      "deal": "Free 16oz smoothie with $15 purchase",
+      "desc": "Get a free 16oz smoothie automatically applied at checkout when you spend $15 or more online or in the app through September 7.",
+      "tags": [
         "app"
       ],
       "value": 4,
-      "expires": "Through November 9, 2026",
-      "url": "https://www.chick-fil-a.com",
-      "est_savings": 4.5,
-      "region": "Los Angeles metro only"
+      "expires": "Through Sept 7, 2026",
+      "url": "https://cleanjuice.com",
+      "est_savings": 6,
+      "region": "South & East"
     },
     {
-      "brand": "Noodles & Company",
-      "cat": "Treats",
-      "color": "#8b1e3f",
-      "ic": "N",
-      "deal": "$1 Dessert with $15 Purchase",
-      "desc": "Noodles Rewards members (free to join) can add a Rice Crispy or cookie dessert for $1 with any purchase of $15 or more.",
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#5a8f29",
+      "ic": "P",
+      "deal": "15% off catering orders of $200 or more",
+      "desc": "Save 15 percent, up to $100, on a single catering order of $200 or more using code BTS15 online or in store.",
       "tags": [
         "app"
       ],
-      "value": 2,
-      "expires": "Through October 31, 2026",
-      "url": "https://www.noodles.com/app-termsandconditions",
-      "est_savings": 2
+      "value": 4,
+      "expires": "Through Sept 11, 2026",
+      "url": "https://www.panerabread.com/en-us/catering.html",
+      "est_savings": 30,
+      "region": "National"
+    },
+    {
+      "brand": "Walmart",
+      "cat": "Grocery",
+      "color": "#0071ce",
+      "ic": "W",
+      "deal": "$9.97 rotisserie chicken family meal bundle",
+      "desc": "Deli hot-case bundle pairs a whole rotisserie chicken with two large sides like mac and cheese or mashed potatoes for $9.97, ready to eat.",
+      "tags": [],
+      "value": 5,
+      "expires": "Ongoing",
+      "url": "https://www.walmart.com",
+      "est_savings": 8,
+      "region": "National"
     }
   ]
 }
