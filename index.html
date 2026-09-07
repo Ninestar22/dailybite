@@ -64,7 +64,7 @@
   @media(max-width:640px){.grid{grid-template-columns:1fr}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
     display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
-  .card.best{border-color:var(--accent2)}
+  .brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer:last-child{flex:1}.offer .foot{margin-top:auto}.card.best{border-color:var(--accent2)}
   .best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;
     font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px;letter-spacing:.3px}
   .brandrow{display:flex;align-items:center;gap:10px}
@@ -897,40 +897,50 @@ function latePill(d){return LATE_BRANDS.has(String(d.brand).toLowerCase())?'<spa
 function dealCode(d){const m=(d.deal+' '+d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);return m?m[1].toUpperCase():null;}
 function codeChip(d){const c=dealCode(d);return c?`<button class="pill codechip" onclick="copyCode(this,'${c}')" title="Tap to copy">CODE: ${c}</button>`:'';}
 function copyCode(btn,code){(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>{const o=btn.textContent;btn.textContent='\u2713 COPIED!';setTimeout(()=>{btn.textContent=o;},1400);}).catch(()=>{});}
-function cardHTML(d){
+function groupByBrand(list){const m=new Map();for(const d of list){const k=normBrand(d.brand);if(!m.has(k))m.set(k,[]);m.get(k).push(d);}return [...m.values()];}
+// One card per restaurant (owner request, 2026-09-07): every deal a chain has today is
+// listed inside that chain's single card, each offer with its own Get deal button.
+function offerHTML(d){
   return `
-    <div class="card ${d.best?'best':''}">
-      ${d.best?'<div class="best-badge">TOP PICK</div>':''}
+      <div class="offer">
+        <div class="deal">${esc(d.deal)}</div>
+        <div class="desc">${esc(d.desc)}</div>
+        <div class="metarow">
+          ${d.isNew?'<span class="pill new">NEW TODAY</span>':''}
+          ${d.endingSoon?'<span class="pill soon">ENDING SOON</span>':''}
+          ${d.region&&d.region!=='National'?'<span class="pill region">'+esc(d.region.toUpperCase())+'</span>':''}
+          ${isTodayDeal(d)?'<span class="pill todaypill">'+WEEKDAY.toUpperCase()+'</span>':''}
+          ${codeChip(d)}
+          ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
+          ${d.via?'<span class="pill via">VIA '+esc(String(d.via).toUpperCase())+'</span>':''}
+          ${d.fulfillment?'<span class="pill ful">'+esc(String(d.fulfillment).toUpperCase())+'</span>':''}
+          ${Number.isFinite(d.est_savings)&&d.est_savings>0?'<span class="pill save" title="Estimated savings vs regular price">SAVE ~$'+(d.est_savings%1?d.est_savings.toFixed(2):d.est_savings)+'</span>':''}
+        </div>
+        <div class="foot">
+          <span class="expires">${esc(d.expires)}</span>
+          <button class="share" data-s="${encodeURIComponent(d.brand + ': ' + d.deal)}" onclick="shareDeal(this)" title="Share this deal">↗ Share</button>
+          <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal →</a>
+        </div>
+      </div>`;
+}
+function brandCardHTML(ds){
+  const d=ds[0], best=ds.some(x=>x.best);
+  const cats=[...new Set(ds.map(x=>esc(x.cat)).filter(Boolean))].join(' · ');
+  return `
+    <div class="card ${best?'best':''}">
+      ${best?'<div class="best-badge">TOP PICK</div>':''}
       <div class="brandrow">
         <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="" loading="lazy" onerror="this.remove()"></div>
-        <div>
+        <div class="brandtxt">
           <div class="brand-name">${esc(d.brand)}</div>
-          <div class="brand-cat">${esc(d.cat)}</div>
+          <div class="brand-cat">${cats}${ds.length>1?' · '+ds.length+' deals':''} ${openPill(d.brand)}${latePill(d)}</div>
         </div>
-      </div>
-      <div class="deal">${esc(d.deal)}</div>
-      <div class="desc">${esc(d.desc)}</div>
-      <div class="metarow">
-        ${openPill(d.brand)}
-        ${d.isNew?'<span class="pill new">NEW TODAY</span>':''}
-        ${d.endingSoon?'<span class="pill soon">ENDING SOON</span>':''}
-        ${d.region&&d.region!=='National'?'<span class="pill region">'+esc(d.region.toUpperCase())+'</span>':''}
-        ${isTodayDeal(d)?'<span class="pill todaypill">'+WEEKDAY.toUpperCase()+'</span>':''}
-        ${codeChip(d)}
-        ${latePill(d)}
-        ${(d.tags||[]).map(t=>`<span class="pill ${esc(t)}">${t==='free'?'FREE':t==='app'?'APP ONLY':esc(t)}</span>`).join('')}
-        ${d.via?'<span class="pill via">VIA '+esc(String(d.via).toUpperCase())+'</span>':''}
-        ${d.fulfillment?'<span class="pill ful">'+esc(String(d.fulfillment).toUpperCase())+'</span>':''}
-        ${Number.isFinite(d.est_savings)&&d.est_savings>0?'<span class="pill save" title="Estimated savings vs regular price">SAVE ~$'+(d.est_savings%1?d.est_savings.toFixed(2):d.est_savings)+'</span>':''}
-      </div>
-      <div class="foot">
-        <span class="expires">${esc(d.expires)}</span>
         <a class="near" data-brand="${esc(d.brand)}" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">${nearLabel(d.brand)}</a>
-        <button class="share" data-s="${encodeURIComponent(d.brand + ': ' + d.deal)}" onclick="shareDeal(this)" title="Share this deal">\u2197 Share</button>
-        <a class="cta" href="${safeUrl(d.url)}" target="_blank" rel="noopener">Get deal \u2192</a>
       </div>
+      <div class="offers">${ds.map(offerHTML).join('')}</div>
     </div>`;
 }
+function cardHTML(d){ return brandCardHTML([d]); }
 
 function shareDeal(el){
   const txt = decodeURIComponent(el.dataset.s);
@@ -956,49 +966,52 @@ function dealScore(d){
 }
 function render(){
   const grid=document.getElementById('grid');
-  // The two featured sections (Top Picks, Worth grabbing today) only show on the
-  // unfiltered view. A deal is rendered in exactly ONE place on the page: the
-  // featured sections claim their deals first and the main grid gets the rest.
+  // One card per restaurant (owner request, 2026-09-07): deals are grouped by brand and
+  // each brand renders in exactly ONE place on the page. The featured sections (Top
+  // Picks, Worth grabbing today) claim their brands first and the main grid gets the rest.
   const featured=activeCat==="All"&&!query;
-  const shown=new Set(); // every deal already rendered in a featured section
-  // Top Picks first: when this section is visible, its deals appear ONLY here,
-  // never repeated in the main grid below (owner request, 2026-08-18).
+  const matches=d=>(activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))&&(!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query));
+  const dRank=d=>(d.best?8:0)+(isTodayDeal(d)?4:0)+(d.endingSoon?2:0)+(d.isNew?1:0);
+  let groups=groupByBrand(DEALS.filter(regionOK));
+  if(!featured) groups=groups.map(g=>g.filter(matches)).filter(g=>g.length);
+  groups.forEach(g=>g.sort((a,b)=>dRank(b)-dRank(a)||(b.value||0)-(a.value||0)));
+  const gval=g=>Math.max(...g.map(d=>d.value||0));
+  const gany=(g,f)=>g.some(f);
+  const shown=new Set(); // every brand group already rendered in a featured section
+  // Top Picks first: a brand shown here is never repeated below (owner request, 2026-08-18).
   const topwrap=document.getElementById('topwrap');
   let tops=[];
   if(featured){
-    tops=DEALS.filter(d=>d.best&&regionOK(d))
-      .sort((a,b)=>b.value-a.value)
-      .slice(0,4);
+    tops=groups.filter(g=>gany(g,d=>d.best)).sort((a,b)=>gval(b)-gval(a)).slice(0,4);
   }
   topwrap.style.display=tops.length?'block':'none';
-  document.getElementById('topgrid').innerHTML=tops.map(cardHTML).join(''); // cleared when hidden: no stale cards
-  tops.forEach(d=>shown.add(d));
+  document.getElementById('topgrid').innerHTML=tops.map(brandCardHTML).join(''); // cleared when hidden: no stale cards
+  tops.forEach(g=>shown.add(g));
 
-  // Worth grabbing today: day-specific, new, and expiring deals. Same rule as
-  // Top Picks: a deal shown here is NOT repeated in the main grid (fixes the
-  // duplicate cards, e.g. Tijuana Flats Thursdaze listed twice, 2026-08-20).
+  // Worth grabbing today: brands with a day-specific, new, or expiring deal. Same rule as
+  // Top Picks: a brand shown here is NOT repeated in the main grid.
   const wrap=document.getElementById('todaywrap');
   let picks=[];
   if(featured){
-    picks=DEALS.filter(d=>!d.best&&!shown.has(d)&&regionOK(d)&&(isTodayDeal(d)||d.endingSoon||d.isNew))
-      .sort((a,b)=>(isTodayDeal(b)?1:0)-(isTodayDeal(a)?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value)
+    const isPick=d=>isTodayDeal(d)||d.endingSoon||d.isNew;
+    picks=groups.filter(g=>!shown.has(g)&&gany(g,isPick))
+      .sort((a,b)=>(gany(b,isTodayDeal)?1:0)-(gany(a,isTodayDeal)?1:0)||(gany(b,d=>d.endingSoon)?1:0)-(gany(a,d=>d.endingSoon)?1:0)||gval(b)-gval(a))
       .slice(0,4);
   }
   wrap.style.display=picks.length?'block':'none';
-  document.getElementById('todaygrid').innerHTML=picks.map(cardHTML).join('');
-  picks.forEach(d=>shown.add(d));
+  document.getElementById('todaygrid').innerHTML=picks.map(brandCardHTML).join('');
+  picks.forEach(g=>shown.add(g));
 
-  const list=DEALS
-    .filter(regionOK)
-    .filter(d=>!shown.has(d))
-    .filter(d=>activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))
-    .filter(d=>!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query))
+  const gscore=g=>Math.max(...g.map(dealScore));
+  const list=groups
+    .filter(g=>!shown.has(g))
     .sort((a,b)=>{
       // When distances are on, rank by deal quality AND proximity together.
-      if(DIST){ const ds=dealScore(b)-dealScore(a); if(ds) return ds; }
-      return (b.best?1:0)-(a.best?1:0)||(b.isNew?1:0)-(a.isNew?1:0)||(b.endingSoon?1:0)-(a.endingSoon?1:0)||b.value-a.value;
+      if(DIST){ const ds=gscore(b)-gscore(a); if(ds) return ds; }
+      return (gany(b,d=>d.best)?1:0)-(gany(a,d=>d.best)?1:0)||(gany(b,d=>d.isNew)?1:0)-(gany(a,d=>d.isNew)?1:0)||(gany(b,d=>d.endingSoon)?1:0)-(gany(a,d=>d.endingSoon)?1:0)||gval(b)-gval(a);
     });
-  const total=list.length+shown.size;
+  const countDeals=gs=>gs.reduce((n,g)=>n+g.length,0);
+  const total=countDeals(list)+countDeals([...shown]);
   // When location filtering hides deals, say so plainly: "5 deals today" next to
   // "10 deals verified today" reads as a bug (owner report, 2026-08-27) when the
   // truth is that 5 of the 10 are not claimable in the visitor's area.
@@ -1009,10 +1022,11 @@ function render(){
     const sa=document.getElementById('showAllDeals');
     if(sa)sa.onclick=function(e){e.preventDefault();DIST=null;STATE=null;CITY=null;HOURS=null;QB=null;try{localStorage.removeItem('db_dist2');}catch(err){}locBtn.textContent='Show distances near me';locBtn.classList.remove('on');const p=document.getElementById('locPickBtn');if(p)p.textContent='Choose a location';render();};
   }else{
-    countEl.textContent=`${total} deal${total!==1?'s':''} today`;
+    const brands=list.length+shown.size;
+    countEl.textContent=`${total} deal${total!==1?'s':''} today`+(brands&&brands!==total?` from ${brands} restaurant${brands!==1?'s':''}`:'');
   }
   document.getElementById('empty').style.display=total?'none':'block';
-  grid.innerHTML=list.map(cardHTML).join('');
+  grid.innerHTML=list.map(brandCardHTML).join('');
 }
 render();
 
