@@ -35,8 +35,8 @@ const CHAINS = [
   { slug: "sweetgreen-deals",  name: "Sweetgreen" },
   { slug: "potbelly-deals",  name: "Potbelly" },
   { slug: "noodles-and-company-deals",  name: "Noodles & Company" },
-  { slug: "chilis-deals",  name: "Chili’s" },
-  { slug: "five-guys-deals",  name: "Five Guys" },
+  { slug: "chilis-deals",  name: "Chili’s", banned: true },     // removed 2026-09-07 (healthy-only roster)
+  { slug: "five-guys-deals",  name: "Five Guys", banned: true }, // removed 2026-09-07 (healthy-only roster)
   { slug: "cava-deals",        name: "CAVA" },
   { slug: "smoothie-king-deals", name: "Smoothie King" },
   { slug: "tropical-smoothie-deals", name: "Tropical Smoothie" },
@@ -53,7 +53,7 @@ const CHAINS = [
   { slug: "ihop-deals",         name: "IHOP", banned: true },
   { slug: "dennys-deals",       name: "Denny's", banned: true },
   { slug: "insomnia-cookies-deals", name: "Insomnia Cookies", banned: true },
-  { slug: "wingstop-deals",     name: "Wingstop" },
+  { slug: "wingstop-deals",     name: "Wingstop", banned: true },    // removed 2026-09-07 (healthy-only roster)
   { slug: "qdoba-deals",        name: "Qdoba" },
   { slug: "just-salad-deals",   name: "Just Salad" },
   { slug: "naf-naf-grill-deals", name: "Naf Naf Grill" },
@@ -61,7 +61,7 @@ const CHAINS = [
   { slug: "kura-sushi-deals",   name: "Kura Sushi" },
   { slug: "pokeworks-deals",    name: "Pokeworks" },
   { slug: "sarku-japan-deals",  name: "Sarku Japan" },
-  { slug: "shake-shack-deals",  name: "Shake Shack" },
+  { slug: "shake-shack-deals",  name: "Shake Shack", banned: true }, // removed 2026-09-07 (healthy-only roster)
   { slug: "safeway-deals",      name: "Safeway", note: "Safeway's standing deal is $5 Friday: every Friday the lineup includes fresh sushi rolls for $5 (regularly $8 to $10) plus other prepared foods like an 8-piece chicken bag. The lineup posts Wednesdays in the weekly ad and varies by division; a free Safeway for U account may be needed. It appears below every Friday." },
   { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $5 Sushi Friday: most stores sell select fresh sushi entrees for $5 (regularly $7 to $9) every Friday, in-store only, while supplies last, with the free VIC card. It appears below every Friday." },
   { slug: "kroger-deals",       name: "Kroger", note: "Kroger-family stores (Kroger, Fred Meyer, Fry's, King Soopers, Smith's, QFC, Ralphs) run a Wednesday Only sushi promo at their Snowfox and Zenshi counters: select rolls, spicy tuna and Philly included, at a flat promo price that is typically $5. It appears below every Wednesday." },
@@ -79,7 +79,7 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
 // Canonical brand key: lowercases and folds known naming variants so per-brand
 // dedup, golden/healthy/banned lookups, and evergreen injection can't be
 // defeated by an alternate spelling of the same chain (e.g. "Panera Bread" vs "Panera").
-const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke", "publix super markets": "publix", "publix supermarkets": "publix", "publix sushi": "publix", "sprouts farmers market": "sprouts", "whole foods": "whole foods market", "heb": "h-e-b", "h-e-b grocery": "h-e-b", "hyvee": "hy-vee", "hy vee": "hy-vee", "fry's food stores": "fry's", "fry's food and drug": "fry's", "smith's food and drug": "smith's", "winn dixie": "winn-dixie", "stop and shop": "stop & shop", "jewel osco": "jewel-osco", "lowes foods": "lowe's foods", "the kroger co": "kroger", "kroger co": "kroger", "harris teeter supermarkets": "harris teeter", "giant food stores": "giant food", "shop rite": "shoprite", "chopt creative salad co.": "chopt", "chopt creative salad": "chopt", "crisp and green": "crisp & green", "modern market": "modern market eatery", "dig inn": "dig", "bibibop asian grill": "bibibop", "zupas": "cafe zupas", "salata salad kitchen": "salata" };
+const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke", "publix super markets": "publix", "publix supermarkets": "publix", "publix sushi": "publix", "sprouts farmers market": "sprouts", "whole foods": "whole foods market", "heb": "h-e-b", "h-e-b grocery": "h-e-b", "hyvee": "hy-vee", "hy vee": "hy-vee", "fry's food stores": "fry's", "fry's food and drug": "fry's", "smith's food and drug": "smith's", "winn dixie": "winn-dixie", "stop and shop": "stop & shop", "jewel osco": "jewel-osco", "lowes foods": "lowe's foods", "the kroger co": "kroger", "kroger co": "kroger", "harris teeter supermarkets": "harris teeter", "giant food stores": "giant food", "shop rite": "shoprite", "chopt creative salad co.": "chopt", "chopt creative salad": "chopt", "crisp and green": "crisp & green", "modern market": "modern market eatery", "dig inn": "dig", "bibibop asian grill": "bibibop", "zupas": "cafe zupas", "salata salad kitchen": "salata", "bolay fresh bold kitchen": "bolay", "little greek": "little greek fresh grill", "the great greek mediterranean grill": "great greek mediterranean grill", "the great greek": "great greek mediterranean grill", "great greek": "great greek mediterranean grill", "clean eats": "clean eatz", "vitality bowl": "vitality bowls", "rushbowls": "rush bowls", "pressed": "pressed juicery", "the flame broiler": "flame broiler", "flame broiler rice bowl": "flame broiler", "roti modern mediterranean": "roti", "roti mediterranean": "roti", "garbanzo mediterranean fresh": "garbanzo", "pita pit usa": "pita pit", "newk's": "newk's eatery", "newks": "newk's eatery", "newks eatery": "newk's eatery" };
 const canonBrand = b => { const k = String(b || "").toLowerCase().trim().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " "); return BRAND_ALIASES[k] || k; };
 // GROCERY (owner request, 2026-08-20): good-value prepared-food deals from grocery stores (sushi days,
 // deli and hot-bar meal deals, rotisserie specials) are welcome, from these major chains only. Most are
@@ -132,6 +132,17 @@ const BRAND_DOMAIN_OVERRIDES = {
   "crisp & green": "crispandgreen.com",
   "modern market eatery": "modernmarket.com",
   "dig": "diginn.com",
+  "fresh kitchen": "eatfreshkitchen.com",
+  "great greek mediterranean grill": "thegreatgreekgrill.com",
+  "the great greek mediterranean grill": "thegreatgreekgrill.com",
+  "pressed juicery": "pressed.com",
+  "flame broiler": "flamebroilerusa.com",
+  "roti": "roti.com",
+  "roti modern mediterranean": "roti.com",
+  "garbanzo": "eatgarbanzo.com",
+  "garbanzo mediterranean fresh": "eatgarbanzo.com",
+  "pita pit": "pitapitusa.com",
+  "newk's eatery": "newks.com",
   "sonic": "sonicdrivein.com",
 };
 function brandDomain(brand) {
@@ -142,7 +153,7 @@ function brandDomain(brand) {
 
 // Approved-roster chains that genuinely stay open late (the old list held only banned
 // fast-food brands, so the OPEN LATE pill could never render after the healthy whitelist).
-const LATE_BRANDS = new Set(["wingstop"]);
+const LATE_BRANDS = new Set([]); // emptied 2026-09-07: Wingstop left the roster (healthy-only); add any approved chain that genuinely stays open late
 function latePill(d) { return LATE_BRANDS.has(canonBrand(d.brand)) ? '<span class="pill late">OPEN LATE</span>' : ""; }
 function codeChip(d) {
   const m = (d.deal + " " + d.desc).match(/\bcode[:\s]+(?!NEEDED\b|REQUIRED\b|NECESSARY\b|ONLY\b)([A-Z0-9]{3,14})\b/);
@@ -222,15 +233,6 @@ const GUIDES = {
       ["What is Subway's Sub of the Day?", "A different featured 6-inch sub each weekday at a discounted price at participating locations. We list it with the verified price whenever it checks out that morning."],
       ["Do Subway promo codes work in-store?", "Most codes are app and online-order only. We say in each listing where a code actually works, and every listed code was verified the same morning."],
       ["Why did a Subway code stop working?", "Subway rotates codes frequently and participation varies by franchise. Anything listed here worked at this morning's check; if it's gone tomorrow, so is the listing."]
-    ]
-  },
-  "wingstop-deals": {
-    how: "Wingstop's deals run through wingstop.com and its app: promo codes, combo pricing, and limited-time flavor promotions. Per this site's standards, we list bone-in and tender deals and never boneless-only promotions.",
-    cadence: "The sports calendar drives Wingstop: football season and March Madness bring its biggest promos, with code-based combo deals appearing year-round.",
-    qa: [
-      ["Does Wingstop have a value menu?", "Not a formal one, but combo pricing and rotating promo codes fill the same role. We list combos only when the full price is stated and verified."],
-      ["When does Wingstop run its best deals?", "Around big sports moments: NFL season and March Madness historically bring the strongest promotions."],
-      ["Why don't you list boneless wing deals?", "Owner policy after personal testing: this site lists bone-in wing, tender, and sandwich deals from Wingstop, never boneless-only promotions."]
     ]
   }
 };
@@ -657,7 +659,6 @@ function main() {
     { until: "2026-08-27", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Double Protein Today Only: Code PROTEIN", desc: "Today only (August 27): add a free second portion of meat or sofritas to any full-price burrito, bowl, or salad ordered in the Chipotle app or at chipotle.com with code PROTEIN at checkout. App and website orders only; not valid in-restaurant or on delivery platforms.", tags: ["free", "app"], value: 5, expires: "Today only, August 27", url: "https://www.chipotle.com/", best: true, region: "National" } },
     // (Chipotle free-delivery evergreen removed 2026-08-25: its until-date of 2026-08-15 passed.)
     { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/", best: false, region: "National" } },
-    { until: "2026-12-31", deal: { brand: "Chili’s", cat: "Sit-Down", color: "#ee3a43", ic: "CH", deal: "3 For Me: Drink + App + Entree from $10.99", desc: "Chili’s all-day 3 For Me bundles a bottomless drink, an appetizer (chips and salsa or house salad), and a full entree starting at $10.99, with $14.99 and $16.99 tiers - every day at participating locations, no membership needed.", tags: [], value: 4, expires: "Ongoing", url: "https://www.chilis.com/", best: false, region: "National" } },
     // Verified 2026-08-27: Delicious Duos launched July 2025 and is a standing menu on
     // noodles.com; the daily refresh has independently verified it repeatedly.
     { until: "2026-12-31", deal: { brand: "Noodles & Company", cat: "Bowls", color: "#e8601c", ic: "NC", deal: "Delicious Duos: Entree + Side from $9.95", desc: "A small entree paired with a side (garden salad, Caesar, or lemon parmesan broccoli) from $9.95, or chef-curated duos with protein at $10.95, all day every day at participating locations. Price varies slightly by location.", tags: [], value: 3, expires: "Ongoing", url: "https://www.noodles.com/", best: false, region: "National" } },
@@ -806,7 +807,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
-  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Wingstop","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Chili’s","Chilis","Five Guys","Shake Shack","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis","Chopt","Chopt Creative Salad","Chopt Creative Salad Co.","Saladworks","Salata","Salata Salad Kitchen","Crisp & Green","Crisp and Green","Bibibop","Bibibop Asian Grill","Cafe Zupas","Zupas","Clean Juice","Robeks","Luna Grill","Modern Market","Modern Market Eatery","Dig","Dig Inn"].map(canonBrand)); // roster widened 2026-08-27 (healthy fast-casual) and 2026-08-29 (salad/bowl expansion, owner request)
+  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis","Chopt","Chopt Creative Salad","Chopt Creative Salad Co.","Saladworks","Salata","Salata Salad Kitchen","Crisp & Green","Crisp and Green","Bibibop","Bibibop Asian Grill","Cafe Zupas","Zupas","Clean Juice","Robeks","Luna Grill","Modern Market","Modern Market Eatery","Dig","Dig Inn","Bolay","Bolay Fresh Bold Kitchen","Fresh Kitchen","Little Greek Fresh Grill","Little Greek","The Great Greek Mediterranean Grill","Great Greek Mediterranean Grill","The Great Greek","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Pressed","Flame Broiler","The Flame Broiler","Roti","Roti Modern Mediterranean","Garbanzo","Garbanzo Mediterranean Fresh","Pita Pit","Newk's Eatery","Newk's","Newks"].map(canonBrand)); // roster widened 2026-08-27 (healthy fast-casual), 2026-08-29 (salad/bowl expansion) and 2026-09-07 (healthy-only: Five Guys, Shake Shack, Wingstop, Chili's removed; bowl/Mediterranean/acai chains added)
   for (const g of GROCERY) APPROVED.add(g);
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands + grocery roster only
 
@@ -833,6 +834,13 @@ function main() {
     "Clean Juice": "South & East", "Robeks": "Select states",
     "Luna Grill": "SoCal & Texas", "Modern Market Eatery": "CO & TX",
     "Dig": "Northeast",
+    "Bolay": "Florida", "Fresh Kitchen": "Florida",
+    "Little Greek Fresh Grill": "FL & Southeast", "The Great Greek Mediterranean Grill": "Select states",
+    "Clean Eatz": "Southeast & Midwest", "Vitality Bowls": "Select states",
+    "Everbowl": "Select states", "Rush Bowls": "Select states",
+    "Pressed Juicery": "Select states", "Flame Broiler": "CA & Southwest",
+    "Roti": "Chicago & DC", "Garbanzo": "Select states",
+    "Pita Pit": "Select states", "Newk's Eatery": "South",
   }).map(([b, r]) => [canonBrand(b), r]));
   for (const d of deals) {
     const footprint = REGIONAL_DEFAULTS[canonBrand(d.brand)];
@@ -926,13 +934,13 @@ function main() {
   const GOLD = new Set(["chipotle", "chick-fil-a"]); // golden-standard brands: always Top Picks when they have a valid deal
   // Sushi/poke chains (owner request, 2026-08-18: sushi is the owner's favorite food) count as
   // healthy here too, so a strong sushi deal can be a Top Pick as the refresh prompt promises.
-  const HEALTHY = new Set(["sweetgreen","potbelly","noodles & company","cava","just salad","qdoba","panera","panera bread","chipotle","wingstop","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a","kura sushi","sarku japan","rock n roll sushi","sushi maki","pokeworks","island fin poke","pollo tropical","rubio's","rubio's coastal grill","waba grill","pei wei","pei wei asian kitchen","teriyaki madness","honeygrow","playa bowls","nekter juice bar","jason's deli","mcalister's deli","chicken salad chick","taziki's","taziki's mediterranean cafe","chopt","saladworks","salata","crisp & green","bibibop","cafe zupas","clean juice","robeks","luna grill","modern market eatery","dig"]);
+  const HEALTHY = new Set(["sweetgreen","potbelly","noodles & company","cava","just salad","qdoba","panera","panera bread","chipotle","naf naf grill","smoothie king","tropical smoothie","tropical smoothie cafe","jamba","salad and go","el pollo loco","the halal guys","chick-fil-a","kura sushi","sarku japan","rock n roll sushi","sushi maki","pokeworks","island fin poke","pollo tropical","rubio's","rubio's coastal grill","waba grill","pei wei","pei wei asian kitchen","teriyaki madness","honeygrow","playa bowls","nekter juice bar","jason's deli","mcalister's deli","chicken salad chick","taziki's","taziki's mediterranean cafe","chopt","saladworks","salata","crisp & green","bibibop","cafe zupas","clean juice","robeks","luna grill","modern market eatery","dig","bolay","fresh kitchen","little greek fresh grill","great greek mediterranean grill","clean eatz","vitality bowls","everbowl","rush bowls","pressed juicery","flame broiler","roti","garbanzo","pita pit","newk's eatery"]);
   {
     for (const d of deals) d.best = false;
     const byBrand = new Set();
     // Regional-footprint chains never badge (most visitors cannot claim them); the three
     // regional sushi/poke chains from the prompt's REGIONAL HONESTY rule are listed too.
-    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Waba Grill","Honeygrow","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe"].map(canonBrand));
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Waba Grill","Honeygrow","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Bolay","Fresh Kitchen","Little Greek Fresh Grill","The Great Greek Mediterranean Grill","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Flame Broiler","Roti","Garbanzo","Pita Pit","Newk's Eatery"].map(canonBrand));
     for (const g of GROCERY) if (!NATIONAL_GROCERY.has(g)) REGIONAL_ONLY.add(g);
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     // A Top Pick's TITLE must state the money (owner rule, 2026-08-24): a price, a percent,
