@@ -64,7 +64,7 @@
   .grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
     display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
-  .brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}
+  .brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.grid.masonry{columns:auto;column-gap:0;display:flex;gap:14px;align-items:flex-start}.grid.masonry>.col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:14px}.grid.masonry>.col>.card{margin:0}.card.best{border-color:var(--accent2)}
   .best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;
     font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px;letter-spacing:.3px}
   .brandrow{display:flex;align-items:center;gap:10px}
@@ -1029,11 +1029,16 @@ function dealScore(d){
   else if(DIST) s -= 3;
   return s;
 }
+let LAST_COLS=0;
 function render(){
   const grid=document.getElementById('grid');
-  // One card per restaurant (owner request, 2026-09-07): deals are grouped by brand and
-  // each brand renders in exactly ONE place on the page. The featured sections (Top
-  // Picks, Worth grabbing today) claim their brands first and the main grid gets the rest.
+  // One continuous flow (owner request, 2026-09-08): the separate Top Picks and
+  // "Worth grabbing today" sections left a hole under every short card, because a
+  // two-card section cannot balance. Every brand card now lives in ONE list: Top Picks
+  // keep their badge and lead it, NEW TODAY / ENDING SOON pills mark the rest, and each
+  // card drops into whichever column is currently shorter (no holes, no stretching).
+  document.getElementById('topwrap').style.display='none';
+  document.getElementById('todaywrap').style.display='none';
   const featured=activeCat==="All"&&!query;
   const matches=d=>(activeCat==="All"||(activeCat==="FREE"?(d.tags||[]).includes('free'):d.cat===activeCat))&&(!query||(d.brand+d.deal+d.desc).toLowerCase().includes(query));
   const dRank=d=>(d.best?8:0)+(isTodayDeal(d)?4:0)+(d.endingSoon?2:0)+(d.isNew?1:0);
@@ -1042,41 +1047,14 @@ function render(){
   groups.forEach(g=>g.sort((a,b)=>dRank(b)-dRank(a)||(b.value||0)-(a.value||0)));
   const gval=g=>Math.max(...g.map(d=>d.value||0));
   const gany=(g,f)=>g.some(f);
-  const shown=new Set(); // every brand group already rendered in a featured section
-  // Top Picks first: a brand shown here is never repeated below (owner request, 2026-08-18).
-  const topwrap=document.getElementById('topwrap');
-  let tops=[];
-  if(featured){
-    tops=groups.filter(g=>gany(g,d=>d.best)).sort((a,b)=>gval(b)-gval(a)).slice(0,4);
-  }
-  topwrap.style.display=tops.length?'block':'none';
-  document.getElementById('topgrid').innerHTML=tops.map(brandCardHTML).join('');document.getElementById('topgrid').classList.toggle('single',tops.length===1); // cleared when hidden: no stale cards
-  tops.forEach(g=>shown.add(g));
-
-  // Worth grabbing today: brands with a day-specific, new, or expiring deal. Same rule as
-  // Top Picks: a brand shown here is NOT repeated in the main grid.
-  const wrap=document.getElementById('todaywrap');
-  let picks=[];
-  if(featured){
-    const isPick=d=>isTodayDeal(d)||d.endingSoon||d.isNew;
-    picks=groups.filter(g=>!shown.has(g)&&gany(g,isPick))
-      .sort((a,b)=>(gany(b,isTodayDeal)?1:0)-(gany(a,isTodayDeal)?1:0)||(gany(b,d=>d.endingSoon)?1:0)-(gany(a,d=>d.endingSoon)?1:0)||gval(b)-gval(a))
-      .slice(0,4);
-  }
-  wrap.style.display=picks.length?'block':'none';
-  document.getElementById('todaygrid').innerHTML=picks.map(brandCardHTML).join('');document.getElementById('todaygrid').classList.toggle('single',picks.length===1);
-  picks.forEach(g=>shown.add(g));
-
   const gscore=g=>Math.max(...g.map(dealScore));
-  const list=groups
-    .filter(g=>!shown.has(g))
-    .sort((a,b)=>{
-      // When distances are on, rank by deal quality AND proximity together.
-      if(DIST){ const ds=gscore(b)-gscore(a); if(ds) return ds; }
-      return (gany(b,d=>d.best)?1:0)-(gany(a,d=>d.best)?1:0)||(gany(b,d=>d.isNew)?1:0)-(gany(a,d=>d.isNew)?1:0)||(gany(b,d=>d.endingSoon)?1:0)-(gany(a,d=>d.endingSoon)?1:0)||gval(b)-gval(a);
-    });
-  const countDeals=gs=>gs.reduce((n,g)=>n+g.length,0);
-  const total=countDeals(list)+countDeals([...shown]);
+  const gRank=g=>(gany(g,d=>d.best)?16:0)+(gany(g,isTodayDeal)?8:0)+(gany(g,d=>d.endingSoon)?4:0)+(gany(g,d=>d.isNew)?2:0);
+  const list=groups.sort((a,b)=>{
+    // When distances are on, rank by deal quality AND proximity together.
+    if(DIST){ const ds=gscore(b)-gscore(a); if(ds) return ds; }
+    return gRank(b)-gRank(a)||gval(b)-gval(a);
+  });
+  const total=list.reduce((n,g)=>n+g.length,0);
   // When location filtering hides deals, say so plainly: "5 deals today" next to
   // "10 deals verified today" reads as a bug (owner report, 2026-08-27) when the
   // truth is that 5 of the 10 are not claimable in the visitor's area.
@@ -1087,12 +1065,26 @@ function render(){
     const sa=document.getElementById('showAllDeals');
     if(sa)sa.onclick=function(e){e.preventDefault();DIST=null;STATE=null;CITY=null;HOURS=null;QB=null;try{localStorage.removeItem('db_dist2');}catch(err){}locBtn.textContent='Show distances near me';locBtn.classList.remove('on');const p=document.getElementById('locPickBtn');if(p)p.textContent='Choose a location';render();};
   }else{
-    const brands=list.length+shown.size;
+    const brands=list.length;
     countEl.textContent=`${total} deal${total!==1?'s':''} today`+(brands&&brands!==total?` from ${brands} restaurant${brands!==1?'s':''}`:'');
   }
   document.getElementById('empty').style.display=total?'none':'block';
-  grid.innerHTML=list.map(brandCardHTML).join('');grid.classList.toggle('single',list.length===1);
+  // Masonry: two columns on wide screens, one on phones; each card goes to the shorter column.
+  const cols=innerWidth>640?2:1;
+  LAST_COLS=cols;
+  grid.className='grid masonry';
+  grid.innerHTML=Array.from({length:cols},()=>'<div class="col"></div>').join('');
+  const colEls=[...grid.children];
+  for(const g of list){
+    const t=document.createElement('template');
+    t.innerHTML=brandCardHTML(g).trim();
+    const el=t.content.firstElementChild;
+    let target=colEls[0];
+    for(const c of colEls) if(c.offsetHeight<target.offsetHeight) target=c;
+    target.appendChild(el);
+  }
 }
+window.addEventListener('resize',function(){ if((innerWidth>640?2:1)!==LAST_COLS) render(); });
 render();
 
 </script>
