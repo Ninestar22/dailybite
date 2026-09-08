@@ -1,6 +1,6 @@
 # Commit any change to this file to force a full deal refresh immediately.
 # Push events fire the daily-refresh workflow reliably even when GitHub's cron
 # scheduler is dropping scheduled events (as it did on 2026-08-27).
-Last routine trigger: 2026-09-07T11:12:26Z
+Last routine trigger: 2026-09-08T11:04:52Z
 Last manual trigger: 2026-09-07T23:36:20Z (healthy-only roster + grouped cards)
 Last manual trigger: 2026-09-07T23:43:35Z (rebuild chain pages: card height fix)
