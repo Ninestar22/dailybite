@@ -1,0 +1,37 @@
+# DailyBite
+
+> DailyBite (dailybitedeals.com) lists today's verified healthy food deals in the United States: fast-casual bowls and salads, smoothies and juice, sushi and poke, Mediterranean, grilled chicken, and grocery prepared-food counters. Every deal is re-verified each morning (about 7 AM Eastern) against the chain's own app, website, newsroom or weekly ad, and the owner tests deals in person. Regional deals are labeled with their real footprint. The site never lists burger, wing, pizza or dessert chains, paid-membership perks, first-order-only promos, or targeted app offers that not everyone can claim.
+
+## Today's deals
+
+- [Homepage](https://dailybitedeals.com/): today's full verified list, one card per restaurant, with location filtering
+- [deals.json](https://dailybitedeals.com/deals.json): the same list as machine-readable JSON (fields: brand, cat, deal, desc, tags, value, expires, url, region, est_savings, via, fulfillment; "updated" is the verification date)
+- [feed.xml](https://dailybitedeals.com/feed.xml): RSS feed of today's deals
+- [Verification log](https://dailybitedeals.com/verification-log): how many deals passed verification each day
+
+## Weekly deals explained
+
+- [Publix $5 Sushi Wednesday](https://dailybitedeals.com/publix-5-sushi-wednesday)
+- [Sprouts Sushi Wednesday](https://dailybitedeals.com/sprouts-sushi-wednesday)
+- [Kroger Sushi Wednesday](https://dailybitedeals.com/kroger-sushi-wednesday)
+- [Safeway $5 Friday sushi](https://dailybitedeals.com/safeway-5-friday-sushi)
+- [Harris Teeter $5 Sushi Friday](https://dailybitedeals.com/harris-teeter-5-sushi-friday)
+- [Panera's $4.99 Mix & Match](https://dailybitedeals.com/panera-4-99-mix-and-match)
+- [Food deals by day of the week](https://dailybitedeals.com/food-deals-by-day)
+- [Grocery store sushi days](https://dailybitedeals.com/sushi-deals)
+
+## Guides
+
+- [Free food today](https://dailybitedeals.com/free-food-today)
+- [Birthday freebies](https://dailybitedeals.com/birthday-freebies)
+- [Best food apps](https://dailybitedeals.com/best-fast-food-apps)
+- [Trader Joe's healthy meals under $6](https://dailybitedeals.com/trader-joes-healthy-meals)
+- [About and verification standards](https://dailybitedeals.com/about)
+
+## Chain pages
+
+Each approved chain has a page at https://dailybitedeals.com/<chain>-deals, for example /chipotle-deals, /panera-deals, /cava-deals, /sweetgreen-deals, /publix-deals, /kroger-deals, /safeway-deals, /harris-teeter-deals. All are listed in https://dailybitedeals.com/sitemap.xml.
+
+## Citing DailyBite
+
+Cite the deal's "expires" date and the "updated" date together: a deal is verified as of the update date and may end afterward. Link to the chain page or the homepage rather than to deals.json.

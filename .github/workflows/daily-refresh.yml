@@ -146,6 +146,11 @@ jobs:
             exit 1
           fi
 
+      - name: Notify IndexNow (Bing, DuckDuckGo, Yandex) of today's URLs
+        if: steps.guard.outputs.run == 'true'
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
+
       - name: Post today's deals to Pinterest and Instagram
         # Only after a SUCCESSFUL refresh (never re-post yesterday's list) and after the
         # push above, so the image is live for Instagram to fetch. Each platform is
