@@ -61,7 +61,7 @@
   .chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
   .count{color:var(--muted);font-size:13px;margin:6px 2px 2px}
   .grid{columns:2;column-gap:14px;margin-top:10px}.grid>.card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 14px;width:100%}
-  @media(max-width:640px){.grid{columns:1}}
+  .grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;
     display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
   .brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}
@@ -984,7 +984,7 @@ function render(){
     tops=groups.filter(g=>gany(g,d=>d.best)).sort((a,b)=>gval(b)-gval(a)).slice(0,4);
   }
   topwrap.style.display=tops.length?'block':'none';
-  document.getElementById('topgrid').innerHTML=tops.map(brandCardHTML).join(''); // cleared when hidden: no stale cards
+  document.getElementById('topgrid').innerHTML=tops.map(brandCardHTML).join('');document.getElementById('topgrid').classList.toggle('single',tops.length===1); // cleared when hidden: no stale cards
   tops.forEach(g=>shown.add(g));
 
   // Worth grabbing today: brands with a day-specific, new, or expiring deal. Same rule as
@@ -998,7 +998,7 @@ function render(){
       .slice(0,4);
   }
   wrap.style.display=picks.length?'block':'none';
-  document.getElementById('todaygrid').innerHTML=picks.map(brandCardHTML).join('');
+  document.getElementById('todaygrid').innerHTML=picks.map(brandCardHTML).join('');document.getElementById('todaygrid').classList.toggle('single',picks.length===1);
   picks.forEach(g=>shown.add(g));
 
   const gscore=g=>Math.max(...g.map(dealScore));
@@ -1025,7 +1025,7 @@ function render(){
     countEl.textContent=`${total} deal${total!==1?'s':''} today`+(brands&&brands!==total?` from ${brands} restaurant${brands!==1?'s':''}`:'');
   }
   document.getElementById('empty').style.display=total?'none':'block';
-  grid.innerHTML=list.map(brandCardHTML).join('');
+  grid.innerHTML=list.map(brandCardHTML).join('');grid.classList.toggle('single',list.length===1);
 }
 render();
 
