@@ -255,7 +255,33 @@ const GUIDES = {
   }
 };
 
+// Banned-chain pages redirect home (owner decision, Jacob, 2026-09-08): the "honest
+// page" experiment (2026-08-26) kept titles like "McDonald's Deals: ..." indexed, so
+// Google kept sending fast-food searchers to the old branding. GitHub Pages cannot send
+// an HTTP 301, so this is the static equivalent Google treats as permanent: instant
+// meta refresh + canonical to the homepage + noindex, and the URL leaves sitemap.xml.
+function redirectPage(chain) {
+  const title = "DailyBite: Today's Healthy Food Deals";
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=${SITE}/">
+  <link rel="canonical" href="${SITE}/">
+  <meta name="robots" content="noindex, follow">
+  <title>${esc(title)}</title>
+  <script>location.replace("${SITE}/");</script>
+</head>
+<body>
+  <p>DailyBite lists verified deals from healthier chains only. Redirecting you to <a href="${SITE}/">today&#39;s healthy food deals</a>.</p>
+</body>
+</html>
+`;
+}
+
 function chainPage(chain, deals) {
+  if (chain.banned) return redirectPage(chain);
   const list = dealsFor(chain.name, deals);
   // Banned chains get an honest page: the old copy ("check back tomorrow") implied we
   // might list them, and we never will. Saying so plainly builds more trust than an
@@ -1067,7 +1093,7 @@ function main() {
   console.log(`Built verification-log.html (${vlog.length} entries).`);
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...DAYS.map(d => `${SITE}/${d}-food-deals`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;
