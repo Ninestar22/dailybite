@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,10 +11,10 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dailybitedeals.com/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
-<meta name="theme-color" content="#0e1310">
+<meta name="theme-color" content="#f2f6f2">
 <meta name="robots" content="max-image-preview:large">
 <link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="https://dailybitedeals.com/feed.xml">
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
@@ -134,7 +134,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How often are deals updated?","acceptedAnswer":{"@type":"Answer","text":"Every morning, seven days a week. An automated check runs across 30+ national chains, expired offers are dropped, and everything is re-verified against official sources."}},{"@type":"Question","name":"Are these deals actually real?","acceptedAnswer":{"@type":"Answer","text":"Yes \u2014 every deal links to the restaurant's own app or official page and is re-checked daily. Unconfirmed deals are removed the same morning."}},{"@type":"Question","name":"Do I need to sign up for anything?","acceptedAnswer":{"@type":"Answer","text":"No. DailyBite is free, there's no account, and every listed deal is claimable by anyone \u2014 no signup-only promos, points games, or paid memberships."}},{"@type":"Question","name":"Why are so many deals app only?","acceptedAnswer":{"@type":"Answer","text":"Restaurant chains put their best prices inside their own free apps. DailyBite tells you exactly which app each deal lives in."}},{"@type":"Question","name":"How does DailyBite make money?","acceptedAnswer":{"@type":"Answer","text":"DailyBite is free and has no display ads. We may earn a commission when you sign up for a delivery or cash-back app through a clearly marked partner link. Deal listings are never sponsored and every deal link goes straight to the restaurant's own site or app."}}]}</script>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
-<body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light";try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}};</script>
+<body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light",m=document.querySelector("meta[name=theme-color]");try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}if(m)m.content=l?"#0e1310":"#f2f6f2"};</script>
 <header>
   
   <div class="logo"><img src="/logo.svg" alt="DailyBite logo" width="48" height="48"><b>Daily<span>Bite</span></b></div>
