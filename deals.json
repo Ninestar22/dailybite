@@ -20,8 +20,8 @@
       "est_savings": 6,
       "region": "Southwest and West",
       "id": "14ebcd73",
-      "isNew": true,
-      "endingSoon": true
+      "isNew": false,
+      "endingSoon": false
     },
     {
       "brand": "Panera Bread",
@@ -38,7 +38,7 @@
       "est_savings": 3,
       "region": "National",
       "id": "a0a57f8a",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false
     },
     {
@@ -55,7 +55,7 @@
       "est_savings": 3,
       "region": "National",
       "id": "26bd6bda",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -73,7 +73,7 @@
       "est_savings": 3,
       "region": "National",
       "id": "0d7bf6b3",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": true
     },
@@ -111,7 +111,7 @@
       "est_savings": 3,
       "region": "CA, AZ and NV",
       "id": "5027b6c7",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -129,7 +129,7 @@
       "est_savings": 4,
       "region": "FL and Southeast",
       "id": "735089e4",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -147,7 +147,7 @@
       "est_savings": 4,
       "region": "Most markets",
       "id": "538c4dea",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -165,7 +165,7 @@
       "est_savings": 3,
       "region": "Select states (Kroger family banners)",
       "id": "8f7c0e82",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -183,7 +183,7 @@
       "est_savings": 3,
       "region": "Carolinas",
       "id": "38fa8870",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -203,7 +203,7 @@
       "est_savings": 2,
       "region": "FL and Southeast",
       "id": "90cacc1a",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -221,7 +221,7 @@
       "est_savings": 4,
       "region": "DC, MD and VA",
       "id": "5c841bf1",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },

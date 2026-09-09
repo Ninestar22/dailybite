@@ -33,6 +33,8 @@ export const OFFER_SOURCES = [
   { brand: "Potbelly", url: "https://www.potbelly.com/" },
   { brand: "Naf Naf Grill", url: "https://nafnafgrill.com/" },
   { brand: "The Halal Guys", url: "https://thehalalguys.com/" },
+  { brand: "Naz's Halal Food", url: "https://nazshalal.com/" },
+  { brand: "Shah's Halal Food", url: "https://www.shahshalalfood.com/" },
   // National / West / South healthy roster.
   { brand: "El Pollo Loco", url: "https://www.elpolloloco.com/promotions" },
   { brand: "Salad and Go", url: "https://saladandgo.com/promotions" },
