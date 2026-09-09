@@ -362,7 +362,7 @@ ${alternatives}`;
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="apple-itunes-app" content="app-id=6802622518"><meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/${chain.slug}">
@@ -395,7 +395,7 @@ ${faqLd}${freshLd}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -438,6 +438,7 @@ function sushiPage(deals) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=6802622518">
 <meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -476,7 +477,7 @@ ${tableRows}
   <nav class="chains"><strong>More:</strong> <a href="/food-deals-by-day">Deals by day of the week</a></nav>
   ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -496,7 +497,7 @@ function freeFoodPage(deals) {
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="apple-itunes-app" content="app-id=6802622518"><meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/free-food-today">
@@ -528,7 +529,7 @@ ${freshLdFor(title)}
   ${sec2}
     <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -579,6 +580,7 @@ function verificationLogPage(entries) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=6802622518">
 <meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -606,7 +608,7 @@ ${rows}
   <div class="note">How to read this: "deals verified" is the count that passed every check that morning (stated dollars, active today, approved healthier chains only). The count varies day to day because we only list what's verifiably true: a smaller honest list over a padded one, every time.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">Today&#39;s deals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/free-food-today">Free Food Today</a> &middot; <a href="/about">About</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -645,7 +647,7 @@ function holidayPage(h, deals) {
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="robots" content="max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta name="apple-itunes-app" content="app-id=6802622518"><meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
@@ -669,7 +671,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -704,6 +706,7 @@ function pageHead(title, desc, path, ld, extraCss = "") {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=6802622518">
 <meta name="robots" content="max-image-preview:large">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
@@ -733,7 +736,7 @@ ${freshLdFor(title)}
 <div class="wrap">`;
 }
 const PAGE_FOOT = `</div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 

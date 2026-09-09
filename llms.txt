@@ -2,6 +2,10 @@
 
 > DailyBite (dailybitedeals.com) lists today's verified healthy food deals in the United States: fast-casual bowls and salads, smoothies and juice, sushi and poke, Mediterranean, grilled chicken, and grocery prepared-food counters. Every deal is re-verified each morning (about 7 AM Eastern) against the chain's own app, website, newsroom or weekly ad, and the owner tests deals in person. Regional deals are labeled with their real footprint. The site never lists burger, wing, pizza or dessert chains, paid-membership perks, first-order-only promos, or targeted app offers that not everyone can claim.
 
+## The app
+
+- [DailyBite: Healthy Food Deals on the App Store](https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518): free iPhone app showing the same verified list with distance, open/closed status and one-tap ordering
+
 ## Today's deals
 
 - [Homepage](https://dailybitedeals.com/): today's full verified list, one card per restaurant, with location filtering
