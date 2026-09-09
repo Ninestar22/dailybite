@@ -68,6 +68,7 @@ export const OFFER_SOURCES = [
   // Grocery prepared-food counters (weekly ads) and platform newsrooms.
   { brand: "Safeway", url: "https://www.safeway.com/weeklyad/" },
   { brand: "Publix", url: "https://www.publix.com/savings/weekly-ad" },
+  { brand: "Publix", url: "https://www.publix.com/mc/order-ahead/weekly-specials" },
   { brand: "Whole Foods Market", url: "https://www.wholefoodsmarket.com/sales-flyer" },
   { brand: "Wegmans", url: "https://shop.wegmans.com/" },
   { brand: "DoorDash", url: "https://about.doordash.com/en-us/news" },
