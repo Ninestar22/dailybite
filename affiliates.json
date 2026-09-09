@@ -1,0 +1,7 @@
+{
+  "_how": "Affiliate tracking links (added 2026-09-08, empty until each network approves). Paste each network's deep-link template here. {url} is replaced with the URL-encoded destination, {subid} with the deal's stable id (so the network reports which deal converted). Impact examples: DoorDash/Uber/Instacart deep links look like https://<network-host>/c/<pub>/<offer>/<id>?u={url}&subId1={subid}. Leave a value empty to keep plain links. The build rewrites DoorDash, Uber Eats and Grubhub deal links, adds an 'Order on Instacart' link on grocery deals, and switches on the FTC disclosure on the homepage, every generated page and the privacy page the moment any value is non-empty.",
+  "doordash": "",
+  "ubereats": "",
+  "grubhub": "",
+  "instacart": ""
+}

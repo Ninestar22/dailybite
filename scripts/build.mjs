@@ -172,6 +172,34 @@ function groupByBrand(list) {
   for (const d of list) { const k = canonBrand(d.brand); if (!m.has(k)) m.set(k, []); m.get(k).push(d); }
   return [...m.values()].map(g => g.sort((a, b) => (b.best ? 1 : 0) - (a.best ? 1 : 0) || (b.value || 0) - (a.value || 0)));
 }
+// AFFILIATE LINKS (plumbing added 2026-09-08; live the day a network approves). Templates
+// come from affiliates.json ({url} = encoded destination, {subid} = the deal's stable id).
+// Empty templates mean plain links and no disclosure: the site never claims a program it
+// is not in. See the "_how" note in affiliates.json.
+let AFF = { doordash: "", ubereats: "", grubhub: "", instacart: "" };
+try { AFF = { ...AFF, ...JSON.parse(readFileSync(join(root, "affiliates.json"), "utf8")) }; } catch {}
+const AFF_ACTIVE = !!(AFF.doordash || AFF.ubereats || AFF.grubhub || AFF.instacart);
+const AFF_NOTE = AFF_ACTIVE ? " Some links pay DailyBite a commission at no cost to you; it never affects which deals are listed." : "";
+const affFill = (tpl, url, subid) => tpl.replace("{url}", encodeURIComponent(url)).replace("{subid}", encodeURIComponent(subid || ""));
+const INSTACART_URL = AFF.instacart ? affFill(AFF.instacart, "https://www.instacart.com/", "grocery") : "";
+function affiliateHost(url) {
+  try {
+    const h = new URL(url).hostname.replace(/^www\./, "");
+    if (/(^|\.)doordash\.com$/.test(h)) return "doordash";
+    if (/(^|\.)ubereats\.com$/.test(h) || /(^|\.)uber\.com$/.test(h)) return "ubereats";
+    if (/(^|\.)grubhub\.com$/.test(h)) return "grubhub";
+  } catch {}
+  return null;
+}
+// Rewrites a deal's Get deal link to the network's tracking link when (a) the link already
+// points at that platform and (b) a template is configured. Never touches restaurant or
+// grocery links: those keep pointing at the official source.
+function applyAffiliate(d) {
+  const key = affiliateHost(d.url);
+  if (key && AFF[key]) d.url = affFill(AFF[key], d.url, d.id);
+}
+const instacartLink = brand => (INSTACART_URL && GROCERY.has(canonBrand(brand))) ? `<a class="near" href="${INSTACART_URL}" target="_blank" rel="noopener sponsored">Order on Instacart</a>` : "";
+
 // One card per restaurant (owner request, 2026-09-07): every deal a chain has is listed
 // inside that chain's single card, each offer with its own Get deal button.
 function offerHTML(d) {
@@ -195,7 +223,7 @@ function brandCard(ds) {
   <div class="brandrow">
     <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><div class="brand-name">${esc(d.brand)}</div><div class="brand-cat">${cats}${ds.length > 1 ? ` &middot; ${ds.length} deals` : ""}${latePill(d) ? " " + latePill(d) : ""}</div></div>
-    <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">Nearest</a>
+    <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">Nearest</a>${instacartLink(d.brand)}
   </div>
   <div class="offers">
 ${ds.map(offerHTML).join("\n")}
@@ -367,7 +395,7 @@ ${faqLd}${freshLd}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -448,7 +476,7 @@ ${tableRows}
   <nav class="chains"><strong>More:</strong> <a href="/food-deals-by-day">Deals by day of the week</a></nav>
   ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -500,7 +528,7 @@ ${freshLdFor(title)}
   ${sec2}
     <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -578,7 +606,7 @@ ${rows}
   <div class="note">How to read this: "deals verified" is the count that passed every check that morning (stated dollars, active today, approved healthier chains only). The count varies day to day because we only list what's verifiably true: a smaller honest list over a padded one, every time.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">Today&#39;s deals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/free-food-today">Free Food Today</a> &middot; <a href="/about">About</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a></footer>
 </body>
 </html>`;
 }
@@ -641,7 +669,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a></footer>
 </body>
 </html>`;
 }
@@ -705,7 +733,7 @@ ${freshLdFor(title)}
 <div class="wrap">`;
 }
 const PAGE_FOOT = `</div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant. <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a></footer>
 </body>
 </html>`;
 
@@ -1231,6 +1259,7 @@ function main() {
   // with a stable per-deal id, so the app and the site show the same deals. Additive:
   // every existing field and the updated/updatedAt stamps are preserved.
   const assigned = assignDealIds(deals);
+  for (const d of deals) applyAffiliate(d); // platform links become tracking links once a template exists (affiliates.json)
   const feedOut = { ...data, deals };
   writeFileSync(join(root, "deals.json"), JSON.stringify(feedOut, null, 2) + "\n");
   console.log(`Wrote deals.json: ${deals.length} deals, ${assigned} id(s) assigned (rest already had one).`);
@@ -1240,7 +1269,7 @@ function main() {
   const START = "/* DEALS:START */", END = "/* DEALS:END */";
   const s = html.indexOf(START), e = html.indexOf(END);
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
-  writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\n${END}` + html.slice(e + END.length));
+  writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\nconst AFFILIATES = ${JSON.stringify({ instacart: INSTACART_URL, grocery: [...GROCERY], active: AFF_ACTIVE })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
 
   // 1b. Server-render the footer date and a crawlable static deal grid
@@ -1254,6 +1283,22 @@ function main() {
     if (gs !== -1 && ge !== -1 && ge > gs) {
       out = out.slice(0, gs + GS.length) + "\n" + groupCards(deals) + "\n" + out.slice(ge);
     }
+    // Affiliate disclosure (FTC): filled only while a template is configured.
+    const AS = "<!-- AFF:START -->", AE = "<!-- AFF:END -->";
+    const as = out.indexOf(AS), ae = out.indexOf(AE);
+    if (as !== -1 && ae !== -1) out = out.slice(0, as + AS.length) + (AFF_ACTIVE ? " Some links pay DailyBite a commission at no cost to you; it never affects which deals are listed. See <a href=\"/privacy\">Disclosures</a>." : "") + out.slice(ae);
+    try {
+      const pp = join(root, "privacy.html");
+      let pv = readFileSync(pp, "utf8");
+      const DS = "<!-- AFFDISC:START -->", DE = "<!-- AFFDISC:END -->";
+      const ds = pv.indexOf(DS), de = pv.indexOf(DE);
+      if (ds !== -1 && de !== -1) {
+        const active = "<p>DailyBite takes part in affiliate programs run by delivery and grocery platforms (currently: " + [AFF.doordash && "DoorDash", AFF.ubereats && "Uber Eats", AFF.grubhub && "Grubhub", AFF.instacart && "Instacart"].filter(Boolean).join(", ") + "). When you tap a link to one of those platforms and place an order, DailyBite may earn a commission at no extra cost to you. Commissions never influence which deals are listed or how they are ranked: every deal still has to pass the same morning verification, and restaurant and grocery deal links keep pointing at the official source. Links that can earn a commission are marked sponsored in the page code.</p>";
+        const inactive = "<p>DailyBite currently participates in no affiliate programs and earns no commissions: deal links point directly to official brand websites. If the site ever joins an affiliate program, this section will be updated before any such links appear.</p>";
+        pv = pv.slice(0, ds + DS.length) + (AFF_ACTIVE ? active : inactive) + pv.slice(de);
+        writeFileSync(pp, pv);
+      }
+    } catch (e) { console.log("privacy disclosure not updated: " + e.message); }
     // Holiday banner: auto-show within 7 days of a food holiday, auto-hide after.
     const HB_START = "<!-- HOLIDAY:START -->", HB_END = "<!-- HOLIDAY:END -->";
     const hs2 = out.indexOf(HB_START), he2 = out.indexOf(HB_END);

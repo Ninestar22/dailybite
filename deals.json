@@ -184,7 +184,7 @@
       "url": "https://www.elpolloloco.com/",
       "best": false,
       "region": "West & Southwest",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "8ee16eb2"
     },
@@ -201,7 +201,7 @@
       "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
       "best": false,
       "region": "FL & Southeast",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "ff8dda7e"
     }

@@ -394,7 +394,7 @@
 
 <footer>
   Every deal is re-verified each morning against the chains&#39; official apps and deal pages. Not affiliated
-  with any restaurant. <a href="/verification-log">Verification log</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Tuesday, September 8, 2026</span>.
+  with any restaurant.<!-- AFF:START --><!-- AFF:END --> <a href="/verification-log">Verification log</a> &middot; <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Follow on Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; Contact: jacob@dailybitedeals.com &middot; Last updated: <span id="updated">Tuesday, September 8, 2026</span>.
 </footer>
 
 <script>
@@ -585,7 +585,7 @@ const DEALS = [
     "url": "https://www.elpolloloco.com/",
     "best": false,
     "region": "West & Southwest",
-    "isNew": true,
+    "isNew": false,
     "endingSoon": false,
     "id": "8ee16eb2"
   },
@@ -602,12 +602,13 @@ const DEALS = [
     "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
     "best": false,
     "region": "FL & Southeast",
-    "isNew": true,
+    "isNew": false,
     "endingSoon": false,
     "id": "ff8dda7e"
   }
 ];
-const META = {"verifiedAt":"2026-09-09T03:21:51.072Z"};
+const META = {"verifiedAt":"2026-09-09T03:55:23.443Z"};
+const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart"],"active":false};
 /* DEALS:END */
 
 const today = new Date();
@@ -1048,7 +1049,7 @@ function brandCardHTML(ds){
           <div class="brand-name">${esc(d.brand)}</div>
           <div class="brand-cat">${cats}${ds.length>1?' · '+ds.length+' deals':''} ${openPill(d.brand)}${latePill(d)}</div>
         </div>
-        <a class="near" data-brand="${esc(d.brand)}" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">${nearLabel(d.brand)}</a>
+        <a class="near" data-brand="${esc(d.brand)}" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">${nearLabel(d.brand)}</a>${(typeof AFFILIATES!=='undefined'&&AFFILIATES.instacart&&AFFILIATES.grocery.includes(String(d.brand||'').toLowerCase()))?'<a class="near" href="'+esc(AFFILIATES.instacart)+'" target="_blank" rel="noopener sponsored">Order on Instacart</a>':''}
       </div>
       <div class="offers">${ds.map(offerHTML).join('')}</div>
     </div>`;
