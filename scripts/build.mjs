@@ -5,6 +5,7 @@
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
 import { readFileSync, writeFileSync } from "node:fs";
+import { assignDealIds } from "./deal-id.mjs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -1223,6 +1224,17 @@ function main() {
   if (deals.length < beforeSub) console.log(`Excluded ${beforeSub - deals.length} subscription-locked deal(s).`);
 
   // 1. Homepage injection
+  // FEED WRITE-BACK (2026-09-08). Until today deals.json was only what the refresh wrote:
+  // evergreen deals (Publix Sushi Wednesday, Sub of the Week, Tijuana Flats Tuesdaze...) and
+  // the build's own filters (banned brands, expiry, first-order backstop) reached the site
+  // but never the iOS app. The final, filtered, evergreen-merged list is now written back
+  // with a stable per-deal id, so the app and the site show the same deals. Additive:
+  // every existing field and the updated/updatedAt stamps are preserved.
+  const assigned = assignDealIds(deals);
+  const feedOut = { ...data, deals };
+  writeFileSync(join(root, "deals.json"), JSON.stringify(feedOut, null, 2) + "\n");
+  console.log(`Wrote deals.json: ${deals.length} deals, ${assigned} id(s) assigned (rest already had one).`);
+
   const htmlPath = join(root, "index.html");
   const html = readFileSync(htmlPath, "utf8");
   const START = "/* DEALS:START */", END = "/* DEALS:END */";

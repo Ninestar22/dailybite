@@ -5,7 +5,7 @@
 ## Today's deals
 
 - [Homepage](https://dailybitedeals.com/): today's full verified list, one card per restaurant, with location filtering
-- [deals.json](https://dailybitedeals.com/deals.json): the same list as machine-readable JSON (fields: brand, cat, deal, desc, tags, value, expires, url, region, est_savings, via, fulfillment; "updated" is the verification date)
+- [deals.json](https://dailybitedeals.com/deals.json): the same list as machine-readable JSON (fields: id, brand, cat, deal, desc, tags, value, expires, url, region, est_savings, via, fulfillment; "id" is a stable 8-character hash of brand + deal title, "updated" is the verification date)
 - [feed.xml](https://dailybitedeals.com/feed.xml): RSS feed of today's deals
 - [Verification log](https://dailybitedeals.com/verification-log): how many deals passed verification each day
 

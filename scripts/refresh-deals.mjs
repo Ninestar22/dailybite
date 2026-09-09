@@ -13,6 +13,7 @@
 // Run: node scripts/refresh-deals.mjs
 import Anthropic from "@anthropic-ai/sdk";
 import { fetchSourcePack } from "./source-pack.mjs";
+import { assignDealIds } from "./deal-id.mjs";
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -378,6 +379,7 @@ async function main() {
   // tomorrow's UTC date and silently cancel the next morning's refresh.
   // updatedAt (exact UTC timestamp) lets the workflow's noon guard tell "refreshed this morning
   // by hand" from "refreshed since noon", so the scheduled noon check always happens.
+  assignDealIds(deals); // stable per-deal id (feed contract, 2026-09-08): additive, see scripts/deal-id.mjs
   const out = { updated: new Date().toLocaleDateString("en-CA", ET), updatedAt: new Date().toISOString(), deals };
   await validateDealUrls(deals);
   writeFileSync(dataPath, JSON.stringify(out, null, 2) + "\n");

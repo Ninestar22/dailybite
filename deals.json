@@ -16,7 +16,10 @@
       "expires": "Ongoing",
       "url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
       "best": true,
-      "est_savings": 3.5
+      "est_savings": 3.5,
+      "isNew": false,
+      "endingSoon": false,
+      "id": "f24aa508"
     },
     {
       "brand": "Subway",
@@ -30,7 +33,11 @@
       "expires": "Ongoing",
       "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
       "region": "National",
-      "est_savings": 3.5
+      "est_savings": 3.5,
+      "isNew": false,
+      "endingSoon": false,
+      "best": true,
+      "id": "26cc94cb"
     },
     {
       "brand": "Naf Naf Grill",
@@ -46,7 +53,11 @@
       "expires": "Ongoing",
       "url": "https://nafnafgrill.com/",
       "region": "Midwest & East",
-      "est_savings": 3
+      "est_savings": 3,
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "43d0d809"
     },
     {
       "brand": "Rubio's Coastal Grill",
@@ -60,7 +71,11 @@
       "expires": "Ongoing",
       "url": "https://www.rubios.com/",
       "region": "CA, AZ & NV",
-      "est_savings": 3
+      "est_savings": 3,
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "36a4f3ee"
     },
     {
       "brand": "Tijuana Flats",
@@ -76,7 +91,11 @@
       "expires": "Tuesdays only",
       "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
       "region": "FL & Southeast",
-      "est_savings": 3.5
+      "est_savings": 3.5,
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "91dbc73a"
     },
     {
       "brand": "Noodles & Company",
@@ -92,7 +111,11 @@
       "expires": "Ongoing",
       "url": "https://www.noodles.com/",
       "region": "National",
-      "est_savings": 3
+      "est_savings": 3,
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "c7916b84"
     },
     {
       "brand": "Subway",
@@ -106,7 +129,11 @@
       "expires": "Ongoing",
       "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
       "est_savings": 3.5,
-      "region": "National"
+      "region": "National",
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "8153d01a"
     },
     {
       "brand": "WaBa Grill",
@@ -120,7 +147,11 @@
       "expires": "Ongoing",
       "url": "https://www.wabagrill.com/",
       "est_savings": 3,
-      "region": "CA & Southwest"
+      "region": "CA & Southwest",
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "91013340"
     },
     {
       "brand": "Salad and Go",
@@ -134,7 +165,45 @@
       "expires": "Ongoing",
       "url": "https://www.saladandgo.com/",
       "est_savings": 3,
-      "region": "Arizona & Nevada"
+      "region": "Arizona & Nevada",
+      "isNew": false,
+      "endingSoon": false,
+      "best": false,
+      "id": "6f40c5fc"
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "$5 Fire-Grilled Combos: Rotating Value Menu",
+      "desc": "A rotating lineup of roughly $5 combos (Original Pollo Bowl, Classic Chicken Burrito, taquitos and more) built on citrus-marinated fire-grilled chicken, every day at participating locations. Lineup and pricing vary by market.",
+      "tags": [],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.elpolloloco.com/",
+      "best": false,
+      "region": "West & Southwest",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "8ee16eb2"
+    },
+    {
+      "brand": "Publix",
+      "cat": "Deli",
+      "color": "#3d8b37",
+      "ic": "PX",
+      "deal": "Sub of the Week: $2 Off This Week's Featured Whole Sub",
+      "desc": "Every week Publix takes $2 off one featured whole deli sub (a Boar's Head turkey sub or the Publix Deli Ultimate Sub, for example, about $8.99 instead of $10.99), fully customizable at the counter, online or in the app. The featured sub changes with the weekly ad; the deli's weekly specials page lists it.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing (changes weekly)",
+      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
+      "best": false,
+      "region": "FL & Southeast",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "ff8dda7e"
     }
   ]
 }
