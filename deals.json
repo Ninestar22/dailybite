@@ -16,7 +16,7 @@
       "best": true,
       "est_savings": 4,
       "id": "5a80d611",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false
     },
     {
@@ -33,7 +33,7 @@
       "best": false,
       "est_savings": 2.5,
       "id": "661e427f",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false
     },
     {
@@ -47,10 +47,10 @@
       "value": 3,
       "expires": "Ongoing",
       "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "best": true,
+      "best": false,
       "est_savings": 3,
       "id": "8153d01a",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false
     },
     {
@@ -67,7 +67,7 @@
       "region": "DC, MD & VA",
       "est_savings": 3.5,
       "id": "8f2e3e5f",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -85,7 +85,7 @@
       "region": "Select states (West & Central US)",
       "est_savings": 3.5,
       "id": "edcd5fa5",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -103,7 +103,7 @@
       "region": "CA, AZ & NV",
       "est_savings": 3,
       "id": "6f2e372f",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -139,7 +139,7 @@
       "region": "FL & Southeast",
       "est_savings": 2,
       "id": "b8d4bf3c",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -173,9 +173,29 @@
       "url": "https://www.hy-vee.com/deals/weekly-ads",
       "best": false,
       "region": "Midwest",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "a68240f2"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Bowls",
+      "color": "#8dc63f",
+      "ic": "N",
+      "deal": "2 Culinary Classics Bowls for $12",
+      "desc": "Two regular-size bowls from the Culinary Classics menu for $12 together, about $19 bought separately: Pad Thai, Japanese Pan Noodles, Pasta Fresca, Basil Pesto Cavatappi, Creamy Cheddar Mac, Buttered Noodles or either tortelloni. Free Noodles Rewards account required: apply the offer on the cart screen before checkout, or scan at the register. Proteins and add-ons cost extra, one per account, at participating locations, and not valid on third-party delivery, call-in or catering orders.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through September 14, 2026",
+      "url": "https://www.noodles.com/offer-terms",
+      "est_savings": 7,
+      "best": true,
+      "region": "National",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "e4918760"
     }
   ]
 }

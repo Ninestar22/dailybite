@@ -971,6 +971,13 @@ function main() {
     { until: "2026-12-31", dow: 6, deal: { brand: "H-E-B", cat: "Sushi", color: "#e01e26", ic: "HB", deal: "$7 Saturday: Select Sushiya Rolls for $7", desc: "H-E-B's Sushiya counters repeat the $7 select-roll price on Saturdays at participating Texas stores. No coupon or app needed; selection varies by store.", tags: [], value: 3, expires: "Saturdays only", url: "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236", best: false, region: "Texas" } },
     { until: "2026-12-31", dow: 3, deal: { brand: "ShopRite", cat: "Sushi", color: "#c8102e", ic: "SR", deal: "$5.99 Sushi Wednesday: Select Rolls", desc: "Every Wednesday, participating ShopRite stores sell select fresh sushi rolls (spicy crab, California and more) for $5.99, regularly $8 to $10. In-store only; ShopRite stores are independently owned, so selection and participation vary.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585", best: false, region: "NJ, NY, PA, CT, DE & MD" } },
     { until: "2026-12-31", deal: { brand: "Publix", cat: "Deli", color: "#3d8b37", ic: "PX", deal: "Sub of the Week: $2 Off This Week's Featured Whole Sub", desc: "Every week Publix takes $2 off one featured whole deli sub (a Boar's Head turkey sub or the Publix Deli Ultimate Sub, for example, about $8.99 instead of $10.99), fully customizable at the counter, online or in the app. The featured sub changes with the weekly ad; the deli's weekly specials page lists it.", tags: [], value: 3, expires: "Ongoing (changes weekly)", url: "https://www.publix.com/mc/order-ahead/weekly-specials", best: false, region: "FL & Southeast" } },
+    // Dated promo (owner request, 2026-09-11). Verified the same day on the chain4s own
+    // offer-terms page, which reads "Rewards Members enjoy 2 regular sized noodle bowls
+    // from the Culinary Classic category for $12" - note "Rewards Members", NOT the
+    // "Select Rewards Members" wording that keeps the NFL free-side offer off the site.
+    // Noodles Rewards is free to join, so this clears FREE ACCOUNTS ARE FINE. It runs
+    // alongside the standing Delicious Duos entry and self-expires after 9/14.
+    { from: "2026-09-10", until: "2026-09-14", alongside: true, deal: { brand: "Noodles & Company", cat: "Bowls", color: "#8dc63f", ic: "N", deal: "2 Culinary Classics Bowls for $12", desc: "Two regular-size bowls from the Culinary Classics menu for $12 together, about $19 bought separately: Pad Thai, Japanese Pan Noodles, Pasta Fresca, Basil Pesto Cavatappi, Creamy Cheddar Mac, Buttered Noodles or either tortelloni. Free Noodles Rewards account required: apply the offer on the cart screen before checkout, or scan at the register. Proteins and add-ons cost extra, one per account, at participating locations, and not valid on third-party delivery, call-in or catering orders.", tags: ["app"], value: 4, expires: "Through September 14, 2026", url: "https://www.noodles.com/offer-terms", est_savings: 7, best: false, region: "National" } },
   ];
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
@@ -981,7 +988,15 @@ function main() {
   {
     for (const e of EVERGREEN) {
       if (e.dow !== undefined && e.dow !== dowET) continue;
-      if (iso <= e.until && !deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand))) deals.push({ ...e.deal });
+      if (e.from && iso < e.from) continue;   // dated promo that has not started yet
+      if (iso > e.until) continue;            // self-expires
+      const sameBrand = deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand));
+      // Never inject a deal the refresh already found (compare brand + title, not brand alone).
+      if (deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand) && String(d.deal || "").trim().toLowerCase() === e.deal.deal.trim().toLowerCase())) continue;
+      // Default stays one evergreen per brand; "alongside" lets a dated promo run next to
+      // that brand’s standing value-menu entry (2026-09-11).
+      if (sameBrand && !e.alongside) continue;
+      deals.push({ ...e.deal });
     }
   }
 
