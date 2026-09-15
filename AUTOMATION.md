@@ -25,7 +25,7 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
   every 15 minutes, and reloads itself, so the installed home-screen app and the website
   always show the same build (see the sync script at the bottom of `index.html`).
 - After a successful refresh, the workflow also generates a "today's deals" share image
-  (`scripts/social-image.mjs`) and posts it to Pinterest and Instagram
+  Social posting is manual (owner decision, 2026-09-15): the daily workflow no longer renders or posts a social image. `npm run social:image` still generates one on demand for hand posting.
   (`scripts/post-social.mjs`) once their API secrets are configured: see `SOCIAL.md`.
 
 ## One-time setup

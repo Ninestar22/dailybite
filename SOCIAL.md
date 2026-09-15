@@ -1,3 +1,5 @@
+> **Status (2026-09-15): automated posting is OFF.** The owner posts by hand as needed, so the daily workflow no longer generates or posts a social image and no Pinterest/Instagram secrets are needed. `npm run social:image` still renders a shareable image on demand; `npm run social:post` only works if you set the tokens below yourself.
+
 # DailyBite: automatic daily Pinterest + Instagram posts
 
 Every successful morning refresh now generates a branded "today's deals" image
