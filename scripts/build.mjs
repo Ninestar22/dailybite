@@ -1054,14 +1054,21 @@ function main() {
     const kept = [];
     for (const d of deals) {
       const w = words(d.deal), b = canonBrand(d.brand);
-      const dup = kept.some(k => {
-        if (canonBrand(k.brand) !== b) return false;
+      let dupIdx = -1, moreSpecific = false;
+      for (let i = 0; i < kept.length && dupIdx === -1; i++) {
+        const k = kept[i];
+        if (canonBrand(k.brand) !== b) continue;
         const kw = words(k.deal);
         let inter = 0; for (const x of w) if (kw.has(x)) inter++;
         const union = new Set([...w, ...kw]).size;
-        return union > 0 && inter / union >= 0.6;
-      });
-      if (!dup) kept.push(d);
+        const smaller = Math.min(w.size, kw.size);
+        // Jaccard catches paraphrases. Containment (2026-09-15) catches a short title that
+        // is a subset of a longer one for the same brand: "$7+ Meal Menu" vs "$7+ Meal Menu,
+        // Including New Fish & Chips for $7.99" scored 0.29 and shipped as two offers.
+        if (union > 0 && (inter / union >= 0.6 || (smaller >= 2 && inter === smaller))) { dupIdx = i; moreSpecific = w.size > kw.size; }
+      }
+      if (dupIdx === -1) kept.push(d);
+      else if (moreSpecific) kept[dupIdx] = d; // keep the more specific title of the pair
     }
     deals = kept;
     if (deals.length < beforeDedupe) console.log(`Removed ${beforeDedupe - deals.length} duplicate deal(s).`);

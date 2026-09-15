@@ -75,24 +75,6 @@
       "best": false
     },
     {
-      "brand": "Rubio's Coastal Grill",
-      "cat": "Mexican",
-      "color": "#0072ce",
-      "ic": "R",
-      "deal": "$7+ Meal Menu",
-      "desc": "Everyday value meals from $7 to $10, including the new Fish and Chips for $7.99.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.rubios.com/",
-      "region": "CA, AZ & NV",
-      "est_savings": 3,
-      "id": "6f2e372f",
-      "isNew": false,
-      "endingSoon": false,
-      "best": false
-    },
-    {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008938",
@@ -158,7 +140,7 @@
       "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
       "best": false,
       "region": "FL & Southeast",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "61998b88"
     },
@@ -176,7 +158,7 @@
       "est_savings": 3,
       "best": false,
       "region": "AZ, TX, OK & NV",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "6f40c5fc"
     },
@@ -194,7 +176,7 @@
       "est_savings": 3,
       "best": false,
       "region": "CA & AZ",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "91013340"
     }
