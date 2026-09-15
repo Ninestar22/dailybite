@@ -16,7 +16,7 @@
       "est_savings": 4,
       "region": "National",
       "id": "5a80d611",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": true
     },
@@ -34,7 +34,7 @@
       "est_savings": 4,
       "region": "National",
       "id": "661e427f",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": true
     },
@@ -52,7 +52,7 @@
       "est_savings": 3,
       "region": "Midwest & East",
       "id": "43d0d809",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": true
     },
@@ -70,7 +70,7 @@
       "est_savings": 3,
       "region": "California, Arizona, Nevada",
       "id": "36a4f3ee",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -88,7 +88,7 @@
       "region": "CA, AZ & NV",
       "est_savings": 3,
       "id": "6f2e372f",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -106,7 +106,7 @@
       "region": "National",
       "est_savings": 4,
       "id": "2c753488",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -124,7 +124,7 @@
       "region": "Southeast",
       "est_savings": 2,
       "id": "cb01916a",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "best": false
     },
@@ -146,24 +146,57 @@
       "id": "8ee16eb2"
     },
     {
-      "brand": "Noodles & Company",
-      "cat": "Bowls",
-      "color": "#8dc63f",
-      "ic": "N",
-      "deal": "2 Culinary Classics Bowls for $12",
-      "desc": "Two regular-size bowls from the Culinary Classics menu for $12 together, about $19 bought separately: Pad Thai, Japanese Pan Noodles, Pasta Fresca, Basil Pesto Cavatappi, Creamy Cheddar Mac, Buttered Noodles or either tortelloni. Free Noodles Rewards account required: apply the offer on the cart screen before checkout, or scan at the register. Proteins and add-ons cost extra, one per account, at participating locations, and not valid on third-party delivery, call-in or catering orders.",
-      "tags": [
-        "app"
-      ],
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#d0342c",
+      "ic": "TF",
+      "deal": "Taco Tuesdaze: 2 Tacos + Chips + Drink for $7.99",
+      "desc": "Every Tuesday at participating locations: two tacos, chips, and a drink for $7.99 in-store, online, or in the app - no third-party delivery, and pricing varies slightly by location.",
+      "tags": [],
       "value": 4,
-      "expires": "Through September 14, 2026",
-      "url": "https://www.noodles.com/offer-terms",
-      "est_savings": 7,
+      "expires": "Tuesdays only",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
       "best": false,
-      "region": "National",
-      "isNew": false,
-      "endingSoon": true,
-      "id": "e4918760"
+      "region": "FL & Southeast",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "61998b88"
+    },
+    {
+      "brand": "Salad and Go",
+      "cat": "Salads",
+      "color": "#6cbf3e",
+      "ic": "SnG",
+      "deal": "Salads and wraps from $7.75",
+      "desc": "Drive-thru-only salads and wraps, including the Good Greens Salad and Wrap with chickpeas, Brussels sprouts and a choice of chicken or tofu, start at $7.75 every day.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.saladandgo.com/",
+      "est_savings": 3,
+      "best": false,
+      "region": "AZ, TX, OK & NV",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "6f40c5fc"
+    },
+    {
+      "brand": "WaBa Grill",
+      "cat": "Bowls",
+      "color": "#e4002b",
+      "ic": "W",
+      "deal": "Value-Bowl Combo: mini bowl, side and drink for $7.99",
+      "desc": "A permanent value item: a mini bowl with chicken, sweet and spicy chicken or tofu, plus a value side and a 12 oz drink for $7.99, every day at participating locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.wabagrill.com/",
+      "est_savings": 3,
+      "best": false,
+      "region": "CA & AZ",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "91013340"
     }
   ]
 }

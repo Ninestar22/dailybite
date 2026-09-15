@@ -30,7 +30,8 @@ const dataPath = join(root, "deals.json");
 const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-5";
 // JSON repair is mechanical clean-up: Haiku handles it at a fifth of Sonnet's price.
 const REPAIR_MODEL = process.env.CLAUDE_REPAIR_MODEL || "claude-haiku-4-5";
-const MAX_SEARCHES = 32; // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24) -> 32 (2026-09-08, healthy-only roster needs more chain-by-chain sweeps; the source pack covers ~35 chains without a search)
+const MAX_SEARCHES = 32;
+const TOPUP_SEARCHES = 14; // 2026-09-15: the top-up is a targeted sweep over chains the first pass missed, not a second full sweep // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24) -> 32 (2026-09-08, healthy-only roster needs more chain-by-chain sweeps; the source pack covers ~35 chains without a search)
 const ALLOWED_TAGS = new Set(["free", "app"]);
 const MIN_DEALS = 6;
 const MAX_DEALS = 24;
@@ -272,16 +273,20 @@ function salvage(deals) {
   return { deals: kept, errors };
 }
 
-async function generate(pack = "") {
+async function generate(pack = "", opts = {}) {
   // The constant prompt is its own cached block; the daily source pack follows it so the
   // prefix stays byte-identical across runs and retries (pack text changes every day).
   const content = [{ type: "text", text: PROMPT, cache_control: { type: "ephemeral" } }];
   if (pack) content.push({ type: "text", text: pack });
+  // Targeted top-up (2026-09-15): a third block, after the cached prompt and the pack, so
+  // the cache prefix is untouched. Tells the model what the first sweep already verified
+  // and restricts this smaller budget to the chains it missed.
+  if (opts.found && opts.found.length) content.push({ type: "text", text: `TOP-UP SWEEP (cost control): the first sweep of this run already verified these deals, which are kept as-is: ${opts.found.map(d => `${d.brand}: ${d.deal}`).join("; ")}. Do NOT re-search those chains or re-list those deals. Spend this smaller search budget only on approved chains NOT in that list (healthy-quota chains first, then today's grocery counters and the DC-area set) and return ONLY new deals. A short list is fine here: an empty "deals" array is a valid answer if nothing new verifies. Every other rule still applies.` });
   const messages = [{ role: "user", content }];
   // web_search_20250305: the basic variant that ran reliably for months. Deliberately
   // NOT the 20260209 dynamic-filtering variant: that was half of the combo that hung
   // the 2026-08-27 morning run. Searches bill the same either way.
-  const tools = [{ type: "web_search_20250305", name: "web_search", max_uses: MAX_SEARCHES }];
+  const tools = [{ type: "web_search_20250305", name: "web_search", max_uses: opts.maxSearches || MAX_SEARCHES }];
 
   // Server tools can return stop_reason "pause_turn" for long chains; resend
   // the accumulated turn until the model finishes.
@@ -342,9 +347,9 @@ async function main() {
   // (API error, unparseable output, or fewer than MIN_DEALS valid deals) gets the single
   // retry, because a retry re-spends the full search budget: individually-broken deals
   // are dropped by salvage() rather than failing the run (cost cleanup, 2026-08-25).
-  async function attempt() {
+  async function attempt(opts) {
     try {
-      return salvage(dedupe(await generate(pack)));
+      return salvage(dedupe(await generate(pack, opts)));
     } catch (e) {
       return { deals: null, errors: [e.message || String(e)] };
     }
@@ -359,13 +364,15 @@ async function main() {
     const firstDeals = deals || [];
     const second = await attempt();
     ({ deals, errors } = salvage(dedupe([...firstDeals, ...(second.deals || [])])));
-  } else if (deals.length < 12) {
-    // Deterministic top-up (owner, 2026-08-27): prompt-level "keep searching" pleas
-    // still produced 7-deal sweeps, so a short-but-valid first sweep now always gets a
-    // second independent sweep, merged and deduped. Prompt caching keeps it cheap, and
-    // a top-up can only grow the list: if it underperforms, the first sweep stands.
-    console.log(`Only ${deals.length} deals from the first sweep: running a top-up sweep.`);
-    const second = await attempt();
+  } else if (deals.length < 10) {
+    // Deterministic top-up (owner, 2026-08-27), retuned 2026-09-15 for cost: with the
+    // healthy-only roster the first sweep lands at 8-11 most days, so the old "< 12 =
+    // run a second FULL sweep" fired nearly every morning and about doubled the run.
+    // Now it fires only under 10, spends TOPUP_SEARCHES (not MAX_SEARCHES), and is told
+    // what the first sweep found so it searches only the chains that were missed. The
+    // build's value-menu floor covers the rest. A top-up can only grow the list.
+    console.log(`Only ${deals.length} deals from the first sweep: running a targeted top-up sweep (${TOPUP_SEARCHES} searches).`);
+    const second = await attempt({ maxSearches: TOPUP_SEARCHES, found: deals });
     const merged = salvage(dedupe([...deals, ...(second.deals || [])]));
     if (merged.deals && merged.deals.length > deals.length) deals = merged.deals;
   }
