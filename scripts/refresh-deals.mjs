@@ -14,6 +14,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { fetchSourcePack } from "./source-pack.mjs";
 import { assignDealIds } from "./deal-id.mjs";
+import { dealPageFor } from "./deal-pages.mjs";
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -91,7 +92,7 @@ Rules:
 - NO MYSTERY REWARDS (owner request, 2026-08-24): never list mystery or surprise rewards, "special prizes", collectible or capsule-toy prizes, merch drops, or collab menu items sold at regular price. Example of what NOT to list: the Kura Sushi x Persona collab (2026-08), themed rolls at regular price plus a free Bikkura-Pon capsule prize after 15 plates: that is SPENDING roughly $45, not saving. Free food with a stated value is a deal; free toys and unspecified surprises never are.
 - OWNER QUALITY BAR: the owner personally tests listed deals in-store. Every deal must hold up exactly as described. Prefer deals a person would genuinely brag about finding.
 - NOT A DEAL: new menu items, returning seasonal items, or product launches at regular price are NOT deals. Only list offers with a genuine discount, freebie, bundle value, or working promo code.
-- OFFICIAL URLS ONLY: the url field must point to a page on the brand's own official domain (their deals/offers page, or homepage if no better page exists). Never link to coupon aggregators, news articles, or any third-party site. NEVER construct or guess a deep URL from memory: use only URLs you actually saw in this run's search results (a guessed Panera "value-menu.html" path was a dead 404 on the live site for a full day, 2026-08-25). When no evidenced deep link exists, use the brand's homepage.
+- OFFICIAL URLS ONLY, AND AS SPECIFIC AS POSSIBLE (owner request, 2026-09-15: Get deal must land ON the deal): the url field must point to a page on the brand's own official domain. Prefer, in this order: (1) the page for THIS offer (its promo page, value-menu page, newsroom post, or weekly-ad page); (2) the chain's deals, offers or rewards page; (3) the bare homepage ONLY if the chain has none of those. A homepage url is treated as a failure to find the page, so always spend the effort to cite the specific page you verified the deal on. Never link to coupon aggregators, news articles, or any third-party site. NEVER construct or guess a deep URL from memory: use only URLs you actually saw in this run's search results (a guessed Panera "value-menu.html" path was a dead 404 on the live site for a full day, 2026-08-25). When no evidenced deep link exists, use the brand's homepage.
 - NO EMOJIS: never use emojis or decorative unicode symbols in any field (brand, title, desc, expires, badge). Plain professional text only.
 - NO EM DASHES: never use the em dash character in any field. Where you would reach for one, use a colon, a comma, or parentheses instead. Example: write "BOGO $5: whole sandwiches, bowls and salads" not "BOGO $5" followed by an em dash.
 - VALID JSON ONLY: the reply must parse with JSON.parse. Never put a double-quote character inside any field value (write Subway Sub of the Day or Subway 'Sub of the Day', never Subway "Sub of the Day"), no trailing commas, no comments, and no text before or after the JSON object.
@@ -123,16 +124,17 @@ async function validateDealUrls(deals) {
   // Replace any deal URL that hard-404s with the brand's homepage so "Get deal" never dead-ends.
   const domainFor = (brand) => brand.toLowerCase().replace(/['\u2019]/g, "").replace(/[^a-z0-9]/g, "") + ".com";
   for (const d of deals) {
-    if (!d.url) { d.url = "https://www." + domainFor(d.brand) + "/"; continue; }
+    if (!d.url) { d.url = dealPageFor(d.brand) || "https://www." + domainFor(d.brand) + "/"; continue; }
     try {
       const res = await fetch(d.url, { method: "GET", redirect: "follow", headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36" }, signal: AbortSignal.timeout(12000) });
       if (res.status === 404 || res.status === 410) {
-        console.log(`URL 404 for ${d.brand} (${d.url}) -> homepage fallback`);
-        d.url = "https://www." + domainFor(d.brand) + "/";
+        const better = dealPageFor(d.brand);
+        console.log(`URL 404 for ${d.brand} (${d.url}) -> ${better ? "chain deal page" : "homepage"} fallback`);
+        d.url = better || "https://www." + domainFor(d.brand) + "/";
       }
     } catch (e) {
-      console.log(`URL check failed for ${d.brand} (${d.url}): ${e.message} -> homepage fallback`);
-      d.url = "https://www." + domainFor(d.brand) + "/";
+      // A fetch error (bot block, timeout) is NOT a 404: keep the model's specific page.
+      console.log(`URL check failed for ${d.brand} (${d.url}): ${e.message} -> keeping it (not a 404)`);
     }
   }
 }
