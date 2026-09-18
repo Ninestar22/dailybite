@@ -39,26 +39,6 @@
       "endingSoon": false
     },
     {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#f7941d",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: burrito or bowl, chips and a drink for $7.99",
-      "desc": "Every Thursday, get a Tijuana burrito or bowl with chips and a drink for about $7.99, available in store, app, or online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Today only (Thursdays)",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "region": "FL & Southeast",
-      "est_savings": 3,
-      "id": "958224fd",
-      "isNew": true,
-      "endingSoon": false,
-      "best": false
-    },
-    {
       "brand": "Naf Naf Grill",
       "cat": "Mediterranean",
       "color": "#8dc63f",
@@ -183,6 +163,57 @@
       "isNew": false,
       "endingSoon": false,
       "id": "6f40c5fc"
+    },
+    {
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "SF",
+      "deal": "$5 Friday: Fresh Sushi Rolls for $5",
+      "desc": "Every Friday, Safeway's $5 Friday lineup includes fresh sushi rolls from the in-store counter for $5 (regularly $8 to $10), alongside other prepared-food deals like an 8-piece chicken bag. Check the weekly ad for your division; a free Safeway for U account may be needed for the promo price.",
+      "tags": [],
+      "value": 4,
+      "expires": "Fridays only",
+      "url": "https://www.safeway.com/weeklyad/",
+      "best": false,
+      "region": "Select states",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "a819b9f1"
+    },
+    {
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "color": "#00529b",
+      "ic": "HT",
+      "deal": "$5 Sushi Friday: Select Rolls for $5",
+      "desc": "Most Harris Teeter stores sell select fresh sushi entrees for $5 every Friday (regularly $7 to $9), in-store only, while supplies last. Swipe the free VIC card at checkout for the promo price; selection varies by store.",
+      "tags": [],
+      "value": 4,
+      "expires": "Fridays only",
+      "url": "https://www.harristeeter.com/",
+      "best": false,
+      "region": "Southeast & Mid-Atlantic",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "87cf2b0b"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "HV",
+      "deal": "Sushi Friday: Buy One Nori Roll, Get One 50% Off",
+      "desc": "Every Friday at participating Hy-Vee stores, buy one regular Nori Sushi roll and get a second at half price. Store-run promotion: participation varies, no card or app needed.",
+      "tags": [],
+      "value": 3,
+      "expires": "Fridays only",
+      "url": "https://www.hy-vee.com/deals/weekly-ads",
+      "best": false,
+      "region": "Midwest",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "a68240f2"
     }
   ]
 }

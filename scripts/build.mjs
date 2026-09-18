@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
+import { loadMeals, mealRow, money } from "./meals.mjs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -77,7 +78,7 @@ const CHAINS = [
   { slug: "meijer-deals",       name: "Meijer", note: "Participating Meijer stores run Sushi Wednesday: select fresh rolls for $5.99 (recently $5). It appears below every Wednesday when verified." },
 ];
 
-const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
+const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
 
 const EMAIL_CAPTURE = `<div class="note" style="text-align:center"><script>(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');ml('account', '2582509');</script><div class="ml-embedded" data-form="phh0LU"></div></div>`;
 
@@ -926,8 +927,53 @@ function byDayPage(deals) {
 }
 
 
+// ---------------------------------------------------------------------------
+// MEAL INDEX page + homepage section (2026-09-18). See scripts/meals.mjs.
+// ---------------------------------------------------------------------------
+
+function mealsSectionInner(meals, updated) {
+  const top = meals.slice(0, 8);
+  return `
+  <h2>Cheapest healthy meals, ranked by value</h2>
+  <p class="msub">Real orders at real prices, ranked by grams of protein per dollar. No promo needed: these are the best-value healthy meals every day. <span id="mealscount">${meals.length} meals from ${new Set(meals.map(m => m.brand)).size} places</span></p>
+  <div class="mealchips" id="mealsorts"></div>
+  <div class="meallist" id="meallist">
+${top.map((m, i) => mealRow(m, i + 1, { esc, brandDomain })).join("\n")}
+  </div>
+  <div class="mealsfoot"><button id="mealsmore" type="button">Show all ${meals.length} meals</button><span>Nutrition from each chain&#39;s official data. Prices are typical menu prices${updated ? `, checked ${esc(updated)},` : ""} and vary by location. <a href="/cheap-healthy-meals">How the ranking works</a></span></div>
+`;
+}
+
+function mealsPage(meals, updated) {
+  const title = "Cheapest Healthy Fast-Casual Meals, Ranked by Protein per Dollar (2026)";
+  const desc = `${meals.length} real orders at ${new Set(meals.map(m => m.brand)).size} healthy chains and grocery counters, with price, calories and protein from official sources, ranked by grams of protein per dollar. Updated ${prettyDate}.`;
+  const rows = list => list.map((m, i) => `<tr><td>${i + 1}</td><td><strong style="color:var(--ink)">${esc(m.meal)}</strong><br><span style="font-size:12px">${esc(m.brand)}${m.build ? ": " + esc(m.build) : ""}</span></td><td>~${money(m.price)}</td><td>${m.calories}</td><td>${m.protein}g</td><td><strong style="color:var(--accent)">${m.protein_per_dollar.toFixed(1)}</strong></td><td><a style="color:var(--accent2)" href="${esc(m.order_url)}" target="_blank" rel="noopener">Order</a> &middot; <a style="color:var(--muted)" href="${esc(m.nutrition_url)}" target="_blank" rel="noopener">nutrition</a></td></tr>`).join("\n");
+  const table = (h, list) => list.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">${h}</h2><div class="tblwrap"><table class="tbl"><tr><th>#</th><th>Meal</th><th>Price</th><th>Cal</th><th>Protein</th><th>g / $1</th><th>Links</th></tr>\n${rows(list)}\n</table></div>` : "";
+  const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": "Cheapest healthy meals ranked by protein per dollar", "numberOfItems": meals.length,
+    "itemListElement": meals.slice(0, 25).map((m, i) => ({ "@type": "ListItem", "position": i + 1, "name": `${m.brand}: ${m.meal} (~${money(m.price)}, ${m.calories} cal, ${m.protein}g protein)` })) };
+  return pageHead(title, desc, "cheap-healthy-meals", [ld], ".tblwrap{overflow-x:auto;margin-top:6px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.45;font-variant-numeric:tabular-nums}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}") + `
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>Cheapest Healthy Meals, Ranked by Protein per Dollar</h1>
+  <p class="answer">Healthy chains rarely run promotions, so the best value is usually a smart order at the regular price. This index lists specific orders, what they cost, and what you get for the money, ranked by <strong>grams of protein per dollar</strong>.</p>
+  <div class="facts"><b>Nutrition</b><span>From each chain&#39;s official nutrition page, calculator or PDF (linked on every row). For build-your-own bowls it is the sum of the official per-ingredient numbers.</span><b>Prices</b><span>Typical menu prices${updated ? ` checked ${esc(updated)}` : ""}. Restaurant prices vary by location, so treat them as close, not exact; grocery prices (Trader Joe&#39;s) are national.</span><b>Ranking</b><span>Protein grams divided by price. It rewards filling, high-protein meals and ignores marketing.</span><b>What is excluded</b><span>Desserts, sugary drinks, fried headline items, and anything whose numbers could not be verified from a real source.</span></div>
+  ${table("All meals, best value first", meals)}
+  ${table("Full meals at or under 600 calories", meals.filter(m => m.calories <= 600))}
+  ${table("30 grams of protein or more", meals.filter(m => m.protein >= 30))}
+  ${table("Vegetarian", meals.filter(m => m.vegetarian))}
+  <div class="note">Order direct for pickup when you can: delivery apps typically add 15 to 30 percent menu markup plus fees on top of these prices. See <a href="/delivery-vs-pickup" style="color:var(--accent2)">the delivery math</a>, and <a href="/" style="color:var(--accent2)">today&#39;s verified deals</a> for anything that makes these meals cheaper still.</div>
+  ${EMAIL_CAPTURE}
+  ${EXPLAINER_NAV}
+  ${GUIDES_NAV}
+` + PAGE_FOOT;
+}
+
+
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
+  // Meal index (scripts/meals.mjs). Fewer than 5 valid meals = the section stays off.
+  const MEALS = loadMeals(process.env.MEALS_DATA || join(root, "meals-data.json"));
+  for (const x of MEALS.dropped) console.log("Meal dropped: " + x);
+  const mealsOn = MEALS.meals.length >= 5;
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).
   // Injected only when the daily AI refresh did not supply a deal for that brand.
   const EVERGREEN = [
@@ -1330,6 +1376,16 @@ function main() {
     if (gs !== -1 && ge !== -1 && ge > gs) {
       out = out.slice(0, gs + GS.length) + "\n" + groupCards(deals) + "\n" + out.slice(ge);
     }
+    // Meal index: server-render the top rows (crawlable) and embed the full list for the client.
+    {
+      const MS = "<!-- MEALS:START -->", ME = "<!-- MEALS:END -->";
+      const a = out.indexOf(MS), z = out.indexOf(ME);
+      if (a !== -1 && z !== -1) out = out.slice(0, a + MS.length) + (mealsOn ? mealsSectionInner(MEALS.meals, MEALS.updated) : "") + out.slice(z);
+      const J1 = "/* MEALS:START */", J2 = "/* MEALS:END */";
+      const b1 = out.indexOf(J1), b2 = out.indexOf(J2);
+      if (b1 !== -1 && b2 !== -1) out = out.slice(0, b1 + J1.length) + "\nconst MEALS = " + JSON.stringify(mealsOn ? MEALS.meals : []) + ";\n" + out.slice(b2);
+      out = out.replace(/<section class="meals" id="mealswrap"[^>]*>/, mealsOn ? '<section class="meals" id="mealswrap">' : '<section class="meals" id="mealswrap" style="display:none">');
+    }
     // Affiliate disclosure (FTC): filled only while a template is configured.
     const AS = "<!-- AFF:START -->", AE = "<!-- AFF:END -->";
     const as = out.indexOf(AS), ae = out.indexOf(AE);
@@ -1391,6 +1447,11 @@ function main() {
   writeFileSync(join(root, "sushi-deals.html"), sushiPage(deals));
   for (const x of EXPLAINERS) writeFileSync(join(root, `${x.slug}.html`), explainerPage(x, deals));
   writeFileSync(join(root, "food-deals-by-day.html"), byDayPage(deals));
+  if (mealsOn) {
+    writeFileSync(join(root, "meals.json"), JSON.stringify({ updated: MEALS.updated, note: "Nutrition is from official chain sources; prices are typical and vary by location. protein_per_dollar = protein / price.", meals: MEALS.meals }, null, 2) + "\n");
+    writeFileSync(join(root, "cheap-healthy-meals.html"), mealsPage(MEALS.meals, MEALS.updated));
+    console.log("Built meal index: " + MEALS.meals.length + " meals from " + new Set(MEALS.meals.map(m => m.brand)).size + " places.");
+  }
   console.log(`Built ${EXPLAINERS.length} explainer pages and food-deals-by-day.html.`);
   writeFileSync(join(root, "feed.xml"), rssFeed(deals));
   console.log("Built free-food-today.html, sushi-deals.html and feed.xml.");
@@ -1407,7 +1468,7 @@ function main() {
   console.log(`Built verification-log.html (${vlog.length} entries).`);
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), `${SITE}/food-deals-by-day`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;

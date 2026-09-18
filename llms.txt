@@ -6,6 +6,11 @@
 
 - [DailyBite: Healthy Food Deals on the App Store](https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518): free iPhone app showing the same verified list with distance, open/closed status and one-tap ordering
 
+## Cheapest healthy meals
+
+- [Meal index](https://dailybitedeals.com/cheap-healthy-meals): specific orders at healthy chains and grocery counters with price, calories and protein from official sources, ranked by grams of protein per dollar
+- [meals.json](https://dailybitedeals.com/meals.json): the same index as JSON (fields: id, brand, meal, build, kind, price, calories, protein, protein_per_dollar, vegetarian, order_url, nutrition_url, price_url, price_source_type)
+
 ## Today's deals
 
 - [Homepage](https://dailybitedeals.com/): today's full verified list, one card per restaurant, with location filtering
