@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <style>.b{fill:#1f9e54;stroke:#1f9e54}@media (prefers-color-scheme: dark){.b{fill:#31c96e;stroke:#31c96e}}</style>
-  <mask id="bite"><rect width="1024" height="1024" fill="#fff"/><circle cx="840" cy="450" r="150" fill="#000"/></mask>
-  <g mask="url(#bite)">
-    <path class="b" d="M150 470 A362 300 0 0 0 874 470 Z" stroke-width="28" stroke-linejoin="round"/>
-    <rect class="b" x="392" y="748" width="240" height="80" rx="36" stroke="none"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="28 28 456 456">
+  <style>.t{fill:#1f9e54}@media (prefers-color-scheme: dark){.t{fill:#27b060}}</style>
+  <mask id="bite"><rect width="512" height="512" fill="#fff"/><circle cx="428" cy="80" r="80" fill="#000"/></mask>
+  <rect class="t" x="36" y="36" width="440" height="440" rx="104" mask="url(#bite)"/>
+  <path fill="#fff" fill-rule="evenodd" d="M154 144H240A112 112 0 0 1 240 368H154ZM216 200H240A56 56 0 0 1 240 312H216Z"/>
 </svg>
