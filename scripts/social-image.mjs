@@ -40,15 +40,16 @@ function wrap(text, maxChars, maxLines) {
 
 const FONT = "DejaVu Sans, Verdana, Arial, sans-serif";
 
-// The Bowl Bite brand mark (same geometry as /logo.svg: bowl with a bite, honey
-// percent), inlined so the daily social image carries the logo without a raster.
+// The D brand mark (same geometry as /logo.svg: white D on a green rounded tile
+// with one bite out of the top-right corner), inlined so the social image
+// carries the logo without a raster.
 // x, y = top-left of the mark's box; size = box width/height in output pixels.
 function brandMark(x, y, size) {
-  const s = size / 704;
-  return `<g transform="translate(${x} ${y}) scale(${s}) translate(-160 -116)">
-<mask id="bite"><rect x="0" y="0" width="1024" height="1024" fill="#fff"/><circle cx="782" cy="510" r="116" fill="#000"/></mask>
-<g mask="url(#bite)"><path d="M218 528 A294 252 0 0 0 806 528 Z" fill="#31c96e" stroke="#31c96e" stroke-width="24" stroke-linejoin="round"/><rect x="412" y="752" width="200" height="64" rx="30" fill="#31c96e"/></g>
-<line x1="446" y1="406" x2="578" y2="202" stroke="#ffd166" stroke-width="45" stroke-linecap="round"/><circle cx="428" cy="222" r="54" fill="#ffd166"/><circle cx="596" cy="386" r="54" fill="#ffd166"/>
+  const s = size / 456;
+  return `<g transform="translate(${x} ${y}) scale(${s}) translate(-28 -28)">
+<mask id="bite"><rect x="0" y="0" width="512" height="512" fill="#fff"/><circle cx="428" cy="80" r="80" fill="#000"/></mask>
+<rect x="36" y="36" width="440" height="440" rx="104" fill="#1f9e54" mask="url(#bite)"/>
+<path fill="#fff" fill-rule="evenodd" d="M154 144H240A112 112 0 0 1 240 368H154ZM216 200H240A56 56 0 0 1 240 312H216Z"/>
 </g>`;
 }
 function renderSVG(W, H, count) {
