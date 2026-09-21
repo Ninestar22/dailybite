@@ -140,7 +140,7 @@
 <header>
   
   <div class="logo"><img src="/logo.svg" alt="DailyBite logo" width="48" height="48"><b>Daily<span>Bite</span></b></div>
-  <div class="tag">Cheap healthy eats, ranked by value. Deals verified every morning.</div>
+  <div class="tag">Today&#39;s healthy food deals, verified every morning.</div>
   <div class="date" id="today"></div>
   <a class="appbtn" href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener" aria-label="Get the DailyBite iOS app on the App Store">Get the iOS app</a>
   <div class="verify" id="verify"></div>
@@ -148,7 +148,7 @@
 </header>
 
 <div class="wrap">
-  <div class="tabs" id="tabs" role="tablist"><button class="tab active" data-tab="meals" role="tab" aria-selected="true" type="button">Meals</button><button class="tab" data-tab="deals" role="tab" aria-selected="false" type="button">Deals <span class="tbadge" id="dealsbadge"></span></button></div>
+  <div class="tabs" id="tabs" role="tablist"><button class="tab active" data-tab="deals" role="tab" aria-selected="true" type="button">Deals <span class="tbadge" id="dealsbadge"></span></button><button class="tab" data-tab="meals" role="tab" aria-selected="false" type="button">Meals</button></div>
   <div class="locrow">
     <button class="chip locbtn" id="locBtn" title="Show how far each restaurant is from you">Show distances near me</button>
     <button class="chip" id="locPickBtn" title="See deals and distances for another city or ZIP">Choose a location</button>
@@ -157,78 +157,6 @@
       <button class="chip" id="locGo">Go</button>
     </span>
   </div>
-  <section class="meals" id="mealswrap"><!-- MEALS:START -->
-  <h2>Cheapest healthy meals, ranked by value</h2>
-  <p class="msub">Real orders at real prices, ranked by grams of protein per dollar. No promo needed: these are the best-value healthy meals every day. <span id="mealscount">45 meals from 17 places</span></p>
-  <div class="mealchips" id="mealsorts"></div>
-  <div class="meallist" id="meallist">
-<div class="meal">
-  <div class="mrank">1</div>
-  <div class="brand-ic mic"><span>T</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=traderjoes.com&amp;sz=128" alt="Trader Joe&#39;s logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Chicken Burrito Bowl</div><div class="mbrand">Trader Joe&#39;s<span class="mbuild"> &middot; one 11.6 oz frozen bowl: chicken breast, brown rice, red quinoa, black beans, corn, peppers, cheddar; 9 g fiber</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.49</span><span>370 cal</span><span>22g protein</span></div>
-  <div class="mscore"><b>6.3</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">2</div>
-  <div class="brand-ic mic"><span>S</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=subway.com&amp;sz=128" alt="Subway logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Baja Chicken Protein Pocket</div><div class="mbrand">Subway<span class="mbuild"> &middot; one Baja Chicken Protein Pocket from the Fresh Value Menu, as built</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.99</span><span>330 cal</span><span>24g protein</span></div>
-  <div class="mscore"><b>6.0</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">3</div>
-  <div class="brand-ic mic"><span>J</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=jamba.com&amp;sz=128" alt="Jamba logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">PB &amp; Banana Protein Smoothie, Whey (Small)</div><div class="mbrand">Jamba<span class="mbuild"> &middot; small: 2% milk, bananas, peanut butter, whey protein; no boosts</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$7.39</span><span>555 cal</span><span>41g protein</span></div>
-  <div class="mscore"><b>5.5</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.jamba.com/menu/union-station-603/smoothies/pb-banana-protein-whey" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">4</div>
-  <div class="brand-ic mic"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Double Chicken Burrito Bowl</div><div class="mbrand">Chipotle<span class="mbuild"> &middot; double chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, romaine</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$14.20</span><span>750 cal</span><span>77g protein</span></div>
-  <div class="mscore"><b>5.4</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.chipotle.com/order" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">5</div>
-  <div class="brand-ic mic"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Chicken Burrito Bowl (loaded)</div><div class="mbrand">Chipotle<span class="mbuild"> &middot; chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, corn salsa, cheese, romaine</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$10.15</span><span>760 cal</span><span>54g protein</span></div>
-  <div class="mscore"><b>5.3</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.chipotle.com/order" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">6</div>
-  <div class="brand-ic mic"><span>P</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=potbelly.com&amp;sz=128" alt="Potbelly logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Grilled Chicken &amp; Cheddar, Original</div><div class="mbrand">Potbelly<span class="mbuild"> &middot; Original size: grilled chicken and cheddar; toppings are not counted in the numbers</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$9.69</span><span>570 cal</span><span>50g protein</span></div>
-  <div class="mscore"><b>5.2</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.potbelly.com/locations/virginia/reston-town-center" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">7</div>
-  <div class="brand-ic mic"><span>T</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=traderjoes.com&amp;sz=128" alt="Trader Joe&#39;s logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Chicken Shawarma Bowl</div><div class="mbrand">Trader Joe&#39;s<span class="mbuild"> &middot; one 11.3 oz frozen bowl</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.99</span><span>400 cal</span><span>20g protein</span></div>
-  <div class="mscore"><b>5.0</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-<div class="meal">
-  <div class="mrank">8</div>
-  <div class="brand-ic mic"><span>S</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=smoothieking.com&amp;sz=128" alt="Smoothie King logo" loading="lazy" onerror="this.remove()"></div>
-  <div class="mmain"><div class="mname">Gladiator Strawberry (20 oz)</div><div class="mbrand">Smoothie King<span class="mbuild"> &middot; 20 oz base recipe with no fruit add-ins (adding fruit changes the numbers); 0 g added sugar</span></div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$8.99</span><span>220 cal</span><span>45g protein</span></div>
-  <div class="mscore"><b>5.0</b><small>g protein per $1</small></div>
-  <a class="cta mcta" href="https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu" target="_blank" rel="noopener">Order direct &rarr;</a>
-</div>
-  </div>
-  <div class="mealsfoot"><button id="mealsmore" type="button">Show all 45 meals</button><span>Nutrition from each chain&#39;s official data. Prices are typical menu prices, checked September 18, 2026, and vary by location. <a href="/cheap-healthy-meals">How the ranking works</a></span></div>
-<!-- MEALS:END --></section>
   <div id="dealspanel">
   <div class="controls">
     <input class="search" id="search" placeholder="Search deals or restaurants…" />
@@ -448,6 +376,78 @@
 <!-- SSRGRID:END --></div>
   <div class="empty" id="empty" style="display:none">No deals match your search.</div>
   </div><!-- /dealspanel -->
+  <section class="meals" id="mealswrap" hidden><!-- MEALS:START -->
+  <h2>Cheapest healthy meals, ranked by value</h2>
+  <p class="msub">Real orders at real prices, ranked by grams of protein per dollar. No promo needed: these are the best-value healthy meals every day. <span id="mealscount">45 meals from 17 places</span></p>
+  <div class="mealchips" id="mealsorts"></div>
+  <div class="meallist" id="meallist">
+<div class="meal">
+  <div class="mrank">1</div>
+  <div class="brand-ic mic"><span>T</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=traderjoes.com&amp;sz=128" alt="Trader Joe&#39;s logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Chicken Burrito Bowl</div><div class="mbrand">Trader Joe&#39;s<span class="mbuild"> &middot; one 11.6 oz frozen bowl: chicken breast, brown rice, red quinoa, black beans, corn, peppers, cheddar; 9 g fiber</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.49</span><span>370 cal</span><span>22g protein</span></div>
+  <div class="mscore"><b>6.3</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">2</div>
+  <div class="brand-ic mic"><span>S</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=subway.com&amp;sz=128" alt="Subway logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Baja Chicken Protein Pocket</div><div class="mbrand">Subway<span class="mbuild"> &middot; one Baja Chicken Protein Pocket from the Fresh Value Menu, as built</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.99</span><span>330 cal</span><span>24g protein</span></div>
+  <div class="mscore"><b>6.0</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">3</div>
+  <div class="brand-ic mic"><span>J</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=jamba.com&amp;sz=128" alt="Jamba logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">PB &amp; Banana Protein Smoothie, Whey (Small)</div><div class="mbrand">Jamba<span class="mbuild"> &middot; small: 2% milk, bananas, peanut butter, whey protein; no boosts</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$7.39</span><span>555 cal</span><span>41g protein</span></div>
+  <div class="mscore"><b>5.5</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.jamba.com/menu/union-station-603/smoothies/pb-banana-protein-whey" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">4</div>
+  <div class="brand-ic mic"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Double Chicken Burrito Bowl</div><div class="mbrand">Chipotle<span class="mbuild"> &middot; double chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, romaine</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$14.20</span><span>750 cal</span><span>77g protein</span></div>
+  <div class="mscore"><b>5.4</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.chipotle.com/order" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">5</div>
+  <div class="brand-ic mic"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Chicken Burrito Bowl (loaded)</div><div class="mbrand">Chipotle<span class="mbuild"> &middot; chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, corn salsa, cheese, romaine</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$10.15</span><span>760 cal</span><span>54g protein</span></div>
+  <div class="mscore"><b>5.3</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.chipotle.com/order" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">6</div>
+  <div class="brand-ic mic"><span>P</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=potbelly.com&amp;sz=128" alt="Potbelly logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Grilled Chicken &amp; Cheddar, Original</div><div class="mbrand">Potbelly<span class="mbuild"> &middot; Original size: grilled chicken and cheddar; toppings are not counted in the numbers</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$9.69</span><span>570 cal</span><span>50g protein</span></div>
+  <div class="mscore"><b>5.2</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.potbelly.com/locations/virginia/reston-town-center" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">7</div>
+  <div class="brand-ic mic"><span>T</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=traderjoes.com&amp;sz=128" alt="Trader Joe&#39;s logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Chicken Shawarma Bowl</div><div class="mbrand">Trader Joe&#39;s<span class="mbuild"> &middot; one 11.3 oz frozen bowl</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$3.99</span><span>400 cal</span><span>20g protein</span></div>
+  <div class="mscore"><b>5.0</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+<div class="meal">
+  <div class="mrank">8</div>
+  <div class="brand-ic mic"><span>S</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=smoothieking.com&amp;sz=128" alt="Smoothie King logo" loading="lazy" onerror="this.remove()"></div>
+  <div class="mmain"><div class="mname">Gladiator Strawberry (20 oz)</div><div class="mbrand">Smoothie King<span class="mbuild"> &middot; 20 oz base recipe with no fruit add-ins (adding fruit changes the numbers); 0 g added sugar</span></div></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~$8.99</span><span>220 cal</span><span>45g protein</span></div>
+  <div class="mscore"><b>5.0</b><small>g protein per $1</small></div>
+  <a class="cta mcta" href="https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu" target="_blank" rel="noopener">Order direct &rarr;</a>
+</div>
+  </div>
+  <div class="mealsfoot"><button id="mealsmore" type="button">Show all 45 meals</button><span>Nutrition from each chain&#39;s official data. Prices are typical menu prices, checked September 18, 2026, and vary by location. <a href="/cheap-healthy-meals">How the ranking works</a></span></div>
+<!-- MEALS:END --></section>
 
   <details class="more" id="more"><summary>FAQ, all restaurants and guides</summary>
     <section class="faq">
@@ -1254,7 +1254,8 @@ document.addEventListener('click',function(e){
 });
 { const _render=render; render=function(){ _render(); renderMeals(); }; }
 
-/* ---- App-style tabs (2026-09-18): Meals | Deals, one list at a time ---- */
+/* ---- App-style tabs: Deals | Meals, one list at a time. Deals is the main view and the
+   default on every visit (owner call 2026-09-21); Meals opens from its tab or #meals. ---- */
 function setTab(name, save){
   const hasMeals = typeof MEALS!=='undefined' && MEALS.length>0;
   if(!hasMeals) name='deals';
@@ -1262,10 +1263,11 @@ function setTab(name, save){
   document.getElementById('dealspanel').hidden = name!=='deals';
   document.getElementById('tabs').hidden = !hasMeals;
   document.querySelectorAll('#tabs .tab').forEach(b=>{ const on=b.dataset.tab===name; b.classList.toggle('active',on); b.setAttribute('aria-selected',on?'true':'false'); });
-  if(save){ try{localStorage.setItem('db_tab',name);}catch(e){} try{history.replaceState(null,'',name==='deals'?'#deals':location.pathname+location.search);}catch(e){} }
+  if(save){ try{history.replaceState(null,'',name==='meals'?'#meals':location.pathname+location.search);}catch(e){} }
 }
 document.getElementById('tabs').addEventListener('click',function(e){ const b=e.target.closest('.tab'); if(b) setTab(b.dataset.tab,true); });
-{ let t='meals'; try{ t = location.hash==='#deals' ? 'deals' : (localStorage.getItem('db_tab')||'meals'); }catch(e){} setTab(t,false); }
+setTab(location.hash==='#meals' ? 'meals' : 'deals', false);
+window.addEventListener('hashchange',function(){ setTab(location.hash==='#meals' ? 'meals' : 'deals', false); });
 
 render();
 

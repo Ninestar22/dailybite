@@ -1386,7 +1386,7 @@ function main() {
       const J1 = "/* MEALS:START */", J2 = "/* MEALS:END */";
       const b1 = out.indexOf(J1), b2 = out.indexOf(J2);
       if (b1 !== -1 && b2 !== -1) out = out.slice(0, b1 + J1.length) + "\nconst MEALS = " + JSON.stringify(mealsOn ? MEALS.meals : []) + ";\n" + out.slice(b2);
-      out = out.replace(/<section class="meals" id="mealswrap"[^>]*>/, mealsOn ? '<section class="meals" id="mealswrap">' : '<section class="meals" id="mealswrap" style="display:none">');
+      out = out.replace(/<section class="meals" id="mealswrap"[^>]*>/, mealsOn ? '<section class="meals" id="mealswrap" hidden>' : '<section class="meals" id="mealswrap" hidden style="display:none">');
     }
     // Affiliate disclosure (FTC): filled only while a template is configured.
     const AS = "<!-- AFF:START -->", AE = "<!-- AFF:END -->";
