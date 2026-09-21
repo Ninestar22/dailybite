@@ -278,9 +278,9 @@ const GUIDES = {
   },
   "panera-deals": {
     how: "Panera's everyday anchor is its value menu of mix-and-match items with a free side, and its promo codes for online and app orders through the free MyPanera program. Codes apply at checkout on panerabread.com or in the app.",
-    cadence: "The value menu is standing, and promo codes (BOGO-style and percent-off) rotate every few weeks. Panera is one of the most consistently deal-active chains we track, which is why it appears here most mornings.",
+    cadence: "The value menu is standing, and promo codes (BOGO-style and percent-off) rotate every few weeks. We list Panera when there is a real limited-time code or promo, not for the everyday value menu.",
     qa: [
-      ["Does Panera have a value menu?", "Yes: a standing mix-and-match menu of half sandwiches, soups, and salads, with a free side included per item. We verify its details every morning along with any active codes."],
+      ["Does Panera have a value menu?", "Yes: a standing mix-and-match menu of half sandwiches, soups, and salads, with a free side included per item. Because it is there every day, we do not list it as a deal; this page shows limited-time Panera codes and promos when they are running."],
       ["Is MyPanera free?", "Yes, free to join, and it's where Panera's codes and offers are usable. No paid tier is required for anything listed here."],
       ["How often do Panera codes change?", "Typically every few weeks. When a code expires we drop it the same morning, so anything listed on this page worked as of today's check."]
     ]
@@ -289,7 +289,7 @@ const GUIDES = {
     how: "Subway is the promo-code chain: nearly always at least one working footlong or meal code for app and online orders, layered on top of its rotating Sub of the Day pricing at participating locations.",
     cadence: "National codes rotate roughly monthly, and the Sub of the Day changes daily at a set price that varies by region. Because codes churn fast, this page is worth a daily check: yesterday's code may already be dead.",
     qa: [
-      ["What is Subway's Sub of the Day?", "A different featured 6-inch sub each weekday at a discounted price at participating locations. We list it with the verified price whenever it checks out that morning."],
+      ["What is Subway's Sub of the Day?", "A different featured 6-inch sub each weekday at a discounted price at participating locations. Because it runs every day, we do not list it as a deal; this page shows limited-time Subway codes and promos when they are running."],
       ["Do Subway promo codes work in-store?", "Most codes are app and online-order only. We say in each listing where a code actually works, and every listed code was verified the same morning."],
       ["Why did a Subway code stop working?", "Subway rotates codes frequently and participation varies by franchise. Anything listed here worked at this morning's check; if it's gone tomorrow, so is the listing."]
     ]
@@ -983,10 +983,6 @@ function main() {
     // one-day free double protein with code PROTEIN. Self-expires after today.
     { until: "2026-08-27", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Double Protein Today Only: Code PROTEIN", desc: "Today only (August 27): add a free second portion of meat or sofritas to any full-price burrito, bowl, or salad ordered in the Chipotle app or at chipotle.com with code PROTEIN at checkout. App and website orders only; not valid in-restaurant or on delivery platforms.", tags: ["free", "app"], value: 5, expires: "Today only, August 27", url: "https://www.chipotle.com/rewards", best: true, region: "National" } },
     // (Chipotle free-delivery evergreen removed 2026-08-25: its until-date of 2026-08-15 passed.)
-    { until: "2026-12-31", deal: { brand: "Panera", cat: "Sandwiches", color: "#4a7c2f", ic: "Pa", deal: "$4.99 Mix & Match Value Menu", desc: "Half- and cup-sized portions of soups, salads, and sandwiches from a 10-item menu for $4.99 each, and every item comes with a free side (baguette, chips, or apple). Pair any two for a full meal under $10 - in cafes and online, no membership needed.", tags: [], value: 5, expires: "Ongoing", url: "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html", best: false, region: "National" } },
-    // Verified 2026-08-27: Delicious Duos launched July 2025 and is a standing menu on
-    // noodles.com; the daily refresh has independently verified it repeatedly.
-    { until: "2026-12-31", deal: { brand: "Noodles & Company", cat: "Bowls", color: "#e8601c", ic: "NC", deal: "Delicious Duos: Entree + Side from $9.95", desc: "A small entree paired with a side (garden salad, Caesar, or lemon parmesan broccoli) from $9.95, or chef-curated duos with protein at $10.95, all day every day at participating locations. Price varies slightly by location.", tags: [], value: 3, expires: "Ongoing", url: "https://www.noodles.com/menu/delicious-duos", best: false, region: "National" } },
     // Verified 2026-08-27: El Pollo Loco's $5 Fire-Grilled Combos value platform is
     // announced on the company's own investor site and current on 2026 menus.
     { until: "2026-12-31", deal: { brand: "El Pollo Loco", cat: "Chicken", color: "#f7c500", ic: "EP", deal: "$5 Fire-Grilled Combos: Rotating Value Menu", desc: "A rotating lineup of roughly $5 combos (Original Pollo Bowl, Classic Chicken Burrito, taquitos and more) built on citrus-marinated fire-grilled chicken, every day at participating locations. Lineup and pricing vary by market.", tags: [], value: 4, expires: "Ongoing", url: "https://www.elpolloloco.com/promotions", best: false, region: "West & Southwest" } },
@@ -1020,13 +1016,13 @@ function main() {
     { until: "2026-12-31", dow: 6, deal: { brand: "H-E-B", cat: "Sushi", color: "#e01e26", ic: "HB", deal: "$7 Saturday: Select Sushiya Rolls for $7", desc: "H-E-B's Sushiya counters repeat the $7 select-roll price on Saturdays at participating Texas stores. No coupon or app needed; selection varies by store.", tags: [], value: 3, expires: "Saturdays only", url: "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236", best: false, region: "Texas" } },
     { until: "2026-12-31", dow: 3, deal: { brand: "ShopRite", cat: "Sushi", color: "#c8102e", ic: "SR", deal: "$5.99 Sushi Wednesday: Select Rolls", desc: "Every Wednesday, participating ShopRite stores sell select fresh sushi rolls (spicy crab, California and more) for $5.99, regularly $8 to $10. In-store only; ShopRite stores are independently owned, so selection and participation vary.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585", best: false, region: "NJ, NY, PA, CT, DE & MD" } },
     { until: "2026-12-31", deal: { brand: "Publix", cat: "Deli", color: "#3d8b37", ic: "PX", deal: "Sub of the Week: $2 Off This Week's Featured Whole Sub", desc: "Every week Publix takes $2 off one featured whole deli sub (a Boar's Head turkey sub or the Publix Deli Ultimate Sub, for example, about $8.99 instead of $10.99), fully customizable at the counter, online or in the app. The featured sub changes with the weekly ad; the deli's weekly specials page lists it.", tags: [], value: 3, expires: "Ongoing (changes weekly)", url: "https://www.publix.com/mc/order-ahead/weekly-specials", best: false, region: "FL & Southeast" } },
-    // VALUE-MENU FLOOR (2026-09-15, cost + depth pass). These five standing value menus
+    // VALUE-MENU FLOOR (2026-09-15, cost + depth pass; Subway removed 2026-09-21, see
+    // STANDING_MENU_BLOCK below). These standing value menus
     // were verified by the refresh itself on 2026-09-08 (titles, prices and URLs copied
     // from that run's deals.json) but only re-found on some days, so the list swung
     // between 8 and 11. Injected only when the morning refresh misses the brand (the
     // one-per-brand rule, no "alongside"), so a fresher refresh-found entry always wins.
     // Each expires 2026-10-15: re-verify the price then and bump the date, or drop it.
-    { until: "2026-10-15", deal: { brand: "Subway", cat: "Sandwiches", color: "#008938", ic: "S", deal: "Fresh Value Menu: $4.99 Sub of the Day, $3.99 Deli Faves & Protein Pockets", desc: "Subway's first-ever value menu: a rotating $4.99 six-inch Sub of the Day plus $3.99 Deli Faves and Protein Pockets sandwiches nationwide, every day at participating restaurants.", tags: [], value: 4, expires: "Ongoing", url: "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5", est_savings: 3.5, best: false, region: "National" } },
     { until: "2026-10-15", deal: { brand: "Salad and Go", cat: "Salads", color: "#6cbf3e", ic: "SnG", deal: "Salads and wraps from $7.75", desc: "Drive-thru-only salads and wraps, including the Good Greens Salad and Wrap with chickpeas, Brussels sprouts and a choice of chicken or tofu, start at $7.75 every day.", tags: [], value: 3, expires: "Ongoing", url: "https://saladandgo.com/menu", est_savings: 3, best: false, region: "AZ, TX, OK & NV" } },
     { until: "2026-10-15", deal: { brand: "Rubio's Coastal Grill", cat: "Seafood", color: "#00a1e0", ic: "R", deal: "$7+ Meal Menu, including Fish & Chips for $7.99", desc: "Rubio's standing value menu runs meals from $7 to $10, headlined by Fish & Chips for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.rubios.com/menu", est_savings: 3, best: false, region: "CA, AZ & NV" } },
     { until: "2026-10-15", deal: { brand: "WaBa Grill", cat: "Bowls", color: "#e4002b", ic: "W", deal: "Value-Bowl Combo: mini bowl, side and drink for $7.99", desc: "A permanent value item: a mini bowl with chicken, sweet and spicy chicken or tofu, plus a value side and a 12 oz drink for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.wabagrill.com/menu", est_savings: 3, best: false, region: "CA & AZ" } },
@@ -1165,6 +1161,26 @@ function main() {
     return (latest - now) / 86400000 >= -1; // drop only after the end date's full day has passed
   });
   if (deals.length < beforeCount) console.log(`Excluded ${beforeCount - deals.length} expired deal(s).`);
+
+  // STANDING_MENU_BLOCK (owner, 2026-09-21: "remove the recurring Subway, Noodles and Company
+  // and Panera Bread deals ... they literally show up every single day"). For these three
+  // brands the permanent value menus are not deals: Panera Mix & Match / Value Duets,
+  // Subway Sub of the Day / Meal of the Day / Fresh Value Menu, Noodles Delicious Duos.
+  // Anything from them that is open-ended ("Ongoing", "every day") is dropped too. A real
+  // limited-time promo or code with an end date still gets through. Runs before the
+  // write-back, so the iOS feed (deals.json) follows the same rule.
+  {
+    const STANDING_BRANDS = new Set(["panera", "subway", "noodles & company", "noodles and company", "noodles & co", "noodles"]);
+    const STANDING_TITLES = /mixs*(?:&|and|&amp;)s*match|value duets?|sub of the day|meal of the day|fresh value menu|value menu|delicious duos?/i;
+    const OPEN_ENDED = /^s*$|ongoing|every ?day|daily|all day|no end date|while supplies|year[- ]round/i;
+    const beforeStanding = deals.length;
+    deals = deals.filter(d => {
+      if (!STANDING_BRANDS.has(canonBrand(d.brand))) return true;
+      if (STANDING_TITLES.test(String(d.deal || ""))) return false;
+      return !OPEN_ENDED.test(String(d.expires || ""));
+    });
+    if (deals.length < beforeStanding) console.log(`Excluded ${beforeStanding - deals.length} standing-menu deal(s) (Panera/Subway/Noodles).`);
+  }
 
   // Exclude deals locked behind PAID subscriptions/memberships (DashPass, Uber One, etc.).
   const beforeSub = deals.length;

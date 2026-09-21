@@ -3,66 +3,6 @@
   "updatedAt": "2026-09-20T11:08:44.657Z",
   "deals": [
     {
-      "brand": "Panera Bread",
-      "cat": "Cafe",
-      "color": "#6e7d3d",
-      "ic": "P",
-      "deal": "Mix & Match Value Menu: 2+ items for $4.99 each",
-      "desc": "Combine any two or more soups, salads, sandwiches or mac from a ten-item value menu for $4.99 each with a free side.",
-      "tags": [
-        "app"
-      ],
-      "value": 5,
-      "expires": "Ongoing",
-      "url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
-      "best": true,
-      "est_savings": 5,
-      "region": "National",
-      "id": "3467a994",
-      "isNew": true,
-      "endingSoon": false
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008938",
-      "ic": "S",
-      "deal": "Sub of the Day: $4.99 featured six-inch sub",
-      "desc": "A different six-inch sub is featured at $4.99 every day as part of Subway's new Fresh Value Menu, with a $6.99 meal upgrade available.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "best": false,
-      "est_savings": 3.5,
-      "region": "National",
-      "id": "8e4b9988",
-      "isNew": true,
-      "endingSoon": false
-    },
-    {
-      "brand": "Noodles & Company",
-      "cat": "Noodles",
-      "color": "#e2231a",
-      "ic": "N",
-      "deal": "Delicious Duos from $9.95",
-      "desc": "Pair a small entree with a protein and a side, like pesto cavatappi and a Caesar salad, all starting at $9.95, served all day.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.noodles.com/coupons",
-      "best": false,
-      "est_savings": 3,
-      "region": "National",
-      "id": "26bd6bda",
-      "isNew": false,
-      "endingSoon": false
-    },
-    {
       "brand": "Rubio's Coastal Grill",
       "cat": "Mexican",
       "color": "#0f6ab4",
@@ -101,26 +41,6 @@
       "id": "b8d4bf3c",
       "isNew": true,
       "endingSoon": false
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008c15",
-      "ic": "S",
-      "deal": "Fresh Value Menu: subs from $3.99",
-      "desc": "Subway's first-ever value menu includes $3.99 Deli Faves and Protein Pockets plus a $4.99 Sub of the Day six-inch, available nationwide every day.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
-      "est_savings": 3.5,
-      "region": "National",
-      "id": "ef0e7dee",
-      "isNew": true,
-      "endingSoon": false,
-      "best": false
     },
     {
       "brand": "Naf Naf Grill",
