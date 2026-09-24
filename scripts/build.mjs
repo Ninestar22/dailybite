@@ -629,8 +629,7 @@ ${rows}
 // Food holidays: pages publish 21 days before the date and stay until 2 days after.
 // Healthy-fit calendar only (owner whitelist, 2026-08-10): no burger/dessert holidays.
 const HOLIDAYS = [
-  { slug: "national-coffee-day-deals", name: "National Coffee Day", date: "2026-09-29", emoji: "", kw: /coffee|latte|espresso|cold brew/i,
-    blurb: "September 29 is the biggest coffee deal day of the year: expect free and heavily discounted drinks in the major coffee apps, Starbucks included." },
+  // National Coffee Day removed 2026-09-24 (owner): coffee-chain promos are mostly sugary drinks and off-brand here. /national-coffee-day-deals now redirects home.
   { slug: "national-taco-day-deals", name: "National Taco Day", date: "2026-10-06", emoji: "", kw: /taco/i,
     blurb: "National Taco Day now lands on the first Tuesday of October: expect taco specials across chains, and Tijuana Flats' Taco Tuesdaze stacks right on top of it." },
   { slug: "national-sandwich-day-deals", name: "National Sandwich Day", date: "2026-11-03", emoji: "", kw: /sandwich|\bsub\b|footlong|hoagie/i,
@@ -988,6 +987,10 @@ function main() {
     // one-day free double protein with code PROTEIN. Self-expires after today.
     { until: "2026-08-27", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Double Protein Today Only: Code PROTEIN", desc: "Today only (August 27): add a free second portion of meat or sofritas to any full-price burrito, bowl, or salad ordered in the Chipotle app or at chipotle.com with code PROTEIN at checkout. App and website orders only; not valid in-restaurant or on delivery platforms.", tags: ["free", "app"], value: 5, expires: "Today only, August 27", url: "https://www.chipotle.com/rewards", best: true, region: "National" } },
     // (Chipotle free-delivery evergreen removed 2026-08-25: its until-date of 2026-08-15 passed.)
+    // National Quesadilla Day 2026 (owner request 2026-09-24; Chipotle newsroom release of
+    // 2026-09-21): code NQD2026, Sept 24-25, US and Canada, app/website only, no Rewards
+    // account required. "alongside" so a refresh-found Chipotle deal does not block it.
+    { from: "2026-09-24", until: "2026-09-25", alongside: true, deal: { brand: "Chipotle", cat: "Mexican", color: "#a81612", ic: "Ch", deal: "National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026", desc: "Thursday and Friday (September 24 to 25): add a free quesadilla entree to any Chipotle app or chipotle.com order of $20 or more with code NQD2026 at checkout. Open to everyone, no Rewards account needed. Digital orders only: not valid in restaurant or on delivery apps; no add-ons on the free quesadilla; one per order while supplies last.", tags: ["free", "app"], value: 5, est_savings: 11, expires: "Through September 25, 2026", url: "https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS", best: true, region: "National" } },
     // Verified 2026-08-27: El Pollo Loco's $5 Fire-Grilled Combos value platform is
     // announced on the company's own investor site and current on 2026 menus.
     { until: "2026-12-31", deal: { brand: "El Pollo Loco", cat: "Chicken", color: "#f7c500", ic: "EP", deal: "$5 Fire-Grilled Combos: Rotating Value Menu", desc: "A rotating lineup of roughly $5 combos (Original Pollo Bowl, Classic Chicken Burrito, taquitos and more) built on citrus-marinated fire-grilled chicken, every day at participating locations. Lineup and pricing vary by market.", tags: [], value: 4, expires: "Ongoing", url: "https://www.elpolloloco.com/promotions", best: false, region: "West & Southwest" } },

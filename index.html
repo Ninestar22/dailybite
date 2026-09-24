@@ -144,7 +144,7 @@
   <div class="date" id="today"></div>
   <a class="appbtn" href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener" aria-label="Get the DailyBite iOS app on the App Store">Get the iOS app</a>
   <div class="verify" id="verify"></div>
-  <!-- HOLIDAY:START --><a class="holiday-banner" href="/national-coffee-day-deals"> National Coffee Day is Tuesday: see all the deals &rarr;</a><!-- HOLIDAY:END -->
+  <!-- HOLIDAY:START --><!-- HOLIDAY:END -->
 </header>
 
 <div class="wrap">
@@ -307,8 +307,8 @@
   </div>
   </div>
 </div>
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
+<div class="card">
+  
   <div class="brandrow">
     <div class="brand-ic" style="background:#1b3a6b"><span>PW</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=pokeworks.com&amp;sz=128" alt="Pokeworks logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><div class="brand-name">Pokeworks</div><div class="brand-cat">Poke</div></div>
@@ -360,6 +360,25 @@
     <div class="foot">
       <span class="expires">Ongoing</span>
       <a class="cta" href="https://www.wabagrill.com/menu" target="_blank" rel="noopener">Get deal &rarr;</a>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
+  <div class="brandrow">
+    <div class="brand-ic" style="background:#a81612"><span>Ch</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
+    <div class="brandtxt"><div class="brand-name">Chipotle</div><div class="brand-cat">Mexican</div></div>
+    <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
+  </div>
+  <div class="offers">
+<div class="offer">
+    <div class="deal">National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026</div>
+    <div class="desc">Thursday and Friday (September 24 to 25): add a free quesadilla entree to any Chipotle app or chipotle.com order of $20 or more with code NQD2026 at checkout. Open to everyone, no Rewards account needed. Digital orders only: not valid in restaurant or on delivery apps; no add-ons on the free quesadilla; one per order while supplies last.</div>
+    <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('NQD2026');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: NQD2026</button><span class="pill free">FREE</span><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$11</span></div>
+    <div class="foot">
+      <span class="expires">Through September 25, 2026</span>
+      <a class="cta" href="https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS" target="_blank" rel="noopener">Get deal &rarr;</a>
     </div>
   </div>
   </div>
@@ -610,7 +629,7 @@ const DEALS = [
     "value": 4,
     "expires": "Through September 27, 2026",
     "url": "https://pokeworks.com/rewards/",
-    "best": true,
+    "best": false,
     "region": "Select states",
     "isNew": false,
     "endingSoon": false,
@@ -651,6 +670,27 @@ const DEALS = [
     "isNew": false,
     "endingSoon": false,
     "id": "91013340"
+  },
+  {
+    "brand": "Chipotle",
+    "cat": "Mexican",
+    "color": "#a81612",
+    "ic": "Ch",
+    "deal": "National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026",
+    "desc": "Thursday and Friday (September 24 to 25): add a free quesadilla entree to any Chipotle app or chipotle.com order of $20 or more with code NQD2026 at checkout. Open to everyone, no Rewards account needed. Digital orders only: not valid in restaurant or on delivery apps; no add-ons on the free quesadilla; one per order while supplies last.",
+    "tags": [
+      "free",
+      "app"
+    ],
+    "value": 5,
+    "est_savings": 11,
+    "expires": "Through September 25, 2026",
+    "url": "https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS",
+    "best": true,
+    "region": "National",
+    "isNew": true,
+    "endingSoon": true,
+    "id": "db9e8046"
   }
 ];
 const META = {"verifiedAt":"2026-09-24T11:07:33.067Z"};

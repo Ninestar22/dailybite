@@ -31,8 +31,8 @@ const dataPath = join(root, "deals.json");
 const MODEL = process.env.CLAUDE_MODEL || "claude-sonnet-5";
 // JSON repair is mechanical clean-up: Haiku handles it at a fifth of Sonnet's price.
 const REPAIR_MODEL = process.env.CLAUDE_REPAIR_MODEL || "claude-haiku-4-5";
-const MAX_SEARCHES = 32;
-const TOPUP_SEARCHES = 14; // 2026-09-15: the top-up is a targeted sweep over chains the first pass missed, not a second full sweep // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24) -> 32 (2026-09-08, healthy-only roster needs more chain-by-chain sweeps; the source pack covers ~35 chains without a search)
+const MAX_SEARCHES = 24; // 32 -> 24 (2026-09-24, cost): grocery sushi days and value menus are now injected by the build, so the sweep has fewer chains worth searching
+const TOPUP_SEARCHES = 10; // 2026-09-15: the top-up is a targeted sweep over chains the first pass missed, not a second full sweep // 8 -> 14 (2026-08-18) -> 18 (2026-08-20) -> 24 (2026-08-24) -> 32 (2026-09-08, healthy-only roster needs more chain-by-chain sweeps; the source pack covers ~35 chains without a search)
 const ALLOWED_TAGS = new Set(["free", "app"]);
 // Lowered 6 -> 4 on 2026-09-21: the owner removed the everyday Panera/Subway/Noodles value
 // menus, which used to pad every list. A short honest list beats failing closed on a stale one.
@@ -304,6 +304,7 @@ async function generate(pack = "", opts = {}) {
     // not the searches, is most of the ~$3/run cost. Top-level auto-caching marks the
     // latest prefix each round, so the next round reads it back at ~10% of the price.
     response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, cache_control: { type: "ephemeral" }, tools, messages });
+    recordUsage(response, `sweep round ${step + 1}`);
     if (response.stop_reason === "pause_turn") {
       messages.push({ role: "assistant", content: response.content });
       continue;
@@ -326,11 +327,36 @@ async function generate(pack = "", opts = {}) {
   return Array.isArray(parsed) ? parsed : parsed.deals;
 }
 
+// Per-run cost accounting (2026-09-24, owner asked why the refresh costs ~$65/month):
+// every call's usage is logged and summed, priced with the published Claude API rates
+// for MODEL, so the Actions log shows dollars per run and what drove them.
+const PRICES = { // $ per million tokens: input, cache write (5m), cache read, output; web search $10 per 1,000
+  "claude-sonnet-5": { in: 2, write: 2.5, read: 0.2, out: 10 },
+  "claude-opus-5-5": { in: 4, write: 5, read: 0.2, out: 20 },
+  "claude-opus-5": { in: 5, write: 6.25, read: 0.5, out: 25 },
+  "claude-haiku-4-5": { in: 1, write: 1.25, read: 0.1, out: 5 },
+};
+const USAGE = { in: 0, write: 0, read: 0, out: 0, searches: 0, calls: 0 };
+function recordUsage(res, label) {
+  const u = res.usage || {};
+  const add = { in: u.input_tokens || 0, write: u.cache_creation_input_tokens || 0, read: u.cache_read_input_tokens || 0, out: u.output_tokens || 0, searches: (u.server_tool_use && u.server_tool_use.web_search_requests) || 0 };
+  for (const k in add) USAGE[k] += add[k];
+  USAGE.calls++;
+  console.log(`usage [${label}]: in ${add.in}, cache write ${add.write}, cache read ${add.read}, out ${add.out}, searches ${add.searches}`);
+}
+function usageSummary() {
+  const p = PRICES[MODEL] || PRICES["claude-sonnet-5"];
+  const tokens = (USAGE.in * p.in + USAGE.write * p.write + USAGE.read * p.read + USAGE.out * p.out) / 1e6;
+  const search = USAGE.searches * 0.01;
+  return `usage total: ${USAGE.calls} calls, ${USAGE.searches} searches, tokens in ${USAGE.in} / cache write ${USAGE.write} / cache read ${USAGE.read} / out ${USAGE.out}; est. cost $${(tokens + search).toFixed(2)} (tokens $${tokens.toFixed(2)} + search $${search.toFixed(2)}) at ${MODEL} list prices`;
+}
+
 async function repairJson(text) {
   const res = await client.messages.create({
     model: REPAIR_MODEL, max_tokens: 16000,
     messages: [{ role: "user", content: `The text below was meant to be ONE minified JSON object of the shape {"deals":[...]} but it does not parse. Return the SAME content as a single valid minified JSON object: escape or remove stray double quotes inside string values, remove trailing commas, comments, markdown fences and any prose. Do not add, drop, or reword deals. Output ONLY the JSON.\n\n${text}` }],
   });
+  recordUsage(res, "json repair");
   return res.content.filter(b => b.type === "text").map(b => b.text).join("\n").trim();
 }
 
@@ -369,11 +395,13 @@ async function main() {
     const firstDeals = deals || [];
     const second = await attempt();
     ({ deals, errors } = salvage(dedupe([...firstDeals, ...(second.deals || [])])));
-  } else if (deals.length < 10) {
+  } else if (deals.length < 6) {
     // Deterministic top-up (owner, 2026-08-27), retuned 2026-09-15 for cost: with the
     // healthy-only roster the first sweep lands at 8-11 most days, so the old "< 12 =
     // run a second FULL sweep" fired nearly every morning and about doubled the run.
-    // Now it fires only under 10, spends TOPUP_SEARCHES (not MAX_SEARCHES), and is told
+    // Now it fires only under 6 (was 10; retuned 2026-09-24 when the everyday Panera/Subway/
+    // Noodles menus left the list and 7-9 became a normal honest day, so the top-up was
+    // firing every morning), spends TOPUP_SEARCHES (not MAX_SEARCHES), and is told
     // what the first sweep found so it searches only the chains that were missed. The
     // build's value-menu floor covers the rest. A top-up can only grow the list.
     console.log(`Only ${deals.length} deals from the first sweep: running a targeted top-up sweep (${TOPUP_SEARCHES} searches).`);
@@ -381,6 +409,7 @@ async function main() {
     const merged = salvage(dedupe([...deals, ...(second.deals || [])]));
     if (merged.deals && merged.deals.length > deals.length) deals = merged.deals;
   }
+  console.log(usageSummary());
   if (errors.length) {
     console.error("Refresh failed: NOT writing deals.json:");
     for (const e of errors) console.error("  - " + e);

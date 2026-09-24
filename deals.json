@@ -143,7 +143,7 @@
       "value": 4,
       "expires": "Through September 27, 2026",
       "url": "https://pokeworks.com/rewards/",
-      "best": true,
+      "best": false,
       "region": "Select states",
       "isNew": false,
       "endingSoon": false,
@@ -184,6 +184,27 @@
       "isNew": false,
       "endingSoon": false,
       "id": "91013340"
+    },
+    {
+      "brand": "Chipotle",
+      "cat": "Mexican",
+      "color": "#a81612",
+      "ic": "Ch",
+      "deal": "National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026",
+      "desc": "Thursday and Friday (September 24 to 25): add a free quesadilla entree to any Chipotle app or chipotle.com order of $20 or more with code NQD2026 at checkout. Open to everyone, no Rewards account needed. Digital orders only: not valid in restaurant or on delivery apps; no add-ons on the free quesadilla; one per order while supplies last.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "est_savings": 11,
+      "expires": "Through September 25, 2026",
+      "url": "https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS",
+      "best": true,
+      "region": "National",
+      "isNew": true,
+      "endingSoon": true,
+      "id": "db9e8046"
     }
   ]
 }
