@@ -162,6 +162,7 @@ jobs:
         continue-on-error: true
         env:
           PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+          PINTEREST_BOARDS: ${{ secrets.PINTEREST_BOARDS }}
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
           PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}

@@ -121,8 +121,11 @@ const freshLdFor = t => `<script type="application/ld+json">${JSON.stringify({ "
 // Shared head tags every generated page carries (added 2026-09-26): RSS autodiscovery so
 // feed readers and aggregators find the daily feed from any page, and og:site_name so
 // social previews name the site.
+// Pinterest domain claim (enables Rich Pins and site attribution on every pin): paste the
+// value Pinterest gives you under Settings > Claimed accounts into PINTEREST_DOMAIN_VERIFY.
+const PINTEREST_DOMAIN_VERIFY = "";
 const HEAD_COMMON = `<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
-<meta property="og:site_name" content="DailyBite">`;
+<meta property="og:site_name" content="DailyBite">${PINTEREST_DOMAIN_VERIFY ? `\n<meta name="p:domain_verify" content="${PINTEREST_DOMAIN_VERIFY}">` : ""}`;
 // BreadcrumbList schema (Home > page) gives Google a two-level path to show under the
 // title in results instead of the raw URL, and clarifies site structure for crawlers.
 const crumbLd = (name, path) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -226,7 +229,7 @@ function offerHTML(d) {
   const tags = (d.tags || []).map(t =>
     `<span class="pill ${t === "free" ? "free" : "app"}">${t === "free" ? "FREE" : "APP ONLY"}</span>`).join("");
   return `<div class="offer">
-    <div class="deal">${esc(d.deal)}</div>
+    <h3 class="deal">${esc(d.deal)}</h3>
     <div class="desc">${esc(d.desc)}</div>
     <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${tags}${d.via ? `<span class="pill via">VIA ${esc(String(d.via).toUpperCase())}</span>` : ""}${d.fulfillment ? `<span class="pill ful">${esc(String(d.fulfillment).toUpperCase())}</span>` : ""}${Number.isFinite(d.est_savings) && d.est_savings > 0 ? `<span class="pill save" title="Estimated savings vs regular price">SAVE ~$${d.est_savings % 1 ? d.est_savings.toFixed(2) : d.est_savings}</span>` : ""}</div>
     <div class="foot">
@@ -242,7 +245,7 @@ function brandCard(ds) {
   ${best ? `<div class="best-badge">TOP PICK</div>` : ""}
   <div class="brandrow">
     <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
-    <div class="brandtxt"><div class="brand-name">${esc(d.brand)}</div><div class="brand-cat">${cats}${ds.length > 1 ? ` &middot; ${ds.length} deals` : ""}${latePill(d) ? " " + latePill(d) : ""}</div></div>
+    <div class="brandtxt"><h2 class="brand-name">${esc(d.brand)}</h2><div class="brand-cat">${cats}${ds.length > 1 ? ` &middot; ${ds.length} deals` : ""}${latePill(d) ? " " + latePill(d) : ""}</div></div>
     <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">Nearest</a>${instacartLink(d.brand)}
   </div>
   <div class="offers">
@@ -253,7 +256,7 @@ ${ds.map(offerHTML).join("\n")}
 const groupCards = list => groupByBrand(list).map(brandCard).join("\n");
 function dealCard(d) { return brandCard([d]); }
 
-const CHAIN_CSS = `:root{--bg:#0e1310;--card:#161f19;--card2:#1d2a21;--ink:#f2f7f3;--muted:#9ab3a3;--line:#27352c;--accent:#31c96e;--accent2:#ffd166;--good:#4cd9a1;--chip:#1f2b23;--blue:#63d3c1;--controlsbg:rgba(14,19,16,.92)}:root[data-theme="light"]{--bg:#f2f6f2;--card:#ffffff;--card2:#eaf1ea;--ink:#18211b;--muted:#54655a;--line:#d9e3da;--accent:#1f9e54;--accent2:#b9830a;--good:#178f52;--chip:#e6efe7;--blue:#0e7f74;--controlsbg:rgba(242,246,242,.92)}:root[data-theme="light"] body{background:radial-gradient(70% 40% at -10% 40%,rgba(31,158,84,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(185,131,10,.05),transparent 60%),linear-gradient(180deg,#eaf2ea,var(--bg) 600px)}.themetog{position:fixed;top:14px;right:14px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;cursor:pointer;line-height:1}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(70% 40% at -10% 40%,rgba(76,217,161,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(255,209,102,.05),transparent 60%),linear-gradient(180deg,#0b110d,var(--bg) 600px);color:var(--ink)}header{padding:28px 20px 18px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(49,201,110,.16),transparent 60%)}.logo{font-family:"Poppins",-apple-system,"Segoe UI",Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-.3px}.logo a{display:inline-flex;align-items:center;gap:7px}.logo img{width:36px;height:36px}.logo a{color:var(--ink);text-decoration:none}.logo span{color:var(--accent)}.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}h1{font-size:24px;margin:18px 2px 6px}.tag{color:var(--muted);font-size:14px;margin:0 2px 14px}.date{display:inline-block;background:var(--chip);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}.grid{columns:2;column-gap:14px;margin-top:10px}.grid>.card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 14px;width:100%}.grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}.brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}.best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px}.brandrow{display:flex;align-items:center;gap:10px}.brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}.brand-name{font-weight:700;font-size:15px}.brand-cat{color:var(--muted);font-size:12px}.deal{font-size:16px;font-weight:700;line-height:1.3}.desc{color:var(--muted);font-size:13px;line-height:1.45}.metarow{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}.pill.free{background:rgba(46,193,107,.15);color:var(--good)}.pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}.pill.save{background:rgba(255,209,102,.14);color:var(--accent2);border:1px solid rgba(255,209,102,.35)}.pill.via{background:rgba(99,211,193,.15);color:var(--blue)}.pill.ful{background:var(--card2);color:var(--muted)}.pill.region{background:rgba(99,211,193,.15);color:var(--blue)}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.expires{font-size:12px;color:var(--muted)}.cta{background:var(--accent);color:#0a140d;text-decoration:none;font-size:13px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap}.near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}.empty{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--muted);line-height:1.5}.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;color:var(--muted);font-size:13px;line-height:1.6}.chains{margin-top:22px;font-size:13px;color:var(--muted);line-height:2}.chains a{color:var(--accent2);text-decoration:none}footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}footer a{color:var(--accent2)}.brand-ic{position:relative;overflow:hidden}.brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}.pill.codechip{background:rgba(49,201,110,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit}.pill.late{background:rgba(99,211,193,.15);color:var(--blue)}.promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}.promo h3{margin:0 0 4px;font-size:16px}.promo p{margin:0 0 12px;color:var(--muted);font-size:13px}.aff-row{display:flex;flex-wrap:wrap;gap:10px}.aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:11px}.aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}`;
+const CHAIN_CSS = `:root{--bg:#0e1310;--card:#161f19;--card2:#1d2a21;--ink:#f2f7f3;--muted:#9ab3a3;--line:#27352c;--accent:#31c96e;--accent2:#ffd166;--good:#4cd9a1;--chip:#1f2b23;--blue:#63d3c1;--controlsbg:rgba(14,19,16,.92)}:root[data-theme="light"]{--bg:#f2f6f2;--card:#ffffff;--card2:#eaf1ea;--ink:#18211b;--muted:#54655a;--line:#d9e3da;--accent:#1f9e54;--accent2:#b9830a;--good:#178f52;--chip:#e6efe7;--blue:#0e7f74;--controlsbg:rgba(242,246,242,.92)}:root[data-theme="light"] body{background:radial-gradient(70% 40% at -10% 40%,rgba(31,158,84,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(185,131,10,.05),transparent 60%),linear-gradient(180deg,#eaf2ea,var(--bg) 600px)}.themetog{position:fixed;top:14px;right:14px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;cursor:pointer;line-height:1}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(70% 40% at -10% 40%,rgba(76,217,161,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(255,209,102,.05),transparent 60%),linear-gradient(180deg,#0b110d,var(--bg) 600px);color:var(--ink)}header{padding:28px 20px 18px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(49,201,110,.16),transparent 60%)}.logo{font-family:"Poppins",-apple-system,"Segoe UI",Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-.3px}.logo a{display:inline-flex;align-items:center;gap:7px}.logo img{width:36px;height:36px}.logo a{color:var(--ink);text-decoration:none}.logo span{color:var(--accent)}.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}h1{font-size:24px;margin:18px 2px 6px}.tag{color:var(--muted);font-size:14px;margin:0 2px 14px}.date{display:inline-block;background:var(--chip);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}.grid{columns:2;column-gap:14px;margin-top:10px}.grid>.card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 14px;width:100%}.grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}.brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}.best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px}.brandrow{display:flex;align-items:center;gap:10px}.brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}.brand-name{font-weight:700;font-size:15px;margin:0}.brand-cat{color:var(--muted);font-size:12px}.deal{font-size:16px;font-weight:700;line-height:1.3;margin:0}.desc{color:var(--muted);font-size:13px;line-height:1.45}.metarow{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}.pill.free{background:rgba(46,193,107,.15);color:var(--good)}.pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}.pill.save{background:rgba(255,209,102,.14);color:var(--accent2);border:1px solid rgba(255,209,102,.35)}.pill.via{background:rgba(99,211,193,.15);color:var(--blue)}.pill.ful{background:var(--card2);color:var(--muted)}.pill.region{background:rgba(99,211,193,.15);color:var(--blue)}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.expires{font-size:12px;color:var(--muted)}.cta{background:var(--accent);color:#0a140d;text-decoration:none;font-size:13px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap}.near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}.empty{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--muted);line-height:1.5}.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;color:var(--muted);font-size:13px;line-height:1.6}.chains{margin-top:22px;font-size:13px;color:var(--muted);line-height:2}.chains a{color:var(--accent2);text-decoration:none}footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}footer a{color:var(--accent2)}.brand-ic{position:relative;overflow:hidden}.brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}.pill.codechip{background:rgba(49,201,110,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit}.pill.late{background:rgba(99,211,193,.15);color:var(--blue)}.promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}.promo h3{margin:0 0 4px;font-size:16px}.promo p{margin:0 0 12px;color:var(--muted);font-size:13px}.aff-row{display:flex;flex-wrap:wrap;gap:10px}.aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:11px}.aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}`;
 
 // Evergreen layers (growth plan, 2026-08-28): the top healthy chain pages carry
 // standing content: how the chain's deals actually work, the typical deal cadence, and
@@ -321,7 +324,6 @@ function redirectPage(chain, target = SITE + "/") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="0; url=${target}">
-  <link rel="canonical" href="${target.split("#")[0]}">
   <meta name="robots" content="noindex, follow">
   <title>${esc(title)}</title>
   <script>location.replace("${target}");</script>
@@ -392,14 +394,14 @@ ${HEAD_COMMON}
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${chain.slug}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
+${list.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
 ${faqLd}${freshLd}
 ${crumbScript(`${chain.name} Deals`, chain.slug)}
 <style>${CHAIN_CSS}</style>
@@ -476,7 +478,7 @@ ${HEAD_COMMON}
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/sushi-deals">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -536,7 +538,7 @@ ${HEAD_COMMON}
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/free-food-today">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -621,7 +623,7 @@ ${HEAD_COMMON}
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/verification-log">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta name="theme-color" content="#f2f6f2">
 ${freshLdFor(title)}
 ${crumbScript("Verification Log", "verification-log")}
@@ -657,10 +659,16 @@ const HOLIDAYS = [
     blurb: "October 1 is World Vegetarian Day and the start of Vegetarian Awareness Month: bowl and salad chains such as Sweetgreen, CAVA, Just Salad and Chipotle (Sofritas) are where plant-based specials tend to show up, alongside grocery hot bars and salad counters." },
   { slug: "national-pasta-day-deals", name: "National Pasta Day", date: "2026-10-17", emoji: "", kw: /pasta|noodle|penne|spaghetti|fettuccine|mac and cheese|macaroni/i,
     blurb: "October 17 is National Pasta Day: Noodles & Company is the chain to watch for a rewards offer or limited-time bowl, and grocery hot bars and prepared-food counters often discount pasta trays and bowls for the day." },
+  { slug: "chipotle-boorito-halloween-deals", name: "Halloween (Chipotle Boorito)", date: "2026-10-31", emoji: "", kw: /boorito|halloween|costume/i,
+    blurb: "Halloween is Chipotle Boorito day: in past years a Chipotle Rewards member in costume got a discounted entree in the evening, in restaurant only, with the price and hours announced in mid-October. Other healthy chains occasionally add costume freebies. Verified offers appear here as chains announce them." },
   { slug: "national-sandwich-day-deals", name: "National Sandwich Day", date: "2026-11-03", emoji: "", kw: /sandwich|\bsub\b|footlong|hoagie/i,
     blurb: "November 3 brings sandwich deals from Subway, Potbelly, Panera and more: BOGOs and promo codes are the usual pattern." },
   { slug: "veterans-day-free-meals", name: "Veterans Day", date: "2026-11-11", emoji: "", kw: /veteran|military|armed forces|service member|active[- ]duty/i,
     blurb: "On November 11, chains thank veterans and active-duty service members with free or discounted meals, usually with a military ID: Chipotle's buy-one-get-one for military has run every year for a decade, Starbucks pours a free tall brewed coffee for veterans, service members and military spouses, and fast-casual and grocery chains add their own offers. Deals below are for the eligible guest and are verified as they are announced." },
+  { slug: "black-friday-cyber-monday-food-deals", name: "Black Friday & Cyber Monday", date: "2026-11-27", emoji: "", kw: /black friday|cyber monday|cyber week|gift card|bonus card/i,
+    blurb: "Black Friday through Cyber Monday is when healthy chains run app promo codes and gift-card bonuses: in past years Chipotle posted a Cyber Monday delivery code and Panera and Subway ran bonus-card offers on gift-card purchases. Only announced, verified offers are listed here." },
+  { slug: "el-pollo-loco-12-days-of-deals", name: "El Pollo Loco 12 Days of Deals", date: "2026-12-01", emoji: "", kw: /12 days|twelve days|el pollo loco/i,
+    blurb: "El Pollo Loco has opened December with a 12 Days of Deals run for Loco Rewards members (free to join) in recent years: a different fire-grilled chicken offer each day in the app. Each day's verified offer appears here when it goes live." },
   { slug: "international-sushi-day-deals", name: "International Sushi Day", date: "2027-06-18", emoji: "", kw: /sushi|poke|\broll\b/i,
     blurb: "June 18 is sushi's big day: look for roll specials at sushi chains and grocery sushi counters, on top of the weekly $5 sushi days." },
   { slug: "national-smoothie-day-deals", name: "National Smoothie Day", date: "2027-06-21", emoji: "", kw: /smoothie/i,
@@ -691,7 +699,7 @@ function holidayPage(h, deals) {
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
 ${HEAD_COMMON}
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="article">
@@ -703,7 +711,7 @@ ${HEAD_COMMON}
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
+${matched.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
 ${freshLdFor(title)}
 ${crumbScript(h.name + " Deals", h.slug)}
 <style>${CHAIN_CSS}</style>
@@ -767,7 +775,7 @@ ${HEAD_COMMON}
 <meta property="og:type" content="article">
 <meta property="og:url" content="${SITE}/${path}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -1193,6 +1201,8 @@ function main() {
   for (const d of deals) {
     d.isNew = prevKeys.size > 0 && !prevKeys.has((d.brand + "|" + d.deal).toLowerCase());
     d.endingSoon = false;
+    d.expires_on = null;            // YYYY-MM-DD when the prose end date parses (council audit 2026-09-26: agents need a real date)
+    d.verified_on = iso;
     // (?!\d) stops "August 2026" from being read as "August 20" (Pokeworks, 2026-08-22).
     const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/);
     if (m) {
@@ -1200,6 +1210,7 @@ function main() {
       if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
       const t = Date.parse(ds);
       if (!isNaN(t)) {
+        d.expires_on = new Date(t).toLocaleDateString("en-CA");
         const diff = (t - now) / 86400000;
         if (diff >= -0.5 && diff <= 2) d.endingSoon = true;
       }
@@ -1583,6 +1594,17 @@ function main() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` + entries.join("\n") + `\n</urlset>\n`;
   writeFileSync(join(root, "sitemap.xml"), sitemap);
   writeFileSync(statePath, JSON.stringify(nextState, null, 1) + "\n");
+  // Structured-data dateModified follows the same honest date (council audit 2026-09-26):
+  // an on-page "modified today" on unchanged pages contradicts the sitemap. The stamp is an
+  // ISO date, which stripVolatile ignores, so rewriting it never changes the page's hash.
+  for (const [path, st] of Object.entries(nextState)) {
+    const file = join(root, path ? `${path}.html` : "index.html");
+    try {
+      const html = readFileSync(file, "utf8");
+      const out = html.replace(/("dateModified":")\d{4}-\d{2}-\d{2}(")/g, `$1${st.m}$2`);
+      if (out !== html) writeFileSync(file, out);
+    } catch {}
+  }
   const changedToday = Object.values(nextState).filter(x => x.m === iso).length;
   console.log(`Built sitemap.xml (${urls.length} URLs, ${changedToday} with content changed today).`);
 }

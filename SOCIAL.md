@@ -10,6 +10,25 @@ secrets (GitHub repo → Settings → Secrets and variables → Actions → New 
 secret). Each platform activates independently: add Pinterest's secrets and only
 Pinterest posts; the other is skipped with a log line.
 
+## What gets pinned each day (2026-09-26 redesign)
+
+`npm run social:image` renders a **pin set**: up to four one-deal pins (Top Picks first;
+light background, brand accent, 2-3 huge lines, "Verified <date>" badge), each linking to
+that chain's page on the site, plus one **evergreen** pin for an explainer page chosen by
+weekday (sushi-day pages pin Monday to Wednesday and Thursday to Friday, the protein-per-dollar
+index and the weekly cheat sheet on weekends). `npm run social:post -- --pinterest-only`
+creates them 25 seconds apart, capped at six a day, and skips any title already on the board.
+
+**Boards.** Everything goes to `PINTEREST_BOARD_ID` unless you add an optional
+`PINTEREST_BOARDS` secret: a JSON map from deal category (as it appears in deals.json, e.g.
+`Sushi`, `Smoothies`, `Bowls`, `Salads`, `Mexican`) or the word `evergreen` to a board id.
+Pinterest ranks board names, so keyword-named theme boards ("Grocery Sushi Deals", "Healthy
+Fast Food Deals", "Free Food Today", "Weekly Deal Cheat Sheets") beat one catch-all board.
+
+**Claim the domain.** In Pinterest Settings > Claimed accounts, claim dailybitedeals.com with
+the HTML-tag method and paste the value into `PINTEREST_DOMAIN_VERIFY` in `scripts/build.mjs`.
+Every pin then shows the site name and Rich Pins pull the page title and description.
+
 ## Pinterest setup (about 15 minutes; this is all you need for the daily pin)
 
 1. Go to https://developers.pinterest.com → create an app (Trial access is enough

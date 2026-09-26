@@ -4,7 +4,8 @@
 // skipped with a log line, so this is safe to ship before any tokens exist.
 //
 // Pinterest (uploads the image directly, no hosting needed):
-//   PINTEREST_BOARD_ID                       required
+//   PINTEREST_BOARD_ID                       required (default board)
+//   PINTEREST_BOARDS                         optional JSON: {"<deal category>|evergreen": "<board id>"}
 //   PINTEREST_ACCESS_TOKEN                   short-lived token, OR
 //   PINTEREST_REFRESH_TOKEN + PINTEREST_APP_ID + PINTEREST_APP_SECRET
 //                                            (the script exchanges the refresh token each run)
@@ -45,37 +46,59 @@ async function pinterestToken() {
   return (await res.json()).access_token;
 }
 
+// Board routing: PINTEREST_BOARDS (optional JSON secret) maps a deal category or the word
+// "evergreen" to a board id, e.g. {"Sushi":"123","Smoothies":"456","evergreen":"789"};
+// anything unmapped, and everything when the secret is absent, goes to PINTEREST_BOARD_ID.
+function boardFor(key) {
+  let map = {};
+  try { map = JSON.parse(process.env.PINTEREST_BOARDS || "{}"); } catch {}
+  const k = Object.keys(map).find(x => x.toLowerCase() === String(key || "").toLowerCase());
+  return (k && map[k]) || process.env.PINTEREST_BOARD_ID;
+}
+
 async function postPinterest() {
-  const board = process.env.PINTEREST_BOARD_ID;
   const token = await pinterestToken().catch(e => { console.error(e.message); failures++; return null; });
-  if (!board || !token) { console.log("Pinterest: credentials not configured, skipping."); return; }
+  if (!process.env.PINTEREST_BOARD_ID || !token) { console.log("Pinterest: credentials not configured, skipping."); return; }
   const auth = { Authorization: `Bearer ${token}` };
+  // Pin set from social-image.mjs (deal pins linking to chain pages + one evergreen pin);
+  // falls back to the single summary pin for an older meta.json.
+  const pins = Array.isArray(meta.pins) && meta.pins.length ? meta.pins
+    : [{ file: "pin.png", link: SITE + "/", board: "", title: meta.pinTitle, description: meta.pinDescription, alt: `DailyBite: today's verified healthy food deals for ${meta.date}` }];
   // Once per day, whatever fires the workflow: the daily job has retry slots and manual
-  // runs, so check the board's newest pins for today's title before creating another.
-  try {
-    const list = await fetch(`https://api.pinterest.com/v5/boards/${board}/pins?page_size=10`, { headers: auth });
-    if (list.ok) {
-      const items = (await list.json()).items || [];
-      if (items.some(p => p.title === meta.pinTitle)) { console.log(`Pinterest: today's pin already exists ("${meta.pinTitle}"), skipping.`); return; }
-    } else {
-      console.log(`Pinterest: could not list board pins (${list.status}); posting anyway.`);
-    }
-  } catch (e) { console.log(`Pinterest: pin list check failed (${e.message}); posting anyway.`); }
-  const image = readFileSync(join(root, "social", "pin.png")).toString("base64");
-  const res = await fetch("https://api.pinterest.com/v5/pins", {
-    method: "POST",
-    headers: { ...auth, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      board_id: board,
-      title: meta.pinTitle,
-      description: meta.pinDescription,
-      link: SITE + "/",
-      alt_text: `DailyBite: today's verified healthy food deals for ${meta.date}`.slice(0, 500),
-      media_source: { source_type: "image_base64", content_type: "image/png", data: image },
-    }),
-  });
-  if (!res.ok) { console.error(`Pinterest pin failed (${res.status}): ${(await res.text()).slice(0, 300)}`); failures++; return; }
-  console.log(`Pinterest: pinned (id ${(await res.json()).id}).`);
+  // runs, so read each board's newest pins and skip titles already posted today.
+  const seen = new Map();
+  async function existing(board) {
+    if (seen.has(board)) return seen.get(board);
+    let titles = new Set();
+    try {
+      const list = await fetch(`https://api.pinterest.com/v5/boards/${board}/pins?page_size=25`, { headers: auth });
+      if (list.ok) titles = new Set(((await list.json()).items || []).map(p => p.title));
+      else console.log(`Pinterest: could not list board ${board} pins (${list.status}); posting anyway.`);
+    } catch (e) { console.log(`Pinterest: pin list check failed (${e.message}); posting anyway.`); }
+    seen.set(board, titles);
+    return titles;
+  }
+  let posted = 0;
+  for (const pin of pins.slice(0, 6)) {                       // hard cap: 6 pins/day, well under spam heuristics
+    const board = boardFor(pin.board);
+    if ((await existing(board)).has(pin.title)) { console.log(`Pinterest: already pinned today: "${pin.title}"`); continue; }
+    let image;
+    try { image = readFileSync(join(root, "social", pin.file)).toString("base64"); }
+    catch { console.log(`Pinterest: ${pin.file} missing, skipping.`); continue; }
+    if (posted) await sleep(25000);                            // space the creates out; a burst looks automated
+    const res = await fetch("https://api.pinterest.com/v5/pins", {
+      method: "POST",
+      headers: { ...auth, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        board_id: board, title: pin.title, description: pin.description, link: pin.link, alt_text: pin.alt,
+        media_source: { source_type: "image_base64", content_type: "image/png", data: image },
+      }),
+    });
+    if (!res.ok) { console.error(`Pinterest pin failed (${res.status}): ${(await res.text()).slice(0, 300)}`); failures++; continue; }
+    posted++;
+    console.log(`Pinterest: pinned "${pin.title}" -> ${pin.link} (id ${(await res.json()).id}).`);
+  }
+  console.log(`Pinterest: ${posted} pin(s) created.`);
 }
 
 // The Pages CDN caches aggressively, so the image URL carries a content hash: a new
