@@ -28,6 +28,22 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
   Social posting is manual (owner decision, 2026-09-15): the daily workflow no longer renders or posts a social image. `npm run social:image` still generates one on demand for hand posting.
   (`scripts/post-social.mjs`) once their API secrets are configured: see `SOCIAL.md`.
 
+## Search-engine signals the build maintains
+
+- **`sitemap.xml` with honest `lastmod` (2026-09-26).** Every URL used to claim it changed
+  "today", every day, including `/about` and `/privacy`; Google ignores `lastmod` once it
+  is consistently wrong. The build now hashes each page with its date stamps stripped and
+  advances `lastmod` only when the content behind them changed. The hashes live in
+  **`sitemap-state.json`** (committed by the daily workflow; delete it to re-stamp every
+  page with today's date). Evergreen guides are marked `monthly`, deal pages `daily`.
+- **IndexNow submits only what changed.** `scripts/indexnow.mjs` reads the sitemap and
+  submits the URLs whose `lastmod` is today (`INDEXNOW_ALL=1` submits everything).
+- **Food-holiday pages** (`HOLIDAYS` in `build.mjs`) publish 21 days before the date so they
+  are indexed before the search spike, and stay 2 days after. The homepage banner points
+  at the nearest one.
+- Every generated page carries canonical, Open Graph, RSS autodiscovery, `WebPage`
+  freshness and `BreadcrumbList` schema; chain and explainer pages add `ItemList`/`FAQPage`.
+
 ## One-time setup
 
 1. **Get an API key** at https://console.anthropic.com and enable **Web search**

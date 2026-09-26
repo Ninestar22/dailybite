@@ -1,0 +1,266 @@
+{
+ "": {
+  "h": "c29c018712a96d51e0e708209c26b3f76ab3159d",
+  "m": "2026-09-26"
+ },
+ "sushi-deals": {
+  "h": "84cb7025f3906f4043ac915b2196b8314401b53b",
+  "m": "2026-09-26"
+ },
+ "trader-joes-healthy-meals": {
+  "h": "e291c32aac7bfe8e6729c38c5baea76372eb0dba",
+  "m": "2026-09-26"
+ },
+ "verification-log": {
+  "h": "a38bec26111522755031e07546ee15725114baa6",
+  "m": "2026-09-26"
+ },
+ "about": {
+  "h": "9c49a3ea8ee2f918cac2af33f4c75cc03130cdd4",
+  "m": "2026-09-26"
+ },
+ "privacy": {
+  "h": "f3b03088ca3dc98d776875c45a7fc1af1ac7e80d",
+  "m": "2026-09-26"
+ },
+ "birthday-freebies": {
+  "h": "5cdff8c5e93e90f05344ec49583595679a561acd",
+  "m": "2026-09-26"
+ },
+ "best-fast-food-apps": {
+  "h": "318e88310cdf49ef51ae923f5ad54673462c752b",
+  "m": "2026-09-26"
+ },
+ "5-dollar-meal-deals": {
+  "h": "45b49dbaf548dd580362359c2c3b98bf4da4fa61",
+  "m": "2026-09-26"
+ },
+ "student-food-deals": {
+  "h": "95fbe4b0a13b51b57b00d061ff11ade16abab291",
+  "m": "2026-09-26"
+ },
+ "late-night-food-deals": {
+  "h": "cb1c1b3cfa2d09e264f2ab11d23102e3e0032aad",
+  "m": "2026-09-26"
+ },
+ "fast-food-happy-hours": {
+  "h": "4bd8d5d8980ca401eb681ecccfcbe9fe5f7f6361",
+  "m": "2026-09-26"
+ },
+ "cheapest-fast-food-orders": {
+  "h": "d0a47001a3f296a18765da4e5a64083bdaca5871",
+  "m": "2026-09-26"
+ },
+ "fast-food-vs-groceries": {
+  "h": "a08739fbd27cd4c58a2db65c7705bed175b398ed",
+  "m": "2026-09-26"
+ },
+ "delivery-vs-pickup": {
+  "h": "a11a36aaeadd666b1151f1b2c4781f3160c3952d",
+  "m": "2026-09-26"
+ },
+ "back-to-school-food-deals": {
+  "h": "d74b9ff7d703badfc60d53d17fc7029c6fe8bda9",
+  "m": "2026-09-26"
+ },
+ "chipotle-deals": {
+  "h": "3ea37113b5be0c0e7f77625e32a33d733a398200",
+  "m": "2026-09-26"
+ },
+ "chick-fil-a-deals": {
+  "h": "96013668bfa37117a7fea35a6f09ea946b156cc7",
+  "m": "2026-09-26"
+ },
+ "starbucks-deals": {
+  "h": "e372443d79d6bc6c9c17892df8fb05301428ae7f",
+  "m": "2026-09-26"
+ },
+ "panera-deals": {
+  "h": "8304713c94687107c3f2968079637a487ac32117",
+  "m": "2026-09-26"
+ },
+ "subway-deals": {
+  "h": "ae75cc77f2bac4ba9b181d2facf2c184fb235fcb",
+  "m": "2026-09-26"
+ },
+ "sweetgreen-deals": {
+  "h": "386e6351dbc77fb6e7c4f021b4b311f569f8e3d3",
+  "m": "2026-09-26"
+ },
+ "potbelly-deals": {
+  "h": "9a4a2c122208506133e9760339493787b6f5eb8b",
+  "m": "2026-09-26"
+ },
+ "noodles-and-company-deals": {
+  "h": "dd6c029760f0107519662dac7d19a97de82e9328",
+  "m": "2026-09-26"
+ },
+ "cava-deals": {
+  "h": "0aba3c997982844e6b78fb4199c6be9ac2774cc3",
+  "m": "2026-09-26"
+ },
+ "smoothie-king-deals": {
+  "h": "19282d595b0b1ebaef71a3a2746cbde263f750fe",
+  "m": "2026-09-26"
+ },
+ "tropical-smoothie-deals": {
+  "h": "0fd0eb8ea0efc5cae14b9a7e381d5bac27769e2e",
+  "m": "2026-09-26"
+ },
+ "jamba-deals": {
+  "h": "3ae855efacf4642542c09e9ca9fce29978463139",
+  "m": "2026-09-26"
+ },
+ "salad-and-go-deals": {
+  "h": "97d4324c16888b0d58fc281df51eb71df0de6d9b",
+  "m": "2026-09-26"
+ },
+ "el-pollo-loco-deals": {
+  "h": "ac14f80e994bbf931d8d57b2089b4f2da7406683",
+  "m": "2026-09-26"
+ },
+ "halal-guys-deals": {
+  "h": "68058b0cd5254d37595653a8ce8686b206ae83d4",
+  "m": "2026-09-26"
+ },
+ "nazs-halal-deals": {
+  "h": "05875134b20786b34189bb1380abb786ccac30c2",
+  "m": "2026-09-26"
+ },
+ "shahs-halal-deals": {
+  "h": "663b5c2df7b1cb76246050754e8316ddc5fe3c2f",
+  "m": "2026-09-26"
+ },
+ "tijuana-flats-deals": {
+  "h": "bacf7e9fa705221294b78af18828f44d80ca7170",
+  "m": "2026-09-26"
+ },
+ "qdoba-deals": {
+  "h": "d2760f5717b0ae4220b54d9fe074a846affebae5",
+  "m": "2026-09-26"
+ },
+ "just-salad-deals": {
+  "h": "8545cab6aff2d44b33f5a02be5d454a89674f995",
+  "m": "2026-09-26"
+ },
+ "naf-naf-grill-deals": {
+  "h": "a8982e9e308a2b8025d551daa4773cd375cfdf1f",
+  "m": "2026-09-26"
+ },
+ "kura-sushi-deals": {
+  "h": "5200c4291d7a5cf57a1daa5ee8be2553add63ea0",
+  "m": "2026-09-26"
+ },
+ "pokeworks-deals": {
+  "h": "5a32fa82164432f60a2a4fdb51c5b17462619503",
+  "m": "2026-09-26"
+ },
+ "sarku-japan-deals": {
+  "h": "a17e04f05b77a817c97748b178ee9b7708b43f4e",
+  "m": "2026-09-26"
+ },
+ "safeway-deals": {
+  "h": "7fa7951d6701f85061b76c366f07cff9ad5f8873",
+  "m": "2026-09-26"
+ },
+ "harris-teeter-deals": {
+  "h": "906fb688a6a739389e09a7e1b9f55d82fe950807",
+  "m": "2026-09-26"
+ },
+ "kroger-deals": {
+  "h": "56276a9045cf3fcc56d2fe2d3082f09d474cbbf6",
+  "m": "2026-09-26"
+ },
+ "sprouts-deals": {
+  "h": "183309c2035fc1cde48401fa50fb3ca2b4a513ef",
+  "m": "2026-09-26"
+ },
+ "publix-deals": {
+  "h": "0132259cdec6a8674214b9fac88e562e6d7977c3",
+  "m": "2026-09-26"
+ },
+ "heb-deals": {
+  "h": "930e974a5ddbcd35b772b3a21ba43fabb7686ffd",
+  "m": "2026-09-26"
+ },
+ "hy-vee-deals": {
+  "h": "286a47af41794867ae64e9717066685ee670c0ca",
+  "m": "2026-09-26"
+ },
+ "shoprite-deals": {
+  "h": "8eb1b528d296df8aaf56543e918ea71383c823ad",
+  "m": "2026-09-26"
+ },
+ "meijer-deals": {
+  "h": "8eeb1a73761ed6106c31c74f183610e01cdbe8fd",
+  "m": "2026-09-26"
+ },
+ "cheap-healthy-meals": {
+  "h": "ab20d445208f79c031a57607fc218c1f262e9cb3",
+  "m": "2026-09-26"
+ },
+ "food-deals-by-day": {
+  "h": "954cede017861122f742ceed5bf2ead089ef6d62",
+  "m": "2026-09-26"
+ },
+ "publix-5-sushi-wednesday": {
+  "h": "dfeefdb0b81b78f52d38bd057817e3b8530b5e87",
+  "m": "2026-09-26"
+ },
+ "sprouts-sushi-wednesday": {
+  "h": "2f53cc76fd46579682d1abacac07fa75d1b2f51a",
+  "m": "2026-09-26"
+ },
+ "kroger-sushi-wednesday": {
+  "h": "2b02e87ada11891b227025d5bf389b374e25e487",
+  "m": "2026-09-26"
+ },
+ "safeway-5-friday-sushi": {
+  "h": "ebc54a070077ce04d931f4d247a9720df872dab7",
+  "m": "2026-09-26"
+ },
+ "harris-teeter-5-sushi-friday": {
+  "h": "b0ee040a51c90ffb91c6da3bff14591a0798694a",
+  "m": "2026-09-26"
+ },
+ "panera-4-99-mix-and-match": {
+  "h": "eb9bcf2b1d82607242359abee084a4b3464fffa7",
+  "m": "2026-09-26"
+ },
+ "heb-sushi-wednesday": {
+  "h": "aabb3f42418cf2858bffcef4a05ed876b373c2b2",
+  "m": "2026-09-26"
+ },
+ "hy-vee-sushi-wednesday": {
+  "h": "77827f47e13545a2a26cc841637af0a08495c8b8",
+  "m": "2026-09-26"
+ },
+ "shoprite-sushi-wednesday": {
+  "h": "0533d87c5263d010b1e118536b33d07710563c66",
+  "m": "2026-09-26"
+ },
+ "meijer-sushi-wednesday": {
+  "h": "ea5e0097dfb33563070358d14cd59d6d51abc3c7",
+  "m": "2026-09-26"
+ },
+ "publix-sub-of-the-week": {
+  "h": "36740a87849c889a8917fd6b7f3d3e898f727ed2",
+  "m": "2026-09-26"
+ },
+ "free-food-today": {
+  "h": "143f331f6d15e27c70a29175773be6a745464b4b",
+  "m": "2026-09-26"
+ },
+ "national-taco-day-deals": {
+  "h": "7c27fee092870eec88ea762e8a5564c70c7c17d1",
+  "m": "2026-09-26"
+ },
+ "world-vegetarian-day-deals": {
+  "h": "2b900881fb3f7078527c54e8b185c4e0bdebb6dd",
+  "m": "2026-09-26"
+ },
+ "national-pasta-day-deals": {
+  "h": "21c85ffb01ed3a70c21189221f8753a4b922c8f8",
+  "m": "2026-09-26"
+ }
+}
