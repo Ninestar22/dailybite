@@ -5,6 +5,7 @@
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
 import { readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
 import { loadMeals, mealRow, money } from "./meals.mjs";
@@ -117,6 +118,17 @@ const dowET = WEEKDAYS.indexOf(nowDate.toLocaleDateString("en-US", { weekday: "l
 // updated today: the daily-true signal competitors fake.
 const freshLdFor = t => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "name": t, "dateModified": iso, "isPartOf": { "@type": "WebSite", "name": "DailyBite", "url": SITE } })}</script>`;
 
+// Shared head tags every generated page carries (added 2026-09-26): RSS autodiscovery so
+// feed readers and aggregators find the daily feed from any page, and og:site_name so
+// social previews name the site.
+const HEAD_COMMON = `<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
+<meta property="og:site_name" content="DailyBite">`;
+// BreadcrumbList schema (Home > page) gives Google a two-level path to show under the
+// title in results instead of the raw URL, and clarifies site structure for crawlers.
+const crumbLd = (name, path) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "DailyBite", "item": SITE + "/" },
+  { "@type": "ListItem", "position": 2, "name": name, "item": `${SITE}/${path}` }] });
+const crumbScript = (name, path) => `<script type="application/ld+json">${JSON.stringify(crumbLd(name, path))}</script>`;
 function chainNav(current) {
   // Navigation lists only chains the daily refresh actually covers: linking banned
   // chains next to the healthy roster undercut the site's identity (Jacob, 2026-08-26).
@@ -374,12 +386,13 @@ ${alternatives}`;
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/${chain.slug}">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${chain.slug}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -388,6 +401,7 @@ ${alternatives}`;
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 ${faqLd}${freshLd}
+${crumbScript(`${chain.name} Deals`, chain.slug)}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -456,12 +470,13 @@ function sushiPage(deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/sushi-deals">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/sushi-deals">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -470,6 +485,7 @@ function sushiPage(deals) {
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 ${freshLdFor(title)}
+${crumbScript("Sushi Deals", "sushi-deals")}
 <style>${CHAIN_CSS}
 .tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -514,13 +530,13 @@ function freeFoodPage(deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/free-food-today">
-<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/free-food-today">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -528,6 +544,7 @@ function freeFoodPage(deals) {
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${freshLdFor(title)}
+${crumbScript("Free Food Today", "free-food-today")}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -566,10 +583,11 @@ function rssFeed(deals) {
     <description>${esc(d.desc)}${d.region && d.region !== "National" ? " (" + esc(d.region) + " only)" : ""} (${esc(d.expires)})</description>
   </item>`).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>DailyBite: Daily Healthy Food Deals</title>
   <link>${SITE}</link>
+  <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The best verified healthy food deals, updated every morning.</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
@@ -598,13 +616,15 @@ function verificationLogPage(entries) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/verification-log">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/verification-log">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta name="theme-color" content="#f2f6f2">
 ${freshLdFor(title)}
+${crumbScript("Verification Log", "verification-log")}
 <style>${CHAIN_CSS}
 .tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -632,8 +652,15 @@ const HOLIDAYS = [
   // National Coffee Day removed 2026-09-24 (owner): coffee-chain promos are mostly sugary drinks and off-brand here. /national-coffee-day-deals now redirects home.
   { slug: "national-taco-day-deals", name: "National Taco Day", date: "2026-10-06", emoji: "", kw: /taco/i,
     blurb: "National Taco Day now lands on the first Tuesday of October: expect taco specials across chains, and Tijuana Flats' Taco Tuesdaze stacks right on top of it." },
+  // Added 2026-09-26 (traffic: each of these has a yearly search spike and fits the healthy-only roster).
+  { slug: "world-vegetarian-day-deals", name: "World Vegetarian Day", date: "2026-10-01", emoji: "", kw: /vegetarian|vegan|plant[- ]based|veggie|tofu|sofritas|meatless/i,
+    blurb: "October 1 is World Vegetarian Day and the start of Vegetarian Awareness Month: bowl and salad chains such as Sweetgreen, CAVA, Just Salad and Chipotle (Sofritas) are where plant-based specials tend to show up, alongside grocery hot bars and salad counters." },
+  { slug: "national-pasta-day-deals", name: "National Pasta Day", date: "2026-10-17", emoji: "", kw: /pasta|noodle|penne|spaghetti|fettuccine|mac and cheese|macaroni/i,
+    blurb: "October 17 is National Pasta Day: Noodles & Company is the chain to watch for a rewards offer or limited-time bowl, and grocery hot bars and prepared-food counters often discount pasta trays and bowls for the day." },
   { slug: "national-sandwich-day-deals", name: "National Sandwich Day", date: "2026-11-03", emoji: "", kw: /sandwich|\bsub\b|footlong|hoagie/i,
     blurb: "November 3 brings sandwich deals from Subway, Potbelly, Panera and more: BOGOs and promo codes are the usual pattern." },
+  { slug: "veterans-day-free-meals", name: "Veterans Day", date: "2026-11-11", emoji: "", kw: /veteran|military|armed forces|service member|active[- ]duty/i,
+    blurb: "On November 11, chains thank veterans and active-duty service members with free or discounted meals, usually with a military ID: Chipotle's buy-one-get-one for military has run every year for a decade, Starbucks pours a free tall brewed coffee for veterans, service members and military spouses, and fast-casual and grocery chains add their own offers. Deals below are for the eligible guest and are verified as they are announced." },
   { slug: "international-sushi-day-deals", name: "International Sushi Day", date: "2027-06-18", emoji: "", kw: /sushi|poke|\broll\b/i,
     blurb: "June 18 is sushi's big day: look for roll specials at sushi chains and grocery sushi counters, on top of the weekly $5 sushi days." },
   { slug: "national-smoothie-day-deals", name: "National Smoothie Day", date: "2027-06-21", emoji: "", kw: /smoothie/i,
@@ -663,16 +690,27 @@ function holidayPage(h, deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+${HEAD_COMMON}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${SITE}/${h.slug}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#f2f6f2">
 <meta property="og:image" content="https://dailybitedeals.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+${freshLdFor(title)}
+${crumbScript(h.name + " Deals", h.slug)}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light",m=document.querySelector("meta[name=theme-color]");try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}if(m)m.content=l?"#0e1310":"#f2f6f2"};</script>
-<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo"><b>Daily<span>Bite</span></b></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="36" height="36"><b>Daily<span>Bite</span></b></a></div></header>
 <div class="wrap">
 <span class="date">Updated ${prettyDate}</span>
 <h1>${esc(h.name)} Deals: ${esc(pretty)}</h1>
@@ -723,12 +761,13 @@ function pageHead(title, desc, path, ld, extraCss = "") {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/${path}">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${SITE}/${path}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
@@ -737,6 +776,7 @@ function pageHead(title, desc, path, ld, extraCss = "") {
 <meta property="og:image:height" content="630">
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("\n")}
 ${freshLdFor(title)}
+${crumbScript(String(title).split(":")[0].trim(), path)}
 <style>${CHAIN_CSS}
 .facts{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.5}.facts b{color:var(--accent2)}.facts span{color:var(--ink)}@media(max-width:520px){.facts{grid-template-columns:1fr;gap:4px}}
 .faq{margin-top:10px}.faq h3{font-size:15px;margin:16px 2px 4px}.faq p{color:var(--muted);font-size:14px;line-height:1.55;margin:0 2px}.answer{font-size:16px;line-height:1.55;color:var(--ink);margin:12px 2px}
@@ -1454,7 +1494,7 @@ function main() {
       if (soon) {
         const d2 = new Date(soon.h.date + "T12:00:00");
         const when = soon.diff < 0.5 ? "TODAY" : soon.diff < 1.5 ? "tomorrow" : d2.toLocaleDateString("en-US", { weekday: "long" });
-        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji} ${esc(soon.h.name)} is ${when}: see all the deals &rarr;</a>`;
+        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji ? soon.h.emoji + " " : ""}${esc(soon.h.name)} is ${when}: see all the deals &rarr;</a>`;
       }
       out = out.slice(0, hs2 + HB_START.length) + banner + out.slice(he2);
     }
@@ -1509,13 +1549,42 @@ function main() {
   writeFileSync(join(root, "verification-log.html"), verificationLogPage(vlog));
   console.log(`Built verification-log.html (${vlog.length} entries).`);
 
-  // 3. Sitemap
+  // 3. Sitemap. lastmod is HONEST (changed 2026-09-26): it used to be "today" for every
+  // URL, every day, including /about and /privacy. Google says it ignores lastmod once it
+  // is consistently wrong, which throws away the one real advantage this site has (genuine
+  // daily changes on the deal pages). Now each page's HTML is hashed with the volatile
+  // date stamps stripped, and lastmod only advances when the content behind them changed.
+  // The hashes persist in sitemap-state.json (committed by the daily workflow).
+  const EVERGREEN_PATHS = new Set(["about", "privacy", "trader-joes-healthy-meals", "birthday-freebies", "best-fast-food-apps", "5-dollar-meal-deals", "student-food-deals", "late-night-food-deals", "fast-food-happy-hours", "cheapest-fast-food-orders", "fast-food-vs-groceries", "delivery-vs-pickup", "back-to-school-food-deals", "cheap-healthy-meals", ...EXPLAINERS.map(x => x.slug)]);
   const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
-    `\n</urlset>\n`;
+  const statePath = join(root, "sitemap-state.json");
+  let prevState = {};
+  try { prevState = JSON.parse(readFileSync(statePath, "utf8")); } catch {}
+  const MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December";
+  const stripVolatile = html => html
+    .replace(/\d{4}-\d{2}-\d{2}(T[\d:.]+Z)?/g, "")                                              // ISO dates and build timestamps
+    .replace(new RegExp(`(?:${WEEKDAYS.join("|")}), (?:${MONTHS}) \\d{1,2}, \\d{4}`, "g"), "")     // "Saturday, September 26, 2026"
+    .replace(new RegExp(`\\b(?:${MONTHS}) \\d{4}\\b`, "g"), "")                                     // "September 2026" (titles)
+    .replace(/(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat), \d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} [\d:]+ GMT/g, "") // toUTCString
+    .replace(/<span class="pill todaypill"[^>]*>TODAY<\/span>/g, "")                             // weekday marker on the by-day page
+    .replace(/Today is (?:${WEEKDAYS.join("|")}): this deal is on right now|Next (?:${WEEKDAYS.join("|")}) is the next time this deal runs/g, "");
+  const nextState = {};
+  const entries = urls.map(u => {
+    const path = u.slice(SITE.length + 1);            // "" for the homepage
+    const file = join(root, path ? `${path}.html` : "index.html");
+    let h = "";
+    try { h = createHash("sha1").update(stripVolatile(readFileSync(file, "utf8"))).digest("hex"); } catch {}
+    const prev = prevState[path];
+    const lastmod = (prev && prev.h === h && prev.m) ? prev.m : iso;
+    nextState[path] = { h, m: lastmod };
+    const freq = EVERGREEN_PATHS.has(path) ? "monthly" : "daily";
+    return `  <url><loc>${u}</loc><lastmod>${lastmod}</lastmod><changefreq>${freq}</changefreq></url>`;
+  });
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` + entries.join("\n") + `\n</urlset>\n`;
   writeFileSync(join(root, "sitemap.xml"), sitemap);
-  console.log("Built sitemap.xml.");
+  writeFileSync(statePath, JSON.stringify(nextState, null, 1) + "\n");
+  const changedToday = Object.values(nextState).filter(x => x.m === iso).length;
+  console.log(`Built sitemap.xml (${urls.length} URLs, ${changedToday} with content changed today).`);
 }
 
 main();
