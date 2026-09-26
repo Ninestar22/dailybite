@@ -2,7 +2,7 @@
 // Keeps the site installable and briefly usable offline without ever serving stale deals when online.
 // The page itself re-checks for a newer build whenever the app is reopened (see index.html), so the
 // installed app and the website always show the same build. Bump CACHE to purge old offline copies.
-const CACHE = 'dailybite-v3';
+const CACHE = 'dailybite-v4';
 self.addEventListener('install', e => { self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim()));
