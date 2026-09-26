@@ -24,9 +24,10 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
 - The homepage re-checks for a newer build whenever it is reopened, comes back online, or
   every 15 minutes, and reloads itself, so the installed home-screen app and the website
   always show the same build (see the sync script at the bottom of `index.html`).
-- After a successful refresh, the workflow also generates a "today's deals" share image
-  Social posting is manual (owner decision, 2026-09-15): the daily workflow no longer renders or posts a social image. `npm run social:image` still generates one on demand for hand posting.
-  (`scripts/post-social.mjs`) once their API secrets are configured: see `SOCIAL.md`.
+- After a successful refresh, the workflow renders a "today's deals" image
+  (`scripts/social-image.mjs`) and pins it to Pinterest (`scripts/post-social.mjs`,
+  Pinterest only; re-enabled 2026-09-26) once the Pinterest secrets are configured:
+  see `SOCIAL.md`. Instagram posting stays manual.
 
 ## Search-engine signals the build maintains
 

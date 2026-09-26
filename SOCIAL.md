@@ -1,4 +1,4 @@
-> **Status (2026-09-15): automated posting is OFF.** The owner posts by hand as needed, so the daily workflow no longer generates or posts a social image and no Pinterest/Instagram secrets are needed. `npm run social:image` still renders a shareable image on demand; `npm run social:post` only works if you set the tokens below yourself.
+> **Status (2026-09-26): daily Pinterest posting is ON; Instagram stays manual.** Every successful morning refresh renders `social/pin.png` and pins it to your board with the Pinterest secrets below. Nothing posts until those secrets exist in the repo (the step logs "credentials not configured" and moves on). The script checks the board first and never pins the same day twice, so retry slots and manual runs are safe. Instagram is not part of the daily run (`npm run social:post -- --pinterest-only`); `npm run social:image` still renders both images for hand posting.
 
 # DailyBite: automatic daily Pinterest + Instagram posts
 
@@ -10,7 +10,7 @@ secrets (GitHub repo → Settings → Secrets and variables → Actions → New 
 secret). Each platform activates independently: add Pinterest's secrets and only
 Pinterest posts; the other is skipped with a log line.
 
-## Pinterest setup (about 15 minutes)
+## Pinterest setup (about 15 minutes; this is all you need for the daily pin)
 
 1. Go to https://developers.pinterest.com → create an app (Trial access is enough
    to post to your own account; request Standard access later for higher limits).

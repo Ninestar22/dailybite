@@ -26,6 +26,8 @@ const meta = JSON.parse(readFileSync(join(root, "social", "meta.json"), "utf8"))
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let failures = 0;
+// --pinterest-only (daily workflow, 2026-09-26): Instagram stays manual; only Pinterest runs.
+const PINTEREST_ONLY = process.argv.includes("--pinterest-only");
 
 async function pinterestToken() {
   if (process.env.PINTEREST_ACCESS_TOKEN) return process.env.PINTEREST_ACCESS_TOKEN;
@@ -47,15 +49,28 @@ async function postPinterest() {
   const board = process.env.PINTEREST_BOARD_ID;
   const token = await pinterestToken().catch(e => { console.error(e.message); failures++; return null; });
   if (!board || !token) { console.log("Pinterest: credentials not configured, skipping."); return; }
+  const auth = { Authorization: `Bearer ${token}` };
+  // Once per day, whatever fires the workflow: the daily job has retry slots and manual
+  // runs, so check the board's newest pins for today's title before creating another.
+  try {
+    const list = await fetch(`https://api.pinterest.com/v5/boards/${board}/pins?page_size=10`, { headers: auth });
+    if (list.ok) {
+      const items = (await list.json()).items || [];
+      if (items.some(p => p.title === meta.pinTitle)) { console.log(`Pinterest: today's pin already exists ("${meta.pinTitle}"), skipping.`); return; }
+    } else {
+      console.log(`Pinterest: could not list board pins (${list.status}); posting anyway.`);
+    }
+  } catch (e) { console.log(`Pinterest: pin list check failed (${e.message}); posting anyway.`); }
   const image = readFileSync(join(root, "social", "pin.png")).toString("base64");
   const res = await fetch("https://api.pinterest.com/v5/pins", {
     method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+    headers: { ...auth, "Content-Type": "application/json" },
     body: JSON.stringify({
       board_id: board,
       title: meta.pinTitle,
       description: meta.pinDescription,
       link: SITE + "/",
+      alt_text: `DailyBite: today's verified healthy food deals for ${meta.date}`.slice(0, 500),
       media_source: { source_type: "image_base64", content_type: "image/png", data: image },
     }),
   });
@@ -116,5 +131,5 @@ async function postInstagram() {
 }
 
 await postPinterest();
-await postInstagram();
+if (PINTEREST_ONLY) console.log("Instagram: skipped (--pinterest-only)."); else await postInstagram();
 if (failures) { console.error(`${failures} social post(s) failed.`); process.exit(1); }
