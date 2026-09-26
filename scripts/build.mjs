@@ -1423,6 +1423,20 @@ function main() {
       const MS = "<!-- MEALS:START -->", ME = "<!-- MEALS:END -->";
       const a = out.indexOf(MS), z = out.indexOf(ME);
       if (a !== -1 && z !== -1) out = out.slice(0, a + MS.length) + (mealsOn ? mealsSectionInner(MEALS.meals, MEALS.updated) : "") + out.slice(z);
+      {
+        const W1 = "/* WEEK:START */", W2 = "/* WEEK:END */";
+        const w1 = out.indexOf(W1), w2 = out.indexOf(W2);
+        if (w1 !== -1 && w2 !== -1) {
+          const week = {};
+          for (const e of EVERGREEN) {
+            if (e.dow === undefined) continue;
+            if (e.from && iso < e.from) continue;
+            if (iso > e.until) continue;
+            (week[e.dow] ||= []).push({ b: e.deal.brand, t: e.deal.deal, r: e.deal.region || "National", c: e.deal.cat || "" });
+          }
+          out = out.slice(0, w1 + W1.length) + "\nconst WEEK = " + JSON.stringify(week) + ";\n" + out.slice(w2);
+        }
+      }
       const J1 = "/* MEALS:START */", J2 = "/* MEALS:END */";
       const b1 = out.indexOf(J1), b2 = out.indexOf(J2);
       if (b1 !== -1 && b2 !== -1) out = out.slice(0, b1 + J1.length) + "\nconst MEALS = " + JSON.stringify(mealsOn ? MEALS.meals : []) + ";\n" + out.slice(b2);
