@@ -1420,6 +1420,9 @@ function main() {
     }
     // Meal index: server-render the top rows (crawlable) and embed the full list for the client.
     {
+      // Homepage Meals section removed 2026-09-28 (owner: keep the site simple). The markers
+      // are gone from index.html, so these injections are no-ops; meals.json and
+      // /cheap-healthy-meals are still built because the iOS app's Meals tab reads meals.json.
       const MS = "<!-- MEALS:START -->", ME = "<!-- MEALS:END -->";
       const a = out.indexOf(MS), z = out.indexOf(ME);
       if (a !== -1 && z !== -1) out = out.slice(0, a + MS.length) + (mealsOn ? mealsSectionInner(MEALS.meals, MEALS.updated) : "") + out.slice(z);
