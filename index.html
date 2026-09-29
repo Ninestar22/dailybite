@@ -1080,9 +1080,16 @@ function render(){
   // menus last, so a returning visitor sees the difference at the top, not the same
   // rows as yesterday. Proximity still decides ties within a tier when it is on.
   const tier=g=>(isSaved(g[0].brand)?64:0)+(gany(g,urgentDeal)?32:0)+(gany(g,isTodayDeal)?16:0)+(gany(g,d=>d.best)?8:0)+(gany(g,d=>d.isNew)?4:0)+(g.every(standingDeal)?0:2);
+  // With a location set (owner, 2026-09-29): closest restaurant first. Saved places still
+  // lead, then nearest to farthest, with chains the map could not find nearby at the end;
+  // the freshness tiers only break ties. Without a location the tier order applies.
+  const gdist=g=>{ const m=DIST?DIST[normBrand(g[0].brand)]:null; return m==null?Infinity:m; };
   const list=groups.sort((a,b)=>{
+    if(DIST){
+      const sv=(isSaved(b[0].brand)?1:0)-(isSaved(a[0].brand)?1:0); if(sv) return sv;
+      const dd=gdist(a)-gdist(b); if(dd) return dd;
+    }
     const dt=tier(b)-tier(a); if(dt) return dt;
-    if(DIST){ const ds=gscore(b)-gscore(a); if(ds) return ds; }
     return gRank(b)-gRank(a)||gval(b)-gval(a);
   });
   const total=list.reduce((n,g)=>n+g.length,0);
