@@ -543,6 +543,25 @@
   </div>
   </div>
 </div>
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
+  <div class="brandrow">
+    <div class="brand-ic" style="background:#7a1c1c"><span>PB</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=potbelly.com&amp;sz=128" alt="Potbelly logo" loading="lazy" onerror="this.remove()"></div>
+    <div class="brandtxt"><div class="brand-name">Potbelly</div><div class="brand-cat">Deli</div></div>
+    <a class="near" href="https://www.google.com/maps/search/Potbelly+near+me" target="_blank" rel="noopener">Nearest</a>
+  </div>
+  <div class="offers">
+<div class="offer">
+    <div class="deal">Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2</div>
+    <div class="desc">Potbelly&#39;s fifth annual Week of Perks runs September 28 to October 2: a different deal each day for Potbelly Perks members (free account required), announced in the app each morning, including buy-one-get-one 50% off entrees. Order in the app, on potbelly.com, or scan your Perks account in shop.</div>
+    <div class="metarow"><span class="pill region">SELECT STATES</span><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$5</span></div>
+    <div class="foot">
+      <span class="expires">Through October 2, 2026</span>
+      <a class="cta" href="https://www.potbelly.com/perks" target="_blank" rel="noopener">Get deal &rarr;</a>
+    </div>
+  </div>
+  </div>
+</div>
 <!-- SSRGRID:END --></div>
   <div class="empty" id="empty" style="display:none">No deals match your search.</div>
   </div><!-- /dealspanel -->
@@ -927,9 +946,29 @@ const DEALS = [
     "isNew": false,
     "endingSoon": false,
     "id": "91013340"
+  },
+  {
+    "brand": "Potbelly",
+    "cat": "Deli",
+    "color": "#7a1c1c",
+    "ic": "PB",
+    "deal": "Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2",
+    "desc": "Potbelly's fifth annual Week of Perks runs September 28 to October 2: a different deal each day for Potbelly Perks members (free account required), announced in the app each morning, including buy-one-get-one 50% off entrees. Order in the app, on potbelly.com, or scan your Perks account in shop.",
+    "tags": [
+      "app"
+    ],
+    "value": 4,
+    "expires": "Through October 2, 2026",
+    "url": "https://www.potbelly.com/perks",
+    "best": true,
+    "region": "Select states",
+    "est_savings": 5,
+    "isNew": true,
+    "endingSoon": true,
+    "id": "ef816cd1"
   }
 ];
-const META = {"verifiedAt":"2026-09-30T21:41:11.855Z"};
+const META = {"verifiedAt":"2026-09-30T23:34:08.392Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs"],"active":false};
 /* DEALS:END */
 
@@ -1098,6 +1137,8 @@ const BRAND_STATES = {
   // Verified 2026-08-24 (Pokeworks is NOT in Virginia: a "National" mislabel showed its deal to a Reston, VA visitor)
   'pokeworks': ['Texas','California','New York','Georgia','Massachusetts','Connecticut','Tennessee','Michigan','North Carolina','Arizona','Nebraska','Vermont','Rhode Island','Washington','Wisconsin','Florida','New Jersey'],
   // Healthy roster expansion (2026-08-27): footprints for the clearly-regional additions
+  // Potbelly (2026-09-30): about 440 shops; the list is permissive on purpose (only the map veto hides).
+  'potbelly': ['Illinois','Texas','District of Columbia','Maryland','Virginia','Michigan','Ohio','Indiana','Wisconsin','Minnesota','Missouri','Kansas','Colorado','Arizona','Nevada','New York','New Jersey','Pennsylvania','Massachusetts','Connecticut','Delaware','Florida','Georgia','North Carolina','Tennessee','Kentucky','Iowa','Nebraska','Oklahoma','Washington','California'],
   'pollo tropical': ['Florida'],
   "rubio's": ['California','Arizona','Nevada'],
   "rubio's coastal grill": ['California','Arizona','Nevada'],

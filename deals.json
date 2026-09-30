@@ -353,6 +353,26 @@
       "isNew": false,
       "endingSoon": false,
       "id": "91013340"
+    },
+    {
+      "brand": "Potbelly",
+      "cat": "Deli",
+      "color": "#7a1c1c",
+      "ic": "PB",
+      "deal": "Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2",
+      "desc": "Potbelly's fifth annual Week of Perks runs September 28 to October 2: a different deal each day for Potbelly Perks members (free account required), announced in the app each morning, including buy-one-get-one 50% off entrees. Order in the app, on potbelly.com, or scan your Perks account in shop.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through October 2, 2026",
+      "url": "https://www.potbelly.com/perks",
+      "best": true,
+      "region": "Select states",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": true,
+      "id": "ef816cd1"
     }
   ]
 }

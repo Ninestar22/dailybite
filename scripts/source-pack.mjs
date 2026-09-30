@@ -73,6 +73,7 @@ export const OFFER_SOURCES = [
   { brand: "Publix", url: "https://www.publix.com/mc/order-ahead/weekly-specials" },
   { brand: "Whole Foods Market", url: "https://www.wholefoodsmarket.com/sales-flyer" },
   { brand: "Wegmans", url: "https://shop.wegmans.com/" },
+  { brand: "Food Lion", url: "https://www.foodlion.com/savings/weekly-ad/" },
   { brand: "DoorDash", url: "https://about.doordash.com/en-us/news" },
 ];
 
