@@ -940,6 +940,45 @@ const EXPLAINERS = [
       ["Who makes Wegmans sushi?", "Wegmans sells it under its own name and makes it in house, rather than through an outside sushi company."],
       ["Are the prices the same at every Wegmans?", "No. Wegmans prices by store. Set your store on wegmans.com to see the price near you."]],
     more: `<p>For a single roll, Wegmans' everyday California roll matches the best weekly deal price at other chains, with no need to plan around a day. For the chains that do discount once a week, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
+  // Rotisserie chicken comparison (owner request, 2026-10-02). Every price was read that day
+  // on the retailer's own site for the store named in the table, except Costco, which does
+  // not list the chicken online (Consumer Reports, June 2026). Per-pound figures are
+  // calculated only where the retailer states a weight. Lidl could not be verified and is
+  // left out. Re-check before changing any number.
+  { slug: "rotisserie-chicken-prices", brand: "Rotisserie Chicken",
+    title: "Rotisserie Chicken Prices by Store (2026): Costco, Walmart, Kroger, Wegmans and More",
+    h1: "Rotisserie Chicken Prices by Store",
+    desc: "What a whole hot rotisserie chicken costs at 16 grocery chains, checked on each store's own site on October 2, 2026: the cheapest without a membership, the best price per pound, and which discount days are real.",
+    answer: "A whole hot rotisserie chicken costs <strong>from about $5 to $10</strong> depending on the store. The warehouse clubs are cheapest at <strong>$4.98 to $4.99 for about 3 pounds</strong>, but they need a paid membership. Without one, <strong>Walmart is $5.97</strong> nationwide and H-E-B's Hill Country Fare chicken is $4.97 in Texas. Most supermarkets charge $7 to $10 for a smaller bird, so the price per pound varies far more than the sticker price.",
+    facts: [["Cheapest overall", "Sam's Club $4.98, Costco $4.99, BJ's $4.99 (about 3 lb each; paid membership)"], ["Cheapest with no membership", "H-E-B Hill Country Fare $4.97 (Texas); Walmart $5.97 (2.25 lb)"], ["Best price per pound", "The warehouse clubs at about $1.66 a pound; Walmart is $2.65"], ["Most expensive per pound", "Sprouts: $9.99 for 25 oz, about $6.39 a pound"], ["On sale when checked", "Giant Food $5.99 (regular $7.99) and Food Lion $5.99 (regular $6.99)"], ["Checked", "October 2, 2026, on each retailer's own site. Prices are for the store named and vary by location."]],
+    table: { head: ["Store", "Price", "Size", "Per pound", "Membership", "Store checked"],
+      rows: [
+        ["H-E-B (Hill Country Fare)", "$4.97", "Not stated", "", "None", "Victoria, TX"],
+        ["Sam's Club (Member's Mark)", "$4.98", "Not stated", "", "Paid", "Woodbridge, VA"],
+        ["Costco (Kirkland Signature)", "$4.99", "About 3 lb", "$1.66", "Paid", "Per Consumer Reports, June 2026"],
+        ["BJ's (Wellsley Farms)", "$4.99", "3 lb", "$1.66", "Paid", "Woodbridge, VA"],
+        ["Walmart", "$5.97", "2.25 lb", "$2.65", "None", "walmart.com listing"],
+        ["Target (sold cold, fully cooked)", "$5.99", "30 oz", "$3.19", "None", "target.com listing"],
+        ["H-E-B (Meal Simple)", "$6.47", "Not stated", "", "None", "Victoria, TX"],
+        ["Food Lion", "$6.99 ($5.99 on sale)", "28 oz", "$3.99", "None", "Halifax Rd store, VA"],
+        ["Kroger (Private Selection)", "$7.99", "32 oz", "$4.00", "None", "Mechanicsville, VA"],
+        ["Giant Food", "$7.99 ($5.99 on sale)", "30 oz", "$4.26", "None", "giantfood.com listing"],
+        ["Harris Teeter", "$7.99", "Not stated", "", "None", "Northern Virginia store"],
+        ["Publix (delivery and curbside price)", "$8.85", "Not stated", "", "None", "In-store price not published"],
+        ["Albertsons", "$8.99", "Not stated", "", "None", "Boise, ID"],
+        ["Whole Foods (online, chilled)", "$9.59", "About 1.75 lb", "$5.48", "None", "wholefoodsmarket.com listing"],
+        ["Safeway", "$9.99", "Not stated", "", "None", "Oakland, CA"],
+        ["Wegmans", "$9.99", "34 oz", "$4.70", "None", "Reston, VA"],
+        ["Sprouts", "$9.99", "25 oz", "$6.39", "None", "Manassas, VA"],
+      ],
+      note: "Per-pound figures are calculated from the weight the retailer lists and are blank where no weight is published. Aldi does not sell a hot whole rotisserie chicken." },
+    faq: [["Who has the cheapest rotisserie chicken?", "The warehouse clubs: Sam's Club at $4.98 and Costco and BJ's at $4.99, each for a bird of about 3 pounds. All three require a paid membership. H-E-B's Hill Country Fare chicken is $4.97 with no membership, in Texas."],
+      ["What is the cheapest rotisserie chicken without a membership?", "Walmart at $5.97 for 2.25 pounds is the cheapest that is available nationwide. In Texas, H-E-B's Hill Country Fare chicken is $4.97. Target sells a fully cooked chicken for $5.99, but it is refrigerated, not hot."],
+      ["Is Costco's rotisserie chicken still $4.99?", "Yes, by the most recent reporting: Consumer Reports listed it at $4.99 for about 3 pounds in June 2026. Costco does not show the price on its website, so this is the one number here that was not read from the retailer's own page."],
+      ["Which store gives the most chicken for the money?", "The warehouse clubs, at about $1.66 a pound. Among regular supermarkets with a listed weight, Walmart is $2.65 a pound, Food Lion about $4, Kroger $4, Giant Food $4.26 and Wegmans $4.70. Sprouts is the most expensive per pound at about $6.39."],
+      ["Are there discount days for rotisserie chicken?", "Whole Foods takes $2 off on Tuesdays, but only for Amazon Prime members, in store, in an offer window listed through October 6, 2026. Safeway's $5 Friday lineup rotates and did not include rotisserie chicken in the ads checked this week. Reports of a Kroger chicken Thursday could not be confirmed on an official page."],
+      ["Why is the same chicken a different price at another store?", "Supermarkets price by store and division. Safeway was $9.99 in Oakland while Albertsons, the same company, was $8.99 in Boise. Set your own store on the retailer's site to see the price near you."]],
+    more: `<p>Rotisserie chicken is one of the cheapest sources of cooked protein in a grocery store, and the sticker price hides most of the difference: a $9.99 chicken at one store can weigh half as much as a $4.99 one at a warehouse club. For other ready-to-eat value, see the <a href="/cheap-healthy-meals" style="color:var(--accent2)">cheapest healthy meals index</a>, ranked by protein per dollar, and the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
 ];
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
@@ -1024,17 +1063,21 @@ function reportPage(R) {
 ` + PAGE_FOOT;
 }
 
+// Optional comparison table on an explainer (2026-10-02, rotisserie chicken prices).
+const EXPLAINER_TBL_CSS = `.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin:12px 0}.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th,.tbl td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}.tbl tr:last-child td{border-bottom:0}.tbl th{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}.tblnote{color:var(--muted);font-size:13px;line-height:1.5;margin:6px 2px}`;
 function explainerPage(x, deals) {
+  const tableBlock = x.table ? `<div class="tblwrap"><table class="tbl"><thead><tr>${x.table.head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note ? `<p class="tblnote">${esc(x.table.note)}</p>` : ""}` : "";
   const live = deals.filter(d => canonBrand(d.brand) === canonBrand(x.brand));
   const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": x.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
   const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": x.title, "dateModified": iso, "author": { "@type": "Organization", "name": "DailyBite" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
   const todayNote = x.day != null ? (dowET === x.day ? `<div class="note" style="border-color:var(--accent)">Today is ${WEEKDAYS[x.day]}: this deal is on right now.</div>` : `<div class="note">Next ${WEEKDAYS[x.day]} is the next time this deal runs. The daily list shows it on the day.</div>`) : "";
   const liveBlock = live.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">Verified ${esc(x.brand)} deals live today</h2><div class="grid">${groupCards(live)}</div>` : "";
-  return pageHead(x.title, x.desc, x.slug, [faqLd, artLd]) + `
+  return pageHead(x.title, x.desc, x.slug, [faqLd, artLd], x.table ? EXPLAINER_TBL_CSS : "") + `
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(x.h1)}</h1>
   <p class="answer">${x.answer}</p>
   <div class="facts">${x.facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
+  ${tableBlock}
   ${todayNote}
   <div class="prose">${x.more}</div>
   <div class="faq"><h2 style="font-size:19px;margin:24px 2px 4px">Questions people ask</h2>${x.faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("")}</div>
