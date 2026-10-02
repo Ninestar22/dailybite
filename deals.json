@@ -126,7 +126,7 @@
       "region": "Select states",
       "est_savings": 5,
       "isNew": false,
-      "endingSoon": true,
+      "endingSoon": false,
       "id": "ef816cd1"
     },
     {

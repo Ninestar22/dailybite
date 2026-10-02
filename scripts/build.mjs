@@ -988,7 +988,7 @@ function main() {
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
   let deals = Array.isArray(data) ? data : data.deals;
-  if (!Array.isArray(deals) || deals.length === 0) {
+  if (!Array.isArray(deals)) {
     throw new Error("deals.json has no deals array: refusing to build an empty page.");
   }
   {
@@ -1005,6 +1005,9 @@ function main() {
       deals.push({ ...e.deal });
     }
   }
+  // The refresh may now legitimately return zero NEW deals (2026-10-02); only a page that is
+  // empty even after injection is refused.
+  if (deals.length === 0) throw new Error("No deals after injection: refusing to build an empty page.");
 
   // Owner style rule (Jacob, 2026-08-18): no em dashes anywhere on the site.
   // Paired dashes become parentheses; a single dash becomes a colon.

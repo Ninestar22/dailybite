@@ -38,6 +38,18 @@ const ALLOWED_TAGS = new Set(["free", "app"]);
 // Lowered 6 -> 4 on 2026-09-21: the owner removed the everyday Panera/Subway/Noodles value
 // menus, which used to pad every list. A short honest list beats failing closed on a stale one.
 const MIN_DEALS = 4;
+// The build injects its own deals after this script runs (scripts/injected-deals.mjs), and
+// since 2026-09-30 the model is told NOT to return those. So the floor and the top-up
+// threshold count them: a morning with one or two genuinely new deals (or none) is an
+// honest result, not a failed refresh. Fixed 2026-10-02 after two mornings failed closed.
+const INJECTED_TODAY = (() => {
+  try {
+    const isoET = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+    const dow = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].indexOf(new Date().toLocaleDateString("en-US", { weekday: "long", timeZone: "America/New_York" }));
+    return injectedToday(isoET, dow);
+  } catch (e) { return []; }
+})();
+const NEW_DEAL_FLOOR = Math.max(0, MIN_DEALS - INJECTED_TODAY.length);
 const MAX_DEALS = 24;
 
 // Reads ANTHROPIC_API_KEY from env. The explicit timeout caps any single hung request
@@ -275,7 +287,7 @@ function salvage(deals) {
   }
   let best = 0;
   for (const d of kept) if (d.best === true && ++best > 4) d.best = false;
-  const errors = kept.length < MIN_DEALS ? [`too few valid deals (${kept.length} < ${MIN_DEALS})`] : [];
+  const errors = kept.length < NEW_DEAL_FLOOR ? [`too few valid deals (${kept.length} new + ${INJECTED_TODAY.length} injected < ${MIN_DEALS})`] : [];
   return { deals: kept, errors };
 }
 
@@ -288,10 +300,8 @@ async function generate(pack = "", opts = {}) {
   // spending searches re-finding grocery sushi days and standing value menus (the 9/29 and
   // 9/30 logs: 34 and 23 searches, one and zero net new deals).
   {
-    const isoET = new Date().toLocaleDateString("en-CA", ET);
-    const dowET = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].indexOf(WEEKDAY);
-    const inj = injectedToday(isoET, dowET);
-    if (inj.length) content.push({ type: "text", text: "ALREADY ON THE SITE TODAY (injected by the build after you run; verified separately): " + inj.map(d => d.brand + ": " + d.deal).join("; ") + ". Do NOT search these chains for these offers and do NOT return them or any rewording of them: every search spent here is wasted. Return only deals that are NOT in this list." });
+    const inj = INJECTED_TODAY;
+    if (inj.length) content.push({ type: "text", text: "ALREADY ON THE SITE TODAY (injected by the build after you run; verified separately): " + inj.map(d => d.brand + ": " + d.deal).join("; ") + ". Do NOT search these chains for these offers and do NOT return them or any rewording of them: every search spent here is wasted. Return only deals that are NOT in this list. These injected deals count toward every deal-count minimum in this prompt, so a short list of new deals is fine and an empty \"deals\" array is a valid answer when nothing new verifies: never pad the list." });
   }
   // Targeted top-up (2026-09-15): a third block, after the cached prompt and the pack, so
   // the cache prefix is untouched. Tells the model what the first sweep already verified
@@ -405,7 +415,7 @@ async function main() {
     const firstDeals = deals || [];
     const second = await attempt();
     ({ deals, errors } = salvage(dedupe([...firstDeals, ...(second.deals || [])])));
-  } else if (deals.length < 6) {
+  } else if (deals.length + INJECTED_TODAY.length < 6) {
     // Deterministic top-up (owner, 2026-08-27), retuned 2026-09-15 for cost: with the
     // healthy-only roster the first sweep lands at 8-11 most days, so the old "< 12 =
     // run a second FULL sweep" fired nearly every morning and about doubled the run.
