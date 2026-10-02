@@ -179,6 +179,25 @@
       "isNew": true,
       "endingSoon": false,
       "id": "a68240f2"
+    },
+    {
+      "brand": "Smoothie King",
+      "cat": "Smoothies",
+      "color": "#c8102e",
+      "ic": "SK",
+      "deal": "Free Upsize Friday: 32 oz Smoothie for the Price of a 20 oz",
+      "desc": "Every Friday, Healthy Rewards members (free account required) get a 32 oz smoothie for the price of a 20 oz when they order in the Smoothie King app, at participating locations. Rewards cannot be redeemed on these orders.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Fridays only",
+      "url": "https://www.smoothieking.com/rewards/",
+      "best": false,
+      "region": "National",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "6d31e275"
     }
   ]
 }

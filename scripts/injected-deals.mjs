@@ -83,6 +83,10 @@ export const EVERGREEN = [
     // them. Sources: potbelly.com/perks, the 2026-09-16 press release (franchising.com),
     // QSR Magazine. Self-expires after 10/2. Potbelly is the closest roster chain to the owner.
     { from: "2026-09-30", until: "2026-10-02", deal: { brand: "Potbelly", cat: "Deli", color: "#7a1c1c", ic: "PB", deal: "Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2", desc: "Potbelly's fifth annual Week of Perks runs September 28 to October 2: a different deal each day for Potbelly Perks members (free account required), announced in the app each morning, including buy-one-get-one 50% off entrees. Order in the app, on potbelly.com, or scan your Perks account in shop.", tags: ["app"], value: 4, expires: "Through October 2, 2026", url: "https://www.potbelly.com/perks", best: false, region: "Select states", est_savings: 5 } },
+    // Weekly loyalty special (owner rule 2026-09-30: allowed on its day). Smoothie King's rewards
+    // terms name Free Upsize Fridays and say Healthy Rewards is free to join (smoothieking.com,
+    // checked 2026-10-02); the size terms are from Smoothie King's own posts and Sept 2026 trackers.
+    { until: "2026-12-31", dow: 5, deal: { brand: "Smoothie King", cat: "Smoothies", color: "#c8102e", ic: "SK", deal: "Free Upsize Friday: 32 oz Smoothie for the Price of a 20 oz", desc: "Every Friday, Healthy Rewards members (free account required) get a 32 oz smoothie for the price of a 20 oz when they order in the Smoothie King app, at participating locations. Rewards cannot be redeemed on these orders.", tags: ["app"], value: 3, expires: "Fridays only", url: "https://www.smoothieking.com/rewards/", best: false, region: "National" } },
 ];
 
 // Entries the build will inject for a given Eastern date (iso YYYY-MM-DD) and weekday index.

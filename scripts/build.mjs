@@ -878,6 +878,68 @@ const EXPLAINERS = [
       ["Does it work on half subs?", "The discount is on the whole sub. A whole sub is two meals for most people, which is part of the value."],
       ["What's the healthiest way to order it?", "Whole wheat or multigrain bread, turkey or chicken, extra vegetables, and mustard or oil and vinegar instead of mayo keeps it around 600 to 700 calories for a whole sub."]],
     more: `<p>The Pub Sub is the Southeast's favorite lunch, and the weekly $2 discount is the only standing Publix deli deal besides <a href="/publix-5-sushi-wednesday" style="color:var(--accent2)">$5 Sushi Wednesday</a>. Today's verified Publix deals are on the <a href="/publix-deals" style="color:var(--accent2)">Publix page</a>.</p>` },
+  // ---- Added 2026-10-02 (owner request: more store-specific pages). Every fact below was
+  // checked that day against the source named in its "Checked" row. Chains whose sushi day
+  // could NOT be confirmed on a current official page (Food Lion, Weis, Lowes Foods, Giant
+  // Food, Stop & Shop) deliberately have no page. ----
+  { slug: "hannaford-sushi-wednesday", brand: "Hannaford", day: 3,
+    title: "Hannaford $5 Sushi Wednesday: Which Wago Rolls Are $5 (2026)",
+    h1: "Hannaford $5 Sushi Wednesday",
+    desc: "Every Wednesday, Hannaford's in-store Wago sushi counters sell select rolls for $5: California, Spicy California, Classic Vegan and more. Which rolls, where, and whether you need a card.",
+    answer: "Every Wednesday, the Wago sushi counters inside Hannaford supermarkets sell select rolls for <strong>$5 each</strong>. The company that runs the counters names the California, Spicy California and Classic Vegan rolls, and its current promotion also lists California Salad and Crunch California. No card or app is mentioned in the offer.",
+    facts: [["Day", "Every Wednesday"], ["Price", "$5 per select roll"], ["What", "Select Wago rolls: California, Spicy California, Classic Vegan, California Salad, Crunch California"], ["Where", "Hannaford stores with a Wago sushi counter (Maine, New Hampshire, Vermont, Massachusetts and New York)"], ["What you need", "Nothing stated: no card or app in the offer"], ["Checked", "October 2, 2026, on wagosushi.com (the counter operator's FAQ and promotion page)"]],
+    faq: [["Is Hannaford sushi $5 every Wednesday?", "Yes, for select rolls at stores with a Wago sushi counter. The operator's site shows the $5 Wednesday promotion running all year, starting February 4, 2026."],
+      ["Which rolls are $5?", "The operator names California, Spicy California and Classic Vegan in its FAQ, and adds California Salad and Crunch California on the promotion page. Other rolls stay at their regular price."],
+      ["Do I need a Hannaford card or app?", "The offer does not mention one. The price is at the sushi case."],
+      ["Does my Hannaford have a sushi counter?", "Not every store does. Check the store's departments on hannaford.com or call ahead."],
+      ["Who makes Hannaford's sushi?", "Wago Sushi, a private label made for Hannaford by a dedicated grocery sushi company. Older Hannaford listings showed the Snowfox name; the counters now use Wago."]],
+    more: `<p>Hannaford's Wednesday price is the Northeast's version of the grocery sushi day that Publix and Sprouts run elsewhere. If you are not near a Hannaford, the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> lists the other chains by weekday.</p>` },
+  { slug: "dierbergs-sushi-tuesday", brand: "Dierbergs", day: 2,
+    title: "Dierbergs $6 Sushi Tuesday: Bento Sushi Deal in St. Louis (2026)",
+    h1: "Dierbergs $6 Sushi Tuesday",
+    desc: "On Tuesdays, Dierbergs Markets sells select varieties of its in-store Bento Sushi for $6. Where it runs in Missouri and Illinois, what is included, and what you need.",
+    answer: "On Tuesdays, Dierbergs Markets sells <strong>select varieties of its hand-rolled Bento Sushi for $6</strong>. Dierbergs states the offer on its own deli and prepared foods page. No card, coupon or app is mentioned.",
+    facts: [["Day", "Every Tuesday"], ["Price", "$6 for select varieties"], ["What", "Select varieties of Bento Sushi, hand-rolled in store"], ["Where", "Dierbergs stores in Missouri and Illinois (the St. Louis area); the sushi operator lists 27 locations"], ["What you need", "Nothing stated: no card, coupon or app"], ["Checked", "October 2, 2026, on dierbergs.com (deli and prepared foods page)"]],
+    faq: [["Is Dierbergs sushi $6 every Tuesday?", "Dierbergs' own deli page says select varieties are $6 on Tuesdays. It is a standing weekly price, not a dated promotion."],
+      ["Which rolls are included?", "Dierbergs says select varieties without listing them, so the choice depends on the store and the day. Look for the Tuesday sign at the sushi case."],
+      ["Do I need a Dierbergs rewards account?", "The offer does not mention one."],
+      ["Which Dierbergs stores have sushi?", "Stores with a Bento Sushi counter. The operator lists 27 locations across the St. Louis area in Missouri and Illinois."]],
+    more: `<p>Dierbergs is one of the few chains with a sushi day on Tuesday rather than Wednesday. For other chains and days, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> and <a href="/food-deals-by-day" style="color:var(--accent2)">deals by day of the week</a>.</p>` },
+  { slug: "whole-foods-sushi-friday", brand: "Whole Foods Market", day: 5,
+    title: "Whole Foods Sushi Friday: It Needs Amazon Prime. No-Membership Alternatives (2026)",
+    h1: "Whole Foods Sushi Friday",
+    desc: "Whole Foods' Friday sushi deal is buy one, get one 50% off packaged rolls, in store, for Amazon Prime members only. What it covers, what it excludes, and the grocery sushi days that need no paid membership.",
+    answer: "On Fridays, Whole Foods Market runs <strong>buy one, get one 50% off packaged sushi rolls</strong>, in store only, and <strong>only for Amazon Prime members</strong>. It is a discount on a pair of rolls, not a fixed $5 price, and Prime is a paid membership. DailyBite does not list paid-membership perks as deals, so this page explains the offer and points to the sushi days anyone can use.",
+    facts: [["Day", "Fridays, as part of Whole Foods' weekly Prime deals"], ["Offer", "Buy one packaged sushi roll, get one 50% off (the discount applies to the lower-priced roll)"], ["Who", "Amazon Prime members only, identified at checkout"], ["Excludes", "Made-to-order rolls, sashimi, nigiri, combos, catering trays, spring rolls and in-store restaurants"], ["Where", "U.S. stores, in store only; not Hawaii; varies by store"], ["Checked", "October 2, 2026, on wholefoodsmarket.com (the current offer window is listed through October 6, 2026)"]],
+    faq: [["Is Whole Foods sushi $5 on Fridays?", "No. The Friday offer is buy one, get one 50% off packaged rolls for Prime members. Two rolls at $10 each would cost $15, or $7.50 apiece."],
+      ["Do I need Amazon Prime?", "Yes. The offer is for Prime members only, and you identify yourself at checkout with the app code. Without Prime, the rolls are regular price."],
+      ["Is the deal permanent?", "Whole Foods lists it for a dated window and has renewed it before. The window shown on October 2, 2026 runs through October 6, 2026, so check the Whole Foods deals page for the current dates."],
+      ["Where can I get cheap sushi without a paid membership?", "Publix, Sprouts and Hannaford sell select rolls for $5 on Wednesdays with no membership. Kroger-family stores charge $6 on Wednesdays, and Dierbergs $6 on Tuesdays. Wegmans sells a California roll for $5 every day at its Reston, Virginia store."],
+      ["Why doesn't DailyBite list this as a deal?", "Because it requires a paid membership. The daily list only includes offers anyone can claim, at most with a free account."]],
+    more: `<p>If you already have Prime, the Friday offer is worth using on two higher-priced rolls, since the discount comes off the cheaper one. If you do not, the no-membership sushi days are the better value: see <a href="/publix-5-sushi-wednesday" style="color:var(--accent2)">Publix</a>, <a href="/sprouts-sushi-wednesday" style="color:var(--accent2)">Sprouts</a>, <a href="/hannaford-sushi-wednesday" style="color:var(--accent2)">Hannaford</a> and <a href="/kroger-sushi-wednesday" style="color:var(--accent2)">Kroger</a> on Wednesdays, or the full <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
+  { slug: "smoothie-king-free-upsize-friday", brand: "Smoothie King", chainSlug: "smoothie-king-deals", day: 5,
+    title: "Smoothie King Free Upsize Friday: 32 oz for the Price of a 20 oz (2026)",
+    h1: "Smoothie King Free Upsize Friday",
+    desc: "On Fridays, Smoothie King Healthy Rewards members get a 32 oz smoothie for the price of a 20 oz when they order in the app. Healthy Rewards is free. How it works and what it excludes.",
+    answer: "On Fridays, Smoothie King <strong>Healthy Rewards members get a 32 oz smoothie for the price of a 20 oz</strong> when they order through the Smoothie King app, at participating locations. Healthy Rewards is free to join. Smoothie King's rewards terms also call it $1 Up Fridays.",
+    facts: [["Day", "Every Friday"], ["Offer", "A 32 oz smoothie for the price of a 20 oz"], ["Who", "Healthy Rewards members (free to join), ordering in the Smoothie King app"], ["Where", "Participating U.S. locations"], ["Catch", "Rewards cannot be redeemed on these Friday orders, though points still accrue"], ["Checked", "October 2, 2026: smoothieking.com rewards pages confirm the promotion and the free membership; the size terms are from Smoothie King's own posts and September 2026 deal trackers"]],
+    faq: [["Is Free Upsize Friday still running in 2026?", "Smoothie King's current rewards terms name Free Upsize Fridays, and deal trackers listed it in late September 2026. Participation is by location, so check the app for your store."],
+      ["Do I have to pay for Healthy Rewards?", "No. Smoothie King says Healthy Rewards is free to join."],
+      ["Do I need the app?", "Yes. The upsize is applied to app orders by rewards members."],
+      ["Can I use a reward on a Free Upsize Friday order?", "No. The rewards terms say rewards may not be used on these Friday orders. You still earn points."],
+      ["Is it open to non-members?", "Not normally. Smoothie King opened it to all guests for summer 2025 only."]],
+    more: `<p>A weekly special like this is listed in DailyBite's daily feed on Fridays only. See the <a href="/smoothie-king-deals" style="color:var(--accent2)">Smoothie King page</a> for anything else running today, and <a href="/food-deals-by-day" style="color:var(--accent2)">deals by day of the week</a> for the rest of the calendar.</p>` },
+  { slug: "wegmans-sushi-prices", brand: "Wegmans",
+    title: "Wegmans Sushi Prices: The $5 California Roll, No Deal Day Needed (2026)",
+    h1: "Wegmans Sushi Prices",
+    desc: "Wegmans does not run a weekly sushi deal day. It does sell a California roll for $5 every day at its Reston, Virginia store. Shelf prices for the common rolls, checked on wegmans.com.",
+    answer: "Wegmans <strong>does not run a weekly sushi deal day</strong>: no official source shows one, and half-price claims on social media could not be confirmed. What it has instead is a low everyday price. At the Reston, Virginia store, a <strong>California roll is $5.00 every day</strong>, the same as the Wednesday price at chains that discount once a week. Prices vary by store.",
+    facts: [["Deal day", "None"], ["California roll (5 oz)", "$5.00"], ["Avocado cucumber roll", "$6.99"], ["Spicy shrimp roll", "$7.00"], ["Crunchy California roll", "$7.49"], ["Philadelphia roll", "$8.49"], ["Spicy tuna roll", "$8.99"], ["Checked", "October 2, 2026, on wegmans.com with the store set to Reston, Virginia. Other stores may differ."]],
+    faq: [["Does Wegmans have $5 sushi?", "Yes, for the California roll: $5.00 every day at the Reston, Virginia store when checked on October 2, 2026. Other rolls run from about $7 to $9."],
+      ["Does Wegmans have a sushi Wednesday or half-price sushi?", "No official Wegmans source shows a weekly sushi day or a half-price offer. The only claims found were on social media."],
+      ["Who makes Wegmans sushi?", "Wegmans sells it under its own name and makes it in house, rather than through an outside sushi company."],
+      ["Are the prices the same at every Wegmans?", "No. Wegmans prices by store. Set your store on wegmans.com to see the price near you."]],
+    more: `<p>For a single roll, Wegmans' everyday California roll matches the best weekly deal price at other chains, with no need to plan around a day. For the chains that do discount once a week, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
 ];
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
@@ -980,7 +1042,7 @@ function explainerPage(x, deals) {
   <div class="note">How DailyBite verifies this: the daily refresh re-checks each weekly grocery deal against the store's own site, weekly ad or FAQ, and the owner tests deals in person. Prices vary by store and division, and counters sell out: the price you pay is the one on the shelf tag that day.</div>
   ${EMAIL_CAPTURE}
   ${EXPLAINER_NAV}
-  <nav class="chains"><strong>More:</strong> <a href="/${x.chainSlug}">${esc(x.brand)} deals today</a> &middot; <a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/">All of today's deals</a></nav>
+  <nav class="chains"><strong>More:</strong> ${x.chainSlug ? `<a href="/${x.chainSlug}">${esc(x.brand)} deals today</a> &middot; ` : ""}<a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/">All of today's deals</a></nav>
   ${GUIDES_NAV}
 ` + PAGE_FOOT;
 }
