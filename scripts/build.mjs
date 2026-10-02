@@ -907,7 +907,7 @@ function reportPage(R) {
   return pageHead(title, desc, REPORT_SLUG, [artLd, dataLd], css) + `
   <div class="date">Edition: ${esc(span)}</div>
   <h1>What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks</h1>
-  <p class="answer">Every morning from ${esc(span)}, DailyBite checked healthy restaurant chains and grocery prepared-food counters for deals anyone could claim that day, and kept only what verified against an official source. Over <strong>${R.days} days</strong> that produced <strong>${R.listings} deal listings</strong> from <strong>${R.chains} chains</strong>, about ${R.perDay.average} a day. The short version: the best-known healthy chains almost never discount, grocery sushi counters are the most dependable healthy deal in the country, and truly free food is rare.</p>
+  <p class="answer">Every morning from ${esc(span)}, DailyBite checked healthy restaurant chains and grocery prepared-food counters for deals anyone could claim that day, and listed what passed its checks against official sources. Over <strong>${R.days} days</strong> that produced <strong>${R.listings} deal listings</strong> from <strong>${R.chains} chains</strong>, about ${R.perDay.average} a day. The short version: the best-known healthy chains almost never discount, grocery sushi counters are the most dependable healthy deal in the country, and truly free food is rare.</p>
   <div class="facts">
     <b>Period</b><span>${esc(span)} (${R.days} daily checks)</span>
     <b>Deal listings</b><span>${R.listings}, from ${R.chains} chains</span>
@@ -932,9 +932,10 @@ function reportPage(R) {
   <div class="prose">
   <h2>2. Grocery sushi counters are the most dependable healthy deal</h2>
   <p>Grocery chains were only ${R.shares.grocery}% of listings, but their weekly sushi days were the one deal that returned on schedule every week at a stated price, with no app in most cases. These are the prices logged, for every chain and weekday seen on at least two check days. Prices are per select roll and vary by store and division.</p>
+  <p>The last column is a separate source check made on ${esc(fmtDate(R.recheckDate || R.end))}: it looked for a current official page (the store, its weekly ad, or the company that runs the sushi counter) for each one. Two were confirmed, four had no current official source, and Safeway's $5 Friday sushi ran in some divisions and not others that week. Treat every price here as what was logged, not a guarantee: check the sushi case or call the store.</p>
   </div>
-  <div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>Chain</th><th class="n">Price logged</th></tr></thead><tbody>
-  ${sushiRows.map(s => `<tr><td>${esc(s.day)}</td><td>${esc(s.chain)}</td><td class="n">${money(s.low)}${s.high !== s.low ? " to " + money(s.high) : ""}</td></tr>`).join("\n  ")}
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>Chain</th><th class="n">Price logged</th><th>Source re-check</th></tr></thead><tbody>
+  ${sushiRows.map(s => `<tr><td>${esc(s.day)}</td><td>${esc(s.chain)}</td><td class="n">${money(s.low)}${s.high !== s.low ? " to " + money(s.high) : ""}</td><td>${esc(s.recheck || "Not re-checked")}</td></tr>`).join("\n  ")}
   </tbody></table></div>
   <div class="prose">
   <p>The full weekday guide, with what each store includes and whether a card is needed, is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days page</a>.</p>
@@ -949,7 +950,7 @@ function reportPage(R) {
   <p>${R.shares.standing}% of listings were everyday value menus that do not expire, ${R.shares.dated}% were dated promotions and ${R.shares.weeklyDay}% were weekly day specials. Only ${R.shares.free}% were free food. About a third (${R.shares.needsFreeAccount}%) needed a free account, which is where healthy chains put most of their offers: inside an app, where web search does not see them.</p>
   <h2>How this was measured, and what it cannot tell you</h2>
   <p>Each morning at about 7 AM Eastern an automated check searches official chain pages, weekly ads and newsrooms, and keeps only deals that pass the site's rules: claimable by anyone that day, a stated price or discount, an official source. Paid memberships, first-order promotions, birthday rewards, points games and targeted offers are excluded. Standing weekly grocery deals that were verified once are listed on their day without a new search. One snapshot per calendar day was taken from the site's public history.</p>
-  <p>So this is a record of what one daily check found and could verify, not a census of every promotion that ran. A chain with zero or one day here may have run app-only offers the check could not see. The list of chains covered changed during the period (four casual-dining chains were dropped on September 7, 2026 and more bowl and Mediterranean chains were added), and the saving is an editorial estimate against the regular menu price. The numbers are counts, not rankings of quality.</p>
+  <p>So this is a record of what one daily check found and listed, not a census of every promotion that ran. Weekly grocery deals that were verified once were carried forward on their day, and the source re-check above shows that some of those could not be confirmed again from an official page. A chain with zero or one day here may have run app-only offers the check could not see. The list of chains covered changed during the period (four casual-dining chains were dropped on September 7, 2026 and more bowl and Mediterranean chains were added), and the saving is an editorial estimate against the regular menu price. The numbers are counts, not rankings of quality.</p>
   <h2>Download and cite</h2>
   <p>The dataset is one row per listing per day: date, weekday, chain, deal, category, region, expiry, estimated saving, free or not, account needed or not, and the source link.</p>
   <p><a class="dl" href="/healthy-food-deals-dataset.csv" download>Download the dataset (CSV, ${R.listings} rows)</a></p>

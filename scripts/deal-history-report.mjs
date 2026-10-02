@@ -79,6 +79,21 @@ const data = {
   chainDays: Object.entries(brandDays).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([chain, days]) => ({ chain, days })),
   sushi: Object.entries(sushi).map(([k, v]) => { const [chain, day] = k.split("|"); const p = [...v.prices].sort((a, b) => a - b); return { chain, day, low: p[0], high: p[p.length - 1], daysSeen: v.days }; }).sort((a, b) => WD.indexOf(a.day) - WD.indexOf(b.day) || a.low - b.low || a.chain.localeCompare(b.chain)),
 };
+// Source re-check for this edition (2026-10-02): an independent pass looked for a CURRENT
+// official source (store site, weekly ad, or the sushi vendor's own site) for each sushi day.
+// Update this map, or empty it, when a new edition is generated.
+const RECHECK_DATE = "2026-10-02";
+const RECHECK = {
+  "Hannaford|Wednesday": "Confirmed on the sushi vendor's site",
+  "Dierbergs|Tuesday": "Confirmed on the store's site",
+  "Food Lion|Wednesday": "No current official source found",
+  "Weis Markets|Wednesday": "No current official source found",
+  "Lowes Foods|Wednesday": "Last official post is from January 2025",
+  "Harris Teeter|Friday": "No current official source found",
+  "Safeway|Friday": "Runs in some divisions, not all",
+};
+data.recheckDate = RECHECK_DATE;
+for (const s of data.sushi) s.recheck = RECHECK[s.chain + "|" + s.day] || "Not re-checked";
 writeFileSync(join(root, "report-data.json"), JSON.stringify(data, null, 2) + "\n");
 const q = v => { const t = String(v ?? ""); return /[",\n]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t; };
 writeFileSync(join(root, "healthy-food-deals-dataset.csv"), ["date,weekday,chain,deal,category,region,expires,est_savings_usd,free,needs_free_account,kind,source_url", ...rows.map(r => r.map(q).join(","))].join("\n") + "\n");

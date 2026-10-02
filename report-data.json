@@ -273,126 +273,145 @@
       "day": "Sunday",
       "low": 5,
       "high": 5,
-      "daysSeen": 1
+      "daysSeen": 1,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Dierbergs",
       "day": "Tuesday",
       "low": 6,
       "high": 6,
-      "daysSeen": 2
+      "daysSeen": 2,
+      "recheck": "Confirmed on the store's site"
     },
     {
       "chain": "Lowes Foods",
       "day": "Wednesday",
       "low": 4.99,
       "high": 4.99,
-      "daysSeen": 4
+      "daysSeen": 4,
+      "recheck": "Last official post is from January 2025"
     },
     {
       "chain": "Food Lion",
       "day": "Wednesday",
       "low": 5,
       "high": 5,
-      "daysSeen": 3
+      "daysSeen": 3,
+      "recheck": "No current official source found"
     },
     {
       "chain": "Hannaford",
       "day": "Wednesday",
       "low": 5,
       "high": 5,
-      "daysSeen": 2
+      "daysSeen": 2,
+      "recheck": "Confirmed on the sushi vendor's site"
     },
     {
       "chain": "Kroger",
       "day": "Wednesday",
       "low": 5,
       "high": 6,
-      "daysSeen": 6
+      "daysSeen": 6,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Publix",
       "day": "Wednesday",
       "low": 5,
       "high": 5,
-      "daysSeen": 6
+      "daysSeen": 6,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Sprouts Farmers Market",
       "day": "Wednesday",
       "low": 5,
       "high": 5,
-      "daysSeen": 6
+      "daysSeen": 6,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Weis Markets",
       "day": "Wednesday",
       "low": 5,
       "high": 5,
-      "daysSeen": 2
+      "daysSeen": 2,
+      "recheck": "No current official source found"
     },
     {
       "chain": "Meijer",
       "day": "Wednesday",
       "low": 5.99,
       "high": 5.99,
-      "daysSeen": 1
+      "daysSeen": 1,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Safeway",
       "day": "Wednesday",
       "low": 5.99,
       "high": 6,
-      "daysSeen": 3
+      "daysSeen": 3,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "ShopRite",
       "day": "Wednesday",
       "low": 5.99,
       "high": 5.99,
-      "daysSeen": 4
+      "daysSeen": 4,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Stop & Shop",
       "day": "Wednesday",
       "low": 5.99,
       "high": 5.99,
-      "daysSeen": 1
+      "daysSeen": 1,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Hy-Vee",
       "day": "Wednesday",
       "low": 6,
       "high": 6,
-      "daysSeen": 4
+      "daysSeen": 4,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "H-E-B",
       "day": "Wednesday",
       "low": 7,
       "high": 7,
-      "daysSeen": 4
+      "daysSeen": 4,
+      "recheck": "Not re-checked"
     },
     {
       "chain": "Harris Teeter",
       "day": "Friday",
       "low": 5,
       "high": 5,
-      "daysSeen": 7
+      "daysSeen": 7,
+      "recheck": "No current official source found"
     },
     {
       "chain": "Safeway",
       "day": "Friday",
       "low": 5,
       "high": 5,
-      "daysSeen": 7
+      "daysSeen": 7,
+      "recheck": "Runs in some divisions, not all"
     },
     {
       "chain": "H-E-B",
       "day": "Saturday",
       "low": 7,
       "high": 7,
-      "daysSeen": 3
+      "daysSeen": 3,
+      "recheck": "Not re-checked"
     }
-  ]
+  ],
+  "recheckDate": "2026-10-02"
 }
