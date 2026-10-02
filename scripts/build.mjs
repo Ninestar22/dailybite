@@ -79,7 +79,7 @@ const CHAINS = [
   { slug: "meijer-deals",       name: "Meijer", note: "Participating Meijer stores run Sushi Wednesday: select fresh rolls for $5.99 (recently $5). It appears below every Wednesday when verified." },
 ];
 
-const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
+const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/healthy-food-deals-report">Deals Report</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
 
 // Newsletter signup retired 2026-09-18 (owner: nobody used it, it cluttered the pages). Kept as an
 // empty slot so the page templates stay unchanged.
@@ -881,6 +881,86 @@ const EXPLAINERS = [
 ];
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
+// Deals report (2026-10-02): a dated, citable snapshot built from report-data.json, which
+// scripts/deal-history-report.mjs generates from the repo's own daily history. The page does
+// not change day to day: a new edition is a deliberate re-run of that script. Original data
+// is the one thing here other sites can cite, which is how the site earns its first links.
+const REPORT_SLUG = "healthy-food-deals-report";
+function loadReport() {
+  try { return JSON.parse(readFileSync(join(root, "report-data.json"), "utf8")); } catch { return null; }
+}
+function reportPage(R) {
+  const fmtDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const span = `${fmtDate(R.start)} to ${fmtDate(R.end)}`;
+  const daysOf = name => (R.chainDays.find(c => c.chain === name) || { days: 0 }).days;
+  const HEADLINE = ["Panera Bread", "Subway", "Noodles & Company", "Chipotle", "Tropical Smoothie Cafe", "Smoothie King", "Potbelly", "Qdoba", "Sweetgreen", "Chick-fil-A", "CAVA", "Starbucks", "Just Salad", "Jamba"];
+  const headlineRows = HEADLINE.map(n => [n, daysOf(n)]).sort((a, b) => b[1] - a[1]);
+  const bar = n => `<span class="bar"><i style="width:${Math.max(2, Math.round(100 * n / R.days))}%"></i></span>`;
+  const sushiRows = R.sushi.filter(s => s.daysSeen >= 2);
+  const money = n => "$" + (n % 1 ? n.toFixed(2) : n);
+  const best = [...R.byWeekday].sort((a, b) => b.average - a.average);
+  const title = `What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks (2026 Report)`;
+  const desc = `We checked healthy restaurant chains and grocery counters every morning for ${R.days} days and logged ${R.listings} verified deal listings across ${R.chains} chains. Which chains really discount, which days are best, what grocery sushi costs, and the full dataset to download.`;
+  const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": title, "datePublished": R.generated, "dateModified": R.generated, "author": { "@type": "Person", "name": "Jacob Elsayed" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
+  const dataLd = { "@context": "https://schema.org", "@type": "Dataset", "name": `DailyBite healthy food deals dataset, ${R.edition}`, "description": `Every verified healthy food deal listed by DailyBite on each of ${R.days} days (${R.listings} rows): date, chain, deal, category, region, expiry, estimated saving, whether it was free and whether it needed a free account.`, "url": `${SITE}/${REPORT_SLUG}`, "temporalCoverage": `${R.start}/${R.end}`, "spatialCoverage": "United States", "creator": { "@type": "Organization", "name": "DailyBite", "url": SITE }, "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": `${SITE}/healthy-food-deals-dataset.csv` }] };
+  const css = `.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin:12px 0}.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th,.tbl td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:middle}.tbl tr:last-child td{border-bottom:0}.tbl th{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}.tbl td.n,.tbl th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.bar{display:inline-block;width:120px;max-width:30vw;height:8px;border-radius:99px;background:var(--chip);vertical-align:middle;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}.cite{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.55;color:var(--ink);margin:12px 0}.dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 14px;border-radius:10px;margin:6px 0}details.all{margin:10px 2px}details.all summary{cursor:pointer;color:var(--accent2);font-size:14px;font-weight:600}`;
+  return pageHead(title, desc, REPORT_SLUG, [artLd, dataLd], css) + `
+  <div class="date">Edition: ${esc(span)}</div>
+  <h1>What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks</h1>
+  <p class="answer">Every morning from ${esc(span)}, DailyBite checked healthy restaurant chains and grocery prepared-food counters for deals anyone could claim that day, and kept only what verified against an official source. Over <strong>${R.days} days</strong> that produced <strong>${R.listings} deal listings</strong> from <strong>${R.chains} chains</strong>, about ${R.perDay.average} a day. The short version: the best-known healthy chains almost never discount, grocery sushi counters are the most dependable healthy deal in the country, and truly free food is rare.</p>
+  <div class="facts">
+    <b>Period</b><span>${esc(span)} (${R.days} daily checks)</span>
+    <b>Deal listings</b><span>${R.listings}, from ${R.chains} chains</span>
+    <b>Per day</b><span>${R.perDay.average} on average (median ${R.perDay.median}, range ${R.perDay.min} to ${R.perDay.max})</span>
+    <b>Truly free</b><span>${R.shares.free}% of listings</span>
+    <b>Needs a free account</b><span>${R.shares.needsFreeAccount}% of listings (an app, rewards program or store card that costs nothing)</span>
+    <b>Standing value menus</b><span>${R.shares.standing}% of listings; dated promotions were ${R.shares.dated}% and weekly day specials ${R.shares.weeklyDay}%</span>
+    <b>Regional</b><span>${R.shares.regional}% of listings were not available nationwide</span>
+    <b>Typical saving</b><span>About ${money(R.medianStatedSaving)} per order (median of ${R.listingsWithSaving} listings with an estimate)</span>
+  </div>
+  <div class="prose">
+  <h2>1. The best-known healthy chains almost never run a deal</h2>
+  <p>The table counts the days, out of ${R.days}, on which the daily check found and verified at least one deal for each chain. CAVA appeared on ${daysOf("CAVA")} day, Starbucks on ${daysOf("Starbucks")}, Chick-fil-A on ${daysOf("Chick-fil-A")} and Sweetgreen on ${daysOf("Sweetgreen")}. Chipotle, which markets promotions heavily, had one on ${daysOf("Chipotle")} days. The chains that show up most are the ones with a permanent value menu or a standing promo code.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Chain</th><th class="n">Days with a verified deal</th><th>Share of ${R.days} days</th></tr></thead><tbody>
+  ${headlineRows.map(([n, d]) => `<tr><td>${esc(n)}</td><td class="n">${d}</td><td>${bar(d)}</td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <details class="all"><summary>All ${R.chains} chains</summary>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Chain</th><th class="n">Days</th></tr></thead><tbody>
+  ${R.chainDays.map(c => `<tr><td>${esc(c.chain)}</td><td class="n">${c.days}</td></tr>`).join("\n  ")}
+  </tbody></table></div></details>
+  <div class="prose">
+  <h2>2. Grocery sushi counters are the most dependable healthy deal</h2>
+  <p>Grocery chains were only ${R.shares.grocery}% of listings, but their weekly sushi days were the one deal that returned on schedule every week at a stated price, with no app in most cases. These are the prices logged, for every chain and weekday seen on at least two check days. Prices are per select roll and vary by store and division.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>Chain</th><th class="n">Price logged</th></tr></thead><tbody>
+  ${sushiRows.map(s => `<tr><td>${esc(s.day)}</td><td>${esc(s.chain)}</td><td class="n">${money(s.low)}${s.high !== s.low ? " to " + money(s.high) : ""}</td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <div class="prose">
+  <p>The full weekday guide, with what each store includes and whether a card is needed, is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days page</a>.</p>
+  <h2>3. Wednesday and Friday are the best days to look</h2>
+  <p>${esc(best[0].day)} averaged ${best[0].average} verified deals and ${esc(best[1].day)} ${best[1].average}, against ${best[best.length - 1].average} on ${esc(best[best.length - 1].day)}, the thinnest day. The difference is almost entirely the grocery sushi days.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Weekday</th><th class="n">Average verified deals</th><th></th></tr></thead><tbody>
+  ${R.byWeekday.map(w => `<tr><td>${esc(w.day)}</td><td class="n">${w.average}</td><td><span class="bar"><i style="width:${Math.round(100 * w.average / best[0].average)}%"></i></span></td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <div class="prose">
+  <h2>4. Most healthy "deals" are standing menus, not promotions</h2>
+  <p>${R.shares.standing}% of listings were everyday value menus that do not expire, ${R.shares.dated}% were dated promotions and ${R.shares.weeklyDay}% were weekly day specials. Only ${R.shares.free}% were free food. About a third (${R.shares.needsFreeAccount}%) needed a free account, which is where healthy chains put most of their offers: inside an app, where web search does not see them.</p>
+  <h2>How this was measured, and what it cannot tell you</h2>
+  <p>Each morning at about 7 AM Eastern an automated check searches official chain pages, weekly ads and newsrooms, and keeps only deals that pass the site's rules: claimable by anyone that day, a stated price or discount, an official source. Paid memberships, first-order promotions, birthday rewards, points games and targeted offers are excluded. Standing weekly grocery deals that were verified once are listed on their day without a new search. One snapshot per calendar day was taken from the site's public history.</p>
+  <p>So this is a record of what one daily check found and could verify, not a census of every promotion that ran. A chain with zero or one day here may have run app-only offers the check could not see. The list of chains covered changed during the period (four casual-dining chains were dropped on September 7, 2026 and more bowl and Mediterranean chains were added), and the saving is an editorial estimate against the regular menu price. The numbers are counts, not rankings of quality.</p>
+  <h2>Download and cite</h2>
+  <p>The dataset is one row per listing per day: date, weekday, chain, deal, category, region, expiry, estimated saving, free or not, account needed or not, and the source link.</p>
+  <p><a class="dl" href="/healthy-food-deals-dataset.csv" download>Download the dataset (CSV, ${R.listings} rows)</a></p>
+  <div class="cite">Cite as: DailyBite, "What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks", ${esc(span)}. ${SITE}/${REPORT_SLUG}. Data free to reuse with attribution (CC BY 4.0).</div>
+  <p>Questions or corrections: jacob@dailybitedeals.com. See also the <a href="/verification-log" style="color:var(--accent2)">daily verification log</a> and the <a href="/cheap-healthy-meals" style="color:var(--accent2)">cheapest healthy meals index</a>.</p>
+  </div>
+  <nav class="chains"><strong>More:</strong> <a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a> &middot; <a href="/">All of today's deals</a></nav>
+  ${GUIDES_NAV}
+` + PAGE_FOOT;
+}
+
 function explainerPage(x, deals) {
   const live = deals.filter(d => canonBrand(d.brand) === canonBrand(x.brand));
   const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": x.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
@@ -1427,6 +1507,8 @@ function main() {
   writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
   writeFileSync(join(root, "sushi-deals.html"), sushiPage(deals));
   for (const x of EXPLAINERS) writeFileSync(join(root, `${x.slug}.html`), explainerPage(x, deals));
+  const REPORT = loadReport();
+  if (REPORT) { writeFileSync(join(root, `${REPORT_SLUG}.html`), reportPage(REPORT)); console.log(`Built ${REPORT_SLUG}.html (${REPORT.days} days, ${REPORT.listings} listings).`); }
   writeFileSync(join(root, "food-deals-by-day.html"), byDayPage(deals));
   if (mealsOn) {
     writeFileSync(join(root, "meals.json"), JSON.stringify({ updated: MEALS.updated, note: "Nutrition is from official chain sources; prices are typical and vary by location. protein_per_dollar = protein / price.", meals: MEALS.meals }, null, 2) + "\n");
@@ -1449,7 +1531,7 @@ function main() {
   console.log(`Built verification-log.html (${vlog.length} entries).`);
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
     urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
     `\n</urlset>\n`;

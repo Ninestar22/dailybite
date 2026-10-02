@@ -1,0 +1,398 @@
+{
+  "edition": "2026-08-10 to 2026-10-02",
+  "start": "2026-08-10",
+  "end": "2026-10-02",
+  "generated": "2026-10-02",
+  "days": 52,
+  "listings": 493,
+  "chains": 53,
+  "perDay": {
+    "average": 9.5,
+    "median": 9,
+    "min": 6,
+    "max": 21
+  },
+  "byWeekday": [
+    {
+      "day": "Sunday",
+      "average": 8.1
+    },
+    {
+      "day": "Monday",
+      "average": 9.3
+    },
+    {
+      "day": "Tuesday",
+      "average": 8.9
+    },
+    {
+      "day": "Wednesday",
+      "average": 12.8
+    },
+    {
+      "day": "Thursday",
+      "average": 7.9
+    },
+    {
+      "day": "Friday",
+      "average": 10.6
+    },
+    {
+      "day": "Saturday",
+      "average": 8.4
+    }
+  ],
+  "shares": {
+    "free": 4.3,
+    "needsFreeAccount": 35.5,
+    "grocery": 20.1,
+    "regional": 52.5,
+    "standing": 58,
+    "weeklyDay": 13.4,
+    "dated": 28.6
+  },
+  "medianStatedSaving": 3,
+  "listingsWithSaving": 307,
+  "chainDays": [
+    {
+      "chain": "Panera Bread",
+      "days": 34
+    },
+    {
+      "chain": "Subway",
+      "days": 34
+    },
+    {
+      "chain": "Noodles & Company",
+      "days": 31
+    },
+    {
+      "chain": "Naf Naf Grill",
+      "days": 27
+    },
+    {
+      "chain": "Publix",
+      "days": 27
+    },
+    {
+      "chain": "Chili's",
+      "days": 26
+    },
+    {
+      "chain": "El Pollo Loco",
+      "days": 26
+    },
+    {
+      "chain": "Rubio's Coastal Grill",
+      "days": 25
+    },
+    {
+      "chain": "Salad and Go",
+      "days": 19
+    },
+    {
+      "chain": "WaBa Grill",
+      "days": 19
+    },
+    {
+      "chain": "Tijuana Flats",
+      "days": 15
+    },
+    {
+      "chain": "Pokeworks",
+      "days": 13
+    },
+    {
+      "chain": "Chipotle",
+      "days": 12
+    },
+    {
+      "chain": "Safeway",
+      "days": 11
+    },
+    {
+      "chain": "Tropical Smoothie Cafe",
+      "days": 11
+    },
+    {
+      "chain": "Shake Shack",
+      "days": 10
+    },
+    {
+      "chain": "Wingstop",
+      "days": 10
+    },
+    {
+      "chain": "Harris Teeter",
+      "days": 8
+    },
+    {
+      "chain": "Hy-Vee",
+      "days": 8
+    },
+    {
+      "chain": "H-E-B",
+      "days": 7
+    },
+    {
+      "chain": "Smoothie King",
+      "days": 7
+    },
+    {
+      "chain": "Kroger",
+      "days": 6
+    },
+    {
+      "chain": "Sprouts Farmers Market",
+      "days": 6
+    },
+    {
+      "chain": "Potbelly",
+      "days": 5
+    },
+    {
+      "chain": "Lowes Foods",
+      "days": 4
+    },
+    {
+      "chain": "Qdoba",
+      "days": 4
+    },
+    {
+      "chain": "ShopRite",
+      "days": 4
+    },
+    {
+      "chain": "Food Lion",
+      "days": 3
+    },
+    {
+      "chain": "McAlister's Deli",
+      "days": 3
+    },
+    {
+      "chain": "Sweetgreen",
+      "days": 3
+    },
+    {
+      "chain": "Walmart",
+      "days": 3
+    },
+    {
+      "chain": "Chick-fil-A",
+      "days": 2
+    },
+    {
+      "chain": "Dierbergs",
+      "days": 2
+    },
+    {
+      "chain": "Five Guys",
+      "days": 2
+    },
+    {
+      "chain": "Hannaford",
+      "days": 2
+    },
+    {
+      "chain": "Island Fin Poke",
+      "days": 2
+    },
+    {
+      "chain": "Jason's Deli",
+      "days": 2
+    },
+    {
+      "chain": "Kura Sushi",
+      "days": 2
+    },
+    {
+      "chain": "Nekter Juice Bar",
+      "days": 2
+    },
+    {
+      "chain": "Weis Markets",
+      "days": 2
+    },
+    {
+      "chain": "CAVA",
+      "days": 1
+    },
+    {
+      "chain": "Chicken Salad Chick",
+      "days": 1
+    },
+    {
+      "chain": "Chopt Creative Salad Co.",
+      "days": 1
+    },
+    {
+      "chain": "Clean Juice",
+      "days": 1
+    },
+    {
+      "chain": "Jamba",
+      "days": 1
+    },
+    {
+      "chain": "Just Salad",
+      "days": 1
+    },
+    {
+      "chain": "Luna Grill",
+      "days": 1
+    },
+    {
+      "chain": "Meijer",
+      "days": 1
+    },
+    {
+      "chain": "Playa Bowls",
+      "days": 1
+    },
+    {
+      "chain": "Saladworks",
+      "days": 1
+    },
+    {
+      "chain": "Starbucks",
+      "days": 1
+    },
+    {
+      "chain": "Stop & Shop",
+      "days": 1
+    },
+    {
+      "chain": "The Halal Guys",
+      "days": 1
+    }
+  ],
+  "sushi": [
+    {
+      "chain": "Safeway",
+      "day": "Sunday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 1
+    },
+    {
+      "chain": "Dierbergs",
+      "day": "Tuesday",
+      "low": 6,
+      "high": 6,
+      "daysSeen": 2
+    },
+    {
+      "chain": "Lowes Foods",
+      "day": "Wednesday",
+      "low": 4.99,
+      "high": 4.99,
+      "daysSeen": 4
+    },
+    {
+      "chain": "Food Lion",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 3
+    },
+    {
+      "chain": "Hannaford",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 2
+    },
+    {
+      "chain": "Kroger",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 6,
+      "daysSeen": 6
+    },
+    {
+      "chain": "Publix",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 6
+    },
+    {
+      "chain": "Sprouts Farmers Market",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 6
+    },
+    {
+      "chain": "Weis Markets",
+      "day": "Wednesday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 2
+    },
+    {
+      "chain": "Meijer",
+      "day": "Wednesday",
+      "low": 5.99,
+      "high": 5.99,
+      "daysSeen": 1
+    },
+    {
+      "chain": "Safeway",
+      "day": "Wednesday",
+      "low": 5.99,
+      "high": 6,
+      "daysSeen": 3
+    },
+    {
+      "chain": "ShopRite",
+      "day": "Wednesday",
+      "low": 5.99,
+      "high": 5.99,
+      "daysSeen": 4
+    },
+    {
+      "chain": "Stop & Shop",
+      "day": "Wednesday",
+      "low": 5.99,
+      "high": 5.99,
+      "daysSeen": 1
+    },
+    {
+      "chain": "Hy-Vee",
+      "day": "Wednesday",
+      "low": 6,
+      "high": 6,
+      "daysSeen": 4
+    },
+    {
+      "chain": "H-E-B",
+      "day": "Wednesday",
+      "low": 7,
+      "high": 7,
+      "daysSeen": 4
+    },
+    {
+      "chain": "Harris Teeter",
+      "day": "Friday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 7
+    },
+    {
+      "chain": "Safeway",
+      "day": "Friday",
+      "low": 5,
+      "high": 5,
+      "daysSeen": 7
+    },
+    {
+      "chain": "H-E-B",
+      "day": "Saturday",
+      "low": 7,
+      "high": 7,
+      "daysSeen": 3
+    }
+  ]
+}
