@@ -89,7 +89,7 @@ const RECHECK = {
   "Food Lion|Wednesday": "No current official source found",
   "Weis Markets|Wednesday": "No current official source found",
   "Lowes Foods|Wednesday": "Last official post is from January 2025",
-  "Harris Teeter|Friday": "No current official source found",
+  "Harris Teeter|Friday": "Confirmed in store by the owner, Oct 2, 2026: now $6",
   "Safeway|Friday": "Runs in some divisions, not all",
 };
 data.recheckDate = RECHECK_DATE;

@@ -147,23 +147,6 @@
       "id": "a819b9f1"
     },
     {
-      "brand": "Harris Teeter",
-      "cat": "Sushi",
-      "color": "#00529b",
-      "ic": "HT",
-      "deal": "$5 Sushi Friday: Select Rolls for $5",
-      "desc": "Most Harris Teeter stores sell select fresh sushi entrees for $5 every Friday (regularly $7 to $9), in-store only, while supplies last. Swipe the free VIC card at checkout for the promo price; selection varies by store.",
-      "tags": [],
-      "value": 4,
-      "expires": "Fridays only",
-      "url": "https://www.harristeeter.com/",
-      "best": false,
-      "region": "Southeast & Mid-Atlantic",
-      "isNew": true,
-      "endingSoon": false,
-      "id": "87cf2b0b"
-    },
-    {
       "brand": "Hy-Vee",
       "cat": "Sushi",
       "color": "#e31837",
@@ -198,6 +181,24 @@
       "isNew": true,
       "endingSoon": false,
       "id": "6d31e275"
+    },
+    {
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "color": "#00529b",
+      "ic": "HT",
+      "deal": "$6 Sushi Friday: California, Vegetable, Spicy Tuna and Spicy Salmon Rolls",
+      "desc": "Every Friday, Harris Teeter's Zenshi sushi counters sell four rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon (regularly about $9.49 to $10.49). In store, while supplies last; the free VIC card may be needed for the promo price. Seen in store October 2, 2026.",
+      "tags": [],
+      "value": 4,
+      "est_savings": 3.5,
+      "expires": "Fridays only",
+      "url": "https://www.harristeeter.com/",
+      "best": false,
+      "region": "Southeast & Mid-Atlantic",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "d436e568"
     }
   ]
 }

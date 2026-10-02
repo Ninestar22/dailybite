@@ -69,7 +69,7 @@ const CHAINS = [
   { slug: "sarku-japan-deals",  name: "Sarku Japan" },
   { slug: "shake-shack-deals",  name: "Shake Shack", banned: true }, // removed 2026-09-07 (healthy-only roster)
   { slug: "safeway-deals",      name: "Safeway", note: "Safeway's standing deal is $5 Friday: every Friday the lineup includes fresh sushi rolls for $5 (regularly $8 to $10) plus other prepared foods like an 8-piece chicken bag. The lineup posts Wednesdays in the weekly ad and varies by division; a free Safeway for U account may be needed. It appears below every Friday." },
-  { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $5 Sushi Friday: most stores sell select fresh sushi entrees for $5 (regularly $7 to $9) every Friday, in-store only, while supplies last, with the free VIC card. It appears below every Friday." },
+  { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $6 Sushi Friday: select Zenshi rolls (California, Vegetable, Spicy Tuna and Spicy Salmon) are $6 every Friday, regularly about $9.49 to $10.49, in store while supplies last. Seen in store on October 2, 2026. It appears below every Friday." },
   { slug: "kroger-deals",       name: "Kroger", note: "Kroger-family stores (Kroger, Fred Meyer, Fry's, King Soopers, Smith's, QFC, Ralphs) run a Wednesday Only sushi promo at their Snowfox and Zenshi counters: select rolls, spicy tuna and Philly included, at a flat promo price of $6 (up from $5 in 2025). It appears below every Wednesday." },
   { slug: "sprouts-deals",      name: "Sprouts", note: "Sprouts runs Sushi Wednesday in most markets: select Oumi rolls from the in-store sushi case for $5 every Wednesday, no coupon or app needed. It appears below every Wednesday, alongside any other verified Sprouts deli deal." },
   { slug: "publix-deals",       name: "Publix", note: "Publix's standing deal is $5 Sushi Wednesday: select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 at stores with a sushi counter across FL & the Southeast, no coupon or app needed. It appears below every Wednesday." },
@@ -416,7 +416,7 @@ function sushiPage(deals) {
   const SUSHI_CHAINS = new Set(["kura sushi", "sarku japan", "rock n roll sushi", "sushi maki", "pokeworks", "island fin poke"]);
   const todays = deals.filter(d => /sushi|poke/i.test(d.cat || "") || SUSHI_CHAINS.has(canonBrand(d.brand)));
   const title = "$5 Sushi Days: Publix Wednesday, Kroger, Safeway $5 Friday & More (2026)";
-  const desc = `$5 Sushi Wednesday at Publix, Sprouts and Kroger stores; $5 Friday sushi at Safeway and Harris Teeter. Every verified weekly sushi day in one place, re-checked daily. Updated ${prettyDate}.`;
+  const desc = `$5 Sushi Wednesday at Publix, Sprouts and Kroger stores; $6 Zenshi rolls at Harris Teeter and $5 Friday sushi at Safeway. Every verified weekly sushi day in one place, re-checked daily. Updated ${prettyDate}.`;
   const ROWS = [
     ["Wednesday", "Publix", "$5 select fresh-made rolls (spicy tuna, California, spicy shrimp and more)", "FL & Southeast; no card or app needed"],
     ["Wednesday", "Sprouts", "$5 select Oumi rolls (regularly $7 to $10)", "Most markets; no card needed"],
@@ -429,7 +429,7 @@ function sushiPage(deals) {
     ["Tuesday", "Dierbergs", "$6 select hand-rolled Bento sushi", "St. Louis area"],
     ["Thursday", "Fresh Thyme", "Sushi Thursday: select rolls discounted (price varies by store; $5 in past years)", "Midwest"],
     ["Friday", "Safeway / Albertsons", "$5 Friday: fresh sushi rolls for $5, alongside other prepared-food deals", "Select states; free Safeway for U account may be needed"],
-    ["Friday", "Harris Teeter", "$5 select sushi entrees (regularly $7 to $9), in-store, while supplies last", "Southeast & Mid-Atlantic; free VIC card"],
+    ["Friday", "Harris Teeter", "$6 select Zenshi rolls: California, Vegetable, Spicy Tuna and Spicy Salmon (regularly about $9.49 to $10.49), in store, while supplies last", "Southeast & Mid-Atlantic; seen in store October 2, 2026"],
     ["Wednesday", "Hy-Vee", "Select Nori Sushi rolls $6 (regularly about $8 to $10)", "Midwest; participating stores"],
     ["Wednesday", "H-E-B", "Select Sushiya rolls $7 (repeats on Saturdays)", "Texas"],
     ["Wednesday", "Meijer", "Select rolls $5.99 (recently raised from $5)", "Midwest; participating stores"],
@@ -694,7 +694,7 @@ const DAY_NOTES = {
   tuesday: "Tuesday is taco night: Tijuana Flats runs Taco Tuesdaze (two tacos, chips, and a drink for about $7.99) at participating FL & Southeast locations, and taco specials across chains make this one of the cheapest dinner nights of the week.",
   wednesday: "Wednesday is grocery sushi day almost everywhere: Publix, Sprouts, Food Lion, Weis and Hannaford run $5 select rolls, Lowes Foods $4.99, Kroger-family and Hy-Vee stores $6, H-E-B $7, and Meijer, ShopRite and Stop & Shop $5.99, all at the in-store counter with no coupon or app. Go before the lunch rush: the $5 selection sells out first.",
   thursday: "Chains tend to preview weekend offers on Thursdays: check the app deal tabs tonight for anything expiring Sunday.",
-  friday: "Friday is grocery deal day: many Safeway and Albertsons divisions run $5 Friday on prepared foods like sushi and 8-piece chicken, Harris Teeter runs $5 sushi Fridays (free VIC card), and Hy-Vee's Nori Sushi counters go buy one, get one 50% off.",
+  friday: "Friday is grocery deal day: many Safeway and Albertsons divisions run $5 Friday on prepared foods like sushi and 8-piece chicken, Harris Teeter sells four Zenshi rolls for $6 on Fridays, and Hy-Vee's Nori Sushi counters go buy one, get one 50% off.",
   saturday: "Weekends skew toward family bundles and delivery-app promos: single-visit value boxes still apply, breakfast deals run later than weekdays, and H-E-B repeats its $7 select-roll sushi price on Saturdays across Texas.",
   sunday: "Sunday is prep-for-the-week day: stack what\u2019s left of weekend offers, and remember most app deal tabs refresh Monday morning.",
 };
@@ -800,17 +800,21 @@ const EXPLAINERS = [
       ["Is it Safeway or Albertsons?", "Both. $5 Friday runs across the Albertsons Companies banners (Safeway, Albertsons, Vons, Tom Thumb, Randalls, Jewel-Osco, ACME, Shaw's) in the divisions that participate."],
       ["Is there a Wednesday sushi deal too?", "Many Safeway divisions also price Zenshi rolls at $5.99 to $6 on Wednesdays. Friday is the better price when sushi makes the $5 Friday list."]],
     more: `<p>$5 Friday is the single most reliable grocery prepared-food deal in the country because it is built into the weekly ad rather than run at the counter's discretion. If sushi is missing from your division's list one week, the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> shows the other chains' days, and the <a href="/safeway-deals" style="color:var(--accent2)">Safeway page</a> carries whatever DailyBite verified today.</p>` },
+  // Harris Teeter: the $5 price dated from the 2024 launch. The owner saw the current sign in a
+  // Reston, VA store on 2026-10-02: Zenshi rolls, $6, four varieties. The slug keeps the old "5"
+  // so the indexed URL does not break.
   { slug: "harris-teeter-5-sushi-friday", brand: "Harris Teeter", chainSlug: "harris-teeter-deals", day: 5,
-    title: "Harris Teeter $5 Sushi Friday: What's $5, Where & the VIC Card (2026)",
-    h1: "Harris Teeter $5 Sushi Friday",
-    desc: "Every Friday, most Harris Teeter stores sell select fresh sushi entrees for $5, regularly $7 to $9, in-store with the free VIC card. Which rolls, which states, and when to go.",
-    answer: "Every Friday, most Harris Teeter stores sell <strong>select fresh sushi entrees for $5</strong>, regularly $7 to $9. It is in-store only, while supplies last, and the price is a VIC card price: the VIC card is free and can be issued at the register.",
-    facts: [["Day", "Every Friday, in-store, while supplies last"], ["Price", "$5 per select sushi entree (regularly $7 to $9)"], ["What", "Select fresh rolls and combos from the in-store sushi counter"], ["Where", "Harris Teeter stores in Virginia, North and South Carolina, Maryland, DC, Delaware, Georgia and Florida with a sushi counter"], ["What you need", "The free VIC card"], ["Verified", "Re-checked weekly by DailyBite and listed in the daily deal feed every Friday"]],
-    faq: [["Do all Harris Teeter stores do $5 sushi Friday?", "Most stores with a sushi counter do. A few markets run it on different terms, so check the sushi case sign or the weekly ad for your store."],
-      ["Do I need the VIC card?", "Yes, the $5 price is a VIC price. The card is free, has no fees, and can be created at customer service or in the app in a minute."],
-      ["Which sushi is $5?", "Select entrees, usually the classic rolls and small combo packs. Premium platters are excluded. The selection varies by store."],
+    title: "Harris Teeter Sushi Friday: Four Zenshi Rolls for $6 Each, Was $5 (2026)",
+    h1: "Harris Teeter $6 Sushi Friday",
+    desc: "On Fridays, Harris Teeter sells four Zenshi rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon, regularly about $9.49 to $10.49. Seen in store on October 2, 2026. Which rolls, where, and what you need.",
+    answer: "On Fridays, Harris Teeter's in-store Zenshi sushi counters sell <strong>four rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon</strong>. Regular prices on harristeeter.com run about $9.49 to $10.49, so the saving is $3.50 to $4.50 a roll. The price was $5 when the promotion launched in 2024; DailyBite's owner saw the $6 sign at the sushi case in a Reston, Virginia store on October 2, 2026.",
+    facts: [["Day", "Every Friday, in store, while supplies last"], ["Price", "$6 per roll (regularly about $9.49 to $10.49)"], ["What", "California, Vegetable, Spicy Tuna and Spicy Salmon rolls from the Zenshi counter"], ["Where", "Harris Teeter stores with a sushi counter: Virginia, North and South Carolina, Maryland, DC, Delaware, Georgia and Florida"], ["What you need", "Harris Teeter promo prices are usually VIC card prices; the card is free and issued at the register"], ["Checked", "October 2, 2026, in store in Reston, Virginia (the sign at the sushi case); regular prices from harristeeter.com the same day"]],
+    faq: [["Is Harris Teeter sushi still $5 on Friday?", "No. It is $6 a roll as of October 2026. The $5 price dates from the 2024 launch of Harris Teeter's $5 meal days, and older articles still quote it."],
+      ["Which rolls are $6?", "Four Zenshi rolls: California, Vegetable, Spicy Tuna and Spicy Salmon. Other rolls, platters and combos stay at their regular price."],
+      ["Do I need the VIC card?", "Harris Teeter's promo prices are normally VIC prices. The card is free, has no fees, and can be created at customer service or in the app in a minute. If the sign in your store says VIC, scan it at checkout."],
+      ["Do all Harris Teeter stores do Sushi Friday?", "Stores with a Zenshi sushi counter. The weekly ad does not list it, so the sign at the case is the final word; a few markets may run it on different terms."],
       ["What time does it sell out?", "Counters make rolls in the morning, and Friday lunch is the peak. Late morning is the safest time; evening selection is thin at busy stores."]],
-    more: `<p>For Northern Virginia, DC and the Carolinas, Harris Teeter's Friday deal and Safeway's $5 Friday overlap, so Friday is sushi day in the Mid-Atlantic. Wednesday belongs to Publix, Sprouts and Kroger. The full weekly calendar is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>; today's verified Harris Teeter deals are on the <a href="/harris-teeter-deals" style="color:var(--accent2)">Harris Teeter page</a>.</p>` },
+    more: `<p>For Northern Virginia, DC and the Carolinas, Friday is sushi day: Harris Teeter's $6 rolls, and Safeway's $5 Friday where that division runs it. Wednesday belongs to Publix, Sprouts, Hannaford and Kroger. The full weekly calendar is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>; today's verified Harris Teeter deals are on the <a href="/harris-teeter-deals" style="color:var(--accent2)">Harris Teeter page</a>.</p>` },
   { slug: "panera-4-99-mix-and-match", brand: "Panera", chainSlug: "panera-deals", day: null,
     title: "What Is the $4.99 Special at Panera? The Mix & Match Value Menu Explained (2026)",
     h1: "Panera's $4.99 Special: Mix & Match",
@@ -1033,7 +1037,7 @@ function reportPage(R) {
   <div class="prose">
   <h2>2. Grocery sushi counters are the most dependable healthy deal</h2>
   <p>Grocery chains were only ${R.shares.grocery}% of listings, but their weekly sushi days were the one deal that returned on schedule every week at a stated price, with no app in most cases. These are the prices logged, for every chain and weekday seen on at least two check days. Prices are per select roll and vary by store and division.</p>
-  <p>The last column is a separate source check made on ${esc(fmtDate(R.recheckDate || R.end))}: it looked for a current official page (the store, its weekly ad, or the company that runs the sushi counter) for each one. Two were confirmed, four had no current official source, and Safeway's $5 Friday sushi ran in some divisions and not others that week. Treat every price here as what was logged, not a guarantee: check the sushi case or call the store.</p>
+  <p>The last column is a separate source check made on ${esc(fmtDate(R.recheckDate || R.end))}: it looked for a current official page (the store, its weekly ad, or the company that runs the sushi counter) for each one. Three were confirmed (Harris Teeter in person by the owner, who found the price is now $6), three had no current official source, and Safeway's $5 Friday sushi ran in some divisions and not others that week. Treat every price here as what was logged, not a guarantee: check the sushi case or call the store.</p>
   </div>
   <div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>Chain</th><th class="n">Price logged</th><th>Source re-check</th></tr></thead><tbody>
   ${sushiRows.map(s => `<tr><td>${esc(s.day)}</td><td>${esc(s.chain)}</td><td class="n">${money(s.low)}${s.high !== s.low ? " to " + money(s.high) : ""}</td><td>${esc(s.recheck || "Not re-checked")}</td></tr>`).join("\n  ")}
@@ -1094,7 +1098,7 @@ function explainerPage(x, deals) {
 // near-duplicates that Google left in "discovered, not indexed"; they now redirect here.
 function byDayPage(deals) {
   const title = "Food Deals by Day of the Week: Sushi Wednesday, $5 Friday, Taco Tuesday & More (2026)";
-  const desc = `Which healthy food deals repeat on which weekday: Wednesday sushi days at Publix, Sprouts and Kroger, $5 Friday at Safeway and Harris Teeter, Taco Tuesdaze at Tijuana Flats, and what refreshes on Mondays. Updated ${prettyDate}.`;
+  const desc = `Which healthy food deals repeat on which weekday: Wednesday sushi days at Publix, Sprouts and Kroger, $5 Friday at Safeway and $6 Zenshi rolls at Harris Teeter, Taco Tuesdaze at Tijuana Flats, and what refreshes on Mondays. Updated ${prettyDate}.`;
   const sections = DAYS.map((day, i) => {
     const cap = day[0].toUpperCase() + day.slice(1);
     const rx = new RegExp(day, "i");
