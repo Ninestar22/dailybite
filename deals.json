@@ -3,23 +3,6 @@
   "updatedAt": "2026-10-03T11:05:26.961Z",
   "deals": [
     {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#f7c500",
-      "ic": "EP",
-      "deal": "$5 Fire-Grilled Combos: Rotating Value Menu",
-      "desc": "A rotating lineup of roughly $5 combos (Original Pollo Bowl, Classic Chicken Burrito, taquitos and more) built on citrus-marinated fire-grilled chicken, every day at participating locations. Lineup and pricing vary by market.",
-      "tags": [],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.elpolloloco.com/promotions",
-      "best": false,
-      "region": "West & Southwest",
-      "isNew": false,
-      "endingSoon": false,
-      "id": "8ee16eb2"
-    },
-    {
       "brand": "H-E-B",
       "cat": "Sushi",
       "color": "#e01e26",
