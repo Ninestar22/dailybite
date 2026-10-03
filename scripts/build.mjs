@@ -1182,7 +1182,7 @@ function main() {
     ic: String(m.brand).split(/\s+/).map(w => w[0]).join("").slice(0, 3).toUpperCase(),
     deal: `${m.meal} for ${money(m.price)}`,
     desc: `${m.build || m.meal}. Price checked at ${m.price_location || "the chain's ordering site"}; prices vary by location. Calories and protein are from the chain's own nutrition data.`,
-    tags: [], value: 3, expires: "Every day", url: m.order_url || m.price_url, region: "National",
+    tags: [], value: 3, expires: "Every day", url: m.order_url || m.price_url, region: m.region || "National",
     everyday: true, meal_id: m.id, protein_per_dollar: m.protein_per_dollar,
   })) : [];
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).

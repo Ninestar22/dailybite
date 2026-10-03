@@ -1,5 +1,5 @@
 {
-  "updated": "September 18, 2026",
+  "updated": "October 3, 2026",
   "source_note": "Compiled from official chain nutrition data and menu prices; every meal carries nutrition_url and price_url. Re-verify monthly.",
   "meals": [
     {
@@ -785,6 +785,68 @@
       "nutrition_url": "https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705",
       "vegetarian": false,
       "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705"
+    },
+    {
+      "brand": "Trader Joe's",
+      "kind": "cheapest-filling",
+      "meal": "Chicken Tikka Masala",
+      "build": "one 8.5 oz frozen tray: chicken in tikka masala sauce with basmati rice; 580 mg sodium",
+      "price": 4.79,
+      "price_source_type": "official",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/099142",
+      "price_location": "traderjoes.com national list price (checked October 3, 2026)",
+      "calories": 360,
+      "protein": 21,
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/099142",
+      "vegetarian": false,
+      "order_url": "https://www.traderjoes.com/home/products/pdp/099142"
+    },
+    {
+      "brand": "Trader Joe's",
+      "kind": "cheapest-filling",
+      "meal": "Teriyaki Chicken Bowl",
+      "build": "one 11.25 oz frozen bowl: teriyaki chicken over rice and vegetables; 880 mg sodium, so a salty one",
+      "price": 4.79,
+      "price_source_type": "official",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
+      "price_location": "traderjoes.com national list price (checked October 3, 2026)",
+      "calories": 370,
+      "protein": 18,
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
+      "vegetarian": false,
+      "order_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275"
+    },
+    {
+      "brand": "Lidl",
+      "kind": "cheapest-filling",
+      "meal": "Chicken Tikka Masala with Basmati Rice (frozen)",
+      "build": "one 12.5 oz frozen meal; Lidl publishes calories and protein but not sodium, and lists it as available only in certain stores",
+      "price": 4.99,
+      "price_source_type": "official",
+      "price_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "price_location": "lidl.com (checked October 3, 2026; select stores)",
+      "calories": 370,
+      "protein": 24,
+      "nutrition_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "vegetarian": false,
+      "order_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "region": "East Coast (Lidl US stores)"
+    },
+    {
+      "brand": "Lidl",
+      "kind": "cheapest-filling",
+      "meal": "Butter Chicken with Basmati Rice (frozen)",
+      "build": "one 12.5 oz frozen meal; Lidl publishes calories and protein but not sodium, and lists it as available only in certain stores",
+      "price": 4.99,
+      "price_source_type": "official",
+      "price_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "price_location": "lidl.com (checked October 3, 2026; select stores)",
+      "calories": 400,
+      "protein": 24,
+      "nutrition_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "vegetarian": false,
+      "order_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "region": "East Coast (Lidl US stores)"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updated": "September 18, 2026",
+  "updated": "October 3, 2026",
   "note": "Nutrition is from official chain sources; prices are typical and vary by location. protein_per_dollar = protein / price.",
   "meals": [
     {
@@ -195,6 +195,42 @@
       "order_url": "https://order.chick-fil-a.com/"
     },
     {
+      "id": "5954ee20",
+      "brand": "Lidl",
+      "meal": "Chicken Tikka Masala with Basmati Rice (frozen)",
+      "build": "one 12.5 oz frozen meal; Lidl publishes calories and protein but not sodium, and lists it as available only in certain stores",
+      "kind": "cheapest-filling",
+      "price": 4.99,
+      "calories": 370,
+      "protein": 24,
+      "protein_per_dollar": 4.8,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "lidl.com (checked October 3, 2026; select stores)",
+      "nutrition_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "price_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "order_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
+      "region": "East Coast (Lidl US stores)"
+    },
+    {
+      "id": "eb2ef21b",
+      "brand": "Lidl",
+      "meal": "Butter Chicken with Basmati Rice (frozen)",
+      "build": "one 12.5 oz frozen meal; Lidl publishes calories and protein but not sodium, and lists it as available only in certain stores",
+      "kind": "cheapest-filling",
+      "price": 4.99,
+      "calories": 400,
+      "protein": 24,
+      "protein_per_dollar": 4.8,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "lidl.com (checked October 3, 2026; select stores)",
+      "nutrition_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "price_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "order_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
+      "region": "East Coast (Lidl US stores)"
+    },
+    {
       "id": "5706e347",
       "brand": "Potbelly",
       "meal": "Skinny Mediterranean",
@@ -231,6 +267,23 @@
       "nutrition_url": "https://thehalalguys.com/wp-content/uploads/2023/01/TheHalalGuys-NutritionalGuide-Jan2023.pdf",
       "price_url": "https://order.thehalalguys.com/menu/halal-guys-vienna/products/69526017",
       "order_url": "https://order.thehalalguys.com/menu/halal-guys-vienna"
+    },
+    {
+      "id": "f9e34746",
+      "brand": "Trader Joe's",
+      "meal": "Chicken Tikka Masala",
+      "build": "one 8.5 oz frozen tray: chicken in tikka masala sauce with basmati rice; 580 mg sodium",
+      "kind": "cheapest-filling",
+      "price": 4.79,
+      "calories": 360,
+      "protein": 21,
+      "protein_per_dollar": 4.4,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "traderjoes.com national list price (checked October 3, 2026)",
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/099142",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/099142",
+      "order_url": "https://www.traderjoes.com/home/products/pdp/099142"
     },
     {
       "id": "832351b3",
@@ -403,6 +456,23 @@
       "nutrition_url": "https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf",
       "price_url": "https://www.noodles.com/location/noodles-reston/menu/culinary-classics/japanese-pan-noodles",
       "order_url": "https://www.noodles.com/location/noodles-reston/menu/culinary-classics/japanese-pan-noodles"
+    },
+    {
+      "id": "234a9c97",
+      "brand": "Trader Joe's",
+      "meal": "Teriyaki Chicken Bowl",
+      "build": "one 11.25 oz frozen bowl: teriyaki chicken over rice and vegetables; 880 mg sodium, so a salty one",
+      "kind": "cheapest-filling",
+      "price": 4.79,
+      "calories": 370,
+      "protein": 18,
+      "protein_per_dollar": 3.8,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "traderjoes.com national list price (checked October 3, 2026)",
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
+      "order_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275"
     },
     {
       "id": "72f434b2",
