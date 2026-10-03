@@ -37,24 +37,6 @@
       "id": "ff8dda7e"
     },
     {
-      "brand": "Salad and Go",
-      "cat": "Salads",
-      "color": "#6cbf3e",
-      "ic": "SnG",
-      "deal": "Salads and wraps from $7.75",
-      "desc": "Drive-thru-only salads and wraps, including the Good Greens Salad and Wrap with chickpeas, Brussels sprouts and a choice of chicken or tofu, start at $7.75 every day.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://saladandgo.com/menu",
-      "est_savings": 3,
-      "best": false,
-      "region": "AZ, TX, OK & NV",
-      "isNew": true,
-      "endingSoon": false,
-      "id": "6f40c5fc"
-    },
-    {
       "brand": "Rubio's Coastal Grill",
       "cat": "Seafood",
       "color": "#00a1e0",
