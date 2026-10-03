@@ -371,6 +371,22 @@
       "everyday": true,
       "meal_id": "54d45dda",
       "protein_per_dollar": 3.3
+    },
+    {
+      "brand": "Yoshinoya",
+      "cat": "469 cal, 11 g protein",
+      "color": "#2f6f4f",
+      "ic": "Y",
+      "deal": "Regular Mixed Vegetables Bowl for $4.69",
+      "desc": "stir-fried vegetables over rice; 530 mg sodium; light on protein. Price checked at Alhambra, CA on order.yoshinoyaamerica.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
+      "region": "California only",
+      "everyday": true,
+      "meal_id": "daa4b663",
+      "protein_per_dollar": 2.3
     }
   ]
 }

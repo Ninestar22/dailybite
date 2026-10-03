@@ -452,6 +452,24 @@
       "order_url": "https://order.chick-fil-a.com/"
     },
     {
+      "id": "36ec49b1",
+      "brand": "Yoshinoya",
+      "meal": "Regular Grilled Chicken Bowl (teriyaki or habanero)",
+      "build": "grilled chicken over white or brown rice; 920 mg sodium",
+      "kind": "high-protein",
+      "price": 8.99,
+      "calories": 580,
+      "protein": 37,
+      "protein_per_dollar": 4.1,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "Alhambra, CA on order.yoshinoyaamerica.com, October 3, 2026",
+      "nutrition_url": "https://www.yoshinoyaamerica.com/nutrition",
+      "price_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
+      "order_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
+      "region": "California only"
+    },
+    {
       "id": "84b3d3f2",
       "brand": "Qdoba",
       "meal": "Double Protein Post-Workout Bowl (Chicken)",
@@ -965,6 +983,24 @@
       "nutrition_url": "https://www.noodles.com/sites/default/files/2026-01/Menu%20Nutritionals%201.14.pdf",
       "price_url": "https://www.noodles.com/location/noodles-reston/menu/culinary-classics/japanese-pan-noodles",
       "order_url": "https://www.noodles.com/location/noodles-reston/menu/culinary-classics/japanese-pan-noodles"
+    },
+    {
+      "id": "daa4b663",
+      "brand": "Yoshinoya",
+      "meal": "Regular Mixed Vegetables Bowl",
+      "build": "stir-fried vegetables over rice; 530 mg sodium; light on protein",
+      "kind": "lighter",
+      "price": 4.69,
+      "calories": 469,
+      "protein": 11,
+      "protein_per_dollar": 2.3,
+      "vegetarian": true,
+      "price_source_type": "official",
+      "price_location": "Alhambra, CA on order.yoshinoyaamerica.com, October 3, 2026",
+      "nutrition_url": "https://www.yoshinoyaamerica.com/nutrition",
+      "price_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
+      "order_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
+      "region": "California only"
     },
     {
       "id": "5fb653a3",
