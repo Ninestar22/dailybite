@@ -925,36 +925,6 @@
       "vegetarian": true,
       "order_url": "https://order.justsalad.com/",
       "region": "Northeast & Select states"
-    },
-    {
-      "brand": "Smoothie King",
-      "kind": "cheapest-filling",
-      "meal": "Peanut Power Plus (20 oz)",
-      "build": "20 oz smoothie; 420 mg sodium; the order site shows 580 calories, the nutrition page 520; small-market price",
-      "price": 6.59,
-      "price_source_type": "official",
-      "price_url": "https://order.smoothieking.com/",
-      "price_location": "Picayune, MS on order.smoothieking.com, October 3, 2026",
-      "calories": 550,
-      "protein": 20,
-      "nutrition_url": "https://www.smoothieking.com/menu/smoothies/get-fit/peanut-power-plus/",
-      "vegetarian": true,
-      "order_url": "https://order.smoothieking.com/"
-    },
-    {
-      "brand": "Smoothie King",
-      "kind": "cheapest-filling",
-      "meal": "Hearty 8 Grain Loaded Peanut Butter Toast",
-      "build": "whole-grain toast with peanut butter and toppings from the Power Eats menu; 510 mg sodium; small-market price",
-      "price": 5.99,
-      "price_source_type": "official",
-      "price_url": "https://locations.smoothieking.com/ll/us/ms/picayune/549-highway-11-south/",
-      "price_location": "Picayune, MS store page, October 3, 2026",
-      "calories": 440,
-      "protein": 15,
-      "nutrition_url": "https://www.smoothieking.com/menu/food/loaded-peanut-butter-toast/",
-      "vegetarian": true,
-      "order_url": "https://order.smoothieking.com/"
     }
   ]
 }

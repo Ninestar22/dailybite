@@ -371,38 +371,6 @@
       "everyday": true,
       "meal_id": "54d45dda",
       "protein_per_dollar": 3.3
-    },
-    {
-      "brand": "Smoothie King",
-      "cat": "550 cal, 20 g protein",
-      "color": "#2f6f4f",
-      "ic": "SK",
-      "deal": "Peanut Power Plus (20 oz) for $6.59",
-      "desc": "20 oz smoothie; 420 mg sodium; the order site shows 580 calories, the nutrition page 520; small-market price. Price checked at Picayune, MS on order.smoothieking.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
-      "tags": [],
-      "value": 3,
-      "expires": "Every day",
-      "url": "https://order.smoothieking.com/",
-      "region": "National",
-      "everyday": true,
-      "meal_id": "e483c57b",
-      "protein_per_dollar": 3
-    },
-    {
-      "brand": "Smoothie King",
-      "cat": "440 cal, 15 g protein",
-      "color": "#2f6f4f",
-      "ic": "SK",
-      "deal": "Hearty 8 Grain Loaded Peanut Butter Toast for $5.99",
-      "desc": "whole-grain toast with peanut butter and toppings from the Power Eats menu; 510 mg sodium; small-market price. Price checked at Picayune, MS store page, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
-      "tags": [],
-      "value": 3,
-      "expires": "Every day",
-      "url": "https://order.smoothieking.com/",
-      "region": "National",
-      "everyday": true,
-      "meal_id": "2dd2dff7",
-      "protein_per_dollar": 2.5
     }
   ]
 }
