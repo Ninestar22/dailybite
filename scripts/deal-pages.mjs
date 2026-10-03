@@ -12,7 +12,6 @@ const PAGES = {
   "panera": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
   "noodles & company": "https://www.noodles.com/coupons",
   "el pollo loco": "https://www.elpolloloco.com/promotions",
-  "salad and go": "https://saladandgo.com/menu",
   "rubio's": "https://www.rubios.com/menu",
   "waba grill": "https://www.wabagrill.com/menu",
   "chipotle": "https://www.chipotle.com/rewards",

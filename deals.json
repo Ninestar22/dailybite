@@ -111,6 +111,24 @@
       "isNew": true,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Fire-Grilled Combos from $5.99: Pollo Bowl, Chicken Burrito or 3 Tacos al Carbon with Chips and a Drink",
+      "desc": "El Pollo Loco's value combos (Original Pollo Bowl, Classic Chicken Burrito, 3 Tacos al Carbon) come with chips and a regular drink for $5.99 to $6.99 at a Los Angeles store on order.elpolloloco.com, checked October 3, 2026. The chain advertised them at $5 through 2022; prices vary by market.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": true,
+      "endingSoon": false,
+      "id": "5dd48d15"
     }
   ],
   "everyday": [
@@ -145,6 +163,38 @@
       "everyday": true,
       "meal_id": "5a476dde",
       "protein_per_dollar": 6
+    },
+    {
+      "brand": "Subway",
+      "cat": "330 cal, 24 g protein",
+      "color": "#2f6f4f",
+      "ic": "S",
+      "deal": "Peppercorn Ranch Chicken Protein Pocket for $3.99",
+      "desc": "flatbread pocket with chicken and peppercorn ranch; 800 mg sodium; $3.99 nationally, higher in CA, WA, AK and HI. Price checked at Subway newsroom national price (April 30, 2026), still listed October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://www.subway.com/en-us",
+      "region": "National",
+      "everyday": true,
+      "meal_id": "473dbaf6",
+      "protein_per_dollar": 6
+    },
+    {
+      "brand": "Subway",
+      "cat": "320 cal, 21 g protein",
+      "color": "#2f6f4f",
+      "ic": "S",
+      "deal": "Turkey & Ham Protein Pocket for $3.99",
+      "desc": "flatbread pocket with turkey and ham; 1,260 mg sodium, the saltiest of the pockets; $3.99 nationally, higher in CA, WA, AK and HI. Price checked at Subway newsroom national price (April 30, 2026), still listed October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://www.subway.com/en-us",
+      "region": "National",
+      "everyday": true,
+      "meal_id": "e1c93f7c",
+      "protein_per_dollar": 5.3
     },
     {
       "brand": "Trader Joe's",
@@ -211,6 +261,38 @@
       "protein_per_dollar": 4.8
     },
     {
+      "brand": "Jason's Deli",
+      "cat": "400 cal, 27 g protein",
+      "color": "#2f6f4f",
+      "ic": "JD",
+      "deal": "Cup of Chili for $5.59",
+      "desc": "cup of beef chili with cheddar and red onion; 1,220 mg sodium and 11 g saturated fat, so a once-in-a-while pick. Price checked at Beaumont, TX (Dowlen Rd) on jasonsdeli.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://www.jasonsdeli.com/menu",
+      "region": "South & Central",
+      "everyday": true,
+      "meal_id": "46a59041",
+      "protein_per_dollar": 4.8
+    },
+    {
+      "brand": "Just Salad",
+      "cat": "460 cal, 32 g protein",
+      "color": "#2f6f4f",
+      "ic": "JS",
+      "deal": "PB Protein Smoothie for $6.99",
+      "desc": "peanut butter protein smoothie; 240 mg sodium; a full meal by the numbers. Price checked at Livingston, NJ on order.justsalad.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://order.justsalad.com/",
+      "region": "Northeast & Select states",
+      "everyday": true,
+      "meal_id": "115c7709",
+      "protein_per_dollar": 4.6
+    },
+    {
       "brand": "Trader Joe's",
       "cat": "360 cal, 21 g protein",
       "color": "#2f6f4f",
@@ -273,6 +355,54 @@
       "everyday": true,
       "meal_id": "72f434b2",
       "protein_per_dollar": 3.8
+    },
+    {
+      "brand": "McAlister's Deli",
+      "cat": "320 cal, 19 g protein",
+      "color": "#2f6f4f",
+      "ic": "MD",
+      "deal": "Cup of Chili for $5.69",
+      "desc": "cup of chili; 1,210 mg sodium; menu shows 340 calories, the nutrition calculator 300. Price checked at Oxford, MS on mcalistersdeli.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://www.mcalistersdeli.com/menu",
+      "region": "South & Central",
+      "everyday": true,
+      "meal_id": "54d45dda",
+      "protein_per_dollar": 3.3
+    },
+    {
+      "brand": "Smoothie King",
+      "cat": "550 cal, 20 g protein",
+      "color": "#2f6f4f",
+      "ic": "SK",
+      "deal": "Peanut Power Plus (20 oz) for $6.59",
+      "desc": "20 oz smoothie; 420 mg sodium; the order site shows 580 calories, the nutrition page 520; small-market price. Price checked at Picayune, MS on order.smoothieking.com, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://order.smoothieking.com/",
+      "region": "National",
+      "everyday": true,
+      "meal_id": "e483c57b",
+      "protein_per_dollar": 3
+    },
+    {
+      "brand": "Smoothie King",
+      "cat": "440 cal, 15 g protein",
+      "color": "#2f6f4f",
+      "ic": "SK",
+      "deal": "Hearty 8 Grain Loaded Peanut Butter Toast for $5.99",
+      "desc": "whole-grain toast with peanut butter and toppings from the Power Eats menu; 510 mg sodium; small-market price. Price checked at Picayune, MS store page, October 3, 2026; prices vary by location. Calories and protein are from the chain's own nutrition data.",
+      "tags": [],
+      "value": 3,
+      "expires": "Every day",
+      "url": "https://order.smoothieking.com/",
+      "region": "National",
+      "everyday": true,
+      "meal_id": "2dd2dff7",
+      "protein_per_dollar": 2.5
     }
   ]
 }

@@ -37,7 +37,6 @@ export const OFFER_SOURCES = [
   { brand: "Shah's Halal Food", url: "https://www.shahshalalfood.com/" },
   // National / West / South healthy roster.
   { brand: "El Pollo Loco", url: "https://www.elpolloloco.com/promotions" },
-  { brand: "Salad and Go", url: "https://saladandgo.com/promotions" },
   { brand: "Rubio's", url: "https://www.rubios.com/" },
   { brand: "Waba Grill", url: "https://www.wabagrill.com/" },
   { brand: "Teriyaki Madness", url: "https://teriyakimadness.com/" },

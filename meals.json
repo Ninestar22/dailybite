@@ -40,6 +40,23 @@
       "order_url": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5"
     },
     {
+      "id": "473dbaf6",
+      "brand": "Subway",
+      "meal": "Peppercorn Ranch Chicken Protein Pocket",
+      "build": "flatbread pocket with chicken and peppercorn ranch; 800 mg sodium; $3.99 nationally, higher in CA, WA, AK and HI",
+      "kind": "cheapest-filling",
+      "price": 3.99,
+      "calories": 330,
+      "protein": 24,
+      "protein_per_dollar": 6,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "Subway newsroom national price (April 30, 2026), still listed October 3, 2026",
+      "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf",
+      "price_url": "https://newsroom.subway.com/blog-protein-pockets",
+      "order_url": "https://www.subway.com/en-us"
+    },
+    {
       "id": "7757837f",
       "brand": "Jamba",
       "meal": "PB & Banana Protein Smoothie, Whey (Small)",
@@ -77,6 +94,23 @@
       "nutrition_url": "https://www.chipotle.com/content/dam/chipotle/menu/nutrition/US-Nutrition-Facts-Paper-Menu-3-2025.pdf",
       "price_url": "https://www.chipotle.com/order/build/burrito-bowl?restaurant=1284",
       "order_url": "https://www.chipotle.com/order"
+    },
+    {
+      "id": "e1c93f7c",
+      "brand": "Subway",
+      "meal": "Turkey & Ham Protein Pocket",
+      "build": "flatbread pocket with turkey and ham; 1,260 mg sodium, the saltiest of the pockets; $3.99 nationally, higher in CA, WA, AK and HI",
+      "kind": "cheapest-filling",
+      "price": 3.99,
+      "calories": 320,
+      "protein": 21,
+      "protein_per_dollar": 5.3,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "Subway newsroom national price (April 30, 2026), still listed October 3, 2026",
+      "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf",
+      "price_url": "https://newsroom.subway.com/blog-protein-pockets",
+      "order_url": "https://www.subway.com/en-us"
     },
     {
       "id": "524aa748",
@@ -229,6 +263,42 @@
       "price_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
       "order_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
       "region": "East Coast (Lidl US stores)"
+    },
+    {
+      "id": "46a59041",
+      "brand": "Jason's Deli",
+      "meal": "Cup of Chili",
+      "build": "cup of beef chili with cheddar and red onion; 1,220 mg sodium and 11 g saturated fat, so a once-in-a-while pick",
+      "kind": "high-protein",
+      "price": 5.59,
+      "calories": 400,
+      "protein": 27,
+      "protein_per_dollar": 4.8,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "Beaumont, TX (Dowlen Rd) on jasonsdeli.com, October 3, 2026",
+      "nutrition_url": "https://jasons-deli.widget.eagle.bigzpoon.com/menu/5ec136dff9ba6500117ba48e/Chili/10627",
+      "price_url": "https://www.jasonsdeli.com/menu/247102?type=mealtime&category=soups",
+      "order_url": "https://www.jasonsdeli.com/menu",
+      "region": "South & Central"
+    },
+    {
+      "id": "115c7709",
+      "brand": "Just Salad",
+      "meal": "PB Protein Smoothie",
+      "build": "peanut butter protein smoothie; 240 mg sodium; a full meal by the numbers",
+      "kind": "high-protein",
+      "price": 6.99,
+      "calories": 460,
+      "protein": 32,
+      "protein_per_dollar": 4.6,
+      "vegetarian": true,
+      "price_source_type": "official",
+      "price_location": "Livingston, NJ on order.justsalad.com, October 3, 2026",
+      "nutrition_url": "https://order.justsalad.com/menu/419",
+      "price_url": "https://order.justsalad.com/menu/419",
+      "order_url": "https://order.justsalad.com/",
+      "region": "Northeast & Select states"
     },
     {
       "id": "5706e347",
@@ -590,6 +660,24 @@
       "order_url": "https://order.thehalalguys.com/menu/halal-guys-vienna"
     },
     {
+      "id": "54d45dda",
+      "brand": "McAlister's Deli",
+      "meal": "Cup of Chili",
+      "build": "cup of chili; 1,210 mg sodium; menu shows 340 calories, the nutrition calculator 300",
+      "kind": "high-protein",
+      "price": 5.69,
+      "calories": 320,
+      "protein": 19,
+      "protein_per_dollar": 3.3,
+      "vegetarian": false,
+      "price_source_type": "official",
+      "price_location": "Oxford, MS on mcalistersdeli.com, October 3, 2026",
+      "nutrition_url": "https://www.mcalistersdeli.com/nutrition/nutrition-calculator",
+      "price_url": "https://www.mcalistersdeli.com/menu/oxford-418/soups/chili",
+      "order_url": "https://www.mcalistersdeli.com/menu",
+      "region": "South & Central"
+    },
+    {
       "id": "a10efcf9",
       "brand": "The Halal Guys",
       "meal": "Small Chicken Platter (no white sauce)",
@@ -684,6 +772,23 @@
       "nutrition_url": "https://assets.ctfassets.net/kugm9fp9ib18/Ki4gri5pvT2rtPcjBQPjR/5c435502ed8a9c07d54e8eb8af7ce1cf/KT5_26_AN_STND_RECAN11148_DIGITAL.pdf",
       "price_url": "https://cava.com/menu/greek-salad-bowl",
       "order_url": "https://cava.com/menu/greek-salad-bowl"
+    },
+    {
+      "id": "e483c57b",
+      "brand": "Smoothie King",
+      "meal": "Peanut Power Plus (20 oz)",
+      "build": "20 oz smoothie; 420 mg sodium; the order site shows 580 calories, the nutrition page 520; small-market price",
+      "kind": "cheapest-filling",
+      "price": 6.59,
+      "calories": 550,
+      "protein": 20,
+      "protein_per_dollar": 3,
+      "vegetarian": true,
+      "price_source_type": "official",
+      "price_location": "Picayune, MS on order.smoothieking.com, October 3, 2026",
+      "nutrition_url": "https://www.smoothieking.com/menu/smoothies/get-fit/peanut-power-plus/",
+      "price_url": "https://order.smoothieking.com/",
+      "order_url": "https://order.smoothieking.com/"
     },
     {
       "id": "9728637c",
@@ -858,6 +963,23 @@
       "nutrition_url": "https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf",
       "price_url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
       "order_url": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html"
+    },
+    {
+      "id": "2dd2dff7",
+      "brand": "Smoothie King",
+      "meal": "Hearty 8 Grain Loaded Peanut Butter Toast",
+      "build": "whole-grain toast with peanut butter and toppings from the Power Eats menu; 510 mg sodium; small-market price",
+      "kind": "cheapest-filling",
+      "price": 5.99,
+      "calories": 440,
+      "protein": 15,
+      "protein_per_dollar": 2.5,
+      "vegetarian": true,
+      "price_source_type": "official",
+      "price_location": "Picayune, MS store page, October 3, 2026",
+      "nutrition_url": "https://www.smoothieking.com/menu/food/loaded-peanut-butter-toast/",
+      "price_url": "https://locations.smoothieking.com/ll/us/ms/picayune/549-highway-11-south/",
+      "order_url": "https://order.smoothieking.com/"
     },
     {
       "id": "eea716b7",
