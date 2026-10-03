@@ -1203,20 +1203,6 @@ function main() {
   const MEALS = loadMeals(process.env.MEALS_DATA || join(root, "meals-data.json"));
   for (const x of MEALS.dropped) console.log("Meal dropped: " + x);
   const mealsOn = MEALS.meals.length >= 5;
-  // "Under $7, every day" (owner, 2026-10-03: "meals under $7 and good for you"). Standing menu
-  // items from the meals index at $7 or less, shown on the homepage after the day's deals and
-  // added to deals.json as an additive `everyday` array. Not promotions: same price every day.
-  const EVERYDAY_CAP = 7;
-  const everyday = mealsOn ? MEALS.meals.filter(m => Number.isFinite(m.price) && m.price <= EVERYDAY_CAP).map(m => ({
-    brand: m.brand,
-    cat: `${m.calories} cal, ${m.protein} g protein`,
-    color: "#2f6f4f",
-    ic: String(m.brand).split(/\s+/).map(w => w[0]).join("").slice(0, 3).toUpperCase(),
-    deal: `${m.meal} for ${money(m.price)}`,
-    desc: `${m.build || m.meal}. Price checked at ${m.price_location || "the chain's ordering site"}; prices vary by location. Calories and protein are from the chain's own nutrition data.`,
-    tags: [], value: 3, expires: "Every day", url: m.order_url || m.price_url, region: m.region || "National",
-    everyday: true, meal_id: m.id, protein_per_dollar: m.protein_per_dollar,
-  })) : [];
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).
   // Injected only when the daily AI refresh did not supply a deal for that brand.
   // Injected deals live in scripts/injected-deals.mjs (shared with the refresh, 2026-09-30).
@@ -1566,7 +1552,7 @@ function main() {
   if (upgraded) console.log(`Upgraded ${upgraded} homepage link(s) to the chain's deal page.`);
   const assigned = assignDealIds(deals);
   for (const d of deals) applyAffiliate(d); // platform links become tracking links once a template exists (affiliates.json)
-  const feedOut = { ...data, deals, everyday }; // `everyday` is additive (2026-10-03); the app ignores unknown keys
+  const feedOut = { ...data, deals };
   writeFileSync(join(root, "deals.json"), JSON.stringify(feedOut, null, 2) + "\n");
   console.log(`Wrote deals.json: ${deals.length} deals, ${assigned} id(s) assigned (rest already had one).`);
 
@@ -1577,15 +1563,6 @@ function main() {
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
   writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\nconst AFFILIATES = ${JSON.stringify({ instacart: INSTACART_URL, grocery: [...GROCERY], active: AFF_ACTIVE })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
-  {
-    const h = readFileSync(htmlPath, "utf8");
-    const ES = "/* EVERYDAY:START */", EE = "/* EVERYDAY:END */";
-    const a = h.indexOf(ES), z = h.indexOf(EE);
-    if (a !== -1 && z !== -1 && z > a) {
-      writeFileSync(htmlPath, h.slice(0, a + ES.length) + `\nconst EVERYDAY = ${JSON.stringify(everyday)};\n` + h.slice(z));
-      console.log(`Everyday under ${EVERYDAY_CAP}: ${everyday.length} items.`);
-    }
-  }
 
   // 1b. Server-render the footer date and a crawlable static deal grid
   {
