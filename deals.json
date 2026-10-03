@@ -126,6 +126,26 @@
       "isNew": false,
       "endingSoon": false,
       "id": "43d0d809"
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#008c15",
+      "ic": "SUB",
+      "deal": "BOGO 50% Off Footlongs with Code BOGO50",
+      "desc": "Buy one footlong online or in the Subway app and get a second 50% off with code BOGO50 at participating locations. Listed by The Krazy Coupon Lady on October 2, 2026; the code has run since summer and may end without notice, so enter it before paying.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/en-us",
+      "best": true,
+      "region": "National",
+      "est_savings": 4,
+      "isNew": true,
+      "endingSoon": false,
+      "id": "d3828fcf"
     }
   ]
 }
