@@ -1553,6 +1553,7 @@ function main() {
   const assigned = assignDealIds(deals);
   for (const d of deals) applyAffiliate(d); // platform links become tracking links once a template exists (affiliates.json)
   const feedOut = { ...data, deals };
+  delete feedOut.everyday; // field from the removed 2026-10-03 homepage section; keep the feed as it was
   writeFileSync(join(root, "deals.json"), JSON.stringify(feedOut, null, 2) + "\n");
   console.log(`Wrote deals.json: ${deals.length} deals, ${assigned} id(s) assigned (rest already had one).`);
 
