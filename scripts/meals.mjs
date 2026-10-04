@@ -42,6 +42,9 @@ export function loadMeals(path) {
       ...(Number.isFinite(num(m.fat)) ? { fat: Math.round(m.fat) } : {}),
       ...(Number.isFinite(num(m.sugar)) ? { sugar: Math.round(m.sugar) } : {}),
       protein_per_dollar: ppd,
+      ...(Number.isFinite(num(m.sodium)) ? { sodium: Math.round(m.sodium) } : {}),
+      // DailyBite standard (owner, 2026-10-04): under $10, 25 g protein or more, 690 mg sodium or less.
+      meets_standard: price < 10 && protein >= 25 && Number.isFinite(num(m.sodium)) && num(m.sodium) <= 690,
       vegetarian: m.vegetarian === true,
       price_source_type: m.price_source_type === "official" ? "official" : "third-party",
       price_location: String(m.price_location || ""),
@@ -62,7 +65,7 @@ export function mealRow(m, rank, { esc, brandDomain }) {
   <div class="mrank">${rank}</div>
   <div class="brand-ic mic"><span>${esc(m.brand[0])}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(m.brand)}&amp;sz=128" alt="${esc(m.brand)} logo" loading="lazy" onerror="this.remove()"></div>
   <div class="mmain"><div class="mname">${esc(m.meal)}</div><div class="mbrand">${esc(m.brand)}${m.build ? `<span class="mbuild"> &middot; ${esc(m.build)}</span>` : ""}</div></div>
-  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~${money(m.price)}</span><span>${m.calories} cal</span><span>${m.protein}g protein</span></div>
+  <div class="mstats"><span class="mprice" title="Typical price, varies by location">~${money(m.price)}</span><span>${m.calories} cal</span><span>${m.protein}g protein</span>${m.sodium != null ? `<span title="Sodium, from the chain's own nutrition data">${m.sodium}mg sodium</span>` : `<span class="mna">sodium n/a</span>`}</div>${m.meets_standard ? `<div class="mstd" title="Under $10, 25 g protein or more, 690 mg sodium or less">Meets the DailyBite standard</div>` : ""}
   <div class="mscore"><b>${m.protein_per_dollar.toFixed(1)}</b><small>g protein per $1</small></div>
   <a class="cta mcta" href="${esc(m.order_url)}" target="_blank" rel="noopener">Order direct &rarr;</a>
 </div>`;

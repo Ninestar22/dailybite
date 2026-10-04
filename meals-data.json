@@ -1,12 +1,12 @@
 {
-  "updated": "October 3, 2026",
+  "updated": "October 4, 2026",
   "source_note": "Compiled from official chain nutrition data and menu prices; every meal carries nutrition_url and price_url. Re-verify monthly.",
   "meals": [
     {
       "brand": "Chipotle",
       "kind": "cheapest-filling",
       "meal": "Chicken Burrito Bowl (loaded)",
-      "build": "chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, corn salsa, cheese, romaine",
+      "build": "chicken, brown rice, black beans, fajita veggies, fresh tomato salsa, corn salsa, cheese, romaine; sodium not published for this build: Chipotle's ingredient sheet puts any chicken bowl with rice, beans and salsa above 1,500 mg",
       "price": 10.15,
       "price_source_type": "official",
       "price_url": "https://www.chipotle.com/order/build/burrito-bowl?restaurant=1284",
@@ -221,13 +221,14 @@
       "price_source_type": "official",
       "price_url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
       "price_location": "national Mix & Match value menu (participating US cafes), 2 x $4.99",
-      "calories": 630,
+      "calories": 550,
       "protein": 34,
       "carbs": 76,
       "fat": 23,
       "nutrition_url": "https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf",
       "nutrition_math": "Half Bacon Turkey Bravo 430/24/40/20 + cup Homestyle Chicken Noodle 120/10/14/3 + apple 80/0/22/0 = 630/34/76/23",
-      "vegetarian": false
+      "vegetarian": false,
+      "sodium": 2260
     },
     {
       "brand": "Panera Bread",
@@ -238,13 +239,14 @@
       "price_source_type": "official",
       "price_url": "https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html",
       "price_location": "national Mix & Match value menu (participating US cafes), 2 x $4.99",
-      "calories": 550,
+      "calories": 470,
       "protein": 26,
       "carbs": 70,
       "fat": 19,
       "nutrition_url": "https://www.panerabread.com/content/dam/panerabread/documents/c8-26-nutrition-guide.pdf",
       "nutrition_math": "Half Cranberry Walnut Chicken Salad sandwich 350/16/34/16 + cup Homestyle Chicken Noodle 120/10/14/3 + apple 80/0/22/0 = 550/26/70/19",
-      "vegetarian": false
+      "vegetarian": false,
+      "sodium": 1540
     },
     {
       "brand": "Chick-fil-A",
@@ -261,13 +263,14 @@
       "fat": 11,
       "nutrition_url": "https://www.chick-fil-a.com/menu/entrees/grilled-chicken-sandwich",
       "vegetarian": false,
-      "order_url": "https://order.chick-fil-a.com/"
+      "order_url": "https://order.chick-fil-a.com/",
+      "sodium": 765
     },
     {
       "brand": "Chick-fil-A",
       "kind": "high-protein",
       "meal": "Cool Wrap, No Dressing",
-      "build": "Cool Wrap (grilled chicken, lettuce, Monterey Jack and Cheddar in a flaxseed flatbread) with the Avocado Lime Ranch removed; the dressing adds 310 calories",
+      "build": "Cool Wrap (grilled chicken, lettuce, Monterey Jack and Cheddar in a flaxseed flatbread) with the Avocado Lime Ranch removed; the dressing adds 310 calories; sodium is derived: Chick-fil-A lists the wrap only with Avocado Lime Ranch (1,420 mg), minus the dressing (520 mg)",
       "price": 8.55,
       "price_source_type": "official",
       "price_url": "https://order.chick-fil-a.com/",
@@ -279,7 +282,8 @@
       "nutrition_url": "https://order.chick-fil-a.com/",
       "nutrition_math": "Values the official ordering site shows with the dressing removed; with the default dressing it shows 660 cal and 43 g protein.",
       "vegetarian": false,
-      "order_url": "https://order.chick-fil-a.com/"
+      "order_url": "https://order.chick-fil-a.com/",
+      "sodium": 900
     },
     {
       "brand": "Chick-fil-A",
@@ -311,7 +315,8 @@
       "calories": 330,
       "protein": 24,
       "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:2278372c-147b-42f2-8edc-7d8d94d1f07e/original/as/us-nutrition-en.pdf",
-      "vegetarian": false
+      "vegetarian": false,
+      "sodium": 750
     },
     {
       "brand": "Subway",
@@ -327,23 +332,8 @@
       "carbs": 42,
       "fat": 23,
       "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:2278372c-147b-42f2-8edc-7d8d94d1f07e/original/as/us-nutrition-en.pdf",
-      "vegetarian": false
-    },
-    {
-      "brand": "Subway",
-      "kind": "lighter",
-      "meal": "6-inch Grilled Chicken & Smashed Avocado (Fresh Fit)",
-      "build": "Hearty Multigrain bread, grilled chicken, lettuce, spinach, tomatoes, cucumbers, onions, smashed avocado and Baja Chipotle sauce",
-      "price": 8.29,
-      "price_source_type": "official",
-      "price_url": "https://www.subway.com/en-us/restaurant/820-0/menu/",
-      "price_location": "Subway #820-0 South Lakes Village, Reston, VA",
-      "calories": 470,
-      "protein": 35,
-      "carbs": 44,
-      "fat": 19,
-      "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:2278372c-147b-42f2-8edc-7d8d94d1f07e/original/as/us-nutrition-en.pdf",
-      "vegetarian": false
+      "vegetarian": false,
+      "sodium": 1120
     },
     {
       "brand": "Potbelly",
@@ -360,7 +350,8 @@
       "fat": 9,
       "nutrition_url": "https://restaurant.nutritionix.com/potbelly/item/311941",
       "vegetarian": false,
-      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center"
+      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center",
+      "sodium": 764
     },
     {
       "brand": "Potbelly",
@@ -377,7 +368,8 @@
       "fat": 14,
       "nutrition_url": "https://restaurant.nutritionix.com/potbelly/item/245387",
       "vegetarian": false,
-      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center"
+      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center",
+      "sodium": 1132
     },
     {
       "brand": "Potbelly",
@@ -394,7 +386,8 @@
       "fat": 10,
       "nutrition_url": "https://restaurant.nutritionix.com/potbelly/item/312019",
       "vegetarian": false,
-      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center"
+      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center",
+      "sodium": 1048
     },
     {
       "brand": "Noodles & Company",
@@ -604,7 +597,8 @@
       "sugar": 3,
       "nutrition_url": "https://d1yg02isjcwtyb.cloudfront.net/wp-content/uploads/2026/01/TSC_2026_Promo1_Nutrition_Guide_Rd6_HI_NCNB66.pdf",
       "vegetarian": false,
-      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098"
+      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098",
+      "sodium": 1230
     },
     {
       "brand": "Tropical Smoothie Cafe",
@@ -622,7 +616,8 @@
       "sugar": 5,
       "nutrition_url": "https://d1yg02isjcwtyb.cloudfront.net/wp-content/uploads/2026/01/TSC_2026_Promo1_Nutrition_Guide_Rd6_HI_NCNB66.pdf",
       "vegetarian": false,
-      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098"
+      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098",
+      "sodium": 1820
     },
     {
       "brand": "Tropical Smoothie Cafe",
@@ -640,7 +635,8 @@
       "sugar": 4,
       "nutrition_url": "https://d1yg02isjcwtyb.cloudfront.net/wp-content/uploads/2026/01/TSC_2026_Promo1_Nutrition_Guide_Rd6_HI_NCNB66.pdf",
       "vegetarian": false,
-      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098"
+      "order_url": "https://order.tropicalsmoothiecafe.com/menu/VA-098",
+      "sodium": 1220
     },
     {
       "brand": "Smoothie King",
@@ -658,7 +654,8 @@
       "sugar": 17,
       "nutrition_url": "https://www.smoothieking.com/menu/smoothies/get-fit/original-high-protein-banana/",
       "vegetarian": true,
-      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu"
+      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu",
+      "sodium": 300
     },
     {
       "brand": "Smoothie King",
@@ -676,7 +673,8 @@
       "sugar": 1,
       "nutrition_url": "https://www.smoothieking.com/menu/smoothies/get-fit/gladiator-strawberry/",
       "vegetarian": true,
-      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu"
+      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu",
+      "sodium": 350
     },
     {
       "brand": "Smoothie King",
@@ -694,7 +692,8 @@
       "sugar": 24,
       "nutrition_url": "https://www.smoothieking.com/menu/smoothies/be-well/power-meal-cinnamon-banana/",
       "vegetarian": true,
-      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu"
+      "order_url": "https://order.smoothieking.com/location/smoothie-king-10342-main-street/menu",
+      "sodium": 350
     },
     {
       "brand": "Jamba",
@@ -712,7 +711,8 @@
       "sugar": 32,
       "nutrition_url": "https://assets.ctfassets.net/zqt8tllj2cy0/evcoqai6h6vOxuBZebEPF/5e40b19977920b2275a427e70e9f7915/Jamba_Nutrition_Spreadsheet_-_Sept_2026.pdf",
       "vegetarian": true,
-      "order_url": "https://www.jamba.com/menu/union-station-603/smoothies/pb-banana-protein-whey"
+      "order_url": "https://www.jamba.com/menu/union-station-603/smoothies/pb-banana-protein-whey",
+      "sodium": 241
     },
     {
       "brand": "Playa Bowls",
@@ -766,7 +766,8 @@
       "sugar": 2,
       "nutrition_url": "https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750",
       "vegetarian": false,
-      "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750"
+      "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750",
+      "sodium": 630
     },
     {
       "brand": "Trader Joe's",
@@ -784,7 +785,8 @@
       "sugar": 3,
       "nutrition_url": "https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705",
       "vegetarian": false,
-      "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705"
+      "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-shawarma-bowl-076705",
+      "sodium": 720
     },
     {
       "brand": "Trader Joe's",
@@ -799,7 +801,8 @@
       "protein": 21,
       "nutrition_url": "https://www.traderjoes.com/home/products/pdp/099142",
       "vegetarian": false,
-      "order_url": "https://www.traderjoes.com/home/products/pdp/099142"
+      "order_url": "https://www.traderjoes.com/home/products/pdp/099142",
+      "sodium": 580
     },
     {
       "brand": "Trader Joe's",
@@ -814,7 +817,8 @@
       "protein": 18,
       "nutrition_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
       "vegetarian": false,
-      "order_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275"
+      "order_url": "https://www.traderjoes.com/home/products/pdp/teriyaki-chicken-bowl-078275",
+      "sodium": 880
     },
     {
       "brand": "Lidl",
@@ -830,7 +834,8 @@
       "nutrition_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
       "vegetarian": false,
       "order_url": "https://www.lidl.com/p/frozen-chicken-tikka-masala-with-basmati-rice/p11241613",
-      "region": "East Coast (Lidl US stores)"
+      "region": "East Coast (Lidl US stores)",
+      "sodium": 470
     },
     {
       "brand": "Lidl",
@@ -846,7 +851,8 @@
       "nutrition_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
       "vegetarian": false,
       "order_url": "https://www.lidl.com/p/frozen-butter-chicken-with-basmati-rice/p11241129",
-      "region": "East Coast (Lidl US stores)"
+      "region": "East Coast (Lidl US stores)",
+      "sodium": 630
     },
     {
       "brand": "Subway",
@@ -861,7 +867,8 @@
       "protein": 24,
       "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf",
       "vegetarian": false,
-      "order_url": "https://www.subway.com/en-us"
+      "order_url": "https://www.subway.com/en-us",
+      "sodium": 800
     },
     {
       "brand": "Subway",
@@ -876,7 +883,8 @@
       "protein": 21,
       "nutrition_url": "https://media.subway.com/dam/urn:aaid:aem:f20a4541-8c88-496b-940d-4aa8318cae26/original/as/us-nutrition-en.pdf",
       "vegetarian": false,
-      "order_url": "https://www.subway.com/en-us"
+      "order_url": "https://www.subway.com/en-us",
+      "sodium": 1260
     },
     {
       "brand": "Jason's Deli",
@@ -892,7 +900,8 @@
       "nutrition_url": "https://jasons-deli.widget.eagle.bigzpoon.com/menu/5ec136dff9ba6500117ba48e/Chili/10627",
       "vegetarian": false,
       "order_url": "https://www.jasonsdeli.com/menu",
-      "region": "South & Central"
+      "region": "South & Central",
+      "sodium": 1220
     },
     {
       "brand": "McAlister's Deli",
@@ -908,7 +917,8 @@
       "nutrition_url": "https://www.mcalistersdeli.com/nutrition/nutrition-calculator",
       "vegetarian": false,
       "order_url": "https://www.mcalistersdeli.com/menu",
-      "region": "South & Central"
+      "region": "South & Central",
+      "sodium": 1210
     },
     {
       "brand": "Just Salad",
@@ -924,7 +934,8 @@
       "nutrition_url": "https://order.justsalad.com/menu/419",
       "vegetarian": true,
       "order_url": "https://order.justsalad.com/",
-      "region": "Northeast & Select states"
+      "region": "Northeast & Select states",
+      "sodium": 240
     },
     {
       "brand": "Yoshinoya",
@@ -940,7 +951,8 @@
       "nutrition_url": "https://www.yoshinoyaamerica.com/nutrition",
       "vegetarian": false,
       "order_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
-      "region": "California only"
+      "region": "California only",
+      "sodium": 920
     },
     {
       "brand": "Yoshinoya",
@@ -956,7 +968,90 @@
       "nutrition_url": "https://www.yoshinoyaamerica.com/nutrition",
       "vegetarian": true,
       "order_url": "https://order.yoshinoyaamerica.com/menu/yoshinoya-alhambra",
-      "region": "California only"
+      "region": "California only",
+      "sodium": 530
+    },
+    {
+      "brand": "Trader Joe's",
+      "kind": "high-protein",
+      "meal": "Chicken Sausage Breakfast Bowl",
+      "build": "one frozen bowl: chicken sausage, egg, potatoes and vegetables",
+      "price": 4.29,
+      "price_source_type": "official",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/chicken-sausage-breakfast-bowl",
+      "price_location": "traderjoes.com national list price (checked October 4, 2026)",
+      "calories": 380,
+      "protein": 32,
+      "sodium": 690,
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/chicken-sausage-breakfast-bowl",
+      "vegetarian": false,
+      "order_url": "https://www.traderjoes.com/home/products/pdp/chicken-sausage-breakfast-bowl"
+    },
+    {
+      "brand": "Trader Joe's",
+      "kind": "high-protein",
+      "meal": "Vegan Pasta Bolognese Bowl",
+      "build": "one frozen bowl: pasta with a plant-based bolognese",
+      "price": 3.49,
+      "price_source_type": "official",
+      "price_url": "https://www.traderjoes.com/home/products/pdp/vegan-pasta-bolognese-bowl",
+      "price_location": "traderjoes.com national list price (checked October 4, 2026)",
+      "calories": 430,
+      "protein": 30,
+      "sodium": 690,
+      "nutrition_url": "https://www.traderjoes.com/home/products/pdp/vegan-pasta-bolognese-bowl",
+      "vegetarian": true,
+      "order_url": "https://www.traderjoes.com/home/products/pdp/vegan-pasta-bolognese-bowl"
+    },
+    {
+      "brand": "Potbelly",
+      "kind": "high-protein",
+      "meal": "Skinny Chicken Salad & Provolone",
+      "build": "Skinny size on multigrain: chicken salad and provolone",
+      "price": 6.69,
+      "price_source_type": "official",
+      "price_url": "https://www.potbelly.com/locations/virginia/reston-town-center",
+      "price_location": "Skinny sandwich price at Reston Town Center, same as the other Skinny sandwiches (October 2026)",
+      "calories": 511,
+      "protein": 29,
+      "sodium": 627,
+      "nutrition_url": "https://restaurant.nutritionix.com/potbelly/landing",
+      "vegetarian": false,
+      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center"
+    },
+    {
+      "brand": "Potbelly",
+      "kind": "high-protein",
+      "meal": "Skinny Tuna Salad & Swiss",
+      "build": "Skinny size on multigrain: tuna salad and Swiss",
+      "price": 6.69,
+      "price_source_type": "official",
+      "price_url": "https://www.potbelly.com/locations/virginia/reston-town-center",
+      "price_location": "Skinny sandwich price at Reston Town Center, same as the other Skinny sandwiches (October 2026)",
+      "calories": 461,
+      "protein": 30,
+      "sodium": 585,
+      "nutrition_url": "https://restaurant.nutritionix.com/potbelly/landing",
+      "vegetarian": false,
+      "order_url": "https://www.potbelly.com/locations/virginia/reston-town-center"
+    },
+    {
+      "brand": "Just Salad",
+      "kind": "high-protein",
+      "meal": "Acai Protein Punch Smoothie",
+      "build": "acai protein smoothie; the lowest-sodium meal in the index",
+      "price": 8.99,
+      "price_source_type": "official",
+      "price_url": "https://order.justsalad.com/menu/299",
+      "price_location": "Midtown West, New York on order.justsalad.com, October 4, 2026",
+      "calories": 520,
+      "protein": 27,
+      "sodium": 170,
+      "nutrition_url": "https://order.justsalad.com/menu/299",
+      "vegetarian": true,
+      "order_url": "https://order.justsalad.com/",
+      "region": "Northeast & Select states"
     }
-  ]
+  ],
+  "standard_note": "DailyBite standard: under $10, at least 25 g protein, at most 690 mg sodium (the FDA's 2024 sodium limit for a main dish labeled healthy). Sodium verified against each chain's own nutrition data on October 4, 2026."
 }
