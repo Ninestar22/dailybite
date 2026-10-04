@@ -1,23 +1,24 @@
 {
-  "updated": "2026-10-03",
-  "updatedAt": "2026-10-03T11:05:26.961Z",
+  "updated": "2026-10-04",
+  "updatedAt": "2026-10-04T11:05:08.639Z",
   "deals": [
     {
-      "brand": "H-E-B",
-      "cat": "Sushi",
-      "color": "#e01e26",
-      "ic": "HB",
-      "deal": "$7 Saturday: Select Sushiya Rolls for $7",
-      "desc": "H-E-B's Sushiya counters repeat the $7 select-roll price on Saturdays at participating Texas stores. No coupon or app needed; selection varies by store.",
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Fire-Grilled Combos from $5.99: Pollo Bowl, Chicken Burrito or 3 Tacos al Carbon with Chips and a Drink",
+      "desc": "El Pollo Loco's value combos (Original Pollo Bowl, Classic Chicken Burrito, 3 Tacos al Carbon) come with chips and a regular drink for $5.99 to $6.99 at a Los Angeles store on order.elpolloloco.com, checked October 3, 2026. The chain advertised them at $5 through 2022; prices vary by market.",
       "tags": [],
       "value": 3,
-      "expires": "Saturdays only",
-      "url": "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236",
+      "expires": "Ongoing",
+      "url": "https://www.elpolloloco.com/promotions",
       "best": false,
-      "region": "Texas",
-      "isNew": true,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": false,
       "endingSoon": false,
-      "id": "82c06888"
+      "id": "5dd48d15"
     },
     {
       "brand": "Publix",
@@ -32,7 +33,7 @@
       "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
       "best": false,
       "region": "FL & Southeast",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "ff8dda7e"
     },
@@ -50,7 +51,7 @@
       "est_savings": 3,
       "best": false,
       "region": "CA, AZ & NV",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "0b89e2dc"
     },
@@ -108,27 +109,9 @@
       "best": true,
       "region": "National",
       "est_savings": 4,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
-    },
-    {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#f7c500",
-      "ic": "EP",
-      "deal": "Fire-Grilled Combos from $5.99: Pollo Bowl, Chicken Burrito or 3 Tacos al Carbon with Chips and a Drink",
-      "desc": "El Pollo Loco's value combos (Original Pollo Bowl, Classic Chicken Burrito, 3 Tacos al Carbon) come with chips and a regular drink for $5.99 to $6.99 at a Los Angeles store on order.elpolloloco.com, checked October 3, 2026. The chain advertised them at $5 through 2022; prices vary by market.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.elpolloloco.com/promotions",
-      "best": false,
-      "region": "West & Southwest",
-      "est_savings": 3,
-      "isNew": true,
-      "endingSoon": false,
-      "id": "5dd48d15"
     }
   ]
 }
