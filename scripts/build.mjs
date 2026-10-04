@@ -1605,12 +1605,13 @@ function main() {
         writeFileSync(pp, pv);
       }
     } catch (e) { console.log("privacy disclosure not updated: " + e.message); }
-    // Holiday banner: auto-show within 7 days of a food holiday, auto-hide after.
+    // Holiday banner: shown ONLY on the day itself (owner, 2026-10-04: no countdown banners;
+    // the holiday pages still publish ahead, the homepage banner does not).
     const HB_START = "<!-- HOLIDAY:START -->", HB_END = "<!-- HOLIDAY:END -->";
     const hs2 = out.indexOf(HB_START), he2 = out.indexOf(HB_END);
     if (hs2 !== -1 && he2 !== -1) {
       const soon = HOLIDAYS.map(h => ({ h, diff: (new Date(h.date + "T12:00:00") - now) / 86400000 }))
-        .filter(x => x.diff <= 7 && x.diff >= -0.5).sort((a, b) => a.diff - b.diff)[0];
+        .filter(x => x.diff < 0.5 && x.diff >= -0.5).sort((a, b) => a.diff - b.diff)[0];
       let banner = "";
       if (soon) {
         const d2 = new Date(soon.h.date + "T12:00:00");
