@@ -52,7 +52,8 @@ export function htmlToText(html) {
 // Drop tracking-link noise and unsubscribe boilerplate so the model reads the offer, not the footer.
 function tidy(text) {
   return text
-    .replace(/[\u200B-\u200F\u2060\uFEFF\u00AD\uFFFD]+/g, "")
+    // invisible padding chains use for email preheaders: zero-width, joiners, soft hyphens, U+034F
+    .replace(/[\u034F\u180E\u200B-\u200F\u2060-\u2064\uFEFF\u00AD\uFFFD]/g, "").replace(/(^|\n)[ \t]+(?=\n|$)/g, "$1")
     .replace(/\((https?:\/\/[^)]{120,})\)/g, "(link)")
     .replace(/^(unsubscribe|manage preferences|view in browser|privacy policy|terms of use).*$/gim, "")
     .replace(/\n{3,}/g, "\n\n").trim();
