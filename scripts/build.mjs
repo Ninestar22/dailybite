@@ -1566,6 +1566,18 @@ function main() {
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
   writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\nconst AFFILIATES = ${JSON.stringify({ instacart: INSTACART_URL, grocery: [...GROCERY], active: AFF_ACTIVE })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
+  // Option B (owner, 2026-10-04): one line under the deal list pointing at the meals that meet
+  // the DailyBite standard. The homepage itself does not list them.
+  {
+    const h = readFileSync(htmlPath, "utf8");
+    const SS = "<!-- STANDARD:START -->", SE = "<!-- STANDARD:END -->";
+    const a = h.indexOf(SS), z = h.indexOf(SE);
+    if (a !== -1 && z !== -1 && z > a) {
+      const n = mealsOn ? MEALS.meals.filter(m => m.meets_standard).length : 0;
+      const line = n ? `<p class="stdline">No deal today where you are? <a href="/cheap-healthy-meals">${n} meals under $10 with 25 g protein and under 690 mg sodium</a>, verified against the chains' own nutrition data.</p>` : "";
+      writeFileSync(htmlPath, h.slice(0, a + SS.length) + line + h.slice(z));
+    }
+  }
 
   // 1b. Server-render the footer date and a crawlable static deal grid
   {

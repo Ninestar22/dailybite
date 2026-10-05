@@ -42,6 +42,39 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
    (see above), or on demand via **Actions → Daily Deal Refresh → Run workflow**
    (manual runs always do a full refresh, whatever the time).
 
+## Deals inbox (added 2026-10-04)
+
+Healthy chains announce most real offers by app push and email, not on public pages, so the
+refresh also reads a dedicated mailbox each morning (`scripts/inbox-pack.mjs`). Only mail
+from the chains' own domains is used (list in the script); it is framed to the model as data
+to verify, and the usual rules still apply. Until the secrets exist the step is skipped.
+
+One-time setup (about an hour):
+
+1. Create a mailbox used for nothing else, for example a new Gmail address. In that Google
+   account turn on 2-Step Verification, then create an **App password** (Google Account ->
+   Security -> 2-Step Verification -> App passwords). IMAP is on by default in current Gmail.
+2. With that address, join the rewards programs and email lists of the chains near you:
+   Starbucks, Panera (MyPanera), Potbelly Perks, Chipotle Rewards, CAVA, Sweetgreen, Chick-fil-A
+   One, Smoothie King Healthy Rewards, Tropical Smoothie, Noodles Rewards, Honeygrow, Saladworks,
+   Qdoba, Jamba, Just Salad, Subway MVP, plus Giant, Wegmans, Harris Teeter and Safeway.
+   Use the mailbox address and a password you do not use elsewhere.
+3. In the repo: Settings -> Secrets and variables -> Actions -> New repository secret:
+   `DEALS_INBOX_USER` (the address) and `DEALS_INBOX_PASS` (the app password). Add
+   `DEALS_INBOX_HOST` only if the mailbox is not Gmail.
+4. Test from your machine before the next morning run:
+
+```bash
+DEALS_INBOX_USER=... DEALS_INBOX_PASS=... node scripts/inbox-pack.mjs
+```
+
+It prints how many emails were read and kept and the first part of the pack. The next
+refresh log shows the same line (`Inbox pack: N chain email(s) kept`).
+
+What is deliberately excluded: newsletters, deal trackers and anything not sent from a chain's
+own domain; first-order and new-member offers (the model is told to skip them); emails older
+than 48 hours. Birthday rewards never qualify either.
+
 ## Run it locally
 
 ```bash
