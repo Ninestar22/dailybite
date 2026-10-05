@@ -57,6 +57,15 @@ function tidy(text) {
     .replace(/\n{3,}/g, "\n\n").trim();
 }
 
+// Gmail's own refusal text is more useful than imapflow's generic "Command failed".
+export function describeImapError(e) {
+  const parts = [e && e.message, e && e.responseText, e && e.serverResponseCode, e && e.code].filter(Boolean).map(String);
+  const msg = [...new Set(parts)].join(" | ");
+  if (/AUTHENTICATIONFAILED|Invalid credentials|Application-specific password|Username and Password not accepted/i.test(msg)) return msg + "\n  Gmail rejected the login. Check: 2-Step Verification is ON for this account, the password is an App password (16 characters, no spaces), and the address is right.";
+  if (/ENOTFOUND|ECONNREFUSED|ETIMEDOUT/.test(msg)) return msg + "\n  Could not reach the mail server; check DEALS_INBOX_HOST and the network.";
+  return msg;
+}
+
 export async function fetchInboxPack(env = process.env) {
   const user = env.DEALS_INBOX_USER, pass = env.DEALS_INBOX_PASS;
   if (!user || !pass) return { text: "", read: 0, kept: 0, skipped: "no DEALS_INBOX_USER / DEALS_INBOX_PASS" };
@@ -128,5 +137,5 @@ function decode(text, headersLower) {
 }
 
 if (process.argv[1] && process.argv[1].endsWith("inbox-pack.mjs")) {
-  fetchInboxPack().then(r => { console.log(`Inbox pack: read ${r.read}, kept ${r.kept}, ${r.text.length} chars${r.skipped ? " (" + r.skipped + ")" : ""}`); if (r.text) console.log(r.text.slice(0, 3000)); }).catch(e => { console.error("Inbox pack failed:", e.message || e); process.exit(1); });
+  fetchInboxPack().then(r => { console.log(`Inbox pack: read ${r.read}, kept ${r.kept}, ${r.text.length} chars${r.skipped ? " (" + r.skipped + ")" : ""}`); if (r.text) console.log(r.text.slice(0, 3000)); }).catch(e => { console.error("Inbox pack failed:", describeImapError(e)); process.exit(1); });
 }
