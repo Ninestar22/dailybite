@@ -61,7 +61,8 @@ One-time setup (about an hour):
    Use the mailbox address and a password you do not use elsewhere.
 3. In the repo: Settings -> Secrets and variables -> Actions -> New repository secret:
    `DEALS_INBOX_USER` (the address) and `DEALS_INBOX_PASS` (the app password). Add
-   `DEALS_INBOX_HOST` only if the mailbox is not Gmail.
+   `DEALS_INBOX_HOST` only if the mailbox is not Gmail. Add `DEALS_INBOX_FOLDER` only if chain mail is routed into a
+   label such as `Deals`; by default the Inbox is read, whichever category tab Gmail shows it under.
 4. Test from your machine before the next morning run:
 
 ```bash

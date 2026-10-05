@@ -107,6 +107,7 @@ jobs:
           DEALS_INBOX_USER: ${{ secrets.DEALS_INBOX_USER }}   # deals inbox (2026-10-04); empty = pack skipped
           DEALS_INBOX_PASS: ${{ secrets.DEALS_INBOX_PASS }}
           DEALS_INBOX_HOST: ${{ secrets.DEALS_INBOX_HOST }}   # optional, default imap.gmail.com
+          DEALS_INBOX_FOLDER: ${{ secrets.DEALS_INBOX_FOLDER }}   # optional, default INBOX (set to a label name to read a folder)
         run: npm run refresh
 
       - name: Rebuild the site from deals.json

@@ -8,6 +8,8 @@
 //   DEALS_INBOX_USER   the mailbox address (e.g. deals@dailybitedeals.com or a Gmail address)
 //   DEALS_INBOX_PASS   an app password (Gmail: 2-Step Verification on, then "App passwords")
 //   DEALS_INBOX_HOST   optional, default imap.gmail.com
+//   DEALS_INBOX_FOLDER optional, default INBOX. Set it to a label such as "Deals" if chain mail is
+//                      routed into that folder instead of the Inbox.
 // With no secrets the pack is empty and the refresh runs exactly as before.
 import { ImapFlow } from "imapflow";
 
@@ -64,7 +66,8 @@ export async function fetchInboxPack(env = process.env) {
   let read = 0;
   await client.connect();
   try {
-    const lock = await client.getMailboxLock("INBOX");
+    const folder = env.DEALS_INBOX_FOLDER || "INBOX";
+    const lock = await client.getMailboxLock(folder);
     try {
       const uids = await client.search({ since }, { uid: true });
       const recent = (uids || []).slice(-MAX_MESSAGES);
