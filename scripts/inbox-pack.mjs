@@ -52,6 +52,7 @@ export function htmlToText(html) {
 // Drop tracking-link noise and unsubscribe boilerplate so the model reads the offer, not the footer.
 function tidy(text) {
   return text
+    .replace(/[\u200B-\u200F\u2060\uFEFF\u00AD\uFFFD]+/g, "")
     .replace(/\((https?:\/\/[^)]{120,})\)/g, "(link)")
     .replace(/^(unsubscribe|manage preferences|view in browser|privacy policy|terms of use).*$/gim, "")
     .replace(/\n{3,}/g, "\n\n").trim();
@@ -128,11 +129,21 @@ function extractBody(raw) {
   if (html.trim()) return htmlToText(html);
   return htmlToText(body);
 }
+// Quoted-printable must be decoded to BYTES first and then read as UTF-8: decoding each =XX
+// to its own character broke every multi-byte character (the 2026-10-05 Inbox check showed
+// Starbucks' zero-width preheader padding as runs of replacement characters).
+function decodeQuotedPrintable(text) {
+  const src = text.replace(/=\r?\n/g, "");
+  const bytes = [];
+  for (let i = 0; i < src.length; i++) {
+    if (src[i] === "=" && /^[0-9A-Fa-f]{2}$/.test(src.slice(i + 1, i + 3))) { bytes.push(parseInt(src.slice(i + 1, i + 3), 16)); i += 2; }
+    else bytes.push(src.charCodeAt(i) & 0xff);
+  }
+  return Buffer.from(bytes).toString("utf8");
+}
 function decode(text, headersLower) {
   if (/content-transfer-encoding:\s*base64/.test(headersLower)) { try { return Buffer.from(text.replace(/\s+/g, ""), "base64").toString("utf8"); } catch { return text; } }
-  if (/content-transfer-encoding:\s*quoted-printable/.test(headersLower)) {
-    return text.replace(/=\r?\n/g, "").replace(/=([0-9A-F]{2})/gi, (m, h) => { try { return Buffer.from(h, "hex").toString("utf8"); } catch { return m; } });
-  }
+  if (/content-transfer-encoding:\s*quoted-printable/.test(headersLower)) return decodeQuotedPrintable(text);
   return text;
 }
 
