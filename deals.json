@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-06",
-  "updatedAt": "2026-10-06T11:06:28.589Z",
+  "updatedAt": "2026-10-06T21:23:09.225Z",
   "deals": [
     {
       "brand": "El Pollo Loco",
@@ -161,7 +161,7 @@
       "region": "Northeast & Mid-Atlantic",
       "est_savings": 12,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "id": "8767b5c7"
     },
     {
@@ -201,6 +201,26 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Noodles",
+      "color": "#8dc63f",
+      "ic": "N",
+      "deal": "$3 Off Your Noodle Bowl",
+      "desc": "National Noodle Day promo email gives $3 off a noodle bowl, valid through today, announced by email on 2026-10-06.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 6, 2026",
+      "url": "https://www.noodles.com/coupons",
+      "region": "National",
+      "est_savings": 3,
+      "id": "66c6bcd5",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
     }
   ]
 }
