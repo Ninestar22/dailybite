@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-04",
-  "updatedAt": "2026-10-04T11:05:08.639Z",
+  "updated": "2026-10-05",
+  "updatedAt": "2026-10-05T11:06:11.606Z",
   "deals": [
     {
       "brand": "El Pollo Loco",
@@ -92,6 +92,46 @@
       "isNew": false,
       "endingSoon": false,
       "id": "43d0d809"
+    },
+    {
+      "brand": "Starbucks",
+      "cat": "Cafe",
+      "color": "#00704a",
+      "ic": "SB",
+      "deal": "Free Mod Monday: One Drink Customization Free, Up to $2.25",
+      "desc": "Monday, October 5 only: Starbucks Rewards members (free account required) get one drink customization free, up to $2.25 before tax: an extra espresso shot, a syrup or sauce, cold foam, protein cold foam or protein-boosted milk. Apply it in the app or ask the barista; not combinable with other Rewards or offers. Starbucks says members get one free customization each month.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Monday, October 5 only",
+      "url": "https://www.starbucks.com/rewards",
+      "best": true,
+      "region": "National",
+      "est_savings": 2.25,
+      "isNew": true,
+      "endingSoon": true,
+      "id": "ad5a74f5"
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Loco Rewards Monday: Chips and Guacamole for $1 with an $11.99 Order",
+      "desc": "Every Monday, Loco Rewards members (free account required) get regular chips and guacamole for $1 with a purchase of $11.99 or more; the offer drops in the app on Mondays, one per member per week. Listed by The Krazy Coupon Lady on October 2, 2026.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Mondays only",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": true,
+      "endingSoon": false,
+      "id": "3a3a8809"
     },
     {
       "brand": "Subway",
