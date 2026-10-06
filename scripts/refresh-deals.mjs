@@ -310,7 +310,7 @@ async function generate(pack = "", opts = {}) {
   // Targeted top-up (2026-09-15): a third block, after the cached prompt and the pack, so
   // the cache prefix is untouched. Tells the model what the first sweep already verified
   // and restricts this smaller budget to the chains it missed.
-  if (opts.inboxOnly) content.push({ type: "text", text: "INBOX-ONLY PASS (noon): there is NO web search in this run and the SOURCE PACK is absent on purpose. Use ONLY the INBOX PACK above. Return only deals announced in those emails that are claimable today under every rule (open to all members, free account at most, dollars or percent stated, not first-order or new-member, not birthday, not points). Give the chain's own site or app page as the url and say \"announced by email on <date>\" in the description. An empty deals array is the correct answer when no email qualifies: never pad the list and never invent a deal." + (opts.listed && opts.listed.length ? ` Already on the site since this morning (do NOT return these again): ${opts.listed.map(d => `${d.brand}: ${d.deal}`).join("; ")}.` : "") });
+  if (opts.inboxOnly) content.push({ type: "text", text: "INBOX-ONLY PASS (noon): there is NO web search in this run and the SOURCE PACK is absent on purpose. Use ONLY the INBOX PACK above. Return only deals announced in those emails that are claimable today under every rule (open to all members, free account at most, dollars or percent stated, not first-order or new-member, not birthday, not points). Give the chain's own site or app page as the url and say \"announced by email on <date>\" in the description. Two clarifications for email offers: (a) a reward loaded into a FREE rewards account (found in the Offers or Rewards section, applied in the cart at checkout) is a free-account offer, NOT a points mechanic, as long as it needs no points, no prior visits and is not a new-member or first-order bonus; (b) a DATED promotion from Panera, Subway or Noodles & Company (an end date stated in the email, such as a $3-off entree through today) is exactly the limited-time offer the NO EVERYDAY MENUS rule allows. An empty deals array is the correct answer when no email qualifies: never pad the list and never invent a deal. DIAGNOSTIC: also return \"skipped\": an array with one entry {\"brand\", \"subject\", \"reason\"} (reason under 15 words) for every email that mentions dollars off, percent off, a BOGO or a free item but did not become a deal; welcome, verification and survey emails need no entry." + (opts.listed && opts.listed.length ? ` Already on the site since this morning (do NOT return these again): ${opts.listed.map(d => `${d.brand}: ${d.deal}`).join("; ")}.` : "") });
   if (opts.found && opts.found.length) content.push({ type: "text", text: `TOP-UP SWEEP (cost control): the first sweep of this run already verified these deals, which are kept as-is: ${opts.found.map(d => `${d.brand}: ${d.deal}`).join("; ")}. Do NOT re-search those chains or re-list those deals. Spend this smaller search budget only on approved chains NOT in that list (healthy-quota chains first, then today's grocery counters and the DC-area set) and return ONLY new deals. A short list is fine here: an empty "deals" array is a valid answer if nothing new verifies. Every other rule still applies.` });
   const messages = [{ role: "user", content }];
   // web_search_20250305: the basic variant that ran reliably for months. Deliberately
@@ -349,6 +349,9 @@ async function generate(pack = "", opts = {}) {
     // repair its own output first: one cheap call, no web search, same deals.
     console.error(`Model output was not valid JSON (${e.message}): asking the model to repair it.`);
     parsed = extractJson(await repairJson(text));
+  }
+  if (opts.inboxOnly && parsed && Array.isArray(parsed.skipped)) {
+    for (const s of parsed.skipped) console.error(`Inbox pass skipped: ${(s && s.brand) || "?"} | ${(s && s.subject) || "?"} | ${(s && s.reason) || "no reason given"}`);
   }
   return Array.isArray(parsed) ? parsed : parsed.deals;
 }
@@ -411,6 +414,7 @@ async function main() {
     const ip = await fetchInboxPack();
     inbox = ip.text;
     console.error(ip.skipped ? `Inbox pack: skipped (${ip.skipped}).` : `Inbox pack: ${ip.kept} chain email(s) kept of ${ip.read} read, ${inbox.length} chars.`);
+    for (const h of ip.headers || []) console.error(`  email: ${h}`);
   } catch (e) {
     console.error(`Inbox pack failed (continuing without it): ${e.message || e}`);
   }
