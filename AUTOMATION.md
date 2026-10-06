@@ -76,6 +76,14 @@ What is deliberately excluded: newsletters, deal trackers and anything not sent 
 own domain; first-order and new-member offers (the model is told to skip them); emails older
 than 48 hours. Birthday rewards never qualify either.
 
+## Noon inbox-only pass (added 2026-10-06)
+
+Chains send most promo emails mid-morning, after the 7 AM refresh has run. A second workflow
+(`.github/workflows/noon-inbox.yml`, about 12:05 PM Eastern) runs `REFRESH_MODE=inbox npm run
+refresh`: no web search, no source pack, only the mailbox. Qualifying same-day offers are
+added to the morning list; the rest of the list is untouched. It costs roughly a fifth of a
+morning run and does nothing at all when no chain email arrived.
+
 ## Run it locally
 
 ```bash

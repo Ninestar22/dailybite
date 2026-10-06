@@ -310,12 +310,14 @@ async function generate(pack = "", opts = {}) {
   // Targeted top-up (2026-09-15): a third block, after the cached prompt and the pack, so
   // the cache prefix is untouched. Tells the model what the first sweep already verified
   // and restricts this smaller budget to the chains it missed.
+  if (opts.inboxOnly) content.push({ type: "text", text: "INBOX-ONLY PASS (noon): there is NO web search in this run and the SOURCE PACK is absent on purpose. Use ONLY the INBOX PACK above. Return only deals announced in those emails that are claimable today under every rule (open to all members, free account at most, dollars or percent stated, not first-order or new-member, not birthday, not points). Give the chain's own site or app page as the url and say \"announced by email on <date>\" in the description. An empty deals array is the correct answer when no email qualifies: never pad the list and never invent a deal." + (opts.listed && opts.listed.length ? ` Already on the site since this morning (do NOT return these again): ${opts.listed.map(d => `${d.brand}: ${d.deal}`).join("; ")}.` : "") });
   if (opts.found && opts.found.length) content.push({ type: "text", text: `TOP-UP SWEEP (cost control): the first sweep of this run already verified these deals, which are kept as-is: ${opts.found.map(d => `${d.brand}: ${d.deal}`).join("; ")}. Do NOT re-search those chains or re-list those deals. Spend this smaller search budget only on approved chains NOT in that list (healthy-quota chains first, then today's grocery counters and the DC-area set) and return ONLY new deals. A short list is fine here: an empty "deals" array is a valid answer if nothing new verifies. Every other rule still applies.` });
   const messages = [{ role: "user", content }];
   // web_search_20250305: the basic variant that ran reliably for months. Deliberately
   // NOT the 20260209 dynamic-filtering variant: that was half of the combo that hung
   // the 2026-08-27 morning run. Searches bill the same either way.
-  const tools = [{ type: "web_search_20250305", name: "web_search", max_uses: opts.maxSearches || MAX_SEARCHES }];
+  // maxSearches 0 (the noon inbox-only pass, 2026-10-06) means no web search tool at all.
+  const tools = opts.maxSearches === 0 ? [] : [{ type: "web_search_20250305", name: "web_search", max_uses: opts.maxSearches || MAX_SEARCHES }];
 
   // Server tools can return stop_reason "pause_turn" for long chains; resend
   // the accumulated turn until the model finishes.
@@ -327,7 +329,7 @@ async function generate(pack = "", opts = {}) {
     // conversation (prompt + every search result so far) at full input price: that,
     // not the searches, is most of the ~$3/run cost. Top-level auto-caching marks the
     // latest prefix each round, so the next round reads it back at ~10% of the price.
-    response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, cache_control: { type: "ephemeral" }, tools, messages });
+    response = await client.messages.create({ model: MODEL, max_tokens: 16000, output_config: { effort: "medium" }, cache_control: { type: "ephemeral" }, ...(tools.length ? { tools } : {}), messages });
     recordUsage(response, `sweep round ${step + 1}`);
     if (response.stop_reason === "pause_turn") {
       messages.push({ role: "assistant", content: response.content });
@@ -389,8 +391,11 @@ async function main() {
 
   // Official offer pages, fetched deterministically (scripts/source-pack.mjs). A pack
   // failure must never fail the run: the model simply searches as before.
+  // Noon inbox-only pass (owner, 2026-10-06): REFRESH_MODE=inbox reads the mailbox only, with no
+  // web search and no source pack, and adds any qualifying same-day offer to the morning list.
+  const INBOX_ONLY = process.env.REFRESH_MODE === "inbox";
   let pack = "";
-  try {
+  if (!INBOX_ONLY) try {
     const sp = await fetchSourcePack();
     pack = sp.text;
     console.error(`Source pack: ${sp.ok} sources with offer text, ${sp.failed} empty/failed, ${sp.text.length} chars.`);
@@ -410,6 +415,7 @@ async function main() {
     console.error(`Inbox pack failed (continuing without it): ${e.message || e}`);
   }
   if (inbox) pack = (pack ? pack + "\n\n" : "") + inbox;
+  if (INBOX_ONLY && !inbox) { console.log("Inbox-only pass: no chain email in the window; nothing to do."); return; }
 
   // One attempt = generate (with JSON repair) + dedupe + salvage. Only an unusable run
   // (API error, unparseable output, or fewer than MIN_DEALS valid deals) gets the single
@@ -422,7 +428,25 @@ async function main() {
       return { deals: null, errors: [e.message || String(e)] };
     }
   }
-  let { deals, errors } = await attempt();
+  let deals, errors;
+  if (INBOX_ONLY) {
+    let current = [];
+    try { current = JSON.parse(readFileSync(dataPath, "utf8")).deals || []; } catch { current = []; }
+    ({ deals, errors } = await attempt({ maxSearches: 0, inboxOnly: true, listed: current }));
+    if (deals && errors.every(e => /too few valid deals/.test(e))) errors = []; // zero new deals is a valid noon result
+    console.log(usageSummary());
+    if (errors.length) { console.error("Inbox-only pass failed: NOT writing deals.json:"); for (const e of errors) console.error("  - " + e); process.exit(1); }
+    const merged = dedupe([...current, ...(deals || [])]);
+    const added = merged.length - current.length;
+    if (added <= 0) { console.log(`Inbox-only pass: the model returned ${(deals || []).length} deal(s), none new beyond the morning list; deals.json unchanged.`); return; }
+    assignDealIds(merged);
+    const out = { updated: new Date().toLocaleDateString("en-CA", ET), updatedAt: new Date().toISOString(), deals: merged };
+    await validateDealUrls(merged);
+    writeFileSync(dataPath, JSON.stringify(out, null, 2) + "\n");
+    console.log(`Inbox-only pass: added ${added} deal(s) from the mailbox; wrote deals.json with ${merged.length} deals.`);
+    return;
+  }
+  ({ deals, errors } = await attempt());
   if (errors.length) {
     console.error("First attempt failed: retrying once:");
     for (const e of errors) console.error("  - " + e);
