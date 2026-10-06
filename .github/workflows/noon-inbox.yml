@@ -1,17 +1,20 @@
-name: Noon Inbox Pass
+name: Inbox Pass (noon and 3 PM)
 
-# Owner decision (Jacob, 2026-10-06): a second, inbox-only pass at about 12:05 PM Eastern.
-# Chains email most promotions mid-morning, after the 7 AM refresh; this run reads only the
-# deals mailbox (no web search, no source pack) and adds qualifying same-day offers to the
-# morning list. Two UTC slots cover daylight-saving time; the guard runs whichever one falls
-# in the 12 PM Eastern hour. No spare slot on purpose: a dropped noon event is low stakes
-# (the next morning's full refresh reads the same 48-hour mail window). Costs about a fifth of a morning run, nothing when the mailbox
+# Owner decision (Jacob, 2026-10-06): inbox-only passes at about 12:05 PM and 3:05 PM Eastern.
+# Chains email most promotions mid-morning and in a second wave around 2 PM, after the 7 AM
+# refresh; these runs read only the deals mailbox (no web search, no source pack) and add
+# qualifying same-day offers to the morning list. Each pass has two UTC slots to cover
+# daylight-saving time; the guard runs whichever one falls in the 12 PM or 3 PM Eastern hour,
+# once per slot. No spare slots on purpose: a dropped event is low stakes (the next pass or
+# the next morning's full refresh reads the same 48-hour mail window). Costs about a fifth of a morning run, nothing when the mailbox
 # has no chain email.
 
 on:
   schedule:
     - cron: "5 16 * * *"   # 12:05 PM EDT  (11:05 AM EST -> skipped)
     - cron: "5 17 * * *"   # 12:05 PM EST  (1:05 PM EDT -> skipped)
+    - cron: "5 19 * * *"   #  3:05 PM EDT  (2:05 PM EST -> skipped)
+    - cron: "5 20 * * *"   #  3:05 PM EST  (4:05 PM EDT -> skipped)
   workflow_dispatch: {}
 
 concurrency:
@@ -28,20 +31,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Decide whether this slot is the noon hour (Eastern)
+      - name: Decide whether this slot is a pass hour (12 PM or 3 PM Eastern, once each)
         id: guard
         run: |
           if [ "${{ github.event_name }}" != "schedule" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; echo "Manual run."; exit 0; fi
           export TZ=America/New_York
           HOUR=$(date +%H)
-          if [ "$HOUR" = "12" ]; then
-            LAST=$(grep -o '"updatedAt": *"[^"]*"' deals.json | head -1 | sed 's/.*"\([^"]*\)"$/\1/' || true)
-            LAST_EPOCH=$(date -d "${LAST:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
-            NOON=$(date -d "$(date +%Y-%m-%d) 11:45" +%s)
-            if [ "$LAST_EPOCH" -ge "$NOON" ]; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Skipping: a noon pass already wrote deals.json today."; else echo "run=true" >> "$GITHUB_OUTPUT"; echo "Proceeding: noon hour, $(date '+%H:%M %Z')."; fi
-          else
-            echo "run=false" >> "$GITHUB_OUTPUT"; echo "Skipping: Eastern hour $HOUR is not the noon hour."
-          fi
+          case "$HOUR" in
+            12) SLOT_OPEN="11:45"; LABEL="noon" ;;
+            15) SLOT_OPEN="14:45"; LABEL="3 PM" ;;
+            *)  echo "run=false" >> "$GITHUB_OUTPUT"; echo "Skipping: Eastern hour $HOUR is not a pass hour (this slot serves the other half of the year)."; exit 0 ;;
+          esac
+          LAST=$(grep -o '"updatedAt": *"[^"]*"' deals.json | head -1 | sed 's/.*"\([^"]*\)"$/\1/' || true)
+          LAST_EPOCH=$(date -d "${LAST:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
+          OPEN_EPOCH=$(date -d "$(date +%Y-%m-%d) $SLOT_OPEN" +%s)
+          if [ "$LAST_EPOCH" -ge "$OPEN_EPOCH" ]; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Skipping: the $LABEL pass already wrote deals.json today."; else echo "run=true" >> "$GITHUB_OUTPUT"; echo "Proceeding: $LABEL pass, $(date '+%H:%M %Z')."; fi
 
       - name: Set up Node
         if: steps.guard.outputs.run == 'true'
@@ -81,7 +85,7 @@ jobs:
           git rm -r --cached node_modules --quiet 2>/dev/null || true
           git add -A
           if git diff --cached --quiet; then echo "No changes to commit."; exit 0; fi
-          git commit -m "chore: noon inbox pass ($(TZ=America/New_York date +'%Y-%m-%d %H:%M') ET)"
+          git commit -m "chore: inbox pass ($(TZ=America/New_York date +'%Y-%m-%d %H:%M') ET)"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             echo "Push rejected (main moved). Rebasing and retrying ($i/3)..."
@@ -91,4 +95,4 @@ jobs:
 
       - name: Surface a failed pass in the run status
         if: steps.guard.outputs.run == 'true' && steps.pass.outcome != 'success'
-        run: echo "::warning::The noon inbox pass failed; the morning list stays as it was. Check the pass step log."
+        run: echo "::warning::The inbox pass failed; the morning list stays as it was. Check the pass step log."
