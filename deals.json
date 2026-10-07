@@ -39,23 +39,6 @@
       "id": "5dd48d15"
     },
     {
-      "brand": "Sprouts",
-      "cat": "Sushi",
-      "color": "#00703c",
-      "ic": "SP",
-      "deal": "Sushi Wednesday: Select Oumi Rolls for $5",
-      "desc": "Every Wednesday in most Sprouts Farmers Market locations, select Oumi sushi rolls from the in-store sushi case are $5 each instead of the regular $7 to $10. Walk in and grab them: no coupon, app, or membership needed; participation and selection vary by store.",
-      "tags": [],
-      "value": 4,
-      "expires": "Wednesdays only",
-      "url": "https://www.sprouts.com/faqs/what-is-sushi-wednesday/",
-      "best": false,
-      "region": "Select states",
-      "isNew": true,
-      "endingSoon": false,
-      "id": "136cf651"
-    },
-    {
       "brand": "Kroger",
       "cat": "Sushi",
       "color": "#0b3b8c",
@@ -283,6 +266,23 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Sprouts",
+      "cat": "Sushi",
+      "color": "#00703c",
+      "ic": "SP",
+      "deal": "Sushi Wednesday: Select Oumi Rolls for $6",
+      "desc": "Every Wednesday in most Sprouts Farmers Market locations, select Oumi sushi rolls from the in-store sushi case are $6 each instead of the regular $8 to $10 (verified in store October 2026; the chain's older FAQ still says $5). Walk in and grab them: no coupon, app, or membership needed; participation and selection vary by store.",
+      "tags": [],
+      "value": 3,
+      "expires": "Wednesdays only",
+      "url": "https://www.sprouts.com/faqs/what-is-sushi-wednesday/",
+      "best": false,
+      "region": "Select states",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "106cf198"
     }
   ]
 }

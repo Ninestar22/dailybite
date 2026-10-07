@@ -20,8 +20,9 @@ export const EVERGREEN = [
     // Owner request (Jacob, 2026-08-20): grocery-store prepared-food deals are welcome when the value is real.
     // Publix $5 Sushi Wednesday, seen in store by the owner (spicy tuna and Philadelphia rolls at his Publix);
     // confirmed by Chowhound and the AFC/Zenshi sushi counters that run it. Wednesdays only (dow 3).
-    // Sprouts "Sushi Wednesday": select Oumi rolls for $5 in most markets, per the official Sprouts FAQ (2026-08-20).
-    { until: "2026-12-31", dow: 3, deal: { brand: "Sprouts", cat: "Sushi", color: "#00703c", ic: "SP", deal: "Sushi Wednesday: Select Oumi Rolls for $5", desc: "Every Wednesday in most Sprouts Farmers Market locations, select Oumi sushi rolls from the in-store sushi case are $5 each instead of the regular $7 to $10. Walk in and grab them: no coupon, app, or membership needed; participation and selection vary by store.", tags: [], value: 4, expires: "Wednesdays only", url: "https://www.sprouts.com/faqs/what-is-sushi-wednesday/", best: false, region: "Select states" } },
+    // Sprouts "Sushi Wednesday": select Oumi rolls. The official Sprouts FAQ (last edited 2020) still says $5; the
+    // owner checked in store on 2026-10-07 and the Wednesday price is now $6 (same drift as Harris Teeter's $5 -> $6).
+    { until: "2026-12-31", dow: 3, deal: { brand: "Sprouts", cat: "Sushi", color: "#00703c", ic: "SP", deal: "Sushi Wednesday: Select Oumi Rolls for $6", desc: "Every Wednesday in most Sprouts Farmers Market locations, select Oumi sushi rolls from the in-store sushi case are $6 each instead of the regular $8 to $10 (verified in store October 2026; the chain's older FAQ still says $5). Walk in and grab them: no coupon, app, or membership needed; participation and selection vary by store.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.sprouts.com/faqs/what-is-sushi-wednesday/", best: false, region: "Select states" } },
     // Kroger-family "Wednesday Only" Private Selection sushi by Snowfox: an official kroger.com promo
     // lineup (California, Spicy Tuna, Philly, Spicy Salmon, Vegetarian and more) with a promotional
     // price on Wednesdays only; kroger.com showed $6.00 and snowfox.com says "$6 sushi every Wednesday" on 2026-09-22 (was $5).
