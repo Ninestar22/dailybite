@@ -1,24 +1,24 @@
 {
-  "updated": "2026-10-07",
-  "updatedAt": "2026-10-07T11:05:42.561Z",
+  "updated": "2026-10-08",
+  "updatedAt": "2026-10-08T11:06:57.113Z",
   "deals": [
     {
-      "brand": "Smoothie King",
-      "cat": "Smoothies",
-      "color": "#f05a28",
-      "ic": "SK",
-      "deal": "Chicken Flatbread and Smoothie Bundle from $9.99",
-      "desc": "Pick any protein-packed Chicken Flatbread plus a 20oz Fruit Classic Smoothie together starting at $9.99, pricing may vary by location.",
+      "brand": "Giant Food",
+      "cat": "Deli",
+      "color": "#f36c21",
+      "ic": "G",
+      "deal": "Rotisserie Chicken $5.99 (Save up to $2)",
+      "desc": "Giant Food's hot or cold Giant Rotisserie Chicken is marked down from regular price in the deli department this week, per the store's official savings page.",
       "tags": [],
       "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.smoothieking.com/landing-pages/chicken-flatbread-smoothie-bundle/",
-      "best": false,
-      "est_savings": 3,
-      "region": "National",
-      "id": "4beec3b2",
+      "expires": "This week",
+      "url": "https://giantfood.com/savings/weekly-ad/",
+      "region": "DC, MD, VA & DE",
+      "est_savings": 2,
+      "id": "23e7418a",
       "isNew": true,
-      "endingSoon": false
+      "endingSoon": false,
+      "best": false
     },
     {
       "brand": "El Pollo Loco",
@@ -37,6 +37,40 @@
       "isNew": false,
       "endingSoon": false,
       "id": "5dd48d15"
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#d0342c",
+      "ic": "TF",
+      "deal": "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99",
+      "desc": "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.",
+      "tags": [],
+      "value": 4,
+      "expires": "Thursdays only",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "best": false,
+      "region": "FL & Southeast",
+      "isNew": false,
+      "endingSoon": false,
+      "id": "12a3d0a4"
+    },
+    {
+      "brand": "Publix",
+      "cat": "Deli",
+      "color": "#3d8b37",
+      "ic": "PX",
+      "deal": "Sub of the Week: $2 Off This Week's Featured Whole Sub",
+      "desc": "Every week Publix takes $2 off one featured whole deli sub (a Boar's Head turkey sub or the Publix Deli Ultimate Sub, for example, about $8.99 instead of $10.99), fully customizable at the counter, online or in the app. The featured sub changes with the weekly ad; the deli's weekly specials page lists it.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing (changes weekly)",
+      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
+      "best": false,
+      "region": "FL & Southeast",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "ff8dda7e"
     },
     {
       "brand": "Rubio's Coastal Grill",
@@ -113,23 +147,6 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#d0342c",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99",
-      "desc": "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.",
-      "tags": [],
-      "value": 4,
-      "expires": "Thursdays only",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "best": false,
-      "region": "FL & Southeast",
-      "isNew": true,
-      "endingSoon": false,
-      "id": "12a3d0a4"
     }
   ]
 }
