@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-08",
-  "updatedAt": "2026-10-08T11:06:57.113Z",
+  "updatedAt": "2026-10-08T21:16:18.219Z",
   "deals": [
     {
       "brand": "Giant Food",
@@ -147,6 +147,27 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#6f1d2b",
+      "ic": "Q",
+      "deal": "Free Queso and Guac Added to Any Entree",
+      "desc": "Qdoba Rewards members get queso and guac added free to any entree, announced by email on 2026-10-08, free account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.qdoba.com/rewards",
+      "region": "National",
+      "est_savings": 3,
+      "id": "dadc0eb4",
+      "isNew": true,
+      "endingSoon": false,
+      "best": true
     }
   ]
 }
