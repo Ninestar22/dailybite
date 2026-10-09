@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-09",
-  "updatedAt": "2026-10-09T11:09:39.323Z",
+  "updatedAt": "2026-10-09T20:49:21.382Z",
   "deals": [
     {
       "brand": "Qdoba",
@@ -225,6 +225,26 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Honeygrow",
+      "cat": "Asian",
+      "color": "#f5a623",
+      "ic": "H",
+      "deal": "20% off any Stir-Fry (code THANKYOU)",
+      "desc": "Announced by email on 2026-10-09: use code THANKYOU for 20% off one stir-fry (discount capped at $3) via app, online or in-store kiosk.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 11, 2026",
+      "url": "https://order.honeygrow.com/",
+      "est_savings": 3,
+      "id": "727ba9bf",
+      "isNew": true,
+      "endingSoon": true,
+      "region": "Mid-Atlantic & Northeast",
+      "best": false
     }
   ]
 }
