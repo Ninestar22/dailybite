@@ -1,21 +1,45 @@
 {
-  "updated": "2026-10-08",
-  "updatedAt": "2026-10-08T21:16:18.219Z",
+  "updated": "2026-10-09",
+  "updatedAt": "2026-10-09T20:49:21.382Z",
   "deals": [
     {
-      "brand": "Giant Food",
-      "cat": "Deli",
-      "color": "#f36c21",
-      "ic": "G",
-      "deal": "Rotisserie Chicken $5.99 (Save up to $2)",
-      "desc": "Giant Food's hot or cold Giant Rotisserie Chicken is marked down from regular price in the deli department this week, per the store's official savings page.",
-      "tags": [],
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#004b87",
+      "ic": "Q",
+      "deal": "Free Guac or Queso with Any Entree",
+      "desc": "Add hand-crafted guacamole or signature 3-cheese queso to any entree at no extra cost with a free Qdoba Rewards account.",
+      "tags": [
+        "free",
+        "app"
+      ],
       "value": 3,
-      "expires": "This week",
-      "url": "https://giantfood.com/savings/weekly-ad/",
-      "region": "DC, MD, VA & DE",
-      "est_savings": 2,
-      "id": "23e7418a",
+      "expires": "Ongoing",
+      "url": "https://www.qdoba.com/rewards",
+      "region": "National",
+      "est_savings": 2.5,
+      "id": "a0baba5d",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
+    },
+    {
+      "brand": "Luna Grill",
+      "cat": "Mediterranean",
+      "color": "#8a1f2d",
+      "ic": "L",
+      "deal": "Club Luna Exclusive: 25% off Plates",
+      "desc": "Join the free Club Luna app rewards program to get 25% off Mediterranean plates.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://lunagrill.com/",
+      "region": "SoCal & Texas",
+      "est_savings": 3,
+      "id": "3326b294",
       "isNew": true,
       "endingSoon": false,
       "best": false
@@ -39,21 +63,56 @@
       "id": "5dd48d15"
     },
     {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#d0342c",
-      "ic": "TF",
-      "deal": "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99",
-      "desc": "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.",
+      "brand": "Safeway",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "SF",
+      "deal": "$5 Friday: Fresh Sushi Rolls for $5",
+      "desc": "Every Friday, Safeway's $5 Friday lineup includes fresh sushi rolls from the in-store counter for $5 (regularly $8 to $10), alongside other prepared-food deals like an 8-piece chicken bag. Check the weekly ad for your division; a free Safeway for U account may be needed for the promo price.",
       "tags": [],
       "value": 4,
-      "expires": "Thursdays only",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "expires": "Fridays only",
+      "url": "https://www.safeway.com/weeklyad/",
       "best": false,
-      "region": "FL & Southeast",
-      "isNew": false,
+      "region": "Select states",
+      "isNew": true,
       "endingSoon": false,
-      "id": "12a3d0a4"
+      "id": "a819b9f1"
+    },
+    {
+      "brand": "Harris Teeter",
+      "cat": "Sushi",
+      "color": "#00529b",
+      "ic": "HT",
+      "deal": "$6 Sushi Friday: California, Vegetable, Spicy Tuna and Spicy Salmon Rolls",
+      "desc": "Every Friday, Harris Teeter's Zenshi sushi counters sell four rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon (regularly about $9.49 to $10.49). In store, while supplies last; the free VIC card may be needed for the promo price. Seen in store October 2, 2026.",
+      "tags": [],
+      "value": 4,
+      "est_savings": 3.5,
+      "expires": "Fridays only",
+      "url": "https://www.harristeeter.com/",
+      "best": false,
+      "region": "Southeast & Mid-Atlantic",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "d436e568"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Sushi",
+      "color": "#e31837",
+      "ic": "HV",
+      "deal": "Sushi Friday: Buy One Nori Roll, Get One 50% Off",
+      "desc": "Every Friday at participating Hy-Vee stores, buy one regular Nori Sushi roll and get a second at half price. Store-run promotion: participation varies, no card or app needed.",
+      "tags": [],
+      "value": 3,
+      "expires": "Fridays only",
+      "url": "https://www.hy-vee.com/deals/weekly-ads",
+      "best": false,
+      "region": "Midwest",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "a68240f2"
     },
     {
       "brand": "Publix",
@@ -68,7 +127,7 @@
       "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
       "best": false,
       "region": "FL & Southeast",
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "ff8dda7e"
     },
@@ -129,6 +188,25 @@
       "id": "43d0d809"
     },
     {
+      "brand": "Smoothie King",
+      "cat": "Smoothies",
+      "color": "#c8102e",
+      "ic": "SK",
+      "deal": "Free Upsize Friday: 32 oz Smoothie for the Price of a 20 oz",
+      "desc": "Every Friday, Healthy Rewards members (free account required) get a 32 oz smoothie for the price of a 20 oz when they order in the Smoothie King app, at participating locations. Rewards cannot be redeemed on these orders.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Fridays only",
+      "url": "https://www.smoothieking.com/rewards/",
+      "best": false,
+      "region": "National",
+      "isNew": true,
+      "endingSoon": false,
+      "id": "6d31e275"
+    },
+    {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008c15",
@@ -149,25 +227,24 @@
       "id": "d3828fcf"
     },
     {
-      "brand": "Qdoba",
-      "cat": "Mexican",
-      "color": "#6f1d2b",
-      "ic": "Q",
-      "deal": "Free Queso and Guac Added to Any Entree",
-      "desc": "Qdoba Rewards members get queso and guac added free to any entree, announced by email on 2026-10-08, free account required.",
+      "brand": "Honeygrow",
+      "cat": "Asian",
+      "color": "#f5a623",
+      "ic": "H",
+      "deal": "20% off any Stir-Fry (code THANKYOU)",
+      "desc": "Announced by email on 2026-10-09: use code THANKYOU for 20% off one stir-fry (discount capped at $3) via app, online or in-store kiosk.",
       "tags": [
-        "free",
         "app"
       ],
-      "value": 4,
-      "expires": "Ongoing",
-      "url": "https://www.qdoba.com/rewards",
-      "region": "National",
+      "value": 3,
+      "expires": "Through October 11, 2026",
+      "url": "https://order.honeygrow.com/",
       "est_savings": 3,
-      "id": "dadc0eb4",
+      "id": "727ba9bf",
       "isNew": true,
-      "endingSoon": false,
-      "best": true
+      "endingSoon": true,
+      "region": "Mid-Atlantic & Northeast",
+      "best": false
     }
   ]
 }
