@@ -30,6 +30,8 @@ export const OFFER_SOURCES = [
   { brand: "Smoothie King press", url: "https://www.smoothieking.com/press" },
   // DC-area healthy set first (owner lives in Reston, VA).
   { brand: "Sweetgreen", url: "https://www.sweetgreen.com/" },
+  { brand: "District Taco", url: "https://www.districttaco.com/" },
+  { brand: "District Taco rewards", url: "https://www.districttaco.com/rewards" },
   { brand: "Chopt", url: "https://www.choptsalad.com/" },
   { brand: "Roti", url: "https://roti.com/" },
   { brand: "Honeygrow", url: "https://www.honeygrow.com/" },
@@ -91,7 +93,7 @@ export const SEARCH_ONLY = [
   "Chick-fil-A (chick-fil-a.com offers)", "CAVA (cava.com)", "Tropical Smoothie Cafe (tropicalsmoothiecafe.com deals)",
   "Smoothie King (smoothieking.com promotions)", "Jamba (jamba.com)", "Qdoba (qdoba.com)", "Noodles & Company (noodles.com)",
   "Chicken Salad Chick", "Jason's Deli", "McAlister's Deli", "Cafe Zupas", "Flame Broiler", "Newk's Eatery",
-  "Giant Food weekly ad (giantfood.com)", "Harris Teeter weekly ad", "Kroger sushi Wednesday", "Sprouts sushi Wednesday", "Uber Eats newsroom",
+  "Nando's PERi-PERi (nandosperiperi.com rate-limits fetches; search \"Nando's PERi-Perks offer\")", "Giant Food weekly ad (giantfood.com)", "Harris Teeter weekly ad", "Kroger sushi Wednesday", "Sprouts sushi Wednesday", "Uber Eats newsroom",
 ];
 
 const UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36";
@@ -159,7 +161,7 @@ export const LEAD_BRANDS = [
   "Taziki's", "Saladworks", "Salata", "Rubio's", "WaBa Grill", "Pollo Tropical", "Tijuana Flats", "Pei Wei",
   "Teriyaki Madness", "Bibibop", "Cafe Zupas", "Naf Naf", "Halal Guys", "Marugame", "Yoshinoya", "Sarku",
   "Roti", "Garbanzo", "Pita Pit", "Newk's", "Robeks", "Clean Juice", "Pressed Juicery", "Luna Grill", "Bolay",
-  "Uber Eats", "DoorDash", "Grubhub",
+  "Uber Eats", "DoorDash", "Grubhub", "Nando's", "District Taco", "Giant Food", "Wegmans",
 ];
 const LEAD_DAYS = 10;
 const LEAD_MAX = 45;

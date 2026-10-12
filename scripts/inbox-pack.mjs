@@ -27,7 +27,7 @@ export const CHAIN_DOMAINS = [
   "choptsalad.com", "honeygrow.com", "playabowls.com", "nekterjuicebar.com", "robeks.com", "saladworks.com", "salata.com",
   "rubios.com", "wabagrill.com", "tijuanaflats.com", "pollotropical.com", "teriyakimadness.com", "peiwei.com", "bibibop.com",
   "cafezupas.com", "diginn.com", "roti.com", "eatgarbanzo.com", "pitapitusa.com", "newks.com", "mcalistersdeli.com",
-  "jasonsdeli.com", "chickensaladchick.com", "tazikis.com", "lunagrill.com", "marugameudon.com", "yoshinoyaamerica.com",
+  "jasonsdeli.com", "chickensaladchick.com", "tazikis.com", "lunagrill.com", "marugameudon.com", "yoshinoyaamerica.com", "nandosperiperi.com", "districttaco.com",
   "sarkujapan.com", "nafnafgrill.com", "publix.com", "sprouts.com", "kroger.com", "harristeeter.com", "safeway.com",
   "albertsons.com", "wegmans.com", "giantfood.com", "foodlion.com", "heb.com", "hy-vee.com", "meijer.com", "shoprite.com",
   "stopandshop.com", "wholefoodsmarket.com", "traderjoes.com", "lidl.com", "doordash.com", "ubereats.com", "uber.com", "grubhub.com",
