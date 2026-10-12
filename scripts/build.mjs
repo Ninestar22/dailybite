@@ -5,6 +5,7 @@
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
 import { readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
 import { loadMeals, mealRow, money } from "./meals.mjs";
@@ -79,6 +80,16 @@ const CHAINS = [
   { slug: "meijer-deals",       name: "Meijer", note: "Participating Meijer stores run Sushi Wednesday: select fresh rolls for $5.99 (recently $5). It appears below every Wednesday when verified." },
 ];
 
+// Related pages per chain (2026-10-12): the two smaller halal chains and the rotisserie-chicken
+// price guide had no inbound link anywhere, so Google never crawled them.
+const HALAL = [["The Halal Guys deals", "halal-guys-deals"], ["Naz's Halal deals", "nazs-halal-deals"], ["Shah's Halal deals", "shahs-halal-deals"]];
+const GROCERY_RELATED = [["Rotisserie chicken prices by store", "rotisserie-chicken-prices"], ["Wegmans sushi prices", "wegmans-sushi-prices"]];
+const CHAIN_RELATED = {
+  "halal-guys-deals": HALAL, "nazs-halal-deals": HALAL, "shahs-halal-deals": HALAL,
+  "safeway-deals": GROCERY_RELATED, "harris-teeter-deals": GROCERY_RELATED, "kroger-deals": GROCERY_RELATED, "sprouts-deals": GROCERY_RELATED,
+  "publix-deals": GROCERY_RELATED, "heb-deals": GROCERY_RELATED, "hy-vee-deals": GROCERY_RELATED, "shoprite-deals": GROCERY_RELATED, "meijer-deals": GROCERY_RELATED,
+};
+const relatedNav = slug => (CHAIN_RELATED[slug] || []).filter(([, s]) => s !== slug).map(([t, s]) => ` &middot; <a href="/${s}">${esc(t)}</a>`).join("");
 const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/healthy-food-deals-report">Deals Report</a> &middot; <a href="/cheap-japanese-food">Cheap Japanese Food</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
 
 // Newsletter signup retired 2026-09-18 (owner: nobody used it, it cluttered the pages). Kept as an
@@ -402,7 +413,7 @@ ${faqLd}${freshLd}
   ${body}
   ${guideHtml}
   ${EMAIL_CAPTURE}
-    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
+    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a>${relatedNav(chain.slug)}</nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
@@ -439,9 +450,23 @@ function sushiPage(deals) {
     ["Wednesday", "Giant Eagle / Market District", "Select sushi about $5, some stores 4 to 7 PM only", "PA, OH, WV, MD & IN; participating stores"],
     ["Friday", "Hy-Vee", "Buy one Nori Sushi roll, get one 50% off", "Midwest; participating stores"],
     ["Saturday", "H-E-B", "$7 Saturday: select Sushiya rolls $7", "Texas"],
+    ["Friday", "Whole Foods Market", "Sushi Friday discount needs a paid Amazon Prime membership; the guide lists no-membership alternatives", "National"],
+    ["Every day", "Wegmans", "$5 California roll at the everyday price, no deal day needed (seen at the Reston, VA store)", "Northeast & Mid-Atlantic"],
     ["Every week", "Publix deli", "Sub of the Week: $2 off the featured whole sub", "FL & Southeast; counter, online or app"],
   ];
-  const tableRows = ROWS.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("\n");
+  // Internal links (Search Console, 2026-10-12: these store guides were in the sitemap but linked from
+  // nowhere, so Google left them "discovered, not indexed"). Keyed by day|store as written above.
+  const SUSHI_LINKS = {
+    "Wednesday|Publix": "publix-5-sushi-wednesday", "Wednesday|Sprouts": "sprouts-sushi-wednesday",
+    "Wednesday|Kroger family (Fry's, King Soopers, Fred Meyer, Smith's, QFC)": "kroger-sushi-wednesday",
+    "Wednesday|Hannaford": "hannaford-sushi-wednesday", "Tuesday|Dierbergs": "dierbergs-sushi-tuesday",
+    "Friday|Safeway / Albertsons": "safeway-5-friday-sushi", "Friday|Harris Teeter": "harris-teeter-5-sushi-friday",
+    "Wednesday|Hy-Vee": "hy-vee-sushi-wednesday", "Wednesday|H-E-B": "heb-sushi-wednesday", "Wednesday|Meijer": "meijer-sushi-wednesday",
+    "Wednesday|ShopRite": "shoprite-sushi-wednesday", "Friday|Whole Foods Market": "whole-foods-sushi-friday",
+    "Every day|Wegmans": "wegmans-sushi-prices", "Every week|Publix deli": "publix-sub-of-the-week",
+  };
+  const storeCell = r => { const s = SUSHI_LINKS[r[0] + "|" + r[1]]; return s ? `<a href="/${s}">${esc(r[1])}</a>` : esc(r[1]); };
+  const tableRows = ROWS.map(r => `<tr><td>${esc(r[0])}</td><td>${storeCell(r)}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("\n");
   const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": "Weekly grocery store sushi days", "numberOfItems": ROWS.length,
     "itemListElement": ROWS.map((r, i) => ({ "@type": "ListItem", "position": i + 1, "name": `${r[0]}: ${r[1]}: ${r[2]}` })) };
   const todaysBlock = todays.length
@@ -689,6 +714,15 @@ ${matchedBlock}
 </html>`;
 }
 
+// Guide links per day (2026-10-12): the day note is plain escaped text, so the store guides that
+// belong to each day are linked on a line of their own under it.
+const DAY_LINKS = {
+  tuesday: [["Dierbergs $6 Sushi Tuesday", "dierbergs-sushi-tuesday"], ["Tijuana Flats Taco Tuesdaze", "tijuana-flats-deals"]],
+  wednesday: [["Publix", "publix-5-sushi-wednesday"], ["Sprouts", "sprouts-sushi-wednesday"], ["Kroger family", "kroger-sushi-wednesday"], ["Hannaford", "hannaford-sushi-wednesday"], ["Hy-Vee", "hy-vee-sushi-wednesday"], ["H-E-B", "heb-sushi-wednesday"], ["Meijer", "meijer-sushi-wednesday"], ["ShopRite", "shoprite-sushi-wednesday"]],
+  friday: [["Safeway $5 Friday", "safeway-5-friday-sushi"], ["Harris Teeter $6 sushi", "harris-teeter-5-sushi-friday"], ["Hy-Vee sushi BOGO", "hy-vee-sushi-wednesday"], ["Smoothie King Free Upsize Friday", "smoothie-king-free-upsize-friday"], ["Whole Foods Sushi Friday (needs Prime)", "whole-foods-sushi-friday"]],
+  saturday: [["H-E-B $7 Saturday sushi", "heb-sushi-wednesday"]],
+};
+const dayLinksHtml = day => { const l = DAY_LINKS[day]; return l && l.length ? `<p class="tag"><strong>Guides:</strong> ${l.map(([t, s]) => `<a href="/${s}">${esc(t)}</a>`).join(" &middot; ")}</p>` : ""; };
 const DAY_NOTES = {
   monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. Most app deal tabs refresh Monday morning, so check Chipotle and Chick-fil-A first for the week\u2019s new offers.",
   tuesday: "Tuesday is taco night: Tijuana Flats runs Taco Tuesdaze (two tacos, chips, and a drink for about $7.99) at participating FL & Southeast locations, and taco specials across chains make this one of the cheapest dinner nights of the week.",
@@ -1137,7 +1171,7 @@ function byDayPage(deals) {
     const todays = deals.filter(d => rx.test(d.expires || "") || rx.test(d.deal || ""));
     const isToday = dowET === (i + 1) % 7;
     const cards = todays.length ? `<div class="grid">${groupCards(todays)}</div>` : "";
-    return `<section id="${day}"><h2 style="font-size:19px;margin:26px 2px 4px">${cap}${isToday ? ' <span class="pill todaypill" style="vertical-align:middle">TODAY</span>' : ""}</h2><p class="tag">${esc(DAY_NOTES[day] || "")}</p>${cards}</section>`;
+    return `<section id="${day}"><h2 style="font-size:19px;margin:26px 2px 4px">${cap}${isToday ? ' <span class="pill todaypill" style="vertical-align:middle">TODAY</span>' : ""}</h2><p class="tag">${esc(DAY_NOTES[day] || "")}</p>${dayLinksHtml(day)}${cards}</section>`;
   }).join("\n");
   const everyday = deals.filter(d => /ongoing|every day|daily/i.test(d.expires || "")).slice(0, 8);
   const everydayBlock = everyday.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">Great any day of the week</h2><div class="grid">${groupCards(everyday)}</div>` : "";
@@ -1679,9 +1713,32 @@ function main() {
 
   // 3. Sitemap
   const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  // lastmod (2026-10-12): every page used to be stamped with today's date every day, so the date
+  // carried no information and Google could not tell a changed guide from an untouched one. Now
+  // each page's HTML is hashed with dates and timestamps stripped; lastmod moves only when the
+  // hash does. The state lives in sitemap-lastmod.json, committed with the build. changefreq is
+  // dropped (Google ignores it).
+  const lmPath = join(root, "sitemap-lastmod.json");
+  let lm = {};
+  try { lm = JSON.parse(readFileSync(lmPath, "utf8")); } catch {}
+  const stripDates = s => String(s)
+    .replace(/\b(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}(?:, \d{4})?\b/g, "")
+    .replace(/\b(?:Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.? \d{1,2}(?:, \d{4})?\b/g, "")
+    .replace(/\b\d{4}-\d{2}-\d{2}(?:T[\d:.]+Z)?\b/g, "")
+    .replace(/\b(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day\b/g, "");
+  const lastmodFor = u => {
+    const path = u.replace(SITE, "") || "/";
+    const file = path === "/" ? "index.html" : path.slice(1) + ".html";
+    let hash = "";
+    try { hash = createHash("sha1").update(stripDates(readFileSync(join(root, file), "utf8"))).digest("hex").slice(0, 12); } catch { return iso; }
+    if (!lm[path] || lm[path].hash !== hash) lm[path] = { hash, lastmod: iso };
+    return lm[path].lastmod;
+  };
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
-    urls.map(u => `  <url><loc>${u}</loc><lastmod>${iso}</lastmod><changefreq>daily</changefreq></url>`).join("\n") +
+    urls.map(u => `  <url><loc>${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join("\n") +
     `\n</urlset>\n`;
+  for (const k of Object.keys(lm)) if (!urls.includes(SITE + (k === "/" ? "/" : k))) delete lm[k];
+  writeFileSync(lmPath, JSON.stringify(lm, null, 1) + "\n");
   writeFileSync(join(root, "sitemap.xml"), sitemap);
   console.log("Built sitemap.xml.");
 }

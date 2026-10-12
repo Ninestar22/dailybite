@@ -115,26 +115,6 @@
       "best": true
     },
     {
-      "brand": "Honeygrow",
-      "cat": "Bowls",
-      "color": "#f9a01b",
-      "ic": "HG",
-      "deal": "20% Off Any Stir-Fry with Code THANKYOU",
-      "desc": "Take 20 percent off one stir-fry (up to $3) today only using code THANKYOU on the hg app, online, or in-store kiosks.",
-      "tags": [
-        "app"
-      ],
-      "value": 2,
-      "expires": "Through October 11, 2026",
-      "url": "https://order.honeygrow.com/",
-      "region": "Mid-Atlantic & Northeast",
-      "est_savings": 3,
-      "id": "922d06a5",
-      "isNew": true,
-      "endingSoon": true,
-      "best": false
-    },
-    {
       "brand": "Smoothie King",
       "cat": "Smoothies",
       "color": "#ed1c24",
@@ -151,6 +131,26 @@
       "id": "f3d7b1fb",
       "isNew": true,
       "endingSoon": false
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Loco Rewards Monday: Chips and Guacamole for $1 with an $11.99 Order",
+      "desc": "Every Monday, Loco Rewards members (free account required) get regular chips and guacamole for $1 with a purchase of $11.99 or more; the offer drops in the app on Mondays, one per member per week. Listed by The Krazy Coupon Lady on October 2, 2026.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Mondays only",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": true,
+      "endingSoon": false,
+      "id": "3a3a8809"
     }
   ]
 }
