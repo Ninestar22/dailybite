@@ -1,7 +1,25 @@
 {
   "updated": "2026-10-12",
-  "updatedAt": "2026-10-12T07:28:09.770Z",
+  "updatedAt": "2026-10-12T11:07:04.666Z",
   "deals": [
+    {
+      "brand": "Giant Food",
+      "cat": "Deli",
+      "color": "#ee3524",
+      "ic": "G",
+      "deal": "Giant Rotisserie Chicken $5.99 (Save Up To $2)",
+      "desc": "Whole rotisserie chicken is marked down to $5.99 each, up to $2 off, in the deli department this week.",
+      "tags": [],
+      "value": 3,
+      "expires": "Through Oct 15, 2026",
+      "url": "https://giantfood.com/savings/weekly-ad/grid-view",
+      "region": "DC, MD & VA",
+      "est_savings": 2,
+      "id": "ea6eff09",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
+    },
     {
       "brand": "El Pollo Loco",
       "cat": "Chicken",
