@@ -1,25 +1,7 @@
 {
   "updated": "2026-10-12",
-  "updatedAt": "2026-10-12T07:24:32.821Z",
+  "updatedAt": "2026-10-12T07:28:09.770Z",
   "deals": [
-    {
-      "brand": "Smoothie King",
-      "cat": "Bowls",
-      "color": "#ed1c24",
-      "ic": "SK",
-      "deal": "Chicken Flatbread & Smoothie Bundle from $9.99",
-      "desc": "Pick any protein-packed Chicken Flatbread paired with a 20oz Fruit Classic Smoothie for one bundled price, starting at $9.99.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.smoothieking.com/landing-pages/chicken-flatbread-smoothie-bundle/",
-      "best": false,
-      "est_savings": 3,
-      "region": "National",
-      "id": "4beec3b2",
-      "isNew": true,
-      "endingSoon": false
-    },
     {
       "brand": "El Pollo Loco",
       "cat": "Chicken",
@@ -34,7 +16,7 @@
       "best": false,
       "region": "West & Southwest",
       "est_savings": 3,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "id": "5dd48d15"
     },
