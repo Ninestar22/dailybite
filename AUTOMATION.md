@@ -76,6 +76,26 @@ What is deliberately excluded: newsletters, deal trackers and anything not sent 
 own domain; first-order and new-member offers (the model is told to skip them); emails older
 than 48 hours. Birthday rewards never qualify either.
 
+## Leads pack, newsrooms and the focus rotation (added 2026-10-12)
+
+Three additions to the morning sweep after a spot check showed it missing chain-wide
+rewards offers (Chipotle's free item with a $5 purchase, Panera's My Panera Days, El Pollo
+Loco's 3 tacos for $5, all in the week of Oct 5):
+
+- **Leads pack.** `scripts/source-pack.mjs` queries Slickdeals' RSS search for every roster
+  brand (`LEAD_BRANDS`), keeps posts from the last 10 days that name the brand, drops product
+  and gift-card noise, and appends them to the SOURCE PACK as a LEADS PACK. The rules make the
+  model confirm each lead on the chain's official site with one search before listing it; the
+  deal url is always the official page. The refresh log prints the lead count.
+- **Official newsrooms.** Chipotle, Chick-fil-A, Sweetgreen, Subway and Smoothie King press
+  pages fetch cleanly and now sit in `OFFER_SOURCES`.
+- **Focus rotation.** `ROTATION_CHAINS` in `scripts/refresh-deals.mjs` splits the restaurant
+  roster into seven weekday groups; the prompt names today's group so every chain gets one
+  dedicated search a week.
+
+To see what the leads look like on any day: `node scripts/source-pack.mjs` and read the end of
+`source-pack.txt`.
+
 ## Inbox-only passes at noon and 3 PM (added 2026-10-06)
 
 Chains send most promo emails mid-morning and in a second wave around 2 PM, after the 7 AM
