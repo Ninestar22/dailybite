@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "0b7691f89096",
+  "hash": "a342a6e21ebf",
   "lastmod": "2026-10-13"
  },
  "/sushi-deals": {
@@ -12,7 +12,7 @@
   "lastmod": "2026-10-12"
  },
  "/verification-log": {
-  "hash": "2d1fe27dde2e",
+  "hash": "3b0c21c0b399",
   "lastmod": "2026-10-13"
  },
  "/about": {
@@ -196,7 +196,7 @@
   "lastmod": "2026-10-12"
  },
  "/food-deals-by-day": {
-  "hash": "d9bd18841f6b",
+  "hash": "c96d87decca5",
   "lastmod": "2026-10-13"
  },
  "/healthy-food-deals-report": {
@@ -285,6 +285,10 @@
  },
  "/district-taco-deals": {
   "hash": "d78d17aa32e5",
+  "lastmod": "2026-10-13"
+ },
+ "/national-sandwich-day-deals": {
+  "hash": "a5a5be9de0f7",
   "lastmod": "2026-10-13"
  }
 }
