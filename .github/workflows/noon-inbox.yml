@@ -18,6 +18,14 @@ on:
     - cron: "5 19 * * *"   #  3:05 PM EDT  (2:05 PM EST -> skipped)
     - cron: "5 20 * * *"   #  3:05 PM EST  (4:05 PM EDT -> skipped)
   workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: [".inbox-trigger"]   # reliable trigger (2026-10-13): GitHub delivered every cron slot
+                                # 5 to 9 hours late all week (the "noon" pass ran at 6:53 PM ET
+                                # on Oct 12), so a cloud routine commits this file at 12:05 and
+                                # 3:05 PM Eastern instead, the same way the morning refresh is
+                                # triggered. Cron slots stay as a fallback; the guard below runs
+                                # a push at most once per hour so a late cron twin cannot double up.
 
 concurrency:
   group: noon-inbox
@@ -36,7 +44,12 @@ jobs:
       - name: Decide whether this cron slot is the live one for the current Eastern zone
         id: guard
         run: |
-          if [ "${{ github.event_name }}" != "schedule" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; echo "Manual run."; exit 0; fi
+          if [ "${{ github.event_name }}" != "schedule" ]; then echo "run=true" >> "$GITHUB_OUTPUT"; echo "Triggered by ${{ github.event_name }}: running."; exit 0; fi
+          # A cron slot is skipped when a push-triggered pass already wrote deals.json in the last
+          # 3 hours (the cron events arrive hours late and would otherwise run a stale second pass).
+          LAST=$(grep -o '"updatedAt": *"[^"]*"' deals.json | head -1 | sed 's/.*"\([^"]*\)"$/\1/' || true)
+          LAST_EPOCH=$(date -d "${LAST:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
+          if [ $(( $(date +%s) - LAST_EPOCH )) -lt 10800 ]; then echo "run=false" >> "$GITHUB_OUTPUT"; echo "Skipping cron slot: deals.json was written less than 3 hours ago (${LAST})."; exit 0; fi
           ZONE=$(TZ=America/New_York date +%Z)
           NOW=$(TZ=America/New_York date '+%H:%M %Z')
           case "${{ github.event.schedule }}|$ZONE" in
