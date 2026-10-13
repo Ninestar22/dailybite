@@ -1385,8 +1385,10 @@ function main() {
   // limited-time promo or code with an end date still gets through. Runs before the
   // write-back, so the iOS feed (deals.json) follows the same rule.
   {
-    const STANDING_BRANDS = new Set(["panera", "subway", "noodles & company", "noodles and company", "noodles & co", "noodles"]);
-    const STANDING_TITLES = /mixs*(?:&|and|&amp;)s*match|value duets?|sub of the day|meal of the day|fresh value menu|value menu|delicious duos?/i;
+    // 2026-10-13 (owner): Panera and Noodles value menus are back as injected everyday entries
+    // (scripts/injected-deals.mjs), so only Subway's standing menus are blocked now.
+    const STANDING_BRANDS = new Set(["subway"]);
+    const STANDING_TITLES = /sub of the day|meal of the day|fresh value menu|value menu/i;
     const OPEN_ENDED = /^s*$|ongoing|every ?day|daily|all day|no end date|while supplies|year[- ]round/i;
     const beforeStanding = deals.length;
     deals = deals.filter(d => {
@@ -1394,7 +1396,7 @@ function main() {
       if (STANDING_TITLES.test(String(d.deal || ""))) return false;
       return !OPEN_ENDED.test(String(d.expires || ""));
     });
-    if (deals.length < beforeStanding) console.log(`Excluded ${beforeStanding - deals.length} standing-menu deal(s) (Panera/Subway/Noodles).`);
+    if (deals.length < beforeStanding) console.log(`Excluded ${beforeStanding - deals.length} standing-menu deal(s) (Subway).`);
   }
 
   // Exclude deals locked behind PAID subscriptions/memberships (DashPass, Uber One, etc.).
