@@ -76,6 +76,21 @@ What is deliberately excluded: newsletters, deal trackers and anything not sent 
 own domain; first-order and new-member offers (the model is told to skip them); emails older
 than 48 hours. Birthday rewards never qualify either.
 
+## Why the passes are push-triggered (2026-10-13)
+
+GitHub delivered every cron slot for this repo 5 to 9 hours late during the week of October 6
+(the "noon" inbox pass ran at 6:53 PM Eastern on October 12). Cron is now only a fallback.
+Three cloud routines (claude.ai/code/routines) commit a timestamp to a trigger file at the
+right time, and the push event, which GitHub delivers immediately, runs the workflow:
+
+| Routine | Time (Eastern) | File it commits | Workflow |
+|---|---|---|---|
+| DailyBite morning refresh trigger | 7:02 AM | `.refresh-trigger` | daily-refresh.yml |
+| DailyBite noon inbox pass trigger | 12:05 PM | `.inbox-trigger` | noon-inbox.yml |
+| DailyBite 3 PM inbox pass trigger | 3:05 PM | `.inbox-trigger` | noon-inbox.yml |
+
+A late cron slot is skipped when deals.json was written in the previous three hours.
+
 ## Leads pack, newsrooms and the focus rotation (added 2026-10-12)
 
 Three additions to the morning sweep after a spot check showed it missing chain-wide
