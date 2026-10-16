@@ -31,6 +31,11 @@ export const CHAIN_DOMAINS = [
   "sarkujapan.com", "nafnafgrill.com", "publix.com", "sprouts.com", "kroger.com", "harristeeter.com", "safeway.com",
   "albertsons.com", "wegmans.com", "giantfood.com", "foodlion.com", "heb.com", "hy-vee.com", "meijer.com", "shoprite.com",
   "stopandshop.com", "wholefoodsmarket.com", "traderjoes.com", "lidl.com", "doordash.com", "ubereats.com", "uber.com", "grubhub.com",
+  // Remaining roster chains (2026-10-16, second signup round): every approved brand now has its sending domain here.
+  "crispandgreen.com", "cleanjuice.com", "modernmarket.com", "bolay.com", "eatfreshkitchen.com", "littlegreekfreshgrill.com",
+  "thegreatgreekgrill.com", "cleaneatz.com", "vitalitybowls.com", "everbowl.com", "rushbowls.com", "pressed.com", "flamebroilerusa.com",
+  "rocknrollsushi.com", "sushimaki.com", "islandfinpoke.com", "weismarkets.com", "hannaford.com", "lowesfoods.com", "gianteagle.com",
+  "dierbergs.com", "freshthyme.com", "walmart.com",
 ];
 
 const senderDomain = (from) => {
