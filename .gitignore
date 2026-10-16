@@ -1,3 +1,7 @@
 node_modules/
 source-pack.txt
 social/
+offers-reader/node_modules/
+offers-reader/profile/
+offers-reader/reader.log
+offers-reader/debug-*.txt

@@ -1,0 +1,14 @@
+{
+  "name": "dailybite-offers-reader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reads the offers pages of DailyBite's signed-in chain accounts on the owner's PC and commits offers-pack.json for the morning refresh.",
+  "scripts": {
+    "read": "node reader.mjs",
+    "login": "node reader.mjs --login"
+  },
+  "dependencies": {
+    "playwright": "^1.50.0"
+  }
+}

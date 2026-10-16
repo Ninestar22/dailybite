@@ -76,6 +76,20 @@ What is deliberately excluded: newsletters, deal trackers and anything not sent 
 own domain; first-order and new-member offers (the model is told to skip them); emails older
 than 48 hours. Birthday rewards never qualify either.
 
+## Offers reader on the owner's PC (added 2026-10-16)
+
+Chains load their real promotions into rewards accounts and show them in the app; the same
+offers appear on the chain's website once the account is signed in. `offers-reader/reader.mjs`
+runs on Jacob's Windows PC at 6:40 AM (Task Scheduler task "DailyBite offers reader", wrapper
+`offers-reader/run.cmd`), opens each account's offers page in a real Google Chrome with a
+persistent profile that Jacob signed in to once by hand (`npm run login -- <site>`), keeps the
+offer-like lines, writes `offers-pack.json` at the repo root and pushes it. The 7 AM refresh
+reads it as an OFFERS PACK when it is under 36 hours old; the noon and 3 PM passes read it when
+it is from the same morning. Sites to start: Safeway for U, Giant, Harris Teeter, Starbucks,
+Chipotle. No passwords are stored anywhere; a site that logs the account out shows "not signed
+in" in `offers-reader/reader.log` and in the refresh log until the login step is run again.
+If the PC is off at 6:40, that day's refresh simply runs without the pack.
+
 ## Why the passes are push-triggered (2026-10-13)
 
 GitHub delivered every cron slot for this repo 5 to 9 hours late during the week of October 6
