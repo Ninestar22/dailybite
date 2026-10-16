@@ -32,6 +32,9 @@ export const OFFER_SOURCES = [
   { brand: "Sweetgreen", url: "https://www.sweetgreen.com/" },
   { brand: "District Taco", url: "https://www.districttaco.com/" },
   { brand: "District Taco rewards", url: "https://www.districttaco.com/rewards" },
+  { brand: "Moe's Southwest Grill offers", url: "https://www.moes.com/offers" },
+  { brand: "Target Circle", url: "https://www.target.com/circle" },
+  { brand: "Aldi weekly finds", url: "https://www.aldi.us/weekly-specials/this-weeks-aldi-finds/" },
   { brand: "Chopt", url: "https://www.choptsalad.com/" },
   { brand: "Roti", url: "https://roti.com/" },
   { brand: "Honeygrow", url: "https://www.honeygrow.com/" },
@@ -161,7 +164,7 @@ export const LEAD_BRANDS = [
   "Taziki's", "Saladworks", "Salata", "Rubio's", "WaBa Grill", "Pollo Tropical", "Tijuana Flats", "Pei Wei",
   "Teriyaki Madness", "Bibibop", "Cafe Zupas", "Naf Naf", "Halal Guys", "Marugame", "Yoshinoya", "Sarku",
   "Roti", "Garbanzo", "Pita Pit", "Newk's", "Robeks", "Clean Juice", "Pressed Juicery", "Luna Grill", "Bolay",
-  "Uber Eats", "DoorDash", "Grubhub", "Nando's", "District Taco", "Giant Food", "Wegmans",
+  "Uber Eats", "DoorDash", "Grubhub", "Nando's", "District Taco", "Giant Food", "Wegmans", "Moe's", "Target", "Aldi",
 ];
 const LEAD_DAYS = 10;
 const LEAD_MAX = 45;

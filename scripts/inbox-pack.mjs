@@ -36,6 +36,7 @@ export const CHAIN_DOMAINS = [
   "thegreatgreekgrill.com", "cleaneatz.com", "vitalitybowls.com", "everbowl.com", "rushbowls.com", "pressed.com", "flamebroilerusa.com",
   "rocknrollsushi.com", "sushimaki.com", "islandfinpoke.com", "weismarkets.com", "hannaford.com", "lowesfoods.com", "gianteagle.com",
   "dierbergs.com", "freshthyme.com", "walmart.com",
+  "target.com", "aldi.us", "aldi.com", "moes.com", // added to the roster 2026-10-16
 ];
 
 const senderDomain = (from) => {
