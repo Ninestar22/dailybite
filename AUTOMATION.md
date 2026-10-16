@@ -76,6 +76,18 @@ What is deliberately excluded: newsletters, deal trackers and anything not sent 
 own domain; first-order and new-member offers (the model is told to skip them); emails older
 than 48 hours. Birthday rewards never qualify either.
 
+## Evening deal scout (added 2026-10-16)
+
+A scheduled Claude Code routine ("DailyBite evening deal scout", claude.ai/code/routines,
+9 PM Eastern) checks out this repo, follows `SCOUT.md`, and researches candidate deals with
+evidence: chain newsrooms and offers pages, full Slickdeals threads with comments, Reddit, food
+holidays and the grocers' weekly ads. It commits `scout-pack.json` (brand, deal, dates, what
+it needs, region, evidence URL and quote, confidence). The 7 AM refresh reads it as a SCOUT
+PACK when under 36 hours old; official-domain evidence counts as verified, community evidence
+gets one confirming search, and every rule and the build's filters still apply. The routine
+runs on the Claude subscription, not the API budget, so it can read far more than the morning
+sweep's 24 searches. The owner's PC does not run anything.
+
 ## Why the passes are push-triggered (2026-10-13)
 
 GitHub delivered every cron slot for this repo 5 to 9 hours late during the week of October 6
