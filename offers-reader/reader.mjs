@@ -36,11 +36,9 @@ export const SITES = [
     loggedOutUrl: /login|sign-?in/i, loggedInText: /\b(load to card|loaded|clipped|my account|sign out)\b/i },
   { key: "harristeeter", name: "Harris Teeter (e-VIC coupons)", url: "https://www.harristeeter.com/savings/cl/coupons/", login: "https://www.harristeeter.com/signin",
     loggedOutUrl: /signin|sign-in|login/i, loggedInText: /\b(clip|clipped|my coupons|sign out)\b/i },
-  // Probed 2026-10-16: /account/offers is a 404; /account/rewards is the signed-in home and bounces to auth.starbucks.com when signed out.
-  { key: "starbucks", name: "Starbucks Rewards offers", url: "https://www.starbucks.com/account/rewards", login: "https://www.starbucks.com/account/signin",
-    loggedOutUrl: /auth\.starbucks\.com|signin|sign-in|login/i, loggedInText: /\b(stars|your offers|sign out)\b/i },
-  // Probed 2026-10-16: /account/login is a 404; sign in from the "SIGN IN / JOIN" link on the rewards page.
-  { key: "chipotle", name: "Chipotle Rewards", url: "https://www.chipotle.com/rewards", login: "https://www.chipotle.com/rewards",
+  { key: "starbucks", name: "Starbucks Rewards offers", url: "https://www.starbucks.com/account/offers", login: "https://www.starbucks.com/account/signin",
+    loggedOutUrl: /signin|sign-in|login/i, loggedInText: /\b(stars|your offers|sign out)\b/i },
+  { key: "chipotle", name: "Chipotle Rewards", url: "https://www.chipotle.com/rewards", login: "https://www.chipotle.com/account/login",
     loggedOutUrl: /login|sign-?in/i, loggedInText: /\b(points|your rewards|sign out|my account)\b/i },
 ];
 
