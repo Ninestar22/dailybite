@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-17",
-  "updatedAt": "2026-10-17T11:05:38.606Z",
+  "updatedAt": "2026-10-17T18:25:46.130Z",
   "deals": [
     {
       "brand": "Giant Food",
@@ -111,6 +111,24 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#f26522",
+      "ic": "TF",
+      "deal": "2 for $24 Saturdaze",
+      "desc": "Two entrees, two drinks and one starter for $24 on Saturdays, announced by email on 2026-10-17.",
+      "tags": [],
+      "value": 4,
+      "expires": "Saturdays only",
+      "region": "FL & Southeast",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "est_savings": 6,
+      "id": "f31f3d71",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
     }
   ]
 }
