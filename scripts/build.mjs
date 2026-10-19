@@ -443,7 +443,7 @@ ${crumbScript(`${chain.name} Deals`, chain.slug)}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a>${relatedNav(chain.slug)}</nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -546,7 +546,7 @@ ${tableRows}
   <nav class="chains"><strong>More:</strong> <a href="/food-deals-by-day">Deals by day of the week</a></nav>
   ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -599,7 +599,7 @@ ${crumbScript("Free Food Today", "free-food-today")}
   ${sec2}
     <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -685,7 +685,7 @@ ${rows}
   <div class="note">How to read this: "deals verified" is the count that passed every check that morning (stated dollars, active today, approved healthier chains only). The count varies day to day because we only list what's verifiably true: a smaller honest list over a padded one, every time.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">Today&#39;s deals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/free-food-today">Free Food Today</a> &middot; <a href="/about">About</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -771,7 +771,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -847,7 +847,7 @@ ${crumbScript(String(title).split(":")[0].trim(), path)}
 <div class="wrap">`;
 }
 const PAGE_FOOT = `</div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 
@@ -1296,6 +1296,117 @@ function mealsPage(meals, updated) {
 ` + PAGE_FOOT;
 }
 
+
+// ---------------------------------------------------------------------------
+// /app and /press (marketing pass, 2026-10-19). /app replaces the old App Store redirect
+// with a conversion page; /press gives journalists facts, data links and images without a
+// form. Numbers are computed at build time from verify-log.json, CHAINS and the meal index,
+// never typed in. Copy: marketing/site-pages-copy.md.
+// ---------------------------------------------------------------------------
+const APP_URL = "https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518";
+const APP_CTA = `<div class="appcta"><div class="appcta-top">Free on the App Store.</div><a class="appbadge" href="${APP_URL}" target="_blank" rel="noopener" aria-label="Download DailyBite on the App Store">&#63743; Download on the App Store</a><div class="appcta-sub">No account. No ads. The same list as this site, sorted by distance.</div></div>`;
+const APP_CSS = `.appcta{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 16px;margin:18px 0}.appcta-top{font-weight:800;font-size:17px;margin-bottom:10px}.appbadge{display:inline-block;background:#000;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:12px 22px;border-radius:12px}.appbadge:hover{opacity:.9}.appcta-sub{color:var(--muted);font-size:13px;margin-top:10px}.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.feat div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5;color:var(--muted)}.feat b{display:block;color:var(--ink);margin-bottom:4px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.steps div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5;color:var(--muted)}.steps b{display:block;color:var(--accent);font-size:13px;margin-bottom:4px}.steps span{display:block;color:var(--ink);font-weight:700;margin-bottom:4px}@media(max-width:640px){.feat,.steps{grid-template-columns:1fr}}.prose a{color:var(--accent2)}.prose ul{color:var(--muted);font-size:14px;line-height:1.6;padding-left:20px}`;
+
+function appPage(approvedCount, bannedCount) {
+  const title = "DailyBite iPhone App: Verified Healthy Food Deals Near You";
+  const desc = "Free iPhone app with today's verified healthy food deals, sorted by distance, with open-now status and one-tap ordering. No account. Same list as the site.";
+  const faq = [
+    ["Is the DailyBite app free?", "Yes. The app is free on the App Store, has no ads and no paid tier, and never charges for a deal. DailyBite earns a commission only from clearly marked partner links on the website, and those never affect which deals are listed."],
+    ["Do I need an account?", "No. Open the app and today's deals are there. There is no sign-up, no email address and no password. Deals that require a paid membership, a first-order promo or a targeted offer are excluded, so everything in the list is claimable by anyone."],
+    ["Is it the same list as the website?", "Yes, exactly. The app reads the feed that builds dailybitedeals.com each morning, so the deals, prices and expiry dates match. The app adds distance, open-or-closed status and one-tap ordering."],
+    ["Why does it ask for my location?", "To sort deals by how far away they are and to tell you whether the nearest location is open right now. Location is only used for that sorting."],
+    ["Is there an Android version?", "Not yet. The website shows the same verified list in any browser, and you can filter it by city or ZIP. If an Android app ships, it will be announced on the homepage."],
+    ["Which chains are in the app?", `${approvedCount} healthier chains and grocery counters: fast-casual bowls and salads such as Chipotle, Sweetgreen, CAVA and Panera, smoothie and juice chains, sushi and poke, Mediterranean and grilled chicken, and grocery prepared-food counters such as Publix, Kroger, Safeway and Harris Teeter. Burger, wing, pizza and dessert chains are excluded by name, and that list is public on the About page.`],
+  ];
+  const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
+  const appLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "DailyBite: Healthy Food Deals", "operatingSystem": "iOS", "applicationCategory": "FoodApplication", "url": APP_URL, "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
+  return pageHead(title, desc, "app", [faqLd, appLd], APP_CSS) + `
+  <div class="date">Free iPhone app</div>
+  <h1>Today's verified healthy deals, sorted by how far you are from them</h1>
+  <p class="answer">DailyBite for iPhone shows the same list of healthy food deals the website re-verifies every morning, then adds what a website can't: how far each deal is from where you're standing, whether that location is open right now, and a button that opens the deal in the chain's own app so you can order in one tap. It's free, there's no account, and it never lists burger, wing, pizza or dessert chains.</p>
+  ${APP_CTA}
+  <div class="facts"><b>Price</b><span>Free. No ads, no account.</span><b>Platform</b><span>iPhone, on the App Store</span><b>What it shows</b><span>The same verified deal list as dailybitedeals.com, refreshed every morning at about 7 AM Eastern</span><b>Added in the app</b><span>Distance to each deal, open or closed right now, one-tap ordering in the chain's own app</span><b>What it never lists</b><span>Burger, wing, pizza and dessert chains; paid-membership perks; first-order-only promos; targeted app offers not everyone can claim</span><b>Your location</b><span>Used to sort deals by distance and show open-now status</span></div>
+  <div class="prose">
+  <h2>What the app does that the website can't</h2>
+  <div class="feat">
+    <div><b>Distance to every deal.</b>Deals sort by how far they are from you, so the first card is the one you can get to before lunch ends.</div>
+    <div><b>Open or closed, right now.</b>Each location shows whether it's open at this moment, so you never drive to a sushi counter that closed at 8.</div>
+    <div><b>One tap to order.</b>Every deal opens in the chain's own app or site, where the deal actually lives, with no middleman and no markup.</div>
+    <div><b>The exact list the website publishes.</b>The app reads the same feed that builds dailybitedeals.com, so the deal you saw at breakfast is the deal in your pocket, verified the same morning.</div>
+    <div><b>No account, nothing to sign up for.</b>Open it and the deals are there. No email, no password, no points program to join.</div>
+    <div><b>No junk-food chains, ever.</b>Burger, wing, pizza and dessert chains are excluded on purpose, no matter how good the promo looks. ${approvedCount} healthier chains and grocery counters are in; ${bannedCount} fast-food chains are out by name.</div>
+  </div>
+  ${APP_CTA}
+  <h2>Every deal is checked before it reaches your phone</h2>
+  <div class="steps">
+    <div><b>1</b><span>Checked every morning</span>An automated run at about 7 AM Eastern re-checks every deal against the chain's own app, website, newsroom or weekly ad.</div>
+    <div><b>2</b><span>Unverifiable deals are dropped</span>If a price or end date can't be confirmed from an official source that day, the deal doesn't publish. The list shrinks rather than pads.</div>
+    <div><b>3</b><span>Tested in person</span>The owner checks grocery sushi counters and chain offers in store and corrects the record when the sign disagrees with the website.</div>
+    <div><b>4</b><span>Logged in public</span>Every morning's count is in the <a href="/verification-log">public verification log</a>, dated, since August 2026.</div>
+  </div>
+  </div>
+  <div class="faq"><h2 style="font-size:19px;margin:24px 2px 4px">Questions, answered</h2>${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("")}</div>
+  ${APP_CTA}
+  <nav class="chains"><strong>More:</strong> <a href="/">Today's deals</a> &middot; <a href="/about">How verification works</a> &middot; <a href="/press">Press kit</a></nav>
+  ${GUIDES_NAV}
+` + PAGE_FOOT;
+}
+
+function pressPage(vlog, approvedCount, bannedCount, mealsInfo) {
+  const title = "DailyBite Press Kit: Facts, Data and Images for Journalists";
+  const desc = "Press resources for DailyBite, the daily-verified healthy food deal list and free iPhone app: key facts, public verification log, open JSON data and logos.";
+  const n = vlog.length, total = vlog.reduce((a, e) => a + (e.n || 0), 0);
+  const counts = vlog.map(e => e.n || 0);
+  const avg = n ? (total / n).toFixed(1) : "0", lo = n ? Math.min(...counts) : 0, hi = n ? Math.max(...counts) : 0;
+  const first = n ? vlog[n - 1].d : iso, last = n ? vlog[0].d : iso;
+  const pretty = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  const orgLd = { "@context": "https://schema.org", "@type": "Organization", "name": "DailyBite", "url": SITE, "logo": `${SITE}/icon-512.png`, "founder": { "@type": "Person", "name": "Jacob Elsayed" }, "email": "jacob@dailybitedeals.com", "sameAs": ["https://www.instagram.com/dailybitedeals", "https://www.pinterest.com/dailybitedeals/", "https://www.tiktok.com/@dailybitedeals", APP_URL] };
+  const facts = [
+    ["What", "Daily-verified list of healthy food deals in the US, as a website, an RSS feed, open JSON and a free iPhone app"],
+    ["Who", "Jacob Elsayed, independent, one person. Not affiliated with any restaurant chain."],
+    ["Based", "Washington, DC area; deals are also checked in person"],
+    ["Chains covered", `${approvedCount} approved healthier chains and grocery counters; ${bannedCount} fast-food chains excluded by name, each with a public page saying so`],
+    ["Verification record", `${n} daily checks logged from ${pretty(first)} to ${pretty(last)}; ${total} deal-verifications in total; ${avg} verified deals a day on average, ranging from ${lo} to ${hi}`],
+    ["Cheapest healthy meals index", mealsInfo ? `${mealsInfo.count} specific orders at ${mealsInfo.brands} chains, ranked by grams of protein per dollar, every price and nutrition figure from the chain's official source` : "Ranked by grams of protein per dollar from official nutrition and price pages"],
+    ["Price", "Free. No ads, no account, no paid tier. Revenue only from clearly marked partner links; deal listings are never sponsored."],
+    ["Contact", "jacob@dailybitedeals.com"],
+  ];
+  return pageHead(title, desc, "press", [orgLd], APP_CSS) + `
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>DailyBite press kit</h1>
+  <p class="answer">DailyBite is a free, independent guide to today's healthy food deals in the United States, published at dailybitedeals.com and as a free iPhone app. Every morning at about 7 AM Eastern an automated check re-verifies each deal against the chain's own app, website, newsroom or weekly ad; anything that can't be confirmed is dropped, and the day's count is logged in public. The site covers ${approvedCount} healthier chains and grocery prepared-food counters and deliberately excludes burger, wing, pizza and dessert chains, paid-membership perks and targeted offers. It was built by Jacob Elsayed, who runs it alone from the Washington, DC area and tests deals in person, because the real discounts at healthier chains had scattered across a dozen apps where nobody could compare them.</p>
+  <div class="facts">${facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
+  <div class="prose">
+  <h2>What you can use</h2>
+  <p>Everything below is public, free to cite and updated by the same morning run that builds the site. Please cite the deal's verification date alongside its expiry date, and link to the chain page or the homepage rather than to a JSON file.</p>
+  <p><strong>The verification log.</strong> <a href="/verification-log">/verification-log</a> is the dated record of every morning check since ${esc(pretty(first))}, with the time it ran and how many deals passed. It is a public, day-by-day record of how many healthy-chain deals actually exist on a given day.</p>
+  <p><strong>Open data.</strong> <a href="/deals.json">/deals.json</a> is today's list with stable IDs, expiry, region and estimated savings; <a href="/meals.json">/meals.json</a> is the cheapest-healthy-meals index with price, calories, protein and protein per dollar; <a href="/feed.xml">/feed.xml</a> is the RSS feed. The dated deals report and its dataset are at <a href="/${REPORT_SLUG}">/${REPORT_SLUG}</a>. All are free to download and quote with attribution.</p>
+  <p><strong>The protein-per-dollar index.</strong> <a href="/cheap-healthy-meals">/cheap-healthy-meals</a> ranks real orders at healthier chains and grocery counters by grams of protein per dollar, using only official menu prices and nutrition pages. Existing "cheapest protein" rankings cover grocery items; this is the restaurant half.</p>
+  <p><strong>Weekly deal explainers.</strong> The <a href="/food-deals-by-day">deals-by-day calendar</a> and the explainer pages document recurring grocery and chain promotions (Publix $5 Sushi Wednesday, Safeway $5 Friday, Harris Teeter's Friday rolls, Panera's $4.99 Mix &amp; Match and more), including where the current price differs from what older articles still quote.</p>
+  <h2>Images</h2>
+  <ul>
+    <li>App icon, 1024 by 1024 PNG: <a href="/appstore-icon-1024.png">/appstore-icon-1024.png</a></li>
+    <li>Site icon, 512 by 512 PNG: <a href="/icon-512.png">/icon-512.png</a> (maskable variant <a href="/icon-maskable-512.png">/icon-maskable-512.png</a>)</li>
+    <li>Social card, 1200 by 630 PNG: <a href="/og.png">/og.png</a>; every page also has its own card at /og/&lt;page&gt;.png</li>
+    <li>Profile picture, 1024 by 1024 PNG: <a href="/profile-picture-1024.png">/profile-picture-1024.png</a></li>
+  </ul>
+  <p>The DailyBite name and marks may be used in editorial coverage of DailyBite. Do not imply endorsement by any restaurant chain; DailyBite is not affiliated with any of them.</p>
+  <h2>About the founder</h2>
+  <p>Jacob Elsayed built and runs DailyBite alone. The deal pipeline is automated, but every editorial rule and inclusion standard is his. He is based in the Washington, DC area and checks deals in person, including grocery sushi counters, and the site reflects how he actually eats, which is why burger, wing, pizza and dessert chains are excluded.</p>
+  <h2>Story angles</h2>
+  <ul>
+    <li><strong>How many healthy food deals actually exist on a given day?</strong> ${n} consecutive mornings of checks put the national count of verifiable healthy-chain deals between ${lo} and ${hi}, averaging ${avg}. The best-known healthy chains rarely discount; the dependable deals are grocery sushi counters.</li>
+    <li><strong>The $5 sushi roll is quietly becoming $6.</strong> The explainer pages document each store's current price with the date it was checked in store, where older articles still quote $5.</li>
+    <li><strong>Protein per dollar at restaurants.</strong> A ranking of real orders by grams of protein per dollar, from official nutrition and price pages, that no grocery-only ranking covers.</li>
+    <li><strong>The membership tax.</strong> Which healthy-chain deals need a paid membership or a first order, and what is left when you exclude them.</li>
+    <li><strong>A one-person deal site that publishes its own audit trail.</strong> The verification log as a model for deal sites that pad their lists.</li>
+  </ul>
+  <h2>Contact</h2>
+  <p>Press, corrections and data questions: <a href="mailto:jacob@dailybitedeals.com">jacob@dailybitedeals.com</a>. For a DC-area or regional cut of today's list, ask; deals.json carries a region field for every deal.</p>
+  </div>
+  <nav class="chains"><strong>More:</strong> <a href="/about">About and verification standards</a> &middot; <a href="/app">The iPhone app</a> &middot; <a href="/">Today's deals</a></nav>
+` + PAGE_FOOT;
+}
 
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
@@ -1781,9 +1892,16 @@ function main() {
   writeFileSync(join(root, "verify-log.json"), JSON.stringify({ entries: vlog }, null, 2) + "\n");
   writeFileSync(join(root, "verification-log.html"), verificationLogPage(vlog));
   console.log(`Built verification-log.html (${vlog.length} entries).`);
+  {
+    const approved = CHAINS.filter(c => !c.banned).length, banned = CHAINS.filter(c => c.banned).length;
+    const mealsInfo = mealsOn ? { count: MEALS.meals.length, brands: new Set(MEALS.meals.map(m => m.brand)).size } : null;
+    writeFileSync(join(root, "app.html"), appPage(approved, banned));
+    writeFileSync(join(root, "press.html"), pressPage(vlog, approved, banned, mealsInfo));
+    console.log("Built app.html and press.html.");
+  }
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/app`, `${SITE}/press`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   // lastmod (2026-10-12): every page used to be stamped with today's date every day, so the date
   // carried no information and Google could not tell a changed guide from an untouched one. Now
   // each page's HTML is hashed with dates and timestamps stripped; lastmod moves only when the
