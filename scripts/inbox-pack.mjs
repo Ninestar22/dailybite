@@ -48,6 +48,9 @@ const chainFor = (domain) => CHAIN_DOMAINS.find(d => domain === d || domain.ends
 export function htmlToText(html) {
   return String(html || "")
     .replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<script[\s\S]*?<\/script>/gi, " ")
+    // Image alt text (2026-10-19): promo emails such as Safeway's "Fresh for a Buck" are built from
+    // images, so the offer lived only in alt attributes and the pass saw "no specific item or price".
+    .replace(/<img\b[^>]*\balt="([^"]{3,200})"[^>]*>/gi, (m, alt) => ` [image: ${alt}] `)
     .replace(/<br\s*\/?>/gi, "\n").replace(/<\/(p|div|tr|li|h[1-6]|td)>/gi, "\n")
     .replace(/<a [^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, (m, href, inner) => `${inner} (${href})`)
     .replace(/<[^>]+>/g, " ")
