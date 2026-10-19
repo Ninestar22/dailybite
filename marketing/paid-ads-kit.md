@@ -247,50 +247,50 @@ are in brackets.
 
 **P1 (PIN-Sushi), landing `/sushi-deals`**
 
-Title [78]:
+Title [73]:
 Grocery Sushi Deal Days: Which Chain Is $5 on Which Day (Verified Weekly)
 
-Description [393]:
+Description [391]:
 Every grocery store sushi deal day in one calendar: Publix $5 Sushi Wednesday, Sprouts and Kroger Sushi Wednesday, Safeway $5 Friday sushi, Harris Teeter $5 Sushi Friday, H-E-B Wednesday and Saturday, Hy-Vee BOGO, ShopRite, Meijer. Prices and days are checked against each store's weekly ad or site every morning, and regional deals are labeled. Free guide, no account. Cheap sushi near you.
 
 **P2 (PIN-Sushi), landing `/sushi-deals`**
 
-Title [69]:
+Title [70]:
 $5 Sushi Wednesday vs $5 Friday Sushi: Plan Your Week by Grocery Store
 
-Description [376]:
+Description [394]:
 Sushi on a budget is a scheduling problem. Wednesday is Publix, Sprouts, Kroger, H-E-B and Hy-Vee; Friday is Safeway and Harris Teeter. This guide lists each store's sushi day, the price, what rolls are included, and which states the deal actually runs in. Re-verified every morning so expired promos are gone before you drive there. Grocery store sushi deals, cheap sushi, sushi deals near me.
 
 **P3 (PIN-CheapHealthy), landing `/cheap-healthy-meals`**
 
-Title [72]:
+Title [73]:
 Cheapest Healthy Meals at Chain Restaurants, Ranked by Protein per Dollar
 
-Description [416]:
+Description [432]:
 Specific orders at Chipotle, CAVA, Sweetgreen, Panera, Chick-fil-A and grocery prepared-food counters, with price, calories and protein pulled from official nutrition pages and ranked by grams of protein per dollar. Cheap healthy meals and high protein fast food without guessing. Vegetarian options marked. Updated with current menu prices. Free, no sign-up, no junk-food chains. Healthy eating on a budget, done with real numbers.
 
 **P4 (PIN-CheapHealthy), landing `/cheap-healthy-meals`**
 
-Title [80]:
+Title [81]:
 Healthy Fast-Casual Orders Under $10 With Real Calories and Protein (No Guessing)
 
-Description [392]:
+Description [405]:
 The exact build to order at each healthy chain, under $10, with calories and protein from the chain's own nutrition calculator and the price source linked. Sorted by protein per dollar so the best value is on top. Covers bowls, salads, grilled chicken, Mediterranean and grocery counter meals. For meal prep skippers, college budgets and lunch at work. Healthy fast food options, cheap high protein meals.
 
 **P5 (PIN-App), landing `/app`**
 
-Title [73]:
+Title [76]:
 Free iPhone App: Today's Healthy Food Deals Near You, Verified Every Morning
 
-Description [398]:
+Description [421]:
 DailyBite is a free iPhone app that shows today's verified healthy food deals near you: fast-casual bowls, salads, smoothies, sushi and grocery counters. Each deal shows distance, whether the location is open right now, and opens in the chain's own app in one tap. Every deal is re-checked each morning against official sources. No account, no membership perks, no burger or pizza chains. Food deals near me, made honest.
 
 **P6 (PIN-App), landing `/app`**
 
-Title [74]:
+Title [81]:
 Skip the Junk: A Food Deals App That Only Lists Healthy Chains (Free, No Account)
 
-Description [402]:
+Description [400]:
 Most deal apps are wall-to-wall burgers, pizza and wings. DailyBite lists only healthy chains and grocery counters, and only deals anyone can claim: no DashPass or Uber One perks, no first-order-only promos, no rewards-member exclusives. Verified every morning at 7 AM Eastern, with a public verification log. Free, no sign-up. Healthy food deals, restaurant deals and lunch deals near you on iPhone.
 
 ### Creative spec
@@ -433,9 +433,9 @@ Headlines:
 15. DailyBite: Deals Near You [25]
 
 Descriptions:
-1. Healthy food deals from fast-casual and grocery chains, re-verified every morning. [83]
-2. No junk-food chains, no paid-membership perks, no first-order-only promos. Anyone can claim. [89]
-3. Filter by location for today's bowls, salads, smoothies and sushi deals. Free, no sign-up. [88]
+1. Healthy food deals from fast-casual and grocery chains, re-verified every morning. [82]
+2. No junk-food chains, no membership perks, no first-order-only promos. Anyone can claim. [87]
+3. Filter by location for today's bowls, salads, smoothies and sushi deals. Free, no sign-up. [90]
 4. Built by one person who checks deals in person. Read the public verification log first. [87]
 
 **RSA 2, Near me ad group, final URL `/`**
@@ -458,10 +458,10 @@ Headlines:
 15. Open Now, Near You [18]
 
 Descriptions:
-1. Today's healthy food deals near you: fast-casual bowls, salads, smoothies, sushi, grocery. [89]
-2. Every deal re-verified each morning against the chain's own app or site. Expired ones removed. [90]
-3. We skip burger, pizza, wing and dessert chains and anything locked behind a paid membership. [89]
-4. Free site and free iPhone app with distance and open-now status. No account, no newsletter. [89]
+1. Today's healthy food deals near you: fast-casual bowls, salads, smoothies, sushi, grocery. [90]
+2. Re-verified every morning against each chain's own app or site. Expired deals are removed. [90]
+3. We skip burger, pizza, wing and dessert chains, and anything behind a paid membership. [86]
+4. Free site and free iPhone app with distance and open-now status. No account needed. [83]
 
 **RSA 3, Sushi ad group, final URL `/sushi-deals`**
 
@@ -483,10 +483,10 @@ Headlines:
 15. Cheap Sushi Near You [20]
 
 Descriptions:
-1. Every grocery chain's sushi deal day in one place: Publix, Kroger, Sprouts, Safeway, H-E-B, Hy-Vee. [99]
-2. Prices and days verified against each store's weekly ad or site, re-checked every morning. [89]
-3. Know which store runs $5 sushi on which day, what is included, and where the deal is offered. [90]
-4. Free guide, no sign-up. Also in the free DailyBite iPhone app with distance and open-now status. [95]
+1. Every grocery chain's sushi day in one place: Publix, Kroger, Sprouts, Safeway, H-E-B. [86]
+2. Prices and days verified against each store's weekly ad or site, re-checked every morning. [90]
+3. Which store runs $5 sushi on which day, what is included, and where the deal is offered. [88]
+4. Free guide, no sign-up. Also in the free DailyBite iPhone app with distance and open-now. [89]
 
 Trademark note: Google allows retailer names in ad text for informational
 sites that provide information about the trademarked goods, and these
