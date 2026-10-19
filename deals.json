@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "updatedAt": "2026-10-19T16:07:13.880Z",
+  "updatedAt": "2026-10-19T19:07:33.000Z",
   "deals": [
     {
       "brand": "Moe's Southwest Grill",
@@ -190,6 +190,26 @@
       "est_savings": 4,
       "region": "National",
       "id": "4aab1489",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
+    },
+    {
+      "brand": "WaBa Grill",
+      "cat": "Bowls",
+      "color": "#e2231a",
+      "ic": "W",
+      "deal": "20% Off Orders of $20 or More (Anniversary Week)",
+      "desc": "WaBa Rewards members get 20% off any purchase of $20 or more through October 25, announced by email on 2026-10-19, free account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 25, 2026",
+      "url": "https://www.wabagrill.com/menu",
+      "region": "CA & AZ",
+      "est_savings": 4,
+      "id": "b5c9d1b7",
       "isNew": true,
       "endingSoon": false,
       "best": false
