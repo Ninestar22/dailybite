@@ -59,6 +59,84 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
    (see above), or on demand via **Actions → Daily Deal Refresh → Run workflow**
    (manual runs always do a full refresh, whatever the time).
 
+## Deals inbox (added 2026-10-04)
+
+Healthy chains announce most real offers by app push and email, not on public pages, so the
+refresh also reads a dedicated mailbox each morning (`scripts/inbox-pack.mjs`). Only mail
+from the chains' own domains is used (list in the script); it is framed to the model as data
+to verify, and the usual rules still apply. Until the secrets exist the step is skipped.
+
+One-time setup (about an hour):
+
+1. Create a mailbox used for nothing else, for example a new Gmail address. In that Google
+   account turn on 2-Step Verification, then create an **App password** (Google Account ->
+   Security -> 2-Step Verification -> App passwords). IMAP is on by default in current Gmail.
+2. With that address, join the rewards programs and email lists of the chains near you:
+   Starbucks, Panera (MyPanera), Potbelly Perks, Chipotle Rewards, CAVA, Sweetgreen, Chick-fil-A
+   One, Smoothie King Healthy Rewards, Tropical Smoothie, Noodles Rewards, Honeygrow, Saladworks,
+   Qdoba, Jamba, Just Salad, Subway MVP, plus Giant, Wegmans, Harris Teeter and Safeway.
+   Use the mailbox address and a password you do not use elsewhere.
+3. In the repo: Settings -> Secrets and variables -> Actions -> New repository secret:
+   `DEALS_INBOX_USER` (the address) and `DEALS_INBOX_PASS` (the app password). Add
+   `DEALS_INBOX_HOST` only if the mailbox is not Gmail. Add `DEALS_INBOX_FOLDER` only if chain mail is routed into a
+   label such as `Deals`; by default the Inbox is read, whichever category tab Gmail shows it under.
+4. Test from your machine before the next morning run:
+
+```bash
+DEALS_INBOX_USER=... DEALS_INBOX_PASS=... node scripts/inbox-pack.mjs
+```
+
+It prints how many emails were read and kept and the first part of the pack. The next
+refresh log shows the same line (`Inbox pack: N chain email(s) kept`).
+
+What is deliberately excluded: newsletters, deal trackers and anything not sent from a chain's
+own domain; first-order and new-member offers (the model is told to skip them); emails older
+than 48 hours. Birthday rewards never qualify either.
+
+## Why the passes are push-triggered (2026-10-13)
+
+GitHub delivered every cron slot for this repo 5 to 9 hours late during the week of October 6
+(the "noon" inbox pass ran at 6:53 PM Eastern on October 12). Cron is now only a fallback.
+Three cloud routines (claude.ai/code/routines) commit a timestamp to a trigger file at the
+right time, and the push event, which GitHub delivers immediately, runs the workflow:
+
+| Routine | Time (Eastern) | File it commits | Workflow |
+|---|---|---|---|
+| DailyBite morning refresh trigger | 7:02 AM | `.refresh-trigger` | daily-refresh.yml |
+| DailyBite noon inbox pass trigger | 12:05 PM | `.inbox-trigger` | noon-inbox.yml |
+| DailyBite 3 PM inbox pass trigger | 3:05 PM | `.inbox-trigger` | noon-inbox.yml |
+
+A late cron slot is skipped when deals.json was written in the previous three hours.
+
+## Leads pack, newsrooms and the focus rotation (added 2026-10-12)
+
+Three additions to the morning sweep after a spot check showed it missing chain-wide
+rewards offers (Chipotle's free item with a $5 purchase, Panera's My Panera Days, El Pollo
+Loco's 3 tacos for $5, all in the week of Oct 5):
+
+- **Leads pack.** `scripts/source-pack.mjs` queries Slickdeals' RSS search for every roster
+  brand (`LEAD_BRANDS`), keeps posts from the last 10 days that name the brand, drops product
+  and gift-card noise, and appends them to the SOURCE PACK as a LEADS PACK. The rules make the
+  model confirm each lead on the chain's official site with one search before listing it; the
+  deal url is always the official page. The refresh log prints the lead count.
+- **Official newsrooms.** Chipotle, Chick-fil-A, Sweetgreen, Subway and Smoothie King press
+  pages fetch cleanly and now sit in `OFFER_SOURCES`.
+- **Focus rotation.** `ROTATION_CHAINS` in `scripts/refresh-deals.mjs` splits the restaurant
+  roster into seven weekday groups; the prompt names today's group so every chain gets one
+  dedicated search a week.
+
+To see what the leads look like on any day: `node scripts/source-pack.mjs` and read the end of
+`source-pack.txt`.
+
+## Inbox-only passes at noon and 3 PM (added 2026-10-06)
+
+Chains send most promo emails mid-morning and in a second wave around 2 PM, after the 7 AM
+refresh has run. A second workflow (`.github/workflows/noon-inbox.yml`, about 12:05 PM and
+3:05 PM Eastern, once per slot) runs `REFRESH_MODE=inbox npm run refresh`: no web search, no
+source pack, only the mailbox. Qualifying same-day offers are added to the morning list; the
+rest of the list is untouched. A pass costs about $0.09 (the first run, 2026-10-06, read 19
+chain emails) and does nothing at all when no chain email arrived.
+
 ## Run it locally
 
 ```bash

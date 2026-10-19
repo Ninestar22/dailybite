@@ -1,0 +1,494 @@
+date,weekday,chain,deal,category,region,expires,est_savings_usd,free,needs_free_account,kind,source_url
+2026-08-10,Monday,Chipotle,Chipotle App: Order Online for Exclusive Digital Deals,Mexican,National,Ongoing,,no,yes,standing,https://www.chipotle.com/
+2026-08-10,Monday,Chick-fil-A,Chick-fil-A App: Digital Exclusive Offers Tab,Chicken,National,Ongoing,,no,yes,standing,https://www.chick-fil-a.com/one
+2026-08-10,Monday,Subway,BOGO 50% Off Footlong Sub with Code BOGO50,Sandwiches,National,Limited time,,no,yes,dated,https://www.subway.com/
+2026-08-10,Monday,Potbelly,Pick Your Pair: Sandwich and More Starting at a Bundled Price,Sandwiches,National,Ongoing,,no,yes,standing,https://www.potbelly.com/
+2026-08-10,Monday,Tropical Smoothie Cafe,Smoothie and Flatbread Combo from $7.19 via App Order,Smoothies,National,Ongoing,,no,yes,standing,https://www.tropicalsmoothiecafe.com
+2026-08-10,Monday,Smoothie King,Smoothie King Healthy Rewards: Earn and Track in-App,Smoothies,National,Ongoing,,no,yes,standing,https://www.smoothieking.com/rewards
+2026-08-10,Monday,Panera Bread,Panera Soups and Salads Everyday Value Menu,Cafe,National,Ongoing,,no,yes,standing,https://www.panerabread.com/en-us/offers.html
+2026-08-10,Monday,CAVA,CAVA App: Build-Your-Own Bowl with Full Customization and Rewards,Bowls,National,Ongoing,,no,yes,standing,https://cava.com/rewards
+2026-08-10,Monday,Sweetgreen,Sweetgreen App: Seasonal Salads and Bowl Ordering with Sweetpass Rewards,Salads,National,Ongoing,,no,yes,standing,https://www.sweetgreen.com/
+2026-08-10,Monday,El Pollo Loco,El Pollo Loco App: Fire-Grilled Chicken Deals and Digital Coupons,Chicken,"CA, AZ, TX, NV and select Western states",Limited time,,no,yes,dated,https://www.elpolloloco.com/rewards
+2026-08-10,Monday,Chili's,"Chili’s 3 For Me: Starter, Entree, and Non-Alcoholic Drink from $10.99",Sit-Down,National,Ongoing,,no,yes,standing,https://www.chilis.com/
+2026-08-10,Monday,Wingstop,"Wingstop Classic Bone-In Wings: 10 for $10, 20 for $20, 30 for $30",Chicken,National,Ongoing,,no,yes,standing,https://www.wingstop.com/order
+2026-08-10,Monday,Shake Shack,Shake Shack App: ShackTrack Digital-Only Pricing and Offers,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-10,Monday,Noodles & Company,Noodles and Company: Rewards App and Current Promo Code Offers,Bowls,National,Limited time,,no,yes,dated,https://www.noodles.com/rewards
+2026-08-10,Monday,The Halal Guys,The Halal Guys App: Rewards and Digital Order Offers on Platters and Sandwiches,Halal,Select major U.S. cities,Ongoing,,no,yes,standing,https://thehalalguys.com/rewards
+2026-08-12,Wednesday,Jamba,50% Off Hat Trick Tango Smoothie,Smoothies,National,Limited time,,no,yes,dated,https://www.jamba.com/rewards
+2026-08-12,Wednesday,Smoothie King,$5.99 Chicken Flatbread,Cafe,National,Ongoing,,no,no,standing,https://www.smoothieking.com/
+2026-08-12,Wednesday,Chili's,3 For Me Meal - $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-12,Wednesday,Chili's,Shark Attack Margarita - $6,Sit-Down,National,"Through August 31, 2026",,no,no,dated,https://www.chilis.com/
+2026-08-12,Wednesday,Shake Shack,$4 Fries + $2 Sodas In-App,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-12,Wednesday,Wingstop,$24.99 Flavor Lineup Bundle,Wings,National,Limited time,,no,yes,dated,https://www.wingstop.com/order
+2026-08-13,Thursday,Panera Bread,BOGO $5 Entree with Code BOGO5,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/offers.html
+2026-08-13,Thursday,Panera Bread,Mix and Match $4.99 Half-Portions,Cafe,National,Ongoing,,no,no,standing,https://www.panerabread.com/en-us/offers.html
+2026-08-13,Thursday,Chili's,3 for Me Meal for $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-13,Thursday,Chili's,Shark Attack Margarita for $6,Sit-Down,National,"Through August 31, 2026",,no,no,dated,https://www.chilis.com/
+2026-08-13,Thursday,Wingstop,$24.99 Flavor Lineup Bundle for 3-4,Chicken,National,Limited time,,no,yes,dated,https://www.wingstop.com/order
+2026-08-13,Thursday,Shake Shack,$4 Crinkle Cut Fries In-App,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-14,Friday,Panera Bread,Free Half Sandwich or Salad with $5+ Order,Cafe,National,Limited time,,yes,no,dated,https://www.panerabread.com/en-us/offers.html
+2026-08-14,Friday,Panera Bread,$5.99 Strawberry Poppyseed Salad with Code SUMMER,Cafe,National,Limited time,,no,no,dated,https://www.panerabread.com/en-us/offers.html
+2026-08-14,Friday,Wingstop,$24.99 Flavor Lineup: 10 Tenders Bundle for 3-4,Chicken,National,Limited time,,no,yes,dated,https://www.wingstop.com/order
+2026-08-14,Friday,Chili's,3 For Me: Drink + App + Entree from $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-14,Friday,Chili's,Shark Attack Margarita for $6,Sit-Down,National,"Through August 31, 2026",,no,no,dated,https://www.chilis.com/cocktails-and-bar-drinks/margarita-of-the-month
+2026-08-14,Friday,Shake Shack,$1 Sodas and $3 Crinkle Cut Fries In-App,Burgers,National,Ongoing,,no,yes,standing,https://shakeshack.com/national-regional-offers
+2026-08-14,Friday,Subway,$3.99 Deli Faves 6-Inch Subs,Subs,National,Ongoing,,no,no,standing,https://www.subway.com/
+2026-08-14,Friday,Starbucks,Free Refills on Brewed Coffee and Tea In-Cafe,Coffee,National,Ongoing,,yes,no,standing,https://www.starbucks.com/
+2026-08-14,Friday,Noodles & Company,$1 Side Salad with $15+ Order,Bowls,National,"Through August 31, 2026",,no,no,dated,https://www.noodles.com/
+2026-08-15,Saturday,Panera Bread,Mix and Match $4.99 Menu,Cafe,National,Ongoing,,no,yes,standing,https://www.panerabread.com/en-us/menu/you-pick-two.html
+2026-08-15,Saturday,Panera Bread,"Buy One Entree, Get One for $5",Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/home.html
+2026-08-15,Saturday,Noodles & Company,Duo Day BOGO 50% Off Entrees,Bowls,National,"Through August 16, 2026",,no,no,dated,https://www.noodlesandcompany.com/
+2026-08-15,Saturday,Chili's,3 For Me Bundle Starting at $10.99,Sit-Down,National,Ongoing,,no,yes,standing,https://www.chilis.com/
+2026-08-15,Saturday,Shake Shack,$4 Crinkle Cut Fries and $2 Sodas In-App,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-15,Saturday,Wingstop,10 Bone-In Classic Wings for $10,Chicken,National,Ongoing,,no,yes,standing,https://www.wingstop.com/order
+2026-08-16,Sunday,Shake Shack,Free Chicken Shack Every Sunday with $10+ Order,Burgers,National,"Through December 27, 2026",,yes,yes,dated,https://www.shakeshack.com/national-regional-offers
+2026-08-16,Sunday,Shake Shack,$4 Crinkle Cut Fries and $2 Sodas In-App,Sides,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/national-regional-offers
+2026-08-16,Sunday,Smoothie King,Chicken Flatbreads for $5.99 Each,Smoothies,National,Ongoing,,no,yes,standing,https://www.smoothieking.com/
+2026-08-16,Sunday,Panera Bread,Value Duets: Half Sandwich or Salad plus Cup of Soup,Cafe,National,Ongoing,,no,yes,standing,https://www.panerabread.com/en-us/app.html
+2026-08-16,Sunday,Subway,Select Subway Series Subs for $6.99,Sandwiches,National,Ongoing,,no,yes,standing,https://www.subway.com/
+2026-08-16,Sunday,Chili's,3 For Me Meals Starting at $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-18,Tuesday,Chipotle,Chipotle IQ: Play Trivia for a BOGO Free Entree,Mexican,National,"Through August 20, 2026",,yes,no,dated,https://www.chipotle.com/rewards
+2026-08-18,Tuesday,Panera Bread,Value Menu: 10 Classics at $4.99 Each,Cafe,National,Ongoing,,no,no,standing,https://www.panerabread.com/en-us/deals
+2026-08-18,Tuesday,Shake Shack,$4 Fries and $2 Sodas via App or Online Order,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-18,Tuesday,Subway,Two Footlong Subs for $12.99: Code FTL1299,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-18,Tuesday,Chili's,$6 Shark Attack Margarita All August,Sit-Down,National,"Through August 31, 2026",,no,no,dated,https://www.chilis.com/
+2026-08-18,Tuesday,Tijuana Flats,"Taco Tuesdaze: 2 Tacos, Chips, and a Drink for about $7.99",Mexican,FL & Southeast,Ongoing,,no,no,standing,https://www.tijuanaflats.com/
+2026-08-19,Wednesday,Panera Bread,BOGO5: Second Entree for $5,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html
+2026-08-19,Wednesday,Chili's,3 For Me Bundle from $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/specials
+2026-08-19,Wednesday,Chili's,Shark Attack Margarita: $6 All August,Sit-Down,National,"Through August 31, 2026",,no,no,dated,https://www.chilis.com/specials
+2026-08-19,Wednesday,Subway,Any Footlong for $6.99,Sandwiches,National,"Through September 12, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-19,Wednesday,Subway,Footlong Meal for $9.99,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-19,Wednesday,Shake Shack,App Prices: $4 Fries and $2 Sodas,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-20,Thursday,Chipotle,"School Spirit BOGO Entree: Today Only, Aug 20",Mexican,National,"August 20, 2026",,no,yes,dated,https://www.chipotle.com/rewards
+2026-08-20,Thursday,Pokeworks,Free Avocado with Any Entree: Code AVOSUMMER,Poke,National,"Through August 31, 2026",,no,no,dated,https://www.pokeworks.com
+2026-08-20,Thursday,Panera Bread,BOGO $5: Second Entree with Any Entree Purchase,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html
+2026-08-20,Thursday,Panera Bread,$4.99 Value Menu: 10 Classic Items Mix and Match,Cafe,National,Ongoing,,no,no,standing,https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html
+2026-08-20,Thursday,Chili's,"3 For Me from $10.99: Drink, Starter, and Entree",Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-20,Thursday,Smoothie King,Chicken Flatbreads $5.99,Smoothies,National,Limited time,,no,no,dated,https://www.smoothieking.com/
+2026-08-21,Friday,Panera Bread,"BOGO $5: Whole Sandwiches, Bowls, Salads, and Soups",Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/articles/deals.html
+2026-08-21,Friday,Chipotle,Free Chips and Queso with Any Entree,Mexican,National,"Through August 23, 2026",,no,yes,dated,https://www.chipotle.com/rewards
+2026-08-21,Friday,Harris Teeter,Sushi Friday: Sushi Entrees for $5,Sushi,Mid-Atlantic and Southeast,Ongoing (Fridays only),,no,yes,standing,https://www.harristeeter.com/
+2026-08-21,Friday,Safeway,$5 Friday Sushi: Zenshi Rolls for $5,Sushi,Select states,Ongoing (Fridays only),,no,no,standing,https://www.safeway.com/
+2026-08-21,Friday,Noodles & Company,Delicious Duo: Entree and Side from $9.95,Bowls,National,Ongoing,,no,no,standing,https://www.noodlesandcompany.com/
+2026-08-21,Friday,Subway,6-Inch Sub of the Day Combo for $6.99,Sandwiches,National,Ongoing,,no,no,standing,https://www.subway.com/
+2026-08-21,Friday,Shake Shack,App Pricing: $2 Sodas and $4 Fries,Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-21,Friday,Chili's,3 For Me Value Menu from $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-22,Saturday,Kura Sushi,Persona x Kura Sushi Special Menu + Bikkura Pon Capsule Game,Sushi,National,"Through September 17, 2026",,no,yes,dated,https://www.kurasushi.com/
+2026-08-22,Saturday,Panera Bread,BOGO $5: Second Entree for Just $5 with Code BOGO5,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/offers.html
+2026-08-22,Saturday,Panera Bread,$1 Cup of Soup with Code SOUP,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com/en-us/offers.html
+2026-08-22,Saturday,Chili's,"3 For Me: Drink, Starter, and Entree from $10.99",Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/restaurant-specials
+2026-08-22,Saturday,Subway,$6.99 Footlong BOGO Deal with Code BOGO1,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-22,Saturday,Noodles & Company,Delicious Duo: Entree and a Side from $9.95,Bowls,National,Ongoing,,no,no,standing,https://www.noodles.com/menu
+2026-08-22,Saturday,Wingstop,30 Crispy Tenders for $56,Chicken,National,Ongoing,,no,yes,standing,https://www.wingstop.com/specials
+2026-08-23,Sunday,Shake Shack,Free Small Lemonade with Any Sandwich or Burger: Last Day Today,Burgers,National,"Through August 23, 2026",,yes,yes,dated,https://www.shakeshack.com/national-regional-offers
+2026-08-23,Sunday,Shake Shack,"App Prices: $2 Sodas, $4 Fries, $6 Shakes",Burgers,National,Ongoing,,no,yes,standing,https://www.shakeshack.com/
+2026-08-23,Sunday,Subway,Two Footlongs for $12.99 with Code FTL1299,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-23,Sunday,Subway,$6.99 Footlong with Code FL699,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-23,Sunday,Chili's,3 For Me from $10.99: Drink + Starter + Full Entree,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-23,Sunday,Noodles & Company,Delicious Duo: Entree and Side from $9.95,Bowls,National,Ongoing,,no,no,standing,https://www.noodles.com/menu
+2026-08-24,Monday,Panera Bread,Mix and Match Menu: 10 Items at $4.99 Each,Cafe,National,"Through August 31, 2026",,no,no,dated,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-08-24,Monday,Subway,Deli Faves 6-inch Subs for $3.99 Each,Sandwiches,National,"Through December 31, 2026",,no,no,dated,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-08-24,Monday,Subway,2 Footlong Subs for $12.99 with Code FTL1299,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-24,Monday,Chipotle,Free Entree with Code SUNDAYS: Next Date August 30,Mexican,National,"Through September 6, 2026",,no,yes,dated,https://www.chipotle.com/
+2026-08-24,Monday,Chili's,"3 For Me from $10.99: Entree, Starter, and Drink",Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-24,Monday,Noodles & Company,Delicious Duos: Two Items for $10.95,Bowls,National,Ongoing,,no,yes,standing,https://www.noodlesandcompany.com/
+2026-08-24,Monday,Pokeworks,Free Avocado with Any Entree: Code AVOSUMMER,Poke,National,"Through August 31, 2026",,no,yes,dated,https://www.pokeworks.com/rewards
+2026-08-24,Monday,Subway,Footlong Meal for $9.99 with Code MEAL999,Sandwiches,National,"Through December 31, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-25,Tuesday,Panera Bread,Mix & Match Value Menu: Items from $4.99 Each,Cafe,National,"Through August 31, 2026",,no,yes,dated,https://www.panerabread.com/en-us/menu.html
+2026-08-25,Tuesday,Tijuana Flats,"Taco Tuesdaze: 2 Tacos, Chips, and a Drink for $7.99",Mexican,FL & Southeast,Ongoing,,no,yes,standing,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-08-25,Tuesday,Chili's,"3 For Me: Starter, Entree, and Drink from $10.99",Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com/
+2026-08-25,Tuesday,Subway,Tuna Tuesday Sub of the Day: 6-Inch Classic Tuna for $4.99,Sandwiches,National,Ongoing,,no,no,standing,https://www.subway.com/
+2026-08-25,Tuesday,Subway,Protein Pockets from $3.99 Each,Sandwiches,National,Ongoing,,no,no,standing,https://www.subway.com/
+2026-08-25,Tuesday,Pokeworks,"Free Avocado with Any Entree, Code AVOSUMMER",Poke,Select states,Through August 2026,,no,yes,dated,https://www.pokeworks.com/
+2026-08-26,Wednesday,Potbelly,"BOGO Free Sandwich: Back-to-School Week, Aug 24-28",Sandwiches,National,"Through August 28, 2026",,yes,yes,dated,https://www.potbelly.com
+2026-08-26,Wednesday,Panera Bread,BOGO $5 Entree with Code BOGO5,Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com
+2026-08-26,Wednesday,Qdoba,$5 Off Orders of $25 or More with Code 5OFF25,Mexican,National,Limited time,,no,yes,dated,https://www.qdoba.com
+2026-08-26,Wednesday,Chili's,"3 For Me Meal from $10.99: Drink, Starter, and Entree",Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com
+2026-08-26,Wednesday,Subway,Two Footlong Subs for $12.99 with Code 1299FL,Sandwiches,National,"Through September 12, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-26,Wednesday,Subway,Footlong Sub for $6.99 with Code FOOTLONG699,Sandwiches,National,"Through September 12, 2026",,no,yes,dated,https://www.subway.com/
+2026-08-26,Wednesday,Publix,$5 Sushi Wednesday: Zenshi Rolls In-Store Today,Sushi,FL & Southeast,Ongoing,,no,no,standing,https://www.zenshisushi.com/store-locator-publix-5-dollars
+2026-08-26,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday: Select Oumi Rolls Today,Sushi,Most markets,Ongoing,,no,no,standing,https://www.sprouts.com/faqs/what-is-sushi-wednesday/
+2026-08-26,Wednesday,Kroger,$5 to $6 Sushi Wednesday at the Deli Counter Today,Sushi,Select states,Ongoing,,no,no,standing,https://www.kroger.com/
+2026-08-26,Wednesday,Food Lion,$5 Sushi Wednesday at Participating Stores Today,Sushi,Carolinas & Mid-Atlantic,Ongoing,,no,no,standing,https://www.foodlion.com
+2026-08-26,Wednesday,Lowes Foods,$4.99 Sushi Wednesday at the Deli Counter Today,Sushi,Carolinas,Ongoing,,no,no,standing,https://www.lowesfoods.com
+2026-08-26,Wednesday,Chili's,Triple Dipper Appetizer Trio for $15.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com
+2026-08-27,Thursday,Pokeworks,Free Scoop of Avocado with Any Entree,Poke,Select states,Through August 2026,,no,yes,dated,https://pokeworks.com
+2026-08-27,Thursday,Panera Bread,"Buy One Entree, Get One for $5",Cafe,National,Limited time,,no,yes,dated,https://www.panerabread.com
+2026-08-27,Thursday,Chili's,3 For Me Meal from $10.99,Sit-Down,National,Ongoing,,no,no,standing,https://www.chilis.com
+2026-08-27,Thursday,Noodles & Company,Delicious Duo Entree and Side from $9.95,Bowls,National,Ongoing,,no,no,standing,https://www.noodles.com
+2026-08-27,Thursday,Tijuana Flats,"Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $7.99",Mexican,FL & Southeast,Every Thursday,,no,no,dated,https://www.tijuanaflats.com
+2026-08-27,Thursday,Subway,Sub of the Day Combo for $6.99,Sandwiches,National,Ongoing,,no,yes,standing,https://www.subway.com/
+2026-08-28,Friday,Chili's,3 For Me from $10.99,Sit-Down,National,Ongoing,6,no,no,standing,https://www.chilis.com/
+2026-08-28,Friday,Noodles & Company,Delicious Duo entree plus a side from $9.95,Bowls,National,Ongoing,3,no,no,standing,https://www.noodles.com/menu/
+2026-08-28,Friday,Subway,6 inch Sub of the Day with chips and a drink for $6.99,Sandwiches,National,Ongoing,4,no,yes,standing,https://www.subway.com/
+2026-08-28,Friday,Nekter Juice Bar,20% off any purchase of $20 or more,Smoothies,National,Ongoing,4,no,yes,standing,https://www.nekterjuicebar.com/
+2026-08-28,Friday,Panera Bread,"Buy one whole sandwich, salad or soup, get one for $5",Cafe,National,Limited time,6.5,no,yes,dated,https://www.panerabread.com/en-us/deals-offers.html
+2026-08-28,Friday,Wingstop,10 Classic bone-in wings for $10,Chicken,National,Limited time,3,no,yes,dated,https://www.wingstop.com/deals
+2026-08-28,Friday,Five Guys,"Buy any burger, get one free with code FGAFTERPARTY",Burgers,National,Limited time,11,no,yes,dated,https://www.fiveguys.com/
+2026-08-28,Friday,Harris Teeter,$5 Sushi Friday entrees,Sushi,National,Today only,3.5,no,yes,weekly-day,https://www.harristeeter.com/
+2026-08-28,Friday,Safeway,$5 Friday Sushi rolls,Sushi,National,Today only,3.5,no,yes,weekly-day,https://www.safeway.com/
+2026-08-29,Saturday,Chili's,3 For Me Combo from $10.99,Sit-Down,National,Ongoing,6,no,no,standing,https://www.chilis.com/
+2026-08-29,Saturday,Naf Naf Grill,"Pita Meal Deal: Stuffed Pita, Side and Drink for $9.99",Mediterranean,Midwest & East,Limited time,6.5,no,no,dated,https://www.nafnafgrill.com/
+2026-08-29,Saturday,Noodles & Company,Delicious Duo Entree and Side from $9.95,Bowls,National,Ongoing,3,no,no,standing,https://www.noodles.com/
+2026-08-29,Saturday,Subway,6-inch Sub of the Day Meal for $6.99,Sandwiches,National,Ongoing,4,no,no,standing,https://www.subway.com/
+2026-08-29,Saturday,Panera Bread,You Pick Two from $10.59,Cafe,National,Ongoing,5,no,no,standing,https://www.panerabread.com/en-us/menu.html
+2026-08-29,Saturday,Tijuana Flats,"2 for $24 Saturdaze: two entrees, two drinks and a starter",Mexican,National,Ongoing (Saturdays only),6,no,yes,standing,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-08-30,Sunday,Tropical Smoothie Cafe,"$6 Acai Bowls: Any Bowl, Last Day Today",Bowls,National,Today only,3.5,no,yes,weekly-day,https://www.tropicalsmoothiecafe.com/back-to-school-acai-promo
+2026-08-30,Sunday,Chipotle,Free Entree with Purchase of Two Entrees (SUNDAYS code),Mexican,National,"Through Sept 6, 2026",11,yes,yes,dated,https://newsroom.chipotle.com/2026-08-17-CHIPOTLE-CELEBRATES-BACK-TO-SCHOOL-SEASON-WITH-SCHOOL-SPIRIT-BOGO-AND-CHIPOTLE-SUNDAYS-DEAL
+2026-08-30,Sunday,Sweetgreen,"50% Off One Salad, Bowl or Plate ($9.45 minimum)",Salads,National,"Through Aug 31, 2026",5,no,yes,dated,https://www.sweetgreen.com
+2026-08-30,Sunday,Panera Bread,"BOGO $5: Whole Sandwich, Salad, Soup or Mac (code BOGO5)",Cafe,National,Limited time,6,no,yes,dated,https://www.panerabread.com
+2026-08-30,Sunday,Subway,Sub of the Day: Featured 6 Inch Sub for $4.99,Sandwiches,National,Ongoing,3,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-08-30,Sunday,Chili's,"3 For Me: Drink, Starter and Entree from $10.99",Sit-Down,National,Ongoing,6,no,no,standing,https://www.chilis.com
+2026-08-30,Sunday,Noodles & Company,Delicious Duo: Entree and Side from $9.95,Bowls,National,Ongoing,3,no,no,standing,https://www.noodles.com
+2026-08-31,Monday,Noodles & Company,$1 Side Salad with $15+ Purchase,Noodles,National,"Through August 31, 2026",3.5,no,yes,dated,https://www.noodles.com/
+2026-08-31,Monday,Noodles & Company,Delicious Duo Entree and Side from $9.95,Noodles,National,Ongoing,5,no,no,standing,https://www.noodles.com/
+2026-08-31,Monday,Subway,6 Inch Sub of the Day Meal for $6.99,Sandwiches,National,Ongoing,6,no,no,standing,https://www.subway.com/
+2026-08-31,Monday,Chili's,3 For Me Meal from $10.99,Sit-Down,National,Ongoing,8,no,no,standing,https://www.chilis.com/
+2026-08-31,Monday,Sweetgreen,"50% Off a Custom or Menu Bowl, Salad, or Plate",Salads,National,"Through August 31, 2026",4.5,no,yes,dated,https://www.sweetgreen.com/
+2026-08-31,Monday,Panera Bread,"Buy One Entree, Get One for $5",Cafe,National,Limited time,6,no,yes,dated,https://www.panerabread.com/
+2026-08-31,Monday,Panera Bread,$1 Cup of Soup with promo code,Cafe,National,Limited time,4,no,yes,dated,https://www.panerabread.com/
+2026-08-31,Monday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3.5,no,no,standing,https://nafnafgrill.com/
+2026-08-31,Monday,Wingstop,20% off orders of $15 or more,Chicken,National,Limited time,3,no,yes,dated,https://www.wingstop.com/
+2026-09-01,Tuesday,Tijuana Flats,"Taco Tuesdaze: 2 Tacos, Chips and a Drink for $7.99",Mexican,FL & Southeast,Ongoing (Tuesdays only),2.5,no,yes,standing,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-01,Tuesday,Chili's,"3 For Me: Entree, Side and Drink from $10.99",Sit-Down,National,Ongoing,6,no,no,standing,https://www.chilis.com
+2026-09-01,Tuesday,Wingstop,20 Classic (Bone-In) Wings for $20,Chicken,National,Ongoing,6,no,yes,standing,https://www.wingstop.com
+2026-09-01,Tuesday,Nekter Juice Bar,20% Off Any Purchase of $20 or More,Smoothies,Select states,Limited time,4,no,yes,dated,https://www.nekterjuicebar.com/
+2026-09-01,Tuesday,Tropical Smoothie Cafe,Any Flatbread Plus a 24oz Smoothie for $8.99,Cafe,National,"Through October 31, 2026",6,no,yes,dated,https://www.tropicalsmoothiecafe.com/
+2026-09-01,Tuesday,Walmart,Rotisserie Chicken Bundle with Two Sides Under $10,Deli,National,Ongoing,1.5,no,no,standing,https://www.walmart.com/
+2026-09-02,Wednesday,Tropical Smoothie Cafe,Flatbread Combo: Any Flatbread + 24oz Smoothie for $8.99,Smoothies,National,"Through October 31, 2026",3,no,yes,dated,https://www.tropicalsmoothiecafe.com/
+2026-09-02,Wednesday,Chili's,"3 For Me: Drink, Starter and Entree from $10.99",Sit-Down,National,Ongoing,8,no,no,standing,https://www.chilis.com/
+2026-09-02,Wednesday,Noodles & Company,"Delicious Duos: Entree, Protein and Side from $9.95",Pasta,National,Ongoing,2,no,no,standing,https://www.noodles.com/menu
+2026-09-02,Wednesday,Publix,$5 Sushi Wednesday: Select AFC Rolls,Sushi,FL & Southeast,Ongoing,3,no,no,standing,https://www.publix.com/
+2026-09-02,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday: Select Oumi Rolls,Sushi,Select states,Ongoing,3,no,no,standing,https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/
+2026-09-02,Wednesday,Kroger,$6 Wednesday-Only Snowfox Sushi Rolls,Sushi,Select states,Ongoing,3,no,no,standing,https://www.kroger.com/
+2026-09-03,Thursday,Chili's,"3 For Me: Drink, Starter and Entree from $10.99",Sit-Down,National,Ongoing,5,no,no,standing,https://www.chilis.com
+2026-09-03,Thursday,Tijuana Flats,"Throwback Thursdaze: Burrito or Bowl, Chips and Drink for $8.99",Mexican,FL & Southeast,Thursdays only,3.5,no,yes,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-03,Thursday,Subway,Sub of the Day: Featured 6-inch Sub for $4.99,Sandwiches,National,Ongoing,2,no,no,standing,https://www.subway.com/
+2026-09-03,Thursday,Panera Bread,"BOGO $5: Whole Sandwiches, Bowls, Salads or Soup",Cafe,National,Limited time,7,no,yes,dated,https://www.panerabread.com
+2026-09-03,Thursday,Panera Bread,$0 Delivery Fee on Orders $8 to $10 with a Ciabatta Dipper,Cafe,National,"Through September 6, 2026",4,no,yes,dated,https://www.panerabread.com
+2026-09-03,Thursday,Noodles & Company,Delicious Duo: Entree and a Side from $9.95,Noodles,National,Ongoing,5,no,no,standing,https://www.noodles.com
+2026-09-04,Friday,Chili's,3 For Me from $10.99,Sit-Down,National,Ongoing,6,no,no,standing,https://www.chilis.com
+2026-09-04,Friday,Subway,Sub of the Day 6 inch Meal for $6.99,Sandwiches,National,Ongoing,4,no,no,standing,https://www.subway.com/
+2026-09-04,Friday,Noodles & Company,Delicious Duos from $9.95,Bowls,National,Ongoing,3,no,no,standing,https://www.noodlescompany.com/
+2026-09-04,Friday,Safeway,$5 Friday Sushi Rolls,Sushi,"Multiple divisions (West, Mountain, Northeast)",Ongoing (Fridays only),4.5,no,no,standing,https://www.safeway.com
+2026-09-04,Friday,Five Guys,"Buy One Burger, Get One Free (code FGAFTERPARTY)",Burgers,National,Limited time,8.5,no,yes,dated,https://www.fiveguys.com
+2026-09-04,Friday,Harris Teeter,$5 Sushi Friday,Sushi,Mid-Atlantic & Southeast,Today only,3,no,yes,weekly-day,https://www.harristeeter.com/
+2026-09-04,Friday,Chipotle,$0 Delivery Fee on Pollo Asado Orders of $10 or More,Mexican,National,"Through Sept 13, 2026",5,no,yes,dated,https://www.chipotle.com
+2026-09-04,Friday,Chicken Salad Chick,15% Off Catering Orders of $200 or More,Sandwiches,South,"Through Sept 11, 2026",30,no,yes,dated,https://www.chickensaladchick.com
+2026-09-04,Friday,Saladworks,10% Off Online Catering Orders,Salads,Northeast & Mid-Atlantic,"Through Sept 30, 2026",,no,yes,dated,https://www.saladworks.com
+2026-09-04,Friday,Qdoba,$2 Off Digital Orders with Queso Fundido,Mexican,National,"Through Sept 6, 2026",2,no,yes,dated,https://www.qdoba.com
+2026-09-04,Friday,Wingstop,"16pc Wings, 6pc Tenders and Fries Bundle for $19.99",Chicken,National,Ongoing,10,no,yes,standing,https://www.wingstop.com
+2026-09-04,Friday,Jason's Deli,$1 Large Dr Pepper with Code DOLLARDP,Cafe,South & Central,Limited time,1.5,no,yes,dated,https://www.jasonsdeli.com
+2026-09-04,Friday,Noodles & Company,$1 Dessert for Rewards Members,Treats,National,"Through Sept 30, 2026",2.5,no,yes,dated,https://www.noodles.com
+2026-09-05,Saturday,Chipotle,$0 Delivery Fee on Pollo Asado Orders,Mexican,National,"Through September 13, 2026",4,no,yes,dated,https://www.chipotle.com
+2026-09-05,Saturday,Chili's,3 For Me Meal from $10.99,Sit-Down,National,Ongoing,4,no,no,standing,https://www.chilis.com
+2026-09-05,Saturday,Subway,Sub of the Day 6-inch for $4.99,Sandwiches,National,Ongoing,2,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-05,Saturday,Subway,Protein Pockets for $3.99,Sandwiches,National,Ongoing,2,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-05,Saturday,Qdoba,Free Guacamole and Queso with Any Entree,Mexican,National,Ongoing,4,yes,yes,standing,https://www.qdoba.com
+2026-09-05,Saturday,Subway,"Sub of the Day for $4.99, Protein Pockets and Deli Faves from $3.99",Sandwiches,National,Ongoing,4,no,yes,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-05,Saturday,Qdoba,$2 Off Orders with New Queso Fundido,Mexican,National,"Through September 6, 2026",2,no,yes,dated,https://www.qdoba.com
+2026-09-05,Saturday,Chick-fil-A,Free Breakfast Entree Weekly,Chicken,Los Angeles metro only,"Through November 9, 2026",4.5,yes,yes,dated,https://www.chick-fil-a.com
+2026-09-05,Saturday,Noodles & Company,$1 Dessert with $15 Purchase,Treats,National,"Through October 31, 2026",2,no,yes,dated,https://www.noodles.com/app-termsandconditions
+2026-09-06,Sunday,Chipotle,Free entree with purchase of 2 entrees (code SUNDAYS),Mexican,National,"Through September 6, 2026",10,yes,yes,dated,https://www.chipotle.com/sundays
+2026-09-06,Sunday,Qdoba,$2 off digital orders with Queso Fundido (code FUNDIDO),Mexican,National,"Through September 6, 2026",2,no,yes,dated,https://www.qdoba.com
+2026-09-06,Sunday,Chili's,3 For Me combo from $10.99,Sit-Down,National,Ongoing,10,no,no,standing,https://www.chilis.com
+2026-09-06,Sunday,Jason's Deli,Dr Pepper for $1 with code DOLLARDP,Cafe,South & Central,Limited time,2,no,yes,dated,https://www.jasonsdeli.com
+2026-09-06,Sunday,Subway,Sub of the Day 6 inch for $4.99,Sandwiches,National,Ongoing,3,no,yes,standing,https://www.subway.com/
+2026-09-06,Sunday,Clean Juice,Free 16oz smoothie with $15 purchase,Smoothies,South & East,"Through Sept 7, 2026",6,no,yes,dated,https://cleanjuice.com
+2026-09-06,Sunday,Panera Bread,15% off catering orders of $200 or more,Cafe,National,"Through Sept 11, 2026",30,no,yes,dated,https://www.panerabread.com/en-us/catering.html
+2026-09-06,Sunday,Walmart,$9.97 rotisserie chicken family meal bundle,Grocery,National,Ongoing,8,no,no,standing,https://www.walmart.com
+2026-09-07,Monday,Panera Bread,Mix & Match: 2 items for $4.99 each,Salads,National,Ongoing,5,no,no,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-07,Monday,Subway,Sub of the Day: $4.99 six-inch sub,Sandwiches,National,Ongoing,2.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-07,Monday,Subway,Protein Pockets for $3.99,Sandwiches,National,Ongoing,3,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-07,Monday,Noodles & Company,Delicious Duos from $9.95,Noodles,National,Ongoing,3,no,no,standing,https://www.noodlescompany.com/
+2026-09-07,Monday,Naf Naf Grill,"Pita Meal Deal: stuffed pita, side and drink for $9.99",Mediterranean,Midwest & East,Limited time,4,no,yes,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-07,Monday,Subway,6-Inch Sub of the Day Combo for $6.99,Sandwiches,National,Ongoing,3.5,no,no,standing,https://www.subway.com/
+2026-09-07,Monday,Walmart,Shredded Rotisserie Chicken Breast Rollback: $7.24 (Was $9.97),Grocery,National,Ongoing,2.5,no,no,standing,https://www.walmart.com/browse/food/rotisserie-pulled-chicken/976759_9569500_1001443_9284629
+2026-09-07,Monday,Walmart,Hot Rotisserie Chicken Meal Bundle with Mac and Cheese and Mashed Potatoes for $9.97,Grocery,National,Ongoing,4,no,no,standing,https://www.walmart.com/browse/food/rotisserie-pulled-chicken/976759_9569500_1001443_9284629
+2026-09-08,Tuesday,Panera Bread,"Mix & Match Menu: $4.99 half sandwiches, salads or soups",Cafe,National,Ongoing,3.5,no,yes,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-08,Tuesday,Subway,"Fresh Value Menu: $4.99 Sub of the Day, $3.99 Deli Faves & Protein Pockets",Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-08,Tuesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,yes,standing,https://nafnafgrill.com/
+2026-09-08,Tuesday,Rubio's Coastal Grill,"$7+ Meal Menu, including new Fish & Chips for $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-08,Tuesday,Tijuana Flats,"Taco Tuesdaze: two tacos, chips and a drink for $7.99",Mexican,FL & Southeast,Tuesdays only,3.5,no,yes,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-08,Tuesday,Noodles & Company,"Delicious Duos: small entree, protein and a side from $9.95",Noodles,National,Ongoing,3,no,yes,standing,https://www.noodles.com/
+2026-09-08,Tuesday,Subway,Sub of the Day: $4.99 six-inch sub,Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-08,Tuesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & Southwest,Ongoing,3,no,no,standing,https://www.wabagrill.com/
+2026-09-08,Tuesday,Salad and Go,Salads and wraps from $7.75,Salads,Arizona & Nevada,Ongoing,3,no,no,standing,https://www.saladandgo.com/
+2026-09-08,Tuesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-08,Tuesday,Publix,Sub of the Week: $2 Off This Week's Featured Whole Sub,Deli,FL & Southeast,Ongoing (changes weekly),,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-09,Wednesday,El Pollo Loco,Free 2 Pc Leg and Thigh Meal with Any Drink Purchase,Chicken,Southwest and West,"September 9, 2026 only",6,yes,yes,dated,https://www.elpolloloco.com/promotions/general-offers
+2026-09-09,Wednesday,Panera Bread,Value Duets from $6.99,Cafe,National,Ongoing,3,no,no,standing,https://www.panerabread.com/en-us/menu.html
+2026-09-09,Wednesday,Noodles & Company,Delicious Duos from $9.95,Bowls,National,Ongoing,3,no,yes,standing,https://www.noodles.com/
+2026-09-09,Wednesday,Subway,"Sub of the Day, 6 inch for $4.99",Sandwiches,National,Ongoing,3,no,no,standing,https://www.subway.com/
+2026-09-09,Wednesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest and East,Ongoing,3,no,yes,standing,https://nafnafgrill.com/
+2026-09-09,Wednesday,Rubio's Coastal Grill,"$7+ Meal Menu, including $7.99 Fish and Chips",Seafood,"CA, AZ and NV",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-09,Wednesday,Publix,$5 Sushi Wednesday,Sushi,FL and Southeast,"Today only, Wednesdays",4,no,no,weekly-day,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-09,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday,Sushi,Most markets,"Today only, Wednesdays",4,no,no,weekly-day,https://www.sprouts.com/faqs/what-is-sushi-wednesday/
+2026-09-09,Wednesday,Kroger,$6 Wednesday Sushi Special,Sushi,Select states (Kroger family banners),"Today only, Wednesdays",3,no,no,weekly-day,https://www.kroger.com/
+2026-09-09,Wednesday,Lowes Foods,$4.99 Sushi Wednesday,Sushi,Carolinas,"Today only, Wednesdays",3,no,no,weekly-day,https://www.lowesfoods.com/
+2026-09-09,Wednesday,Publix,"Sub of the Week, $2 off",Deli,FL and Southeast,"Ongoing, changes weekly",2,no,yes,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-09,Wednesday,Harris Teeter,"$5 Meal Days, weekdays",Deli,"DC, MD and VA","Ongoing, weekdays",4,no,no,standing,https://www.harristeeter.com/
+2026-09-09,Wednesday,Hy-Vee,Sushi Wednesday: Select Nori Sushi Rolls for $6,Sushi,Midwest,Wednesdays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-09,Wednesday,H-E-B,Sushi Wednesday: Select Sushiya Rolls for $7,Sushi,Texas,Wednesdays only,,no,no,weekly-day,https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236
+2026-09-09,Wednesday,ShopRite,$5.99 Sushi Wednesday: Select Rolls,Sushi,"NJ, NY, PA, CT, DE & MD",Wednesdays only,,no,no,weekly-day,https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585
+2026-09-10,Thursday,Noodles & Company,Delicious Duos from $9.95,Bowls,National,Ongoing,2.5,no,no,standing,https://www.noodles.com
+2026-09-10,Thursday,Subway,"6-inch Sub of the Day for $4.99, add chips and a drink for $2 more",Sandwiches,National,Ongoing,4,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-10,Thursday,Tijuana Flats,"Throwback Thursdaze: burrito or bowl, chips and a drink for $7.99",Mexican,FL & Southeast,Ongoing (Thursdays only),5,no,yes,standing,https://www.tijuanaflats.com
+2026-09-10,Thursday,Rubio's Coastal Grill,"$7+ Meal Menu, including new Fish & Chips for $7.99",Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com
+2026-09-10,Thursday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com
+2026-09-10,Thursday,Luna Grill,25% off Plates for Club Luna members,Mediterranean,SoCal & Texas,Ongoing,3,no,yes,standing,https://lunagrill.com
+2026-09-10,Thursday,Rubio's Coastal Grill,$7+ Meal Menu: meals from $7 to $10,Mexican,"California, Arizona and Nevada",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-10,Thursday,Panera Bread,$4.99 Mix & Match Value Menu,Sandwiches,National,Ongoing,,no,no,standing,https://www.panerabread.com/
+2026-09-10,Thursday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-10,Thursday,Publix,Sub of the Week: $2 Off This Week's Featured Whole Sub,Deli,FL & Southeast,Ongoing (changes weekly),,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-11,Friday,Panera Bread,Mix & Match Menu: Any 2+ Items for $4.99 Each,Cafe,National,Ongoing,4,no,no,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-11,Friday,Noodles & Company,"Delicious Duos: Entree, Protein and Side Starting at $9.95",Noodles,National,Ongoing,2.5,no,no,standing,https://www.noodlescompany.com/
+2026-09-11,Friday,Subway,Sub of the Day: $4.99 Six-Inch Sub,Sandwiches,National,Ongoing,3,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-11,Friday,Harris Teeter,$5 Friday: Select Sushi Entrees,Sushi,"DC, MD & VA",Ongoing (Fridays),3.5,no,no,standing,https://www.harristeeter.com/
+2026-09-11,Friday,Safeway,$5 Friday: Fresh Sushi Rolls,Sushi,Select states (West & Central US),Ongoing (Fridays),3.5,no,no,standing,https://www.safeway.com/weeklyad/
+2026-09-11,Friday,Rubio's Coastal Grill,$7+ Meal Menu,Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-11,Friday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-11,Friday,Publix,Sub of the Week: $2 Off a Featured Whole Deli Sub,Deli,FL & Southeast,Ongoing (weekly),2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-11,Friday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-11,Friday,Hy-Vee,"Sushi Friday: Buy One Nori Roll, Get One 50% Off",Sushi,Midwest,Fridays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-11,Friday,Noodles & Company,2 Culinary Classics Bowls for $12,Bowls,National,"Through September 14, 2026",7,no,yes,dated,https://www.noodles.com/offer-terms
+2026-09-12,Saturday,Panera Bread,Mix & Match Menu: 2 items for $9.98 ($4.99 each),Cafe,National,Ongoing,2,no,yes,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-12,Saturday,Noodles & Company,Delicious Duos starting at $9.95,Noodles,National,Ongoing,3,no,yes,standing,https://www.noodlescompany.com/
+2026-09-12,Saturday,Subway,"Sub of the Day $4.99, Meal of the Day $6.99",Sandwiches,National,Ongoing,2.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-12,Saturday,H-E-B,$7 Saturday sushi rolls,Sushi,Texas only,Today only,2,no,no,weekly-day,https://www.heb.com/discover/sushi-by-sushiya
+2026-09-12,Saturday,Publix,Sub of the Week: $2 off a featured whole deli sub,Deli,FL & Southeast,Ongoing,2,no,yes,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-12,Saturday,Rubio's Coastal Grill,"$7+ Meal Menu, meals from $7 to $10",Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-12,Saturday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-12,Saturday,Noodles & Company,2 Culinary Classics Bowls for $12,Bowls,National,"Through September 14, 2026",7,no,yes,dated,https://www.noodles.com/offer-terms
+2026-09-13,Sunday,Panera Bread,Mix & Match Menu: $4.99 each,Cafe,National,Ongoing,6.5,no,no,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-13,Sunday,Noodles & Company,Delicious Duos from $9.95,Noodles,National,Ongoing,3,no,no,standing,https://www.noodles.com
+2026-09-13,Sunday,Subway,"Sub of the Day $4.99, Meal of the Day $6.99",Sandwiches,National,Ongoing,3,no,no,standing,https://www.subway.com/
+2026-09-13,Sunday,Publix,Sub of the Week: $2 off Boar's Head Fried Turkey Sub,Deli,FL & Southeast,"Through September 16, 2026",2,no,yes,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-13,Sunday,Chipotle,$0 Delivery Fee on Pollo Asado orders of $10+,Mexican,National,"Through September 13, 2026",5,no,yes,dated,https://www.chipotle.com/zero-dollar-delivery
+2026-09-13,Sunday,Rubio's Coastal Grill,"$7+ Meal Menu, meals from $7 to $10",Mexican,"California, Arizona and Nevada",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-13,Sunday,Naf Naf Grill,"$9.99 Pita Meal Deal: stuffed pita, side and drink",Mediterranean,Midwest and East,Limited time,3.5,no,yes,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-13,Sunday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-13,Sunday,Noodles & Company,2 Culinary Classics Bowls for $12,Bowls,National,"Through September 14, 2026",7,no,yes,dated,https://www.noodles.com/offer-terms
+2026-09-14,Monday,Panera Bread,Mix & Match Menu: Any 2+ Items for $4.99 Each,Cafe,National,Ongoing,4,no,no,standing,https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html
+2026-09-14,Monday,Noodles & Company,"Delicious Duos: Entree, Protein and Side Starting at $9.95",Noodles,National,Ongoing,4,no,no,standing,https://www.noodles.com
+2026-09-14,Monday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-14,Monday,Rubio's Coastal Grill,"$7+ Meal Menu, Including New Fish & Chips for $7.99",Mexican,"California, Arizona, Nevada",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-14,Monday,Rubio's Coastal Grill,$7+ Meal Menu,Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/
+2026-09-14,Monday,Subway,Sub of the Day Combo $6.99,Sandwiches,National,Ongoing,4,no,no,standing,https://www.subway.com/
+2026-09-14,Monday,Publix,$2 off Sub of the Week,Deli,Southeast,Ongoing,2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-14,Monday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/
+2026-09-14,Monday,Noodles & Company,2 Culinary Classics Bowls for $12,Bowls,National,"Through September 14, 2026",7,no,yes,dated,https://www.noodles.com/offer-terms
+2026-09-15,Tuesday,Noodles & Company,Delicious Duos from $9.95,Noodles,National,Ongoing,3,no,no,standing,https://www.noodles.com/coupons
+2026-09-15,Tuesday,McAlister's Deli,Choose Two Combo for $7.39,Deli,South & Central US,Ongoing,3.5,no,no,standing,https://www.mcalistersdeli.com/
+2026-09-15,Tuesday,Subway,Sub of the Day: $4.99 six-inch sub,Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-15,Tuesday,Tijuana Flats,"Taco Tuesdaze: two tacos, chips and a drink for $7.99",Mexican,FL & Southeast,Ongoing (Tuesdays only),3.5,no,no,standing,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-15,Tuesday,Rubio's Coastal Grill,"$7+ Meal Menu, including Fish & Chips for $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-15,Tuesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-15,Tuesday,Publix,Sub of the Week: $2 off a featured whole deli sub,Deli,FL & Southeast,Ongoing (changes weekly),2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-15,Tuesday,Panera Bread,$4.99 Mix & Match Value Menu,Sandwiches,National,Ongoing,,no,no,standing,https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html
+2026-09-15,Tuesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-15,Tuesday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-15,Tuesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-16,Wednesday,Publix,$5 Sushi Wednesday,Sushi,FL & Southeast,Today only (Wednesdays),3,no,no,weekly-day,https://www.zenshisushi.com/store-locator-publix-5-dollars
+2026-09-16,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday,Sushi,Most Sprouts markets,Today only (Wednesdays),3,no,no,weekly-day,https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/
+2026-09-16,Wednesday,Safeway,$6 Sushi Wednesday,Sushi,Select states,Today only (Wednesdays),3,no,no,weekly-day,https://www.zenshisushi.com/store-locator-safway-colorado
+2026-09-16,Wednesday,Panera Bread,$4.99 Mix & Match Value Menu,Cafe,National,Ongoing,6.5,no,no,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-16,Wednesday,Rubio's Coastal Grill,"$7+ Meal Menu, Fish & Chips $7.99",Seafood,"California, Arizona, Nevada",Ongoing,3.5,no,no,standing,https://www.rubios.com/menu
+2026-09-16,Wednesday,Noodles & Company,Delicious Duos from $9.95,Noodles,National,Ongoing,3,no,no,standing,https://www.noodles.com/coupons
+2026-09-16,Wednesday,Subway,Sub of the Day Combo $6.99,Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-16,Wednesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,4,no,no,standing,https://nafnafgrill.com/
+2026-09-16,Wednesday,Just Salad,$9.99 Chicken Caesar Wrap,Salads,Northeast & Mid-Atlantic,"Through September 30, 2026",3,no,no,dated,https://www.justsalad.com
+2026-09-16,Wednesday,Kroger,$6 Wednesday Sushi Special,Sushi,Select states (Kroger family stores),Today only (Wednesday),3,no,no,weekly-day,https://www.kroger.com/q/snowfox
+2026-09-16,Wednesday,H-E-B,$7 Sushi Wednesday (Sushiya rolls),Sushi,Texas only,Today only (Wednesday),3,no,no,weekly-day,https://www.heb.com/discover/sushi-by-sushiya
+2026-09-16,Wednesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-16,Wednesday,Hy-Vee,Sushi Wednesday: Select Nori Sushi Rolls for $6,Sushi,Midwest,Wednesdays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-16,Wednesday,ShopRite,$5.99 Sushi Wednesday: Select Rolls,Sushi,"NJ, NY, PA, CT, DE & MD",Wednesdays only,,no,no,weekly-day,https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585
+2026-09-16,Wednesday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-16,Wednesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-17,Thursday,Panera Bread,Mix & Match Menu: $4.99 each (pick 2+),Cafe,National,Ongoing,4,no,yes,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-17,Thursday,Subway,Sub of the Day $4.99 / Meal of the Day $6.99,Sandwiches,National,Ongoing,4,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-17,Thursday,Tijuana Flats,"Throwback Thursdaze: burrito or bowl, chips and a drink for $7.99",Mexican,FL & Southeast,Today only (Thursdays),3,no,yes,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-17,Thursday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,4,no,yes,standing,https://nafnafgrill.com/
+2026-09-17,Thursday,Rubio's Coastal Grill,"$7+ Meal Menu, including new Fish & Chips for $7.99",Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-17,Thursday,WaBa Grill,"Value-Bowl Combo: Mini Bowl, side and drink for $7.99",Bowls,CA & Southwest,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-17,Thursday,Publix,Sub of the Week: Boar's Head Italian Sub for $9.49,Deli,"FL, GA, AL, SC & more","Through September 23, 2026",2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-17,Thursday,Noodles & Company,Delicious Duos: Entree + Side from $9.95,Bowls,National,Ongoing,,no,no,standing,https://www.noodles.com/menu/delicious-duos
+2026-09-17,Thursday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-17,Thursday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-18,Friday,Panera Bread,Mix & Match: Any 2 for $4.99 Each,Cafe,National,Ongoing,4,no,no,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-18,Friday,Noodles & Company,Delicious Duos From $9.95,Bowls,National,Ongoing,4.5,no,no,standing,https://www.noodles.com/coupons
+2026-09-18,Friday,Publix,Sub of the Week: $2 Off a Whole Deli Sub,Deli,FL & Southeast,This week,2,no,no,dated,https://www.publix.com/savings/all-deals/deli
+2026-09-18,Friday,Harris Teeter,$5 Sushi Friday,Sushi,"Southeast (NC, SC, VA, GA, TN)",Today only,4,no,no,weekly-day,https://www.harristeeter.com/q/fresh+sushi
+2026-09-18,Friday,Safeway,$5 Friday Sushi,Sushi,"Select divisions (West, Mountain & Mid-Atlantic)",Today only,4,no,no,weekly-day,https://www.safeway.com/shop/product-details.970071652.html
+2026-09-18,Friday,El Pollo Loco,$20 Off $100 Catering with Code BACK2LOCO,Chicken,Southwest & West,"Through September 30, 2026",20,no,no,dated,https://www.elpolloloco.com/promotions
+2026-09-18,Friday,Hy-Vee,"Sushi Friday: Buy One Nori Roll, Get One 50% Off",Sushi,Midwest,Fridays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-18,Friday,Subway,"Fresh Value Menu: $4.99 Sub of the Day, $3.99 Deli Faves & Protein Pockets",Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-18,Friday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-18,Friday,Rubio's Coastal Grill,"$7+ Meal Menu, including Fish & Chips for $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-18,Friday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-18,Friday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,yes,standing,https://nafnafgrill.com/
+2026-09-19,Saturday,Noodles & Company,Delicious Duos from $9.95,Pasta,National,Ongoing,4,no,no,standing,https://www.noodles.com/menu/delicious-duos
+2026-09-19,Saturday,Rubio's Coastal Grill,"$7+ Meal Menu, Fish & Chips $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-19,Saturday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-19,Saturday,H-E-B,$7 Sushiya Sushi Saturdays,Sushi,Texas only,Today only,3,no,no,weekly-day,https://www.heb.com/discover/sushi-by-sushiya
+2026-09-19,Saturday,Publix,Sub of the Week: $2 off a featured whole sub,Deli,FL & Southeast,Ongoing (changes weekly),2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-19,Saturday,Panera Bread,Mix & Match Menu: 2 for $4.99 each,Cafe,National,Ongoing,4,no,yes,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-19,Saturday,McAlister's Deli,Choose 2 Menu from $7.39,Deli,South & Central,Ongoing,4,no,no,standing,https://www.mcalistersdeli.com
+2026-09-19,Saturday,Chopt Creative Salad Co.,10% off catering orders with code FUEL10,Catering,East Coast,Ongoing,10,no,no,standing,https://www.choptsalad.com/
+2026-09-19,Saturday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-19,Saturday,Subway,"Fresh Value Menu: $4.99 Sub of the Day, $3.99 Deli Faves & Protein Pockets",Sandwiches,National,Ongoing,3.5,no,no,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-19,Saturday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-19,Saturday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-20,Sunday,Panera Bread,Mix & Match Value Menu: 2+ items for $4.99 each,Cafe,National,Ongoing,5,no,yes,standing,https://www.panerabread.com/en-us/press/press-room/panera-breads-first-value-menu-lets-guests-mix-match-a-meal-of-up-to-ten-panera-favorites-for-just-499-each.html
+2026-09-20,Sunday,Subway,Sub of the Day: $4.99 featured six-inch sub,Sandwiches,National,Ongoing,3.5,no,yes,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-20,Sunday,Noodles & Company,Delicious Duos from $9.95,Noodles,National,Ongoing,3,no,yes,standing,https://www.noodles.com/coupons
+2026-09-20,Sunday,Rubio's Coastal Grill,"$7+ Meal Menu, including new Fish & Chips for $7.99",Mexican,"CA, AZ & NV",Ongoing,3,no,yes,standing,https://www.rubios.com/menu
+2026-09-20,Sunday,Publix,Sub of the Week: $2 off a featured whole deli sub,Deli,FL & Southeast,"Weekly, changes each Wednesday",2,no,yes,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-20,Sunday,Subway,Fresh Value Menu: subs from $3.99,Sandwiches,National,Ongoing,3.5,no,yes,standing,https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5
+2026-09-20,Sunday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,4,no,no,standing,https://nafnafgrill.com/
+2026-09-20,Sunday,Playa Bowls,Free 16oz Protein Wave Smoothie with purchase,Bowls,Select locations (NJ & GA),"Through October 31, 2026",8,no,no,dated,https://www.playabowls.com/policies/current-promotions
+2026-09-20,Sunday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-20,Sunday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-20,Sunday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-21,Monday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Tropic Bowl or Food Purchase,Smoothies,National,"Through September 27, 2026",6,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest
+2026-09-21,Monday,Naf Naf Grill,"$9.99 Pita Meal Deal: Stuffed Pita, Side and Drink",Mediterranean,Midwest & East,Limited time,4.5,no,yes,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-21,Monday,Rubio's Coastal Grill,$7.99 Fish and Chips on the $7+ Meal Menu,Mexican,"CA, AZ and NV",Ongoing,3,no,no,standing,https://rubios.com/weekly-deals/
+2026-09-21,Monday,Publix,$2 Off the Featured Whole Deli Sub of the Week,Deli,FL & Southeast,Ongoing,2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-21,Monday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-21,Monday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-21,Monday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-22,Tuesday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Bowl or Food Purchase,Smoothies,National,"Through September 27, 2026",6,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest/
+2026-09-22,Tuesday,Pokeworks,Free Extra Protein Scoop with High-Protein Surf & Turf Bowl,Poke,Select states,"Through September 27, 2026",3,no,yes,dated,https://www.pokeworks.com/
+2026-09-22,Tuesday,Tijuana Flats,"Taco Tuesdaze: Two Tacos, Chips and a Drink for $7.99",Mexican,FL & Southeast,Ongoing (Tuesdays only),3,no,no,standing,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-22,Tuesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-22,Tuesday,Publix,Sub of the Week: $2 Off the Featured Whole Deli Sub,Deli,Southeast,Ongoing,2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-22,Tuesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-22,Tuesday,Dierbergs,Sushi Tuesday: Select Rolls for $6,Sushi,St. Louis area,Tuesdays only,,no,no,weekly-day,https://www.dierbergs.com/department/deli-and-prepared-foods
+2026-09-22,Tuesday,Island Fin Poke,Topping Tuesday: Free Premium Topping with Any Bowl,Poke,FL & Select states,Tuesdays only,,no,no,weekly-day,https://www.islandfinpoke.com/custom-content-1/
+2026-09-22,Tuesday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-22,Tuesday,Rubio's Coastal Grill,"$7+ Meal Menu, including Fish & Chips for $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-22,Tuesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-23,Wednesday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Tropic Bowl or Food Purchase,Smoothies,National,"Through September 27, 2026",7,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest/
+2026-09-23,Wednesday,Naf Naf Grill,"$9.99 Pita Meal Deal: Stuffed Pita, Side and Drink",Mediterranean,Midwest & East,Limited time,4.5,no,no,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-23,Wednesday,Salad and Go,$6 Salad with Any Breakfast Burrito Purchase,Salads,"Southwest and growing (AZ, TX and other states)",Ongoing,2,no,yes,standing,https://www.saladandgo.com/new-menu-just-landed/
+2026-09-23,Wednesday,Publix,$5 Sushi Wednesday: Select Fresh Rolls for $5,Sushi,FL & Southeast,Wednesdays only,,no,no,weekly-day,https://www.publix.com/savings/weekly-ad/deli
+2026-09-23,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday (Select Oumi Rolls),Sushi,Most U.S. markets,Today only,2.5,no,no,weekly-day,https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/
+2026-09-23,Wednesday,Kroger,$6 Wednesday Sushi Special (Snowfox),Sushi,Select Kroger-family stores nationwide,Today only,3,no,no,weekly-day,https://www.snowfox.com/
+2026-09-23,Wednesday,Safeway,$5.99 Sushi Wednesday (Zenshi Rolls),Sushi,Select divisions (varies by market),Today only,2.5,no,no,weekly-day,https://www.albertsons.com/shop/aisles/deli/sushi.html
+2026-09-23,Wednesday,Rubio's Coastal Grill,$7+ Meal Menu: Meals from $7 to $10,Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-23,Wednesday,Smoothie King,Add Toast or Flatbread to Any Pumpkin Smoothie for $3.99,Smoothies,National,"Through September 30, 2026",1.5,no,yes,dated,https://www.smoothieking.com/healthy-rewards
+2026-09-23,Wednesday,Publix,Sub of the Week: $2 Off One Featured Whole Deli Sub,Deli,FL & Southeast,Ongoing,2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-23,Wednesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-23,Wednesday,Hy-Vee,Sushi Wednesday: Select Nori Sushi Rolls for $6,Sushi,Midwest,Wednesdays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-23,Wednesday,H-E-B,Sushi Wednesday: Select Sushiya Rolls for $7,Sushi,Texas,Wednesdays only,,no,no,weekly-day,https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236
+2026-09-23,Wednesday,ShopRite,$5.99 Sushi Wednesday: Select Rolls,Sushi,"NJ, NY, PA, CT, DE & MD",Wednesdays only,,no,no,weekly-day,https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585
+2026-09-23,Wednesday,Weis Markets,$5 Sushi Wednesday: Select Snowfox Rolls,Sushi,"PA, MD, NY, NJ, DE, WV & VA",Wednesdays only,,no,no,weekly-day,https://www.weismarkets.com/weekly-ad
+2026-09-23,Wednesday,Food Lion,$5 Sushi Wednesday: Select Hissho Rolls,Sushi,Mid-Atlantic & Southeast,Wednesdays only,,no,no,weekly-day,https://www.foodlion.com/savings/weekly-ad
+2026-09-23,Wednesday,Lowes Foods,Sushi Wednesday: Select Fresh Rolls for $4.99,Sushi,NC & SC,Wednesdays only,,no,no,weekly-day,https://www.lowesfoods.com/savings-and-rewards/weekly-ad
+2026-09-23,Wednesday,Hannaford,"$5 Sushi Wednesday: California, Spicy California & Vegan Rolls",Sushi,"ME, NH, VT, MA & NY",Wednesdays only,,no,no,weekly-day,https://www.wagosushi.com/faqs/
+2026-09-23,Wednesday,Pokeworks,Free Extra Scoop of Ahi or Chicken with Code POWERUP,Poke,Select states,"Through September 27, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-23,Wednesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-24,Thursday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Bowl or Food Purchase (Tropic Fan Fest),Smoothies,National,"Through September 27, 2026",6,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest/
+2026-09-24,Thursday,Tijuana Flats,"Throwback Thursdaze: Burrito or Bowl, Chips and a Drink for $8.99",Mexican,FL & Southeast,Thursdays only,3.5,no,no,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-24,Thursday,Publix,Sub of the Week: Whole Boar's Head Turkey Sub $7.99,Deli,Southeast,"Through September 30, 2026",2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-24,Thursday,Rubio's Coastal Grill,$7+ Meal Menu: Meals from $7 to $10,Mexican,"CA, AZ & NV",Ongoing,4,no,no,standing,https://www.rubios.com/menu
+2026-09-24,Thursday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-24,Thursday,McAlister's Deli,"Buy a Spud in September, Get a Free Spud in October",Cafe,South & Central,"Purchase by September 30, 2026",7.5,no,yes,dated,https://www.mcalistersdeli.com/
+2026-09-24,Thursday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-24,Thursday,Pokeworks,Free Extra Scoop of Ahi or Chicken with Code POWERUP,Poke,Select states,"Through September 27, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-24,Thursday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-24,Thursday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-24,Thursday,Chipotle,"National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026",Mexican,National,"Through September 25, 2026",11,yes,yes,dated,https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS
+2026-09-25,Friday,Chipotle,Free Quesadilla with $20+ Digital Order,Mexican,National,"Through September 25, 2026",8,no,yes,dated,https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS
+2026-09-25,Friday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Bowl or Food Purchase,Smoothies,National,"Through September 27, 2026",7.5,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest
+2026-09-25,Friday,Pokeworks,Free Extra Protein with High-Protein Surf & Turf Bowl,Poke,Select states,"Through September 27, 2026",2.5,no,yes,dated,https://www.pokeworks.com
+2026-09-25,Friday,Rubio's Coastal Grill,$5 Off Online Orders of $25 or More,Mexican,West Coast & Southwest,"Through September 27, 2026",5,no,yes,dated,https://www.rubios.com/menu
+2026-09-25,Friday,Rubio's Coastal Grill,"$7+ Meal Menu, Fish and Chips for $7.99",Mexican,West Coast & Southwest,Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-25,Friday,Harris Teeter,$5 Sushi Friday at the Deli,Sushi,Mid-Atlantic & Southeast,Today only (Fridays),5,no,no,weekly-day,https://www.harristeeter.com/q/fresh+sushi
+2026-09-25,Friday,Safeway,$5 Friday Sushi and Chicken,Sushi,West & Southwest divisions,Today only (Fridays),5,no,no,weekly-day,https://www.safeway.com/shop/aisles/deli/sushi/sushi.html
+2026-09-25,Friday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-25,Friday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-25,Friday,Hy-Vee,"Sushi Friday: Buy One Nori Roll, Get One 50% Off",Sushi,Midwest,Fridays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-25,Friday,Publix,Sub of the Week: $2 Off This Week's Featured Whole Sub,Deli,FL & Southeast,Ongoing (changes weekly),,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-25,Friday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-25,Friday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-26,Saturday,Tropical Smoothie Cafe,Free 24oz Smoothie with any Tropic Bowl or food purchase,Smoothies,National,"Through September 27, 2026",6,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest
+2026-09-26,Saturday,Noodles & Company,BOGO 50% off a regular entree,Noodles,National,"Through September 27, 2026",5.5,no,yes,dated,https://www.noodles.com/app-termsandconditions
+2026-09-26,Saturday,Rubio's Coastal Grill,$5 off online orders of $25 or more,Mexican,"CA, AZ & NV","Through September 27, 2026",5,no,yes,dated,https://www.rubios.com/menu
+2026-09-26,Saturday,Tijuana Flats,"2 for $24 Saturdaze: two entrees, two drinks and a starter",Mexican,FL & Southeast,Today only (Saturdays),8,no,no,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-26,Saturday,H-E-B,$7 Saturday: select H-E-B Sushiya rolls,Sushi,Texas only,Today only (Saturdays),3,no,no,weekly-day,https://www.heb.com/discover/sushi-by-sushiya
+2026-09-26,Saturday,Publix,$2 off the Sub of the Week,Deli,FL & Southeast,Ongoing (changes weekly),2,no,yes,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-26,Saturday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-26,Saturday,Pokeworks,Free Extra Scoop of Ahi or Chicken with Code POWERUP,Poke,Select states,"Through September 27, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-26,Saturday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-26,Saturday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-26,Saturday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,yes,standing,https://nafnafgrill.com/
+2026-09-27,Sunday,Tropical Smoothie Cafe,Free 24oz Smoothie with Any Bowl or Food Purchase,Smoothies,National,"Through September 27, 2026",6,yes,yes,dated,https://www.tropicalsmoothiecafe.com/tropic-fan-fest
+2026-09-27,Sunday,Naf Naf Grill,"$9.99 Pita Meal Deal (Pita, Side and Drink)",Mediterranean,Midwest & East,Limited time,3,no,no,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-27,Sunday,Rubio's Coastal Grill,$5 Off Online Orders of $25 or More,Seafood,"CA, AZ & NV","Through September 27, 2026",5,no,no,dated,https://www.rubios.com/menu
+2026-09-27,Sunday,Rubio's Coastal Grill,"$7+ Meal Menu, Including New Fish and Chips for $7.99",Seafood,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-27,Sunday,Safeway,Fresh Sushi $5 in This Week's Ad,Sushi,Select states (Safeway/Albertsons divisions),"Through September 29, 2026",3.5,no,no,dated,https://www.safeway.com/weeklyad/
+2026-09-27,Sunday,Publix,Sub of the Week: $2 Off a Featured Whole Deli Sub,Deli,FL & Southeast,This week,2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-27,Sunday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-27,Sunday,Pokeworks,Free Extra Scoop of Ahi or Chicken with Code POWERUP,Poke,Select states,"Through September 27, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-27,Sunday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-27,Sunday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-28,Monday,Smoothie King,Free Coffee High Protein Almond Mocha Smoothie,Smoothies,National,"Through September 29, 2026",5,yes,yes,dated,https://www.smoothieking.com/rewards
+2026-09-28,Monday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://nafnafgrill.com/
+2026-09-28,Monday,Rubio's Coastal Grill,$7+ Meal Menu: Fish & Chips for $7.99,Mexican,"CA, AZ & NV",Ongoing,3,no,no,standing,https://www.rubios.com/menu
+2026-09-28,Monday,Kura Sushi,3 Sushi Plates for the Price of 2 (50% More Free),Sushi,Select states,"Through October 1, 2026",2,no,no,dated,https://kurasushi.com/
+2026-09-28,Monday,WaBa Grill,$7.99 Value-Bowl Combo,Bowls,California & Arizona,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-28,Monday,Publix,$2 Off the Featured Sub of the Week,Deli,FL & Southeast,Ongoing,2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-28,Monday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-28,Monday,Pokeworks,International Poke Day: Free Extra Protein Scoop with Code POKEDAY,Poke,Select states,"Through September 30, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-28,Monday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-29,Tuesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Limited time,4,no,no,dated,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-29,Tuesday,Tijuana Flats,"Taco Tuesdaze: 2 Tacos, Chips and a Drink for $7.99",Mexican,FL & Southeast,Tuesdays only,4.5,no,no,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-09-29,Tuesday,Rubio's Coastal Grill,"$7+ Meal Menu: Fish and Chips $7.99, Two Taco Combo $7",Mexican,"Select states (CA, AZ, NV, CO, UT, FL)",Ongoing,3,no,no,standing,https://rubios.com/weekly-deals/
+2026-09-29,Tuesday,Publix,Sub of the Week: $2 Off a Featured Whole Sub,Deli,FL & Southeast,Ongoing (changes weekly),2,no,no,standing,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-29,Tuesday,Smoothie King,Free 12oz Coffee High Protein Almond Mocha Smoothie,Smoothies,National,"Today, September 29 only",6,yes,yes,dated,https://www.smoothieking.com/healthy-rewards
+2026-09-29,Tuesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-29,Tuesday,Dierbergs,Sushi Tuesday: Select Rolls for $6,Sushi,St. Louis area,Tuesdays only,,no,no,weekly-day,https://www.dierbergs.com/department/deli-and-prepared-foods
+2026-09-29,Tuesday,Island Fin Poke,Topping Tuesday: Free Premium Topping with Any Bowl,Poke,FL & Select states,Tuesdays only,,no,no,weekly-day,https://www.islandfinpoke.com/custom-content-1/
+2026-09-29,Tuesday,Pokeworks,International Poke Day: Free Extra Protein Scoop with Code POKEDAY,Poke,Select states,"Through September 30, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-29,Tuesday,Salad and Go,Salads and wraps from $7.75,Salads,"AZ, TX, OK & NV",Ongoing,3,no,no,standing,https://saladandgo.com/menu
+2026-09-29,Tuesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-30,Wednesday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-09-30,Wednesday,Rubio's Coastal Grill,$7+ Meal Menu,Mexican,"CA, AZ & NV",Ongoing,4,no,no,standing,https://www.rubios.com/menu
+2026-09-30,Wednesday,Salad and Go,Salads and wraps from $7,Salads,Southwest & South,Ongoing,3,no,no,standing,https://saladandgo.com/promotions
+2026-09-30,Wednesday,Sprouts Farmers Market,$5 Sushi Wednesday,Sushi,Most markets,Today only,3,no,no,weekly-day,https://www.sprouts.com/healthy-living/sprouts-fresh-sushi/
+2026-09-30,Wednesday,Publix,$5 Sushi Wednesday: Select Fresh Rolls for $5,Sushi,FL & Southeast,Wednesdays only,,no,no,weekly-day,https://www.publix.com/savings/weekly-ad/deli
+2026-09-30,Wednesday,Publix,Sub of the Week: $2 off a whole sub,Deli,FL & Southeast,This week,2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-09-30,Wednesday,Safeway,$5.99 Sushi Wednesday,Sushi,Select divisions,Today only,,no,no,weekly-day,https://www.safeway.com/weeklyad/
+2026-09-30,Wednesday,H-E-B,$7 Sushi Wednesday,Sushi,Texas only,Today only,3,no,no,weekly-day,https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236
+2026-09-30,Wednesday,Meijer,$5.99 Sushi Wednesday,Sushi,Midwest,Today only,3,no,no,weekly-day,https://www.meijer.com/shopping/deli-prepared-food/sushi.html
+2026-09-30,Wednesday,Hy-Vee,$6 Sushi Wednesday,Sushi,Midwest,Today only,3,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads
+2026-09-30,Wednesday,ShopRite,$5.99 Sushi Wednesday,Sushi,"NJ, NY, PA, CT, DE & MD",Today only,3,no,no,weekly-day,https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585
+2026-09-30,Wednesday,Stop & Shop,$5.99 Red Label Sushi Wednesday,Sushi,Northeast,Today only,3,no,no,weekly-day,https://stopandshop.com/
+2026-09-30,Wednesday,Food Lion,$5 Sushi Wednesday,Sushi,Mid-Atlantic & Southeast,Today only,3,no,no,weekly-day,https://www.foodlion.com/
+2026-09-30,Wednesday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-09-30,Wednesday,Kroger,Sushi Wednesday: Snowfox Promo Rolls for $6,Sushi,Select states,Wednesdays only,,no,yes,weekly-day,https://www.kroger.com/p/wednesday-only-private-selection-california-sushi-roll-by-snowfox-/0001111065967
+2026-09-30,Wednesday,Weis Markets,$5 Sushi Wednesday: Select Snowfox Rolls,Sushi,"PA, MD, NY, NJ, DE, WV & VA",Wednesdays only,,no,no,weekly-day,https://www.weismarkets.com/weekly-ad
+2026-09-30,Wednesday,Lowes Foods,Sushi Wednesday: Select Fresh Rolls for $4.99,Sushi,NC & SC,Wednesdays only,,no,no,weekly-day,https://www.lowesfoods.com/savings-and-rewards/weekly-ad
+2026-09-30,Wednesday,Hannaford,"$5 Sushi Wednesday: California, Spicy California & Vegan Rolls",Sushi,"ME, NH, VT, MA & NY",Wednesdays only,,no,no,weekly-day,https://www.wagosushi.com/faqs/
+2026-09-30,Wednesday,Pokeworks,International Poke Day: Free Extra Protein Scoop with Code POKEDAY,Poke,Select states,"Through September 30, 2026",,no,no,dated,https://pokeworks.com/rewards/
+2026-09-30,Wednesday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-09-30,Wednesday,Potbelly,Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2,Deli,Select states,"Through October 2, 2026",5,no,yes,dated,https://www.potbelly.com/perks
+2026-10-01,Thursday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-10-01,Thursday,Rubio's Coastal Grill,$7+ Meal Menu,Mexican,"CA, AZ & NV",Ongoing,4,no,no,standing,https://www.rubios.com/menu
+2026-10-01,Thursday,Salad and Go,Salads and wraps from $7,Salads,Southwest & South,Ongoing,3,no,no,standing,https://saladandgo.com/promotions
+2026-10-01,Thursday,Publix,Sub of the Week: $2 off a whole sub,Deli,FL & Southeast,This week,2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-10-01,Thursday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-10-01,Thursday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-10-01,Thursday,Potbelly,Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2,Deli,Select states,"Through October 2, 2026",5,no,yes,dated,https://www.potbelly.com/perks
+2026-10-01,Thursday,Tijuana Flats,Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99,Mexican,FL & Southeast,Thursdays only,,no,no,weekly-day,https://www.tijuanaflats.com/promotions/specials-and-deals
+2026-10-02,Friday,Naf Naf Grill,$9.99 Pita Meal Deal,Mediterranean,Midwest & East,Ongoing,3,no,no,standing,https://www.nafnafgrill.com/naf-naf-grill-launches-its-biggest-value-yet-with-the-new-9-99-pita-meal-deal/
+2026-10-02,Friday,Rubio's Coastal Grill,$7+ Meal Menu,Mexican,"CA, AZ & NV",Ongoing,4,no,no,standing,https://www.rubios.com/menu
+2026-10-02,Friday,Salad and Go,Salads and wraps from $7,Salads,Southwest & South,Ongoing,3,no,no,standing,https://saladandgo.com/promotions
+2026-10-02,Friday,Publix,Sub of the Week: $2 off a whole sub,Deli,FL & Southeast,This week,2,no,no,dated,https://www.publix.com/mc/order-ahead/weekly-specials
+2026-10-02,Friday,El Pollo Loco,$5 Fire-Grilled Combos: Rotating Value Menu,Chicken,West & Southwest,Ongoing,,no,no,standing,https://www.elpolloloco.com/promotions
+2026-10-02,Friday,WaBa Grill,"Value-Bowl Combo: mini bowl, side and drink for $7.99",Bowls,CA & AZ,Ongoing,3,no,no,standing,https://www.wabagrill.com/menu
+2026-10-02,Friday,Potbelly,Week of Perks: BOGO 50% Off Entrees and a New Deal Every Day Through October 2,Deli,Select states,"Through October 2, 2026",5,no,yes,dated,https://www.potbelly.com/perks
+2026-10-02,Friday,Safeway,$5 Friday: Fresh Sushi Rolls for $5,Sushi,Select states,Fridays only,,no,no,weekly-day,https://www.safeway.com/weeklyad/
+2026-10-02,Friday,Harris Teeter,$5 Sushi Friday: Select Rolls for $5,Sushi,Southeast & Mid-Atlantic,Fridays only,,no,yes,weekly-day,https://www.harristeeter.com/
+2026-10-02,Friday,Hy-Vee,"Sushi Friday: Buy One Nori Roll, Get One 50% Off",Sushi,Midwest,Fridays only,,no,no,weekly-day,https://www.hy-vee.com/deals/weekly-ads

@@ -9,6 +9,7 @@ import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
 import { loadMeals, mealRow, money } from "./meals.mjs";
+import { EVERGREEN as INJECTED_DEALS } from "./injected-deals.mjs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -45,9 +46,12 @@ const CHAINS = [
   { slug: "smoothie-king-deals", name: "Smoothie King" },
   { slug: "tropical-smoothie-deals", name: "Tropical Smoothie" },
   { slug: "jamba-deals",       name: "Jamba" },
-  { slug: "salad-and-go-deals", name: "Salad and Go" },
+  { slug: "salad-and-go-deals", name: "Salad and Go", banned: true }, // closed all stores 2026-08-05 (Chapter 11); page redirects home
   { slug: "el-pollo-loco-deals", name: "El Pollo Loco" },
   { slug: "halal-guys-deals",  name: "The Halal Guys" },
+  // DC-area additions (owner, 2026-10-12): the first roster chains chosen for Reston, VA coverage.
+  { slug: "nandos-deals",      name: "Nando's PERi-PERi", note: "Nando's flame-grilled PERi-PERi chicken (DC, MD, VA, IL, TX & GA). Offers come through the free PERi-Perks rewards app and email; DailyBite checks them every morning and lists any that every member can claim." },
+  { slug: "district-taco-deals", name: "District Taco", note: "District Taco's Yucatan-style tacos and bowls (DC, MD, VA, PA, NJ, NY & FL). Offers come through the free District Taco rewards app and email; DailyBite checks them every morning." },
   { slug: "nazs-halal-deals",  name: "Naz's Halal Food" },
   { slug: "shahs-halal-deals", name: "Shah's Halal Food" },
   { slug: "tijuana-flats-deals", name: "Tijuana Flats", note: "Tijuana Flats runs Taco Tuesdaze (2 tacos, chips and a drink, about $7.99) and Throwback Thursdaze (burrito or bowl, chips and a drink, about $8.99) at participating FL & Southeast locations: each appears below on its day." },
@@ -69,17 +73,31 @@ const CHAINS = [
   { slug: "sarku-japan-deals",  name: "Sarku Japan" },
   { slug: "shake-shack-deals",  name: "Shake Shack", banned: true }, // removed 2026-09-07 (healthy-only roster)
   { slug: "safeway-deals",      name: "Safeway", note: "Safeway's standing deal is $5 Friday: every Friday the lineup includes fresh sushi rolls for $5 (regularly $8 to $10) plus other prepared foods like an 8-piece chicken bag. The lineup posts Wednesdays in the weekly ad and varies by division; a free Safeway for U account may be needed. It appears below every Friday." },
-  { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $5 Sushi Friday: most stores sell select fresh sushi entrees for $5 (regularly $7 to $9) every Friday, in-store only, while supplies last, with the free VIC card. It appears below every Friday." },
+  { slug: "harris-teeter-deals", name: "Harris Teeter", note: "Harris Teeter's standing deal is $6 Sushi Friday: select Zenshi rolls (California, Vegetable, Spicy Tuna and Spicy Salmon) are $6 every Friday, regularly about $9.49 to $10.49, in store while supplies last. Seen in store on October 2, 2026. It appears below every Friday." },
   { slug: "kroger-deals",       name: "Kroger", note: "Kroger-family stores (Kroger, Fred Meyer, Fry's, King Soopers, Smith's, QFC, Ralphs) run a Wednesday Only sushi promo at their Snowfox and Zenshi counters: select rolls, spicy tuna and Philly included, at a flat promo price of $6 (up from $5 in 2025). It appears below every Wednesday." },
-  { slug: "sprouts-deals",      name: "Sprouts", note: "Sprouts runs Sushi Wednesday in most markets: select Oumi rolls from the in-store sushi case for $5 every Wednesday, no coupon or app needed. It appears below every Wednesday, alongside any other verified Sprouts deli deal." },
+  { slug: "sprouts-deals",      name: "Sprouts", note: "Sprouts runs Sushi Wednesday in most markets: select Oumi rolls from the in-store sushi case for $6 every Wednesday (verified in store October 2026), no coupon or app needed. It appears below every Wednesday, alongside any other verified Sprouts deli deal." },
   { slug: "publix-deals",       name: "Publix", note: "Publix's standing deal is $5 Sushi Wednesday: select fresh-made rolls (spicy tuna, California, spicy shrimp and more) for $5 at stores with a sushi counter across FL & the Southeast, no coupon or app needed. It appears below every Wednesday." },
   { slug: "heb-deals",          name: "H-E-B", note: "H-E-B's Sushiya counters price select rolls at $7 every Wednesday and again on Saturdays across Texas: no coupon or app needed. Each appears below on its day." },
   { slug: "hy-vee-deals",       name: "Hy-Vee", note: "Participating Hy-Vee stores price select Nori Sushi rolls at $6 every Wednesday and run buy one, get one 50% off on Fridays. Store-run specials: they appear below on their day when verified." },
   { slug: "shoprite-deals",     name: "ShopRite", note: "Participating ShopRite stores run $5.99 Sushi Wednesday: select fresh rolls for $5.99 (regularly $8 to $10), in store only. It appears below every Wednesday." },
   { slug: "meijer-deals",       name: "Meijer", note: "Participating Meijer stores run Sushi Wednesday: select fresh rolls for $5.99 (recently $5). It appears below every Wednesday when verified." },
+  // Added 2026-10-16 (owner): two grocers with Reston stores and the chain that emails the most promos.
+  { slug: "target-deals",       name: "Target", note: "Target Circle is free, and its weekly deals often include Good & Gather salads, sushi, rotisserie chicken and deli meals. DailyBite lists only the ready-to-eat items, never packaged groceries." },
+  { slug: "aldi-deals",         name: "Aldi", note: "Aldi's weekly ad (39 states & DC (not CO, ID, MT, NM, OR, UT, WA, WY, AK, HI or ME)) regularly prices Park Street Deli salads and meals, sushi and rotisserie chicken under $10. DailyBite lists only the ready-to-eat items." },
+  { slug: "moes-deals",         name: "Moe's Southwest Grill", note: "Moe's Southwest Grill (35 states (Southeast, Northeast & Midwest)) runs frequent promos through the free Moe Rewards app and email, plus Moe Monday for members. DailyBite checks them every morning and lists what every member can claim." },
 ];
 
-const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
+// Related pages per chain (2026-10-12): the two smaller halal chains and the rotisserie-chicken
+// price guide had no inbound link anywhere, so Google never crawled them.
+const HALAL = [["The Halal Guys deals", "halal-guys-deals"], ["Naz's Halal deals", "nazs-halal-deals"], ["Shah's Halal deals", "shahs-halal-deals"]];
+const GROCERY_RELATED = [["Rotisserie chicken prices by store", "rotisserie-chicken-prices"], ["Wegmans sushi prices", "wegmans-sushi-prices"]];
+const CHAIN_RELATED = {
+  "halal-guys-deals": HALAL, "nazs-halal-deals": HALAL, "shahs-halal-deals": HALAL,
+  "safeway-deals": GROCERY_RELATED, "harris-teeter-deals": GROCERY_RELATED, "kroger-deals": GROCERY_RELATED, "sprouts-deals": GROCERY_RELATED,
+  "publix-deals": GROCERY_RELATED, "heb-deals": GROCERY_RELATED, "hy-vee-deals": GROCERY_RELATED, "shoprite-deals": GROCERY_RELATED, "meijer-deals": GROCERY_RELATED,
+};
+const relatedNav = slug => (CHAIN_RELATED[slug] || []).filter(([, s]) => s !== slug).map(([t, s]) => ` &middot; <a href="/${s}">${esc(t)}</a>`).join("");
+const GUIDES_NAV = `<nav class="chains"><strong>Guides:</strong> <a href="/cheap-healthy-meals">Cheapest Healthy Meals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/healthy-food-deals-report">Deals Report</a> &middot; <a href="/cheap-japanese-food">Cheap Japanese Food</a> &middot; <a href="/trader-joes-healthy-meals">Trader Joe&#39;s</a> &middot; <a href="/birthday-freebies">Birthday Freebies</a> &middot; <a href="/best-fast-food-apps">Best Food Apps</a> &middot; <a href="/5-dollar-meal-deals">$5 Meal Deals</a> &middot; <a href="/student-food-deals">Student Guide</a> &middot; <a href="/late-night-food-deals">Late Night</a> &middot; <a href="/fast-food-happy-hours">Happy Hours</a> &middot; <a href="/cheapest-fast-food-orders">Cheapest Orders</a> &middot; <a href="/fast-food-vs-groceries">vs. Groceries</a> &middot; <a href="/back-to-school-food-deals">Back to School</a> &middot; <a href="/delivery-vs-pickup">Delivery Math</a> &middot; <a href="/verification-log">Verification Log</a> &middot; <a href="/food-deals-by-day">Deals by Day</a> &middot; <a href="/publix-5-sushi-wednesday">Publix $5 Sushi</a> &middot; <a href="/safeway-5-friday-sushi">Safeway $5 Friday</a> &middot; <a href="/panera-4-99-mix-and-match">Panera $4.99</a></nav>`;
 
 // Newsletter signup retired 2026-09-18 (owner: nobody used it, it cluttered the pages). Kept as an
 // empty slot so the page templates stay unchanged.
@@ -91,13 +109,15 @@ const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, "");
 // Canonical brand key: lowercases and folds known naming variants so per-brand
 // dedup, golden/healthy/banned lookups, and evergreen injection can't be
 // defeated by an alternate spelling of the same chain (e.g. "Panera Bread" vs "Panera").
-const BRAND_ALIASES = { "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke", "publix super markets": "publix", "publix supermarkets": "publix", "publix sushi": "publix", "sprouts farmers market": "sprouts", "whole foods": "whole foods market", "heb": "h-e-b", "h-e-b grocery": "h-e-b", "hyvee": "hy-vee", "hy vee": "hy-vee", "fry's food stores": "fry's", "fry's food and drug": "fry's", "smith's food and drug": "smith's", "winn dixie": "winn-dixie", "stop and shop": "stop & shop", "jewel osco": "jewel-osco", "lowes foods": "lowe's foods", "the kroger co": "kroger", "kroger co": "kroger", "harris teeter supermarkets": "harris teeter", "giant food stores": "giant food", "shop rite": "shoprite", "giant eagle market district": "giant eagle", "market district": "giant eagle", "chopt creative salad co.": "chopt", "chopt creative salad": "chopt", "crisp and green": "crisp & green", "modern market": "modern market eatery", "dig inn": "dig", "bibibop asian grill": "bibibop", "zupas": "cafe zupas", "salata salad kitchen": "salata", "naz's halal": "naz's halal food", "nazs halal": "naz's halal food", "nazs halal food": "naz's halal food", "shah's halal": "shah's halal food", "shahs halal": "shah's halal food", "shahs halal food": "shah's halal food", "bolay fresh bold kitchen": "bolay", "little greek": "little greek fresh grill", "the great greek mediterranean grill": "great greek mediterranean grill", "the great greek": "great greek mediterranean grill", "great greek": "great greek mediterranean grill", "clean eats": "clean eatz", "vitality bowl": "vitality bowls", "rushbowls": "rush bowls", "pressed": "pressed juicery", "the flame broiler": "flame broiler", "flame broiler rice bowl": "flame broiler", "roti modern mediterranean": "roti", "roti mediterranean": "roti", "garbanzo mediterranean fresh": "garbanzo", "pita pit usa": "pita pit", "newk's": "newk's eatery", "newks": "newk's eatery", "newks eatery": "newk's eatery" };
+const BRAND_ALIASES = {
+  "moe's": "moe's southwest grill", "moes": "moe's southwest grill", "moe's southwest": "moe's southwest grill", "moes southwest grill": "moe's southwest grill", "aldi us": "aldi", "target stores": "target",
+  "nando's": "nando's peri-peri", "nandos": "nando's peri-peri", "nando's peri peri": "nando's peri-peri", "panera bread": "panera", "chipotle mexican grill": "chipotle", "tropical smoothie cafe": "tropical smoothie", "chick fil a": "chick-fil-a", "mcdonalds": "mcdonald's", "wendys": "wendy's", "dennys": "denny's", "dominos": "domino's", "arbys": "arby's", "sonic drive-in": "sonic", "noodles and company": "noodles & company", "chilis": "chili's", "tijuana flats tex-mex": "tijuana flats", "kura revolving sushi bar": "kura sushi", "kura sushi usa": "kura sushi", "rock n' roll sushi": "rock n roll sushi", "rock & roll sushi": "rock n roll sushi", "rock and roll sushi": "rock n roll sushi", "island fin poke co": "island fin poke", "island fin poke co.": "island fin poke", "publix super markets": "publix", "publix supermarkets": "publix", "publix sushi": "publix", "sprouts farmers market": "sprouts", "whole foods": "whole foods market", "heb": "h-e-b", "h-e-b grocery": "h-e-b", "hyvee": "hy-vee", "hy vee": "hy-vee", "fry's food stores": "fry's", "fry's food and drug": "fry's", "smith's food and drug": "smith's", "winn dixie": "winn-dixie", "stop and shop": "stop & shop", "jewel osco": "jewel-osco", "lowes foods": "lowe's foods", "the kroger co": "kroger", "kroger co": "kroger", "harris teeter supermarkets": "harris teeter", "giant food stores": "giant food", "shop rite": "shoprite", "giant eagle market district": "giant eagle", "market district": "giant eagle", "chopt creative salad co.": "chopt", "chopt creative salad": "chopt", "crisp and green": "crisp & green", "modern market": "modern market eatery", "dig inn": "dig", "bibibop asian grill": "bibibop", "zupas": "cafe zupas", "salata salad kitchen": "salata", "naz's halal": "naz's halal food", "nazs halal": "naz's halal food", "nazs halal food": "naz's halal food", "shah's halal": "shah's halal food", "shahs halal": "shah's halal food", "shahs halal food": "shah's halal food", "bolay fresh bold kitchen": "bolay", "little greek": "little greek fresh grill", "the great greek mediterranean grill": "great greek mediterranean grill", "the great greek": "great greek mediterranean grill", "great greek": "great greek mediterranean grill", "clean eats": "clean eatz", "vitality bowl": "vitality bowls", "rushbowls": "rush bowls", "pressed": "pressed juicery", "the flame broiler": "flame broiler", "flame broiler rice bowl": "flame broiler", "roti modern mediterranean": "roti", "roti mediterranean": "roti", "garbanzo mediterranean fresh": "garbanzo", "pita pit usa": "pita pit", "newk's": "newk's eatery", "newks": "newk's eatery", "newks eatery": "newk's eatery" };
 const canonBrand = b => { const k = String(b || "").toLowerCase().trim().replace(/[‘’ʼ]/g, "'").replace(/\s+/g, " "); return BRAND_ALIASES[k] || k; };
 // GROCERY (owner request, 2026-08-20): good-value prepared-food deals from grocery stores (sushi days,
 // deli and hot-bar meal deals, rotisserie specials) are welcome, from these major chains only. Most are
 // regional: they never badge as Top Picks unless listed in NATIONAL_GROCERY.
-const GROCERY = new Set(["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","giant eagle","market district","walmart","weis markets","lowes foods","hannaford","dierbergs"]); // weis/lowes/hannaford/dierbergs added 2026-09-22 (verified sushi days)
-const NATIONAL_GROCERY = new Set(["walmart", "whole foods market"]);
+const GROCERY = new Set(["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","giant eagle","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"]); // target/aldi added 2026-10-16 (owner) // weis/lowes/hannaford/dierbergs added 2026-09-22 (verified sushi days)
+const NATIONAL_GROCERY = new Set(["walmart", "whole foods market", "target"]);
 const dealsFor = (name, deals) => deals.filter(d => {
   const b = norm(d.brand), n = norm(name);
   return b.includes(n) || n.includes(b);
@@ -417,7 +437,7 @@ ${crumbScript(`${chain.name} Deals`, chain.slug)}
   ${body}
   ${guideHtml}
   ${EMAIL_CAPTURE}
-    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
+    <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a>${relatedNav(chain.slug)}</nav>\n  ${GUIDES_NAV}
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
@@ -431,10 +451,10 @@ function sushiPage(deals) {
   const SUSHI_CHAINS = new Set(["kura sushi", "sarku japan", "rock n roll sushi", "sushi maki", "pokeworks", "island fin poke"]);
   const todays = deals.filter(d => /sushi|poke/i.test(d.cat || "") || SUSHI_CHAINS.has(canonBrand(d.brand)));
   const title = "$5 Sushi Days: Publix Wednesday, Kroger, Safeway $5 Friday & More (2026)";
-  const desc = `$5 Sushi Wednesday at Publix, Sprouts and Kroger stores; $5 Friday sushi at Safeway and Harris Teeter. Every verified weekly sushi day in one place, re-checked daily. Updated ${prettyDate}.`;
+  const desc = `$5 Sushi Wednesday at Publix, $6 at Sprouts and Kroger stores; $6 Zenshi rolls at Harris Teeter and $5 Friday sushi at Safeway. Every verified weekly sushi day in one place, re-checked daily. Updated ${prettyDate}.`;
   const ROWS = [
     ["Wednesday", "Publix", "$5 select fresh-made rolls (spicy tuna, California, spicy shrimp and more)", "FL & Southeast; no card or app needed"],
-    ["Wednesday", "Sprouts", "$5 select Oumi rolls (regularly $7 to $10)", "Most markets; no card needed"],
+    ["Wednesday", "Sprouts", "$6 select Oumi rolls (regularly $8 to $10; verified in store Oct 2026)", "Most markets; no card needed"],
     ["Wednesday", "Kroger family (Fry's, King Soopers, Fred Meyer, Smith's, QFC)", "Wednesday Only Snowfox promo rolls, $6 (was $5 until 2025)", "Select states; Snowfox counters only"],
     ["Wednesday", "Safeway / Albertsons", "$5.99 to $6 Zenshi rolls in many divisions", "Select states"],
     ["Wednesday", "Food Lion", "$5 select Hissho rolls", "Mid-Atlantic & Southeast; no card needed"],
@@ -444,7 +464,7 @@ function sushiPage(deals) {
     ["Tuesday", "Dierbergs", "$6 select hand-rolled Bento sushi", "St. Louis area"],
     ["Thursday", "Fresh Thyme", "Sushi Thursday: select rolls discounted (price varies by store; $5 in past years)", "Midwest"],
     ["Friday", "Safeway / Albertsons", "$5 Friday: fresh sushi rolls for $5, alongside other prepared-food deals", "Select states; free Safeway for U account may be needed"],
-    ["Friday", "Harris Teeter", "$5 select sushi entrees (regularly $7 to $9), in-store, while supplies last", "Southeast & Mid-Atlantic; free VIC card"],
+    ["Friday", "Harris Teeter", "$6 select Zenshi rolls: California, Vegetable, Spicy Tuna and Spicy Salmon (regularly about $9.49 to $10.49), in store, while supplies last", "Southeast & Mid-Atlantic; seen in store October 2, 2026"],
     ["Wednesday", "Hy-Vee", "Select Nori Sushi rolls $6 (regularly about $8 to $10)", "Midwest; participating stores"],
     ["Wednesday", "H-E-B", "Select Sushiya rolls $7 (repeats on Saturdays)", "Texas"],
     ["Wednesday", "Meijer", "Select rolls $5.99 (recently raised from $5)", "Midwest; participating stores"],
@@ -454,9 +474,23 @@ function sushiPage(deals) {
     ["Wednesday", "Giant Eagle / Market District", "Select sushi about $5, some stores 4 to 7 PM only", "PA, OH, WV, MD & IN; participating stores"],
     ["Friday", "Hy-Vee", "Buy one Nori Sushi roll, get one 50% off", "Midwest; participating stores"],
     ["Saturday", "H-E-B", "$7 Saturday: select Sushiya rolls $7", "Texas"],
+    ["Friday", "Whole Foods Market", "Sushi Friday discount needs a paid Amazon Prime membership; the guide lists no-membership alternatives", "National"],
+    ["Every day", "Wegmans", "$5 California roll at the everyday price, no deal day needed (seen at the Reston, VA store)", "Northeast & Mid-Atlantic"],
     ["Every week", "Publix deli", "Sub of the Week: $2 off the featured whole sub", "FL & Southeast; counter, online or app"],
   ];
-  const tableRows = ROWS.map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("\n");
+  // Internal links (Search Console, 2026-10-12: these store guides were in the sitemap but linked from
+  // nowhere, so Google left them "discovered, not indexed"). Keyed by day|store as written above.
+  const SUSHI_LINKS = {
+    "Wednesday|Publix": "publix-5-sushi-wednesday", "Wednesday|Sprouts": "sprouts-sushi-wednesday",
+    "Wednesday|Kroger family (Fry's, King Soopers, Fred Meyer, Smith's, QFC)": "kroger-sushi-wednesday",
+    "Wednesday|Hannaford": "hannaford-sushi-wednesday", "Tuesday|Dierbergs": "dierbergs-sushi-tuesday",
+    "Friday|Safeway / Albertsons": "safeway-5-friday-sushi", "Friday|Harris Teeter": "harris-teeter-5-sushi-friday",
+    "Wednesday|Hy-Vee": "hy-vee-sushi-wednesday", "Wednesday|H-E-B": "heb-sushi-wednesday", "Wednesday|Meijer": "meijer-sushi-wednesday",
+    "Wednesday|ShopRite": "shoprite-sushi-wednesday", "Friday|Whole Foods Market": "whole-foods-sushi-friday",
+    "Every day|Wegmans": "wegmans-sushi-prices", "Every week|Publix deli": "publix-sub-of-the-week",
+  };
+  const storeCell = r => { const s = SUSHI_LINKS[r[0] + "|" + r[1]]; return s ? `<a href="/${s}">${esc(r[1])}</a>` : esc(r[1]); };
+  const tableRows = ROWS.map(r => `<tr><td>${esc(r[0])}</td><td>${storeCell(r)}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("\n");
   const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": "Weekly grocery store sushi days", "numberOfItems": ROWS.length,
     "itemListElement": ROWS.map((r, i) => ({ "@type": "ListItem", "position": i + 1, "name": `${r[0]}: ${r[1]}: ${r[2]}` })) };
   const todaysBlock = todays.length
@@ -734,12 +768,21 @@ ${matchedBlock}
 </html>`;
 }
 
+// Guide links per day (2026-10-12): the day note is plain escaped text, so the store guides that
+// belong to each day are linked on a line of their own under it.
+const DAY_LINKS = {
+  tuesday: [["Dierbergs $6 Sushi Tuesday", "dierbergs-sushi-tuesday"], ["Tijuana Flats Taco Tuesdaze", "tijuana-flats-deals"]],
+  wednesday: [["Publix", "publix-5-sushi-wednesday"], ["Sprouts", "sprouts-sushi-wednesday"], ["Kroger family", "kroger-sushi-wednesday"], ["Hannaford", "hannaford-sushi-wednesday"], ["Hy-Vee", "hy-vee-sushi-wednesday"], ["H-E-B", "heb-sushi-wednesday"], ["Meijer", "meijer-sushi-wednesday"], ["ShopRite", "shoprite-sushi-wednesday"]],
+  friday: [["Safeway $5 Friday", "safeway-5-friday-sushi"], ["Harris Teeter $6 sushi", "harris-teeter-5-sushi-friday"], ["Hy-Vee sushi BOGO", "hy-vee-sushi-wednesday"], ["Smoothie King Free Upsize Friday", "smoothie-king-free-upsize-friday"], ["Whole Foods Sushi Friday (needs Prime)", "whole-foods-sushi-friday"]],
+  saturday: [["H-E-B $7 Saturday sushi", "heb-sushi-wednesday"]],
+};
+const dayLinksHtml = day => { const l = DAY_LINKS[day]; return l && l.length ? `<p class="tag"><strong>Guides:</strong> ${l.map(([t, s]) => `<a href="/${s}">${esc(t)}</a>`).join(" &middot; ")}</p>` : ""; };
 const DAY_NOTES = {
   monday: "Mondays are a reset day: weekend bundles disappear and app-only offers take over. Most app deal tabs refresh Monday morning, so check Chipotle and Chick-fil-A first for the week\u2019s new offers.",
   tuesday: "Tuesday is taco night: Tijuana Flats runs Taco Tuesdaze (two tacos, chips, and a drink for about $7.99) at participating FL & Southeast locations, and taco specials across chains make this one of the cheapest dinner nights of the week.",
-  wednesday: "Wednesday is grocery sushi day almost everywhere: Publix, Sprouts, Food Lion, Weis and Hannaford run $5 select rolls, Lowes Foods $4.99, Kroger-family and Hy-Vee stores $6, H-E-B $7, and Meijer, ShopRite and Stop & Shop $5.99, all at the in-store counter with no coupon or app. Go before the lunch rush: the $5 selection sells out first.",
+  wednesday: "Wednesday is grocery sushi day almost everywhere: Publix, Food Lion, Weis and Hannaford run $5 select rolls, Lowes Foods $4.99, Sprouts, Kroger-family and Hy-Vee stores $6, H-E-B $7, and Meijer, ShopRite and Stop & Shop $5.99, all at the in-store counter with no coupon or app. Go before the lunch rush: the $5 selection sells out first.",
   thursday: "Chains tend to preview weekend offers on Thursdays: check the app deal tabs tonight for anything expiring Sunday.",
-  friday: "Friday is grocery deal day: many Safeway and Albertsons divisions run $5 Friday on prepared foods like sushi and 8-piece chicken, Harris Teeter runs $5 sushi Fridays (free VIC card), and Hy-Vee's Nori Sushi counters go buy one, get one 50% off.",
+  friday: "Friday is grocery deal day: many Safeway and Albertsons divisions run $5 Friday on prepared foods like sushi and 8-piece chicken, Harris Teeter sells four Zenshi rolls for $6 on Fridays, and Hy-Vee's Nori Sushi counters go buy one, get one 50% off.",
   saturday: "Weekends skew toward family bundles and delivery-app promos: single-visit value boxes still apply, breakfast deals run later than weekdays, and H-E-B repeats its $7 select-roll sushi price on Saturdays across Texas.",
   sunday: "Sunday is prep-for-the-week day: stack what\u2019s left of weekend offers, and remember most app deal tabs refresh Monday morning.",
 };
@@ -814,12 +857,12 @@ const EXPLAINERS = [
       ["Does every Publix have a sushi counter?", "No. Most larger Florida and Southeast stores do; smaller stores may not. The store locator on publix.com lists departments, or call ahead."]],
     more: `<p>Grocery sushi counters are usually run by dedicated sushi companies, and the rolls are made fresh that day, not factory-packed. The Wednesday price is roughly a third to half off the everyday price, which makes it one of the best value healthy lunches in the Southeast. If Wednesday doesn't suit, <a href="/sushi-deals" style="color:var(--accent2)">other chains run their own sushi days</a>: Sprouts and Kroger on Wednesday, Safeway and Harris Teeter on Friday.</p>` },
   { slug: "sprouts-sushi-wednesday", brand: "Sprouts", chainSlug: "sprouts-deals", day: 3,
-    title: "Sprouts Sushi Wednesday: $5 Oumi Rolls Every Week (2026)",
+    title: "Sprouts Sushi Wednesday: $6 Oumi Rolls Every Week (2026)",
     h1: "Sprouts Sushi Wednesday",
-    desc: "Every Wednesday, most Sprouts Farmers Market stores sell select Oumi sushi rolls for $5, regularly $7 to $10. No coupon or app needed. What's included and how it works.",
-    answer: "Every Wednesday, most Sprouts Farmers Market locations sell select rolls from the in-store Oumi sushi case for <strong>$5 each</strong>, regularly $7 to $10. Walk in, pick a marked roll, and pay $5 at the register. No coupon, card or app is needed.",
-    facts: [["Day", "Every Wednesday, while supplies last"], ["Price", "$5 per select roll (regularly $7 to $10)"], ["What", "Select Oumi rolls from the in-store sushi case"], ["Where", "Most Sprouts markets (the chain's own FAQ describes the promotion)"], ["What you need", "Nothing: no coupon, card or app"], ["Verified", "Re-checked weekly by DailyBite and listed in the daily deal feed every Wednesday"]],
-    faq: [["Which Sprouts rolls are $5 on Wednesday?", "Select rolls marked in the sushi case, usually the classic California, spicy tuna and veggie-style rolls. The exact selection varies by store and by week."],
+    desc: "Every Wednesday, most Sprouts Farmers Market stores sell select Oumi sushi rolls for $6, regularly $8 to $10. No coupon or app needed. What's included and how it works.",
+    answer: "Every Wednesday, most Sprouts Farmers Market locations sell select rolls from the in-store Oumi sushi case for <strong>$6 each</strong>, regularly $8 to $10. Walk in, pick a marked roll, and pay $6 at the register. (The chain's own FAQ, last edited in 2020, still says $5; DailyBite verified the $6 price in store in October 2026.) No coupon, card or app is needed.",
+    facts: [["Day", "Every Wednesday, while supplies last"], ["Price", "$6 per select roll (regularly $8 to $10; the 2020 FAQ still says $5)"], ["What", "Select Oumi rolls from the in-store sushi case"], ["Where", "Most Sprouts markets (the chain's own FAQ describes the promotion)"], ["What you need", "Nothing: no coupon, card or app"], ["Verified", "Price checked in store by DailyBite in October 2026; listed in the daily deal feed every Wednesday"]],
+    faq: [["Which Sprouts rolls are $6 on Wednesday?", "Select rolls marked in the sushi case, usually the classic California, spicy tuna and veggie-style rolls. The exact selection varies by store and by week."],
       ["Do I need a Sprouts account or coupon?", "No. The Wednesday price is applied at the register for the marked rolls."],
       ["Is it every Sprouts store?", "Most markets participate. A small number of stores without an Oumi counter, or in select regions, may not, so check the case signage or ask the sushi staff."],
       ["When do the $5 rolls sell out?", "Rolls are made fresh in the morning; busy stores can run short of the $5 selection by mid-afternoon, so lunch is the safest time."]],
@@ -847,17 +890,21 @@ const EXPLAINERS = [
       ["Is it Safeway or Albertsons?", "Both. $5 Friday runs across the Albertsons Companies banners (Safeway, Albertsons, Vons, Tom Thumb, Randalls, Jewel-Osco, ACME, Shaw's) in the divisions that participate."],
       ["Is there a Wednesday sushi deal too?", "Many Safeway divisions also price Zenshi rolls at $5.99 to $6 on Wednesdays. Friday is the better price when sushi makes the $5 Friday list."]],
     more: `<p>$5 Friday is the single most reliable grocery prepared-food deal in the country because it is built into the weekly ad rather than run at the counter's discretion. If sushi is missing from your division's list one week, the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> shows the other chains' days, and the <a href="/safeway-deals" style="color:var(--accent2)">Safeway page</a> carries whatever DailyBite verified today.</p>` },
+  // Harris Teeter: the $5 price dated from the 2024 launch. The owner saw the current sign in a
+  // Reston, VA store on 2026-10-02: Zenshi rolls, $6, four varieties. The slug keeps the old "5"
+  // so the indexed URL does not break.
   { slug: "harris-teeter-5-sushi-friday", brand: "Harris Teeter", chainSlug: "harris-teeter-deals", day: 5,
-    title: "Harris Teeter $5 Sushi Friday: What's $5, Where & the VIC Card (2026)",
-    h1: "Harris Teeter $5 Sushi Friday",
-    desc: "Every Friday, most Harris Teeter stores sell select fresh sushi entrees for $5, regularly $7 to $9, in-store with the free VIC card. Which rolls, which states, and when to go.",
-    answer: "Every Friday, most Harris Teeter stores sell <strong>select fresh sushi entrees for $5</strong>, regularly $7 to $9. It is in-store only, while supplies last, and the price is a VIC card price: the VIC card is free and can be issued at the register.",
-    facts: [["Day", "Every Friday, in-store, while supplies last"], ["Price", "$5 per select sushi entree (regularly $7 to $9)"], ["What", "Select fresh rolls and combos from the in-store sushi counter"], ["Where", "Harris Teeter stores in Virginia, North and South Carolina, Maryland, DC, Delaware, Georgia and Florida with a sushi counter"], ["What you need", "The free VIC card"], ["Verified", "Re-checked weekly by DailyBite and listed in the daily deal feed every Friday"]],
-    faq: [["Do all Harris Teeter stores do $5 sushi Friday?", "Most stores with a sushi counter do. A few markets run it on different terms, so check the sushi case sign or the weekly ad for your store."],
-      ["Do I need the VIC card?", "Yes, the $5 price is a VIC price. The card is free, has no fees, and can be created at customer service or in the app in a minute."],
-      ["Which sushi is $5?", "Select entrees, usually the classic rolls and small combo packs. Premium platters are excluded. The selection varies by store."],
+    title: "Harris Teeter Sushi Friday: Four Zenshi Rolls for $6 Each, Was $5 (2026)",
+    h1: "Harris Teeter $6 Sushi Friday",
+    desc: "On Fridays, Harris Teeter sells four Zenshi rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon, regularly about $9.49 to $10.49. Seen in store on October 2, 2026. Which rolls, where, and what you need.",
+    answer: "On Fridays, Harris Teeter's in-store Zenshi sushi counters sell <strong>four rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon</strong>. Regular prices on harristeeter.com run about $9.49 to $10.49, so the saving is $3.50 to $4.50 a roll. The price was $5 when the promotion launched in 2024; DailyBite's owner saw the $6 sign at the sushi case in a Reston, Virginia store on October 2, 2026.",
+    facts: [["Day", "Every Friday, in store, while supplies last"], ["Price", "$6 per roll (regularly about $9.49 to $10.49)"], ["What", "California, Vegetable, Spicy Tuna and Spicy Salmon rolls from the Zenshi counter"], ["Where", "Harris Teeter stores with a sushi counter: Virginia, North and South Carolina, Maryland, DC, Delaware, Georgia and Florida"], ["What you need", "Harris Teeter promo prices are usually VIC card prices; the card is free and issued at the register"], ["Checked", "October 2, 2026, in store in Reston, Virginia (the sign at the sushi case); regular prices from harristeeter.com the same day"]],
+    faq: [["Is Harris Teeter sushi still $5 on Friday?", "No. It is $6 a roll as of October 2026. The $5 price dates from the 2024 launch of Harris Teeter's $5 meal days, and older articles still quote it."],
+      ["Which rolls are $6?", "Four Zenshi rolls: California, Vegetable, Spicy Tuna and Spicy Salmon. Other rolls, platters and combos stay at their regular price."],
+      ["Do I need the VIC card?", "Harris Teeter's promo prices are normally VIC prices. The card is free, has no fees, and can be created at customer service or in the app in a minute. If the sign in your store says VIC, scan it at checkout."],
+      ["Do all Harris Teeter stores do Sushi Friday?", "Stores with a Zenshi sushi counter. The weekly ad does not list it, so the sign at the case is the final word; a few markets may run it on different terms."],
       ["What time does it sell out?", "Counters make rolls in the morning, and Friday lunch is the peak. Late morning is the safest time; evening selection is thin at busy stores."]],
-    more: `<p>For Northern Virginia, DC and the Carolinas, Harris Teeter's Friday deal and Safeway's $5 Friday overlap, so Friday is sushi day in the Mid-Atlantic. Wednesday belongs to Publix, Sprouts and Kroger. The full weekly calendar is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>; today's verified Harris Teeter deals are on the <a href="/harris-teeter-deals" style="color:var(--accent2)">Harris Teeter page</a>.</p>` },
+    more: `<p>For Northern Virginia, DC and the Carolinas, Friday is sushi day: Harris Teeter's $6 rolls, and Safeway's $5 Friday where that division runs it. Wednesday belongs to Publix, Sprouts, Hannaford and Kroger. The full weekly calendar is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>; today's verified Harris Teeter deals are on the <a href="/harris-teeter-deals" style="color:var(--accent2)">Harris Teeter page</a>.</p>` },
   { slug: "panera-4-99-mix-and-match", brand: "Panera", chainSlug: "panera-deals", day: null,
     title: "What Is the $4.99 Special at Panera? The Mix & Match Value Menu Explained (2026)",
     h1: "Panera's $4.99 Special: Mix & Match",
@@ -925,20 +972,238 @@ const EXPLAINERS = [
       ["Does it work on half subs?", "The discount is on the whole sub. A whole sub is two meals for most people, which is part of the value."],
       ["What's the healthiest way to order it?", "Whole wheat or multigrain bread, turkey or chicken, extra vegetables, and mustard or oil and vinegar instead of mayo keeps it around 600 to 700 calories for a whole sub."]],
     more: `<p>The Pub Sub is the Southeast's favorite lunch, and the weekly $2 discount is the only standing Publix deli deal besides <a href="/publix-5-sushi-wednesday" style="color:var(--accent2)">$5 Sushi Wednesday</a>. Today's verified Publix deals are on the <a href="/publix-deals" style="color:var(--accent2)">Publix page</a>.</p>` },
+  // ---- Added 2026-10-02 (owner request: more store-specific pages). Every fact below was
+  // checked that day against the source named in its "Checked" row. Chains whose sushi day
+  // could NOT be confirmed on a current official page (Food Lion, Weis, Lowes Foods, Giant
+  // Food, Stop & Shop) deliberately have no page. ----
+  { slug: "hannaford-sushi-wednesday", brand: "Hannaford", day: 3,
+    title: "Hannaford $5 Sushi Wednesday: Which Wago Rolls Are $5 (2026)",
+    h1: "Hannaford $5 Sushi Wednesday",
+    desc: "Every Wednesday, Hannaford's in-store Wago sushi counters sell select rolls for $5: California, Spicy California, Classic Vegan and more. Which rolls, where, and whether you need a card.",
+    answer: "Every Wednesday, the Wago sushi counters inside Hannaford supermarkets sell select rolls for <strong>$5 each</strong>. The company that runs the counters names the California, Spicy California and Classic Vegan rolls, and its current promotion also lists California Salad and Crunch California. No card or app is mentioned in the offer.",
+    facts: [["Day", "Every Wednesday"], ["Price", "$5 per select roll"], ["What", "Select Wago rolls: California, Spicy California, Classic Vegan, California Salad, Crunch California"], ["Where", "Hannaford stores with a Wago sushi counter (Maine, New Hampshire, Vermont, Massachusetts and New York)"], ["What you need", "Nothing stated: no card or app in the offer"], ["Checked", "October 2, 2026, on wagosushi.com (the counter operator's FAQ and promotion page)"]],
+    faq: [["Is Hannaford sushi $5 every Wednesday?", "Yes, for select rolls at stores with a Wago sushi counter. The operator's site shows the $5 Wednesday promotion running all year, starting February 4, 2026."],
+      ["Which rolls are $5?", "The operator names California, Spicy California and Classic Vegan in its FAQ, and adds California Salad and Crunch California on the promotion page. Other rolls stay at their regular price."],
+      ["Do I need a Hannaford card or app?", "The offer does not mention one. The price is at the sushi case."],
+      ["Does my Hannaford have a sushi counter?", "Not every store does. Check the store's departments on hannaford.com or call ahead."],
+      ["Who makes Hannaford's sushi?", "Wago Sushi, a private label made for Hannaford by a dedicated grocery sushi company. Older Hannaford listings showed the Snowfox name; the counters now use Wago."]],
+    more: `<p>Hannaford's Wednesday price is the Northeast's version of the grocery sushi day that Publix and Sprouts run elsewhere. If you are not near a Hannaford, the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> lists the other chains by weekday.</p>` },
+  { slug: "dierbergs-sushi-tuesday", brand: "Dierbergs", day: 2,
+    title: "Dierbergs $6 Sushi Tuesday: Bento Sushi Deal in St. Louis (2026)",
+    h1: "Dierbergs $6 Sushi Tuesday",
+    desc: "On Tuesdays, Dierbergs Markets sells select varieties of its in-store Bento Sushi for $6. Where it runs in Missouri and Illinois, what is included, and what you need.",
+    answer: "On Tuesdays, Dierbergs Markets sells <strong>select varieties of its hand-rolled Bento Sushi for $6</strong>. Dierbergs states the offer on its own deli and prepared foods page. No card, coupon or app is mentioned.",
+    facts: [["Day", "Every Tuesday"], ["Price", "$6 for select varieties"], ["What", "Select varieties of Bento Sushi, hand-rolled in store"], ["Where", "Dierbergs stores in Missouri and Illinois (the St. Louis area); the sushi operator lists 27 locations"], ["What you need", "Nothing stated: no card, coupon or app"], ["Checked", "October 2, 2026, on dierbergs.com (deli and prepared foods page)"]],
+    faq: [["Is Dierbergs sushi $6 every Tuesday?", "Dierbergs' own deli page says select varieties are $6 on Tuesdays. It is a standing weekly price, not a dated promotion."],
+      ["Which rolls are included?", "Dierbergs says select varieties without listing them, so the choice depends on the store and the day. Look for the Tuesday sign at the sushi case."],
+      ["Do I need a Dierbergs rewards account?", "The offer does not mention one."],
+      ["Which Dierbergs stores have sushi?", "Stores with a Bento Sushi counter. The operator lists 27 locations across the St. Louis area in Missouri and Illinois."]],
+    more: `<p>Dierbergs is one of the few chains with a sushi day on Tuesday rather than Wednesday. For other chains and days, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> and <a href="/food-deals-by-day" style="color:var(--accent2)">deals by day of the week</a>.</p>` },
+  { slug: "whole-foods-sushi-friday", brand: "Whole Foods Market", day: 5,
+    title: "Whole Foods Sushi Friday: It Needs Amazon Prime. No-Membership Alternatives (2026)",
+    h1: "Whole Foods Sushi Friday",
+    desc: "Whole Foods' Friday sushi deal is buy one, get one 50% off packaged rolls, in store, for Amazon Prime members only. What it covers, what it excludes, and the grocery sushi days that need no paid membership.",
+    answer: "On Fridays, Whole Foods Market runs <strong>buy one, get one 50% off packaged sushi rolls</strong>, in store only, and <strong>only for Amazon Prime members</strong>. It is a discount on a pair of rolls, not a fixed $5 price, and Prime is a paid membership. DailyBite does not list paid-membership perks as deals, so this page explains the offer and points to the sushi days anyone can use.",
+    facts: [["Day", "Fridays, as part of Whole Foods' weekly Prime deals"], ["Offer", "Buy one packaged sushi roll, get one 50% off (the discount applies to the lower-priced roll)"], ["Who", "Amazon Prime members only, identified at checkout"], ["Excludes", "Made-to-order rolls, sashimi, nigiri, combos, catering trays, spring rolls and in-store restaurants"], ["Where", "U.S. stores, in store only; not Hawaii; varies by store"], ["Checked", "October 2, 2026, on wholefoodsmarket.com (the current offer window is listed through October 6, 2026)"]],
+    faq: [["Is Whole Foods sushi $5 on Fridays?", "No. The Friday offer is buy one, get one 50% off packaged rolls for Prime members. Two rolls at $10 each would cost $15, or $7.50 apiece."],
+      ["Do I need Amazon Prime?", "Yes. The offer is for Prime members only, and you identify yourself at checkout with the app code. Without Prime, the rolls are regular price."],
+      ["Is the deal permanent?", "Whole Foods lists it for a dated window and has renewed it before. The window shown on October 2, 2026 runs through October 6, 2026, so check the Whole Foods deals page for the current dates."],
+      ["Where can I get cheap sushi without a paid membership?", "Publix and Hannaford sell select rolls for $5 on Wednesdays with no membership. Sprouts and Kroger-family stores charge $6 on Wednesdays, and Dierbergs $6 on Tuesdays. Wegmans sells a California roll for $5 every day at its Reston, Virginia store."],
+      ["Why doesn't DailyBite list this as a deal?", "Because it requires a paid membership. The daily list only includes offers anyone can claim, at most with a free account."]],
+    more: `<p>If you already have Prime, the Friday offer is worth using on two higher-priced rolls, since the discount comes off the cheaper one. If you do not, the no-membership sushi days are the better value: see <a href="/publix-5-sushi-wednesday" style="color:var(--accent2)">Publix</a>, <a href="/sprouts-sushi-wednesday" style="color:var(--accent2)">Sprouts</a>, <a href="/hannaford-sushi-wednesday" style="color:var(--accent2)">Hannaford</a> and <a href="/kroger-sushi-wednesday" style="color:var(--accent2)">Kroger</a> on Wednesdays, or the full <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
+  { slug: "smoothie-king-free-upsize-friday", brand: "Smoothie King", chainSlug: "smoothie-king-deals", day: 5,
+    title: "Smoothie King Free Upsize Friday: 32 oz for the Price of a 20 oz (2026)",
+    h1: "Smoothie King Free Upsize Friday",
+    desc: "On Fridays, Smoothie King Healthy Rewards members get a 32 oz smoothie for the price of a 20 oz when they order in the app. Healthy Rewards is free. How it works and what it excludes.",
+    answer: "On Fridays, Smoothie King <strong>Healthy Rewards members get a 32 oz smoothie for the price of a 20 oz</strong> when they order through the Smoothie King app, at participating locations. Healthy Rewards is free to join. Smoothie King's rewards terms also call it $1 Up Fridays.",
+    facts: [["Day", "Every Friday"], ["Offer", "A 32 oz smoothie for the price of a 20 oz"], ["Who", "Healthy Rewards members (free to join), ordering in the Smoothie King app"], ["Where", "Participating U.S. locations"], ["Catch", "Rewards cannot be redeemed on these Friday orders, though points still accrue"], ["Checked", "October 2, 2026: smoothieking.com rewards pages confirm the promotion and the free membership; the size terms are from Smoothie King's own posts and September 2026 deal trackers"]],
+    faq: [["Is Free Upsize Friday still running in 2026?", "Smoothie King's current rewards terms name Free Upsize Fridays, and deal trackers listed it in late September 2026. Participation is by location, so check the app for your store."],
+      ["Do I have to pay for Healthy Rewards?", "No. Smoothie King says Healthy Rewards is free to join."],
+      ["Do I need the app?", "Yes. The upsize is applied to app orders by rewards members."],
+      ["Can I use a reward on a Free Upsize Friday order?", "No. The rewards terms say rewards may not be used on these Friday orders. You still earn points."],
+      ["Is it open to non-members?", "Not normally. Smoothie King opened it to all guests for summer 2025 only."]],
+    more: `<p>A weekly special like this is listed in DailyBite's daily feed on Fridays only. See the <a href="/smoothie-king-deals" style="color:var(--accent2)">Smoothie King page</a> for anything else running today, and <a href="/food-deals-by-day" style="color:var(--accent2)">deals by day of the week</a> for the rest of the calendar.</p>` },
+  { slug: "wegmans-sushi-prices", brand: "Wegmans",
+    title: "Wegmans Sushi Prices: The $5 California Roll, No Deal Day Needed (2026)",
+    h1: "Wegmans Sushi Prices",
+    desc: "Wegmans does not run a weekly sushi deal day. It does sell a California roll for $5 every day at its Reston, Virginia store. Shelf prices for the common rolls, checked on wegmans.com.",
+    answer: "Wegmans <strong>does not run a weekly sushi deal day</strong>: no official source shows one, and half-price claims on social media could not be confirmed. What it has instead is a low everyday price. At the Reston, Virginia store, a <strong>California roll is $5.00 every day</strong>, the same as the Wednesday price at chains that discount once a week. Prices vary by store.",
+    facts: [["Deal day", "None"], ["California roll (5 oz)", "$5.00"], ["Avocado cucumber roll", "$6.99"], ["Spicy shrimp roll", "$7.00"], ["Crunchy California roll", "$7.49"], ["Philadelphia roll", "$8.49"], ["Spicy tuna roll", "$8.99"], ["Checked", "October 2, 2026, on wegmans.com with the store set to Reston, Virginia. Other stores may differ."]],
+    faq: [["Does Wegmans have $5 sushi?", "Yes, for the California roll: $5.00 every day at the Reston, Virginia store when checked on October 2, 2026. Other rolls run from about $7 to $9."],
+      ["Does Wegmans have a sushi Wednesday or half-price sushi?", "No official Wegmans source shows a weekly sushi day or a half-price offer. The only claims found were on social media."],
+      ["Who makes Wegmans sushi?", "Wegmans sells it under its own name and makes it in house, rather than through an outside sushi company."],
+      ["Are the prices the same at every Wegmans?", "No. Wegmans prices by store. Set your store on wegmans.com to see the price near you."]],
+    more: `<p>For a single roll, Wegmans' everyday California roll matches the best weekly deal price at other chains, with no need to plan around a day. For the chains that do discount once a week, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
+  // Rotisserie chicken comparison (owner request, 2026-10-02). Every price was read that day
+  // on the retailer's own site for the store named in the table, except Costco, which does
+  // not list the chicken online (Consumer Reports, June 2026). Per-pound figures are
+  // calculated only where the retailer states a weight. Lidl could not be verified and is
+  // left out. Re-check before changing any number.
+  { slug: "rotisserie-chicken-prices", brand: "Rotisserie Chicken",
+    title: "Rotisserie Chicken Prices by Store (2026): Costco, Walmart, Kroger, Wegmans and More",
+    h1: "Rotisserie Chicken Prices by Store",
+    desc: "What a whole hot rotisserie chicken costs at 16 grocery chains, checked on each store's own site on October 2, 2026: the cheapest without a membership, the best price per pound, and which discount days are real.",
+    answer: "A whole hot rotisserie chicken costs <strong>from about $5 to $10</strong> depending on the store. The warehouse clubs are cheapest at <strong>$4.98 to $4.99 for about 3 pounds</strong>, but they need a paid membership. Without one, <strong>Walmart is $5.97</strong> nationwide and H-E-B's Hill Country Fare chicken is $4.97 in Texas. Most supermarkets charge $7 to $10 for a smaller bird, so the price per pound varies far more than the sticker price.",
+    facts: [["Cheapest overall", "Sam's Club $4.98, Costco $4.99, BJ's $4.99 (about 3 lb each; paid membership)"], ["Cheapest with no membership", "H-E-B Hill Country Fare $4.97 (Texas); Walmart $5.97 (2.25 lb)"], ["Best price per pound", "The warehouse clubs at about $1.66 a pound; Walmart is $2.65"], ["Most expensive per pound", "Sprouts: $9.99 for 25 oz, about $6.39 a pound"], ["On sale when checked", "Giant Food $5.99 (regular $7.99) and Food Lion $5.99 (regular $6.99)"], ["Checked", "October 2, 2026, on each retailer's own site. Prices are for the store named and vary by location."]],
+    table: { head: ["Store", "Price", "Size", "Per pound", "Membership", "Store checked"],
+      rows: [
+        ["H-E-B (Hill Country Fare)", "$4.97", "Not stated", "", "None", "Victoria, TX"],
+        ["Sam's Club (Member's Mark)", "$4.98", "Not stated", "", "Paid", "Woodbridge, VA"],
+        ["Costco (Kirkland Signature)", "$4.99", "About 3 lb", "$1.66", "Paid", "Per Consumer Reports, June 2026"],
+        ["BJ's (Wellsley Farms)", "$4.99", "3 lb", "$1.66", "Paid", "Woodbridge, VA"],
+        ["Walmart", "$5.97", "2.25 lb", "$2.65", "None", "walmart.com listing"],
+        ["Target (sold cold, fully cooked)", "$5.99", "30 oz", "$3.19", "None", "target.com listing"],
+        ["H-E-B (Meal Simple)", "$6.47", "Not stated", "", "None", "Victoria, TX"],
+        ["Food Lion", "$6.99 ($5.99 on sale)", "28 oz", "$3.99", "None", "Halifax Rd store, VA"],
+        ["Kroger (Private Selection)", "$7.99", "32 oz", "$4.00", "None", "Mechanicsville, VA"],
+        ["Giant Food", "$7.99 ($5.99 on sale)", "30 oz", "$4.26", "None", "giantfood.com listing"],
+        ["Harris Teeter", "$7.99", "Not stated", "", "None", "Northern Virginia store"],
+        ["Publix (delivery and curbside price)", "$8.85", "Not stated", "", "None", "In-store price not published"],
+        ["Albertsons", "$8.99", "Not stated", "", "None", "Boise, ID"],
+        ["Whole Foods (online, chilled)", "$9.59", "About 1.75 lb", "$5.48", "None", "wholefoodsmarket.com listing"],
+        ["Safeway", "$9.99", "Not stated", "", "None", "Oakland, CA"],
+        ["Wegmans", "$9.99", "34 oz", "$4.70", "None", "Reston, VA"],
+        ["Sprouts", "$9.99", "25 oz", "$6.39", "None", "Manassas, VA"],
+      ],
+      note: "Per-pound figures are calculated from the weight the retailer lists and are blank where no weight is published. Aldi does not sell a hot whole rotisserie chicken." },
+    faq: [["Who has the cheapest rotisserie chicken?", "The warehouse clubs: Sam's Club at $4.98 and Costco and BJ's at $4.99, each for a bird of about 3 pounds. All three require a paid membership. H-E-B's Hill Country Fare chicken is $4.97 with no membership, in Texas."],
+      ["What is the cheapest rotisserie chicken without a membership?", "Walmart at $5.97 for 2.25 pounds is the cheapest that is available nationwide. In Texas, H-E-B's Hill Country Fare chicken is $4.97. Target sells a fully cooked chicken for $5.99, but it is refrigerated, not hot."],
+      ["Is Costco's rotisserie chicken still $4.99?", "Yes, by the most recent reporting: Consumer Reports listed it at $4.99 for about 3 pounds in June 2026. Costco does not show the price on its website, so this is the one number here that was not read from the retailer's own page."],
+      ["Which store gives the most chicken for the money?", "The warehouse clubs, at about $1.66 a pound. Among regular supermarkets with a listed weight, Walmart is $2.65 a pound, Food Lion about $4, Kroger $4, Giant Food $4.26 and Wegmans $4.70. Sprouts is the most expensive per pound at about $6.39."],
+      ["Are there discount days for rotisserie chicken?", "Whole Foods takes $2 off on Tuesdays, but only for Amazon Prime members, in store, in an offer window listed through October 6, 2026. Safeway's $5 Friday lineup rotates and did not include rotisserie chicken in the ads checked this week. Reports of a Kroger chicken Thursday could not be confirmed on an official page."],
+      ["Why is the same chicken a different price at another store?", "Supermarkets price by store and division. Safeway was $9.99 in Oakland while Albertsons, the same company, was $8.99 in Boise. Set your own store on the retailer's site to see the price near you."]],
+    more: `<p>Rotisserie chicken is one of the cheapest sources of cooked protein in a grocery store, and the sticker price hides most of the difference: a $9.99 chicken at one store can weigh half as much as a $4.99 one at a warehouse club. For other ready-to-eat value, see the <a href="/cheap-healthy-meals" style="color:var(--accent2)">cheapest healthy meals index</a>, ranked by protein per dollar, and the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
+  // Cheap Japanese food hub (owner request, 2026-10-03: Japanese-style food is the benchmark for a
+  // genuinely healthy meal under $10). Every price was read on the chain's own ordering site or
+  // in the source named in the table that day. Chains whose price could not be read (Sarku
+  // Japan's app needs a login) say so instead of guessing. Re-check before changing a number.
+  { slug: "cheap-japanese-food", brand: "Japanese",
+    title: "Cheap Japanese Food in the US: Real Meals Under $10, Priced and Checked (2026)",
+    h1: "Cheap Japanese Food: Real Meals Under $10",
+    desc: "Where a Japanese-style meal is actually cheap in the US: $5.99 udon at Marugame, Yoshinoya bowls from $4.69, Kura Sushi by the plate, Sarku Japan teriyaki, $4 onigiri in DC, and grocery sushi days. Prices read on each chain's own site on October 3, 2026, with what is and is not near Washington, DC.",
+    answer: "Japanese fast casual is where the US comes closest to a cheap meal that is also good for you: broth, rice, grilled protein and vegetables at a fixed everyday price. The catch is geography. The two chains that publish mains under $7, <strong>Marugame Udon ($5.99 kake udon)</strong> and <strong>Yoshinoya ($4.69 vegetable bowl, $8.99 grilled chicken bowl)</strong>, are West Coast only. Near Washington, DC the verified options are <strong>Sarku Japan</strong> (teriyaki bowls, nutrition published, price varies by mall), <strong>Kura Sushi in Tysons</strong> (about $3.79 a plate), <strong>Hana Japanese Market's $4 onigiri</strong> in DC, and the <a href=\"/sushi-deals\" style=\"color:var(--accent2)\">grocery sushi days</a>.",
+    facts: [["Cheapest full meal", "Yoshinoya Regular Mixed Vegetables bowl, $4.69 (California only)"], ["Cheapest noodle bowl", "Marugame Udon kake or bukkake udon, regular, $5.99 (California, Hawaii, Washington)"], ["Best protein per dollar", "Yoshinoya grilled chicken bowl, $8.99, 580 calories, 37 g protein"], ["Near Washington, DC", "Sarku Japan (Dulles Town Center, Fairfax, Pentagon City and more), Kura Sushi Tysons, Hana Japanese Market in DC, Wegmans Reston $5 California roll"], ["Not near DC", "Marugame Udon and Yoshinoya have no Virginia, Maryland or DC stores"], ["Checked", "October 3, 2026, on each chain's own ordering site, locator or nutrition page; the Hana price is from the GW Hatchet, April 2026"]],
+    table: { head: ["Place", "Item", "Price", "Calories, protein", "Where", "Nearest to Reston, VA"],
+      rows: [
+        ["Yoshinoya", "Regular Mixed Vegetables bowl", "$4.69", "470 cal, 11 g protein, 530 mg sodium", "California only", "None"],
+        ["Marugame Udon", "Kake udon (dashi broth), regular", "$5.99 (large $7.49)", "Not published", "California, Hawaii, Washington (27 stores)", "None"],
+        ["Marugame Udon", "Bukkake udon, hot or cold, regular", "$5.99 (large $7.49)", "Not published", "California, Hawaii, Washington", "None"],
+        ["Hana Japanese Market", "Onigiri (salmon, chicken mayo, kinpira gobo, ume)", "$4 each, 2 for $7", "Not published", "Washington, DC (one store), Wednesday to Sunday", "2000 17th St NW, Washington, DC"],
+        ["Trader Joe's", "Teriyaki Chicken Bowl (frozen)", "$4.79", "370 cal, 18 g protein, 880 mg sodium", "National", "Reston"],
+        ["Wegmans", "California roll (5 oz)", "$5.00", "Not published", "Price read at the Reston store", "Reston"],
+        ["Kura Sushi", "Revolving sushi, per plate", "About $3.79 average (company filing, 2025)", "60 to 100 cal per nigiri plate", "22 states and DC (88 stores)", "Tysons Corner, 8461 Leesburg Pike"],
+        ["Yoshinoya", "Regular grilled chicken bowl (teriyaki or habanero)", "$8.99", "580 cal, 37 g protein, 920 mg sodium", "California only", "None"],
+        ["Yoshinoya", "Regular Original Gyudon beef bowl", "$8.99", "Ordering site says 600 cal; the nutrition sheet says more", "California only", "None"],
+        ["Marugame Udon", "Kitsune udon or curry udon, regular", "$9.65", "Not published", "California, Hawaii, Washington", "None"],
+        ["Sarku Japan","Marugame Udon","Yoshinoya", "Chicken Teriyaki Bowl", "Varies by mall; not published online", "430 cal, 19 g protein, 580 mg sodium", "About 170 mall locations in 34 states", "Dulles Town Center, Suite 238; also Fairfax (Turnpike Shopping Center)"],
+      ],
+      note: "Prices are for the store named on each chain's ordering site (Marugame: Victoria Gardens, CA; Yoshinoya: Alhambra, CA) and vary by location. Kura Sushi's figure is the average plate price in its fiscal 2025 annual report; the chain raised prices about 3.5% in November 2025 and publishes no 2026 plate price." },
+    faq: [["What is the cheapest Japanese meal in the US?", "At a standing price with nutrition published, Yoshinoya's Regular Mixed Vegetables bowl at $4.69 (470 calories). It is California only. Marugame Udon's kake udon is $5.99 in California, Hawaii and Washington, but Marugame publishes no nutrition."],
+      ["Is there cheap Japanese food near Washington, DC?", "Sarku Japan has nine Virginia and sixteen Maryland mall locations, including Dulles Town Center and Fairfax, and publishes nutrition for its teriyaki bowls (430 calories and 19 g protein for the chicken bowl); its prices are set by location and were not readable online, so check the counter. Kura Sushi in Tysons prices by the plate, about $3.79 on average. Hana Japanese Market in DC sells onigiri for $4, two for $7. For a sit-down-quality roll under $6, the grocery sushi days are the real answer."],
+      ["Is Marugame Udon in Virginia?", "No. As of October 2026 Marugame's own locator lists 27 US stores in California, Hawaii and Washington state. Reports of a Dulles Town Center location are a mix-up: the Japanese counter there is Sarku Japan."],
+      ["Is Kura Sushi a cheap meal?", "Only in small amounts. At about $3.79 a plate, two plates (four pieces) are around $7.60 before tax and three plates pass $10. It is a cheap snack or a light lunch, not a full meal under $10."],
+      ["Is Japanese fast food healthy?", "The bowls here are mostly rice, broth, grilled chicken or beef and vegetables, with 430 to 600 calories and 19 to 37 g protein. Sodium is the weak point: 530 mg for Yoshinoya's vegetable bowl, 920 mg for its chicken bowl, 880 mg for Trader Joe's teriyaki bowl. Fried items (katsu, tempura) are not counted here."],
+      ["Why isn't Sarku Japan's price listed?", "Sarku prices by location and its ordering app requires a login, so no price could be read from an official page. DailyBite does not publish prices from delivery apps or third-party menu sites. If you see the price at a counter, send it in and it will be added with the date and location."]],
+    more: `<p>The pattern across every chain here is the same: the cheap, healthy item is the plain one. Kake udon, the vegetable bowl, the onigiri, the California roll. Add protein and the price climbs toward $10; add fried toppings and the nutrition falls apart. For a Japanese-style meal that is cheap everywhere, the frozen <a href="/cheap-healthy-meals" style="color:var(--accent2)">Trader Joe's teriyaki bowl</a> and the weekly <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days</a> are the two that work in every state. This page will grow as prices verify: Maruichi in Rockville, Mitsuwa, Nijiya, Tokyo Central and H Mart's prepared-food counters are next.</p>` },
 ];
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
+// Deals report (2026-10-02): a dated, citable snapshot built from report-data.json, which
+// scripts/deal-history-report.mjs generates from the repo's own daily history. The page does
+// not change day to day: a new edition is a deliberate re-run of that script. Original data
+// is the one thing here other sites can cite, which is how the site earns its first links.
+const REPORT_SLUG = "healthy-food-deals-report";
+function loadReport() {
+  try { return JSON.parse(readFileSync(join(root, "report-data.json"), "utf8")); } catch { return null; }
+}
+function reportPage(R) {
+  const fmtDate = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  const span = `${fmtDate(R.start)} to ${fmtDate(R.end)}`;
+  const daysOf = name => (R.chainDays.find(c => c.chain === name) || { days: 0 }).days;
+  const HEADLINE = ["Panera Bread", "Subway", "Noodles & Company", "Chipotle", "Tropical Smoothie Cafe", "Smoothie King", "Potbelly", "Qdoba", "Sweetgreen", "Chick-fil-A", "CAVA", "Starbucks", "Just Salad", "Jamba"];
+  const headlineRows = HEADLINE.map(n => [n, daysOf(n)]).sort((a, b) => b[1] - a[1]);
+  const bar = n => `<span class="bar"><i style="width:${Math.max(2, Math.round(100 * n / R.days))}%"></i></span>`;
+  const sushiRows = R.sushi.filter(s => s.daysSeen >= 2);
+  const money = n => "$" + (n % 1 ? n.toFixed(2) : n);
+  const best = [...R.byWeekday].sort((a, b) => b.average - a.average);
+  const title = `What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks (2026 Report)`;
+  const desc = `We checked healthy restaurant chains and grocery counters every morning for ${R.days} days and logged ${R.listings} verified deal listings across ${R.chains} chains. Which chains really discount, which days are best, what grocery sushi costs, and the full dataset to download.`;
+  const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": title, "datePublished": R.generated, "dateModified": R.generated, "author": { "@type": "Person", "name": "Jacob Elsayed" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
+  const dataLd = { "@context": "https://schema.org", "@type": "Dataset", "name": `DailyBite healthy food deals dataset, ${R.edition}`, "description": `Every verified healthy food deal listed by DailyBite on each of ${R.days} days (${R.listings} rows): date, chain, deal, category, region, expiry, estimated saving, whether it was free and whether it needed a free account.`, "url": `${SITE}/${REPORT_SLUG}`, "temporalCoverage": `${R.start}/${R.end}`, "spatialCoverage": "United States", "creator": { "@type": "Organization", "name": "DailyBite", "url": SITE }, "license": "https://creativecommons.org/licenses/by/4.0/", "isAccessibleForFree": true, "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/csv", "contentUrl": `${SITE}/healthy-food-deals-dataset.csv` }] };
+  const css = `.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin:12px 0}.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th,.tbl td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:middle}.tbl tr:last-child td{border-bottom:0}.tbl th{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}.tbl td.n,.tbl th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}.bar{display:inline-block;width:120px;max-width:30vw;height:8px;border-radius:99px;background:var(--chip);vertical-align:middle;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent);border-radius:99px}.cite{background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.55;color:var(--ink);margin:12px 0}.dl{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 14px;border-radius:10px;margin:6px 0}details.all{margin:10px 2px}details.all summary{cursor:pointer;color:var(--accent2);font-size:14px;font-weight:600}`;
+  return pageHead(title, desc, REPORT_SLUG, [artLd, dataLd], css) + `
+  <div class="date">Edition: ${esc(span)}</div>
+  <h1>What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks</h1>
+  <p class="answer">Every morning from ${esc(span)}, DailyBite checked healthy restaurant chains and grocery prepared-food counters for deals anyone could claim that day, and listed what passed its checks against official sources. Over <strong>${R.days} days</strong> that produced <strong>${R.listings} deal listings</strong> from <strong>${R.chains} chains</strong>, about ${R.perDay.average} a day. The short version: the best-known healthy chains almost never discount, grocery sushi counters are the most dependable healthy deal in the country, and truly free food is rare.</p>
+  <div class="facts">
+    <b>Period</b><span>${esc(span)} (${R.days} daily checks)</span>
+    <b>Deal listings</b><span>${R.listings}, from ${R.chains} chains</span>
+    <b>Per day</b><span>${R.perDay.average} on average (median ${R.perDay.median}, range ${R.perDay.min} to ${R.perDay.max})</span>
+    <b>Truly free</b><span>${R.shares.free}% of listings</span>
+    <b>Needs a free account</b><span>${R.shares.needsFreeAccount}% of listings (an app, rewards program or store card that costs nothing)</span>
+    <b>Standing value menus</b><span>${R.shares.standing}% of listings; dated promotions were ${R.shares.dated}% and weekly day specials ${R.shares.weeklyDay}%</span>
+    <b>Regional</b><span>${R.shares.regional}% of listings were not available nationwide</span>
+    <b>Typical saving</b><span>About ${money(R.medianStatedSaving)} per order (median of ${R.listingsWithSaving} listings with an estimate)</span>
+  </div>
+  <div class="prose">
+  <h2>1. The best-known healthy chains almost never run a deal</h2>
+  <p>The table counts the days, out of ${R.days}, on which the daily check found and verified at least one deal for each chain. CAVA appeared on ${daysOf("CAVA")} day, Starbucks on ${daysOf("Starbucks")}, Chick-fil-A on ${daysOf("Chick-fil-A")} and Sweetgreen on ${daysOf("Sweetgreen")}. Chipotle, which markets promotions heavily, had one on ${daysOf("Chipotle")} days. The chains that show up most are the ones with a permanent value menu or a standing promo code.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Chain</th><th class="n">Days with a verified deal</th><th>Share of ${R.days} days</th></tr></thead><tbody>
+  ${headlineRows.map(([n, d]) => `<tr><td>${esc(n)}</td><td class="n">${d}</td><td>${bar(d)}</td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <details class="all"><summary>All ${R.chains} chains</summary>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Chain</th><th class="n">Days</th></tr></thead><tbody>
+  ${R.chainDays.map(c => `<tr><td>${esc(c.chain)}</td><td class="n">${c.days}</td></tr>`).join("\n  ")}
+  </tbody></table></div></details>
+  <div class="prose">
+  <h2>2. Grocery sushi counters are the most dependable healthy deal</h2>
+  <p>Grocery chains were only ${R.shares.grocery}% of listings, but their weekly sushi days were the one deal that returned on schedule every week at a stated price, with no app in most cases. These are the prices logged, for every chain and weekday seen on at least two check days. Prices are per select roll and vary by store and division.</p>
+  <p>The last column is a separate source check made on ${esc(fmtDate(R.recheckDate || R.end))}: it looked for a current official page (the store, its weekly ad, or the company that runs the sushi counter) for each one. Three were confirmed (Harris Teeter in person by the owner, who found the price is now $6), three had no current official source, and Safeway's $5 Friday sushi ran in some divisions and not others that week. Treat every price here as what was logged, not a guarantee: check the sushi case or call the store.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Day</th><th>Chain</th><th class="n">Price logged</th><th>Source re-check</th></tr></thead><tbody>
+  ${sushiRows.map(s => `<tr><td>${esc(s.day)}</td><td>${esc(s.chain)}</td><td class="n">${money(s.low)}${s.high !== s.low ? " to " + money(s.high) : ""}</td><td>${esc(s.recheck || "Not re-checked")}</td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <div class="prose">
+  <p>The full weekday guide, with what each store includes and whether a card is needed, is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days page</a>.</p>
+  <h2>3. Wednesday and Friday are the best days to look</h2>
+  <p>${esc(best[0].day)} averaged ${best[0].average} verified deals and ${esc(best[1].day)} ${best[1].average}, against ${best[best.length - 1].average} on ${esc(best[best.length - 1].day)}, the thinnest day. The difference is almost entirely the grocery sushi days.</p>
+  </div>
+  <div class="tblwrap"><table class="tbl"><thead><tr><th>Weekday</th><th class="n">Average verified deals</th><th></th></tr></thead><tbody>
+  ${R.byWeekday.map(w => `<tr><td>${esc(w.day)}</td><td class="n">${w.average}</td><td><span class="bar"><i style="width:${Math.round(100 * w.average / best[0].average)}%"></i></span></td></tr>`).join("\n  ")}
+  </tbody></table></div>
+  <div class="prose">
+  <h2>4. Most healthy "deals" are standing menus, not promotions</h2>
+  <p>${R.shares.standing}% of listings were everyday value menus that do not expire, ${R.shares.dated}% were dated promotions and ${R.shares.weeklyDay}% were weekly day specials. Only ${R.shares.free}% were free food. About a third (${R.shares.needsFreeAccount}%) needed a free account, which is where healthy chains put most of their offers: inside an app, where web search does not see them.</p>
+  <h2>How this was measured, and what it cannot tell you</h2>
+  <p>Each morning at about 7 AM Eastern an automated check searches official chain pages, weekly ads and newsrooms, and keeps only deals that pass the site's rules: claimable by anyone that day, a stated price or discount, an official source. Paid memberships, first-order promotions, birthday rewards, points games and targeted offers are excluded. Standing weekly grocery deals that were verified once are listed on their day without a new search. One snapshot per calendar day was taken from the site's public history.</p>
+  <p>So this is a record of what one daily check found and listed, not a census of every promotion that ran. Weekly grocery deals that were verified once were carried forward on their day, and the source re-check above shows that some of those could not be confirmed again from an official page. A chain with zero or one day here may have run app-only offers the check could not see. The list of chains covered changed during the period (four casual-dining chains were dropped on September 7, 2026 and more bowl and Mediterranean chains were added), and the saving is an editorial estimate against the regular menu price. The numbers are counts, not rankings of quality.</p>
+  <h2>Download and cite</h2>
+  <p>The dataset is one row per listing per day: date, weekday, chain, deal, category, region, expiry, estimated saving, free or not, account needed or not, and the source link.</p>
+  <p><a class="dl" href="/healthy-food-deals-dataset.csv" download>Download the dataset (CSV, ${R.listings} rows)</a></p>
+  <div class="cite">Cite as: DailyBite, "What Healthy Food Deals Actually Exist: ${R.days} Days of Daily Checks", ${esc(span)}. ${SITE}/${REPORT_SLUG}. Data free to reuse with attribution (CC BY 4.0).</div>
+  <p>Questions or corrections: jacob@dailybitedeals.com. See also the <a href="/verification-log" style="color:var(--accent2)">daily verification log</a> and the <a href="/cheap-healthy-meals" style="color:var(--accent2)">cheapest healthy meals index</a>.</p>
+  </div>
+  <nav class="chains"><strong>More:</strong> <a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a> &middot; <a href="/">All of today's deals</a></nav>
+  ${GUIDES_NAV}
+` + PAGE_FOOT;
+}
+
+// Optional comparison table on an explainer (2026-10-02, rotisserie chicken prices).
+const EXPLAINER_TBL_CSS = `.tblwrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 12px;margin:12px 0}.tbl{width:100%;border-collapse:collapse;font-size:14px}.tbl th,.tbl td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}.tbl tr:last-child td{border-bottom:0}.tbl th{color:var(--muted);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}.tblnote{color:var(--muted);font-size:13px;line-height:1.5;margin:6px 2px}`;
 function explainerPage(x, deals) {
+  const tableBlock = x.table ? `<div class="tblwrap"><table class="tbl"><thead><tr>${x.table.head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note ? `<p class="tblnote">${esc(x.table.note)}</p>` : ""}` : "";
   const live = deals.filter(d => canonBrand(d.brand) === canonBrand(x.brand));
   const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": x.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
   const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": x.title, "dateModified": iso, "author": { "@type": "Organization", "name": "DailyBite" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
   const todayNote = x.day != null ? (dowET === x.day ? `<div class="note" style="border-color:var(--accent)">Today is ${WEEKDAYS[x.day]}: this deal is on right now.</div>` : `<div class="note">Next ${WEEKDAYS[x.day]} is the next time this deal runs. The daily list shows it on the day.</div>`) : "";
   const liveBlock = live.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">Verified ${esc(x.brand)} deals live today</h2><div class="grid">${groupCards(live)}</div>` : "";
-  return pageHead(x.title, x.desc, x.slug, [faqLd, artLd]) + `
+  return pageHead(x.title, x.desc, x.slug, [faqLd, artLd], x.table ? EXPLAINER_TBL_CSS : "") + `
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(x.h1)}</h1>
   <p class="answer">${x.answer}</p>
   <div class="facts">${x.facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
+  ${tableBlock}
   ${todayNote}
   <div class="prose">${x.more}</div>
   <div class="faq"><h2 style="font-size:19px;margin:24px 2px 4px">Questions people ask</h2>${x.faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("")}</div>
@@ -946,7 +1211,7 @@ function explainerPage(x, deals) {
   <div class="note">How DailyBite verifies this: the daily refresh re-checks each weekly grocery deal against the store's own site, weekly ad or FAQ, and the owner tests deals in person. Prices vary by store and division, and counters sell out: the price you pay is the one on the shelf tag that day.</div>
   ${EMAIL_CAPTURE}
   ${EXPLAINER_NAV}
-  <nav class="chains"><strong>More:</strong> <a href="/${x.chainSlug}">${esc(x.brand)} deals today</a> &middot; <a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/">All of today's deals</a></nav>
+  <nav class="chains"><strong>More:</strong> ${x.chainSlug ? `<a href="/${x.chainSlug}">${esc(x.brand)} deals today</a> &middot; ` : ""}<a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/">All of today's deals</a></nav>
   ${GUIDES_NAV}
 ` + PAGE_FOOT;
 }
@@ -955,14 +1220,14 @@ function explainerPage(x, deals) {
 // near-duplicates that Google left in "discovered, not indexed"; they now redirect here.
 function byDayPage(deals) {
   const title = "Food Deals by Day of the Week: Sushi Wednesday, $5 Friday, Taco Tuesday & More (2026)";
-  const desc = `Which healthy food deals repeat on which weekday: Wednesday sushi days at Publix, Sprouts and Kroger, $5 Friday at Safeway and Harris Teeter, Taco Tuesdaze at Tijuana Flats, and what refreshes on Mondays. Updated ${prettyDate}.`;
+  const desc = `Which healthy food deals repeat on which weekday: Wednesday sushi days at Publix, Sprouts and Kroger, $5 Friday at Safeway and $6 Zenshi rolls at Harris Teeter, Taco Tuesdaze at Tijuana Flats, and what refreshes on Mondays. Updated ${prettyDate}.`;
   const sections = DAYS.map((day, i) => {
     const cap = day[0].toUpperCase() + day.slice(1);
     const rx = new RegExp(day, "i");
     const todays = deals.filter(d => rx.test(d.expires || "") || rx.test(d.deal || ""));
     const isToday = dowET === (i + 1) % 7;
     const cards = todays.length ? `<div class="grid">${groupCards(todays)}</div>` : "";
-    return `<section id="${day}"><h2 style="font-size:19px;margin:26px 2px 4px">${cap}${isToday ? ' <span class="pill todaypill" style="vertical-align:middle">TODAY</span>' : ""}</h2><p class="tag">${esc(DAY_NOTES[day] || "")}</p>${cards}</section>`;
+    return `<section id="${day}"><h2 style="font-size:19px;margin:26px 2px 4px">${cap}${isToday ? ' <span class="pill todaypill" style="vertical-align:middle">TODAY</span>' : ""}</h2><p class="tag">${esc(DAY_NOTES[day] || "")}</p>${dayLinksHtml(day)}${cards}</section>`;
   }).join("\n");
   const everyday = deals.filter(d => /ongoing|every day|daily/i.test(d.expires || "")).slice(0, 8);
   const everydayBlock = everyday.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">Great any day of the week</h2><div class="grid">${groupCards(everyday)}</div>` : "";
@@ -1001,8 +1266,8 @@ ${top.map((m, i) => mealRow(m, i + 1, { esc, brandDomain })).join("\n")}
 function mealsPage(meals, updated) {
   const title = "Cheapest Healthy Fast-Casual Meals, Ranked by Protein per Dollar (2026)";
   const desc = `${meals.length} real orders at ${new Set(meals.map(m => m.brand)).size} healthy chains and grocery counters, with price, calories and protein from official sources, ranked by grams of protein per dollar. Updated ${prettyDate}.`;
-  const rows = list => list.map((m, i) => `<tr><td>${i + 1}</td><td><strong style="color:var(--ink)">${esc(m.meal)}</strong><br><span style="font-size:12px">${esc(m.brand)}${m.build ? ": " + esc(m.build) : ""}</span></td><td>~${money(m.price)}</td><td>${m.calories}</td><td>${m.protein}g</td><td><strong style="color:var(--accent)">${m.protein_per_dollar.toFixed(1)}</strong></td><td><a style="color:var(--accent2)" href="${esc(m.order_url)}" target="_blank" rel="noopener">Order</a> &middot; <a style="color:var(--muted)" href="${esc(m.nutrition_url)}" target="_blank" rel="noopener">nutrition</a></td></tr>`).join("\n");
-  const table = (h, list) => list.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">${h}</h2><div class="tblwrap"><table class="tbl"><tr><th>#</th><th>Meal</th><th>Price</th><th>Cal</th><th>Protein</th><th>g / $1</th><th>Links</th></tr>\n${rows(list)}\n</table></div>` : "";
+  const rows = list => list.map((m, i) => `<tr><td>${i + 1}</td><td><strong style="color:var(--ink)">${esc(m.meal)}</strong><br><span style="font-size:12px">${esc(m.brand)}${m.build ? ": " + esc(m.build) : ""}</span></td><td>~${money(m.price)}</td><td>${m.calories}</td><td>${m.protein}g</td><td>${m.sodium != null ? m.sodium + "mg" : "<span style=\"color:var(--muted)\">n/a</span>"}</td><td><strong style="color:var(--accent)">${m.protein_per_dollar.toFixed(1)}</strong>${m.meets_standard ? `<br><span style="font-size:11px;font-weight:700;color:var(--accent)" title="Under $10, 25 g protein or more, 690 mg sodium or less">Standard</span>` : ""}</td><td><a style="color:var(--accent2)" href="${esc(m.order_url)}" target="_blank" rel="noopener">Order</a> &middot; <a style="color:var(--muted)" href="${esc(m.nutrition_url)}" target="_blank" rel="noopener">nutrition</a></td></tr>`).join("\n");
+  const table = (h, list) => list.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">${h}</h2><div class="tblwrap"><table class="tbl"><tr><th>#</th><th>Meal</th><th>Price</th><th>Cal</th><th>Protein</th><th>Sodium</th><th>g / $1</th><th>Links</th></tr>\n${rows(list)}\n</table></div>` : "";
   const ld = { "@context": "https://schema.org", "@type": "ItemList", "name": "Cheapest healthy meals ranked by protein per dollar", "numberOfItems": meals.length,
     "itemListElement": meals.slice(0, 25).map((m, i) => ({ "@type": "ListItem", "position": i + 1, "name": `${m.brand}: ${m.meal} (~${money(m.price)}, ${m.calories} cal, ${m.protein}g protein)` })) };
   return pageHead(title, desc, "cheap-healthy-meals", [ld], ".tblwrap{overflow-x:auto;margin-top:6px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.45;font-variant-numeric:tabular-nums}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}") + `
@@ -1010,6 +1275,8 @@ function mealsPage(meals, updated) {
   <h1>Cheapest Healthy Meals, Ranked by Protein per Dollar</h1>
   <p class="answer">Healthy chains rarely run promotions, so the best value is usually a smart order at the regular price. This index lists specific orders, what they cost, and what you get for the money, ranked by <strong>grams of protein per dollar</strong>.</p>
   <div class="facts"><b>Nutrition</b><span>From each chain&#39;s official nutrition page, calculator or PDF (linked on every row). For build-your-own bowls it is the sum of the official per-ingredient numbers.</span><b>Prices</b><span>Typical menu prices${updated ? ` checked ${esc(updated)}` : ""}. Restaurant prices vary by location, so treat them as close, not exact; grocery prices (Trader Joe&#39;s) are national.</span><b>Ranking</b><span>Protein grams divided by price. It rewards filling, high-protein meals and ignores marketing.</span><b>What is excluded</b><span>Desserts, sugary drinks, fried headline items, and anything whose numbers could not be verified from a real source.</span></div>
+  ${table("Meets the DailyBite standard: under $10, 25 g protein or more, 690 mg sodium or less", meals.filter(m => m.meets_standard))}
+  <p class="tag" style="margin:6px 2px 0">The 690 mg line is the FDA's 2024 sodium limit for a main dish to be labeled healthy. Sodium comes from each chain's own nutrition data, checked October 4, 2026. Most cheap, high-protein restaurant items fail on sodium alone: a typical sandwich or chili runs 750 to 1,300 mg.</p>
   ${table("All meals, best value first", meals)}
   ${table("Full meals at or under 600 calories", meals.filter(m => m.calories <= 600))}
   ${table("30 grams of protein or more", meals.filter(m => m.protein >= 30))}
@@ -1030,86 +1297,12 @@ function main() {
   const mealsOn = MEALS.meals.length >= 5;
   // EVERGREEN FLOOR (owner-verified deals; each self-expires on its date).
   // Injected only when the daily AI refresh did not supply a deal for that brand.
-  const EVERGREEN = [
-    // Owner request + officially verified (Chipotle newsroom press release, 2026-08-27):
-    // one-day free double protein with code PROTEIN. Self-expires after today.
-    { until: "2026-08-27", deal: { brand: "Chipotle", cat: "Bowls", color: "#a81612", ic: "Ch", deal: "Free Double Protein Today Only: Code PROTEIN", desc: "Today only (August 27): add a free second portion of meat or sofritas to any full-price burrito, bowl, or salad ordered in the Chipotle app or at chipotle.com with code PROTEIN at checkout. App and website orders only; not valid in-restaurant or on delivery platforms.", tags: ["free", "app"], value: 5, expires: "Today only, August 27", url: "https://www.chipotle.com/rewards", best: true, region: "National" } },
-    // (Chipotle free-delivery evergreen removed 2026-08-25: its until-date of 2026-08-15 passed.)
-    // National Quesadilla Day 2026 (owner request 2026-09-24; Chipotle newsroom release of
-    // 2026-09-21): code NQD2026, Sept 24-25, US and Canada, app/website only, no Rewards
-    // account required. "alongside" so a refresh-found Chipotle deal does not block it.
-    { from: "2026-09-24", until: "2026-09-25", alongside: true, deal: { brand: "Chipotle", cat: "Mexican", color: "#a81612", ic: "Ch", deal: "National Quesadilla Day: Free Quesadilla with a $20 Digital Order, Code NQD2026", desc: "Thursday and Friday (September 24 to 25): add a free quesadilla entree to any Chipotle app or chipotle.com order of $20 or more with code NQD2026 at checkout. Open to everyone, no Rewards account needed. Digital orders only: not valid in restaurant or on delivery apps; no add-ons on the free quesadilla; one per order while supplies last.", tags: ["free", "app"], value: 5, est_savings: 11, expires: "Through September 25, 2026", url: "https://newsroom.chipotle.com/2026-09-21-CHIPOTLE-CELEBRATES-NATIONAL-QUESADILLA-DAY-2026-WITH-TWO-DAYS-OF-FREE-QUESADILLAS", best: true, region: "National" } },
-    // Verified 2026-08-27: El Pollo Loco's $5 Fire-Grilled Combos value platform is
-    // announced on the company's own investor site and current on 2026 menus.
-    { until: "2026-12-31", deal: { brand: "El Pollo Loco", cat: "Chicken", color: "#f7c500", ic: "EP", deal: "$5 Fire-Grilled Combos: Rotating Value Menu", desc: "A rotating lineup of roughly $5 combos (Original Pollo Bowl, Classic Chicken Burrito, taquitos and more) built on citrus-marinated fire-grilled chicken, every day at participating locations. Lineup and pricing vary by market.", tags: [], value: 4, expires: "Ongoing", url: "https://www.elpolloloco.com/promotions", best: false, region: "West & Southwest" } },
-    // Owner request (Jacob, 2026-08-14): Tijuana Flats day specials, injected only on their active weekday (dow: 0=Sun..6=Sat).
-    { until: "2026-12-31", dow: 2, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Taco Tuesdaze: 2 Tacos + Chips + Drink for $7.99", desc: "Every Tuesday at participating locations: two tacos, chips, and a drink for $7.99 in-store, online, or in the app - no third-party delivery, and pricing varies slightly by location.", tags: [], value: 4, expires: "Tuesdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
-    { until: "2026-12-31", dow: 4, deal: { brand: "Tijuana Flats", cat: "Mexican", color: "#d0342c", ic: "TF", deal: "Throwback Thursdaze: Burrito or Bowl + Chips + Drink for $8.99", desc: "Every Thursday at participating locations: a Tijuana Burrito or burrito bowl plus chips and a drink for $8.99 in-store, online, or in the app - no third-party delivery; pricing varies slightly by location.", tags: [], value: 4, expires: "Thursdays only", url: "https://www.tijuanaflats.com/promotions/specials-and-deals", best: false, region: "FL & Southeast" } },
-    // Owner request (Jacob, 2026-08-20): grocery-store prepared-food deals are welcome when the value is real.
-    // Publix $5 Sushi Wednesday, seen in store by the owner (spicy tuna and Philadelphia rolls at his Publix);
-    // confirmed by Chowhound and the AFC/Zenshi sushi counters that run it. Wednesdays only (dow 3).
-    // Sprouts "Sushi Wednesday": select Oumi rolls for $5 in most markets, per the official Sprouts FAQ (2026-08-20).
-    { until: "2026-12-31", dow: 3, deal: { brand: "Sprouts", cat: "Sushi", color: "#00703c", ic: "SP", deal: "Sushi Wednesday: Select Oumi Rolls for $5", desc: "Every Wednesday in most Sprouts Farmers Market locations, select Oumi sushi rolls from the in-store sushi case are $5 each instead of the regular $7 to $10. Walk in and grab them: no coupon, app, or membership needed; participation and selection vary by store.", tags: [], value: 4, expires: "Wednesdays only", url: "https://www.sprouts.com/faqs/what-is-sushi-wednesday/", best: false, region: "Select states" } },
-    // Kroger-family "Wednesday Only" Private Selection sushi by Snowfox: an official kroger.com promo
-    // lineup (California, Spicy Tuna, Philly, Spicy Salmon, Vegetarian and more) with a promotional
-    // price on Wednesdays only; kroger.com showed $6.00 and snowfox.com says "$6 sushi every Wednesday" on 2026-09-22 (was $5).
-    { until: "2026-12-31", dow: 3, deal: { brand: "Kroger", cat: "Sushi", color: "#0b3b8c", ic: "KR", deal: "Sushi Wednesday: Snowfox Promo Rolls for $6", desc: "Every Wednesday, Kroger-family stores with a Snowfox sushi counter (Kroger, Fry's, King Soopers and other banners) sell the Wednesday Only promo lineup, including spicy tuna, Philly, California and veggie rolls, for $6 a roll (up from $5 in 2025) versus $8 to $10 the rest of the week. Walk in; a free Kroger Plus card may be needed for the promo price.", tags: [], value: 4, expires: "Wednesdays only", url: "https://www.kroger.com/p/wednesday-only-private-selection-california-sushi-roll-by-snowfox-/0001111065967", best: false, region: "Select states" } },
-    { until: "2026-12-31", dow: 3, alongside: true, deal: { brand: "Publix", cat: "Sushi", color: "#3d8a3a", ic: "PX", deal: "$5 Sushi Wednesday: Select Fresh Rolls for $5", desc: "Every Wednesday at Publix stores with a sushi counter, select fresh-made rolls (spicy tuna, California, spicy shrimp, cream cheese/Philadelphia-style, vegetable and more; selection varies by store) are $5 each instead of the usual $6 to $10. Walk in and grab them from the sushi case: no app, coupon, or membership needed, while supplies last.", tags: [], value: 4, expires: "Wednesdays only", url: "https://www.publix.com/savings/weekly-ad/deli", best: false, region: "FL & Southeast" } },
-    // Verified 2026-08-24: Safeway's standing $5 Friday includes fresh sushi (safeway.com lists
-    // dedicated "$5 Friday" sushi SKUs) plus other prepared foods; lineup posts Wednesdays in the
-    // weekly ad and varies by division. Harris Teeter runs $5 Sushi Friday at most stores, VIC
-    // card (free) required, in-store only, while supplies last. Fridays only (dow 5).
-    { until: "2026-12-31", dow: 5, deal: { brand: "Safeway", cat: "Sushi", color: "#e31837", ic: "SF", deal: "$5 Friday: Fresh Sushi Rolls for $5", desc: "Every Friday, Safeway's $5 Friday lineup includes fresh sushi rolls from the in-store counter for $5 (regularly $8 to $10), alongside other prepared-food deals like an 8-piece chicken bag. Check the weekly ad for your division; a free Safeway for U account may be needed for the promo price.", tags: [], value: 4, expires: "Fridays only", url: "https://www.safeway.com/weeklyad/", best: false, region: "Select states" } },
-    { until: "2026-12-31", dow: 5, deal: { brand: "Harris Teeter", cat: "Sushi", color: "#00529b", ic: "HT", deal: "$5 Sushi Friday: Select Rolls for $5", desc: "Most Harris Teeter stores sell select fresh sushi entrees for $5 every Friday (regularly $7 to $9), in-store only, while supplies last. Swipe the free VIC card at checkout for the promo price; selection varies by store.", tags: [], value: 4, expires: "Fridays only", url: "https://www.harristeeter.com/", best: false, region: "Southeast & Mid-Atlantic" } },
-    // Added 2026-09-08 (owner request: more weekly grocery deals), each source-checked that day:
-    // Hy-Vee store news pages list "Nori Sushi Roll, select varieties - $6" on Wednesdays and
-    // BOGO 50% on Fridays; H-E-B's own coupon copy names "Sushi Wednesdays" and "$7 Saturdays";
-    // ShopRite store pages post "$5.99 Sushi Wednesday"; Publix's order-ahead weekly specials
-    // page lists the Sub of the Week. Store-run promos: descriptions say so.
-    { until: "2026-12-31", dow: 3, deal: { brand: "Hy-Vee", cat: "Sushi", color: "#e31837", ic: "HV", deal: "Sushi Wednesday: Select Nori Sushi Rolls for $6", desc: "Every Wednesday at participating Hy-Vee stores with a Nori Sushi counter, select rolls are $6 each (regularly about $8 to $10). A store-run promotion: some stores run buy one, get one 50% off instead, so price and selection vary by store; no card or app is needed.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.hy-vee.com/deals/weekly-ads", best: false, region: "Midwest" } },
-    { until: "2026-12-31", dow: 5, deal: { brand: "Hy-Vee", cat: "Sushi", color: "#e31837", ic: "HV", deal: "Sushi Friday: Buy One Nori Roll, Get One 50% Off", desc: "Every Friday at participating Hy-Vee stores, buy one regular Nori Sushi roll and get a second at half price. Store-run promotion: participation varies, no card or app needed.", tags: [], value: 3, expires: "Fridays only", url: "https://www.hy-vee.com/deals/weekly-ads", best: false, region: "Midwest" } },
-    { until: "2026-12-31", dow: 3, deal: { brand: "H-E-B", cat: "Sushi", color: "#e01e26", ic: "HB", deal: "Sushi Wednesday: Select Sushiya Rolls for $7", desc: "Every Wednesday, H-E-B stores with an in-store Sushiya counter sell select fresh rolls for $7 (regularly about $9 to $12). No coupon or app needed; selection varies by store and sells out by evening.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236", best: false, region: "Texas" } },
-    { until: "2026-12-31", dow: 6, deal: { brand: "H-E-B", cat: "Sushi", color: "#e01e26", ic: "HB", deal: "$7 Saturday: Select Sushiya Rolls for $7", desc: "H-E-B's Sushiya counters repeat the $7 select-roll price on Saturdays at participating Texas stores. No coupon or app needed; selection varies by store.", tags: [], value: 3, expires: "Saturdays only", url: "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236", best: false, region: "Texas" } },
-    { until: "2026-12-31", dow: 3, deal: { brand: "ShopRite", cat: "Sushi", color: "#c8102e", ic: "SR", deal: "$5.99 Sushi Wednesday: Select Rolls", desc: "Every Wednesday, participating ShopRite stores sell select fresh sushi rolls (spicy crab, California and more) for $5.99, regularly $8 to $10. In-store only; ShopRite stores are independently owned, so selection and participation vary.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.shoprite.com/categories/prepared-foods/sushi-seafood-id-520585", best: false, region: "NJ, NY, PA, CT, DE & MD" } },
-    // MORE SUSHI DAYS (owner request 2026-09-22, "more good value sushi deals"). Each one was
-    // verified that day on an official channel (the chain's own site or its verified page,
-    // or the vendor program built for that chain). Meijer, Giant Food, Giant Eagle, Stop &
-    // Shop and Fresh Thyme could NOT be pinned to an official current price and stay out.
-    { until: "2026-12-31", dow: 3, deal: { brand: "Weis Markets", cat: "Sushi", color: "#c8102e", ic: "W", deal: "$5 Sushi Wednesday: Select Snowfox Rolls", desc: "Every Wednesday, Weis Markets stores with a Snowfox sushi counter sell selected rolls, as marked in the case, for $5 each (regularly $7 to $9). In store only, no card or app needed, while supplies last.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.weismarkets.com/weekly-ad", best: false, region: "PA, MD, NY, NJ, DE, WV & VA" } },
-    { until: "2026-12-31", dow: 3, deal: { brand: "Food Lion", cat: "Sushi", color: "#1a4c9c", ic: "FL", deal: "$5 Sushi Wednesday: Select Hissho Rolls", desc: "Every Wednesday, Food Lion stores with a Hissho sushi counter sell select fresh rolls for $5 each (regularly $7 to $9). Grab them from the sushi case during counter hours; no card, coupon or app needed, while supplies last.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.foodlion.com/savings/weekly-ad", best: false, region: "Mid-Atlantic & Southeast" } },
-    { until: "2026-12-31", dow: 3, deal: { brand: "Lowes Foods", cat: "Sushi", color: "#e4002b", ic: "LF", deal: "Sushi Wednesday: Select Fresh Rolls for $4.99", desc: "Every Wednesday, Lowes Foods sells select hand-rolled sushi from its in-store counter for $4.99 a roll (regularly $7 to $9). In store, no card or app needed, while supplies last.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.lowesfoods.com/savings-and-rewards/weekly-ad", best: false, region: "NC & SC" } },
-    { until: "2026-12-31", dow: 3, deal: { brand: "Hannaford", cat: "Sushi", color: "#7a1f1f", ic: "H", deal: "$5 Sushi Wednesday: California, Spicy California & Vegan Rolls", desc: "Every Wednesday, Hannaford's Wago sushi counters sell the California, Spicy California and Classic Vegan rolls for $5 each (regularly $7 to $8). In store only, no card or app needed, while supplies last.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.wagosushi.com/faqs/", best: false, region: "ME, NH, VT, MA & NY" } },
-    { until: "2026-12-31", dow: 2, deal: { brand: "Dierbergs", cat: "Sushi", color: "#00703c", ic: "D", deal: "Sushi Tuesday: Select Rolls for $6", desc: "Every Tuesday, Dierbergs sells select varieties of its hand-rolled Bento sushi for $6 each (regularly $8 to $10). In store, no card or app needed, while supplies last.", tags: [], value: 3, expires: "Tuesdays only", url: "https://www.dierbergs.com/department/deli-and-prepared-foods", best: false, region: "St. Louis area" } },
-    // Island Fin Poke publishes Topping Tuesday on its own Daily Specials page (verified 2026-09-22).
-    { until: "2026-12-31", dow: 2, deal: { brand: "Island Fin Poke", cat: "Poke", color: "#0e8c8c", ic: "IF", deal: "Topping Tuesday: Free Premium Topping with Any Bowl", desc: "Every Tuesday, pick one premium topping (avocado, kimchi, masago, surimi and more, normally an upcharge) free with any poke bowl. Ask at the counter; no app, code or account needed.", tags: [], value: 2, expires: "Tuesdays only", url: "https://www.islandfinpoke.com/custom-content-1/", best: false, region: "FL & Select states" } },
-    // Pokeworks September codes, from the chain's own 2026-09-02 press release (open to all
-    // guests, in store and online). Each self-expires.
-    { from: "2026-09-21", until: "2026-09-27", deal: { brand: "Pokeworks", cat: "Poke", color: "#1b3a6b", ic: "PW", deal: "Free Extra Scoop of Ahi or Chicken with Code POWERUP", desc: "Through September 27, order the High-Protein Surf & Turf bowl and add a free extra scoop of ahi tuna or chicken with code POWERUP, in store or online. Open to all guests, no rewards account needed.", tags: [], value: 4, expires: "Through September 27, 2026", url: "https://pokeworks.com/rewards/", best: false, region: "Select states" } },
-    { from: "2026-09-28", until: "2026-09-30", deal: { brand: "Pokeworks", cat: "Poke", color: "#1b3a6b", ic: "PW", deal: "International Poke Day: Free Extra Protein Scoop with Code POKEDAY", desc: "September 28 to 30, get a free extra scoop of protein with any regular or large poke entree using code POKEDAY, in store or online. Open to all guests, no rewards account needed.", tags: [], value: 4, expires: "Through September 30, 2026", url: "https://pokeworks.com/rewards/", best: false, region: "Select states" } },
-    { until: "2026-12-31", deal: { brand: "Publix", cat: "Deli", color: "#3d8b37", ic: "PX", deal: "Sub of the Week: $2 Off This Week's Featured Whole Sub", desc: "Every week Publix takes $2 off one featured whole deli sub (a Boar's Head turkey sub or the Publix Deli Ultimate Sub, for example, about $8.99 instead of $10.99), fully customizable at the counter, online or in the app. The featured sub changes with the weekly ad; the deli's weekly specials page lists it.", tags: [], value: 3, expires: "Ongoing (changes weekly)", url: "https://www.publix.com/mc/order-ahead/weekly-specials", best: false, region: "FL & Southeast" } },
-    // VALUE-MENU FLOOR (2026-09-15, cost + depth pass; Subway removed 2026-09-21, see
-    // STANDING_MENU_BLOCK below). These standing value menus
-    // were verified by the refresh itself on 2026-09-08 (titles, prices and URLs copied
-    // from that run's deals.json) but only re-found on some days, so the list swung
-    // between 8 and 11. Injected only when the morning refresh misses the brand (the
-    // one-per-brand rule, no "alongside"), so a fresher refresh-found entry always wins.
-    // Each expires 2026-10-15: re-verify the price then and bump the date, or drop it.
-    { until: "2026-10-15", deal: { brand: "Salad and Go", cat: "Salads", color: "#6cbf3e", ic: "SnG", deal: "Salads and wraps from $7.75", desc: "Drive-thru-only salads and wraps, including the Good Greens Salad and Wrap with chickpeas, Brussels sprouts and a choice of chicken or tofu, start at $7.75 every day.", tags: [], value: 3, expires: "Ongoing", url: "https://saladandgo.com/menu", est_savings: 3, best: false, region: "AZ, TX, OK & NV" } },
-    { until: "2026-10-15", deal: { brand: "Rubio's Coastal Grill", cat: "Seafood", color: "#00a1e0", ic: "R", deal: "$7+ Meal Menu, including Fish & Chips for $7.99", desc: "Rubio's standing value menu runs meals from $7 to $10, headlined by Fish & Chips for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.rubios.com/menu", est_savings: 3, best: false, region: "CA, AZ & NV" } },
-    { until: "2026-10-15", deal: { brand: "WaBa Grill", cat: "Bowls", color: "#e4002b", ic: "W", deal: "Value-Bowl Combo: mini bowl, side and drink for $7.99", desc: "A permanent value item: a mini bowl with chicken, sweet and spicy chicken or tofu, plus a value side and a 12 oz drink for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.wabagrill.com/menu", est_savings: 3, best: false, region: "CA & AZ" } },
-    { until: "2026-10-15", deal: { brand: "Naf Naf Grill", cat: "Mediterranean", color: "#c8102e", ic: "N", deal: "$9.99 Pita Meal Deal", desc: "Naf Naf Grill's value menu: a full pita meal for $9.99, in store and in the app, every day at participating locations.", tags: ["app"], value: 3, expires: "Ongoing", url: "https://nafnafgrill.com/", est_savings: 3, best: false, region: "Midwest & East" } },
-    // Dated promo (owner request, 2026-09-11). Verified the same day on the chain4s own
-    // offer-terms page, which reads "Rewards Members enjoy 2 regular sized noodle bowls
-    // from the Culinary Classic category for $12" - note "Rewards Members", NOT the
-    // "Select Rewards Members" wording that keeps the NFL free-side offer off the site.
-    // Noodles Rewards is free to join, so this clears FREE ACCOUNTS ARE FINE. It runs
-    // alongside the standing Delicious Duos entry and self-expires after 9/14.
-    { from: "2026-09-10", until: "2026-09-14", alongside: true, deal: { brand: "Noodles & Company", cat: "Bowls", color: "#8dc63f", ic: "N", deal: "2 Culinary Classics Bowls for $12", desc: "Two regular-size bowls from the Culinary Classics menu for $12 together, about $19 bought separately: Pad Thai, Japanese Pan Noodles, Pasta Fresca, Basil Pesto Cavatappi, Creamy Cheddar Mac, Buttered Noodles or either tortelloni. Free Noodles Rewards account required: apply the offer on the cart screen before checkout, or scan at the register. Proteins and add-ons cost extra, one per account, at participating locations, and not valid on third-party delivery, call-in or catering orders.", tags: ["app"], value: 4, expires: "Through September 14, 2026", url: "https://www.noodles.com/offer-terms", est_savings: 7, best: false, region: "National" } },
-  ];
+  // Injected deals live in scripts/injected-deals.mjs (shared with the refresh, 2026-09-30).
+  const EVERGREEN = INJECTED_DEALS;
   const stripEmoji = (s) => typeof s === "string" ? s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{2300}-\u{23FF}\u{FE0F}]/gu, "").replace(/\s{2,}/g, " ").trim() : s;
   for (const d of (Array.isArray(data) ? data : data.deals) || []) for (const k of ["brand","deal","title","desc","expires","badge","cat","category","region"]) if (d[k]) d[k] = stripEmoji(d[k]);
   let deals = Array.isArray(data) ? data : data.deals;
-  if (!Array.isArray(deals) || deals.length === 0) {
+  if (!Array.isArray(deals)) {
     throw new Error("deals.json has no deals array: refusing to build an empty page.");
   }
   {
@@ -1126,6 +1319,9 @@ function main() {
       deals.push({ ...e.deal });
     }
   }
+  // The refresh may now legitimately return zero NEW deals (2026-10-02); only a page that is
+  // empty even after injection is refused.
+  if (deals.length === 0) throw new Error("No deals after injection: refusing to build an empty page.");
 
   // Owner style rule (Jacob, 2026-08-18): no em dashes anywhere on the site.
   // Paired dashes become parentheses; a single dash becomes a colon.
@@ -1244,8 +1440,10 @@ function main() {
   // limited-time promo or code with an end date still gets through. Runs before the
   // write-back, so the iOS feed (deals.json) follows the same rule.
   {
+    // 2026-10-14 (owner, final): Panera and Noodles value menus were restored for one day and removed
+    // again ("literally not special"). All three brands' everyday menus stay blocked.
     const STANDING_BRANDS = new Set(["panera", "subway", "noodles & company", "noodles and company", "noodles & co", "noodles"]);
-    const STANDING_TITLES = /mixs*(?:&|and|&amp;)s*match|value duets?|sub of the day|meal of the day|fresh value menu|value menu|delicious duos?/i;
+    const STANDING_TITLES = /mix[\s-]*(?:&|and|&amp;)[\s-]*match|value duets?|sub of the day|meal of the day|fresh value menu|value menu|delicious duos?/i;
     const OPEN_ENDED = /^s*$|ongoing|every ?day|daily|all day|no end date|while supplies|year[- ]round/i;
     const beforeStanding = deals.length;
     deals = deals.filter(d => {
@@ -1266,7 +1464,7 @@ function main() {
 
   // Exclude rewards-member-gated deals — every deal must be claimable with no membership of any kind.
   // Golden-brand exception (Jacob, 2026-07-21): Chipotle + Chick-fil-A may run free-app-account deals.
-  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Noodles & Company","Just Salad","Qdoba","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","Salad and Go","El Pollo Loco","The Halal Guys","Naz's Halal Food","Naz's Halal","Nazs Halal","Shah's Halal Food","Shah's Halal","Shahs Halal","Kura Sushi","Sarku Japan","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis","Chopt","Chopt Creative Salad","Chopt Creative Salad Co.","Saladworks","Salata","Salata Salad Kitchen","Crisp & Green","Crisp and Green","Bibibop","Bibibop Asian Grill","Cafe Zupas","Zupas","Clean Juice","Robeks","Luna Grill","Modern Market","Modern Market Eatery","Dig","Dig Inn","Bolay","Bolay Fresh Bold Kitchen","Fresh Kitchen","Little Greek Fresh Grill","Little Greek","The Great Greek Mediterranean Grill","Great Greek Mediterranean Grill","The Great Greek","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Pressed","Flame Broiler","The Flame Broiler","Roti","Roti Modern Mediterranean","Garbanzo","Garbanzo Mediterranean Fresh","Pita Pit","Newk's Eatery","Newk's","Newks"].map(canonBrand)); // roster widened 2026-08-27 (healthy fast-casual), 2026-08-29 (salad/bowl expansion) and 2026-09-07 (healthy-only: Five Guys, Shake Shack, Wingstop, Chili's removed; bowl/Mediterranean/acai chains added)
+  const APPROVED = new Set(["Sweetgreen","CAVA","Chipotle","Chick-fil-A","Panera","Panera Bread","Potbelly","Nando's PERi-PERi","Nando's","District Taco","Moe's Southwest Grill","Moe's","Noodles & Company","Just Salad","Qdoba","Naf Naf Grill","Smoothie King","Tropical Smoothie","Tropical Smoothie Cafe","Jamba","El Pollo Loco","The Halal Guys","Naz's Halal Food","Naz's Halal","Nazs Halal","Shah's Halal Food","Shah's Halal","Shahs Halal","Kura Sushi","Sarku Japan","Marugame Udon","Yoshinoya","Rock N Roll Sushi","Sushi Maki","Pokeworks","Island Fin Poke","Subway","Starbucks","Tijuana Flats","Publix","DoorDash","Uber Eats","Grubhub","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Rubios","Waba Grill","Pei Wei","Pei Wei Asian Kitchen","Teriyaki Madness","Honeygrow","Playa Bowls","Nekter Juice Bar","Nekter","Jason's Deli","Jasons Deli","McAlister's Deli","McAlisters Deli","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Tazikis","Chopt","Chopt Creative Salad","Chopt Creative Salad Co.","Saladworks","Salata","Salata Salad Kitchen","Crisp & Green","Crisp and Green","Bibibop","Bibibop Asian Grill","Cafe Zupas","Zupas","Clean Juice","Robeks","Luna Grill","Modern Market","Modern Market Eatery","Dig","Dig Inn","Bolay","Bolay Fresh Bold Kitchen","Fresh Kitchen","Little Greek Fresh Grill","Little Greek","The Great Greek Mediterranean Grill","Great Greek Mediterranean Grill","The Great Greek","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Pressed","Flame Broiler","The Flame Broiler","Roti","Roti Modern Mediterranean","Garbanzo","Garbanzo Mediterranean Fresh","Pita Pit","Newk's Eatery","Newk's","Newks"].map(canonBrand)); // roster widened 2026-08-27 (healthy fast-casual), 2026-08-29 (salad/bowl expansion) and 2026-09-07 (healthy-only: Five Guys, Shake Shack, Wingstop, Chili's removed; bowl/Mediterranean/acai chains added)
   for (const g of GROCERY) APPROVED.add(g);
   deals = deals.filter(d => APPROVED.has(canonBrand(d.brand))); // owner: approved quality/healthy brands + grocery roster only
 
@@ -1277,10 +1475,11 @@ function main() {
   // requests; this map is the law. For each regional brand: a missing or "National"
   // region is replaced with the real footprint, and best is always stripped.
   const REGIONAL_DEFAULTS = Object.fromEntries(Object.entries({
-    "Naf Naf Grill": "Midwest & East", "Just Salad": "Northeast & Select states",
-    "Salad and Go": "AZ, TX, OK & NV", "El Pollo Loco": "West & Southwest",
+    "Naf Naf Grill": "Midwest & East", "Just Salad": "Northeast & Select states", "El Pollo Loco": "West & Southwest",
     "The Halal Guys": "Select states", "Naz's Halal Food": "Select states", "Shah's Halal Food": "Select states", "Tijuana Flats": "FL & Southeast",
-    "Kura Sushi": "Select states", "Pokeworks": "Select states",
+    "Kura Sushi": "Select states", "Marugame Udon": "CA, HI & WA", "Yoshinoya": "California only", "Pokeworks": "Select states",
+    "Nando's PERi-PERi": "DC, MD, VA, IL, TX & GA", "Nando's": "DC, MD, VA, IL, TX & GA", "District Taco": "DC, MD, VA, PA, NJ, NY & FL",
+    "Moe's Southwest Grill": "35 states (Southeast, Northeast & Midwest)", "Moe's": "35 states (Southeast, Northeast & Midwest)", "Aldi": "39 states & DC (not CO, ID, MT, NM, OR, UT, WA, WY, AK, HI or ME)",
     "Rock N Roll Sushi": "South & Southeast", "Sushi Maki": "South Florida",
     "Island Fin Poke": "FL & Select states", "Pollo Tropical": "Florida",
     "Weis Markets": "PA, MD, NY, NJ, DE, WV & VA", "Food Lion": "Mid-Atlantic & Southeast", "Lowes Foods": "NC & SC", "Hannaford": "ME, NH, VT, MA & NY", "Dierbergs": "St. Louis area",
@@ -1371,6 +1570,12 @@ function main() {
     // happy hours", Chili's margarita 2026-08-18) must not kill an all-day deal.
     const recurring = /every (?:mon|tues|wednes|thurs|fri|satur|sun)day|\b(?:mon|tues|wednes|thurs|fri|satur|sun)days\b|every day \d|daily \d/i.test(txt)
       || /happy hour/i.test(d.deal + " " + (d.expires || ""));
+    // Owner (2026-09-30): any approved healthy chain's published weekly special may run ON
+    // its day (Smoothie King Free Upsize Friday and the like), the same treatment the grocery
+    // sushi days already get. The roster filter above keeps banned brands out; happy hours
+    // and time windows stay excluded whatever the day.
+    const happyHour = /happy hour/i.test(d.deal + " " + (d.expires || ""));
+    if (recurring && !happyHour && txt.includes(DOW_NAME)) return true;
     if (recurring && DAY_SPECIAL_BRANDS.has(canonBrand(d.brand)) && txt.includes(DOW_NAME)) return true;
     return !recurring;
   });
@@ -1400,7 +1605,7 @@ function main() {
     const byBrand = new Set();
     // Regional-footprint chains never badge (most visitors cannot claim them); the three
     // regional sushi/poke chains from the prompt's REGIONAL HONESTY rule are listed too.
-    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Salad and Go","Jack in the Box","In-N-Out","The Halal Guys","Naz's Halal Food","Shah's Halal Food","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Waba Grill","Honeygrow","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Bolay","Fresh Kitchen","Little Greek Fresh Grill","The Great Greek Mediterranean Grill","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Flame Broiler","Roti","Garbanzo","Pita Pit","Newk's Eatery"].map(canonBrand));
+    const REGIONAL_ONLY = new Set(["Whataburger","Del Taco","El Pollo Loco","Marugame Udon","Yoshinoya","Nando's PERi-PERi","Nando's","District Taco","Moe's Southwest Grill","Moe's","Aldi","Jack in the Box","In-N-Out","The Halal Guys","Naz's Halal Food","Shah's Halal Food","TCBY","Tijuana Flats","Rock N Roll Sushi","Sushi Maki","Island Fin Poke","Pollo Tropical","Rubio's","Rubio's Coastal Grill","Waba Grill","Honeygrow","Chicken Salad Chick","Taziki's","Taziki's Mediterranean Cafe","Bolay","Fresh Kitchen","Little Greek Fresh Grill","The Great Greek Mediterranean Grill","Clean Eatz","Vitality Bowls","Everbowl","Rush Bowls","Pressed Juicery","Flame Broiler","Roti","Garbanzo","Pita Pit","Newk's Eatery"].map(canonBrand));
     for (const g of GROCERY) if (!NATIONAL_GROCERY.has(g)) REGIONAL_ONLY.add(g);
     const isTreatDeal = (d) => (d.cat || "") === "Treats" || /custard|doughnut|donut|cookie|froyo|frozen yogurt|ice cream|milkshake|dessert|cinnamon roll|brownie/i.test((d.deal || "") + " " + (d.desc || ""));
     // A Top Pick's TITLE must state the money (owner rule, 2026-08-24): a price, a percent,
@@ -1447,6 +1652,7 @@ function main() {
   const assigned = assignDealIds(deals);
   for (const d of deals) applyAffiliate(d); // platform links become tracking links once a template exists (affiliates.json)
   const feedOut = { ...data, deals };
+  delete feedOut.everyday; // field from the removed 2026-10-03 homepage section; keep the feed as it was
   writeFileSync(join(root, "deals.json"), JSON.stringify(feedOut, null, 2) + "\n");
   console.log(`Wrote deals.json: ${deals.length} deals, ${assigned} id(s) assigned (rest already had one).`);
 
@@ -1457,6 +1663,8 @@ function main() {
   if (s === -1 || e === -1 || e < s) throw new Error("DEALS markers missing in index.html");
   writeFileSync(htmlPath, html.slice(0, s) + `${START}\nconst DEALS = ${JSON.stringify(deals, null, 2)};\nconst META = ${JSON.stringify({ verifiedAt: new Date().toISOString() })};\nconst AFFILIATES = ${JSON.stringify({ instacart: INSTACART_URL, grocery: [...GROCERY], active: AFF_ACTIVE })};\n${END}` + html.slice(e + END.length));
   console.log(`Built index.html with ${deals.length} deals.`);
+  // (The 2026-10-04 "No deal today where you are?" line under the deal list was removed on
+  // 2026-10-08 at the owner's request; /cheap-healthy-meals itself is still built.)
 
   // 1b. Server-render the footer date and a crawlable static deal grid
   {
@@ -1471,6 +1679,9 @@ function main() {
     }
     // Meal index: server-render the top rows (crawlable) and embed the full list for the client.
     {
+      // Homepage Meals section removed 2026-09-28 (owner: keep the site simple). The markers
+      // are gone from index.html, so these injections are no-ops; meals.json and
+      // /cheap-healthy-meals are still built because the iOS app's Meals tab reads meals.json.
       const MS = "<!-- MEALS:START -->", ME = "<!-- MEALS:END -->";
       const a = out.indexOf(MS), z = out.indexOf(ME);
       if (a !== -1 && z !== -1) out = out.slice(0, a + MS.length) + (mealsOn ? mealsSectionInner(MEALS.meals, MEALS.updated) : "") + out.slice(z);
@@ -1495,12 +1706,13 @@ function main() {
         writeFileSync(pp, pv);
       }
     } catch (e) { console.log("privacy disclosure not updated: " + e.message); }
-    // Holiday banner: auto-show within 7 days of a food holiday, auto-hide after.
+    // Holiday banner: shown ONLY on the day itself (owner, 2026-10-04: no countdown banners;
+    // the holiday pages still publish ahead, the homepage banner does not).
     const HB_START = "<!-- HOLIDAY:START -->", HB_END = "<!-- HOLIDAY:END -->";
     const hs2 = out.indexOf(HB_START), he2 = out.indexOf(HB_END);
     if (hs2 !== -1 && he2 !== -1) {
       const soon = HOLIDAYS.map(h => ({ h, diff: (new Date(h.date + "T12:00:00") - now) / 86400000 }))
-        .filter(x => x.diff <= 7 && x.diff >= -0.5).sort((a, b) => a.diff - b.diff)[0];
+        .filter(x => x.diff < 0.5 && x.diff >= -0.5).sort((a, b) => a.diff - b.diff)[0];
       let banner = "";
       if (soon) {
         const d2 = new Date(soon.h.date + "T12:00:00");
@@ -1539,6 +1751,8 @@ function main() {
   writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
   writeFileSync(join(root, "sushi-deals.html"), sushiPage(deals));
   for (const x of EXPLAINERS) writeFileSync(join(root, `${x.slug}.html`), explainerPage(x, deals));
+  const REPORT = loadReport();
+  if (REPORT) { writeFileSync(join(root, `${REPORT_SLUG}.html`), reportPage(REPORT)); console.log(`Built ${REPORT_SLUG}.html (${REPORT.days} days, ${REPORT.listings} listings).`); }
   writeFileSync(join(root, "food-deals-by-day.html"), byDayPage(deals));
   if (mealsOn) {
     writeFileSync(join(root, "meals.json"), JSON.stringify({ updated: MEALS.updated, note: "Nutrition is from official chain sources; prices are typical and vary by location. protein_per_dollar = protein / price.", meals: MEALS.meals }, null, 2) + "\n");
@@ -1560,38 +1774,34 @@ function main() {
   writeFileSync(join(root, "verification-log.html"), verificationLogPage(vlog));
   console.log(`Built verification-log.html (${vlog.length} entries).`);
 
-  // 3. Sitemap. lastmod is HONEST (changed 2026-09-26): it used to be "today" for every
-  // URL, every day, including /about and /privacy. Google says it ignores lastmod once it
-  // is consistently wrong, which throws away the one real advantage this site has (genuine
-  // daily changes on the deal pages). Now each page's HTML is hashed with the volatile
-  // date stamps stripped, and lastmod only advances when the content behind them changed.
-  // The hashes persist in sitemap-state.json (committed by the daily workflow).
-  const EVERGREEN_PATHS = new Set(["about", "privacy", "trader-joes-healthy-meals", "birthday-freebies", "best-fast-food-apps", "5-dollar-meal-deals", "student-food-deals", "late-night-food-deals", "fast-food-happy-hours", "cheapest-fast-food-orders", "fast-food-vs-groceries", "delivery-vs-pickup", "back-to-school-food-deals", "cheap-healthy-meals", ...EXPLAINERS.map(x => x.slug)]);
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
-  const statePath = join(root, "sitemap-state.json");
-  let prevState = {};
-  try { prevState = JSON.parse(readFileSync(statePath, "utf8")); } catch {}
-  const MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December";
-  const stripVolatile = html => html
-    .replace(/\d{4}-\d{2}-\d{2}(T[\d:.]+Z)?/g, "")                                              // ISO dates and build timestamps
-    .replace(new RegExp(`(?:${WEEKDAYS.join("|")}), (?:${MONTHS}) \\d{1,2}, \\d{4}`, "g"), "")     // "Saturday, September 26, 2026"
-    .replace(new RegExp(`\\b(?:${MONTHS}) \\d{4}\\b`, "g"), "")                                     // "September 2026" (titles)
-    .replace(/(?:Sun|Mon|Tue|Wed|Thu|Fri|Sat), \d{2} (?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} [\d:]+ GMT/g, "") // toUTCString
-    .replace(/<span class="pill todaypill"[^>]*>TODAY<\/span>/g, "")                             // weekday marker on the by-day page
-    .replace(/Today is (?:${WEEKDAYS.join("|")}): this deal is on right now|Next (?:${WEEKDAYS.join("|")}) is the next time this deal runs/g, "");
-  const nextState = {};
-  const entries = urls.map(u => {
-    const path = u.slice(SITE.length + 1);            // "" for the homepage
-    const file = join(root, path ? `${path}.html` : "index.html");
-    let h = "";
-    try { h = createHash("sha1").update(stripVolatile(readFileSync(file, "utf8"))).digest("hex"); } catch {}
-    const prev = prevState[path];
-    const lastmod = (prev && prev.h === h && prev.m) ? prev.m : iso;
-    nextState[path] = { h, m: lastmod };
-    const freq = EVERGREEN_PATHS.has(path) ? "monthly" : "daily";
-    return `  <url><loc>${u}</loc><lastmod>${lastmod}</lastmod><changefreq>${freq}</changefreq></url>`;
-  });
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` + entries.join("\n") + `\n</urlset>\n`;
+  // 3. Sitemap
+  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  // lastmod (2026-10-12): every page used to be stamped with today's date every day, so the date
+  // carried no information and Google could not tell a changed guide from an untouched one. Now
+  // each page's HTML is hashed with dates and timestamps stripped; lastmod moves only when the
+  // hash does. The state lives in sitemap-lastmod.json, committed with the build. changefreq is
+  // dropped (Google ignores it).
+  const lmPath = join(root, "sitemap-lastmod.json");
+  let lm = {};
+  try { lm = JSON.parse(readFileSync(lmPath, "utf8")); } catch {}
+  const stripDates = s => String(s)
+    .replace(/\b(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{1,2}(?:, \d{4})?\b/g, "")
+    .replace(/\b(?:Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\.? \d{1,2}(?:, \d{4})?\b/g, "")
+    .replace(/\b\d{4}-\d{2}-\d{2}(?:T[\d:.]+Z)?\b/g, "")
+    .replace(/\b(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day\b/g, "");
+  const lastmodFor = u => {
+    const path = u.replace(SITE, "") || "/";
+    const file = path === "/" ? "index.html" : path.slice(1) + ".html";
+    let hash = "";
+    try { hash = createHash("sha1").update(stripDates(readFileSync(join(root, file), "utf8"))).digest("hex").slice(0, 12); } catch { return iso; }
+    if (!lm[path] || lm[path].hash !== hash) lm[path] = { hash, lastmod: iso };
+    return lm[path].lastmod;
+  };
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+    urls.map(u => `  <url><loc>${u}</loc><lastmod>${lastmodFor(u)}</lastmod></url>`).join("\n") +
+    `\n</urlset>\n`;
+  for (const k of Object.keys(lm)) if (!urls.includes(SITE + (k === "/" ? "/" : k))) delete lm[k];
+  writeFileSync(lmPath, JSON.stringify(lm, null, 1) + "\n");
   writeFileSync(join(root, "sitemap.xml"), sitemap);
   writeFileSync(statePath, JSON.stringify(nextState, null, 1) + "\n");
   // Structured-data dateModified follows the same honest date (council audit 2026-09-26):

@@ -9,10 +9,11 @@
 // Re-verify when a chain redesigns; a dead entry here is worse than a homepage.
 
 const PAGES = {
+  "moe's southwest grill": "https://www.moes.com/offers", "moe's": "https://www.moes.com/offers", "target": "https://www.target.com/circle", "aldi": "https://www.aldi.us/weekly-specials/this-weeks-aldi-finds/",
+  "nando's peri-peri": "https://www.nandosperiperi.com/", "nando's": "https://www.nandosperiperi.com/", "district taco": "https://www.districttaco.com/rewards",
   "panera": "https://www.panerabread.com/en-us/panera-promo-codes-discount-coupons-deals.html",
   "noodles & company": "https://www.noodles.com/coupons",
   "el pollo loco": "https://www.elpolloloco.com/promotions",
-  "salad and go": "https://saladandgo.com/menu",
   "rubio's": "https://www.rubios.com/menu",
   "waba grill": "https://www.wabagrill.com/menu",
   "chipotle": "https://www.chipotle.com/rewards",
