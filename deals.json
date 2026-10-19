@@ -20,7 +20,9 @@
       "region": "National",
       "id": "7bd193ec",
       "isNew": true,
-      "endingSoon": false
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Nando's PERi-PERi",
@@ -38,27 +40,9 @@
       "id": "7db0d6f1",
       "isNew": true,
       "endingSoon": true,
-      "best": false
-    },
-    {
-      "brand": "Saladworks",
-      "cat": "Salads",
-      "color": "#6cb33f",
-      "ic": "SW",
-      "deal": "40th Anniversary: $6.99 Favorites, Seven Days Only",
-      "desc": "Saladworks is celebrating 40 years with a weeklong lineup of customer favorites priced at just $6.99, plus a new $3.50 Make It a Meal add-on, through today only.",
-      "tags": [],
-      "value": 4,
-      "expires": "Through October 18, 2026",
-      "url": "https://www.saladworks.com",
-      "est_savings": 4,
-      "region": "Northeast & Mid-Atlantic",
-      "id": "d5e6d58d",
-      "isNew": true,
-      "endingSoon": true,
-      "best": true,
-      "expires_on": "2026-09-27",
-      "verified_on": "2026-09-26"
+      "best": false,
+      "expires_on": "2026-10-20",
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Harris Teeter",
@@ -78,7 +62,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": null,
-      "verified_on": "2026-09-26"
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Wegmans",
@@ -98,7 +82,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": null,
-      "verified_on": "2026-09-26"
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "El Pollo Loco",
@@ -116,7 +100,9 @@
       "est_savings": 3,
       "isNew": false,
       "endingSoon": false,
-      "id": "5dd48d15"
+      "id": "5dd48d15",
+      "expires_on": null,
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Publix",
@@ -133,7 +119,9 @@
       "region": "FL & Southeast",
       "isNew": false,
       "endingSoon": false,
-      "id": "ff8dda7e"
+      "id": "ff8dda7e",
+      "expires_on": null,
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Naf Naf Grill",
@@ -153,7 +141,9 @@
       "region": "Midwest & East",
       "isNew": false,
       "endingSoon": false,
-      "id": "43d0d809"
+      "id": "43d0d809",
+      "expires_on": null,
+      "verified_on": "2026-10-19"
     },
     {
       "brand": "Subway",
@@ -168,12 +158,36 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.subway.com/en-us",
-      "best": false,
+      "best": true,
       "region": "National",
       "est_savings": 4,
       "isNew": false,
       "endingSoon": false,
-      "id": "d3828fcf"
+      "id": "d3828fcf",
+      "expires_on": null,
+      "verified_on": "2026-10-19"
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Loco Rewards Monday: Chips and Guacamole for $1 with an $11.99 Order",
+      "desc": "Every Monday, Loco Rewards members (free account required) get regular chips and guacamole for $1 with a purchase of $11.99 or more; the offer drops in the app on Mondays, one per member per week. Listed by The Krazy Coupon Lady on October 2, 2026.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Mondays only",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-19",
+      "id": "3a3a8809"
     }
   ]
 }

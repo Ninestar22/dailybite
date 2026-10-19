@@ -35,7 +35,7 @@ deals.json  ──(scripts/build.mjs)──▶  index.html   (the DEALS array be
   "today", every day, including `/about` and `/privacy`; Google ignores `lastmod` once it
   is consistently wrong. The build now hashes each page with its date stamps stripped and
   advances `lastmod` only when the content behind them changed. The hashes live in
-  **`sitemap-state.json`** (committed by the daily workflow; delete it to re-stamp every
+  **`sitemap-lastmod.json`** (committed by the daily workflow; delete it to re-stamp every
   page with today's date). Evergreen guides are marked `monthly`, deal pages `daily`.
 - **IndexNow submits only what changed.** `scripts/indexnow.mjs` reads the sitemap and
   submits the URLs whose `lastmod` is today (`INDEXNOW_ALL=1` submits everything).

@@ -1803,19 +1803,18 @@ function main() {
   for (const k of Object.keys(lm)) if (!urls.includes(SITE + (k === "/" ? "/" : k))) delete lm[k];
   writeFileSync(lmPath, JSON.stringify(lm, null, 1) + "\n");
   writeFileSync(join(root, "sitemap.xml"), sitemap);
-  writeFileSync(statePath, JSON.stringify(nextState, null, 1) + "\n");
   // Structured-data dateModified follows the same honest date (council audit 2026-09-26):
   // an on-page "modified today" on unchanged pages contradicts the sitemap. The stamp is an
-  // ISO date, which stripVolatile ignores, so rewriting it never changes the page's hash.
-  for (const [path, st] of Object.entries(nextState)) {
-    const file = join(root, path ? `${path}.html` : "index.html");
+  // ISO date, which stripDates ignores, so rewriting it never changes the page's hash.
+  for (const [path, st] of Object.entries(lm)) {
+    const file = join(root, path === "/" ? "index.html" : path.slice(1) + ".html");
     try {
       const html = readFileSync(file, "utf8");
-      const out = html.replace(/("dateModified":")\d{4}-\d{2}-\d{2}(")/g, `$1${st.m}$2`);
+      const out = html.replace(/("dateModified":")\d{4}-\d{2}-\d{2}(")/g, `$1${st.lastmod}$2`);
       if (out !== html) writeFileSync(file, out);
     } catch {}
   }
-  const changedToday = Object.values(nextState).filter(x => x.m === iso).length;
+  const changedToday = Object.values(lm).filter(x => x.lastmod === iso).length;
   console.log(`Built sitemap.xml (${urls.length} URLs, ${changedToday} with content changed today).`);
 }
 
