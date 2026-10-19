@@ -114,6 +114,11 @@ jobs:
         if: steps.guard.outputs.run == 'true'
         run: npm run build
 
+      - name: Render per-page share cards (og/<slug>.png, only for changed H1s)
+        if: steps.guard.outputs.run == 'true'
+        continue-on-error: true
+        run: npm run og
+
       - name: Render today's Pinterest image
         # Pinterest posting re-enabled 2026-09-26 (owner request). The image is uploaded to
         # Pinterest directly as base64, so social/ stays untracked and nothing rides the

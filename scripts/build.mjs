@@ -4,7 +4,7 @@
 //   2. Generates a static, crawlable page per chain (<slug>.html, served at /<slug>)
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
@@ -151,6 +151,10 @@ const HEAD_COMMON = `<link rel="alternate" type="application/rss+xml" title="Dai
 const crumbLd = (name, path) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
   { "@type": "ListItem", "position": 1, "name": "DailyBite", "item": SITE + "/" },
   { "@type": "ListItem", "position": 2, "name": name, "item": `${SITE}/${path}` }] });
+// Per-page share card (scripts/og-images.mjs renders og/<slug>.png after each build; falls
+// back to the generic card until a page's card exists).
+const ogImage = slug => existsSync(join(root, "og", `${slug}.png`)) ? `${SITE}/og/${slug}.png` : `${SITE}/og.png`;
+const OG_IMG = slug => `<meta property="og:image" content="${ogImage(slug)}">`;
 const crumbScript = (name, path) => `<script type="application/ld+json">${JSON.stringify(crumbLd(name, path))}</script>`;
 function chainNav(current) {
   // Navigation lists only chains the daily refresh actually covers: linking banned
@@ -418,7 +422,7 @@ ${HEAD_COMMON}
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG(chain.slug)}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${list.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
@@ -516,7 +520,7 @@ ${HEAD_COMMON}
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG("sushi-deals")}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
@@ -576,7 +580,7 @@ ${HEAD_COMMON}
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG("free-food-today")}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${freshLdFor(title)}
@@ -657,6 +661,10 @@ ${HEAD_COMMON}
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/verification-log">
+<meta name="twitter:card" content="summary_large_image">
+${OG_IMG("verification-log")}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta name="theme-color" content="#f2f6f2">
 ${freshLdFor(title)}
@@ -742,7 +750,7 @@ ${HEAD_COMMON}
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG(h.slug)}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${matched.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
@@ -822,7 +830,7 @@ ${HEAD_COMMON}
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG(path)}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("\n")}
