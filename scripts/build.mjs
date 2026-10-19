@@ -259,7 +259,7 @@ function offerHTML(d) {
     <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${tags}${d.via ? `<span class="pill via">VIA ${esc(String(d.via).toUpperCase())}</span>` : ""}${d.fulfillment ? `<span class="pill ful">${esc(String(d.fulfillment).toUpperCase())}</span>` : ""}${Number.isFinite(d.est_savings) && d.est_savings > 0 ? `<span class="pill save" title="Estimated savings vs regular price">SAVE ~$${d.est_savings % 1 ? d.est_savings.toFixed(2) : d.est_savings}</span>` : ""}</div>
     <div class="foot">
       <span class="expires">${esc(d.expires)}</span>
-      <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener">Get deal &rarr;</a>
+      <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener" data-goatcounter-click="deal/${esc(norm(d.brand))}" data-goatcounter-title="${esc(d.brand)}: ${esc(d.deal)}">Get deal &rarr;</a>
     </div>
   </div>`;
 }
@@ -1306,7 +1306,7 @@ function mealsPage(meals, updated) {
 // never typed in. Copy: marketing/site-pages-copy.md.
 // ---------------------------------------------------------------------------
 const APP_URL = "https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518";
-const APP_CTA = `<div class="appcta"><div class="appcta-top">Free on the App Store.</div><a class="appbadge" href="${APP_URL}" target="_blank" rel="noopener" aria-label="Download DailyBite on the App Store">&#63743; Download on the App Store</a><div class="appcta-sub">No account. No ads. The same list as this site, sorted by distance.</div></div>`;
+const APP_CTA = `<div class="appcta"><div class="appcta-top">Free on the App Store.</div><a class="appbadge" href="${APP_URL}" target="_blank" rel="noopener" aria-label="Download DailyBite on the App Store" data-goatcounter-click="app/install" data-goatcounter-title="App Store badge on /app">&#63743; Download on the App Store</a><div class="appcta-sub">No account. No ads. The same list as this site, sorted by distance.</div></div>`;
 const APP_CSS = `.appcta{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 16px;margin:18px 0}.appcta-top{font-weight:800;font-size:17px;margin-bottom:10px}.appbadge{display:inline-block;background:#000;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:12px 22px;border-radius:12px}.appbadge:hover{opacity:.9}.appcta-sub{color:var(--muted);font-size:13px;margin-top:10px}.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.feat div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5;color:var(--muted)}.feat b{display:block;color:var(--ink);margin-bottom:4px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.steps div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5;color:var(--muted)}.steps b{display:block;color:var(--accent);font-size:13px;margin-bottom:4px}.steps span{display:block;color:var(--ink);font-weight:700;margin-bottom:4px}@media(max-width:640px){.feat,.steps{grid-template-columns:1fr}}.prose a{color:var(--accent2)}.prose ul{color:var(--muted);font-size:14px;line-height:1.6;padding-left:20px}`;
 
 function appPage(approvedCount, bannedCount) {
