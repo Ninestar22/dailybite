@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-19",
-  "updatedAt": "2026-10-19T11:10:06.999Z",
+  "updatedAt": "2026-10-19T16:07:13.880Z",
   "deals": [
     {
       "brand": "Moe's Southwest Grill",
@@ -173,6 +173,26 @@
       "isNew": false,
       "endingSoon": false,
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Potbelly",
+      "cat": "Sandwiches",
+      "color": "#8a1f2d",
+      "ic": "P",
+      "deal": "BOGO 50% Off: Buy a Pastrami Sandwich, Get an Original Sandwich Half Off",
+      "desc": "Buy any BIG or Original Pastrami Reuben or Pastrami and Swiss sandwich and get an Original sandwich (including wraps) half off, announced by email on 2026-10-19.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 25, 2026",
+      "url": "https://www.potbelly.com/perks",
+      "est_savings": 4,
+      "region": "National",
+      "id": "4aab1489",
+      "isNew": true,
+      "endingSoon": false,
+      "best": false
     }
   ]
 }
