@@ -192,11 +192,11 @@
   "lastmod": "2026-10-19"
  },
  "/cheap-healthy-meals": {
-  "hash": "b1ffe89ced19",
+  "hash": "468edb64077e",
   "lastmod": "2026-10-19"
  },
  "/food-deals-by-day": {
-  "hash": "1ba4de03b157",
+  "hash": "061cf489ffa8",
   "lastmod": "2026-10-19"
  },
  "/healthy-food-deals-report": {
@@ -204,75 +204,75 @@
   "lastmod": "2026-10-19"
  },
  "/publix-5-sushi-wednesday": {
-  "hash": "ad9847cf8e27",
+  "hash": "50c1f27b533f",
   "lastmod": "2026-10-19"
  },
  "/sprouts-sushi-wednesday": {
-  "hash": "2b31317e89f0",
+  "hash": "5b16e27f5840",
   "lastmod": "2026-10-19"
  },
  "/kroger-sushi-wednesday": {
-  "hash": "f147aa728de4",
+  "hash": "35ce868840d8",
   "lastmod": "2026-10-19"
  },
  "/safeway-5-friday-sushi": {
-  "hash": "4c461f55a897",
+  "hash": "47a1c2881c1a",
   "lastmod": "2026-10-19"
  },
  "/harris-teeter-5-sushi-friday": {
-  "hash": "999756711ce9",
+  "hash": "0995e213bc24",
   "lastmod": "2026-10-19"
  },
  "/panera-4-99-mix-and-match": {
-  "hash": "752e08776381",
+  "hash": "609fd1197b97",
   "lastmod": "2026-10-19"
  },
  "/heb-sushi-wednesday": {
-  "hash": "3c8fc87619b4",
+  "hash": "63a8d1b79561",
   "lastmod": "2026-10-19"
  },
  "/hy-vee-sushi-wednesday": {
-  "hash": "5bd30248335f",
+  "hash": "550250bb17b1",
   "lastmod": "2026-10-19"
  },
  "/shoprite-sushi-wednesday": {
-  "hash": "9c32cfecf53e",
+  "hash": "1696cbc8accd",
   "lastmod": "2026-10-19"
  },
  "/meijer-sushi-wednesday": {
-  "hash": "df1d090f467d",
+  "hash": "13f2e885d152",
   "lastmod": "2026-10-19"
  },
  "/publix-sub-of-the-week": {
-  "hash": "a0436579bd65",
+  "hash": "088d7d577035",
   "lastmod": "2026-10-19"
  },
  "/hannaford-sushi-wednesday": {
-  "hash": "f3975ad35e37",
+  "hash": "77a5de350574",
   "lastmod": "2026-10-19"
  },
  "/dierbergs-sushi-tuesday": {
-  "hash": "6ad80db90de0",
+  "hash": "4ed796cee6ab",
   "lastmod": "2026-10-19"
  },
  "/whole-foods-sushi-friday": {
-  "hash": "56b03eacd48f",
+  "hash": "124914c6e4c2",
   "lastmod": "2026-10-19"
  },
  "/smoothie-king-free-upsize-friday": {
-  "hash": "8820b0d5c59a",
+  "hash": "0b0d287c76d1",
   "lastmod": "2026-10-19"
  },
  "/wegmans-sushi-prices": {
-  "hash": "991b5b97b714",
+  "hash": "26a1eef88c2a",
   "lastmod": "2026-10-19"
  },
  "/rotisserie-chicken-prices": {
-  "hash": "fb18f30b54fe",
+  "hash": "f560114d56a1",
   "lastmod": "2026-10-19"
  },
  "/cheap-japanese-food": {
-  "hash": "29a5dc1fc92e",
+  "hash": "e5c7a8612fbb",
   "lastmod": "2026-10-19"
  },
  "/free-food-today": {
@@ -312,11 +312,23 @@
   "lastmod": "2026-10-19"
  },
  "/app": {
-  "hash": "4a1c9b5bd733",
+  "hash": "bdd403c32239",
   "lastmod": "2026-10-19"
  },
  "/press": {
-  "hash": "df144c72825f",
+  "hash": "9766439641e9",
+  "lastmod": "2026-10-19"
+ },
+ "/cava-rewards": {
+  "hash": "fdbcfdf6536d",
+  "lastmod": "2026-10-19"
+ },
+ "/sweetgreen-rewards": {
+  "hash": "840a5e0f6c87",
+  "lastmod": "2026-10-19"
+ },
+ "/tropical-smoothie-rewards": {
+  "hash": "ca001e072d34",
   "lastmod": "2026-10-19"
  }
 }

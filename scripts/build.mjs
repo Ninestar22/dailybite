@@ -8,6 +8,7 @@ import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
+import { EXTRA_EXPLAINERS } from "./explainers-extra.mjs";
 import { loadMeals, mealRow, money } from "./meals.mjs";
 import { EVERGREEN as INJECTED_DEALS } from "./injected-deals.mjs";
 import { fileURLToPath } from "node:url";
@@ -1114,6 +1115,7 @@ const EXPLAINERS = [
       ["Why isn't Sarku Japan's price listed?", "Sarku prices by location and its ordering app requires a login, so no price could be read from an official page. DailyBite does not publish prices from delivery apps or third-party menu sites. If you see the price at a counter, send it in and it will be added with the date and location."]],
     more: `<p>The pattern across every chain here is the same: the cheap, healthy item is the plain one. Kake udon, the vegetable bowl, the onigiri, the California roll. Add protein and the price climbs toward $10; add fried toppings and the nutrition falls apart. For a Japanese-style meal that is cheap everywhere, the frozen <a href="/cheap-healthy-meals" style="color:var(--accent2)">Trader Joe's teriyaki bowl</a> and the weekly <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days</a> are the two that work in every state. This page will grow as prices verify: Maruichi in Rockville, Mitsuwa, Nijiya, Tokyo Central and H Mart's prepared-food counters are next.</p>` },
 ];
+EXPLAINERS.push(...EXTRA_EXPLAINERS);
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
 // Deals report (2026-10-02): a dated, citable snapshot built from report-data.json, which
