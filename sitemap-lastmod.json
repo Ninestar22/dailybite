@@ -1,19 +1,19 @@
 {
  "/": {
-  "hash": "5cb7e88daf90",
-  "lastmod": "2026-10-19"
+  "hash": "d5e599645ac4",
+  "lastmod": "2026-10-20"
  },
  "/sushi-deals": {
-  "hash": "207636da157a",
-  "lastmod": "2026-10-19"
+  "hash": "f803a59311c7",
+  "lastmod": "2026-10-20"
  },
  "/trader-joes-healthy-meals": {
   "hash": "3c678727f807",
   "lastmod": "2026-10-19"
  },
  "/verification-log": {
-  "hash": "17ba5622b0ab",
-  "lastmod": "2026-10-19"
+  "hash": "81e707464f57",
+  "lastmod": "2026-10-20"
  },
  "/about": {
   "hash": "92a1605a7e86",
@@ -64,28 +64,28 @@
   "lastmod": "2026-10-19"
  },
  "/chipotle-deals": {
-  "hash": "0095d54ada69",
-  "lastmod": "2026-10-19"
+  "hash": "3ff5be87bc72",
+  "lastmod": "2026-10-20"
  },
  "/chick-fil-a-deals": {
-  "hash": "7783b07a1871",
-  "lastmod": "2026-10-19"
+  "hash": "bfcbfe68da3f",
+  "lastmod": "2026-10-20"
  },
  "/starbucks-deals": {
-  "hash": "bf8f60e6a967",
-  "lastmod": "2026-10-19"
+  "hash": "88976e599f39",
+  "lastmod": "2026-10-20"
  },
  "/panera-deals": {
-  "hash": "557f64c462d2",
-  "lastmod": "2026-10-19"
+  "hash": "86d179f2f493",
+  "lastmod": "2026-10-20"
  },
  "/subway-deals": {
   "hash": "cf36f22e75bf",
   "lastmod": "2026-10-19"
  },
  "/sweetgreen-deals": {
-  "hash": "b9e533cd5af8",
-  "lastmod": "2026-10-19"
+  "hash": "d1b06c9164b4",
+  "lastmod": "2026-10-20"
  },
  "/potbelly-deals": {
   "hash": "22d1514c461a",
@@ -96,247 +96,279 @@
   "lastmod": "2026-10-19"
  },
  "/cava-deals": {
-  "hash": "06e4b604de54",
-  "lastmod": "2026-10-19"
+  "hash": "ef30a2d1eb06",
+  "lastmod": "2026-10-20"
  },
  "/smoothie-king-deals": {
-  "hash": "40bf9491400c",
-  "lastmod": "2026-10-19"
+  "hash": "529cb59cf945",
+  "lastmod": "2026-10-20"
  },
  "/tropical-smoothie-deals": {
-  "hash": "303a4f9b004d",
-  "lastmod": "2026-10-19"
+  "hash": "a17b6f4404e8",
+  "lastmod": "2026-10-20"
  },
  "/jamba-deals": {
-  "hash": "e602ced70467",
-  "lastmod": "2026-10-19"
+  "hash": "21f6738c9575",
+  "lastmod": "2026-10-20"
  },
  "/el-pollo-loco-deals": {
-  "hash": "97c1729d71da",
-  "lastmod": "2026-10-19"
+  "hash": "3d931404cfd3",
+  "lastmod": "2026-10-20"
  },
  "/halal-guys-deals": {
-  "hash": "5d126e505480",
-  "lastmod": "2026-10-19"
+  "hash": "6afb154035c7",
+  "lastmod": "2026-10-20"
  },
  "/nazs-halal-deals": {
-  "hash": "32790c9b912d",
-  "lastmod": "2026-10-19"
+  "hash": "a3b0561deff9",
+  "lastmod": "2026-10-20"
  },
  "/shahs-halal-deals": {
-  "hash": "af0f7ebb02b0",
-  "lastmod": "2026-10-19"
+  "hash": "6e12c090c271",
+  "lastmod": "2026-10-20"
  },
  "/tijuana-flats-deals": {
-  "hash": "3901269a3d3d",
-  "lastmod": "2026-10-19"
+  "hash": "f2c4efe3de80",
+  "lastmod": "2026-10-20"
  },
  "/qdoba-deals": {
-  "hash": "37b92383c1f6",
-  "lastmod": "2026-10-19"
+  "hash": "d57dc1c276bf",
+  "lastmod": "2026-10-20"
  },
  "/just-salad-deals": {
-  "hash": "1281082dcf64",
-  "lastmod": "2026-10-19"
+  "hash": "2879a9a1b94b",
+  "lastmod": "2026-10-20"
  },
  "/naf-naf-grill-deals": {
   "hash": "5418bd23ea4e",
   "lastmod": "2026-10-19"
  },
  "/kura-sushi-deals": {
-  "hash": "ec5bf188b4ad",
-  "lastmod": "2026-10-19"
+  "hash": "5710bdefeff7",
+  "lastmod": "2026-10-20"
  },
  "/pokeworks-deals": {
-  "hash": "d916fffe458c",
-  "lastmod": "2026-10-19"
+  "hash": "df3dfa0e2108",
+  "lastmod": "2026-10-20"
  },
  "/sarku-japan-deals": {
-  "hash": "b0564e1bcdc2",
-  "lastmod": "2026-10-19"
+  "hash": "9974176a5bbb",
+  "lastmod": "2026-10-20"
  },
  "/safeway-deals": {
-  "hash": "17c280834bcd",
-  "lastmod": "2026-10-19"
+  "hash": "db1061968f74",
+  "lastmod": "2026-10-20"
  },
  "/harris-teeter-deals": {
-  "hash": "afeafdfa2dcd",
-  "lastmod": "2026-10-19"
+  "hash": "46ddf322e97d",
+  "lastmod": "2026-10-20"
  },
  "/kroger-deals": {
-  "hash": "c28c9700c80e",
-  "lastmod": "2026-10-19"
+  "hash": "228c7bf84121",
+  "lastmod": "2026-10-20"
  },
  "/sprouts-deals": {
-  "hash": "e3e015f65ebf",
-  "lastmod": "2026-10-19"
+  "hash": "ed7c77c622c7",
+  "lastmod": "2026-10-20"
  },
  "/publix-deals": {
   "hash": "5fea84a1f23d",
   "lastmod": "2026-10-19"
  },
  "/heb-deals": {
-  "hash": "ac5a63ba811a",
-  "lastmod": "2026-10-19"
+  "hash": "ac7059f87556",
+  "lastmod": "2026-10-20"
  },
  "/hy-vee-deals": {
-  "hash": "08b0564007b3",
-  "lastmod": "2026-10-19"
+  "hash": "f78c2f4c8726",
+  "lastmod": "2026-10-20"
  },
  "/shoprite-deals": {
-  "hash": "986afee4dd39",
-  "lastmod": "2026-10-19"
+  "hash": "f23eab04ef1f",
+  "lastmod": "2026-10-20"
  },
  "/meijer-deals": {
-  "hash": "95d1a52b268e",
-  "lastmod": "2026-10-19"
+  "hash": "64b01eb5140f",
+  "lastmod": "2026-10-20"
  },
  "/cheap-healthy-meals": {
-  "hash": "a65c35b7106d",
-  "lastmod": "2026-10-19"
+  "hash": "a86a3bdad4a5",
+  "lastmod": "2026-10-20"
  },
  "/food-deals-by-day": {
-  "hash": "b5f60b61cdb6",
-  "lastmod": "2026-10-19"
+  "hash": "2999f604986d",
+  "lastmod": "2026-10-20"
  },
  "/healthy-food-deals-report": {
   "hash": "dd5270fdff6d",
   "lastmod": "2026-10-19"
  },
  "/publix-5-sushi-wednesday": {
-  "hash": "e74a408ae33e",
-  "lastmod": "2026-10-19"
+  "hash": "6798b34b19fd",
+  "lastmod": "2026-10-20"
  },
  "/sprouts-sushi-wednesday": {
-  "hash": "efe0099eb994",
-  "lastmod": "2026-10-19"
+  "hash": "977583721ac6",
+  "lastmod": "2026-10-20"
  },
  "/kroger-sushi-wednesday": {
-  "hash": "a66b91895c90",
-  "lastmod": "2026-10-19"
+  "hash": "ec15e563d24c",
+  "lastmod": "2026-10-20"
  },
  "/safeway-5-friday-sushi": {
-  "hash": "99bcb09d62d9",
-  "lastmod": "2026-10-19"
+  "hash": "a2d3d7888455",
+  "lastmod": "2026-10-20"
  },
  "/harris-teeter-5-sushi-friday": {
-  "hash": "f11486cac4be",
-  "lastmod": "2026-10-19"
+  "hash": "aa4b76b5b8ec",
+  "lastmod": "2026-10-20"
  },
  "/panera-4-99-mix-and-match": {
-  "hash": "d3c5c9016fb3",
-  "lastmod": "2026-10-19"
+  "hash": "6dca78d5284b",
+  "lastmod": "2026-10-20"
  },
  "/heb-sushi-wednesday": {
-  "hash": "7d85427e4b8e",
-  "lastmod": "2026-10-19"
+  "hash": "5e383e7c2119",
+  "lastmod": "2026-10-20"
  },
  "/hy-vee-sushi-wednesday": {
-  "hash": "4ef89d7828fa",
-  "lastmod": "2026-10-19"
+  "hash": "4eeab85a9fea",
+  "lastmod": "2026-10-20"
  },
  "/shoprite-sushi-wednesday": {
-  "hash": "698f29514db1",
-  "lastmod": "2026-10-19"
+  "hash": "1195feffc963",
+  "lastmod": "2026-10-20"
  },
  "/meijer-sushi-wednesday": {
-  "hash": "bff840463adb",
-  "lastmod": "2026-10-19"
+  "hash": "e0e66307e09b",
+  "lastmod": "2026-10-20"
  },
  "/publix-sub-of-the-week": {
-  "hash": "9ec9110d1097",
-  "lastmod": "2026-10-19"
+  "hash": "3a356bcb5a8d",
+  "lastmod": "2026-10-20"
  },
  "/hannaford-sushi-wednesday": {
-  "hash": "bb758419a35e",
-  "lastmod": "2026-10-19"
+  "hash": "0285fa2cf38e",
+  "lastmod": "2026-10-20"
  },
  "/dierbergs-sushi-tuesday": {
-  "hash": "269802b8abcb",
-  "lastmod": "2026-10-19"
+  "hash": "c1c794a36dcb",
+  "lastmod": "2026-10-20"
  },
  "/whole-foods-sushi-friday": {
-  "hash": "0ab81b621bb1",
-  "lastmod": "2026-10-19"
+  "hash": "25a5dec2b06b",
+  "lastmod": "2026-10-20"
  },
  "/smoothie-king-free-upsize-friday": {
-  "hash": "bb6c7e7ee63c",
-  "lastmod": "2026-10-19"
+  "hash": "d985acd0463a",
+  "lastmod": "2026-10-20"
  },
  "/wegmans-sushi-prices": {
-  "hash": "4b8d43e467b8",
-  "lastmod": "2026-10-19"
+  "hash": "5885085763e6",
+  "lastmod": "2026-10-20"
  },
  "/rotisserie-chicken-prices": {
-  "hash": "21bf43bcaa47",
-  "lastmod": "2026-10-19"
+  "hash": "1152848861d6",
+  "lastmod": "2026-10-20"
  },
  "/cheap-japanese-food": {
-  "hash": "5d68829cdbb1",
-  "lastmod": "2026-10-19"
+  "hash": "4055728553b6",
+  "lastmod": "2026-10-20"
  },
  "/free-food-today": {
-  "hash": "29c48bddedb0",
-  "lastmod": "2026-10-19"
+  "hash": "5de06bedbe17",
+  "lastmod": "2026-10-20"
  },
  "/nandos-deals": {
-  "hash": "4aa6e04e02e3",
-  "lastmod": "2026-10-19"
+  "hash": "c7bd78c0a169",
+  "lastmod": "2026-10-20"
  },
  "/district-taco-deals": {
-  "hash": "1bc53fc86b23",
-  "lastmod": "2026-10-19"
+  "hash": "694420593f59",
+  "lastmod": "2026-10-20"
  },
  "/national-sandwich-day-deals": {
-  "hash": "14a13cc6a57a",
-  "lastmod": "2026-10-19"
+  "hash": "d5d9bee89665",
+  "lastmod": "2026-10-20"
  },
  "/target-deals": {
-  "hash": "a68400adbabb",
-  "lastmod": "2026-10-19"
+  "hash": "3f4ae28fb025",
+  "lastmod": "2026-10-20"
  },
  "/aldi-deals": {
-  "hash": "c4f41a811d3b",
-  "lastmod": "2026-10-19"
+  "hash": "034284ad89b4",
+  "lastmod": "2026-10-20"
  },
  "/moes-deals": {
-  "hash": "cb0cb7085163",
-  "lastmod": "2026-10-19"
+  "hash": "7297a5699924",
+  "lastmod": "2026-10-20"
  },
  "/app": {
   "hash": "12f2e9b988bb",
   "lastmod": "2026-10-19"
  },
  "/press": {
-  "hash": "b477cfe5aee0",
-  "lastmod": "2026-10-19"
+  "hash": "2d2503b952d0",
+  "lastmod": "2026-10-20"
  },
  "/cava-rewards": {
-  "hash": "188e5c3daf97",
-  "lastmod": "2026-10-19"
+  "hash": "7375ea5b48a5",
+  "lastmod": "2026-10-20"
  },
  "/sweetgreen-rewards": {
-  "hash": "37d2996e3dc4",
-  "lastmod": "2026-10-19"
+  "hash": "896bbd1739b5",
+  "lastmod": "2026-10-20"
  },
  "/tropical-smoothie-rewards": {
-  "hash": "49a3816fc732",
-  "lastmod": "2026-10-19"
+  "hash": "cda9ca2a2d23",
+  "lastmod": "2026-10-20"
  },
  "/holiday-gift-card-bonuses": {
-  "hash": "dd583a78ef71",
-  "lastmod": "2026-10-19"
+  "hash": "c56790eea657",
+  "lastmod": "2026-10-20"
  },
  "/albertsons-5-friday": {
-  "hash": "860c28fbd18b",
-  "lastmod": "2026-10-19"
+  "hash": "53f1bead0ecb",
+  "lastmod": "2026-10-20"
  },
  "/food-lion-sushi-wednesday": {
-  "hash": "3ce353bcb97f",
-  "lastmod": "2026-10-19"
+  "hash": "cbbd2ecbd5be",
+  "lastmod": "2026-10-20"
  },
  "/chipotle-boorito-halloween-deals": {
-  "hash": "cbebfa9cc69b",
-  "lastmod": "2026-10-19"
+  "hash": "0f351e3bdc88",
+  "lastmod": "2026-10-20"
+ },
+ "/starbucks-rewards": {
+  "hash": "a06a781224f1",
+  "lastmod": "2026-10-20"
+ },
+ "/chick-fil-a-one-rewards": {
+  "hash": "4d491db7c21b",
+  "lastmod": "2026-10-20"
+ },
+ "/panera-mypanera-rewards": {
+  "hash": "6e2e547d5551",
+  "lastmod": "2026-10-20"
+ },
+ "/chipotle-rewards": {
+  "hash": "53df3d18ec67",
+  "lastmod": "2026-10-20"
+ },
+ "/subway-rewards": {
+  "hash": "e5de8d7b6247",
+  "lastmod": "2026-10-20"
+ },
+ "/potbelly-perks": {
+  "hash": "d9e8d2be2db1",
+  "lastmod": "2026-10-20"
+ },
+ "/qdoba-rewards": {
+  "hash": "8b6c3bde942f",
+  "lastmod": "2026-10-20"
+ },
+ "/noodles-rewards": {
+  "hash": "ae646b3af415",
+  "lastmod": "2026-10-20"
  }
 }

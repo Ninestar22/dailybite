@@ -81,3 +81,7 @@ Seasonal pages already scheduled in `HOLIDAYS`: Taco Day (Oct 6), World Vegetari
 - Cache brand logos at build time under `/logos/` instead of 33 requests to Google's favicon
   service per page view.
 - Two `impact-site-verification` metas with different values on the homepage: keep the live one.
+
+## Log
+
+- **2026-10-20.** Merged PR #1 (SEO pass, Pinterest pins, council items, /app, /press, share cards, six explainers, marketing kits). Added eight rewards-program explainers (Starbucks, Chick-fil-A One, MyPanera, Chipotle, Subway Sub Club, Potbelly Perks, Qdoba, Noodles); Jamba held back until its Sept 29 program refresh is read. Author byline and Person schema on explainers. IndexNow now covers pages changed in the last two days and a one-off full submission runs on the next daily build. Five press pitches staged as Gmail drafts. Weekly growth-maintenance routine created (Tuesdays 9:52 AM ET): seasonal-page checks, three re-verifications, one new page, PR.

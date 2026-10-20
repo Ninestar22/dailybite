@@ -3,29 +3,6 @@
   "updatedAt": "2026-10-19T19:07:33.000Z",
   "deals": [
     {
-      "brand": "Moe's Southwest Grill",
-      "cat": "Mexican",
-      "color": "#6b8e23",
-      "ic": "M",
-      "deal": "Moe Monday: Burrito or Bowl From $6.99",
-      "desc": "Moe Rewards members (free account) get a discounted full-size burrito or bowl with free chips, salsa and sauces every Monday; today's the day.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 5,
-      "expires": "Mondays only",
-      "url": "https://www.moes.com/moemonday",
-      "region": "35 states (Southeast, Northeast & Midwest)",
-      "est_savings": 3.5,
-      "id": "6bc6adbe",
-      "isNew": true,
-      "endingSoon": false,
-      "best": false,
-      "expires_on": null,
-      "verified_on": "2026-10-19"
-    },
-    {
       "brand": "Noodles & Company",
       "cat": "Noodles",
       "color": "#c8102e",
@@ -45,7 +22,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": "2026-11-15",
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Rubio's Coastal Grill",
@@ -65,7 +42,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": null,
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Salata Salad Kitchen",
@@ -85,7 +62,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": "2026-11-01",
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "El Pollo Loco",
@@ -105,7 +82,7 @@
       "endingSoon": false,
       "id": "5dd48d15",
       "expires_on": null,
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Publix",
@@ -124,7 +101,7 @@
       "endingSoon": false,
       "id": "ff8dda7e",
       "expires_on": null,
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Naf Naf Grill",
@@ -146,29 +123,7 @@
       "endingSoon": false,
       "id": "43d0d809",
       "expires_on": null,
-      "verified_on": "2026-10-19"
-    },
-    {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#f7c500",
-      "ic": "EP",
-      "deal": "Loco Rewards Monday: Chips and Guacamole for $1 with an $11.99 Order",
-      "desc": "Every Monday, Loco Rewards members (free account required) get regular chips and guacamole for $1 with a purchase of $11.99 or more; the offer drops in the app on Mondays, one per member per week. Listed by The Krazy Coupon Lady on October 2, 2026.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Mondays only",
-      "url": "https://www.elpolloloco.com/promotions",
-      "best": false,
-      "region": "West & Southwest",
-      "est_savings": 3,
-      "isNew": true,
-      "endingSoon": false,
-      "id": "3a3a8809",
-      "expires_on": null,
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Subway",
@@ -190,7 +145,7 @@
       "endingSoon": false,
       "id": "d3828fcf",
       "expires_on": null,
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "Potbelly",
@@ -212,7 +167,7 @@
       "endingSoon": false,
       "best": false,
       "expires_on": "2026-10-25",
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
     },
     {
       "brand": "WaBa Grill",
@@ -234,7 +189,84 @@
       "endingSoon": false,
       "best": false,
       "expires_on": "2026-10-25",
-      "verified_on": "2026-10-19"
+      "verified_on": "2026-10-20"
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#d0342c",
+      "ic": "TF",
+      "deal": "Taco Tuesdaze: 2 Tacos + Chips + Drink for $7.99",
+      "desc": "Every Tuesday at participating locations: two tacos, chips, and a drink for $7.99 in-store, online, or in the app - no third-party delivery, and pricing varies slightly by location.",
+      "tags": [],
+      "value": 4,
+      "expires": "Tuesdays only",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "best": false,
+      "region": "FL & Southeast",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-20",
+      "id": "61998b88"
+    },
+    {
+      "brand": "Dierbergs",
+      "cat": "Sushi",
+      "color": "#00703c",
+      "ic": "D",
+      "deal": "Sushi Tuesday: Select Rolls for $6",
+      "desc": "Every Tuesday, Dierbergs sells select varieties of its hand-rolled Bento sushi for $6 each (regularly $8 to $10). In store, no card or app needed, while supplies last.",
+      "tags": [],
+      "value": 3,
+      "expires": "Tuesdays only",
+      "url": "https://www.dierbergs.com/department/deli-and-prepared-foods",
+      "best": false,
+      "region": "St. Louis area",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-20",
+      "id": "d2343eea"
+    },
+    {
+      "brand": "Island Fin Poke",
+      "cat": "Poke",
+      "color": "#0e8c8c",
+      "ic": "IF",
+      "deal": "Topping Tuesday: Free Premium Topping with Any Bowl",
+      "desc": "Every Tuesday, pick one premium topping (avocado, kimchi, masago, surimi and more, normally an upcharge) free with any poke bowl. Ask at the counter; no app, code or account needed.",
+      "tags": [],
+      "value": 2,
+      "expires": "Tuesdays only",
+      "url": "https://www.islandfinpoke.com/custom-content-1/",
+      "best": false,
+      "region": "FL & Select states",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-20",
+      "id": "f05b45b8"
+    },
+    {
+      "brand": "Saladworks",
+      "cat": "Salads",
+      "color": "#6cbf3e",
+      "ic": "SLW",
+      "deal": "Tuesday Deal: Build-Your-Own Salad or Wrap for $6.99",
+      "desc": "Every Tuesday, a build-your-own base salad or wrap is $6.99 at participating Saladworks locations. Listed by The Krazy Coupon Lady on October 2, 2026; check your location before you go.",
+      "tags": [],
+      "value": 3,
+      "expires": "Tuesdays only",
+      "url": "https://saladworks.com/",
+      "best": false,
+      "region": "Northeast & Mid-Atlantic",
+      "est_savings": 3,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-20",
+      "id": "4cca2e4d"
     }
   ]
 }

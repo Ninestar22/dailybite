@@ -13,7 +13,7 @@
 // Re-submitting 60+ unchanged URLs every morning is the pattern IndexNow's guidelines ask
 // engines to down-weight; a short, accurate list keeps the signal trusted.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync, unlinkSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
@@ -27,12 +27,19 @@ if (args.length) {
   urls = args.map(p => `https://${HOST}${p.startsWith("/") ? p : "/" + p}`);
 } else {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-  const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" }); // YYYY-MM-DD, matches build.mjs
+  // "Recent" = lastmod within the last 2 days (the build can run a day after a merge lands,
+  // and a late or skipped run must not strand a changed page). A one-off full submission:
+  // commit an empty .indexnow-all file; this run submits everything and deletes the marker.
+  const dayMs = 86400000, now = Date.now();
+  const recent = d => now - Date.parse(d + "T12:00:00Z") <= 2 * dayMs;
+  const markerPath = join(root, ".indexnow-all");
+  const forceAll = !!process.env.INDEXNOW_ALL || existsSync(markerPath);
+  if (existsSync(markerPath)) { try { unlinkSync(markerPath); console.log("IndexNow: .indexnow-all marker consumed (full submission)."); } catch {} }
   const all = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)];
-  urls = all.filter(m => process.env.INDEXNOW_ALL || m[2] === today).map(m => m[1]);
-  console.log(`IndexNow: ${all.length} sitemap URLs, ${urls.length} changed today.`);
+  urls = all.filter(m => forceAll || recent(m[2])).map(m => m[1]);
+  console.log(`IndexNow: ${all.length} sitemap URLs, ${urls.length} ${forceAll ? "submitted (all)" : "changed in the last 2 days"}.`);
 }
-if (!urls.length) { console.log("IndexNow: nothing changed today; nothing to submit."); process.exit(0); }
+if (!urls.length) { console.log("IndexNow: nothing changed recently; nothing to submit."); process.exit(0); }
 
 const body = { host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: urls };
 try {
