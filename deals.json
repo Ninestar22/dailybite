@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-20",
-  "updatedAt": "2026-10-20T11:07:01.013Z",
+  "updatedAt": "2026-10-20T16:09:18.811Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -222,6 +222,50 @@
       "expires_on": null,
       "verified_on": "2026-10-20",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Potbelly",
+      "cat": "Sandwiches",
+      "color": "#8a1f2d",
+      "ic": "P",
+      "deal": "$2 Off Orders of $10 or More",
+      "desc": "Announced by email on 2026-10-20: get $2 off any Potbelly order of $10 or more, valid online and in-store for 14 days.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Limited time",
+      "url": "https://www.potbelly.com/menu",
+      "est_savings": 2,
+      "id": "04196438",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-20",
+      "best": false
+    },
+    {
+      "brand": "Honeygrow",
+      "cat": "Bowls",
+      "color": "#f2a900",
+      "ic": "H",
+      "deal": "$5 Off Delivery Orders of $25 or More",
+      "desc": "Announced by email on 2026-10-20: use code SCORE for $5 off a $25+ delivery order of stir-fry or salads placed on the honeygrow app or site.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 25, 2026",
+      "url": "https://order.honeygrow.com/",
+      "region": "Mid-Atlantic & Northeast",
+      "fulfillment": "delivery",
+      "est_savings": 5,
+      "id": "ee5fc56c",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-10-25",
+      "verified_on": "2026-10-20",
+      "best": false
     }
   ]
 }
