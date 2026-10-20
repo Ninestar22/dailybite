@@ -1205,12 +1205,13 @@ function explainerPage(x, deals) {
   const tableBlock = x.table ? `<div class="tblwrap"><table class="tbl"><thead><tr>${x.table.head.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${x.table.rows.map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>${x.table.note ? `<p class="tblnote">${esc(x.table.note)}</p>` : ""}` : "";
   const live = deals.filter(d => canonBrand(d.brand) === canonBrand(x.brand));
   const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": x.faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
-  const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": x.title, "dateModified": iso, "author": { "@type": "Organization", "name": "DailyBite" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
+  const artLd = { "@context": "https://schema.org", "@type": "Article", "headline": x.title, "dateModified": iso, "author": { "@type": "Person", "name": "Jacob Elsayed", "url": SITE + "/about" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE, "logo": { "@type": "ImageObject", "url": SITE + "/icon-512.png" } } };
   const todayNote = x.day != null ? (dowET === x.day ? `<div class="note" style="border-color:var(--accent)">Today is ${WEEKDAYS[x.day]}: this deal is on right now.</div>` : `<div class="note">Next ${WEEKDAYS[x.day]} is the next time this deal runs. The daily list shows it on the day.</div>`) : "";
   const liveBlock = live.length ? `<h2 style="font-size:19px;margin:26px 2px 8px">Verified ${esc(x.brand)} deals live today</h2><div class="grid">${groupCards(live)}</div>` : "";
   return pageHead(x.title, x.desc, x.slug, [faqLd, artLd], x.table ? EXPLAINER_TBL_CSS : "") + `
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(x.h1)}</h1>
+  <p class="tag" style="margin:0 2px 6px;font-size:12.5px">By <a href="/about" style="color:var(--accent2);text-decoration:none">Jacob Elsayed</a>, re-verified against official sources each morning</p>
   <p class="answer">${x.answer}</p>
   <div class="facts">${x.facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
   ${tableBlock}
