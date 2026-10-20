@@ -1,4 +1,4 @@
-> **Status (2026-09-15): automated posting is OFF.** The owner posts by hand as needed, so the daily workflow no longer generates or posts a social image and no Pinterest/Instagram secrets are needed. `npm run social:image` still renders a shareable image on demand; `npm run social:post` only works if you set the tokens below yourself.
+> **Status (2026-09-26): daily Pinterest posting is ON; Instagram stays manual.** Every successful morning refresh renders `social/pin.png` and pins it to your board with the Pinterest secrets below. Nothing posts until those secrets exist in the repo (the step logs "credentials not configured" and moves on). The script checks the board first and never pins the same day twice, so retry slots and manual runs are safe. Instagram is not part of the daily run (`npm run social:post -- --pinterest-only`); `npm run social:image` still renders both images for hand posting.
 
 # DailyBite: automatic daily Pinterest + Instagram posts
 
@@ -10,7 +10,26 @@ secrets (GitHub repo → Settings → Secrets and variables → Actions → New 
 secret). Each platform activates independently: add Pinterest's secrets and only
 Pinterest posts; the other is skipped with a log line.
 
-## Pinterest setup (about 15 minutes)
+## What gets pinned each day (2026-09-26 redesign)
+
+`npm run social:image` renders a **pin set**: up to four one-deal pins (Top Picks first;
+light background, brand accent, 2-3 huge lines, "Verified <date>" badge), each linking to
+that chain's page on the site, plus one **evergreen** pin for an explainer page chosen by
+weekday (sushi-day pages pin Monday to Wednesday and Thursday to Friday, the protein-per-dollar
+index and the weekly cheat sheet on weekends). `npm run social:post -- --pinterest-only`
+creates them 25 seconds apart, capped at six a day, and skips any title already on the board.
+
+**Boards.** Everything goes to `PINTEREST_BOARD_ID` unless you add an optional
+`PINTEREST_BOARDS` secret: a JSON map from deal category (as it appears in deals.json, e.g.
+`Sushi`, `Smoothies`, `Bowls`, `Salads`, `Mexican`) or the word `evergreen` to a board id.
+Pinterest ranks board names, so keyword-named theme boards ("Grocery Sushi Deals", "Healthy
+Fast Food Deals", "Free Food Today", "Weekly Deal Cheat Sheets") beat one catch-all board.
+
+**Claim the domain.** In Pinterest Settings > Claimed accounts, claim dailybitedeals.com with
+the HTML-tag method and paste the value into `PINTEREST_DOMAIN_VERIFY` in `scripts/build.mjs`.
+Every pin then shows the site name and Rich Pins pull the page title and description.
+
+## Pinterest setup (about 15 minutes; this is all you need for the daily pin)
 
 1. Go to https://developers.pinterest.com → create an app (Trial access is enough
    to post to your own account; request Standard access later for higher limits).

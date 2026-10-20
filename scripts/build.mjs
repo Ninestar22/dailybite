@@ -4,10 +4,11 @@
 //   2. Generates a static, crawlable page per chain (<slug>.html, served at /<slug>)
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
+import { EXTRA_EXPLAINERS } from "./explainers-extra.mjs";
 import { loadMeals, mealRow, money } from "./meals.mjs";
 import { EVERGREEN as INJECTED_DEALS } from "./injected-deals.mjs";
 import { fileURLToPath } from "node:url";
@@ -138,6 +139,24 @@ const dowET = WEEKDAYS.indexOf(nowDate.toLocaleDateString("en-US", { weekday: "l
 // updated today: the daily-true signal competitors fake.
 const freshLdFor = t => `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", "name": t, "dateModified": iso, "isPartOf": { "@type": "WebSite", "name": "DailyBite", "url": SITE } })}</script>`;
 
+// Shared head tags every generated page carries (added 2026-09-26): RSS autodiscovery so
+// feed readers and aggregators find the daily feed from any page, and og:site_name so
+// social previews name the site.
+// Pinterest domain claim (enables Rich Pins and site attribution on every pin): paste the
+// value Pinterest gives you under Settings > Claimed accounts into PINTEREST_DOMAIN_VERIFY.
+const PINTEREST_DOMAIN_VERIFY = "";
+const HEAD_COMMON = `<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
+<meta property="og:site_name" content="DailyBite">${PINTEREST_DOMAIN_VERIFY ? `\n<meta name="p:domain_verify" content="${PINTEREST_DOMAIN_VERIFY}">` : ""}`;
+// BreadcrumbList schema (Home > page) gives Google a two-level path to show under the
+// title in results instead of the raw URL, and clarifies site structure for crawlers.
+const crumbLd = (name, path) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "DailyBite", "item": SITE + "/" },
+  { "@type": "ListItem", "position": 2, "name": name, "item": `${SITE}/${path}` }] });
+// Per-page share card (scripts/og-images.mjs renders og/<slug>.png after each build; falls
+// back to the generic card until a page's card exists).
+const ogImage = slug => existsSync(join(root, "og", `${slug}.png`)) ? `${SITE}/og/${slug}.png` : `${SITE}/og.png`;
+const OG_IMG = slug => `<meta property="og:image" content="${ogImage(slug)}">`;
+const crumbScript = (name, path) => `<script type="application/ld+json">${JSON.stringify(crumbLd(name, path))}</script>`;
 function chainNav(current) {
   // Navigation lists only chains the daily refresh actually covers: linking banned
   // chains next to the healthy roster undercut the site's identity (Jacob, 2026-08-26).
@@ -235,12 +254,12 @@ function offerHTML(d) {
   const tags = (d.tags || []).map(t =>
     `<span class="pill ${t === "free" ? "free" : "app"}">${t === "free" ? "FREE" : "APP ONLY"}</span>`).join("");
   return `<div class="offer">
-    <div class="deal">${esc(d.deal)}</div>
+    <h3 class="deal">${esc(d.deal)}</h3>
     <div class="desc">${esc(d.desc)}</div>
     <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${tags}${d.via ? `<span class="pill via">VIA ${esc(String(d.via).toUpperCase())}</span>` : ""}${d.fulfillment ? `<span class="pill ful">${esc(String(d.fulfillment).toUpperCase())}</span>` : ""}${Number.isFinite(d.est_savings) && d.est_savings > 0 ? `<span class="pill save" title="Estimated savings vs regular price">SAVE ~$${d.est_savings % 1 ? d.est_savings.toFixed(2) : d.est_savings}</span>` : ""}</div>
     <div class="foot">
       <span class="expires">${esc(d.expires)}</span>
-      <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener">Get deal &rarr;</a>
+      <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener" data-goatcounter-click="deal/${esc(norm(d.brand))}" data-goatcounter-title="${esc(d.brand)}: ${esc(d.deal)}">Get deal &rarr;</a>
     </div>
   </div>`;
 }
@@ -251,7 +270,7 @@ function brandCard(ds) {
   ${best ? `<div class="best-badge">TOP PICK</div>` : ""}
   <div class="brandrow">
     <div class="brand-ic" style="background:${esc(d.color)}"><span>${esc(d.ic)}</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=${brandDomain(d.brand)}&amp;sz=128" alt="${esc(d.brand)} logo" loading="lazy" onerror="this.remove()"></div>
-    <div class="brandtxt"><div class="brand-name">${esc(d.brand)}</div><div class="brand-cat">${cats}${ds.length > 1 ? ` &middot; ${ds.length} deals` : ""}${latePill(d) ? " " + latePill(d) : ""}</div></div>
+    <div class="brandtxt"><h2 class="brand-name">${esc(d.brand)}</h2><div class="brand-cat">${cats}${ds.length > 1 ? ` &middot; ${ds.length} deals` : ""}${latePill(d) ? " " + latePill(d) : ""}</div></div>
     <a class="near" href="https://www.google.com/maps/search/${encodeURIComponent(d.brand)}+near+me" target="_blank" rel="noopener">Nearest</a>${instacartLink(d.brand)}
   </div>
   <div class="offers">
@@ -262,7 +281,7 @@ ${ds.map(offerHTML).join("\n")}
 const groupCards = list => groupByBrand(list).map(brandCard).join("\n");
 function dealCard(d) { return brandCard([d]); }
 
-const CHAIN_CSS = `:root{--bg:#0e1310;--card:#161f19;--card2:#1d2a21;--ink:#f2f7f3;--muted:#9ab3a3;--line:#27352c;--accent:#31c96e;--accent2:#ffd166;--good:#4cd9a1;--chip:#1f2b23;--blue:#63d3c1;--controlsbg:rgba(14,19,16,.92)}:root[data-theme="light"]{--bg:#f2f6f2;--card:#ffffff;--card2:#eaf1ea;--ink:#18211b;--muted:#54655a;--line:#d9e3da;--accent:#1f9e54;--accent2:#b9830a;--good:#178f52;--chip:#e6efe7;--blue:#0e7f74;--controlsbg:rgba(242,246,242,.92)}:root[data-theme="light"] body{background:radial-gradient(70% 40% at -10% 40%,rgba(31,158,84,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(185,131,10,.05),transparent 60%),linear-gradient(180deg,#eaf2ea,var(--bg) 600px)}.themetog{position:fixed;top:14px;right:14px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;cursor:pointer;line-height:1}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(70% 40% at -10% 40%,rgba(76,217,161,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(255,209,102,.05),transparent 60%),linear-gradient(180deg,#0b110d,var(--bg) 600px);color:var(--ink)}header{padding:28px 20px 18px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(49,201,110,.16),transparent 60%)}.logo{font-family:"Poppins",-apple-system,"Segoe UI",Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-.3px}.logo a{display:inline-flex;align-items:center;gap:7px}.logo img{width:36px;height:36px}.logo a{color:var(--ink);text-decoration:none}.logo span{color:var(--accent)}.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}h1{font-size:24px;margin:18px 2px 6px}.tag{color:var(--muted);font-size:14px;margin:0 2px 14px}.date{display:inline-block;background:var(--chip);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}.grid{columns:2;column-gap:14px;margin-top:10px}.grid>.card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 14px;width:100%}.grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}.brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}.best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px}.brandrow{display:flex;align-items:center;gap:10px}.brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}.brand-name{font-weight:700;font-size:15px}.brand-cat{color:var(--muted);font-size:12px}.deal{font-size:16px;font-weight:700;line-height:1.3}.desc{color:var(--muted);font-size:13px;line-height:1.45}.metarow{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}.pill.free{background:rgba(46,193,107,.15);color:var(--good)}.pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}.pill.save{background:rgba(255,209,102,.14);color:var(--accent2);border:1px solid rgba(255,209,102,.35)}.pill.via{background:rgba(99,211,193,.15);color:var(--blue)}.pill.ful{background:var(--card2);color:var(--muted)}.pill.region{background:rgba(99,211,193,.15);color:var(--blue)}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.expires{font-size:12px;color:var(--muted)}.cta{background:var(--accent);color:#0a140d;text-decoration:none;font-size:13px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap}.near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}.empty{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--muted);line-height:1.5}.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;color:var(--muted);font-size:13px;line-height:1.6}.chains{margin-top:22px;font-size:13px;color:var(--muted);line-height:2}.chains a{color:var(--accent2);text-decoration:none}footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}footer a{color:var(--accent2)}.brand-ic{position:relative;overflow:hidden}.brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}.pill.codechip{background:rgba(49,201,110,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit}.pill.late{background:rgba(99,211,193,.15);color:var(--blue)}.promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}.promo h3{margin:0 0 4px;font-size:16px}.promo p{margin:0 0 12px;color:var(--muted);font-size:13px}.aff-row{display:flex;flex-wrap:wrap;gap:10px}.aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:11px}.aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}`;
+const CHAIN_CSS = `:root{--bg:#0e1310;--card:#161f19;--card2:#1d2a21;--ink:#f2f7f3;--muted:#9ab3a3;--line:#27352c;--accent:#31c96e;--accent2:#ffd166;--good:#4cd9a1;--chip:#1f2b23;--blue:#63d3c1;--controlsbg:rgba(14,19,16,.92)}:root[data-theme="light"]{--bg:#f2f6f2;--card:#ffffff;--card2:#eaf1ea;--ink:#18211b;--muted:#54655a;--line:#d9e3da;--accent:#1f9e54;--accent2:#b9830a;--good:#178f52;--chip:#e6efe7;--blue:#0e7f74;--controlsbg:rgba(242,246,242,.92)}:root[data-theme="light"] body{background:radial-gradient(70% 40% at -10% 40%,rgba(31,158,84,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(185,131,10,.05),transparent 60%),linear-gradient(180deg,#eaf2ea,var(--bg) 600px)}.themetog{position:fixed;top:14px;right:14px;z-index:60;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:16px;cursor:pointer;line-height:1}*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(70% 40% at -10% 40%,rgba(76,217,161,.05),transparent 60%),radial-gradient(80% 50% at 110% 105%,rgba(255,209,102,.05),transparent 60%),linear-gradient(180deg,#0b110d,var(--bg) 600px);color:var(--ink)}header{padding:28px 20px 18px;text-align:center;background:radial-gradient(120% 100% at 50% 0%,rgba(49,201,110,.16),transparent 60%)}.logo{font-family:"Poppins",-apple-system,"Segoe UI",Arial,sans-serif;font-size:26px;font-weight:700;letter-spacing:-.3px}.logo a{display:inline-flex;align-items:center;gap:7px}.logo img{width:36px;height:36px}.logo a{color:var(--ink);text-decoration:none}.logo span{color:var(--accent)}.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}h1{font-size:24px;margin:18px 2px 6px}.tag{color:var(--muted);font-size:14px;margin:0 2px 14px}.date{display:inline-block;background:var(--chip);padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:10px}.grid{columns:2;column-gap:14px;margin-top:10px}.grid>.card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin:0 0 14px;width:100%}.grid.single,.grid:has(>.card:only-child){columns:1}@media(max-width:640px){.grid{columns:1}}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}.brandtxt{min-width:0;flex:1}.brandrow .near{margin-left:auto;flex:0 0 auto}.brand-cat .pill{margin-left:4px;vertical-align:middle}.offers{display:flex;flex-direction:column;gap:10px;flex:1}.offer{display:flex;flex-direction:column;gap:8px}.offer+.offer{border-top:1px solid var(--line);padding-top:12px}.offer .foot{margin-top:2px}.card.best{border-color:var(--accent2)}.best-badge{position:absolute;top:0;right:0;background:var(--accent2);color:#1a1200;font-size:11px;font-weight:800;padding:4px 10px;border-bottom-left-radius:10px}.brandrow{display:flex;align-items:center;gap:10px}.brand-ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;flex:0 0 auto}.brand-name{font-weight:700;font-size:15px;margin:0}.brand-cat{color:var(--muted);font-size:12px}.deal{font-size:16px;font-weight:700;line-height:1.3;margin:0}.desc{color:var(--muted);font-size:13px;line-height:1.45}.metarow{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--card2);color:var(--muted)}.pill.free{background:rgba(46,193,107,.15);color:var(--good)}.pill.app{background:rgba(255,209,102,.14);color:var(--accent2)}.pill.save{background:rgba(255,209,102,.14);color:var(--accent2);border:1px solid rgba(255,209,102,.35)}.pill.via{background:rgba(99,211,193,.15);color:var(--blue)}.pill.ful{background:var(--card2);color:var(--muted)}.pill.region{background:rgba(99,211,193,.15);color:var(--blue)}.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}.expires{font-size:12px;color:var(--muted)}.cta{background:var(--accent);color:#0a140d;text-decoration:none;font-size:13px;font-weight:700;padding:8px 12px;border-radius:9px;white-space:nowrap}.near{color:var(--blue);text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}.empty{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;color:var(--muted);line-height:1.5}.note{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:16px;color:var(--muted);font-size:13px;line-height:1.6}.chains{margin-top:22px;font-size:13px;color:var(--muted);line-height:2}.chains a{color:var(--accent2);text-decoration:none}footer{max-width:920px;margin:0 auto;padding:24px 16px 50px;color:var(--muted);font-size:12px;line-height:1.6}footer a{color:var(--accent2)}.brand-ic{position:relative;overflow:hidden}.brand-ic .brand-logo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;background:#fff;box-shadow:inset 0 0 0 1px var(--line)}.pill.codechip{background:rgba(49,201,110,.14);color:var(--accent);border:1px dashed var(--accent);cursor:pointer;font-family:inherit}.pill.late{background:rgba(99,211,193,.15);color:var(--blue)}.promo{background:linear-gradient(135deg,#20242d,#191c23);border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:20px}.promo h3{margin:0 0 4px;font-size:16px}.promo p{margin:0 0 12px;color:var(--muted);font-size:13px}.aff-row{display:flex;flex-wrap:wrap;gap:10px}.aff-btn{flex:1;min-width:120px;text-align:center;text-decoration:none;color:#fff;font-weight:700;font-size:14px;padding:12px;border-radius:11px}.aff-dd{background:#ff3008}.aff-ue{background:#06c167}.aff-ic{background:#43b02a}`;
 
 // Evergreen layers (growth plan, 2026-08-28): the top healthy chain pages carry
 // standing content: how the chain's deals actually work, the typical deal cadence, and
@@ -330,7 +349,6 @@ function redirectPage(chain, target = SITE + "/") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="refresh" content="0; url=${target}">
-  <link rel="canonical" href="${target.split("#")[0]}">
   <meta name="robots" content="noindex, follow">
   <title>${esc(title)}</title>
   <script>location.replace("${target}");</script>
@@ -395,20 +413,22 @@ ${alternatives}`;
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/${chain.slug}">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/${chain.slug}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG(chain.slug)}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
+${list.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
 ${faqLd}${freshLd}
+${crumbScript(`${chain.name} Deals`, chain.slug)}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -424,7 +444,7 @@ ${faqLd}${freshLd}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a>${relatedNav(chain.slug)}</nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -491,20 +511,22 @@ function sushiPage(deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/sushi-deals">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/sushi-deals">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG("sushi-deals")}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 ${freshLdFor(title)}
+${crumbScript("Sushi Deals", "sushi-deals")}
 <style>${CHAIN_CSS}
 .tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -525,7 +547,7 @@ ${tableRows}
   <nav class="chains"><strong>More:</strong> <a href="/food-deals-by-day">Deals by day of the week</a></nav>
   ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -549,20 +571,21 @@ function freeFoodPage(deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/free-food-today">
-<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/free-food-today">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG("free-food-today")}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${freshLdFor(title)}
+${crumbScript("Free Food Today", "free-food-today")}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -577,7 +600,7 @@ ${freshLdFor(title)}
   ${sec2}
     <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -601,10 +624,11 @@ function rssFeed(deals) {
     <description>${esc(d.desc)}${d.region && d.region !== "National" ? " (" + esc(d.region) + " only)" : ""} (${esc(d.expires)})</description>
   </item>`).join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>DailyBite: Daily Healthy Food Deals</title>
   <link>${SITE}</link>
+  <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>
   <description>The best verified healthy food deals, updated every morning.</description>
   <language>en-us</language>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
@@ -633,13 +657,19 @@ function verificationLogPage(entries) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/verification-log">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${SITE}/verification-log">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<meta name="twitter:card" content="summary_large_image">
+${OG_IMG("verification-log")}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta name="theme-color" content="#f2f6f2">
 ${freshLdFor(title)}
+${crumbScript("Verification Log", "verification-log")}
 <style>${CHAIN_CSS}
 .tblwrap{overflow-x:auto;margin-top:14px}.tbl{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left}.tbl th{background:var(--card2);color:var(--ink)}.tbl td{color:var(--muted)}.tbl td:first-child{color:var(--accent2);font-weight:700;white-space:nowrap}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -656,7 +686,7 @@ ${rows}
   <div class="note">How to read this: "deals verified" is the count that passed every check that morning (stated dollars, active today, approved healthier chains only). The count varies day to day because we only list what's verifiably true: a smaller honest list over a padded one, every time.</div>
   <nav class="chains"><strong>More:</strong> <a href="/">Today&#39;s deals</a> &middot; <a href="/sushi-deals">Sushi Deals</a> &middot; <a href="/free-food-today">Free Food Today</a> &middot; <a href="/about">About</a></nav>
 </div>
-<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -667,8 +697,21 @@ const HOLIDAYS = [
   // National Coffee Day removed 2026-09-24 (owner): coffee-chain promos are mostly sugary drinks and off-brand here. /national-coffee-day-deals now redirects home.
   { slug: "national-taco-day-deals", name: "National Taco Day", date: "2026-10-06", emoji: "", kw: /taco/i,
     blurb: "National Taco Day now lands on the first Tuesday of October: expect taco specials across chains, and Tijuana Flats' Taco Tuesdaze stacks right on top of it." },
+  // Added 2026-09-26 (traffic: each of these has a yearly search spike and fits the healthy-only roster).
+  { slug: "world-vegetarian-day-deals", name: "World Vegetarian Day", date: "2026-10-01", emoji: "", kw: /vegetarian|vegan|plant[- ]based|veggie|tofu|sofritas|meatless/i,
+    blurb: "October 1 is World Vegetarian Day and the start of Vegetarian Awareness Month: bowl and salad chains such as Sweetgreen, CAVA, Just Salad and Chipotle (Sofritas) are where plant-based specials tend to show up, alongside grocery hot bars and salad counters." },
+  { slug: "national-pasta-day-deals", name: "National Pasta Day", date: "2026-10-17", emoji: "", kw: /pasta|noodle|penne|spaghetti|fettuccine|mac and cheese|macaroni/i,
+    blurb: "October 17 is National Pasta Day: Noodles & Company is the chain to watch for a rewards offer or limited-time bowl, and grocery hot bars and prepared-food counters often discount pasta trays and bowls for the day." },
+  { slug: "chipotle-boorito-halloween-deals", name: "Halloween (Chipotle Boorito)", date: "2026-10-31", emoji: "", kw: /boorito|halloween|costume/i,
+    blurb: "Halloween is Chipotle Boorito day. Chipotle confirmed on September 28, 2026 that Boorito returns on Halloween with an in-restaurant entree offer, with details to be announced later in October; the 2026 price, hours and Rewards terms are not yet announced. Last year (October 31, 2025), Chipotle Rewards members (free to join) in costume who scanned at checkout from 3 p.m. to close got a $6 entree, in restaurant only, one per guest. Verified 2026 terms appear here the day Chipotle posts them." },
   { slug: "national-sandwich-day-deals", name: "National Sandwich Day", date: "2026-11-03", emoji: "", kw: /sandwich|\bsub\b|footlong|hoagie/i,
     blurb: "November 3 brings sandwich deals from Subway, Potbelly, Panera and more: BOGOs and promo codes are the usual pattern." },
+  { slug: "veterans-day-free-meals", name: "Veterans Day", date: "2026-11-11", emoji: "", kw: /veteran|military|armed forces|service member|active[- ]duty/i,
+    blurb: "On November 11, chains thank veterans and active-duty service members with free or discounted meals, usually with a military ID: Chipotle's buy-one-get-one for military has run every year for a decade, Starbucks pours a free tall brewed coffee for veterans, service members and military spouses, and fast-casual and grocery chains add their own offers. Deals below are for the eligible guest and are verified as they are announced." },
+  { slug: "black-friday-cyber-monday-food-deals", name: "Black Friday & Cyber Monday", date: "2026-11-27", emoji: "", kw: /black friday|cyber monday|cyber week|gift card|bonus card/i,
+    blurb: "Black Friday through Cyber Monday is when healthy chains run app promo codes and gift-card bonuses: in past years Chipotle posted a Cyber Monday delivery code and Panera and Subway ran bonus-card offers on gift-card purchases. Only announced, verified offers are listed here." },
+  { slug: "el-pollo-loco-12-days-of-deals", name: "El Pollo Loco 12 Days of Deals", date: "2026-12-01", emoji: "", kw: /12 days|twelve days|el pollo loco/i,
+    blurb: "El Pollo Loco has opened December with a 12 Days of Deals run for Loco Rewards members (free to join) in recent years: a different fire-grilled chicken offer each day in the app. Each day's verified offer appears here when it goes live." },
   { slug: "international-sushi-day-deals", name: "International Sushi Day", date: "2027-06-18", emoji: "", kw: /sushi|poke|\broll\b/i,
     blurb: "June 18 is sushi's big day: look for roll specials at sushi chains and grocery sushi counters, on top of the weekly $5 sushi days." },
   { slug: "national-smoothie-day-deals", name: "National Smoothie Day", date: "2027-06-21", emoji: "", kw: /smoothie/i,
@@ -698,16 +741,27 @@ function holidayPage(h, deals) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="https://dailybitedeals.com/${h.slug}">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+${HEAD_COMMON}
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
-<script type="application/ld+json">${JSON.stringify(ld)}</script>
+<meta property="og:type" content="article">
+<meta property="og:url" content="${SITE}/${h.slug}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#f2f6f2">
+${OG_IMG(h.slug)}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+${matched.length ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
+${freshLdFor(title)}
+${crumbScript(h.name + " Deals", h.slug)}
 <style>${CHAIN_CSS}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light",m=document.querySelector("meta[name=theme-color]");try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}if(m)m.content=l?"#0e1310":"#f2f6f2"};</script>
-<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo"><b>Daily<span>Bite</span></b></a></div></header>
+<header><div class="logo"><a href="/"><img src="/logo.svg" alt="DailyBite logo" width="36" height="36"><b>Daily<span>Bite</span></b></a></div></header>
 <div class="wrap">
 <span class="date">Updated ${prettyDate}</span>
 <h1>${esc(h.name)} Deals: ${esc(pretty)}</h1>
@@ -718,7 +772,7 @@ ${matchedBlock}
 <div class="note">Bookmark this page: it re-checks and updates every morning through ${esc(pretty)}. For everything else, see <a style="color:var(--accent2)" href="/">all of today&#39;s deals</a>.</div>
 <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/free-food-today">Free Food Today</a></nav>
 </div>
-<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 }
@@ -767,20 +821,22 @@ function pageHead(title, desc, path, ld, extraCss = "") {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}/${path}">
+${HEAD_COMMON}
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:type" content="article">
 <meta property="og:url" content="${SITE}/${path}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" href="/favicon.png"><link rel="preconnect" href="https://www.google.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap"></noscript><script>(function(){try{if(localStorage.getItem("db_theme")==="dark")document.documentElement.removeAttribute("data-theme")}catch(e){}})()</script>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f2f6f2">
-<meta property="og:image" content="https://dailybitedeals.com/og.png">
+${OG_IMG(path)}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join("\n")}
 ${freshLdFor(title)}
+${crumbScript(String(title).split(":")[0].trim(), path)}
 <style>${CHAIN_CSS}
 .facts{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.5}.facts b{color:var(--accent2)}.facts span{color:var(--ink)}@media(max-width:520px){.facts{grid-template-columns:1fr;gap:4px}}
 .faq{margin-top:10px}.faq h3{font-size:15px;margin:16px 2px 4px}.faq p{color:var(--muted);font-size:14px;line-height:1.55;margin:0 2px}.answer{font-size:16px;line-height:1.55;color:var(--ink);margin:12px 2px}
@@ -792,7 +848,7 @@ ${freshLdFor(title)}
 <div class="wrap">`;
 }
 const PAGE_FOOT = `</div>
-<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
+<footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
 </html>`;
 
@@ -957,10 +1013,10 @@ const EXPLAINERS = [
     h1: "Whole Foods Sushi Friday",
     desc: "Whole Foods' Friday sushi deal is buy one, get one 50% off packaged rolls, in store, for Amazon Prime members only. What it covers, what it excludes, and the grocery sushi days that need no paid membership.",
     answer: "On Fridays, Whole Foods Market runs <strong>buy one, get one 50% off packaged sushi rolls</strong>, in store only, and <strong>only for Amazon Prime members</strong>. It is a discount on a pair of rolls, not a fixed $5 price, and Prime is a paid membership. DailyBite does not list paid-membership perks as deals, so this page explains the offer and points to the sushi days anyone can use.",
-    facts: [["Day", "Fridays, as part of Whole Foods' weekly Prime deals"], ["Offer", "Buy one packaged sushi roll, get one 50% off (the discount applies to the lower-priced roll)"], ["Who", "Amazon Prime members only, identified at checkout"], ["Excludes", "Made-to-order rolls, sashimi, nigiri, combos, catering trays, spring rolls and in-store restaurants"], ["Where", "U.S. stores, in store only; not Hawaii; varies by store"], ["Checked", "October 2, 2026, on wholefoodsmarket.com (the current offer window is listed through October 6, 2026)"]],
+    facts: [["Day", "Fridays, as part of Whole Foods' weekly Prime deals"], ["Offer", "Buy one packaged sushi roll, get one 50% off (the discount applies to the lower-priced roll)"], ["Who", "Amazon Prime members only, identified at checkout"], ["Excludes", "Salad rolls, Made-to-order rolls, sashimi, nigiri, combos, catering trays, spring rolls and in-store restaurants"], ["Where", "U.S. stores, in store only; not Hawaii; varies by store"], ["Checked", "October 2, 2026, on wholefoodsmarket.com (the current offer window is listed through March 30, 2027)"]],
     faq: [["Is Whole Foods sushi $5 on Fridays?", "No. The Friday offer is buy one, get one 50% off packaged rolls for Prime members. Two rolls at $10 each would cost $15, or $7.50 apiece."],
       ["Do I need Amazon Prime?", "Yes. The offer is for Prime members only, and you identify yourself at checkout with the app code. Without Prime, the rolls are regular price."],
-      ["Is the deal permanent?", "Whole Foods lists it for a dated window and has renewed it before. The window shown on October 2, 2026 runs through October 6, 2026, so check the Whole Foods deals page for the current dates."],
+      ["Is the deal permanent?", "Whole Foods lists it for a dated window and has renewed it before. The window posted on October 19, 2026 runs October 7, 2026 through March 30, 2027 (the previous one ended October 6, 2026), so check the Whole Foods Days of Deals page for the current dates."],
       ["Where can I get cheap sushi without a paid membership?", "Publix and Hannaford sell select rolls for $5 on Wednesdays with no membership. Sprouts and Kroger-family stores charge $6 on Wednesdays, and Dierbergs $6 on Tuesdays. Wegmans sells a California roll for $5 every day at its Reston, Virginia store."],
       ["Why doesn't DailyBite list this as a deal?", "Because it requires a paid membership. The daily list only includes offers anyone can claim, at most with a free account."]],
     more: `<p>If you already have Prime, the Friday offer is worth using on two higher-priced rolls, since the discount comes off the cheaper one. If you do not, the no-membership sushi days are the better value: see <a href="/publix-5-sushi-wednesday" style="color:var(--accent2)">Publix</a>, <a href="/sprouts-sushi-wednesday" style="color:var(--accent2)">Sprouts</a>, <a href="/hannaford-sushi-wednesday" style="color:var(--accent2)">Hannaford</a> and <a href="/kroger-sushi-wednesday" style="color:var(--accent2)">Kroger</a> on Wednesdays, or the full <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>.</p>` },
@@ -1059,6 +1115,7 @@ const EXPLAINERS = [
       ["Why isn't Sarku Japan's price listed?", "Sarku prices by location and its ordering app requires a login, so no price could be read from an official page. DailyBite does not publish prices from delivery apps or third-party menu sites. If you see the price at a counter, send it in and it will be added with the date and location."]],
     more: `<p>The pattern across every chain here is the same: the cheap, healthy item is the plain one. Kake udon, the vegetable bowl, the onigiri, the California roll. Add protein and the price climbs toward $10; add fried toppings and the nutrition falls apart. For a Japanese-style meal that is cheap everywhere, the frozen <a href="/cheap-healthy-meals" style="color:var(--accent2)">Trader Joe's teriyaki bowl</a> and the weekly <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days</a> are the two that work in every state. This page will grow as prices verify: Maruichi in Rockville, Mitsuwa, Nijiya, Tokyo Central and H Mart's prepared-food counters are next.</p>` },
 ];
+EXPLAINERS.push(...EXTRA_EXPLAINERS);
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
 // Deals report (2026-10-02): a dated, citable snapshot built from report-data.json, which
@@ -1242,6 +1299,117 @@ function mealsPage(meals, updated) {
 }
 
 
+// ---------------------------------------------------------------------------
+// /app and /press (marketing pass, 2026-10-19). /app replaces the old App Store redirect
+// with a conversion page; /press gives journalists facts, data links and images without a
+// form. Numbers are computed at build time from verify-log.json, CHAINS and the meal index,
+// never typed in. Copy: marketing/site-pages-copy.md.
+// ---------------------------------------------------------------------------
+const APP_URL = "https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518";
+const APP_CTA = `<div class="appcta"><div class="appcta-top">Free on the App Store.</div><a class="appbadge" href="${APP_URL}" target="_blank" rel="noopener" aria-label="Download DailyBite on the App Store" data-goatcounter-click="app/install" data-goatcounter-title="App Store badge on /app">&#63743; Download on the App Store</a><div class="appcta-sub">No account. No ads. The same list as this site, sorted by distance.</div></div>`;
+const APP_CSS = `.appcta{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 16px;margin:18px 0}.appcta-top{font-weight:800;font-size:17px;margin-bottom:10px}.appbadge{display:inline-block;background:#000;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:12px 22px;border-radius:12px}.appbadge:hover{opacity:.9}.appcta-sub{color:var(--muted);font-size:13px;margin-top:10px}.feat{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}.feat div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14px;line-height:1.5;color:var(--muted)}.feat b{display:block;color:var(--ink);margin-bottom:4px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.steps div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.5;color:var(--muted)}.steps b{display:block;color:var(--accent);font-size:13px;margin-bottom:4px}.steps span{display:block;color:var(--ink);font-weight:700;margin-bottom:4px}@media(max-width:640px){.feat,.steps{grid-template-columns:1fr}}.prose a{color:var(--accent2)}.prose ul{color:var(--muted);font-size:14px;line-height:1.6;padding-left:20px}`;
+
+function appPage(approvedCount, bannedCount) {
+  const title = "DailyBite iPhone App: Verified Healthy Food Deals Near You";
+  const desc = "Free iPhone app with today's verified healthy food deals, sorted by distance, with open-now status and one-tap ordering. No account. Same list as the site.";
+  const faq = [
+    ["Is the DailyBite app free?", "Yes. The app is free on the App Store, has no ads and no paid tier, and never charges for a deal. DailyBite earns a commission only from clearly marked partner links on the website, and those never affect which deals are listed."],
+    ["Do I need an account?", "No. Open the app and today's deals are there. There is no sign-up, no email address and no password. Deals that require a paid membership, a first-order promo or a targeted offer are excluded, so everything in the list is claimable by anyone."],
+    ["Is it the same list as the website?", "Yes, exactly. The app reads the feed that builds dailybitedeals.com each morning, so the deals, prices and expiry dates match. The app adds distance, open-or-closed status and one-tap ordering."],
+    ["Why does it ask for my location?", "To sort deals by how far away they are and to tell you whether the nearest location is open right now. Location is only used for that sorting."],
+    ["Is there an Android version?", "Not yet. The website shows the same verified list in any browser, and you can filter it by city or ZIP. If an Android app ships, it will be announced on the homepage."],
+    ["Which chains are in the app?", `${approvedCount} healthier chains and grocery counters: fast-casual bowls and salads such as Chipotle, Sweetgreen, CAVA and Panera, smoothie and juice chains, sushi and poke, Mediterranean and grilled chicken, and grocery prepared-food counters such as Publix, Kroger, Safeway and Harris Teeter. Burger, wing, pizza and dessert chains are excluded by name, and that list is public on the About page.`],
+  ];
+  const faqLd = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } })) };
+  const appLd = { "@context": "https://schema.org", "@type": "SoftwareApplication", "name": "DailyBite: Healthy Food Deals", "operatingSystem": "iOS", "applicationCategory": "FoodApplication", "url": APP_URL, "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }, "publisher": { "@type": "Organization", "name": "DailyBite", "url": SITE } };
+  return pageHead(title, desc, "app", [faqLd, appLd], APP_CSS) + `
+  <div class="date">Free iPhone app</div>
+  <h1>Today's verified healthy deals, sorted by how far you are from them</h1>
+  <p class="answer">DailyBite for iPhone shows the same list of healthy food deals the website re-verifies every morning, then adds what a website can't: how far each deal is from where you're standing, whether that location is open right now, and a button that opens the deal in the chain's own app so you can order in one tap. It's free, there's no account, and it never lists burger, wing, pizza or dessert chains.</p>
+  ${APP_CTA}
+  <div class="facts"><b>Price</b><span>Free. No ads, no account.</span><b>Platform</b><span>iPhone, on the App Store</span><b>What it shows</b><span>The same verified deal list as dailybitedeals.com, refreshed every morning at about 7 AM Eastern</span><b>Added in the app</b><span>Distance to each deal, open or closed right now, one-tap ordering in the chain's own app</span><b>What it never lists</b><span>Burger, wing, pizza and dessert chains; paid-membership perks; first-order-only promos; targeted app offers not everyone can claim</span><b>Your location</b><span>Used to sort deals by distance and show open-now status</span></div>
+  <div class="prose">
+  <h2>What the app does that the website can't</h2>
+  <div class="feat">
+    <div><b>Distance to every deal.</b>Deals sort by how far they are from you, so the first card is the one you can get to before lunch ends.</div>
+    <div><b>Open or closed, right now.</b>Each location shows whether it's open at this moment, so you never drive to a sushi counter that closed at 8.</div>
+    <div><b>One tap to order.</b>Every deal opens in the chain's own app or site, where the deal actually lives, with no middleman and no markup.</div>
+    <div><b>The exact list the website publishes.</b>The app reads the same feed that builds dailybitedeals.com, so the deal you saw at breakfast is the deal in your pocket, verified the same morning.</div>
+    <div><b>No account, nothing to sign up for.</b>Open it and the deals are there. No email, no password, no points program to join.</div>
+    <div><b>No junk-food chains, ever.</b>Burger, wing, pizza and dessert chains are excluded on purpose, no matter how good the promo looks. ${approvedCount} healthier chains and grocery counters are in; ${bannedCount} fast-food chains are out by name.</div>
+  </div>
+  ${APP_CTA}
+  <h2>Every deal is checked before it reaches your phone</h2>
+  <div class="steps">
+    <div><b>1</b><span>Checked every morning</span>An automated run at about 7 AM Eastern re-checks every deal against the chain's own app, website, newsroom or weekly ad.</div>
+    <div><b>2</b><span>Unverifiable deals are dropped</span>If a price or end date can't be confirmed from an official source that day, the deal doesn't publish. The list shrinks rather than pads.</div>
+    <div><b>3</b><span>Tested in person</span>The owner checks grocery sushi counters and chain offers in store and corrects the record when the sign disagrees with the website.</div>
+    <div><b>4</b><span>Logged in public</span>Every morning's count is in the <a href="/verification-log">public verification log</a>, dated, since August 2026.</div>
+  </div>
+  </div>
+  <div class="faq"><h2 style="font-size:19px;margin:24px 2px 4px">Questions, answered</h2>${faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`).join("")}</div>
+  ${APP_CTA}
+  <nav class="chains"><strong>More:</strong> <a href="/">Today's deals</a> &middot; <a href="/about">How verification works</a> &middot; <a href="/press">Press kit</a></nav>
+  ${GUIDES_NAV}
+` + PAGE_FOOT;
+}
+
+function pressPage(vlog, approvedCount, bannedCount, mealsInfo) {
+  const title = "DailyBite Press Kit: Facts, Data and Images for Journalists";
+  const desc = "Press resources for DailyBite, the daily-verified healthy food deal list and free iPhone app: key facts, public verification log, open JSON data and logos.";
+  const n = vlog.length, total = vlog.reduce((a, e) => a + (e.n || 0), 0);
+  const counts = vlog.map(e => e.n || 0);
+  const avg = n ? (total / n).toFixed(1) : "0", lo = n ? Math.min(...counts) : 0, hi = n ? Math.max(...counts) : 0;
+  const first = n ? vlog[n - 1].d : iso, last = n ? vlog[0].d : iso;
+  const pretty = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  const orgLd = { "@context": "https://schema.org", "@type": "Organization", "name": "DailyBite", "url": SITE, "logo": `${SITE}/icon-512.png`, "founder": { "@type": "Person", "name": "Jacob Elsayed" }, "email": "jacob@dailybitedeals.com", "sameAs": ["https://www.instagram.com/dailybitedeals", "https://www.pinterest.com/dailybitedeals/", "https://www.tiktok.com/@dailybitedeals", APP_URL] };
+  const facts = [
+    ["What", "Daily-verified list of healthy food deals in the US, as a website, an RSS feed, open JSON and a free iPhone app"],
+    ["Who", "Jacob Elsayed, independent, one person. Not affiliated with any restaurant chain."],
+    ["Based", "Washington, DC area; deals are also checked in person"],
+    ["Chains covered", `${approvedCount} approved healthier chains and grocery counters; ${bannedCount} fast-food chains excluded by name, each with a public page saying so`],
+    ["Verification record", `${n} daily checks logged from ${pretty(first)} to ${pretty(last)}; ${total} deal-verifications in total; ${avg} verified deals a day on average, ranging from ${lo} to ${hi}`],
+    ["Cheapest healthy meals index", mealsInfo ? `${mealsInfo.count} specific orders at ${mealsInfo.brands} chains, ranked by grams of protein per dollar, every price and nutrition figure from the chain's official source` : "Ranked by grams of protein per dollar from official nutrition and price pages"],
+    ["Price", "Free. No ads, no account, no paid tier. Revenue only from clearly marked partner links; deal listings are never sponsored."],
+    ["Contact", "jacob@dailybitedeals.com"],
+  ];
+  return pageHead(title, desc, "press", [orgLd], APP_CSS) + `
+  <div class="date">Updated ${esc(prettyDate)}</div>
+  <h1>DailyBite press kit</h1>
+  <p class="answer">DailyBite is a free, independent guide to today's healthy food deals in the United States, published at dailybitedeals.com and as a free iPhone app. Every morning at about 7 AM Eastern an automated check re-verifies each deal against the chain's own app, website, newsroom or weekly ad; anything that can't be confirmed is dropped, and the day's count is logged in public. The site covers ${approvedCount} healthier chains and grocery prepared-food counters and deliberately excludes burger, wing, pizza and dessert chains, paid-membership perks and targeted offers. It was built by Jacob Elsayed, who runs it alone from the Washington, DC area and tests deals in person, because the real discounts at healthier chains had scattered across a dozen apps where nobody could compare them.</p>
+  <div class="facts">${facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
+  <div class="prose">
+  <h2>What you can use</h2>
+  <p>Everything below is public, free to cite and updated by the same morning run that builds the site. Please cite the deal's verification date alongside its expiry date, and link to the chain page or the homepage rather than to a JSON file.</p>
+  <p><strong>The verification log.</strong> <a href="/verification-log">/verification-log</a> is the dated record of every morning check since ${esc(pretty(first))}, with the time it ran and how many deals passed. It is a public, day-by-day record of how many healthy-chain deals actually exist on a given day.</p>
+  <p><strong>Open data.</strong> <a href="/deals.json">/deals.json</a> is today's list with stable IDs, expiry, region and estimated savings; <a href="/meals.json">/meals.json</a> is the cheapest-healthy-meals index with price, calories, protein and protein per dollar; <a href="/feed.xml">/feed.xml</a> is the RSS feed. The dated deals report and its dataset are at <a href="/${REPORT_SLUG}">/${REPORT_SLUG}</a>. All are free to download and quote with attribution.</p>
+  <p><strong>The protein-per-dollar index.</strong> <a href="/cheap-healthy-meals">/cheap-healthy-meals</a> ranks real orders at healthier chains and grocery counters by grams of protein per dollar, using only official menu prices and nutrition pages. Existing "cheapest protein" rankings cover grocery items; this is the restaurant half.</p>
+  <p><strong>Weekly deal explainers.</strong> The <a href="/food-deals-by-day">deals-by-day calendar</a> and the explainer pages document recurring grocery and chain promotions (Publix $5 Sushi Wednesday, Safeway $5 Friday, Harris Teeter's Friday rolls, Panera's $4.99 Mix &amp; Match and more), including where the current price differs from what older articles still quote.</p>
+  <h2>Images</h2>
+  <ul>
+    <li>App icon, 1024 by 1024 PNG: <a href="/appstore-icon-1024.png">/appstore-icon-1024.png</a></li>
+    <li>Site icon, 512 by 512 PNG: <a href="/icon-512.png">/icon-512.png</a> (maskable variant <a href="/icon-maskable-512.png">/icon-maskable-512.png</a>)</li>
+    <li>Social card, 1200 by 630 PNG: <a href="/og.png">/og.png</a>; every page also has its own card at /og/&lt;page&gt;.png</li>
+    <li>Profile picture, 1024 by 1024 PNG: <a href="/profile-picture-1024.png">/profile-picture-1024.png</a></li>
+  </ul>
+  <p>The DailyBite name and marks may be used in editorial coverage of DailyBite. Do not imply endorsement by any restaurant chain; DailyBite is not affiliated with any of them.</p>
+  <h2>About the founder</h2>
+  <p>Jacob Elsayed built and runs DailyBite alone. The deal pipeline is automated, but every editorial rule and inclusion standard is his. He is based in the Washington, DC area and checks deals in person, including grocery sushi counters, and the site reflects how he actually eats, which is why burger, wing, pizza and dessert chains are excluded.</p>
+  <h2>Story angles</h2>
+  <ul>
+    <li><strong>How many healthy food deals actually exist on a given day?</strong> ${n} consecutive mornings of checks put the national count of verifiable healthy-chain deals between ${lo} and ${hi}, averaging ${avg}. The best-known healthy chains rarely discount; the dependable deals are grocery sushi counters.</li>
+    <li><strong>The $5 sushi roll is quietly becoming $6.</strong> The explainer pages document each store's current price with the date it was checked in store, where older articles still quote $5.</li>
+    <li><strong>Protein per dollar at restaurants.</strong> A ranking of real orders by grams of protein per dollar, from official nutrition and price pages, that no grocery-only ranking covers.</li>
+    <li><strong>The membership tax.</strong> Which healthy-chain deals need a paid membership or a first order, and what is left when you exclude them.</li>
+    <li><strong>A one-person deal site that publishes its own audit trail.</strong> The verification log as a model for deal sites that pad their lists.</li>
+  </ul>
+  <h2>Contact</h2>
+  <p>Press, corrections and data questions: <a href="mailto:jacob@dailybitedeals.com">jacob@dailybitedeals.com</a>. For a DC-area or regional cut of today's list, ask; deals.json carries a region field for every deal.</p>
+  </div>
+  <nav class="chains"><strong>More:</strong> <a href="/about">About and verification standards</a> &middot; <a href="/app">The iPhone app</a> &middot; <a href="/">Today's deals</a></nav>
+` + PAGE_FOOT;
+}
+
 function main() {
   const data = JSON.parse(readFileSync(join(root, "deals.json"), "utf8"));
   // Meal index (scripts/meals.mjs). Fewer than 5 valid meals = the section stays off.
@@ -1350,6 +1518,8 @@ function main() {
   for (const d of deals) {
     d.isNew = prevKeys.size > 0 && !prevKeys.has((d.brand + "|" + d.deal).toLowerCase());
     d.endingSoon = false;
+    d.expires_on = null;            // YYYY-MM-DD when the prose end date parses (council audit 2026-09-26: agents need a real date)
+    d.verified_on = iso;
     // (?!\d) stops "August 2026" from being read as "August 20" (Pokeworks, 2026-08-22).
     const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/);
     if (m) {
@@ -1357,6 +1527,7 @@ function main() {
       if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
       const t = Date.parse(ds);
       if (!isNaN(t)) {
+        d.expires_on = new Date(t).toLocaleDateString("en-CA");
         const diff = (t - now) / 86400000;
         if (diff >= -0.5 && diff <= 2) d.endingSoon = true;
       }
@@ -1667,7 +1838,7 @@ function main() {
       if (soon) {
         const d2 = new Date(soon.h.date + "T12:00:00");
         const when = soon.diff < 0.5 ? "TODAY" : soon.diff < 1.5 ? "tomorrow" : d2.toLocaleDateString("en-US", { weekday: "long" });
-        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji} ${esc(soon.h.name)} is ${when}: see all the deals &rarr;</a>`;
+        banner = `<a class="holiday-banner" href="/${soon.h.slug}">${soon.h.emoji ? soon.h.emoji + " " : ""}${esc(soon.h.name)} is ${when}: see all the deals &rarr;</a>`;
       }
       out = out.slice(0, hs2 + HB_START.length) + banner + out.slice(he2);
     }
@@ -1723,9 +1894,16 @@ function main() {
   writeFileSync(join(root, "verify-log.json"), JSON.stringify({ entries: vlog }, null, 2) + "\n");
   writeFileSync(join(root, "verification-log.html"), verificationLogPage(vlog));
   console.log(`Built verification-log.html (${vlog.length} entries).`);
+  {
+    const approved = CHAINS.filter(c => !c.banned).length, banned = CHAINS.filter(c => c.banned).length;
+    const mealsInfo = mealsOn ? { count: MEALS.meals.length, brands: new Set(MEALS.meals.map(m => m.brand)).size } : null;
+    writeFileSync(join(root, "app.html"), appPage(approved, banned));
+    writeFileSync(join(root, "press.html"), pressPage(vlog, approved, banned, mealsInfo));
+    console.log("Built app.html and press.html.");
+  }
 
   // 3. Sitemap
-  const urls = [`${SITE}/`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
+  const urls = [`${SITE}/`, `${SITE}/app`, `${SITE}/press`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   // lastmod (2026-10-12): every page used to be stamped with today's date every day, so the date
   // carried no information and Google could not tell a changed guide from an untouched one. Now
   // each page's HTML is hashed with dates and timestamps stripped; lastmod moves only when the
@@ -1753,7 +1931,19 @@ function main() {
   for (const k of Object.keys(lm)) if (!urls.includes(SITE + (k === "/" ? "/" : k))) delete lm[k];
   writeFileSync(lmPath, JSON.stringify(lm, null, 1) + "\n");
   writeFileSync(join(root, "sitemap.xml"), sitemap);
-  console.log("Built sitemap.xml.");
+  // Structured-data dateModified follows the same honest date (council audit 2026-09-26):
+  // an on-page "modified today" on unchanged pages contradicts the sitemap. The stamp is an
+  // ISO date, which stripDates ignores, so rewriting it never changes the page's hash.
+  for (const [path, st] of Object.entries(lm)) {
+    const file = join(root, path === "/" ? "index.html" : path.slice(1) + ".html");
+    try {
+      const html = readFileSync(file, "utf8");
+      const out = html.replace(/("dateModified":")\d{4}-\d{2}-\d{2}(")/g, `$1${st.lastmod}$2`);
+      if (out !== html) writeFileSync(file, out);
+    } catch {}
+  }
+  const changedToday = Object.values(lm).filter(x => x.lastmod === iso).length;
+  console.log(`Built sitemap.xml (${urls.length} URLs, ${changedToday} with content changed today).`);
 }
 
 main();

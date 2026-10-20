@@ -4,8 +4,14 @@
 // the first 30 days. The key file (<key>.txt) sits at the site root; one POST covers up
 // to 10,000 URLs. Failures are logged, never fatal.
 //
-//   node scripts/indexnow.mjs            # submit every URL in sitemap.xml
+//   node scripts/indexnow.mjs            # submit the sitemap URLs whose <lastmod> is today
 //   node scripts/indexnow.mjs /a /b      # submit specific paths
+//   INDEXNOW_ALL=1 node scripts/indexnow.mjs   # submit every sitemap URL (first run, re-key)
+//
+// Only-changed submission (2026-09-26): sitemap.xml now carries an honest per-page lastmod
+// (see build.mjs), so this submits just the pages whose content changed in today's build.
+// Re-submitting 60+ unchanged URLs every morning is the pattern IndexNow's guidelines ask
+// engines to down-weight; a short, accurate list keeps the signal trusted.
 
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -21,9 +27,12 @@ if (args.length) {
   urls = args.map(p => `https://${HOST}${p.startsWith("/") ? p : "/" + p}`);
 } else {
   const sitemap = readFileSync(join(root, "sitemap.xml"), "utf8");
-  urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+  const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" }); // YYYY-MM-DD, matches build.mjs
+  const all = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)];
+  urls = all.filter(m => process.env.INDEXNOW_ALL || m[2] === today).map(m => m[1]);
+  console.log(`IndexNow: ${all.length} sitemap URLs, ${urls.length} changed today.`);
 }
-if (!urls.length) { console.log("IndexNow: nothing to submit."); process.exit(0); }
+if (!urls.length) { console.log("IndexNow: nothing changed today; nothing to submit."); process.exit(0); }
 
 const body = { host: HOST, key: KEY, keyLocation: `https://${HOST}/${KEY}.txt`, urlList: urls };
 try {

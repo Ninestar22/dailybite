@@ -1,306 +1,342 @@
 {
  "/": {
-  "hash": "e5cda3cdc0b1",
+  "hash": "5cb7e88daf90",
   "lastmod": "2026-10-19"
  },
  "/sushi-deals": {
-  "hash": "50ab8dbf9068",
-  "lastmod": "2026-10-18"
+  "hash": "207636da157a",
+  "lastmod": "2026-10-19"
  },
  "/trader-joes-healthy-meals": {
-  "hash": "56df637cb0d0",
-  "lastmod": "2026-10-12"
+  "hash": "3c678727f807",
+  "lastmod": "2026-10-19"
  },
  "/verification-log": {
-  "hash": "bce91c33f1d2",
+  "hash": "17ba5622b0ab",
   "lastmod": "2026-10-19"
  },
  "/about": {
-  "hash": "921f271ad8e4",
-  "lastmod": "2026-10-12"
+  "hash": "92a1605a7e86",
+  "lastmod": "2026-10-19"
  },
  "/privacy": {
-  "hash": "b2bde8b8bd81",
-  "lastmod": "2026-10-12"
+  "hash": "7f7604f59d0b",
+  "lastmod": "2026-10-19"
  },
  "/birthday-freebies": {
-  "hash": "490c5959f7bd",
-  "lastmod": "2026-10-12"
+  "hash": "e857e1b0c79d",
+  "lastmod": "2026-10-19"
  },
  "/best-fast-food-apps": {
-  "hash": "258c13891b68",
-  "lastmod": "2026-10-12"
+  "hash": "75674fe22c25",
+  "lastmod": "2026-10-19"
  },
  "/5-dollar-meal-deals": {
-  "hash": "7e5e3c3f39ed",
-  "lastmod": "2026-10-12"
+  "hash": "66cadd3d8f4d",
+  "lastmod": "2026-10-19"
  },
  "/student-food-deals": {
-  "hash": "f3c137c6112b",
-  "lastmod": "2026-10-12"
+  "hash": "6869d4677bb4",
+  "lastmod": "2026-10-19"
  },
  "/late-night-food-deals": {
-  "hash": "33e271c5445d",
-  "lastmod": "2026-10-12"
+  "hash": "95b8bcef730c",
+  "lastmod": "2026-10-19"
  },
  "/fast-food-happy-hours": {
-  "hash": "d42c81907d89",
-  "lastmod": "2026-10-12"
+  "hash": "fee369a8bfdb",
+  "lastmod": "2026-10-19"
  },
  "/cheapest-fast-food-orders": {
-  "hash": "88a5bacbc4fe",
-  "lastmod": "2026-10-12"
+  "hash": "ec3ef1cbf0d7",
+  "lastmod": "2026-10-19"
  },
  "/fast-food-vs-groceries": {
-  "hash": "bfcf34b01c50",
-  "lastmod": "2026-10-12"
+  "hash": "846dbe0a00fb",
+  "lastmod": "2026-10-19"
  },
  "/delivery-vs-pickup": {
-  "hash": "a4b4796230a1",
-  "lastmod": "2026-10-12"
+  "hash": "d8f9e6997959",
+  "lastmod": "2026-10-19"
  },
  "/back-to-school-food-deals": {
-  "hash": "466bf0966804",
-  "lastmod": "2026-10-12"
+  "hash": "82ff2e427ee0",
+  "lastmod": "2026-10-19"
  },
  "/chipotle-deals": {
-  "hash": "c3e035690532",
+  "hash": "0095d54ada69",
   "lastmod": "2026-10-19"
  },
  "/chick-fil-a-deals": {
-  "hash": "a861a641555d",
+  "hash": "7783b07a1871",
   "lastmod": "2026-10-19"
  },
  "/starbucks-deals": {
-  "hash": "fda2d1a3495b",
+  "hash": "bf8f60e6a967",
   "lastmod": "2026-10-19"
  },
  "/panera-deals": {
-  "hash": "e8b7b9ea10b7",
+  "hash": "557f64c462d2",
   "lastmod": "2026-10-19"
  },
  "/subway-deals": {
-  "hash": "f2582b9e570e",
+  "hash": "cf36f22e75bf",
   "lastmod": "2026-10-19"
  },
  "/sweetgreen-deals": {
-  "hash": "beb0e36c501b",
+  "hash": "b9e533cd5af8",
   "lastmod": "2026-10-19"
  },
  "/potbelly-deals": {
-  "hash": "d903185a40e6",
+  "hash": "22d1514c461a",
   "lastmod": "2026-10-19"
  },
  "/noodles-and-company-deals": {
-  "hash": "3cd4db0537f2",
+  "hash": "7f43f700cf6f",
   "lastmod": "2026-10-19"
  },
  "/cava-deals": {
-  "hash": "b847d9547409",
+  "hash": "06e4b604de54",
   "lastmod": "2026-10-19"
  },
  "/smoothie-king-deals": {
-  "hash": "2ec1b9c852af",
+  "hash": "40bf9491400c",
   "lastmod": "2026-10-19"
  },
  "/tropical-smoothie-deals": {
-  "hash": "7d8c38c6cd7d",
+  "hash": "303a4f9b004d",
   "lastmod": "2026-10-19"
  },
  "/jamba-deals": {
-  "hash": "98a4c8e4ab9c",
+  "hash": "e602ced70467",
   "lastmod": "2026-10-19"
  },
  "/el-pollo-loco-deals": {
-  "hash": "70935b8b01b6",
+  "hash": "97c1729d71da",
   "lastmod": "2026-10-19"
  },
  "/halal-guys-deals": {
-  "hash": "d2ee043c1b1a",
+  "hash": "5d126e505480",
   "lastmod": "2026-10-19"
  },
  "/nazs-halal-deals": {
-  "hash": "149a109bf68f",
+  "hash": "32790c9b912d",
   "lastmod": "2026-10-19"
  },
  "/shahs-halal-deals": {
-  "hash": "13f47d9d9dd9",
+  "hash": "af0f7ebb02b0",
   "lastmod": "2026-10-19"
  },
  "/tijuana-flats-deals": {
-  "hash": "9af7c412017b",
+  "hash": "3901269a3d3d",
   "lastmod": "2026-10-19"
  },
  "/qdoba-deals": {
-  "hash": "c9f4a732f2d3",
+  "hash": "37b92383c1f6",
   "lastmod": "2026-10-19"
  },
  "/just-salad-deals": {
-  "hash": "a457b60e20c6",
+  "hash": "1281082dcf64",
   "lastmod": "2026-10-19"
  },
  "/naf-naf-grill-deals": {
-  "hash": "5d3686f5be25",
-  "lastmod": "2026-10-16"
+  "hash": "5418bd23ea4e",
+  "lastmod": "2026-10-19"
  },
  "/kura-sushi-deals": {
-  "hash": "0cbc5a271a55",
+  "hash": "ec5bf188b4ad",
   "lastmod": "2026-10-19"
  },
  "/pokeworks-deals": {
-  "hash": "fd8e1004fcba",
+  "hash": "d916fffe458c",
   "lastmod": "2026-10-19"
  },
  "/sarku-japan-deals": {
-  "hash": "63afc0ab7a16",
+  "hash": "b0564e1bcdc2",
   "lastmod": "2026-10-19"
  },
  "/safeway-deals": {
-  "hash": "57246a92eb61",
+  "hash": "17c280834bcd",
   "lastmod": "2026-10-19"
  },
  "/harris-teeter-deals": {
-  "hash": "db04a051d910",
+  "hash": "afeafdfa2dcd",
   "lastmod": "2026-10-19"
  },
  "/kroger-deals": {
-  "hash": "9e1ee51169b9",
+  "hash": "c28c9700c80e",
   "lastmod": "2026-10-19"
  },
  "/sprouts-deals": {
-  "hash": "4af486186d90",
+  "hash": "e3e015f65ebf",
   "lastmod": "2026-10-19"
  },
  "/publix-deals": {
-  "hash": "f19f2c072802",
-  "lastmod": "2026-10-16"
+  "hash": "5fea84a1f23d",
+  "lastmod": "2026-10-19"
  },
  "/heb-deals": {
-  "hash": "ae7fb5822567",
+  "hash": "ac5a63ba811a",
   "lastmod": "2026-10-19"
  },
  "/hy-vee-deals": {
-  "hash": "d16b5937e5a3",
+  "hash": "08b0564007b3",
   "lastmod": "2026-10-19"
  },
  "/shoprite-deals": {
-  "hash": "44f21b735fc5",
+  "hash": "986afee4dd39",
   "lastmod": "2026-10-19"
  },
  "/meijer-deals": {
-  "hash": "dcc86d30a8cd",
+  "hash": "95d1a52b268e",
   "lastmod": "2026-10-19"
  },
  "/cheap-healthy-meals": {
-  "hash": "3d2380f011d0",
-  "lastmod": "2026-10-12"
+  "hash": "a65c35b7106d",
+  "lastmod": "2026-10-19"
  },
  "/food-deals-by-day": {
-  "hash": "56521095a741",
+  "hash": "b5f60b61cdb6",
   "lastmod": "2026-10-19"
  },
  "/healthy-food-deals-report": {
-  "hash": "da290d10ab79",
-  "lastmod": "2026-10-12"
+  "hash": "dd5270fdff6d",
+  "lastmod": "2026-10-19"
  },
  "/publix-5-sushi-wednesday": {
-  "hash": "e5dfd5f40d19",
-  "lastmod": "2026-10-15"
+  "hash": "e74a408ae33e",
+  "lastmod": "2026-10-19"
  },
  "/sprouts-sushi-wednesday": {
-  "hash": "66f1fcebdef0",
-  "lastmod": "2026-10-15"
+  "hash": "efe0099eb994",
+  "lastmod": "2026-10-19"
  },
  "/kroger-sushi-wednesday": {
-  "hash": "d7e30704f453",
-  "lastmod": "2026-10-15"
+  "hash": "a66b91895c90",
+  "lastmod": "2026-10-19"
  },
  "/safeway-5-friday-sushi": {
-  "hash": "b246c2adf3c5",
-  "lastmod": "2026-10-17"
+  "hash": "99bcb09d62d9",
+  "lastmod": "2026-10-19"
  },
  "/harris-teeter-5-sushi-friday": {
-  "hash": "6566755167dc",
+  "hash": "f11486cac4be",
   "lastmod": "2026-10-19"
  },
  "/panera-4-99-mix-and-match": {
-  "hash": "9abd4d63e34e",
-  "lastmod": "2026-10-14"
+  "hash": "d3c5c9016fb3",
+  "lastmod": "2026-10-19"
  },
  "/heb-sushi-wednesday": {
-  "hash": "f00dd24ab5ae",
-  "lastmod": "2026-10-18"
+  "hash": "7d85427e4b8e",
+  "lastmod": "2026-10-19"
  },
  "/hy-vee-sushi-wednesday": {
-  "hash": "bd2a2db12b5c",
-  "lastmod": "2026-10-17"
+  "hash": "4ef89d7828fa",
+  "lastmod": "2026-10-19"
  },
  "/shoprite-sushi-wednesday": {
-  "hash": "e9399ea69b99",
-  "lastmod": "2026-10-15"
+  "hash": "698f29514db1",
+  "lastmod": "2026-10-19"
  },
  "/meijer-sushi-wednesday": {
-  "hash": "4a2e63a0510b",
-  "lastmod": "2026-10-15"
+  "hash": "bff840463adb",
+  "lastmod": "2026-10-19"
  },
  "/publix-sub-of-the-week": {
-  "hash": "9b1ecd902621",
-  "lastmod": "2026-10-15"
+  "hash": "9ec9110d1097",
+  "lastmod": "2026-10-19"
  },
  "/hannaford-sushi-wednesday": {
-  "hash": "c4f059229fba",
-  "lastmod": "2026-10-15"
+  "hash": "bb758419a35e",
+  "lastmod": "2026-10-19"
  },
  "/dierbergs-sushi-tuesday": {
-  "hash": "d183f7f7f3e2",
-  "lastmod": "2026-10-14"
+  "hash": "269802b8abcb",
+  "lastmod": "2026-10-19"
  },
  "/whole-foods-sushi-friday": {
-  "hash": "d6e88f215323",
-  "lastmod": "2026-10-17"
+  "hash": "0ab81b621bb1",
+  "lastmod": "2026-10-19"
  },
  "/smoothie-king-free-upsize-friday": {
-  "hash": "4cda59d75135",
-  "lastmod": "2026-10-17"
+  "hash": "bb6c7e7ee63c",
+  "lastmod": "2026-10-19"
  },
  "/wegmans-sushi-prices": {
-  "hash": "c63120233275",
+  "hash": "4b8d43e467b8",
   "lastmod": "2026-10-19"
  },
  "/rotisserie-chicken-prices": {
-  "hash": "ebf7612905cf",
-  "lastmod": "2026-10-12"
+  "hash": "21bf43bcaa47",
+  "lastmod": "2026-10-19"
  },
  "/cheap-japanese-food": {
-  "hash": "f2b074180ebc",
-  "lastmod": "2026-10-12"
+  "hash": "5d68829cdbb1",
+  "lastmod": "2026-10-19"
  },
  "/free-food-today": {
-  "hash": "79910af492fb",
+  "hash": "29c48bddedb0",
   "lastmod": "2026-10-19"
  },
  "/nandos-deals": {
-  "hash": "77108b62b9bf",
+  "hash": "4aa6e04e02e3",
   "lastmod": "2026-10-19"
  },
  "/district-taco-deals": {
-  "hash": "405d4f91d268",
+  "hash": "1bc53fc86b23",
   "lastmod": "2026-10-19"
  },
  "/national-sandwich-day-deals": {
-  "hash": "6f37e6132764",
+  "hash": "14a13cc6a57a",
   "lastmod": "2026-10-19"
  },
  "/target-deals": {
-  "hash": "c1e9ae1b0aee",
+  "hash": "a68400adbabb",
   "lastmod": "2026-10-19"
  },
  "/aldi-deals": {
-  "hash": "6d89385ad9b3",
+  "hash": "c4f41a811d3b",
   "lastmod": "2026-10-19"
  },
  "/moes-deals": {
-  "hash": "01a8978e7ae4",
+  "hash": "cb0cb7085163",
+  "lastmod": "2026-10-19"
+ },
+ "/app": {
+  "hash": "12f2e9b988bb",
+  "lastmod": "2026-10-19"
+ },
+ "/press": {
+  "hash": "b477cfe5aee0",
+  "lastmod": "2026-10-19"
+ },
+ "/cava-rewards": {
+  "hash": "188e5c3daf97",
+  "lastmod": "2026-10-19"
+ },
+ "/sweetgreen-rewards": {
+  "hash": "37d2996e3dc4",
+  "lastmod": "2026-10-19"
+ },
+ "/tropical-smoothie-rewards": {
+  "hash": "49a3816fc732",
+  "lastmod": "2026-10-19"
+ },
+ "/holiday-gift-card-bonuses": {
+  "hash": "dd583a78ef71",
+  "lastmod": "2026-10-19"
+ },
+ "/albertsons-5-friday": {
+  "hash": "860c28fbd18b",
+  "lastmod": "2026-10-19"
+ },
+ "/food-lion-sushi-wednesday": {
+  "hash": "3ce353bcb97f",
+  "lastmod": "2026-10-19"
+ },
+ "/chipotle-boorito-halloween-deals": {
+  "hash": "cbebfa9cc69b",
   "lastmod": "2026-10-19"
  }
 }
