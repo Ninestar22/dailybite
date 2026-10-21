@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-21",
-  "updatedAt": "2026-10-21T16:10:35.888Z",
+  "updatedAt": "2026-10-21T20:05:35.686Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -352,7 +352,7 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.subway.com/en-us",
-      "best": true,
+      "best": false,
       "region": "National",
       "est_savings": 4,
       "isNew": false,
@@ -381,6 +381,29 @@
       "expires_on": "2026-11-03",
       "verified_on": "2026-10-21",
       "best": false
+    },
+    {
+      "brand": "Teriyaki Madness",
+      "cat": "Asian",
+      "color": "#e2231a",
+      "ic": "TM",
+      "deal": "Free Bowl with Purchase of a Second Bowl and 2 Drinks",
+      "desc": "Rewards members get a free bowl when buying a second bowl plus two fountain drinks, announced by email on 2026-10-21, free account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through October 25, 2026",
+      "url": "https://www.teriyakimadness.com",
+      "est_savings": 10,
+      "region": "Select states",
+      "id": "f46a52ed",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-10-25",
+      "verified_on": "2026-10-21",
+      "best": true
     }
   ]
 }
