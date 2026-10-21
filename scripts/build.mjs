@@ -439,10 +439,12 @@ ${crumbScript(`${chain.name} Deals`, chain.slug)}
   <h1>${chain.banned ? `${esc(chain.name)} Deals: Not on DailyBite (Here&#39;s Why)` : `${esc(chain.name)} Deals &amp; App Offers: ${esc(monthYear)}`}</h1>
   <p class="tag">${chain.banned ? `DailyBite lists verified deals from healthier, quality chains only. This page exists because people search for ${esc(chain.name)} deals, and we&#39;d rather tell you where the healthier value is than pretend to cover them.` : `Today&#39;s verified ${esc(chain.name)} in-app and rewards deals, re-checked every morning against official sources.`}</p>
   ${chain.note ? `<p class="tag">${esc(chain.note)}</p>` : ""}
+  ${(() => { const r = REWARDS_PAGES.find(x => x.chainSlug === chain.slug); return r ? `<p class="tag"><a href="/${r.slug}" style="color:var(--accent2);font-weight:700">How ${esc(chain.name)}&#39;s rewards program works &rarr;</a></p>` : ""; })()}
   ${body}
   ${guideHtml}
   ${EMAIL_CAPTURE}
     <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav(chain.slug)} &middot; <a href="/">All deals</a></nav>\n  <nav class="chains"><strong>More:</strong> <a href="/free-food-today">Free Food Today</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a>${relatedNav(chain.slug)}</nav>\n  ${GUIDES_NAV}
+  ${REWARDS_NAV}
 </div>
 <footer>DailyBite is updated daily and is not affiliated with ${esc(chain.name)}.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
@@ -546,6 +548,7 @@ ${tableRows}
   <nav class="chains"><strong>Sushi &amp; poke pages:</strong> <a href="/kura-sushi-deals">Kura Sushi</a> &middot; <a href="/pokeworks-deals">Pokeworks</a> &middot; <a href="/sarku-japan-deals">Sarku Japan</a> &middot; <a href="/publix-deals">Publix</a> &middot; <a href="/kroger-deals">Kroger</a> &middot; <a href="/sprouts-deals">Sprouts</a> &middot; <a href="/safeway-deals">Safeway</a> &middot; <a href="/harris-teeter-deals">Harris Teeter</a> &middot; <a href="/">All of today&#39;s deals</a></nav>
   <nav class="chains"><strong>More:</strong> <a href="/food-deals-by-day">Deals by day of the week</a></nav>
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 </div>
 <footer>DailyBite is updated daily and is not affiliated with any store or restaurant.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
@@ -599,6 +602,7 @@ ${crumbScript("Free Food Today", "free-food-today")}
   ${EMAIL_CAPTURE}
   ${sec2}
     <nav class="chains"><strong>More:</strong> <a href="/">All of today&#39;s deals</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a></nav>\n  ${GUIDES_NAV}
+  ${REWARDS_NAV}
 </div>
 <footer>DailyBite is updated daily.${AFF_NOTE} <a href="/about">About</a> &middot; <a href="/app">iPhone app</a> &middot; <a href="/press">Press</a> &middot; <a href="/privacy">Privacy &amp; Disclosures</a> &middot; <a href="https://www.instagram.com/dailybitedeals" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.pinterest.com/dailybitedeals/" target="_blank" rel="noopener">Pinterest</a> &middot; <a href="https://www.tiktok.com/@dailybitedeals" target="_blank" rel="noopener">TikTok</a> &middot; <a href="https://apps.apple.com/us/app/dailybite-healthy-food-deals/id6802622518" target="_blank" rel="noopener">Get the iOS app</a></footer>
 </body>
@@ -840,7 +844,7 @@ ${crumbScript(String(title).split(":")[0].trim(), path)}
 <style>${CHAIN_CSS}
 .facts{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:14px 0;font-size:14px;line-height:1.5}.facts b{color:var(--accent2)}.facts span{color:var(--ink)}@media(max-width:520px){.facts{grid-template-columns:1fr;gap:4px}}
 .faq{margin-top:10px}.faq h3{font-size:15px;margin:16px 2px 4px}.faq p{color:var(--muted);font-size:14px;line-height:1.55;margin:0 2px}.answer{font-size:16px;line-height:1.55;color:var(--ink);margin:12px 2px}
-.prose p{color:var(--muted);font-size:14px;line-height:1.6;margin:8px 2px}.prose h2{font-size:19px;margin:24px 2px 6px}${extraCss}</style>
+.quick{font-size:15px;line-height:1.55;color:var(--ink);background:var(--card);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;margin:10px 0 4px}.prose p{color:var(--muted);font-size:14px;line-height:1.6;margin:8px 2px}.prose h2{font-size:19px;margin:24px 2px 6px}${extraCss}</style>
 <script data-goatcounter="https://dailybite.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body><button id="themetog" class="themetog" type="button" aria-label="Toggle light or dark mode">◐</button><script>document.getElementById("themetog").onclick=function(){var h=document.documentElement,l=h.getAttribute("data-theme")==="light",m=document.querySelector("meta[name=theme-color]");try{if(l){h.removeAttribute("data-theme");localStorage.setItem("db_theme","dark")}else{h.setAttribute("data-theme","light");localStorage.setItem("db_theme","light")}}catch(e){}if(m)m.content=l?"#0e1310":"#f2f6f2"};</script>
@@ -877,7 +881,7 @@ const EXPLAINERS = [
       ["When do the $5 rolls sell out?", "Rolls are made fresh in the morning; busy stores can run short of the $5 selection by mid-afternoon, so lunch is the safest time."]],
     more: `<p>Sprouts' sushi counters are run by Oumi, which makes rolls in-store the same day. The Wednesday deal is the healthy-eating equivalent of a lunch special: a full roll for the price of a sandwich. See <a href="/sushi-deals" style="color:var(--accent2)">every grocery sushi day by weekday</a>, and today's live Sprouts deals on the <a href="/sprouts-deals" style="color:var(--accent2)">Sprouts page</a>.</p>` },
   { slug: "kroger-sushi-wednesday", brand: "Kroger", chainSlug: "kroger-deals", day: 3,
-    title: "Kroger Sushi Wednesday: 'Wednesday Only' $6 Rolls at Kroger, Fred Meyer, Fry's, King Soopers & More (2026)",
+    title: "Kroger Sushi Wednesday: $6 'Wednesday Only' Rolls (2026)",
     h1: "Kroger Sushi Wednesday",
     desc: "Kroger-family stores run a Wednesday Only sushi promotion at their Snowfox and Zenshi counters: select rolls at a flat promo price, now $6. Which banners, which rolls, and whether you need a Kroger Plus card.",
     answer: "Kroger and its banner stores (Fred Meyer, Fry's, King Soopers, Smith's, QFC, Ralphs and others) run a <strong>Wednesday Only</strong> sushi promotion at their Snowfox and Zenshi counters: select rolls such as spicy tuna, California and Philly at a flat promo price, <strong>$6 a roll</strong> as of September 2026 (it was $5 through 2025). A free Kroger Plus card may be needed for the promo price in some divisions.",
@@ -888,7 +892,7 @@ const EXPLAINERS = [
       ["Can I order it online?", "Kroger.com and the app list the Wednesday Only rolls for pickup in many divisions; availability depends on the store's counter hours."]],
     more: `<p>Kroger's counters are operated by Snowfox and Zenshi, two of the largest grocery sushi companies in the country, and rolls are made fresh each morning. Compare it with the other Wednesday sushi days on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>, and see the <a href="/kroger-deals" style="color:var(--accent2)">Kroger page</a> for anything else verified today.</p>` },
   { slug: "safeway-5-friday-sushi", brand: "Safeway", chainSlug: "safeway-deals", day: 5,
-    title: "Safeway $5 Friday Sushi: How $5 Friday Works, Which Rolls & Divisions (2026)",
+    title: "Safeway $5 Friday Sushi: How It Works, Which Rolls (2026)",
     h1: "Safeway $5 Friday: Sushi for $5",
     desc: "Safeway and Albertsons run $5 Friday every week: fresh sushi rolls for $5 (regularly $8 to $10) plus other prepared foods like an 8-piece chicken. How it works, what's in the lineup, and whether you need a Safeway for U account.",
     answer: "Every Friday, Safeway and Albertsons stores run <strong>$5 Friday</strong>: a rotating lineup of items priced at $5, which in most divisions includes <strong>fresh sushi rolls for $5</strong> (regularly $8 to $10) alongside other prepared foods such as an 8-piece fried chicken bag. The lineup posts on Wednesdays in the weekly ad, varies by division, and a free Safeway for U account may be needed for the price.",
@@ -915,7 +919,7 @@ const EXPLAINERS = [
       ["What time does it sell out?", "Counters make rolls in the morning, and Friday lunch is the peak. Late morning is the safest time; evening selection is thin at busy stores."]],
     more: `<p>For Northern Virginia, DC and the Carolinas, Friday is sushi day: Harris Teeter's $6 rolls, and Safeway's $5 Friday where that division runs it. Wednesday belongs to Publix, Sprouts, Hannaford and Kroger. The full weekly calendar is on the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a>; today's verified Harris Teeter deals are on the <a href="/harris-teeter-deals" style="color:var(--accent2)">Harris Teeter page</a>.</p>` },
   { slug: "panera-4-99-mix-and-match", brand: "Panera", chainSlug: "panera-deals", day: null,
-    title: "What Is the $4.99 Special at Panera? The Mix & Match Value Menu Explained (2026)",
+    title: "What Is the $4.99 Special at Panera? Mix & Match (2026)",
     h1: "Panera's $4.99 Special: Mix & Match",
     desc: "Panera's $4.99 special is the Mix & Match value menu: half-size soups, salads and sandwiches from a set list for $4.99 each, every item with a free side. What's on it, how to order, and how to build a full meal under $10.",
     answer: "Panera's $4.99 special is the <strong>Mix &amp; Match value menu</strong>: half-size soups, half salads and half sandwiches from a set list of roughly ten items, <strong>$4.99 each</strong>, and every item comes with a free side (baguette, chips or an apple). Pair any two for a full meal under $10. It is an everyday menu, not a limited-time promotion, at participating bakery-cafes.",
@@ -938,7 +942,7 @@ const EXPLAINERS = [
       ["When do the $7 rolls sell out?", "Sushiya counters make rolls fresh in the morning; big stores can run short of the $7 selection by dinner, so lunch is the safest time."]],
     more: `<p>H-E-B's Sushiya counters are among the largest in-store sushi programs in the country, and the twice-weekly $7 price is the most consistent sushi deal in Texas. See <a href="/sushi-deals" style="color:var(--accent2)">every grocery sushi day by weekday</a>, and today's verified H-E-B deals on the <a href="/heb-deals" style="color:var(--accent2)">H-E-B page</a>.</p>` },
   { slug: "hy-vee-sushi-wednesday", brand: "Hy-Vee", chainSlug: "hy-vee-deals", day: 3,
-    title: "Hy-Vee Sushi Wednesday: $6 Nori Sushi Rolls (and Friday BOGO) Explained (2026)",
+    title: "Hy-Vee Sushi Wednesday: $6 Rolls and Friday BOGO (2026)",
     h1: "Hy-Vee Sushi Wednesday",
     desc: "Every Wednesday, participating Hy-Vee stores sell select Nori Sushi rolls for $6, and on Fridays it's buy one roll, get one 50% off. How it works and where.",
     answer: "Every Wednesday, participating Hy-Vee stores with a Nori Sushi counter sell <strong>select rolls for $6</strong>, regularly about $8 to $10, and on <strong>Fridays</strong> Nori Sushi runs <strong>buy one regular roll, get one 50% off</strong>. Both are store-run promotions posted in each store's weekly specials, so participation and selection vary. No coupon or card is needed.",
@@ -1009,7 +1013,7 @@ const EXPLAINERS = [
       ["Which Dierbergs stores have sushi?", "Stores with a Bento Sushi counter. The operator lists 27 locations across the St. Louis area in Missouri and Illinois."]],
     more: `<p>Dierbergs is one of the few chains with a sushi day on Tuesday rather than Wednesday. For other chains and days, see the <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi guide</a> and <a href="/food-deals-by-day" style="color:var(--accent2)">deals by day of the week</a>.</p>` },
   { slug: "whole-foods-sushi-friday", brand: "Whole Foods Market", day: 5,
-    title: "Whole Foods Sushi Friday: It Needs Amazon Prime. No-Membership Alternatives (2026)",
+    title: "Whole Foods Sushi Friday: Needs Prime, Plus Alternatives (2026)",
     h1: "Whole Foods Sushi Friday",
     desc: "Whole Foods' Friday sushi deal is buy one, get one 50% off packaged rolls, in store, for Amazon Prime members only. What it covers, what it excludes, and the grocery sushi days that need no paid membership.",
     answer: "On Fridays, Whole Foods Market runs <strong>buy one, get one 50% off packaged sushi rolls</strong>, in store only, and <strong>only for Amazon Prime members</strong>. It is a discount on a pair of rolls, not a fixed $5 price, and Prime is a paid membership. DailyBite does not list paid-membership perks as deals, so this page explains the offer and points to the sushi days anyone can use.",
@@ -1049,7 +1053,7 @@ const EXPLAINERS = [
   // calculated only where the retailer states a weight. Lidl could not be verified and is
   // left out. Re-check before changing any number.
   { slug: "rotisserie-chicken-prices", brand: "Rotisserie Chicken",
-    title: "Rotisserie Chicken Prices by Store (2026): Costco, Walmart, Kroger, Wegmans and More",
+    title: "Rotisserie Chicken Prices by Store (2026): Costco to Wegmans",
     h1: "Rotisserie Chicken Prices by Store",
     desc: "What a whole hot rotisserie chicken costs at 16 grocery chains, checked on each store's own site on October 2, 2026: the cheapest without a membership, the best price per pound, and which discount days are real.",
     answer: "A whole hot rotisserie chicken costs <strong>from about $5 to $10</strong> depending on the store. The warehouse clubs are cheapest at <strong>$4.98 to $4.99 for about 3 pounds</strong>, but they need a paid membership. Without one, <strong>Walmart is $5.97</strong> nationwide and H-E-B's Hill Country Fare chicken is $4.97 in Texas. Most supermarkets charge $7 to $10 for a smaller bird, so the price per pound varies far more than the sticker price.",
@@ -1087,7 +1091,7 @@ const EXPLAINERS = [
   // in the source named in the table that day. Chains whose price could not be read (Sarku
   // Japan's app needs a login) say so instead of guessing. Re-check before changing a number.
   { slug: "cheap-japanese-food", brand: "Japanese",
-    title: "Cheap Japanese Food in the US: Real Meals Under $10, Priced and Checked (2026)",
+    title: "Cheap Japanese Food in the US: Real Meals Under $10 (2026)",
     h1: "Cheap Japanese Food: Real Meals Under $10",
     desc: "Where a Japanese-style meal is actually cheap in the US: $5.99 udon at Marugame, Yoshinoya bowls from $4.69, Kura Sushi by the plate, Sarku Japan teriyaki, $4 onigiri in DC, and grocery sushi days. Prices read on each chain's own site on October 3, 2026, with what is and is not near Washington, DC.",
     answer: "Japanese fast casual is where the US comes closest to a cheap meal that is also good for you: broth, rice, grilled protein and vegetables at a fixed everyday price. The catch is geography. The two chains that publish mains under $7, <strong>Marugame Udon ($5.99 kake udon)</strong> and <strong>Yoshinoya ($4.69 vegetable bowl, $8.99 grilled chicken bowl)</strong>, are West Coast only. Near Washington, DC the verified options are <strong>Sarku Japan</strong> (teriyaki bowls, nutrition published, price varies by mall), <strong>Kura Sushi in Tysons</strong> (about $3.79 a plate), <strong>Hana Japanese Market's $4 onigiri</strong> in DC, and the <a href=\"/sushi-deals\" style=\"color:var(--accent2)\">grocery sushi days</a>.",
@@ -1116,6 +1120,8 @@ const EXPLAINERS = [
     more: `<p>The pattern across every chain here is the same: the cheap, healthy item is the plain one. Kake udon, the vegetable bowl, the onigiri, the California roll. Add protein and the price climbs toward $10; add fried toppings and the nutrition falls apart. For a Japanese-style meal that is cheap everywhere, the frozen <a href="/cheap-healthy-meals" style="color:var(--accent2)">Trader Joe's teriyaki bowl</a> and the weekly <a href="/sushi-deals" style="color:var(--accent2)">grocery sushi days</a> are the two that work in every state. This page will grow as prices verify: Maruichi in Rockville, Mitsuwa, Nijiya, Tokyo Central and H Mart's prepared-food counters are next.</p>` },
 ];
 EXPLAINERS.push(...EXTRA_EXPLAINERS);
+const REWARDS_PAGES = EXPLAINERS.filter(x => x.day == null && /rewards|perks|gift-card/.test(x.slug));
+const REWARDS_NAV = `<nav class="chains"><strong>Rewards programs explained:</strong> ${REWARDS_PAGES.map(x => `<a href="/${x.slug}">${esc(x.h1.replace(/,? Explained$/i, "").replace(/^(.*?):.*$/, "$1"))}</a>`).join(" &middot; ")}</nav>`;
 const EXPLAINER_NAV = `<nav class="chains"><strong>Weekly deals explained:</strong> ${EXPLAINERS.map(x => `<a href="/${x.slug}">${esc(x.h1)}</a>`).join(" &middot; ")} &middot; <a href="/food-deals-by-day">Deals by day</a></nav>`;
 
 // Deals report (2026-10-02): a dated, citable snapshot built from report-data.json, which
@@ -1196,6 +1202,7 @@ function reportPage(R) {
   </div>
   <nav class="chains"><strong>More:</strong> <a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/food-deals-by-day">Deals by day of the week</a> &middot; <a href="/">All of today's deals</a></nav>
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 ` + PAGE_FOOT;
 }
 
@@ -1212,6 +1219,7 @@ function explainerPage(x, deals) {
   <div class="date">Updated ${esc(prettyDate)}</div>
   <h1>${esc(x.h1)}</h1>
   <p class="tag" style="margin:0 2px 6px;font-size:12.5px">By <a href="/about" style="color:var(--accent2);text-decoration:none">Jacob Elsayed</a>, re-verified against official sources each morning</p>
+  <p class="quick"><strong>In short:</strong> ${esc(x.desc)}</p>
   <p class="answer">${x.answer}</p>
   <div class="facts">${x.facts.map(([k, v]) => `<b>${esc(k)}</b><span>${esc(v)}</span>`).join("")}</div>
   ${tableBlock}
@@ -1224,6 +1232,7 @@ function explainerPage(x, deals) {
   ${EXPLAINER_NAV}
   <nav class="chains"><strong>More:</strong> ${x.chainSlug ? `<a href="/${x.chainSlug}">${esc(x.brand)} deals today</a> &middot; ` : ""}<a href="/sushi-deals">Grocery sushi days</a> &middot; <a href="/">All of today's deals</a></nav>
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 ` + PAGE_FOOT;
 }
 
@@ -1253,6 +1262,7 @@ function byDayPage(deals) {
   ${EXPLAINER_NAV}
   <nav class="chains"><strong>Deals by restaurant:</strong> ${chainNav("")} &middot; <a href="/free-food-today">Free Food Today</a></nav>
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 ` + PAGE_FOOT;
 }
 
@@ -1296,6 +1306,7 @@ function mealsPage(meals, updated) {
   ${EMAIL_CAPTURE}
   ${EXPLAINER_NAV}
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 ` + PAGE_FOOT;
 }
 
@@ -1352,6 +1363,7 @@ function appPage(approvedCount, bannedCount) {
   ${APP_CTA}
   <nav class="chains"><strong>More:</strong> <a href="/">Today's deals</a> &middot; <a href="/about">How verification works</a> &middot; <a href="/press">Press kit</a></nav>
   ${GUIDES_NAV}
+  ${REWARDS_NAV}
 ` + PAGE_FOOT;
 }
 
@@ -1794,6 +1806,7 @@ function main() {
     out = out.replace(/(<span id="updated">)[^<]*(<\/span>)/, `$1${prettyDate}$2`);
     // Refresh the homepage's structured-data dateModified daily (growth plan Fix 2).
     out = out.replace(/(<script type="application\/ld\+json" id="freshld">[^<]*"dateModified":")[^"]*(")/, `$1${iso}$2`);
+    { const RS = "<!-- REWARDSNAV:START -->", RE = "<!-- REWARDSNAV:END -->"; const a = out.indexOf(RS), z = out.indexOf(RE); if (a !== -1 && z !== -1) out = out.slice(0, a + RS.length) + REWARDS_NAV + out.slice(z); }
     const GS = "<!-- SSRGRID:START -->", GE = "<!-- SSRGRID:END -->";
     const gs = out.indexOf(GS), ge = out.indexOf(GE);
     if (gs !== -1 && ge !== -1 && ge > gs) {
@@ -1901,6 +1914,7 @@ function main() {
     writeFileSync(join(root, "app.html"), appPage(approved, banned));
     writeFileSync(join(root, "press.html"), pressPage(vlog, approved, banned, mealsInfo));
     console.log("Built app.html and press.html.");
+  try { const bp = join(root, "birthday-freebies.html"); let b = readFileSync(bp, "utf8"); const RS = "<!-- REWARDSNAV:START -->", RE = "<!-- REWARDSNAV:END -->"; const a = b.indexOf(RS), z = b.indexOf(RE); if (a !== -1 && z !== -1) { b = b.slice(0, a + RS.length) + REWARDS_NAV + b.slice(z); writeFileSync(bp, b); } } catch {}
   }
 
   // 3. Sitemap
