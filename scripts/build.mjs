@@ -145,8 +145,12 @@ const freshLdFor = t => `<script type="application/ld+json">${JSON.stringify({ "
 // Pinterest domain claim (enables Rich Pins and site attribution on every pin): paste the
 // value Pinterest gives you under Settings > Claimed accounts into PINTEREST_DOMAIN_VERIFY.
 const PINTEREST_DOMAIN_VERIFY = "";
+// Google Search Console (HTML-tag method): paste the content value of the meta tag Console
+// shows under Settings > Ownership verification > HTML tag. The homepage carries it via the
+// GSV marker in index.html; every generated page carries it too.
+const GOOGLE_SITE_VERIFICATION = "";
 const HEAD_COMMON = `<link rel="alternate" type="application/rss+xml" title="DailyBite Deals" href="${SITE}/feed.xml">
-<meta property="og:site_name" content="DailyBite">${PINTEREST_DOMAIN_VERIFY ? `\n<meta name="p:domain_verify" content="${PINTEREST_DOMAIN_VERIFY}">` : ""}`;
+<meta property="og:site_name" content="DailyBite">${PINTEREST_DOMAIN_VERIFY ? `\n<meta name="p:domain_verify" content="${PINTEREST_DOMAIN_VERIFY}">` : ""}${GOOGLE_SITE_VERIFICATION ? `\n<meta name="google-site-verification" content="${GOOGLE_SITE_VERIFICATION}">` : ""}`;
 // BreadcrumbList schema (Home > page) gives Google a two-level path to show under the
 // title in results instead of the raw URL, and clarifies site structure for crawlers.
 const crumbLd = (name, path) => ({ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
@@ -1807,6 +1811,7 @@ function main() {
     // Refresh the homepage's structured-data dateModified daily (growth plan Fix 2).
     out = out.replace(/(<script type="application\/ld\+json" id="freshld">[^<]*"dateModified":")[^"]*(")/, `$1${iso}$2`);
     { const RS = "<!-- REWARDSNAV:START -->", RE = "<!-- REWARDSNAV:END -->"; const a = out.indexOf(RS), z = out.indexOf(RE); if (a !== -1 && z !== -1) out = out.slice(0, a + RS.length) + REWARDS_NAV + out.slice(z); }
+    { const VS = "<!-- GSV:START -->", VE = "<!-- GSV:END -->"; const a = out.indexOf(VS), z = out.indexOf(VE); if (a !== -1 && z !== -1) out = out.slice(0, a + VS.length) + (GOOGLE_SITE_VERIFICATION ? `<meta name="google-site-verification" content="${GOOGLE_SITE_VERIFICATION}">` : "") + out.slice(z); }
     const GS = "<!-- SSRGRID:START -->", GE = "<!-- SSRGRID:END -->";
     const gs = out.indexOf(GS), ge = out.indexOf(GE);
     if (gs !== -1 && ge !== -1 && ge > gs) {
