@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-21",
-  "updatedAt": "2026-10-21T11:07:32.475Z",
+  "updatedAt": "2026-10-21T16:10:35.888Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -360,6 +360,27 @@
       "expires_on": null,
       "verified_on": "2026-10-21",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Potbelly",
+      "cat": "Sandwiches",
+      "color": "#8b1a1a",
+      "ic": "P",
+      "deal": "$2 Off Orders of $10 or More",
+      "desc": "Announced by email on 2026-10-20: get $2 off any online or in-store order of $10 or more, valid for 14 days.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 3, 2026",
+      "url": "https://www.potbelly.com/menu",
+      "est_savings": 2,
+      "id": "04196438",
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": "2026-11-03",
+      "verified_on": "2026-10-21",
+      "best": false
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "782521c323fe",
+  "hash": "85894a5e3575",
   "lastmod": "2026-10-21"
  },
  "/sushi-deals": {
@@ -12,7 +12,7 @@
   "lastmod": "2026-10-19"
  },
  "/verification-log": {
-  "hash": "10e8c35ce8a8",
+  "hash": "16b9315bd66b",
   "lastmod": "2026-10-21"
  },
  "/about": {
@@ -88,7 +88,7 @@
   "lastmod": "2026-10-21"
  },
  "/potbelly-deals": {
-  "hash": "469dda8366a5",
+  "hash": "25beb6405416",
   "lastmod": "2026-10-21"
  },
  "/noodles-and-company-deals": {
@@ -308,7 +308,7 @@
   "lastmod": "2026-10-21"
  },
  "/press": {
-  "hash": "17bd913b3969",
+  "hash": "96de8bda2d0f",
   "lastmod": "2026-10-21"
  },
  "/cava-rewards": {
@@ -360,7 +360,7 @@
   "lastmod": "2026-10-21"
  },
  "/potbelly-perks": {
-  "hash": "8df9035f7ad9",
+  "hash": "2f3659d036c9",
   "lastmod": "2026-10-21"
  },
  "/qdoba-rewards": {
@@ -369,6 +369,10 @@
  },
  "/noodles-rewards": {
   "hash": "aab0a7f410dc",
+  "lastmod": "2026-10-21"
+ },
+ "/veterans-day-free-meals": {
+  "hash": "95a7cd481d26",
   "lastmod": "2026-10-21"
  }
 }
