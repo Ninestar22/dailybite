@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-22",
-  "updatedAt": "2026-10-22T11:09:35.852Z",
+  "updatedAt": "2026-10-22T16:08:06.380Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -164,6 +164,50 @@
       "expires_on": null,
       "verified_on": "2026-10-22",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Deli",
+      "color": "#00954c",
+      "ic": "HV",
+      "deal": "$5 off $25+ Meals To Go Order",
+      "desc": "Announced by email on 2026-10-22, $5 off online orders of $25 or more from Hy-Vee's prepared Meals To Go counter through Oct 31, 2026, free Hy-Vee PERKS account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 31, 2026",
+      "url": "https://www.hy-vee.com/meals-to-go/",
+      "region": "Midwest",
+      "est_savings": 5,
+      "id": "fa7cf748",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-10-31",
+      "verified_on": "2026-10-22",
+      "best": false
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#6e2a37",
+      "ic": "Q",
+      "deal": "Free Guac with Any Entree",
+      "desc": "Announced by email on 2026-10-22, hand-smashed guacamole is free on any entree, all day every day, no code or minimum purchase needed.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Ongoing",
+      "url": "https://www.qdoba.com/offers",
+      "region": "National",
+      "est_savings": 2,
+      "id": "f781c577",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-22",
+      "best": false
     }
   ]
 }
