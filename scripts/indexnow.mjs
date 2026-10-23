@@ -32,9 +32,10 @@ if (args.length) {
   // commit an empty .indexnow-all file; this run submits everything and deletes the marker.
   const dayMs = 86400000, now = Date.now();
   const recent = d => now - Date.parse(d + "T12:00:00Z") <= 2 * dayMs;
-  const markerPath = join(root, ".indexnow-all");
-  const forceAll = !!process.env.INDEXNOW_ALL || existsSync(markerPath);
-  if (existsSync(markerPath)) { try { unlinkSync(markerPath); console.log("IndexNow: .indexnow-all marker consumed (full submission)."); } catch {} }
+  // build.mjs consumes the committed .indexnow-all marker and leaves this untracked flag.
+  const flagPath = join(root, ".indexnow-force");
+  const forceAll = !!process.env.INDEXNOW_ALL || existsSync(flagPath);
+  if (existsSync(flagPath)) { try { unlinkSync(flagPath); console.log("IndexNow: full submission flag consumed."); } catch {} }
   const all = [...sitemap.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod>/g)];
   urls = all.filter(m => forceAll || recent(m[2])).map(m => m[1]);
   console.log(`IndexNow: ${all.length} sitemap URLs, ${urls.length} ${forceAll ? "submitted (all)" : "changed in the last 2 days"}.`);

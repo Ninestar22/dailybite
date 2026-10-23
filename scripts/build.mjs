@@ -4,7 +4,7 @@
 //   2. Generates a static, crawlable page per chain (<slug>.html, served at /<slug>)
 //   3. Generates sitemap.xml
 // No network, no key needed. Run: node scripts/build.mjs
-import { readFileSync, writeFileSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync, unlinkSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { assignDealIds } from "./deal-id.mjs";
 import { bestDealUrl } from "./deal-pages.mjs";
@@ -1905,6 +1905,22 @@ function main() {
     writeFileSync(join(root, `${h.slug}.html`), holidayPage(h, deals));
   }
   console.log(`Built ${activeHolidays.length} holiday pages.`);
+  // Expired holiday pages (sitemap audit 2026-10-23): a page that left the window stayed on
+  // disk as an indexable, self-canonical page about a date that had passed, while the
+  // sitemap silently dropped it. Google kept indexing stale copies. Once a holiday is more
+  // than 2 days past, its file becomes a noindex redirect to the homepage, like the banned
+  // chain stubs, so the URL consolidates instead of lingering.
+  let retired = 0;
+  for (const h of HOLIDAYS) {
+    if (activeHolidays.includes(h)) continue;
+    const diff = (new Date(h.date + "T12:00:00") - now) / 86400000;
+    const file = join(root, `${h.slug}.html`);
+    if (diff < -2 && existsSync(file) && !readFileSync(file, "utf8").includes('content="noindex')) {
+      writeFileSync(file, redirectPage(null, SITE + "/"));
+      retired++;
+    }
+  }
+  if (retired) console.log(`Retired ${retired} expired holiday page(s) to noindex redirects.`);
 
   // 2c. Free-food hub + sushi hub + RSS feed
   writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
@@ -1941,6 +1957,13 @@ function main() {
   try { const bp = join(root, "birthday-freebies.html"); let b = readFileSync(bp, "utf8"); const RS = "<!-- REWARDSNAV:START -->", RE = "<!-- REWARDSNAV:END -->"; const a = b.indexOf(RS), z = b.indexOf(RE); if (a !== -1 && z !== -1) { b = b.slice(0, a + RS.length) + REWARDS_NAV + b.slice(z); writeFileSync(bp, b); } } catch {}
   }
 
+  // One-off full IndexNow submission: the committed .indexnow-all marker is consumed here, in
+  // the build (before the workflow's commit step, so its deletion is committed), and handed to
+  // indexnow.mjs, which runs after the push, through an untracked .indexnow-force flag.
+  {
+    const marker = join(root, ".indexnow-all");
+    if (existsSync(marker)) { try { unlinkSync(marker); writeFileSync(join(root, ".indexnow-force"), ""); console.log("IndexNow: full submission requested for this run."); } catch {} }
+  }
   // 3. Sitemap
   const urls = [`${SITE}/`, `${SITE}/app`, `${SITE}/press`, `${SITE}/sushi-deals`, `${SITE}/trader-joes-healthy-meals`, `${SITE}/verification-log`, `${SITE}/about`, `${SITE}/privacy`, `${SITE}/birthday-freebies`, `${SITE}/best-fast-food-apps`, `${SITE}/5-dollar-meal-deals`, `${SITE}/student-food-deals`, `${SITE}/late-night-food-deals`, `${SITE}/fast-food-happy-hours`, `${SITE}/cheapest-fast-food-orders`, `${SITE}/fast-food-vs-groceries`, `${SITE}/delivery-vs-pickup`, `${SITE}/back-to-school-food-deals`, ...CHAINS.filter(c => !c.banned).map(c => `${SITE}/${c.slug}`), ...(mealsOn ? [SITE + "/cheap-healthy-meals"] : []), `${SITE}/food-deals-by-day`, `${SITE}/${REPORT_SLUG}`, ...EXPLAINERS.map(x => `${SITE}/${x.slug}`), `${SITE}/free-food-today`, ...activeHolidays.map(h => `${SITE}/${h.slug}`)];
   // lastmod (2026-10-12): every page used to be stamped with today's date every day, so the date
