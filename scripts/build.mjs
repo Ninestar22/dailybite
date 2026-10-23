@@ -1524,6 +1524,25 @@ function main() {
     if (deals.length < beforeDedupe) console.log(`Removed ${beforeDedupe - deals.length} duplicate deal(s).`);
   }
 
+  // FUTURE-DATED EVENTS (owner, 2026-10-23: Chipotle's Oct 31 Boorito was on the site on Oct 23, "no one can use
+  // it currently"). A deal whose title names a month-day date that is still ahead is an announcement, not a
+  // deal: drop it until that day. Dated windows live in "expires", so titles with a date are one-day events.
+  {
+    const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december"];
+    const todayET = new Date(new Date().toLocaleString("en-US", ET)); todayET.setHours(0, 0, 0, 0);
+    const beforeFuture = deals.length;
+    deals = deals.filter(d => {
+      const m = String(d.deal || "").match(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})(?!\d)/i);
+      if (!m) return true;
+      const mi = MONTHS.findIndex(x => x.startsWith(m[1].toLowerCase().slice(0, 3)));
+      let when = new Date(todayET.getFullYear(), mi, Number(m[2]));
+      if (when < todayET && todayET - when > 200 * 864e5) when = new Date(todayET.getFullYear() + 1, mi, Number(m[2]));
+      if (when > todayET) { console.log(`Dropped future-dated deal until its day: ${d.brand}: ${d.deal}`); return false; }
+      return true;
+    });
+    if (deals.length < beforeFuture) console.log(`Removed ${beforeFuture - deals.length} future-dated deal(s).`);
+  }
+
   // Flag new-since-yesterday and expiring-soon deals (badges rendered client-side)
   let prev = [];
   try {

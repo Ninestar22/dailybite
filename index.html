@@ -180,25 +180,6 @@
 <div class="card best">
   <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
-    <div class="brand-ic" style="background:#A81612"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
-    <div class="brandtxt"><h2 class="brand-name">Chipotle</h2><div class="brand-cat">Mexican</div></div>
-    <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
-  </div>
-  <div class="offers">
-<div class="offer">
-    <h3 class="deal">Boorito Halloween: $6 Entree in Costume, Oct 31 After 3PM</h3>
-    <div class="desc">Chipotle Rewards members (free account) who visit in costume from 3pm to close on October 31 get one entree for $6, in-restaurant only; announced via official newsroom Oct 20, 2026.</div>
-    <div class="metarow"><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$5</span></div>
-    <div class="foot">
-      <span class="expires">Through October 31, 2026</span>
-      <a class="cta" href="https://www.chipotle.com/boorito" target="_blank" rel="noopener" data-goatcounter-click="deal/chipotle" data-goatcounter-title="Chipotle: Boorito Halloween: $6 Entree in Costume, Oct 31 After 3PM">Get deal &rarr;</a>
-    </div>
-  </div>
-  </div>
-</div>
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
-  <div class="brandrow">
     <div class="brand-ic" style="background:#8B1E24"><span>P</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=potbelly.com&amp;sz=128" alt="Potbelly logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><h2 class="brand-name">Potbelly</h2><div class="brand-cat">Sandwiches</div></div>
     <a class="near" href="https://www.google.com/maps/search/Potbelly+near+me" target="_blank" rel="noopener">Nearest</a>
@@ -348,8 +329,8 @@
   </div>
   </div>
 </div>
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#008c15"><span>SUB</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=subway.com&amp;sz=128" alt="Subway logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><h2 class="brand-name">Subway</h2><div class="brand-cat">Sandwiches</div></div>
@@ -401,28 +382,6 @@
    scripts/build.mjs. Edit deals.json (or let the refresh workflow update it) instead. */
 /* DEALS:START */
 const DEALS = [
-  {
-    "brand": "Chipotle",
-    "cat": "Mexican",
-    "color": "#A81612",
-    "ic": "C",
-    "deal": "Boorito Halloween: $6 Entree in Costume, Oct 31 After 3PM",
-    "desc": "Chipotle Rewards members (free account) who visit in costume from 3pm to close on October 31 get one entree for $6, in-restaurant only; announced via official newsroom Oct 20, 2026.",
-    "tags": [
-      "app"
-    ],
-    "value": 4,
-    "expires": "Through October 31, 2026",
-    "url": "https://www.chipotle.com/boorito",
-    "best": true,
-    "est_savings": 5,
-    "region": "National",
-    "id": "a0e5dc74",
-    "isNew": true,
-    "endingSoon": false,
-    "expires_on": "2026-10-31",
-    "verified_on": "2026-10-23"
-  },
   {
     "brand": "Potbelly",
     "cat": "Sandwiches",
@@ -598,7 +557,7 @@ const DEALS = [
     "value": 4,
     "expires": "Limited time",
     "url": "https://www.subway.com/en-us",
-    "best": false,
+    "best": true,
     "region": "National",
     "est_savings": 4,
     "isNew": false,
@@ -608,7 +567,7 @@ const DEALS = [
     "id": "d3828fcf"
   }
 ];
-const META = {"verifiedAt":"2026-10-23T11:06:23.011Z"};
+const META = {"verifiedAt":"2026-10-23T19:01:19.614Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"],"active":false};
 /* DEALS:END */
 const today = new Date();

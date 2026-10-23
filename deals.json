@@ -3,28 +3,6 @@
   "updatedAt": "2026-10-23T11:06:22.408Z",
   "deals": [
     {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#A81612",
-      "ic": "C",
-      "deal": "Boorito Halloween: $6 Entree in Costume, Oct 31 After 3PM",
-      "desc": "Chipotle Rewards members (free account) who visit in costume from 3pm to close on October 31 get one entree for $6, in-restaurant only; announced via official newsroom Oct 20, 2026.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through October 31, 2026",
-      "url": "https://www.chipotle.com/boorito",
-      "best": true,
-      "est_savings": 5,
-      "region": "National",
-      "id": "a0e5dc74",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": "2026-10-31",
-      "verified_on": "2026-10-23"
-    },
-    {
       "brand": "Potbelly",
       "cat": "Sandwiches",
       "color": "#8B1E24",
@@ -199,7 +177,7 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.subway.com/en-us",
-      "best": false,
+      "best": true,
       "region": "National",
       "est_savings": 4,
       "isNew": false,
