@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-23",
-  "updatedAt": "2026-10-23T11:06:22.408Z",
+  "updatedAt": "2026-10-23T19:11:49.563Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -185,6 +185,28 @@
       "expires_on": null,
       "verified_on": "2026-10-23",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Pokeworks",
+      "cat": "Poke",
+      "color": "#e4572e",
+      "ic": "P",
+      "deal": "Free Avocado on Dynamite Lobster Bowl",
+      "desc": "Email announced on 2026-10-23: upgrade your Dynamite Lobster Bowl with a free avocado add-on through October 25, open to all mailing list members.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "Through October 25, 2026",
+      "url": "https://pokeworks.com",
+      "region": "Select states",
+      "est_savings": 2,
+      "id": "a4922f9c",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-10-25",
+      "verified_on": "2026-10-23",
+      "best": false
     }
   ]
 }
