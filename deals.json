@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-24",
-  "updatedAt": "2026-10-24T11:06:17.351Z",
+  "updatedAt": "2026-10-24T18:45:40.900Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -179,7 +179,7 @@
       "value": 4,
       "expires": "Limited time",
       "url": "https://www.subway.com/en-us",
-      "best": true,
+      "best": false,
       "region": "National",
       "est_savings": 4,
       "isNew": false,
@@ -187,6 +187,28 @@
       "expires_on": null,
       "verified_on": "2026-10-24",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#f58220",
+      "ic": "J",
+      "deal": "50% Off Any Small Smoothie, Bowl or Over Ice Drink",
+      "desc": "Jamba Rewards members can get 50% off a small smoothie, regular-sized bowl or small Over Ice beverage, announced by email on 2026-10-24; free account required to redeem in app or online.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.jamba.com/rewards",
+      "region": "National",
+      "best": true,
+      "est_savings": 3,
+      "id": "740b2fb7",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-24"
     }
   ]
 }
