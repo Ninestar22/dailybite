@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-25",
-  "updatedAt": "2026-10-25T16:07:34.415Z",
+  "updatedAt": "2026-10-25T19:07:33.752Z",
   "deals": [
     {
       "brand": "Saladworks",
@@ -184,6 +184,26 @@
       "region": "National",
       "est_savings": 1.5,
       "id": "f781c577",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-25",
+      "best": false
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Noodles",
+      "color": "#8dc63f",
+      "ic": "N",
+      "deal": "25% Off Any Regular Ramen",
+      "desc": "Announced by email on 2026-10-25, 25 percent off any regular ramen entree, last day for this offer.",
+      "tags": [],
+      "value": 3,
+      "expires": "Today only",
+      "url": "https://www.noodles.com/coupons",
+      "region": "National",
+      "est_savings": 3,
+      "id": "a4eb7fb6",
       "isNew": true,
       "endingSoon": false,
       "expires_on": null,
