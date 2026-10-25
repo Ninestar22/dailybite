@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-25",
-  "updatedAt": "2026-10-25T11:07:04.179Z",
+  "updatedAt": "2026-10-25T16:07:34.415Z",
   "deals": [
     {
       "brand": "Saladworks",
@@ -17,7 +17,7 @@
       "est_savings": 3,
       "id": "d4496d99",
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-10-25",
       "verified_on": "2026-10-25",
       "best": true
@@ -144,6 +144,51 @@
       "expires_on": null,
       "verified_on": "2026-10-25",
       "id": "d3828fcf"
+    },
+    {
+      "brand": "Pokeworks",
+      "cat": "Poke",
+      "color": "#f26522",
+      "ic": "P",
+      "deal": "Free Avocado Scoop on Dynamite Lobster Bowl",
+      "desc": "Add a free avocado scoop to the Dynamite Lobster Bowl today only, announced by email on 2026-10-25.",
+      "tags": [
+        "free"
+      ],
+      "value": 2,
+      "expires": "Today only",
+      "url": "https://pokeworks.com",
+      "region": "Select states",
+      "est_savings": 2,
+      "id": "275e8d68",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-25",
+      "best": false
+    },
+    {
+      "brand": "Qdoba",
+      "cat": "Mexican",
+      "color": "#6e2c3a",
+      "ic": "Q",
+      "deal": "Free Guac with Any Entree",
+      "desc": "Hand-smashed guacamole is free on any entree purchase, announced by email on 2026-10-25, free Qdoba Rewards account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 2,
+      "expires": "Ongoing",
+      "url": "https://www.qdoba.com/rewards",
+      "region": "National",
+      "est_savings": 1.5,
+      "id": "f781c577",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-25",
+      "best": false
     }
   ]
 }
