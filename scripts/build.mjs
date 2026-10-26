@@ -1524,6 +1524,20 @@ function main() {
     if (deals.length < beforeDedupe) console.log(`Removed ${beforeDedupe - deals.length} duplicate deal(s).`);
   }
 
+  // OWNER-REJECTED DEALS (2026-10-26): offers the owner tried to use and could not. The sweep keeps
+  // re-finding them from roundup sites, so they are dropped here by brand + title pattern until the
+  // chain's own page states them with a code. Add a line per rejection, with the date and the reason.
+  {
+    const REJECTED = [
+      // Tropical Smoothie "$2 24oz smoothie with any food purchase, Sundays and Mondays": owner tried it on
+      // 2026-10-26, no promo code anywhere and no reward in the app.
+      { brand: /tropical smoothie/i, title: /\$2 24 ?oz smoothie/i },
+    ];
+    const beforeRejected = deals.length;
+    deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
+    if (deals.length < beforeRejected) console.log(`Removed ${beforeRejected - deals.length} owner-rejected deal(s).`);
+  }
+
   // FUTURE-DATED EVENTS (owner, 2026-10-23: Chipotle's Oct 31 Boorito was on the site on Oct 23, "no one can use
   // it currently"). A deal whose title names a month-day date that is still ahead is an announcement, not a
   // deal: drop it until that day. Dated windows live in "expires", so titles with a date are one-day events.
