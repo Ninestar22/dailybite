@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-26",
-  "updatedAt": "2026-10-26T11:07:58.404Z",
+  "updatedAt": "2026-10-26T19:07:39.435Z",
   "deals": [
     {
       "brand": "Moe's Southwest Grill",
@@ -167,10 +167,55 @@
       "region": "National",
       "est_savings": 4.5,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-10-26",
       "verified_on": "2026-10-26",
       "id": "a87121fe"
+    },
+    {
+      "brand": "Pokeworks",
+      "cat": "Poke",
+      "color": "#f4a900",
+      "ic": "P",
+      "deal": "Free Musubi with Any Entree Purchase",
+      "desc": "Pokeworks Rewards members can choose a free musubi with any entree purchase all week; announced by email on 2026-10-26, free account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "This week",
+      "url": "https://pokeworks.com/rewards",
+      "region": "Select states",
+      "est_savings": 2.5,
+      "id": "de7bad31",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-26",
+      "best": false
+    },
+    {
+      "brand": "Pei Wei",
+      "cat": "Asian",
+      "color": "#d0271d",
+      "ic": "PW",
+      "deal": "Any Entree for $10.99 (Rewards Members)",
+      "desc": "Pei Wei Rewards members can get any entree for $10.99 through 10/28; announced by email on 2026-10-26, free account required and must be applied at checkout or redeemed in-store via the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 28, 2026",
+      "url": "https://order.peiwei.com/account/rewards",
+      "region": "Select states",
+      "est_savings": 3,
+      "id": "230dc822",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-10-28",
+      "verified_on": "2026-10-26",
+      "best": false
     }
   ]
 }
