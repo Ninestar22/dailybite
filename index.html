@@ -792,7 +792,7 @@ const DEALS = [
     "id": "43d0d809"
   }
 ];
-const META = {"verifiedAt":"2026-10-28T11:07:16.720Z"};
+const META = {"verifiedAt":"2026-10-28T13:39:09.450Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"],"active":false};
 /* DEALS:END */
 const today = new Date();
@@ -968,6 +968,7 @@ const BRAND_STATES = {
   'marugame udon': ['California','Hawaii','Washington'],
   "nando's peri-peri": ['District of Columbia','Maryland','Virginia','Illinois','Texas','Georgia'],
   'district taco': ['District of Columbia','Maryland','Virginia','Pennsylvania','New Jersey','New York','Florida'],
+  'pollo campero': ['Arkansas','California','District of Columbia','Florida','Georgia','Illinois','Louisiana','Maryland','Massachusetts','Minnesota','Nevada','New Jersey','New York','North Carolina','Oklahoma','Pennsylvania','Rhode Island','South Carolina','Tennessee','Texas','Virginia'], // us.campero.com/find-a-campero, 2026-10-28
   'yoshinoya': ['California'],
   'pollo tropical': ['Florida'],
   "rubio's": ['California','Arizona','Nevada'],
@@ -1057,7 +1058,7 @@ const PLATFORM_BRANDS = new Set(['doordash','ubereats','grubhub']); // no storef
 // Chains with thousands of U.S. locations (owner rule, 2026-08-27): a map-data gap must
 // never hide a Chipotle-scale chain's national deal. The veto exists for mid-size chains
 // whose "National" label is doubtful, not for brands that are genuinely everywhere.
-const MAJOR_EVERYWHERE = new Set(['chipotle','chickfila','subway','starbucks','panera','panerabread','walmart','wholefoodsmarket','target']);
+const MAJOR_EVERYWHERE = new Set(['chipotle','chickfila','subway','starbucks','panera','panerabread','walmart','wholefoodsmarket','target','jerseymikes']);
 // Brands whose OpenStreetMap name differs enough that substring matching misses them.
 const OSM_ALIASES = { 'Kura Sushi': 'Kura Revolving Sushi Bar' };
 function distPill(brand){

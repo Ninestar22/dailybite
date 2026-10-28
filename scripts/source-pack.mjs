@@ -33,6 +33,10 @@ export const OFFER_SOURCES = [
   { brand: "District Taco", url: "https://www.districttaco.com/" },
   { brand: "District Taco rewards", url: "https://www.districttaco.com/rewards" },
   { brand: "Moe's Southwest Grill offers", url: "https://www.moes.com/offers" },
+  // Added 2026-10-28: Pollo Campero's promos sit in the homepage carousel ($12 Box on 10/28) and on the rewards page.
+  { brand: "Pollo Campero", url: "https://us.campero.com/" },
+  { brand: "Pollo Campero rewards", url: "https://us.campero.com/rewards" },
+  { brand: "Jersey Mike's", url: "https://www.jerseymikes.com/" },
   { brand: "Target Circle", url: "https://www.target.com/circle" },
   { brand: "Aldi weekly finds", url: "https://www.aldi.us/weekly-specials/this-weeks-aldi-finds/" },
   { brand: "Chopt", url: "https://www.choptsalad.com/" },
@@ -164,7 +168,7 @@ export const LEAD_BRANDS = [
   "Taziki's", "Saladworks", "Salata", "Rubio's", "WaBa Grill", "Pollo Tropical", "Tijuana Flats", "Pei Wei",
   "Teriyaki Madness", "Bibibop", "Cafe Zupas", "Naf Naf", "Halal Guys", "Marugame", "Yoshinoya", "Sarku",
   "Roti", "Garbanzo", "Pita Pit", "Newk's", "Robeks", "Clean Juice", "Pressed Juicery", "Luna Grill", "Bolay",
-  "Uber Eats", "DoorDash", "Grubhub", "Nando's", "District Taco", "Giant Food", "Wegmans", "Moe's", "Target", "Aldi",
+  "Uber Eats", "DoorDash", "Grubhub", "Nando's", "District Taco", "Giant Food", "Wegmans", "Moe's", "Target", "Aldi", "Pollo Campero", "Jersey Mike's",
 ];
 const LEAD_DAYS = 10;
 const LEAD_MAX = 45;

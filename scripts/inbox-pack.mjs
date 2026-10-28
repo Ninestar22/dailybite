@@ -37,6 +37,7 @@ export const CHAIN_DOMAINS = [
   "rocknrollsushi.com", "sushimaki.com", "islandfinpoke.com", "weismarkets.com", "hannaford.com", "lowesfoods.com", "gianteagle.com",
   "dierbergs.com", "freshthyme.com", "walmart.com",
   "target.com", "aldi.us", "aldi.com", "moes.com", // added to the roster 2026-10-16
+  "campero.com", "jerseymikes.com", // added to the roster 2026-10-28 (Pollo Campero, Jersey Mike's)
 ];
 
 const senderDomain = (from) => {
