@@ -177,8 +177,8 @@
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"><!-- SSRGRID:START -->
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
+<div class="card">
+  
   <div class="brandrow">
     <div class="brand-ic" style="background:#008938"><span>S</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=subway.com&amp;sz=128" alt="Subway logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><h2 class="brand-name">Subway</h2><div class="brand-cat">Sandwiches</div></div>
@@ -481,6 +481,44 @@
   </div>
   </div>
 </div>
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
+  <div class="brandrow">
+    <div class="brand-ic" style="background:#f68d2e"><span>J</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=jamba.com&amp;sz=128" alt="Jamba logo" loading="lazy" onerror="this.remove()"></div>
+    <div class="brandtxt"><h2 class="brand-name">Jamba</h2><div class="brand-cat">Smoothies</div></div>
+    <a class="near" href="https://www.google.com/maps/search/Jamba+near+me" target="_blank" rel="noopener">Nearest</a>
+  </div>
+  <div class="offers">
+<div class="offer">
+    <h3 class="deal">50% Off Your Next Order, Up to $20</h3>
+    <div class="desc">Jamba Rewards members get 50% off any order up to $20 savings, announced by email on 2026-10-28; free account required, apply at checkout.</div>
+    <div class="metarow"><span class="pill free">FREE</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$10</span></div>
+    <div class="foot">
+      <span class="expires">Limited time</span>
+      <a class="cta" href="https://www.jamba.com/menu" target="_blank" rel="noopener" data-goatcounter-click="deal/jamba" data-goatcounter-title="Jamba: 50% Off Your Next Order, Up to $20">Get deal &rarr;</a>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="card">
+  
+  <div class="brandrow">
+    <div class="brand-ic" style="background:#e2231a"><span>P</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=pokeworks.com&amp;sz=128" alt="Pokeworks logo" loading="lazy" onerror="this.remove()"></div>
+    <div class="brandtxt"><h2 class="brand-name">Pokeworks</h2><div class="brand-cat">Poke</div></div>
+    <a class="near" href="https://www.google.com/maps/search/Pokeworks+near+me" target="_blank" rel="noopener">Nearest</a>
+  </div>
+  <div class="offers">
+<div class="offer">
+    <h3 class="deal">Free Spam Musubi with Any Entree Purchase</h3>
+    <div class="desc">Pokeworks mailing list members can get a free Spam Musubi with any entree purchase through November 1, announced by email on 2026-10-28.</div>
+    <div class="metarow"><span class="pill region">SELECT STATES</span><span class="pill free">FREE</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$3</span></div>
+    <div class="foot">
+      <span class="expires">Through November 1, 2026</span>
+      <a class="cta" href="https://www.pokeworks.com" target="_blank" rel="noopener" data-goatcounter-click="deal/pokeworks" data-goatcounter-title="Pokeworks: Free Spam Musubi with Any Entree Purchase">Get deal &rarr;</a>
+    </div>
+  </div>
+  </div>
+</div>
 <!-- SSRGRID:END --></div>
   <div class="empty" id="empty" style="display:none">No deals match your search.</div>
   </div><!-- /dealspanel -->
@@ -536,7 +574,7 @@ const DEALS = [
     "endingSoon": false,
     "expires_on": "2026-11-08",
     "verified_on": "2026-10-28",
-    "best": true
+    "best": false
   },
   {
     "brand": "Rubio's Coastal Grill",
@@ -829,9 +867,52 @@ const DEALS = [
     "expires_on": "2026-11-01",
     "verified_on": "2026-10-28",
     "best": true
+  },
+  {
+    "brand": "Jamba",
+    "cat": "Smoothies",
+    "color": "#f68d2e",
+    "ic": "J",
+    "deal": "50% Off Your Next Order, Up to $20",
+    "desc": "Jamba Rewards members get 50% off any order up to $20 savings, announced by email on 2026-10-28; free account required, apply at checkout.",
+    "tags": [
+      "free"
+    ],
+    "value": 5,
+    "expires": "Limited time",
+    "url": "https://www.jamba.com/menu",
+    "best": true,
+    "est_savings": 10,
+    "id": "b230920a",
+    "isNew": true,
+    "endingSoon": false,
+    "expires_on": null,
+    "verified_on": "2026-10-28"
+  },
+  {
+    "brand": "Pokeworks",
+    "cat": "Poke",
+    "color": "#e2231a",
+    "ic": "P",
+    "deal": "Free Spam Musubi with Any Entree Purchase",
+    "desc": "Pokeworks mailing list members can get a free Spam Musubi with any entree purchase through November 1, announced by email on 2026-10-28.",
+    "tags": [
+      "free"
+    ],
+    "value": 2,
+    "expires": "Through November 1, 2026",
+    "url": "https://www.pokeworks.com",
+    "region": "Select states",
+    "est_savings": 3,
+    "id": "43ae42a8",
+    "isNew": true,
+    "endingSoon": false,
+    "expires_on": "2026-11-01",
+    "verified_on": "2026-10-28",
+    "best": false
   }
 ];
-const META = {"verifiedAt":"2026-10-28T16:13:16.585Z"};
+const META = {"verifiedAt":"2026-10-28T19:07:58.948Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"],"active":false};
 /* DEALS:END */
 const today = new Date();
