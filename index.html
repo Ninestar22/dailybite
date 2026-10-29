@@ -717,7 +717,7 @@ const DEALS = [
     "id": "e4ea4ae6"
   }
 ];
-const META = {"verifiedAt":"2026-10-29T11:24:47.786Z"};
+const META = {"verifiedAt":"2026-10-29T11:26:50.225Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"],"active":false};
 /* DEALS:END */
 const today = new Date();
@@ -893,6 +893,7 @@ const BRAND_STATES = {
   'marugame udon': ['California','Hawaii','Washington'],
   "nando's peri-peri": ['District of Columbia','Maryland','Virginia','Illinois','Texas','Georgia'],
   'district taco': ['District of Columbia','Maryland','Virginia','Pennsylvania','New Jersey','New York','Florida'],
+  "taziki's mediterranean cafe": ['Alabama','Arkansas','Colorado','Florida','Georgia','Indiana','Kentucky','Louisiana','Michigan','Mississippi','Missouri','North Carolina','Ohio','Oklahoma','South Carolina','Tennessee','Texas','Virginia','West Virginia'], // tazikis.com store locator (Storepoint API), 111 stores, 2026-10-29
   'pollo campero': ['Arkansas','California','District of Columbia','Florida','Georgia','Illinois','Louisiana','Maryland','Massachusetts','Minnesota','Nevada','New Jersey','New York','North Carolina','Oklahoma','Pennsylvania','Rhode Island','South Carolina','Tennessee','Texas','Virginia'], // us.campero.com/find-a-campero, 2026-10-28
   'yoshinoya': ['California'],
   'pollo tropical': ['Florida'],
@@ -945,7 +946,7 @@ const BRAND_STATES = {
   'kroger': ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Georgia','Idaho','Illinois','Indiana','Kansas','Kentucky','Louisiana','Michigan','Mississippi','Missouri','Montana','Nebraska','Nevada','New Mexico','North Carolina','Ohio','Oregon','South Carolina','Tennessee','Texas','Utah','Virginia','Washington','West Virginia','Wisconsin','Wyoming'],
   'safeway': ['Alaska','Arizona','California','Colorado','Delaware','District of Columbia','Hawaii','Maryland','Montana','Nebraska','Nevada','New Mexico','Oregon','South Dakota','Virginia','Washington','Wyoming']
 };
-BRAND_STATES['sprouts farmers market'] = BRAND_STATES['sprouts']; BRAND_STATES["nando's"] = BRAND_STATES["nando's peri-peri"]; BRAND_STATES["moe's"] = BRAND_STATES["moe's southwest grill"]; BRAND_STATES['great greek mediterranean grill'] = BRAND_STATES['the great greek mediterranean grill']; BRAND_STATES['roti modern mediterranean'] = BRAND_STATES['roti']; BRAND_STATES['garbanzo mediterranean fresh'] = BRAND_STATES['garbanzo']; BRAND_STATES["newk's"] = BRAND_STATES["newk's eatery"]; BRAND_STATES['heb'] = BRAND_STATES['h-e-b']; BRAND_STATES['hyvee'] = BRAND_STATES['hy-vee']; BRAND_STATES['winn dixie'] = BRAND_STATES['winn-dixie']; BRAND_STATES['stop and shop'] = BRAND_STATES['stop & shop']; BRAND_STATES['lowes foods'] = BRAND_STATES["lowe's foods"];
+BRAND_STATES['sprouts farmers market'] = BRAND_STATES['sprouts']; BRAND_STATES["nando's"] = BRAND_STATES["nando's peri-peri"]; BRAND_STATES["taziki's"] = BRAND_STATES["taziki's mediterranean cafe"]; BRAND_STATES["moe's"] = BRAND_STATES["moe's southwest grill"]; BRAND_STATES['great greek mediterranean grill'] = BRAND_STATES['the great greek mediterranean grill']; BRAND_STATES['roti modern mediterranean'] = BRAND_STATES['roti']; BRAND_STATES['garbanzo mediterranean fresh'] = BRAND_STATES['garbanzo']; BRAND_STATES["newk's"] = BRAND_STATES["newk's eatery"]; BRAND_STATES['heb'] = BRAND_STATES['h-e-b']; BRAND_STATES['hyvee'] = BRAND_STATES['hy-vee']; BRAND_STATES['winn dixie'] = BRAND_STATES['winn-dixie']; BRAND_STATES['stop and shop'] = BRAND_STATES['stop & shop']; BRAND_STATES['lowes foods'] = BRAND_STATES["lowe's foods"];
 const STATE_ABBR = {'alabama':'AL','alaska':'AK','arizona':'AZ','arkansas':'AR','california':'CA','colorado':'CO','connecticut':'CT','delaware':'DE','florida':'FL','georgia':'GA','hawaii':'HI','idaho':'ID','illinois':'IL','indiana':'IN','iowa':'IA','kansas':'KS','kentucky':'KY','louisiana':'LA','maine':'ME','maryland':'MD','massachusetts':'MA','michigan':'MI','minnesota':'MN','mississippi':'MS','missouri':'MO','montana':'MT','nebraska':'NE','nevada':'NV','new hampshire':'NH','new jersey':'NJ','new mexico':'NM','new york':'NY','north carolina':'NC','north dakota':'ND','ohio':'OH','oklahoma':'OK','oregon':'OR','pennsylvania':'PA','rhode island':'RI','south carolina':'SC','south dakota':'SD','tennessee':'TN','texas':'TX','utah':'UT','vermont':'VT','virginia':'VA','washington':'WA','west virginia':'WV','wisconsin':'WI','wyoming':'WY'};
 function regionOK(d){
   if(!STATE) return true;
