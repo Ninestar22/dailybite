@@ -1449,7 +1449,7 @@ function main() {
   }
   {
     for (const e of EVERGREEN) {
-      if (e.dow !== undefined && e.dow !== dowET) continue;
+      if (e.dow !== undefined && ![].concat(e.dow).includes(dowET)) continue; // dow may be one weekday or an array (Luna Grill Mon-Thu, 2026-10-29)
       if (e.from && iso < e.from) continue;   // dated promo that has not started yet
       if (iso > e.until) continue;            // self-expires
       const sameBrand = deals.some((d) => canonBrand(d.brand) === canonBrand(e.deal.brand));

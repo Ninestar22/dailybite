@@ -314,6 +314,29 @@
       "expires_on": "2026-11-01",
       "verified_on": "2026-10-29",
       "best": false
+    },
+    {
+      "brand": "Luna Grill",
+      "cat": "Mediterranean",
+      "color": "#c8102e",
+      "ic": "LG",
+      "deal": "Club Luna Kids Eat Free: Free Kids Meal with Each Adult Entree, Dine-In",
+      "desc": "Monday through Thursday, Club Luna Rewards members (free app account) get one free kids meal per adult entree, up to two per check, for children 10 and under, dine-in only with the child present. Show the offer in the Luna Grill app when ordering. All locations except San Diego Airport; not combinable with other offers.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Mondays through Thursdays",
+      "url": "https://www.lunagrill.com/kids-eat-free",
+      "best": true,
+      "region": "SoCal & Texas",
+      "est_savings": 7,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-29",
+      "id": "46976bc5"
     }
   ]
 }

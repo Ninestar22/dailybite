@@ -70,6 +70,15 @@ export const EVERGREEN = [
     { until: "2026-10-15", deal: { brand: "Rubio's Coastal Grill", cat: "Seafood", color: "#00a1e0", ic: "R", deal: "$7+ Meal Menu, including Fish & Chips for $7.99", desc: "Rubio's standing value menu runs meals from $7 to $10, headlined by Fish & Chips for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.rubios.com/menu", est_savings: 3, best: false, region: "CA, AZ & NV" } },
     { until: "2026-10-15", deal: { brand: "WaBa Grill", cat: "Bowls", color: "#e4002b", ic: "W", deal: "Value-Bowl Combo: mini bowl, side and drink for $7.99", desc: "A permanent value item: a mini bowl with chicken, sweet and spicy chicken or tofu, plus a value side and a 12 oz drink for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.wabagrill.com/menu", est_savings: 3, best: false, region: "CA & AZ" } },
     { until: "2026-12-31", deal: { brand: "Naf Naf Grill", cat: "Mediterranean", color: "#c8102e", ic: "N", deal: "$9.99 Pita Meal Deal", desc: "Naf Naf Grill's value menu: a full pita meal for $9.99, in store and in the app, every day at participating locations.", tags: ["app"], value: 3, expires: "Ongoing", url: "https://nafnafgrill.com/", est_savings: 3, best: false, region: "Midwest & East" } },
+    // Salata code STACKED, read from salata.com (homepage promo card) on 2026-10-29: "Add a second protein to any salad
+    // or wrap for $2. Use code STACKED." / "NOW THROUGH NOVEMBER 1". No account needed; the code is on the chain's own
+    // page (owner's 2026-10-26 promo-code rule). Salata is TX/South: never National, never best.
+    { from: "2026-10-29", until: "2026-11-01", deal: { brand: "Salata", cat: "Salads", color: "#6cb33f", ic: "S", deal: "$2 Second Protein on Any Salad or Wrap with Code STACKED", desc: "Through Sunday, November 1: double the protein on any salad or wrap for $2 instead of the usual add-on price. Enter code STACKED at salata.com or app checkout, or give it at the counter. Open to everyone, no account needed; participating locations. The code and dates are on Salata's own homepage.", tags: ["code"], value: 3, expires: "Through November 1, 2026", url: "https://www.salata.com/", best: false, region: "Texas & South", est_savings: 2 } },
+    // Luna Grill Kids Eat Free, read from lunagrill.com/kids-eat-free on 2026-10-29: "Valid Mondays - Thursdays for Dine
+    // In at all Luna Grill locations excluding the San Diego Airport location", ages 10 and under, limit one free kids
+    // meal per adult entree and two per check, redeemed from the free Club Luna Rewards app. Standing weekly loyalty
+    // special (owner exception, 2026-09-30), so it shows Mon-Thu only. SoCal & Texas chain: never National, never best.
+    { until: "2026-12-31", dow: [1, 2, 3, 4], deal: { brand: "Luna Grill", cat: "Mediterranean", color: "#c8102e", ic: "LG", deal: "Club Luna Kids Eat Free: Free Kids Meal with Each Adult Entree, Dine-In", desc: "Monday through Thursday, Club Luna Rewards members (free app account) get one free kids meal per adult entree, up to two per check, for children 10 and under, dine-in only with the child present. Show the offer in the Luna Grill app when ordering. All locations except San Diego Airport; not combinable with other offers.", tags: ["free", "app"], value: 4, expires: "Mondays through Thursdays", url: "https://www.lunagrill.com/kids-eat-free", best: false, region: "SoCal & Texas", est_savings: 7 } },
     // Taziki's Halloween week, from the chain's own release (EIN Presswire, Birmingham AL, 2026-10-26, CEO Dan Simpson
     // quoted): "Receive a free Kids Meal with each adult entree purchase between Monday, October 26-Saturday,
     // October 31, 2026", dine-in only, ages 12 and under, one per guest, participating locations. Anyone, no account.
@@ -150,5 +159,5 @@ export const EVERGREEN = [
 
 // Entries the build will inject for a given Eastern date (iso YYYY-MM-DD) and weekday index.
 export function injectedToday(iso, dow) {
-  return EVERGREEN.filter(e => (e.dow === undefined || e.dow === dow) && !(e.from && iso < e.from) && iso <= e.until).map(e => e.deal);
+  return EVERGREEN.filter(e => (e.dow === undefined || [].concat(e.dow).includes(dow)) && !(e.from && iso < e.from) && iso <= e.until).map(e => e.deal);
 }
