@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-29",
-  "updatedAt": "2026-10-29T11:10:39.652Z",
+  "updatedAt": "2026-10-29T16:18:49.800Z",
   "deals": [
     {
       "brand": "Subway",
@@ -269,6 +269,51 @@
       "expires_on": "2026-11-15",
       "verified_on": "2026-10-29",
       "id": "e4ea4ae6"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Grocery",
+      "color": "#ed1c24",
+      "ic": "H",
+      "deal": "$5 Off Meals To Go Orders of $25+",
+      "desc": "Hy-Vee PERKS members get $5 off online Meals To Go orders of $25 or more, announced by email on 2026-10-29, valid through Oct 31, 2026.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through October 31, 2026",
+      "url": "https://www.hy-vee.com/deals/weekly-ads",
+      "region": "Midwest",
+      "est_savings": 5,
+      "id": "efde9228",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-10-31",
+      "verified_on": "2026-10-29",
+      "best": false
+    },
+    {
+      "brand": "Newk's Eatery",
+      "cat": "Cafe",
+      "color": "#8b1e1e",
+      "ic": "N",
+      "deal": "Free Kids Meal with Adult Entree (Halloween Weekend)",
+      "desc": "Newk's Rewards members get a free kids meal with the purchase of an adult entree, announced by email on 2026-10-29, valid 10/29 through 11/1/26.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 1, 2026",
+      "url": "https://www.newks.com",
+      "region": "South",
+      "est_savings": 6,
+      "id": "febdb728",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-01",
+      "verified_on": "2026-10-29",
+      "best": false
     }
   ]
 }
