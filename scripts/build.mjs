@@ -1654,7 +1654,7 @@ function main() {
     "The Halal Guys": "Select states", "Naz's Halal Food": "Select states", "Shah's Halal Food": "Select states", "Tijuana Flats": "FL & Southeast",
     "Kura Sushi": "Select states", "Marugame Udon": "CA, HI & WA", "Yoshinoya": "California only", "Pokeworks": "Select states",
     "Nando's PERi-PERi": "DC, MD, VA, IL, TX & GA", "Nando's": "DC, MD, VA, IL, TX & GA", "District Taco": "DC, MD, VA, PA, NJ, NY & FL",
-    "Pollo Campero": "20 states & DC (CA, TX, FL, NY, NJ, MD, VA, GA, MA, PA, NC, SC, TN, IL, LA, OK, AR, MN, NV & RI)",
+    "Pollo Campero": "20 states & DC (East, South, TX & CA)",
     "Moe's Southwest Grill": "35 states (Southeast, Northeast & Midwest)", "Moe's": "35 states (Southeast, Northeast & Midwest)", "Aldi": "39 states & DC (not CO, ID, MT, NM, OR, UT, WA, WY, AK, HI or ME)",
     "Rock N Roll Sushi": "South & Southeast", "Sushi Maki": "South Florida",
     "Island Fin Poke": "FL & Select states", "Pollo Tropical": "Florida",
