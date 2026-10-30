@@ -1,6 +1,6 @@
 {
   "updated": "2026-10-30",
-  "updatedAt": "2026-10-30T11:08:06.823Z",
+  "updatedAt": "2026-10-30T16:09:14.130Z",
   "deals": [
     {
       "brand": "Subway",
@@ -273,6 +273,28 @@
       "expires_on": null,
       "verified_on": "2026-10-30",
       "id": "6d31e275"
+    },
+    {
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#f58220",
+      "ic": "J",
+      "deal": "31% off your online or app order with code SPOOKY",
+      "desc": "Announced by email on 2026-10-30: use code SPOOKY for 31% off any online or in-app Jamba order today, open to all Rewards members.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Today only",
+      "url": "https://www.jamba.com/rewards",
+      "region": "National",
+      "est_savings": 3,
+      "id": "87fa775d",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-10-30",
+      "best": false
     }
   ]
 }
