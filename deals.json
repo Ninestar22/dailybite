@@ -372,6 +372,50 @@
       "expires_on": "2026-10-31",
       "verified_on": "2026-10-31",
       "id": "6e071d5d"
+    },
+    {
+      "brand": "Schlotzsky's",
+      "cat": "Sandwiches",
+      "color": "#c8202f",
+      "ic": "SZ",
+      "deal": "National Sandwich Day: $5 Medium Sandwiches for Schlotzsky's Rewards Members",
+      "desc": "October 31 through Tuesday, November 3: any medium sandwich for $5 with a free Schlotzsky's Deli Rewards account, in the restaurant or on the app. Stated on Schlotzsky's own homepage; participating locations, not combinable with other offers.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through November 3, 2026",
+      "url": "https://www.schlotzskys.com/",
+      "best": false,
+      "region": "24 states (TX, South & Midwest)",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-03",
+      "verified_on": "2026-10-31",
+      "id": "eb922f81"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Noodles",
+      "color": "#a6192e",
+      "ic": "N",
+      "deal": "$5 Off Any $20 Order for Noodles Rewards Members",
+      "desc": "Through Sunday, November 1: Noodles Rewards members (free account) take $5 off any order of $20 or more on noodles.com or in the app. Sign in and apply the reward on the My Cart screen before checkout; not valid on third-party delivery, call-in or catering orders; participating locations. Terms are on Noodles' own offers page.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 1, 2026",
+      "url": "https://www.noodles.com/offers-terms-conditions",
+      "best": false,
+      "region": "National",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-01",
+      "verified_on": "2026-10-31",
+      "id": "ae8b2785"
     }
   ]
 }

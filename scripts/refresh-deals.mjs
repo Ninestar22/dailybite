@@ -313,7 +313,7 @@ const ROTATION_CHAINS = [
   "Chicken Salad Chick", "Taziki's Mediterranean Cafe", "Chopt Creative Salad Co.", "Saladworks", "Salata Salad Kitchen", "Crisp & Green", "Bibibop Asian Grill",
   "Cafe Zupas", "Clean Juice", "Robeks", "Luna Grill", "Modern Market Eatery", "Dig", "Bolay", "Fresh Kitchen", "Little Greek Fresh Grill",
   "The Great Greek Mediterranean Grill", "Clean Eatz", "Vitality Bowls", "Everbowl", "Rush Bowls", "Pressed Juicery", "Flame Broiler", "Roti Modern Mediterranean",
-  "Garbanzo Mediterranean Fresh", "Pita Pit", "Newk's Eatery", "Subway", "Starbucks",
+  "Garbanzo Mediterranean Fresh", "Pita Pit", "Newk's Eatery", "Schlotzsky's", "Subway", "Starbucks",
 ];
 function focusChains() {
   const dow = new Date(new Date().toLocaleString("en-US", ET)).getDay();
