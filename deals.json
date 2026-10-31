@@ -31,13 +31,13 @@
       "color": "#c8102e",
       "ic": "N",
       "deal": "$1 Bottomless Fountain Drinks for PERi-Perks Members",
-      "desc": "PERi-Perks members (free account) can add a bottomless fountain drink with any meal for $1 instead of the standard $3.99 dine-in price.",
+      "desc": "PERi-Perks members (free account) add a bottomless fountain drink to any order for $1 instead of the $3.49 menu price, in the restaurant, in the app or online. Limit one per guest per transaction; not valid on delivery, catering or third-party orders; participating locations. Stated on Nando's own promotions page; no end date given.",
       "tags": [
         "free",
         "app"
       ],
       "value": 3,
-      "expires": "Ongoing",
+      "expires": "Ongoing (no end date stated)",
       "url": "https://www.nandosperiperi.com/promotions/bottomless-drinks",
       "region": "DC, MD, VA, IL, TX & GA",
       "est_savings": 3,
@@ -45,28 +45,6 @@
       "isNew": true,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-10-31",
-      "best": false
-    },
-    {
-      "brand": "Chicken Salad Chick",
-      "cat": "Chicken",
-      "color": "#f2a900",
-      "ic": "C",
-      "deal": "50% Off Small Nashville Hottie Quick Chick with Code LASTCALL",
-      "desc": "From 3pm to close through October 31, buy any Quick Chick and get a small Nashville Hottie Quick Chick half off online or in app with promo code LASTCALL.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through October 31, 2026",
-      "url": "https://www.chickensaladchick.com/",
-      "region": "South",
-      "est_savings": 4,
-      "id": "ff6680d9",
-      "isNew": true,
-      "endingSoon": true,
-      "expires_on": "2026-10-31",
       "verified_on": "2026-10-31",
       "best": false
     },
@@ -244,25 +222,6 @@
       "expires_on": null,
       "verified_on": "2026-10-31",
       "id": "5dd48d15"
-    },
-    {
-      "brand": "H-E-B",
-      "cat": "Sushi",
-      "color": "#e01e26",
-      "ic": "HB",
-      "deal": "$7 Saturday: Select Sushiya Rolls for $7",
-      "desc": "H-E-B's Sushiya counters repeat the $7 select-roll price on Saturdays at participating Texas stores. No coupon or app needed; selection varies by store.",
-      "tags": [],
-      "value": 3,
-      "expires": "Saturdays only",
-      "url": "https://www.heb.com/category/shop/deli-prepared-food/ready-meals-snacks/sushi/490061/490236",
-      "best": false,
-      "region": "Texas",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-10-31",
-      "id": "82c06888"
     },
     {
       "brand": "Publix",
