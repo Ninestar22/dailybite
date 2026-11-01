@@ -3,28 +3,6 @@
   "updatedAt": "2026-11-01T11:05:54.419Z",
   "deals": [
     {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#d0021b",
-      "ic": "EPL",
-      "deal": "$5 Off Orders of $20+ or $10 Off Orders of $35+ for Loco Rewards Members",
-      "desc": "Loco Rewards members get $5 off a $20+ order or $10 off a $35+ order on fire-grilled chicken bowls, burritos and family meals, valid today only, free account required.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through November 1, 2026",
-      "url": "https://www.elpolloloco.com/promotions",
-      "region": "Select states (CA, TX, AZ, NV, UT)",
-      "est_savings": 5,
-      "id": "2eb66495",
-      "isNew": true,
-      "endingSoon": true,
-      "expires_on": "2026-11-01",
-      "verified_on": "2026-11-01",
-      "best": false
-    },
-    {
       "brand": "Giant Food",
       "cat": "Deli",
       "color": "#e4002b",
@@ -329,6 +307,26 @@
       "expires_on": "2026-10-31",
       "verified_on": "2026-11-01",
       "id": "1073f5c0"
+    },
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#f7c500",
+      "ic": "EP",
+      "deal": "Fire-Grilled Combos from $5.99: Pollo Bowl, Chicken Burrito or 3 Tacos al Carbon with Chips and a Drink",
+      "desc": "El Pollo Loco's value combos (Original Pollo Bowl, Classic Chicken Burrito, 3 Tacos al Carbon) come with chips and a regular drink for $5.99 to $6.99 at a Los Angeles store on order.elpolloloco.com, checked October 3, 2026. The chain advertised them at $5 through 2022; prices vary by market.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "region": "West & Southwest",
+      "est_savings": 3,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-01",
+      "id": "5dd48d15"
     }
   ]
 }
