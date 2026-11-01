@@ -3,26 +3,6 @@
   "updatedAt": "2026-11-01T11:05:54.419Z",
   "deals": [
     {
-      "brand": "Giant Food",
-      "cat": "Deli",
-      "color": "#e4002b",
-      "ic": "G",
-      "deal": "Rotisserie Chicken for $5.99, Save Up to $2",
-      "desc": "This week's Giant Food weekly ad has hot or cold whole rotisserie chicken from the deli for $5.99, up to $2 off regular price.",
-      "tags": [],
-      "value": 2,
-      "expires": "This week",
-      "url": "https://giantfood.com/savings/weekly-ad/",
-      "region": "DC, MD, VA & DE",
-      "est_savings": 2,
-      "id": "a21db6d5",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-01",
-      "best": false
-    },
-    {
       "brand": "Nando's PERi-PERi",
       "cat": "Chicken",
       "color": "#d71921",
