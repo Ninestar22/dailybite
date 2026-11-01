@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-01",
-  "updatedAt": "2026-11-01T11:05:54.419Z",
+  "updatedAt": "2026-11-01T17:07:38.450Z",
   "deals": [
     {
       "brand": "Nando's PERi-PERi",
@@ -67,7 +67,7 @@
       "verified_on": "2026-11-01",
       "id": "fef9b25b",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "McAlister's Deli",
@@ -133,7 +133,7 @@
       "verified_on": "2026-11-01",
       "id": "49f63884",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Newk's Eatery",
@@ -156,7 +156,7 @@
       "expires_on": "2026-11-01",
       "id": "febdb728",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Pokeworks",
@@ -178,7 +178,7 @@
       "expires_on": "2026-11-01",
       "id": "43ae42a8",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Schlotzsky's",
@@ -222,7 +222,7 @@
       "verified_on": "2026-11-01",
       "id": "ae8b2785",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Publix",
@@ -329,6 +329,28 @@
       "expires_on": null,
       "verified_on": "2026-11-01",
       "id": "e2682ab0"
+    },
+    {
+      "brand": "Jamba",
+      "cat": "Smoothies",
+      "color": "#d2232a",
+      "ic": "J",
+      "deal": "50% Off Your Order, Up to $20",
+      "desc": "Jamba Rewards members get 50 percent off their order, up to $20, announced by email on 2026-11-01; free account required.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.jamba.com/menu",
+      "est_savings": 5,
+      "id": "12bcca47",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-01",
+      "best": false
     }
   ]
 }
