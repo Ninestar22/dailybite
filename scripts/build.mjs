@@ -1659,7 +1659,7 @@ function main() {
     "Rock N Roll Sushi": "South & Southeast", "Sushi Maki": "South Florida",
     "Island Fin Poke": "FL & Select states", "Pollo Tropical": "Florida",
     "Weis Markets": "PA, MD, NY, NJ, DE, WV & VA", "Food Lion": "Mid-Atlantic & Southeast", "Lowes Foods": "NC & SC", "Hannaford": "ME, NH, VT, MA & NY", "Dierbergs": "St. Louis area",
-    "Rubio's": "CA, AZ & NV", "Waba Grill": "CA & AZ",
+    "Rubio's": "CA, AZ & NV", "Waba Grill": "CA, AZ, NV & TX",
     "Honeygrow": "Mid-Atlantic & Northeast", "Playa Bowls": "East Coast",
     "Jason's Deli": "South & Central", "McAlister's Deli": "South & Central",
     "Chicken Salad Chick": "South", "Taziki's": "South",

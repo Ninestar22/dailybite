@@ -327,6 +327,28 @@
       "expires_on": null,
       "verified_on": "2026-11-01",
       "id": "5dd48d15"
+    },
+    {
+      "brand": "Waba Grill",
+      "cat": "Bowls",
+      "color": "#e4002b",
+      "ic": "W",
+      "deal": "Kids Eat Free: Free Chicken or Tofu Mini Bowl with Each Full-Price Entree",
+      "desc": "Every day: one free kids Chicken or Tofu Mini Bowl with the purchase of any full-price entree, weekdays after 4 PM and all day Saturday and Sunday, at all WaBa Grill locations. No account or coupon needed. Stated in WaBa Grill's own press release and on its homepage.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "Weekdays after 4 PM, all day weekends",
+      "url": "https://www.wabagrill.com/menu",
+      "best": false,
+      "region": "CA, AZ, NV & TX",
+      "est_savings": 6,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-01",
+      "id": "e2682ab0"
     }
   ]
 }
