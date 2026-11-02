@@ -1540,6 +1540,9 @@ function main() {
       // ("Join Jamba Rewards and get 50% off any smoothie"); the "50% Off Ends Soon" email behind the card reached the
       // deals mailbox as a fresh signup. Welcome offer, not a chain-wide deal.
       { brand: /jamba/i, title: /50% off (your|any) order/i },
+      // El Pollo Loco "Loco Rewards Monday: chips and guacamole for $1 with an $11.99 order" (2026-11-02): roundup-only
+      // (The Krazy Coupon Lady); elpolloloco.com home, /offers, /promotions and /rewards never state it.
+      { brand: /pollo loco/i, title: /chips and guac(amole)? for $1/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
