@@ -47,28 +47,6 @@
       "best": false
     },
     {
-      "brand": "Jamba",
-      "cat": "Smoothies",
-      "color": "#f27125",
-      "ic": "J",
-      "deal": "50% Off Your Order, Up to $20",
-      "desc": "Jamba Rewards members (free account) get 50% off their order, up to $20 in savings, for a limited time per Jamba's own rewards email.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.jamba.com/menu",
-      "region": "National",
-      "est_savings": 4,
-      "id": "12bcca47",
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-02",
-      "best": true
-    },
-    {
       "brand": "Nando's PERi-PERi",
       "cat": "Drinks",
       "color": "#d32a2a",
@@ -253,7 +231,7 @@
       "value": 4,
       "expires": "Mondays through Thursdays",
       "url": "https://www.lunagrill.com/kids-eat-free",
-      "best": false,
+      "best": true,
       "region": "SoCal & Texas",
       "est_savings": 7,
       "isNew": true,

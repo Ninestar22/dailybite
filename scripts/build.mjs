@@ -1536,6 +1536,10 @@ function main() {
       // Tropical Smoothie "$2 24oz smoothie with any food purchase, Sundays and Mondays": owner tried it on
       // 2026-10-26, no promo code anywhere and no reward in the app.
       { brand: /tropical smoothie/i, title: /\$2 24 ?oz smoothie/i },
+      // Jamba "50% Off Your Order, Up to $20" (2026-11-02): jamba.com states only the new-member welcome offer
+      // ("Join Jamba Rewards and get 50% off any smoothie"); the "50% Off Ends Soon" email behind the card reached the
+      // deals mailbox as a fresh signup. Welcome offer, not a chain-wide deal.
+      { brand: /jamba/i, title: /50% off (your|any) order/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
