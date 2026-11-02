@@ -7,8 +7,8 @@
       "cat": "Mexican",
       "color": "#6e8c3d",
       "ic": "M",
-      "deal": "Moe Monday: $6.99 Burrito or Bowl",
-      "desc": "Moe Rewards members (free account) get a full-size burrito or bowl for $6.99 with free chips and salsa, today only.",
+      "deal": "Moe Monday: Discounted Burrito or Bowl with Free Chips and Salsa for Moe Rewards Members",
+      "desc": "Every Monday, Moe Rewards members (free account) get a full-size burrito or bowl at a reduced price with the always-free chips and salsa, in the restaurant, online or in the app. The offer appears automatically in the Moe Rewards account each Monday; no code. Moe's says the price varies by location (commonly $6.99 to $8.99), so check the app before ordering. Single use per Monday; add-ons extra; not valid with other offers or third-party delivery. Stated on Moe's own Moe Monday and offers pages.",
       "tags": [
         "app"
       ],
@@ -16,7 +16,7 @@
       "expires": "Mondays only",
       "url": "https://www.moes.com/moemonday",
       "region": "35 states (Southeast, Northeast & Midwest)",
-      "est_savings": 3.5,
+      "est_savings": 3,
       "id": "766de47e",
       "isNew": true,
       "endingSoon": false,
