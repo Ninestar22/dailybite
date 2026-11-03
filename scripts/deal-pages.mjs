@@ -24,7 +24,9 @@ const PAGES = {
   "smoothie king": "https://www.smoothieking.com/healthy-rewards",
   "jamba": "https://www.jamba.com/menu",
   "qdoba": "https://www.qdoba.com/rewards",
-  "potbelly": "https://www.potbelly.com/menu",
+  // Potbelly posts its promos on the homepage (Sandwich Day "promo code BOGO" hero, 2026-11-03); /menu redirects to
+  // /menu/combos-deals, which shows none of them, so the homepage stays the deal page (owner, 2026-11-03).
+  "potbelly": "https://www.potbelly.com/",
   "the halal guys": "https://thehalalguys.com/menu",
   "starbucks": "https://www.starbucks.com/rewards",
   "subway": "https://newsroom.subway.com/2026-04-28-Subway-R-Introduces-Its-First-Ever-Value-Menu-with-15-Entrees-Under-5",
