@@ -8,8 +8,9 @@
       "color": "#8b1a1a",
       "ic": "P",
       "deal": "National Sandwich Day BOGO: Free Original Sandwich or Wrap",
-      "desc": "Buy any Big or Original sandwich or wrap online or in the Potbelly app today and get a free Original sandwich or wrap with promo code BOGO, one redemption per person.",
+      "desc": "National Sandwich Day, Tuesday, November 3 only: buy any Big or Original sandwich or wrap on potbelly.com or in the Potbelly app and get an Original sandwich or wrap free with promo code BOGO. Online and app orders only; no account needed to use the code. The code is on Potbelly's own homepage.",
       "tags": [
+        "code",
         "app"
       ],
       "value": 5,
@@ -315,6 +316,29 @@
       "expires_on": null,
       "verified_on": "2026-11-03",
       "id": "4502276f"
+    },
+    {
+      "brand": "Luna Grill",
+      "cat": "Mediterranean",
+      "color": "#c8102e",
+      "ic": "LG",
+      "deal": "Club Luna Kids Eat Free: Free Kids Meal with Each Adult Entree, Dine-In",
+      "desc": "Monday, Tuesday, Wednesday and Thursday, Club Luna Rewards members (free app account) get one free kids meal per adult entree, up to two per check, for children 10 and under, dine-in only with the child present. Show the offer in the Luna Grill app when ordering. All locations except San Diego Airport; not combinable with other offers.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 4,
+      "expires": "Mondays, Tuesdays, Wednesdays and Thursdays",
+      "url": "https://www.lunagrill.com/kids-eat-free",
+      "best": false,
+      "region": "SoCal & Texas",
+      "est_savings": 7,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-03",
+      "id": "46976bc5"
     }
   ]
 }
