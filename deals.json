@@ -363,6 +363,28 @@
       "expires_on": "2026-11-03",
       "verified_on": "2026-11-03",
       "id": "dc7e0c86"
+    },
+    {
+      "brand": "Nando's PERi-PERi",
+      "cat": "Drinks",
+      "color": "#d32a2a",
+      "ic": "N",
+      "deal": "$1 Bottomless Fountain Drinks for PERi-Perks Members",
+      "desc": "PERi-Perks members (free account) can add a bottomless fountain drink to any meal for $1 instead of the usual $3.99, in app, online or in-restaurant.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.nandosperiperi.com/promotions",
+      "region": "DC, MD, VA, IL, TX & GA",
+      "est_savings": 3,
+      "best": false,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-03",
+      "id": "d06a6327"
     }
   ]
 }
