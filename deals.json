@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-03",
-  "updatedAt": "2026-11-03T11:06:16.139Z",
+  "updatedAt": "2026-11-03T22:16:41.611Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -20,7 +20,7 @@
       "est_savings": 8,
       "id": "9b5f5847",
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-03",
       "verified_on": "2026-11-03"
     },
@@ -66,7 +66,7 @@
       "verified_on": "2026-11-03",
       "id": "638cc01f",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Noodles & Company",
@@ -110,7 +110,7 @@
       "verified_on": "2026-11-03",
       "id": "eb922f81",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Tropical Smoothie Cafe",
@@ -265,12 +265,12 @@
       ],
       "value": 4,
       "expires": "November 3, 2026 only",
-      "url": "https://capriottis.com/page/deals",
+      "url": "https://www.capriottis.com/",
       "best": false,
       "region": "33 states (NV, AZ, CA, Mid-Atlantic & Midwest)",
       "est_savings": 6,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-03",
       "verified_on": "2026-11-03",
       "id": "7c8b4a0c"
@@ -359,7 +359,7 @@
       "region": "National",
       "est_savings": 9,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-03",
       "verified_on": "2026-11-03",
       "id": "dc7e0c86"
@@ -385,6 +385,26 @@
       "expires_on": null,
       "verified_on": "2026-11-03",
       "id": "d06a6327"
+    },
+    {
+      "brand": "Rubio's Coastal Grill",
+      "cat": "Mexican",
+      "color": "#00a19a",
+      "ic": "R",
+      "deal": "Shrimp Trio for $10.99",
+      "desc": "Rubio's email promotes a $10.99 Shrimp Trio meal, announced by email on 2026-11-03.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.rubios.com/menu",
+      "region": "CA, AZ & NV",
+      "est_savings": 3,
+      "id": "3e3d9d31",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-03",
+      "best": false
     }
   ]
 }
