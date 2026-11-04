@@ -1543,6 +1543,16 @@ function main() {
       // El Pollo Loco "Loco Rewards Monday: chips and guacamole for $1 with an $11.99 order" (2026-11-02): roundup-only
       // (The Krazy Coupon Lady); elpolloloco.com home, /offers, /promotions and /rewards never state it.
       { brand: /pollo loco/i, title: /chips and guac(amole)? for $1/i },
+      // Rubio's "$7+ Meal Menu" (2026-11-04): rubios.com/weekly-deals calls it a standing menu ("Meet our new $7+ Meal
+      // Menu"). Everyday value menu, not a deal (owner rule). Taco Tuesday on the same page is fine.
+      { brand: /rubio/i, title: /$7+ meal menu|meal menu: meals from/i },
+      // El Pollo Loco "Fire-Grilled Combos from $5.99" (2026-11-04): regular combo pricing checked on the order site,
+      // prices vary by market. Everyday value menu, not a deal (owner rule).
+      { brand: /pollo loco/i, title: /fire-grilled combos from/i },
+      // Moe's "Free Birria Grilled Burrito Dipper with Any Purchase, Nov 4-22" (2026-11-04): only Sporked (10/30) says
+      // it; moes.com home, /offers (which lists every loyalty promotion through Black Friday) and /rewards do not.
+      // Delete this entry if moes.com starts stating the offer.
+      { brand: /moe's/i, title: /birria .*dipper/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
