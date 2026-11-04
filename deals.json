@@ -347,6 +347,48 @@
       "expires_on": null,
       "verified_on": "2026-11-04",
       "id": "46976bc5"
+    },
+    {
+      "brand": "Schlotzsky's",
+      "cat": "Sandwiches",
+      "color": "#c8202f",
+      "ic": "SZ",
+      "deal": "BOGO Wednesday: Buy One Pizza, Flatbread or Calzone, Get One Free",
+      "desc": "Every Wednesday, all day: buy any pizza, flatbread or calzone and get a second of equal or lesser value free, in the restaurant, in the app or online (some stores run it in-app only; the discount shows after checkout online). One free item per order, excludes kids' pizzas, extra toppings and gluten-free crust; cannot be combined with other offers or banked rewards. No account needed. Stated in Schlotzsky's own BOGO Wednesday FAQ.",
+      "tags": [
+        "free"
+      ],
+      "value": 4,
+      "expires": "Wednesdays only",
+      "url": "https://www.schlotzskys.com/about-us/faqs",
+      "best": false,
+      "region": "24 states (TX, South & Midwest)",
+      "est_savings": 9,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-04",
+      "id": "6d71694d"
+    },
+    {
+      "brand": "Flame Broiler",
+      "cat": "Bowls",
+      "color": "#d62e1f",
+      "ic": "FB",
+      "deal": "Double Fire Deal: Two Charbroiled Chicken or Tofu Bowls with Two Add-Ons for $20",
+      "desc": "Limited time: two charbroiled chicken or tofu rice bowls plus two add-ons for $20 together, at participating locations, no account or code needed. Flame Broiler bowls are usually about $11 to $12 each before add-ons. Stated on Flame Broiler's own homepage.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://flamebroilerusa.com/",
+      "best": false,
+      "region": "CA & Southwest",
+      "est_savings": 6,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-04",
+      "id": "c608dea6"
     }
   ]
 }
