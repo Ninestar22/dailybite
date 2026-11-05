@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "updatedAt": "2026-11-05T17:07:10.871Z",
+  "updatedAt": "2026-11-05T22:39:01.613Z",
   "deals": [
     {
       "brand": "Subway",
@@ -207,7 +207,7 @@
       "value": 4,
       "expires": "Mondays, Tuesdays, Wednesdays and Thursdays",
       "url": "https://www.lunagrill.com/kids-eat-free",
-      "best": true,
+      "best": false,
       "region": "SoCal & Texas",
       "est_savings": 7,
       "isNew": false,
@@ -279,6 +279,29 @@
       "expires_on": null,
       "verified_on": "2026-11-05",
       "best": false
+    },
+    {
+      "brand": "Potbelly",
+      "cat": "Sandwiches",
+      "color": "#c8102e",
+      "ic": "P",
+      "deal": "BOGO Free: Buy a Big or Original Sandwich, Get an Original Free",
+      "desc": "Buy one Big or Original size sandwich or wrap and get an Original sandwich free at checkout, announced by email on 2026-11-05, free Potbelly Perks account required.",
+      "tags": [
+        "free",
+        "app"
+      ],
+      "value": 5,
+      "expires": "Through November 16, 2026",
+      "url": "https://www.potbelly.com/",
+      "region": "National",
+      "est_savings": 6.5,
+      "id": "3fe935ff",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-16",
+      "verified_on": "2026-11-05",
+      "best": true
     }
   ]
 }
