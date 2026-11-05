@@ -215,6 +215,28 @@
       "expires_on": null,
       "verified_on": "2026-11-05",
       "id": "46976bc5"
+    },
+    {
+      "brand": "Yoshinoya",
+      "cat": "Asian",
+      "color": "#f58220",
+      "ic": "Y",
+      "deal": "$5 Off Two Regular Rice Bowls with Code CE41FLDF",
+      "desc": "Standing coupon on Yoshinoya's own coupons page: add two regular rice bowls (chicken, beef or veggie) in-store, online or in the app and apply code CE41FLDF at checkout for $5 off; no account needed. Not valid on ribeye, salmon or limited-time items; participating locations. The same page lists $5 off two large bowls (code CRSA6MCE), $5 off two combo bowls (C6Z88J4A) and 20% off $20 (C9M7P979), 25% off $25 (C3FBHN3D) or 30% off $30 (up to $10 off).",
+      "tags": [
+        "code"
+      ],
+      "value": 4,
+      "expires": "Ongoing",
+      "url": "https://www.yoshinoyaamerica.com/coupons/",
+      "best": false,
+      "region": "California only",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-05",
+      "id": "63b14bf0"
     }
   ]
 }
