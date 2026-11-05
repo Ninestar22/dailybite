@@ -3,28 +3,6 @@
   "updatedAt": "2026-11-05T11:06:37.539Z",
   "deals": [
     {
-      "brand": "DoorDash",
-      "cat": "Delivery",
-      "color": "#FF3008",
-      "ic": "DD",
-      "deal": "$12 Meal Boxes: Complete Restaurant Meals With $0 Delivery Fee",
-      "desc": "DoorDash now offers fixed-price $12 meal boxes with zero delivery fee and reduced service fees from local restaurants in over 20 US cities.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://about.doordash.com/en-us/news/meal-boxes-and-catering",
-      "region": "Select major US cities",
-      "via": "DoorDash",
-      "fulfillment": "delivery",
-      "est_savings": 5,
-      "id": "284eb2b4",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-05",
-      "best": false
-    },
-    {
       "brand": "Subway",
       "cat": "Sandwiches",
       "color": "#008938",

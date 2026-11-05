@@ -1553,6 +1553,9 @@ function main() {
       // it; moes.com home, /offers (which lists every loyalty promotion through Black Friday) and /rewards do not.
       // Delete this entry if moes.com starts stating the offer.
       { brand: /moe's/i, title: /birria .*dipper/i },
+      // DoorDash "$12 Meal Boxes" (2026-11-05): a fixed-price menu tier from local restaurants in select areas of ~20 cities
+      // (about.doordash.com, Nov 2 launch), no end date, not claimable by anyone and not a chain discount. Not a deal.
+      { brand: /doordash/i, title: /$12 meal box/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
