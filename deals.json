@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-05",
-  "updatedAt": "2026-11-05T11:06:37.539Z",
+  "updatedAt": "2026-11-05T17:07:10.871Z",
   "deals": [
     {
       "brand": "Subway",
@@ -257,6 +257,28 @@
       "expires_on": "2026-12-31",
       "verified_on": "2026-11-05",
       "id": "50153c59"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Grocery",
+      "color": "#00843d",
+      "ic": "H",
+      "deal": "15% off your $25+ Meals To Go order",
+      "desc": "Hy-Vee PERKS email announced by email on 2026-11-05 offering 15% off Meals To Go orders of $25 or more, free Hy-Vee PERKS account required.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.hy-vee.com/deals/weekly-ads",
+      "region": "Midwest",
+      "est_savings": 4,
+      "id": "36950a7c",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-05",
+      "best": false
     }
   ]
 }
