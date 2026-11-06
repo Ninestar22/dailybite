@@ -177,25 +177,6 @@
   </div>
   <div class="count" id="count"></div>
   <div class="grid" id="grid"><!-- SSRGRID:START -->
-<div class="card best">
-  <div class="best-badge">TOP PICK</div>
-  <div class="brandrow">
-    <div class="brand-ic" style="background:#A81612"><span>C</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=chipotle.com&amp;sz=128" alt="Chipotle logo" loading="lazy" onerror="this.remove()"></div>
-    <div class="brandtxt"><h2 class="brand-name">Chipotle</h2><div class="brand-cat">Mexican</div></div>
-    <a class="near" href="https://www.google.com/maps/search/Chipotle+near+me" target="_blank" rel="noopener">Nearest</a>
-  </div>
-  <div class="offers">
-<div class="offer">
-    <h3 class="deal">$0 Delivery Fee on Smoked Brisket Orders of $10+</h3>
-    <div class="desc">Chipotle waives the delivery fee on qualifying Smoked Brisket orders of $10 or more placed on chipotle.com or the Chipotle app through November 18.</div>
-    <div class="metarow"><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$6</span></div>
-    <div class="foot">
-      <span class="expires">Through November 18, 2026</span>
-      <a class="cta" href="https://newsroom.chipotle.com/press-releases" target="_blank" rel="noopener" data-goatcounter-click="deal/chipotle" data-goatcounter-title="Chipotle: $0 Delivery Fee on Smoked Brisket Orders of $10+">Get deal &rarr;</a>
-    </div>
-  </div>
-  </div>
-</div>
 <div class="card">
   
   <div class="brandrow">
@@ -262,8 +243,8 @@
   </div>
   </div>
 </div>
-<div class="card">
-  
+<div class="card best">
+  <div class="best-badge">TOP PICK</div>
   <div class="brandrow">
     <div class="brand-ic" style="background:#00A651"><span>TSC</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=tropicalsmoothiecafe.com&amp;sz=128" alt="Tropical Smoothie Cafe logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><h2 class="brand-name">Tropical Smoothie Cafe</h2><div class="brand-cat">Smoothies</div></div>
@@ -475,7 +456,7 @@
     <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('NACHODAY');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: NACHODAY</button><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$5</span></div>
     <div class="foot">
       <span class="expires">November 6, 2026 only</span>
-      <a class="cta" href="https://www.qdoba.com/rewards" target="_blank" rel="noopener" data-goatcounter-click="deal/qdoba" data-goatcounter-title="Qdoba: National Nacho Day: $7 Chicken Nachos with Code NACHODAY">Get deal &rarr;</a>
+      <a class="cta" href="https://www.qdoba.com/" target="_blank" rel="noopener" data-goatcounter-click="deal/qdoba" data-goatcounter-title="Qdoba: National Nacho Day: $7 Chicken Nachos with Code NACHODAY">Get deal &rarr;</a>
     </div>
   </div>
   </div>
@@ -591,28 +572,6 @@
 /* DEALS:START */
 const DEALS = [
   {
-    "brand": "Chipotle",
-    "cat": "Mexican",
-    "color": "#A81612",
-    "ic": "C",
-    "deal": "$0 Delivery Fee on Smoked Brisket Orders of $10+",
-    "desc": "Chipotle waives the delivery fee on qualifying Smoked Brisket orders of $10 or more placed on chipotle.com or the Chipotle app through November 18.",
-    "tags": [
-      "app"
-    ],
-    "value": 4,
-    "expires": "Through November 18, 2026",
-    "url": "https://newsroom.chipotle.com/press-releases",
-    "region": "National",
-    "est_savings": 6,
-    "id": "b8c16ad4",
-    "isNew": true,
-    "endingSoon": false,
-    "expires_on": "2026-11-18",
-    "verified_on": "2026-11-06",
-    "best": true
-  },
-  {
     "brand": "Sarku Japan",
     "cat": "Japanese",
     "color": "#C8102E",
@@ -693,7 +652,7 @@ const DEALS = [
     "value": 4,
     "expires": "Through November 8, 2026",
     "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
-    "best": false,
+    "best": true,
     "region": "National",
     "est_savings": 7,
     "expires_on": "2026-11-08",
@@ -898,7 +857,7 @@ const DEALS = [
     ],
     "value": 4,
     "expires": "November 6, 2026 only",
-    "url": "https://www.qdoba.com/rewards",
+    "url": "https://www.qdoba.com/",
     "best": false,
     "region": "National",
     "est_savings": 5,
@@ -1040,7 +999,7 @@ const DEALS = [
     "best": false
   }
 ];
-const META = {"verifiedAt":"2026-11-06T17:08:32.814Z"};
+const META = {"verifiedAt":"2026-11-06T17:39:22.478Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi"],"active":false};
 /* DEALS:END */
 const today = new Date();

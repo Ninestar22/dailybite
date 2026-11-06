@@ -3,28 +3,6 @@
   "updatedAt": "2026-11-06T17:08:09.541Z",
   "deals": [
     {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#A81612",
-      "ic": "C",
-      "deal": "$0 Delivery Fee on Smoked Brisket Orders of $10+",
-      "desc": "Chipotle waives the delivery fee on qualifying Smoked Brisket orders of $10 or more placed on chipotle.com or the Chipotle app through November 18.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through November 18, 2026",
-      "url": "https://newsroom.chipotle.com/press-releases",
-      "region": "National",
-      "est_savings": 6,
-      "id": "b8c16ad4",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": "2026-11-18",
-      "verified_on": "2026-11-06",
-      "best": true
-    },
-    {
       "brand": "Sarku Japan",
       "cat": "Japanese",
       "color": "#C8102E",
@@ -105,7 +83,7 @@
       "value": 4,
       "expires": "Through November 8, 2026",
       "url": "https://www.tropicalsmoothiecafe.com/tropic-fan-fest",
-      "best": false,
+      "best": true,
       "region": "National",
       "est_savings": 7,
       "expires_on": "2026-11-08",
@@ -310,7 +288,7 @@
       ],
       "value": 4,
       "expires": "November 6, 2026 only",
-      "url": "https://www.qdoba.com/rewards",
+      "url": "https://www.qdoba.com/",
       "best": false,
       "region": "National",
       "est_savings": 5,

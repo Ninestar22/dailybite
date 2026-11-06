@@ -23,7 +23,8 @@ const PAGES = {
   "tropical smoothie": "https://www.tropicalsmoothiecafe.com/rewards",
   "smoothie king": "https://www.smoothieking.com/healthy-rewards",
   "jamba": "https://www.jamba.com/menu",
-  "qdoba": "https://www.qdoba.com/rewards",
+  // qdoba.com's homepage carries the dated promos and their codes (Nacho Day, BOOGO); /rewards does not (2026-11-06).
+  "qdoba": "https://www.qdoba.com/",
   // Potbelly posts its promos on the homepage (Sandwich Day "promo code BOGO" hero, 2026-11-03); /menu redirects to
   // /menu/combos-deals, which shows none of them, so the homepage stays the deal page (owner, 2026-11-03).
   "potbelly": "https://www.potbelly.com/",

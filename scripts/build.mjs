@@ -1556,6 +1556,10 @@ function main() {
       // DoorDash "$12 Meal Boxes" (2026-11-05): a fixed-price menu tier from local restaurants in select areas of ~20 cities
       // (about.doordash.com, Nov 2 launch), no end date, not claimable by anyone and not a chain discount. Not a deal.
       { brand: /doordash/i, title: /$12 meal box/i },
+      // Chipotle "$0 Delivery Fee on Smoked Brisket Orders of $10+" (2026-11-06): chipotle.com's own footnote says "Higher menu
+      // prices and ... additional fees apply for delivery", so the waiver is not a saving. Delivery-fee promos with a delivery
+      // markup are not deals.
+      { brand: /chipotle/i, title: /$0 delivery fee/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
