@@ -1560,6 +1560,10 @@ function main() {
       // prices and ... additional fees apply for delivery", so the waiver is not a saving. Delivery-fee promos with a delivery
       // markup are not deals.
       { brand: /chipotle/i, title: /$0 delivery fee/i },
+      // Potbelly "BOGO Free: Buy a Big or Original Sandwich, Get an Original Free, through Nov 16" (2026-11-06): came from a
+      // Potbelly email titled "BOGO is back just for you" to the deals mailbox; potbelly.com shows no BOGO (only the
+      // new-member free sandwich). A targeted member offer, not a chain-wide deal. Delete this line if potbelly.com posts it.
+      { brand: /potbelly/i, title: /bogo free: buy a big or original/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));

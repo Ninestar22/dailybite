@@ -113,29 +113,6 @@
       "endingSoon": false
     },
     {
-      "brand": "Potbelly",
-      "cat": "Sandwiches",
-      "color": "#c8102e",
-      "ic": "P",
-      "deal": "BOGO Free: Buy a Big or Original Sandwich, Get an Original Free",
-      "desc": "Buy one Big or Original size sandwich or wrap and get an Original sandwich free at checkout, announced by email on 2026-11-05, free Potbelly Perks account required.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through November 16, 2026",
-      "url": "https://www.potbelly.com/",
-      "region": "National",
-      "est_savings": 6.5,
-      "id": "3fe935ff",
-      "expires_on": "2026-11-16",
-      "verified_on": "2026-11-06",
-      "best": true,
-      "isNew": false,
-      "endingSoon": false
-    },
-    {
       "brand": "Safeway",
       "cat": "Sushi",
       "color": "#e31837",
@@ -289,7 +266,7 @@
       "value": 4,
       "expires": "November 6, 2026 only",
       "url": "https://www.qdoba.com/",
-      "best": false,
+      "best": true,
       "region": "National",
       "est_savings": 5,
       "isNew": true,
