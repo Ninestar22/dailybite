@@ -405,6 +405,26 @@
       "expires_on": null,
       "verified_on": "2026-11-06",
       "best": false
+    },
+    {
+      "brand": "Schlotzsky's",
+      "cat": "Pizza",
+      "color": "#c8202f",
+      "ic": "SZ",
+      "deal": "$5 Core and $7 Premium Pizzas After 5 PM on Fridays, Saturdays and Sundays",
+      "desc": "Fridays, Saturdays and Sundays after 5 PM: Double Cheese or Pepperoni pizzas for $5 and Meaty, Supreme, Veggie or BBQ Chicken and Jalapeno pizzas for $7, in-store or online, no account needed. Select locations while supplies last; excludes add-ons, kids' pizzas and gluten-free crust; not valid with other offers or third-party delivery. Stated on Schlotzsky's own offers page.",
+      "tags": [],
+      "value": 4,
+      "expires": "Fridays, Saturdays and Sundays after 5 PM",
+      "url": "https://www.schlotzskys.com/offers",
+      "best": false,
+      "region": "24 states (TX, South & Midwest)",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-06",
+      "id": "ff166d29"
     }
   ]
 }
