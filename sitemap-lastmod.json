@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "a5c7f239087e",
+  "hash": "36bc05366fd0",
   "lastmod": "2026-11-06"
  },
  "/sushi-deals": {
@@ -12,7 +12,7 @@
   "lastmod": "2026-10-19"
  },
  "/verification-log": {
-  "hash": "e2935ccfdc0b",
+  "hash": "3dbebfbeebb5",
   "lastmod": "2026-11-06"
  },
  "/about": {
@@ -180,7 +180,7 @@
   "lastmod": "2026-11-06"
  },
  "/hy-vee-deals": {
-  "hash": "ef0a99ccbb15",
+  "hash": "38fdefba85a1",
   "lastmod": "2026-11-06"
  },
  "/shoprite-deals": {
@@ -232,7 +232,7 @@
   "lastmod": "2026-11-05"
  },
  "/hy-vee-sushi-wednesday": {
-  "hash": "48bfa6a1d06f",
+  "hash": "b59f9f49058b",
   "lastmod": "2026-11-06"
  },
  "/shoprite-sushi-wednesday": {
@@ -276,7 +276,7 @@
   "lastmod": "2026-10-21"
  },
  "/free-food-today": {
-  "hash": "bec890b2676c",
+  "hash": "303d63c51e02",
   "lastmod": "2026-11-06"
  },
  "/nandos-deals": {
@@ -304,7 +304,7 @@
   "lastmod": "2026-10-28"
  },
  "/press": {
-  "hash": "7f0cd8454b81",
+  "hash": "e44399032834",
   "lastmod": "2026-11-06"
  },
  "/cava-rewards": {
@@ -373,6 +373,10 @@
  },
  "/jersey-mikes-deals": {
   "hash": "39cdf9f25f8d",
+  "lastmod": "2026-11-06"
+ },
+ "/black-friday-cyber-monday-food-deals": {
+  "hash": "4b230e92dc20",
   "lastmod": "2026-11-06"
  }
 }
