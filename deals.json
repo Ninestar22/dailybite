@@ -63,28 +63,6 @@
       "endingSoon": false
     },
     {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#ee3124",
-      "ic": "EPL",
-      "deal": "$20 8-Piece Leg & Thigh Family Meal (Loco Rewards)",
-      "desc": "Loco Rewards members (free to join) can get an 8-piece Leg and Thigh Family Meal for $20 through Monday, November 9, for pickup, delivery or in-restaurant orders, once per day.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "Through November 9, 2026",
-      "url": "https://www.elpolloloco.com/promotions",
-      "region": "Select states (West & Southwest)",
-      "est_savings": 10,
-      "id": "61ac2fe0",
-      "expires_on": "2026-11-09",
-      "verified_on": "2026-11-08",
-      "best": false,
-      "isNew": false,
-      "endingSoon": true
-    },
-    {
       "brand": "Sarku Japan",
       "cat": "Japanese",
       "color": "#C8102E",
@@ -340,6 +318,50 @@
       "expires_on": null,
       "verified_on": "2026-11-08",
       "id": "e2682ab0"
+    },
+    {
+      "brand": "Noodles & Company",
+      "cat": "Noodles",
+      "color": "#a6192e",
+      "ic": "N",
+      "deal": "2 for $12 Culinary Classics Entrees for Noodles Rewards Members",
+      "desc": "Friday, November 6 through Tuesday, November 10: two regular-size Culinary Classics entrees (Creamy Cheddar Mac & Cheese, Baked Mac, Gochujang Carbonara Ramen and the rest of the line) for $12 together, for Noodles Rewards members (free account). Order signed in on noodles.com or in the app and apply the reward on the cart screen; one redemption per member during the promotion. Not valid on third-party delivery, call-in or catering orders; participating locations. Stated on Noodles' own offers terms page.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "November 6 to 10, 2026",
+      "url": "https://www.noodles.com/offers-terms-conditions",
+      "best": false,
+      "region": "National",
+      "est_savings": 8,
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-10",
+      "verified_on": "2026-11-08",
+      "id": "3ed7641f"
+    },
+    {
+      "brand": "Moe's Southwest Grill",
+      "cat": "Mexican",
+      "color": "#5a9e3a",
+      "ic": "M",
+      "deal": "National Nacho Day: $5.99 Nachos Entree",
+      "desc": "Friday, November 6: a $5.99 Nachos entree in the restaurant for anyone who mentions the offer at checkout, no account needed. Moe Rewards members (free account) also get $5.99 Nachos entrees online or in the app from November 6 through Sunday, November 8 by applying the reward at checkout. Excludes add-ons, extras and premium proteins; single use; participating locations; not valid with other offers or third-party delivery. Stated on Moe's own offers page.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "November 6 to 8, 2026",
+      "url": "https://www.moes.com/offers",
+      "best": false,
+      "region": "35 states (Southeast, Northeast & Midwest)",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-08",
+      "verified_on": "2026-11-08",
+      "id": "2597706a"
     }
   ]
 }

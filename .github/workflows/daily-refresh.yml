@@ -63,7 +63,7 @@ jobs:
           UPDATED_EPOCH=$(date -d "${UPDATED_AT:-1970-01-01T00:00:00Z}" +%s 2>/dev/null || echo 0)
           echo "Eastern time: $(date '+%A %Y-%m-%d %H:%M %Z'); last refresh: ${UPDATED_AT:-unknown}"
           WINDOW_OPEN=""
-          if [ "$HOUR" -ge 7 ] && [ "$HOUR" -le 11 ]; then WINDOW_OPEN=$(date -d "$TODAY 07:00" +%s); LABEL="morning (7 AM, late slots are dropped-cron insurance)"; fi
+          if [ "$HOUR" -ge 7 ] && [ "$HOUR" -le 11 ]; then WINDOW_OPEN=$(date -d "$TODAY 05:00" +%s); LABEL="morning (opens 5 AM so the 6 AM EST push-triggered refresh counts; late slots are dropped-cron insurance)"; fi
           if [ -z "$WINDOW_OPEN" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
             echo "Skipping: Eastern hour $HOUR is outside the window (this slot serves the other half of the year)."

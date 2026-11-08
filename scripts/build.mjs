@@ -1564,6 +1564,9 @@ function main() {
       // Potbelly email titled "BOGO is back just for you" to the deals mailbox; potbelly.com shows no BOGO (only the
       // new-member free sandwich). A targeted member offer, not a chain-wide deal. Delete this line if potbelly.com posts it.
       { brand: /potbelly/i, title: /bogo free: buy a big or original/i },
+      // El Pollo Loco "$20 8-Piece Leg & Thigh Family Meal (Loco Rewards), through Nov 9" (2026-11-08): elpolloloco.com
+      // /promotions is an empty shell and /rewards shows only points tiers and the welcome offer. Not stated by the chain.
+      { brand: /pollo loco/i, title: /8-piece leg (&|and) thigh family meal/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
@@ -1597,22 +1600,32 @@ function main() {
   } catch {}
   const prevKeys = new Set(prev.map(d => (d.brand + "|" + d.deal).toLowerCase()));
   const now = Date.now();
+  // Latest "Month D[, YYYY]" date in a prose string, or null. "Month D to D" / "Month D-D" ranges expand so the end day
+  // counts; (?!\d) stops "August 2026" from reading as "August 20"; a missing year is the year printed later in the
+  // string ("November 6 to 8, 2026") or else the build year.
+  const latestProseDate = (text, iso) => {
+    const ex = String(text || "").replace(/([A-Z][a-z]+)\.? (\d{1,2}) ?(?:to|-|\u2013|through) ?(\d{1,2})(?!\d)/g, "$1 $2 to $1 $3");
+    let latest = null;
+    for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/g)) {
+      let ds = m[0].replace(".", "");
+      if (!/\d{4}/.test(ds)) { const y = ex.slice(m.index).match(/, ?(\d{4})/); ds += ", " + (y ? y[1] : iso.slice(0, 4)); }
+      const t = Date.parse(ds);
+      if (!isNaN(t) && (latest == null || t > latest)) latest = t;
+    }
+    return latest;
+  };
   for (const d of deals) {
     d.isNew = prevKeys.size > 0 && !prevKeys.has((d.brand + "|" + d.deal).toLowerCase());
     d.endingSoon = false;
     d.expires_on = null;            // YYYY-MM-DD when the prose end date parses (council audit 2026-09-26: agents need a real date)
     d.verified_on = iso;
-    // (?!\d) stops "August 2026" from being read as "August 20" (Pokeworks, 2026-08-22).
-    const m = String(d.expires || "").match(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/);
-    if (m) {
-      let ds = m[0].replace(".", "");
-      if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
-      const t = Date.parse(ds);
-      if (!isNaN(t)) {
-        d.expires_on = new Date(t).toLocaleDateString("en-CA");
-        const diff = (t - now) / 86400000;
-        if (diff >= -0.5 && diff <= 2) d.endingSoon = true;
-      }
+    // Ranges like "November 6 to 8, 2026" or "Nov 9-13" expand so the END day is read; before 2026-11-08 only the first
+    // day parsed and Moe's Nacho Day (Nov 6-8) and Noodles 2 for $12 (Nov 6-10) were dropped as expired on Nov 7.
+    const t = latestProseDate(d.expires, iso);
+    if (t != null) {
+      d.expires_on = new Date(t).toLocaleDateString("en-CA");
+      const diff = (t - now) / 86400000;
+      if (diff >= -0.5 && diff <= 2) d.endingSoon = true;
     }
   }
 
@@ -1623,13 +1636,7 @@ function main() {
   deals = deals.filter(d => {
     const ex = String(d.expires || "");
     if (/every|ongoing|daily|weekly|monthly/i.test(ex)) return true;
-    let latest = null;
-    for (const m of ex.matchAll(/[A-Z][a-z]+\.? \d{1,2}(?!\d)(, ?\d{4})?/g)) {
-      let ds = m[0].replace(".", "");
-      if (!/\d{4}/.test(ds)) ds += ", " + iso.slice(0, 4);
-      const t = Date.parse(ds);
-      if (!isNaN(t) && (latest == null || t > latest)) latest = t;
-    }
+    const latest = latestProseDate(ex, iso);
     if (latest == null) return true;
     return (latest - now) / 86400000 >= -1; // drop only after the end date's full day has passed
   });
