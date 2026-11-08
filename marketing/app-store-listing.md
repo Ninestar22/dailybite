@@ -10,21 +10,21 @@ How to use this file: Section 1 is the baseline audit. Section 2 is the recommen
 
 ---
 
-## 1. Current listing audit (2026-10-19)
+## 1. Current listing audit (2026-10-19, live fields filled in 2026-11-07)
 
-**Fetch status.** The live listing could not be read from this environment: `apps.apple.com` and `itunes.apple.com` (the public lookup API) both returned a proxy policy denial (403 on CONNECT), and third-party mirrors (appgoblin.info, appfollow.io) resolved to ENOTFOUND. Before publishing anything from Section 2, open App Store Connect > App Information and Version Information and fill in the "Current" column below. Everything in that column marked "unverified" is a gap in this audit, not a fact.
+**Fetch status (2026-10-19).** The live listing could not be read from this environment: `apps.apple.com` and `itunes.apple.com` (the public lookup API) both returned a proxy policy denial (403 on CONNECT), and third-party mirrors (appgoblin.info, appfollow.io) resolved to ENOTFOUND. Update 2026-11-07: the live listing was read in a browser and the Current column now reflects it. Third-party rank check the same day (ASO Scout, unverified): "food deals" rank 17 of 51 results, "healthy food" not ranking, "dailybite healthy" rank 1. Before publishing anything from Section 2, open App Store Connect > App Information and Version Information and fill in the "Current" column below. Everything in that column marked "unverified" is a gap in this audit, not a fact.
 
 | Field | Current (as verifiable from the repo and web index) | Notes |
 |---|---|---|
 | Title | `DailyBite: Healthy Food Deals` (29/30 chars) | Confirmed from the site's own App Store links in `index.html`, `about.html`, `llms.txt`, and the `app.html` redirect page title. |
-| Subtitle | unverified | Not present anywhere in the repo. |
+| Subtitle | `Verified daily, nearest first` (29/30 chars) | Read from the live listing 2026-11-07. Repeats "daily" and "verified" from nothing in the title (good), but "nearest first" adds no searchable noun; S1 below swaps it for "nearby" and "cheap". |
 | Keyword field | unverified (private to App Store Connect) | |
-| Description | unverified | No copy of the App Store description exists in the repo. |
-| Promotional text | unverified | |
+| Description | Live (2026-11-07): opens "Today's healthy food deals from 30+ chains, verified every morning. See what's closest, tap once to order in the chain's app, track what you save." then sections DEALS NEAR YOU, ORDER IN THE RESTAURANT'S APP, TRACK WHAT YOU SAVE, KNOW BEFORE YOU GO, NEVER MISS AN ENDING DEAL, BROWSE BY RESTAURANT, SAVE YOUR SHORTLIST, PRIVATE BY DEFAULT. | Description is not indexed for search; fine as is. Section 2.4 remains the conversion-focused alternative. |
+| Promotional text | none shown on the live page (2026-11-07) | Free 170-char slot; see Section 2.5. |
 | Screenshot count | unverified | Only `appstore-icon-1024.png` is in the repo; no screenshot exports. Target 6 (see Section 4). Minimum to look complete on an iPhone product page is 5. |
 | Icon | Green "D" mark with a corner bite, matches the site logo (commit `9320be6`, "site logo and icons now match the live App Store icon"). | Good: icon and website are already consistent. |
-| Category | unverified; should be Food & Drink (primary), Shopping (secondary). | Every competitor below sits in Food & Drink. Shopping as secondary adds a second browse surface for "deals"/"coupons" intent. |
-| Ratings | unverified | |
+| Category | Food & Drink (live, 2026-11-07); secondary category not visible on the page. | Every competitor below sits in Food & Drink. Shopping as secondary adds a second browse surface for "deals"/"coupons" intent. |
+| Ratings | 1 rating, 5.0 (live, 2026-11-07); version 1.4.0 dated Oct 3; iOS 16.4+, 44.3 MB; "Data Not Collected". | One rating is the biggest conversion drag on a search result; see Section 7 (review prompt). |
 
 **Web index finding.** Three different web searches for the exact title, the numeric ID and the title restricted to `apps.apple.com` returned no result for this app (they returned DailyBite: Calorie Counter, id6756306091, and Daily Bite: Save Recipes, id6779701143, instead). Two implications: (1) the listing is new or thin enough that search engines have not indexed it, which the website can fix by linking to it from more pages with descriptive anchor text ("DailyBite: Healthy Food Deals on the App Store" rather than "Get the iOS app"); (2) there is active name collision in the App Store with two other "DailyBite / Daily Bite" apps in adjacent food categories, so the title must carry the differentiator ("Healthy Food Deals") and the subtitle must not waste characters repeating the brand.
 
