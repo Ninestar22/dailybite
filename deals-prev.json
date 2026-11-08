@@ -1,25 +1,45 @@
 {
-  "updated": "2026-11-07",
-  "updatedAt": "2026-11-07T16:50:52.876Z",
+  "updated": "2026-11-08",
+  "updatedAt": "2026-11-08T11:05:44.488Z",
   "deals": [
     {
-      "brand": "Pollo Campero",
-      "cat": "Chicken",
-      "color": "#da291c",
-      "ic": "PC",
-      "deal": "$12 GOOOOOOL Box: 2pc Chicken, 4 Nuggets, Fries & Sauce",
-      "desc": "Limited-time $12 box with two pieces of fried or roasted chicken, four Campero nuggets, fries and a dipping sauce, shown on Pollo Campero's own offers page.",
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#ffc72c",
+      "ic": "TF",
+      "deal": "BOGO Free Adult Entree, Sundays Only",
+      "desc": "Buy one full price adult entree and get a second free on Sundays through November 29, 2026, dine-in only with code BOGONOV (announced by email November 7, 2026).",
       "tags": [],
       "value": 4,
-      "expires": "Limited time",
-      "url": "https://us.campero.com/rewards",
-      "region": "20 states & DC (East, South, TX & CA)",
-      "est_savings": 3.5,
-      "id": "64fdfb21",
+      "expires": "Sundays only, through Nov 29, 2026",
+      "region": "FL & Southeast",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "est_savings": 9,
+      "id": "b40fff86",
       "isNew": true,
       "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-07",
+      "expires_on": "2026-11-29",
+      "verified_on": "2026-11-08",
+      "best": false
+    },
+    {
+      "brand": "Panera Bread",
+      "cat": "Cafe",
+      "color": "#4b7447",
+      "ic": "P",
+      "deal": "Free $10 Bonus Card for Every $50 in Gift Cards",
+      "desc": "Buy or reload $50 in Panera Bread gift cards in a single transaction (in-cafe or online) and get a free $10 bonus card, redeemable January 2027.",
+      "tags": [],
+      "value": 3,
+      "expires": "Through Dec 31, 2026",
+      "region": "National",
+      "url": "https://www.panerabread.com/en-us/gift-cards.html",
+      "est_savings": 10,
+      "id": "cfd3123f",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-12-31",
+      "verified_on": "2026-11-08",
       "best": false
     },
     {
@@ -38,33 +58,11 @@
       "region": "Select states (West & Southwest)",
       "est_savings": 10,
       "id": "61ac2fe0",
-      "isNew": true,
-      "endingSoon": true,
       "expires_on": "2026-11-09",
-      "verified_on": "2026-11-07",
-      "best": false
-    },
-    {
-      "brand": "DoorDash",
-      "cat": "Delivery",
-      "color": "#ff3008",
-      "ic": "DD",
-      "deal": "$12 Meal Boxes: Full Meal, $0 Delivery Fee",
-      "desc": "DoorDash's new $12 Meal Box tab offers a complete entree, veggie and carb from local restaurants in over 20 US cities with a $0 delivery fee and reduced service fees, open to every user.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://about.doordash.com/en-us/news/meal-boxes-and-catering",
-      "via": "DoorDash",
-      "fulfillment": "delivery",
-      "region": "20+ US cities (select markets)",
-      "est_savings": 5,
-      "id": "0c58547e",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-07",
-      "best": false
+      "verified_on": "2026-11-08",
+      "best": false,
+      "isNew": false,
+      "endingSoon": true
     },
     {
       "brand": "Sarku Japan",
@@ -84,7 +82,7 @@
       "est_savings": 5,
       "id": "287f1829",
       "expires_on": "2026-11-08",
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "best": false,
       "isNew": false,
       "endingSoon": true
@@ -106,7 +104,7 @@
       "est_savings": 9,
       "id": "b7b79050",
       "expires_on": "2026-11-08",
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "best": false,
       "isNew": false,
       "endingSoon": true
@@ -128,7 +126,7 @@
       "region": "National",
       "est_savings": 5,
       "expires_on": "2026-11-15",
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "e4ea4ae6",
       "isNew": false,
       "endingSoon": false
@@ -151,7 +149,7 @@
       "region": "National",
       "est_savings": 7,
       "expires_on": "2026-11-08",
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "d8ead29e",
       "isNew": false,
       "endingSoon": true
@@ -171,7 +169,7 @@
       "region": "VA, MD, DC, PA, NC, SC, GA, FL & TX",
       "est_savings": 4,
       "expires_on": "2026-12-31",
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "50153c59",
       "isNew": false,
       "endingSoon": false
@@ -192,7 +190,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "ff8dda7e"
     },
     {
@@ -214,7 +212,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "43d0d809"
     },
     {
@@ -234,7 +232,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "ff166d29"
     },
     {
@@ -256,7 +254,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "63b14bf0"
     },
     {
@@ -276,7 +274,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "c608dea6"
     },
     {
@@ -298,7 +296,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "d06a6327"
     },
     {
@@ -320,7 +318,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-07",
+      "verified_on": "2026-11-08",
       "id": "e2682ab0"
     }
   ]
