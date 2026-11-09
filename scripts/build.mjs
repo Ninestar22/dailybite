@@ -1563,10 +1563,13 @@ function main() {
       // Potbelly "BOGO Free: Buy a Big or Original Sandwich, Get an Original Free, through Nov 16" (2026-11-06): came from a
       // Potbelly email titled "BOGO is back just for you" to the deals mailbox; potbelly.com shows no BOGO (only the
       // new-member free sandwich). A targeted member offer, not a chain-wide deal. Delete this line if potbelly.com posts it.
-      { brand: /potbelly/i, title: /bogo free: buy a big or original/i },
+      { brand: /potbelly/i, title: /bogo.*buy a big or original/i }, // also "One last chance for BOGO" email, 2026-11-09 (through 11/15)
       // El Pollo Loco "$20 8-Piece Leg & Thigh Family Meal (Loco Rewards), through Nov 9" (2026-11-08): elpolloloco.com
       // /promotions is an empty shell and /rewards shows only points tiers and the welcome offer. Not stated by the chain.
       { brand: /pollo loco/i, title: /8-piece leg (&|and) thigh family meal/i },
+      // Pokeworks "Free Scoop of Avocado on the Dynamite Lobster Bowl" (2026-11-09): email-only, not on pokeworks.com, and a
+      // $1-2 topping tied to one bowl. Too small to list (owner: ~$1 discounts are not special).
+      { brand: /pokeworks/i, title: /free scoop of avocado/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
