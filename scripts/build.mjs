@@ -1549,10 +1549,6 @@ function main() {
       // El Pollo Loco "Fire-Grilled Combos from $5.99" (2026-11-04): regular combo pricing checked on the order site,
       // prices vary by market. Everyday value menu, not a deal (owner rule).
       { brand: /pollo loco/i, title: /fire-grilled combos from/i },
-      // Moe's "Free Birria Grilled Burrito Dipper with Any Purchase, Nov 4-22" (2026-11-04): only Sporked (10/30) says
-      // it; moes.com home, /offers (which lists every loyalty promotion through Black Friday) and /rewards do not.
-      // Delete this entry if moes.com starts stating the offer.
-      { brand: /moe's/i, title: /birria .*dipper/i },
       // DoorDash "$12 Meal Boxes" (2026-11-05): a fixed-price menu tier from local restaurants in select areas of ~20 cities
       // (about.doordash.com, Nov 2 launch), no end date, not claimable by anyone and not a chain discount. Not a deal.
       { brand: /doordash/i, title: /$12 meal box/i },
