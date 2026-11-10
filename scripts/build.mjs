@@ -1565,7 +1565,10 @@ function main() {
       { brand: /pollo loco/i, title: /8-piece leg (&|and) thigh family meal/i },
       // Pokeworks "Free Scoop of Avocado on the Dynamite Lobster Bowl" (2026-11-09): email-only, not on pokeworks.com, and a
       // $1-2 topping tied to one bowl. Too small to list (owner: ~$1 discounts are not special).
-      { brand: /pokeworks/i, title: /free scoop of avocado/i },
+      { brand: /pokeworks/i, title: /free (scoop of avocado|avocado scoop)/i }, // re-added 2026-11-09 evening as "Free Avocado Scoop"
+      // Rubio's "2 Entrees for $16" (2026-11-10): a Rubio's Rewards email reward "valid over the next 14 days"; rubios.com,
+      // /rewards and /weekly-deals do not state it. Account-specific reward, not a chain-wide deal.
+      { brand: /rubio/i, title: /2 entrees for $16/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
