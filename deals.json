@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-10",
-  "updatedAt": "2026-11-10T11:05:32.718Z",
+  "updatedAt": "2026-11-10T20:07:32.377Z",
   "deals": [
     {
       "brand": "Panera Bread",
@@ -84,7 +84,7 @@
       "verified_on": "2026-11-10",
       "id": "3ed7641f",
       "isNew": false,
-      "endingSoon": true
+      "endingSoon": false
     },
     {
       "brand": "Playa Bowls",
@@ -358,6 +358,28 @@
       "expires_on": null,
       "verified_on": "2026-11-10",
       "id": "46976bc5"
+    },
+    {
+      "brand": "Rubio's Coastal Grill",
+      "cat": "Mexican",
+      "color": "#0066a1",
+      "ic": "R",
+      "deal": "2 Entrees for $16",
+      "desc": "Rubio's Rewards email offer announced on 2026-11-10: any two entrees for $16, valid over the next 14 days, free Rubio's Rewards account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 24, 2026",
+      "url": "https://www.rubios.com/rewards",
+      "region": "CA, AZ & NV",
+      "est_savings": 6,
+      "id": "34c6a1c4",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-24",
+      "verified_on": "2026-11-10",
+      "best": false
     }
   ]
 }

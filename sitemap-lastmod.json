@@ -1,6 +1,6 @@
 {
  "/": {
-  "hash": "63e0dd02ad56",
+  "hash": "f9c825decce9",
   "lastmod": "2026-11-10"
  },
  "/sushi-deals": {
@@ -12,7 +12,7 @@
   "lastmod": "2026-10-19"
  },
  "/verification-log": {
-  "hash": "51d680bf7fc4",
+  "hash": "ee5084956e40",
   "lastmod": "2026-11-10"
  },
  "/about": {
@@ -304,7 +304,7 @@
   "lastmod": "2026-10-28"
  },
  "/press": {
-  "hash": "049e7e07d59e",
+  "hash": "7754a17b5a69",
   "lastmod": "2026-11-10"
  },
  "/cava-rewards": {
@@ -377,6 +377,10 @@
  },
  "/black-friday-cyber-monday-food-deals": {
   "hash": "29b966733721",
+  "lastmod": "2026-11-10"
+ },
+ "/el-pollo-loco-12-days-of-deals": {
+  "hash": "f48fa92c3ee4",
   "lastmod": "2026-11-10"
  }
 }
