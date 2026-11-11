@@ -496,6 +496,29 @@
       "expires_on": "2026-11-11",
       "verified_on": "2026-11-11",
       "best": false
+    },
+    {
+      "brand": "The Great Greek Mediterranean Grill",
+      "cat": "Mediterranean",
+      "color": "#1f5fa8",
+      "ic": "GG",
+      "deal": "Buy One, Get One Free Gyros, Pitas or Appetizers with Code BOGO, Online Orders",
+      "desc": "Limited time at Michigan locations: add two qualifying items from the same category on the chain's own ordering site (for example a Chicken Great Greek Gyro, Feta-Filled Kebab Gyro or Falafel Pita, $10.99 to $12.99 each) and enter promo code BOGO at checkout to get one free. One BOGO per order; categories cannot be mixed; no account needed. Seen on the Byron Center, Ann Arbor, West Bloomfield, Troy and Allen Park ordering pages.",
+      "tags": [
+        "code",
+        "free"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://orders.thegreatgreekgrill.com/menu/the-great-greek-mediterranean-grill-byron-center-mi",
+      "best": false,
+      "region": "Michigan only",
+      "est_savings": 12,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-11",
+      "id": "3202f065"
     }
   ]
 }
