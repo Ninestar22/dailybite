@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-11",
-  "updatedAt": "2026-11-11T11:12:19.111Z",
+  "updatedAt": "2026-11-11T20:07:22.879Z",
   "deals": [
     {
       "brand": "Tijuana Flats",
@@ -17,7 +17,7 @@
       "est_savings": 5,
       "id": "4c7887b8",
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-11",
       "verified_on": "2026-11-11",
       "best": false
@@ -494,6 +494,70 @@
       "expires_on": null,
       "verified_on": "2026-11-11",
       "id": "46976bc5"
+    },
+    {
+      "brand": "Waba Grill",
+      "cat": "Bowls",
+      "color": "#e2231a",
+      "ic": "W",
+      "deal": "$5 Chicken Bowl Anniversary Day",
+      "desc": "Announced by email on 2026-11-11, a regular chicken bowl with rice or rice and veggies is $5 plus tax at participating locations today only, in-store or online.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "November 11, 2026 only",
+      "url": "https://www.wabagrill.com/menu",
+      "region": "CA & Southwest",
+      "est_savings": 5,
+      "id": "d450a454",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-11",
+      "verified_on": "2026-11-11",
+      "best": false
+    },
+    {
+      "brand": "Starbucks",
+      "cat": "Coffee",
+      "color": "#00704a",
+      "ic": "S",
+      "deal": "Free Tall Brewed Coffee for Veterans",
+      "desc": "Announced by email on 2026-11-11, veterans, military service members and military spouses can get a free tall (12 fl oz) hot or iced brewed coffee today, Veterans Day.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "November 11, 2026 only",
+      "url": "https://about.starbucks.com/starbucks-commitment-to-the-military-community/",
+      "region": "National",
+      "est_savings": 3,
+      "id": "558d0b4e",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-11",
+      "verified_on": "2026-11-11",
+      "best": false
+    },
+    {
+      "brand": "Pei Wei",
+      "cat": "Asian",
+      "color": "#8dc63f",
+      "ic": "P",
+      "deal": "15% Off In-Store for Veterans and Military",
+      "desc": "Announced by email on 2026-11-11, veterans and military members get 15% off their in-store purchase today with a valid military ID.",
+      "tags": [],
+      "value": 2,
+      "expires": "November 11, 2026 only",
+      "url": "https://order.peiwei.com",
+      "region": "National",
+      "est_savings": 2,
+      "id": "4b53a32a",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-11",
+      "verified_on": "2026-11-11",
+      "best": false
     }
   ]
 }
