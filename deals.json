@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-12",
-  "updatedAt": "2026-11-12T11:06:33.554Z",
+  "updatedAt": "2026-11-12T20:07:25.583Z",
   "deals": [
     {
       "brand": "Rubio's Coastal Grill",
@@ -383,6 +383,72 @@
       "expires_on": null,
       "verified_on": "2026-11-12",
       "id": "46976bc5"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Deli",
+      "color": "#c8102e",
+      "ic": "HV",
+      "deal": "15% Off Your $25+ Meals To Go Order",
+      "desc": "Hy-Vee's weekly deals email announced 15% off any Meals To Go order of $25 or more, announced by email on 2026-11-12, free Hy-Vee PERKS account required.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 3,
+      "expires": "This week",
+      "url": "https://www.hy-vee.com/meals-to-go",
+      "region": "Midwest",
+      "est_savings": 4,
+      "id": "36950a7c",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-12",
+      "best": false
+    },
+    {
+      "brand": "Pei Wei",
+      "cat": "Asian",
+      "color": "#8c1d40",
+      "ic": "PW",
+      "deal": "2 Entrees for $21 Through 11/15",
+      "desc": "Pei Wei Rewards members can get two entrees for $21 through November 15, announced by email on 2026-11-12, free Rewards account required, apply at checkout.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 3,
+      "expires": "Through November 15, 2026",
+      "url": "https://order.peiwei.com/account/rewards",
+      "region": "Select states",
+      "est_savings": 5,
+      "id": "834fb7a5",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-15",
+      "verified_on": "2026-11-12",
+      "best": false
+    },
+    {
+      "brand": "Rubio's Coastal Grill",
+      "cat": "Mexican",
+      "color": "#00a0a0",
+      "ic": "R",
+      "deal": "2 Tacos Plus a Drink for $7",
+      "desc": "Rubio's everyday value menu offers two tacos and a drink for $7, announced by email on 2026-11-12 as an everyday deal.",
+      "tags": [],
+      "value": 2,
+      "expires": "Ongoing",
+      "url": "https://www.rubios.com/menu",
+      "region": "CA, AZ & NV",
+      "est_savings": 1.5,
+      "id": "84c762f7",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-12",
+      "best": false
     }
   ]
 }
