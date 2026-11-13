@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-12",
-  "updatedAt": "2026-11-12T20:07:25.583Z",
+  "updatedAt": "2026-11-13T00:57:29.782Z",
   "deals": [
     {
       "brand": "Rubio's Coastal Grill",
@@ -102,7 +102,7 @@
       "verified_on": "2026-11-12",
       "id": "e4ea4ae6",
       "isNew": false,
-      "endingSoon": false
+      "endingSoon": true
     },
     {
       "brand": "Mezeh Mediterranean Grill",
@@ -425,7 +425,7 @@
       "est_savings": 5,
       "id": "834fb7a5",
       "isNew": true,
-      "endingSoon": false,
+      "endingSoon": true,
       "expires_on": "2026-11-15",
       "verified_on": "2026-11-12",
       "best": false
@@ -444,6 +444,28 @@
       "region": "CA, AZ & NV",
       "est_savings": 1.5,
       "id": "84c762f7",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-12",
+      "best": false
+    },
+    {
+      "brand": "Subway",
+      "cat": "Sandwiches",
+      "color": "#00543c",
+      "ic": "S",
+      "deal": "Buy 2 Footlongs, Get 1 Free",
+      "desc": "Announced by email on 2026-11-12: order online or in the app and the third footlong is free, no account tier required beyond ordering through the app.",
+      "tags": [
+        "app"
+      ],
+      "value": 5,
+      "expires": "Limited time",
+      "url": "https://www.subway.com/en-us/deals",
+      "region": "National",
+      "est_savings": 9,
+      "id": "825ff910",
       "isNew": true,
       "endingSoon": false,
       "expires_on": null,
