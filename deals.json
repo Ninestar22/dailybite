@@ -3,26 +3,6 @@
   "updatedAt": "2026-11-14T17:07:44.800Z",
   "deals": [
     {
-      "brand": "Rubio's Coastal Grill",
-      "cat": "Mexican",
-      "color": "#00a19a",
-      "ic": "R",
-      "deal": "$7+ Meal Menu: Entrees From $7.99",
-      "desc": "Standing value menu with meals from $7 to $10, including the Fish & Chips for $7.99, at participating Rubio's locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.rubios.com/menu",
-      "region": "CA, AZ & NV",
-      "est_savings": 3,
-      "id": "6e9e4a7e",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-14",
-      "best": false
-    },
-    {
       "brand": "Pei Wei",
       "cat": "Asian",
       "color": "#c8102e",
@@ -367,22 +347,44 @@
     {
       "brand": "Tijuana Flats",
       "cat": "Mexican",
-      "color": "#f7941d",
+      "color": "#d0342c",
       "ic": "TF",
-      "deal": "Two Meals for $24: Two Entrees, Two Drinks and a Starter",
-      "desc": "Saturdays only special: two entrees, two drinks and one starter for $24 at participating locations; announced by email on 2026-11-14.",
+      "deal": "2 for $24 Saturdaze: Two Entrees, Two Drinks and a Starter",
+      "desc": "Every Saturday: two entrees, two drinks and one starter for $24, in-store or through the app and website, no account needed. Select menu items; upgrades cost more; not valid with other offers or on third-party delivery; participating locations. Stated on Tijuana Flats' own offer terms page.",
       "tags": [],
       "value": 4,
       "expires": "Saturdays only",
-      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
-      "est_savings": 4,
+      "url": "https://www.tijuanaflats.com/promotions/offer-terms",
+      "best": false,
       "region": "FL & Southeast",
-      "id": "468cff1a",
+      "est_savings": 8,
       "isNew": true,
       "endingSoon": false,
       "expires_on": null,
       "verified_on": "2026-11-14",
-      "best": false
+      "id": "37527c15"
+    },
+    {
+      "brand": "Nando's PERi-PERi",
+      "cat": "Drinks",
+      "color": "#d32a2a",
+      "ic": "N",
+      "deal": "$1 Bottomless Fountain Drinks for PERi-Perks Members",
+      "desc": "PERi-Perks members (free account) can add a bottomless fountain drink to any meal for $1 instead of the usual $3.99, in app, online or in-restaurant.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.nandosperiperi.com/promotions",
+      "region": "DC, MD, VA, IL, TX & GA",
+      "est_savings": 3,
+      "best": false,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-14",
+      "id": "d06a6327"
     }
   ]
 }

@@ -1532,6 +1532,8 @@ function main() {
   // re-finding them from roundup sites, so they are dropped here by brand + title pattern until the
   // chain's own page states them with a code. Add a line per rejection, with the date and the reason.
   {
+    // Escape regex metacharacters in these titles (\$, \+, \.). Six patterns lost their backslashes in shell-written
+    // edits and silently never matched until 2026-11-14 (Rubio's $7+ menu came back three times).
     const REJECTED = [
       // Tropical Smoothie "$2 24oz smoothie with any food purchase, Sundays and Mondays": owner tried it on
       // 2026-10-26, no promo code anywhere and no reward in the app.
@@ -1542,26 +1544,26 @@ function main() {
       { brand: /jamba/i, title: /50% off (your|any) order/i },
       // El Pollo Loco "Loco Rewards Monday: chips and guacamole for $1 with an $11.99 order" (2026-11-02): roundup-only
       // (The Krazy Coupon Lady); elpolloloco.com home, /offers, /promotions and /rewards never state it.
-      { brand: /pollo loco/i, title: /chips and guac(amole)? for $1/i },
+      { brand: /pollo loco/i, title: /chips and guac(amole)? for \$1/i },
       // Rubio's "$7+ Meal Menu" (2026-11-04): rubios.com/weekly-deals calls it a standing menu ("Meet our new $7+ Meal
       // Menu"). Everyday value menu, not a deal (owner rule). Taco Tuesday on the same page is fine.
-      { brand: /rubio/i, title: /$7+ meal menu|meal menu: meals from|2 tacos plus a drink for $7|two taco combo/i }, // re-listed 2026-11-13 as "2 Tacos Plus a Drink for $7"
+      { brand: /rubio/i, title: /\$7\+ meal menu|meal menu: meals from|2 tacos plus a drink for \$7|two taco combo/i }, // re-listed 2026-11-13 as "2 Tacos Plus a Drink for $7"
       // Harris Teeter "Traditional Turkey Dinner for 6-8, $69.99" (2026-11-13): a holiday catering product at its regular
       // price, not a discount and not a restaurant meal deal.
       { brand: /harris teeter/i, title: /turkey dinner/i },
       // Pollo Campero "Classic or Spicy Chicken Sandwich for $5.99" (2026-11-13): not stated on us.campero.com, /news or the
       // order site; a fried sandwich at about $2 off. Not listed.
-      { brand: /campero/i, title: /chicken sandwich for $5.99/i },
+      { brand: /campero/i, title: /chicken sandwich for \$5\.99/i },
       // El Pollo Loco "Fire-Grilled Combos from $5.99" (2026-11-04): regular combo pricing checked on the order site,
       // prices vary by market. Everyday value menu, not a deal (owner rule).
       { brand: /pollo loco/i, title: /fire-grilled combos from/i },
       // DoorDash "$12 Meal Boxes" (2026-11-05): a fixed-price menu tier from local restaurants in select areas of ~20 cities
       // (about.doordash.com, Nov 2 launch), no end date, not claimable by anyone and not a chain discount. Not a deal.
-      { brand: /doordash/i, title: /$12 meal box/i },
+      { brand: /doordash/i, title: /\$12 meal box/i },
       // Chipotle "$0 Delivery Fee on Smoked Brisket Orders of $10+" (2026-11-06): chipotle.com's own footnote says "Higher menu
       // prices and ... additional fees apply for delivery", so the waiver is not a saving. Delivery-fee promos with a delivery
       // markup are not deals.
-      { brand: /chipotle/i, title: /$0 delivery fee/i },
+      { brand: /chipotle/i, title: /\$0 delivery fee/i },
       // Potbelly "BOGO Free: Buy a Big or Original Sandwich, Get an Original Free, through Nov 16" (2026-11-06): came from a
       // Potbelly email titled "BOGO is back just for you" to the deals mailbox; potbelly.com shows no BOGO (only the
       // new-member free sandwich). A targeted member offer, not a chain-wide deal. Delete this line if potbelly.com posts it.
@@ -1574,7 +1576,7 @@ function main() {
       { brand: /pokeworks/i, title: /free (scoop of avocado|avocado scoop)/i }, // re-added 2026-11-09 evening as "Free Avocado Scoop"
       // Rubio's "2 Entrees for $16" (2026-11-10): a Rubio's Rewards email reward "valid over the next 14 days"; rubios.com,
       // /rewards and /weekly-deals do not state it. Account-specific reward, not a chain-wide deal.
-      { brand: /rubio/i, title: /2 entrees for $16/i },
+      { brand: /rubio/i, title: /2 entrees for \$16/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
