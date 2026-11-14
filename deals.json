@@ -1,7 +1,27 @@
 {
-  "updated": "2026-11-13",
-  "updatedAt": "2026-11-13T11:06:15.826Z",
+  "updated": "2026-11-14",
+  "updatedAt": "2026-11-14T11:05:21.095Z",
   "deals": [
+    {
+      "brand": "Rubio's Coastal Grill",
+      "cat": "Mexican",
+      "color": "#00a19a",
+      "ic": "R",
+      "deal": "$7+ Meal Menu: Entrees From $7.99",
+      "desc": "Standing value menu with meals from $7 to $10, including the Fish & Chips for $7.99, at participating Rubio's locations.",
+      "tags": [],
+      "value": 3,
+      "expires": "Ongoing",
+      "url": "https://www.rubios.com/menu",
+      "region": "CA, AZ & NV",
+      "est_savings": 3,
+      "id": "6e9e4a7e",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-14",
+      "best": false
+    },
     {
       "brand": "Pei Wei",
       "cat": "Asian",
@@ -18,33 +38,11 @@
       "region": "Select states",
       "est_savings": 5,
       "id": "fc2389d5",
-      "isNew": true,
-      "endingSoon": true,
       "expires_on": "2026-11-15",
-      "verified_on": "2026-11-13",
-      "best": false
-    },
-    {
-      "brand": "Hy-Vee",
-      "cat": "Deli",
-      "color": "#00833e",
-      "ic": "HV",
-      "deal": "15% Off Meals To Go Orders of $25 or More",
-      "desc": "Get 15% off a Hy-Vee Meals To Go prepared-food order of $25 or more; free Hy-Vee PERKS account required, announced by Hy-Vee email.",
-      "tags": [
-        "free"
-      ],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://www.hy-vee.com/deals/weekly-ads",
-      "region": "Midwest",
-      "est_savings": 3.5,
-      "id": "4cb40041",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "best": false
+      "verified_on": "2026-11-14",
+      "best": false,
+      "isNew": false,
+      "endingSoon": true
     },
     {
       "brand": "Panera Bread",
@@ -61,7 +59,7 @@
       "est_savings": 10,
       "id": "3b1d84f0",
       "expires_on": "2026-12-31",
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "best": false,
       "isNew": false,
       "endingSoon": false
@@ -83,7 +81,7 @@
       "region": "National",
       "est_savings": 5,
       "expires_on": "2026-11-15",
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "e4ea4ae6",
       "isNew": false,
       "endingSoon": true
@@ -103,31 +101,8 @@
       "region": "VA, MD, DC, PA, NC, SC, GA, FL & TX",
       "est_savings": 4,
       "expires_on": "2026-12-31",
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "50153c59",
-      "isNew": false,
-      "endingSoon": false
-    },
-    {
-      "brand": "Playa Bowls",
-      "cat": "Bowls",
-      "color": "#1aa3a0",
-      "ic": "PB",
-      "deal": "Free 16 oz Cold Brew with a Chocolate Coconut Joy or Chocolate Covered Strawberry Bowl for Playa Rewards Members",
-      "desc": "Monday, November 9 through Friday, November 13: Playa Rewards members (free account) get a free 16 oz Playola or Sweet Cream Cold Brew with the purchase of a Chocolate Coconut Joy Bowl or Chocolate Covered Strawberry Bowl, in the shop, on playabowls.com or in the app for pickup. One redemption per member, modifiers extra, not valid on third-party delivery; participating shops while supplies last. Stated on Playa Bowls' own current-promotions page.",
-      "tags": [
-        "app",
-        "free"
-      ],
-      "value": 3,
-      "expires": "November 9 to 13, 2026",
-      "url": "https://www.playabowls.com/policies/current-promotions",
-      "best": false,
-      "region": "East Coast",
-      "est_savings": 5,
-      "expires_on": "2026-11-13",
-      "verified_on": "2026-11-13",
-      "id": "17677d22",
       "isNew": false,
       "endingSoon": false
     },
@@ -149,29 +124,10 @@
       "region": "35 states (Southeast, Northeast & Midwest)",
       "est_savings": 4,
       "expires_on": "2026-11-22",
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "cb474504",
       "isNew": false,
       "endingSoon": false
-    },
-    {
-      "brand": "Safeway",
-      "cat": "Sushi",
-      "color": "#e31837",
-      "ic": "SF",
-      "deal": "$5 Friday: Fresh Sushi Rolls for $5",
-      "desc": "Every Friday, Safeway's $5 Friday lineup includes fresh sushi rolls from the in-store counter for $5 (regularly $8 to $10), alongside other prepared-food deals like an 8-piece chicken bag. Check the weekly ad for your division; a free Safeway for U account may be needed for the promo price.",
-      "tags": [],
-      "value": 4,
-      "expires": "Fridays only",
-      "url": "https://www.safeway.com/weeklyad/",
-      "best": false,
-      "region": "Select states",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "a819b9f1"
     },
     {
       "brand": "Publix",
@@ -189,7 +145,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "ff8dda7e"
     },
     {
@@ -211,28 +167,51 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "43d0d809"
+    },
+    {
+      "brand": "Nando's PERi-PERi",
+      "cat": "Chicken",
+      "color": "#d32a2a",
+      "ic": "N",
+      "deal": "PERi Buffalo Meal Deal: Sandwich or 6 Wings with PERi Chips and a Drink for $11.99",
+      "desc": "Limited time: a PERi Buffalo Pulled Chicken Sandwich or six flame-grilled PERi Buffalo wings, plus PERi Chips and a fountain drink, for $11.99. The sandwich alone is $10, so the chips and drink come to about $2. No account or code needed; order in the restaurant or online. Stated on Nando's own promotions page.",
+      "tags": [],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.nandosperiperi.com/promotions/peri-buffalo",
+      "best": false,
+      "region": "DC, MD, VA, IL, TX & GA",
+      "est_savings": 5,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-14",
+      "id": "101b2ad4"
     },
     {
       "brand": "Freebirds World Burrito",
       "cat": "Mexican",
       "color": "#f47b20",
       "ic": "FB",
-      "deal": "Family Friday: $40 Meal Kit That Builds 5 Burritos or 10 Tacos",
-      "desc": "Every Friday, all day: a $40 meal kit with two proteins, four toppings and two sauces, enough to build five burritos or ten tacos (about $8 a burrito). In-store when you mention the deal, or online; while supplies last; no account needed. Stated on Freebirds' own homepage.",
-      "tags": [],
+      "deal": "Kids Eat Free on Saturdays and Sundays with Code KIDSEATFREE",
+      "desc": "All day Saturdays and Sundays: kids under 12 eat free with the purchase of an adult entree, in-store or online with code KIDSEATFREE. Not valid with other offers; no account needed. Stated on Freebirds' own homepage.",
+      "tags": [
+        "code",
+        "free"
+      ],
       "value": 4,
-      "expires": "Fridays only",
+      "expires": "Saturdays and Sundays only",
       "url": "https://freebirds.com/",
       "best": false,
       "region": "Texas only",
-      "est_savings": 10,
+      "est_savings": 6,
       "isNew": true,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "549174f5"
+      "verified_on": "2026-11-14",
+      "id": "82b5f97a"
     },
     {
       "brand": "The Great Greek Mediterranean Grill",
@@ -254,7 +233,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "3202f065"
     },
     {
@@ -276,30 +255,8 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "9e0547ae"
-    },
-    {
-      "brand": "Chipotle",
-      "cat": "Mexican",
-      "color": "#a81612",
-      "ic": "Ch",
-      "deal": "Friday the 13th Tattoo BOGO: Buy One Entree, Get One Free, 3 to 4 PM",
-      "desc": "Friday, November 13, from 3 to 4 PM local time only: show any tattoo at the register (a real one, a temporary one or a drawn-on one all count) and get a second entree of equal or lesser value free with each entree you buy, up to five free per check. In-restaurant only at participating U.S. and Canada locations; no account needed; not valid on app, online, delivery or catering orders, and kids' meals do not count as the purchased entree. Stated in Chipotle's own November 9 newsroom release.",
-      "tags": [
-        "free"
-      ],
-      "value": 5,
-      "expires": "November 13, 2026, 3 to 4 PM only",
-      "url": "https://newsroom.chipotle.com/2026-11-09-CHIPOTLE-BRINGS-BACK-RECORD-BREAKING-TATTED-LIKE-A-CHIPOTLE-BAG-BOGO-ON-FRIDAY,-NOVEMBER-13",
-      "best": true,
-      "region": "National",
-      "est_savings": 11,
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": "2026-11-13",
-      "verified_on": "2026-11-13",
-      "id": "75e62e0f"
     },
     {
       "brand": "Schlotzsky's",
@@ -315,10 +272,10 @@
       "best": false,
       "region": "24 states (TX, South & Midwest)",
       "est_savings": 5,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "ff166d29"
     },
     {
@@ -340,7 +297,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "63b14bf0"
     },
     {
@@ -360,30 +317,8 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "c608dea6"
-    },
-    {
-      "brand": "Nando's PERi-PERi",
-      "cat": "Drinks",
-      "color": "#d32a2a",
-      "ic": "N",
-      "deal": "$1 Bottomless Fountain Drinks for PERi-Perks Members",
-      "desc": "PERi-Perks members (free account) can add a bottomless fountain drink to any meal for $1 instead of the usual $3.99, in app, online or in-restaurant.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.nandosperiperi.com/promotions",
-      "region": "DC, MD, VA, IL, TX & GA",
-      "est_savings": 3,
-      "best": false,
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "d06a6327"
     },
     {
       "brand": "Waba Grill",
@@ -404,69 +339,8 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-13",
+      "verified_on": "2026-11-14",
       "id": "e2682ab0"
-    },
-    {
-      "brand": "Smoothie King",
-      "cat": "Smoothies",
-      "color": "#c8102e",
-      "ic": "SK",
-      "deal": "Free Upsize Friday: 32 oz Smoothie for the Price of a 20 oz",
-      "desc": "Every Friday, Healthy Rewards members (free account required) get a 32 oz smoothie for the price of a 20 oz when they order in the Smoothie King app, at participating locations. Rewards cannot be redeemed on these orders.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Fridays only",
-      "url": "https://www.smoothieking.com/rewards/",
-      "best": false,
-      "region": "National",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "6d31e275"
-    },
-    {
-      "brand": "Harris Teeter",
-      "cat": "Sushi",
-      "color": "#00529b",
-      "ic": "HT",
-      "deal": "$6 Sushi Friday: California, Vegetable, Spicy Tuna and Spicy Salmon Rolls",
-      "desc": "Every Friday, Harris Teeter's Zenshi sushi counters sell four rolls for $6 each: California, Vegetable, Spicy Tuna and Spicy Salmon (regularly about $9.49 to $10.49). In store, while supplies last; the free VIC card may be needed for the promo price. Seen in store October 2, 2026.",
-      "tags": [],
-      "value": 4,
-      "est_savings": 3.5,
-      "expires": "Fridays only",
-      "url": "https://www.harristeeter.com/",
-      "best": false,
-      "region": "Southeast & Mid-Atlantic",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "d436e568"
-    },
-    {
-      "brand": "Nando's PERi-PERi",
-      "cat": "Chicken",
-      "color": "#d32a2a",
-      "ic": "N",
-      "deal": "PERi Buffalo Meal Deal: Sandwich or 6 Wings with PERi Chips and a Drink for $11.99",
-      "desc": "Limited time: a PERi Buffalo Pulled Chicken Sandwich or six flame-grilled PERi Buffalo wings, plus PERi Chips and a fountain drink, for $11.99. The sandwich alone is $10, so the chips and drink come to about $2. No account or code needed; order in the restaurant or online. Stated on Nando's own promotions page.",
-      "tags": [],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://www.nandosperiperi.com/promotions/peri-buffalo",
-      "best": false,
-      "region": "DC, MD, VA, IL, TX & GA",
-      "est_savings": 5,
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "id": "101b2ad4"
     }
   ]
 }
