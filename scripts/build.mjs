@@ -1545,7 +1545,10 @@ function main() {
       { brand: /pollo loco/i, title: /chips and guac(amole)? for $1/i },
       // Rubio's "$7+ Meal Menu" (2026-11-04): rubios.com/weekly-deals calls it a standing menu ("Meet our new $7+ Meal
       // Menu"). Everyday value menu, not a deal (owner rule). Taco Tuesday on the same page is fine.
-      { brand: /rubio/i, title: /$7+ meal menu|meal menu: meals from/i },
+      { brand: /rubio/i, title: /$7+ meal menu|meal menu: meals from|2 tacos plus a drink for $7|two taco combo/i }, // re-listed 2026-11-13 as "2 Tacos Plus a Drink for $7"
+      // Harris Teeter "Traditional Turkey Dinner for 6-8, $69.99" (2026-11-13): a holiday catering product at its regular
+      // price, not a discount and not a restaurant meal deal.
+      { brand: /harris teeter/i, title: /turkey dinner/i },
       // El Pollo Loco "Fire-Grilled Combos from $5.99" (2026-11-04): regular combo pricing checked on the order site,
       // prices vary by market. Everyday value menu, not a deal (owner rule).
       { brand: /pollo loco/i, title: /fire-grilled combos from/i },
