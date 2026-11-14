@@ -1549,6 +1549,9 @@ function main() {
       // Harris Teeter "Traditional Turkey Dinner for 6-8, $69.99" (2026-11-13): a holiday catering product at its regular
       // price, not a discount and not a restaurant meal deal.
       { brand: /harris teeter/i, title: /turkey dinner/i },
+      // Pollo Campero "Classic or Spicy Chicken Sandwich for $5.99" (2026-11-13): not stated on us.campero.com, /news or the
+      // order site; a fried sandwich at about $2 off. Not listed.
+      { brand: /campero/i, title: /chicken sandwich for $5.99/i },
       // El Pollo Loco "Fire-Grilled Combos from $5.99" (2026-11-04): regular combo pricing checked on the order site,
       // prices vary by market. Everyday value menu, not a deal (owner rule).
       { brand: /pollo loco/i, title: /fire-grilled combos from/i },

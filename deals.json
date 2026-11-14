@@ -3,26 +3,6 @@
   "updatedAt": "2026-11-13T11:06:15.826Z",
   "deals": [
     {
-      "brand": "Pollo Campero",
-      "cat": "Chicken",
-      "color": "#e31837",
-      "ic": "PC",
-      "deal": "Classic or Spicy Chicken Sandwich for $5.99",
-      "desc": "Limited-time Chicken Sandwich, Classic or Spicy, for $5.99 plus tax at participating locations.",
-      "tags": [],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://us.campero.com/rewards",
-      "region": "20 states & DC (East, South, TX & CA)",
-      "est_savings": 2,
-      "id": "5c5e32bf",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-13",
-      "best": false
-    },
-    {
       "brand": "Pei Wei",
       "cat": "Asian",
       "color": "#c8102e",
@@ -467,6 +447,26 @@
       "expires_on": null,
       "verified_on": "2026-11-13",
       "id": "d436e568"
+    },
+    {
+      "brand": "Nando's PERi-PERi",
+      "cat": "Chicken",
+      "color": "#d32a2a",
+      "ic": "N",
+      "deal": "PERi Buffalo Meal Deal: Sandwich or 6 Wings with PERi Chips and a Drink for $11.99",
+      "desc": "Limited time: a PERi Buffalo Pulled Chicken Sandwich or six flame-grilled PERi Buffalo wings, plus PERi Chips and a fountain drink, for $11.99. The sandwich alone is $10, so the chips and drink come to about $2. No account or code needed; order in the restaurant or online. Stated on Nando's own promotions page.",
+      "tags": [],
+      "value": 4,
+      "expires": "Limited time",
+      "url": "https://www.nandosperiperi.com/promotions/peri-buffalo",
+      "best": false,
+      "region": "DC, MD, VA, IL, TX & GA",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-13",
+      "id": "101b2ad4"
     }
   ]
 }
