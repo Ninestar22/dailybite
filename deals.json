@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-14",
-  "updatedAt": "2026-11-14T11:05:21.095Z",
+  "updatedAt": "2026-11-14T17:07:44.800Z",
   "deals": [
     {
       "brand": "Rubio's Coastal Grill",
@@ -341,6 +341,48 @@
       "expires_on": null,
       "verified_on": "2026-11-14",
       "id": "e2682ab0"
+    },
+    {
+      "brand": "Honeygrow",
+      "cat": "Bowls",
+      "color": "#f28b00",
+      "ic": "H",
+      "deal": "BOGO 25% Off Stir-Fry or Salad with Code WEEKEND25",
+      "desc": "Buy one stir-fry or salad and get a second 25% off (up to $3.50) in the hg app or online; announced by email on 2026-11-14, valid through Sunday 11/15.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 15, 2026",
+      "url": "https://order.honeygrow.com/",
+      "est_savings": 3.5,
+      "region": "Mid-Atlantic & Northeast",
+      "id": "cff8f3cc",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-15",
+      "verified_on": "2026-11-14",
+      "best": false
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#f7941d",
+      "ic": "TF",
+      "deal": "Two Meals for $24: Two Entrees, Two Drinks and a Starter",
+      "desc": "Saturdays only special: two entrees, two drinks and one starter for $24 at participating locations; announced by email on 2026-11-14.",
+      "tags": [],
+      "value": 4,
+      "expires": "Saturdays only",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "est_savings": 4,
+      "region": "FL & Southeast",
+      "id": "468cff1a",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-14",
+      "best": false
     }
   ]
 }
