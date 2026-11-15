@@ -74,7 +74,9 @@ export const EVERGREEN = [
     // Each expires 2026-10-15: re-verify the price then and bump the date, or drop it.
     { until: "2026-10-15", deal: { brand: "Rubio's Coastal Grill", cat: "Seafood", color: "#00a1e0", ic: "R", deal: "$7+ Meal Menu, including Fish & Chips for $7.99", desc: "Rubio's standing value menu runs meals from $7 to $10, headlined by Fish & Chips for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.rubios.com/menu", est_savings: 3, best: false, region: "CA, AZ & NV" } },
     { until: "2026-10-15", deal: { brand: "WaBa Grill", cat: "Bowls", color: "#e4002b", ic: "W", deal: "Value-Bowl Combo: mini bowl, side and drink for $7.99", desc: "A permanent value item: a mini bowl with chicken, sweet and spicy chicken or tofu, plus a value side and a 12 oz drink for $7.99, every day at participating locations.", tags: [], value: 3, expires: "Ongoing", url: "https://www.wabagrill.com/menu", est_savings: 3, best: false, region: "CA & AZ" } },
-    { until: "2026-12-31", deal: { brand: "Naf Naf Grill", cat: "Mediterranean", color: "#c8102e", ic: "N", deal: "$9.99 Pita Meal Deal", desc: "Naf Naf Grill's value menu: a full pita meal for $9.99, in store and in the app, every day at participating locations.", tags: ["app"], value: 3, expires: "Ongoing", url: "https://nafnafgrill.com/", est_savings: 3, best: false, region: "Midwest & East" } },
+    // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
+    // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
+    // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
     // Bento Asian Kitchen + Sushi, read from eatatbento.com/specials on 2026-11-14: "$5 SUSHI ROLLS, EVERY WEDNESDAY! Enjoy
     // fresh, made-to-order rolls, every Wednesday at select locations. In-store only. Spicy Tuna Roll-$5, Mex Roll-$5, Florida
     // Roll-$5, Veggie Roll-$5, Cali Roll-$5". 13 Florida locations; the page does not name the select locations. Shows

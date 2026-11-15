@@ -1551,6 +1551,9 @@ function main() {
       // Harris Teeter "Traditional Turkey Dinner for 6-8, $69.99" (2026-11-13): a holiday catering product at its regular
       // price, not a discount and not a restaurant meal deal.
       { brand: /harris teeter/i, title: /turkey dinner/i },
+      // Naf Naf "$9.99 Pita Meal Deal" (2026-11-15): a January 2026 limited-time launch that is no longer on the chain's
+      // order menu. Delete this line if nafnafgrill.com or its order site shows the meal deal again.
+      { brand: /naf naf/i, title: /\$9\.99 pita meal/i },
       // Pollo Campero "Classic or Spicy Chicken Sandwich for $5.99" (2026-11-13): not stated on us.campero.com, /news or the
       // order site; a fried sandwich at about $2 off. Not listed.
       { brand: /campero/i, title: /chicken sandwich for \$5\.99/i },
