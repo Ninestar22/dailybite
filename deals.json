@@ -1,7 +1,69 @@
 {
-  "updated": "2026-11-14",
-  "updatedAt": "2026-11-14T17:07:44.800Z",
+  "updated": "2026-11-15",
+  "updatedAt": "2026-11-15T11:06:10.430Z",
   "deals": [
+    {
+      "brand": "Honeygrow",
+      "cat": "Bowls",
+      "color": "#f4a400",
+      "ic": "H",
+      "deal": "BOGO 25% Off Stir-Fry or Salad with Code WEEKEND25",
+      "desc": "Buy one stir-fry or salad and get a second stir-fry or salad 25% off, up to $3.50, through Sunday November 15 in the app or online with code WEEKEND25.",
+      "tags": [
+        "app"
+      ],
+      "value": 2,
+      "expires": "Through November 15, 2026",
+      "url": "https://order.honeygrow.com/",
+      "region": "Mid-Atlantic & Northeast",
+      "est_savings": 3.5,
+      "id": "cff8f3cc",
+      "isNew": false,
+      "endingSoon": true,
+      "expires_on": "2026-11-15",
+      "verified_on": "2026-11-15",
+      "best": false
+    },
+    {
+      "brand": "Tijuana Flats",
+      "cat": "Mexican",
+      "color": "#f26522",
+      "ic": "T",
+      "deal": "Free Adult Entree with Purchase of an Adult Entree, Sundays Only, Code BOGONOV",
+      "desc": "Buy one full price adult entree and get a second adult entree free on Sundays through November 29 using code BOGONOV at participating locations.",
+      "tags": [],
+      "value": 4,
+      "expires": "Sundays only, through November 29, 2026",
+      "url": "https://www.tijuanaflats.com/promotions/specials-and-deals",
+      "region": "FL & Southeast",
+      "est_savings": 9,
+      "id": "76da36c6",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": "2026-11-29",
+      "verified_on": "2026-11-15",
+      "best": false
+    },
+    {
+      "brand": "Giant Food",
+      "cat": "Deli",
+      "color": "#e31837",
+      "ic": "G",
+      "deal": "Giant Rotisserie Chicken $5.99, Up to $2.00 Off",
+      "desc": "This week's Giant Food ad has the Giant Rotisserie Chicken prepared food counter item for $5.99, up to $2.00 off regular price.",
+      "tags": [],
+      "value": 3,
+      "expires": "This week",
+      "url": "https://giantfood.com/savings/weekly-ad/",
+      "region": "DC, MD, VA & DE",
+      "est_savings": 2,
+      "id": "1779db51",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-15",
+      "best": false
+    },
     {
       "brand": "Pei Wei",
       "cat": "Asian",
@@ -19,7 +81,7 @@
       "est_savings": 5,
       "id": "fc2389d5",
       "expires_on": "2026-11-15",
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "best": false,
       "isNew": false,
       "endingSoon": true
@@ -39,7 +101,7 @@
       "est_savings": 10,
       "id": "3b1d84f0",
       "expires_on": "2026-12-31",
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "best": false,
       "isNew": false,
       "endingSoon": false
@@ -61,7 +123,7 @@
       "region": "National",
       "est_savings": 5,
       "expires_on": "2026-11-15",
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "e4ea4ae6",
       "isNew": false,
       "endingSoon": true
@@ -81,7 +143,7 @@
       "region": "VA, MD, DC, PA, NC, SC, GA, FL & TX",
       "est_savings": 4,
       "expires_on": "2026-12-31",
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "50153c59",
       "isNew": false,
       "endingSoon": false
@@ -104,7 +166,7 @@
       "region": "35 states (Southeast, Northeast & Midwest)",
       "est_savings": 4,
       "expires_on": "2026-11-22",
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "cb474504",
       "isNew": false,
       "endingSoon": false
@@ -125,7 +187,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "ff8dda7e"
     },
     {
@@ -147,7 +209,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "43d0d809"
     },
     {
@@ -167,7 +229,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "101b2ad4"
     },
     {
@@ -187,10 +249,10 @@
       "best": false,
       "region": "Texas only",
       "est_savings": 6,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "82b5f97a"
     },
     {
@@ -213,7 +275,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "3202f065"
     },
     {
@@ -235,7 +297,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "9e0547ae"
     },
     {
@@ -255,7 +317,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "ff166d29"
     },
     {
@@ -277,7 +339,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "63b14bf0"
     },
     {
@@ -297,72 +359,8 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "c608dea6"
-    },
-    {
-      "brand": "Waba Grill",
-      "cat": "Bowls",
-      "color": "#e4002b",
-      "ic": "W",
-      "deal": "Kids Eat Free: Free Chicken or Tofu Mini Bowl with Each Full-Price Entree",
-      "desc": "Every day: one free kids Chicken or Tofu Mini Bowl with the purchase of any full-price entree, weekdays after 4 PM and all day Saturday and Sunday, at all WaBa Grill locations. No account or coupon needed. Stated in WaBa Grill's own press release and on its homepage.",
-      "tags": [
-        "free"
-      ],
-      "value": 3,
-      "expires": "Weekdays after 4 PM, all day weekends",
-      "url": "https://www.wabagrill.com/menu",
-      "best": false,
-      "region": "CA, AZ, NV & TX",
-      "est_savings": 6,
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-14",
-      "id": "e2682ab0"
-    },
-    {
-      "brand": "Honeygrow",
-      "cat": "Bowls",
-      "color": "#f28b00",
-      "ic": "H",
-      "deal": "BOGO 25% Off Stir-Fry or Salad with Code WEEKEND25",
-      "desc": "Buy one stir-fry or salad and get a second 25% off (up to $3.50) in the hg app or online; announced by email on 2026-11-14, valid through Sunday 11/15.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through November 15, 2026",
-      "url": "https://order.honeygrow.com/",
-      "est_savings": 3.5,
-      "region": "Mid-Atlantic & Northeast",
-      "id": "cff8f3cc",
-      "isNew": true,
-      "endingSoon": true,
-      "expires_on": "2026-11-15",
-      "verified_on": "2026-11-14",
-      "best": false
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#d0342c",
-      "ic": "TF",
-      "deal": "2 for $24 Saturdaze: Two Entrees, Two Drinks and a Starter",
-      "desc": "Every Saturday: two entrees, two drinks and one starter for $24, in-store or through the app and website, no account needed. Select menu items; upgrades cost more; not valid with other offers or on third-party delivery; participating locations. Stated on Tijuana Flats' own offer terms page.",
-      "tags": [],
-      "value": 4,
-      "expires": "Saturdays only",
-      "url": "https://www.tijuanaflats.com/promotions/offer-terms",
-      "best": false,
-      "region": "FL & Southeast",
-      "est_savings": 8,
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-14",
-      "id": "37527c15"
     },
     {
       "brand": "Nando's PERi-PERi",
@@ -383,8 +381,30 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-14",
+      "verified_on": "2026-11-15",
       "id": "d06a6327"
+    },
+    {
+      "brand": "Waba Grill",
+      "cat": "Bowls",
+      "color": "#e4002b",
+      "ic": "W",
+      "deal": "Kids Eat Free: Free Chicken or Tofu Mini Bowl with Each Full-Price Entree",
+      "desc": "Every day: one free kids Chicken or Tofu Mini Bowl with the purchase of any full-price entree, weekdays after 4 PM and all day Saturday and Sunday, at all WaBa Grill locations. No account or coupon needed. Stated in WaBa Grill's own press release and on its homepage.",
+      "tags": [
+        "free"
+      ],
+      "value": 3,
+      "expires": "Weekdays after 4 PM, all day weekends",
+      "url": "https://www.wabagrill.com/menu",
+      "best": false,
+      "region": "CA, AZ, NV & TX",
+      "est_savings": 6,
+      "isNew": false,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-15",
+      "id": "e2682ab0"
     }
   ]
 }
