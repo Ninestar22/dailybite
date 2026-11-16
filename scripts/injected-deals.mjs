@@ -77,6 +77,13 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // Saladworks $6.99 Monday bowl, read from order.saladworks.com/menu/saladworks-fairfax on Monday 2026-11-16: menu category
+    // "6.99 BYO Bowl", item "6.99 Build Your Own Bowl", $6.99, "Mondays just got better! Build your own 16 oz. bowl for
+    // $6.99! Choose 1 base, 1 granola, 1 fruit + banana, and 1 topping." The category only renders on Mondays. A research
+    // sweep on 2026-11-13 found it at 14 of 81 stores: VA Fairfax, Virginia Beach, Chesterfield, Newport News; NJ Menlo Park
+    // Mall, Newark; PA West Chester; DE Middletown; FL Riverview, Stuart; NC Winterville; TN Spring Hill; TX Los Patios,
+    // League City. Only Fairfax was verified first-hand. Shows Mondays only.
+    { until: "2026-12-31", dow: 1, deal: { "brand":"Saladworks","cat":"Bowls","color":"#6ba539","ic":"SW","deal":"$6.99 Build Your Own Bowl on Mondays (Acai, Pitaya, Oatmeal or Yogurt Base)","desc":"Mondays only at 14 Saladworks stores that also serve Frutta Bowls, including Fairfax (9414 Fairfax Blvd), Virginia Beach, Chesterfield and Newport News: build your own 16 oz bowl for $6.99 with a base, granola, fruit and a topping. Order at the counter or pick the \"6.99 BYO Bowl\" category on that store's Saladworks ordering page, where it appears on Mondays; no code or account needed. If your store's page does not show the category on a Monday, it is not taking part.","tags":[],"value":4,"expires":"Mondays only","url":"https://order.saladworks.com/menu/saladworks-fairfax","best":false,"region":"Some stores only: VA, NJ, PA, DE, FL, NC, TN, TX","est_savings":4 } },
     // Roots Natural Kitchen kids eat free, read from rootsnaturalkitchen.com/locations/fairfax on 2026-11-15: a "Kids Eat Free"
     // badge with the HTML terms "With purchase of adult bowl. Child must be under 12 and present." in the footer of every page.
     // 23 locations (VA 9 incl. Fairfax, 9444 Fairfax Blvd; PA 7; OH 3; NC 2; DE 1; WV 1). Standing, no days stated: re-check monthly.
