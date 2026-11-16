@@ -470,6 +470,48 @@
       "expires_on": null,
       "verified_on": "2026-11-16",
       "id": "4ccfee78"
+    },
+    {
+      "brand": "Pita Way",
+      "cat": "Mediterranean",
+      "color": "#e4572e",
+      "ic": "PW",
+      "tags": [
+        "free"
+      ],
+      "best": false,
+      "region": "MI, OH, TN & IN",
+      "url": "https://pitaway.com/specials",
+      "deal": "Kids Eat Free with Every Adult Entree, Dine-In",
+      "desc": "Every day, dine-in only: kids 12 and under get a free mini rice bowl with each adult entree (a Premium Bowl, Sandweech or Large Salad), up to two kids per adult entree. Children must be there when you order; not valid online or through delivery apps. A kids bowl is usually $6.49. Stated on Pita Way's own specials page.",
+      "value": 4,
+      "expires": "Ongoing",
+      "est_savings": 6.5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-16",
+      "id": "5d86522a"
+    },
+    {
+      "brand": "Pita Way",
+      "cat": "Mediterranean",
+      "color": "#e4572e",
+      "ic": "PW",
+      "tags": [],
+      "best": false,
+      "region": "MI, OH, TN & IN",
+      "url": "https://pitaway.com/specials",
+      "deal": "Monday Special: Legacy Bowl and a Drink for $9.99, Online Orders",
+      "desc": "Mondays only, when you order on Pita Way's own website or app: a Legacy Bowl with your choice of protein, base and sauce, plus a fountain drink or bottled water, for $9.99. The bowl alone is usually $12.99. No code or account needed; cannot be combined with other discounts. Stated on Pita Way's own specials page.",
+      "value": 4,
+      "expires": "Mondays only",
+      "est_savings": 5,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-16",
+      "id": "95e2898a"
     }
   ]
 }
