@@ -1462,32 +1462,139 @@ function haversineMiles(lat1, lon1, lat2, lon2){
   const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)**2;
   return 2 * R * Math.asin(Math.sqrt(a));
 }
+// The free OpenStreetMap lookup servers are often at capacity (2026-11-16: the main one
+// answered "502, all query workers are busy" for days and distances silently vanished).
+// Ask the main server first; if it fails, or has not answered within 2.5 seconds, bring
+// in the next mirror. The first good answer wins and the rest are cancelled.
+const OVERPASS = [
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.openstreetmap.fr/api/interpreter',
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter'
+];
+function overpassQuery(q){
+  return new Promise((resolve, reject) => {
+    let i = 0, pending = 0, done = false;
+    const ctls = [];
+    const launch = () => {
+      if(done) return;
+      if(i >= OVERPASS.length){ if(!pending) reject(new Error('lookup failed')); return; }
+      const ep = OVERPASS[i++], ctl = new AbortController();
+      let handedOn = false;
+      const handOn = () => { if(!handedOn){ handedOn = true; launch(); } };
+      ctls.push(ctl); pending++;
+      const stagger = setTimeout(handOn, 2500);
+      const kill = setTimeout(() => ctl.abort(), 30000);
+      fetch(ep, {
+        method: 'POST',
+        body: 'data=' + encodeURIComponent(q),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        signal: ctl.signal
+      }).then(r => { if(!r.ok) throw new Error('status ' + r.status); return r.json(); })
+        .then(j => {
+          // A server-side timeout comes back as HTTP 200 with a "remark" and partial data.
+          if(!j || !Array.isArray(j.elements) || j.remark) throw new Error('incomplete');
+          clearTimeout(stagger); clearTimeout(kill); pending--;
+          if(done) return;
+          done = true;
+          ctls.forEach(c => { if(c !== ctl){ try{ c.abort(); }catch(e){} } });
+          resolve(j);
+        })
+        .catch(() => {
+          clearTimeout(stagger); clearTimeout(kill); pending--;
+          if(done) return;
+          if(!handedOn) handOn();
+          else if(!pending && i >= OVERPASS.length) reject(new Error('lookup failed'));
+        });
+    };
+    launch();
+  });
+}
+// Distances are kept until replaced (2026-11-16): a failed refresh must never erase the
+// distances a visitor already had, because where the nearest store is does not change
+// from one day to the next.
+function readLocCache(){ try{ return JSON.parse(localStorage.getItem('db_dist2') || 'null'); }catch(e){ return null; } }
+function sameSpot(a, b){ return Array.isArray(a) && Array.isArray(b) && haversineMiles(a[0], a[1], b[0], b[1]) < 3; }
+// Fold a new lookup into the saved one for the same spot, so a chain that is not in
+// today's list keeps its distance for the day its deal comes back.
+function applyLookup(res, ll, manual){
+  const prev = readLocCache();
+  let d = {}, hr = {}, b = [];
+  if(prev && prev.d && prev.v === 2 && sameSpot(prev.ll, ll)){
+    d = Object.assign({}, prev.d); hr = Object.assign({}, prev.h || {}); b = prev.b || [];
+    for(const k of res.qb){ delete d[k]; delete hr[k]; }
+  }
+  Object.assign(d, res.best); Object.assign(hr, res.hours);
+  b = [...new Set(b.concat(res.qb))];
+  DIST = d; HOURS = hr; QB = new Set(b);
+  try{ localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), v: 2, d: d, s: STATE, c: CITY, h: hr, m: manual ? 1 : undefined, b: b, ll: ll})); }catch(e){}
+}
+const BUSY_TIP = 'The free map service is busy right now, so distances are not showing yet. Deals are still filtered to your area. Please try again in a minute.';
+// One place decides what to show after a lookup, whether or not the map servers answered:
+// new distances, else the saved ones for this spot, else the place alone with a note.
+function settleLocation(res, state, city, ll, manual){
+  const old = readLocCache();
+  const keep = old && old.d && sameSpot(old.ll, ll) ? old : null;
+  STATE = state || (keep && keep.s) || null;
+  CITY = city || (keep && keep.c) || null;
+  if(res){ applyLookup(res, ll, manual); clearLocTip(); }
+  else if(keep){ DIST = keep.d; HOURS = keep.h || null; QB = keep.b ? new Set(keep.b) : null; clearLocTip(); }
+  else {
+    DIST = null; HOURS = null; QB = null;
+    try{ localStorage.setItem('db_dist2', JSON.stringify({t: 0, d: null, s: STATE, c: CITY, m: manual ? 1 : undefined, ll: ll})); }catch(e){}
+    showLocTip(BUSY_TIP);
+  }
+  syncLocUI();
+  render();
+}
+// Map data often drops the words a chain adds to its name ("Mezeh" for Mezeh Mediterranean
+// Grill, "Nando's" for Nando's PERi-PERi, "Corner Bakery" for Corner Bakery Cafe), and
+// small local chains (Taco Rock, Surfside, Roots Natural Kitchen) carry no brand tag at
+// all, only a name. Until 2026-11-16 the lookup asked for the full brand name in the
+// brand tag only, so all of those showed "Not within 25 mi" a mile from a store.
+const BRAND_TAIL = new Set(['mediterranean','mexican','southwest','asian','modern','fresh','natural','world','grill','kitchen','cafe','eatery','eats','burrito','sushi','sake','peri-peri','+','&']);
+function brandCore(b){
+  let w = String(b).split(/\s+/);
+  while(w.length > 1 && BRAND_TAIL.has(w[w.length - 1].toLowerCase())){
+    const r = w.slice(0, -1);
+    if(normBrand(r.join('')).length < 5 || (r.length === 1 && BRAND_TAIL.has(r[0].toLowerCase()))) break;
+    w = r;
+  }
+  return w.join(' ');
+}
+const FOOD_PLACE = /^(restaurant|fast_food|cafe|ice_cream|food_court|bar|pub)$/;
+const FOOD_SHOP = /^(supermarket|convenience|department_store|wholesale|greengrocer|health_food|bakery|coffee|beverages|deli|variety_store|general|frozen_food)$/;
 async function loadDistances(lat, lon){
   const brands = [...new Set(DEALS.map(d => d.brand))];
-  const rx = brands.concat(brands.map(b => OSM_ALIASES[b]).filter(Boolean))
-    .map(b => b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
-  const q = `[out:json][timeout:15];nwr["brand"~"${rx}",i](around:40000,${lat},${lon});out center 300;`;
-  const res = await fetch('https://overpass-api.de/api/interpreter', {
-    method: 'POST',
-    body: 'data=' + encodeURIComponent(q),
-    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-  });
-  if(!res.ok) throw new Error('lookup failed');
-  const data = await res.json();
+  const info = brands.map(b => ({nb: normBrand(b), nc: normBrand(brandCore(b)), na: OSM_ALIASES[b] ? normBrand(OSM_ALIASES[b]) : null}));
+  // Regex specials become "." (any character): the query language has its own escaping
+  // rules for backslashes, and a brand such as "Bento Asian Kitchen + Sushi" must not break it.
+  const rx = [...new Set(brands.map(brandCore).concat(brands.map(b => OSM_ALIASES[b]).filter(Boolean)))]
+    .map(b => b.replace(/[.*+?^${}()|[\]\\"]/g, '.')).join('|');
+  const near = '(around:40000,' + lat + ',' + lon + ')';
+  const q = '[out:json][timeout:25];(nwr["brand"~"' + rx + '",i]' + near + ';'
+    + 'nwr["amenity"~"^(restaurant|fast_food|cafe)$"]["name"~"' + rx + '",i]' + near + ';);out center 1500;';
+  const data = await overpassQuery(q);
   const best = {};
   const hours = {};
   for(const el of data.elements || []){
     const tags = el.tags || {};
-    const name = normBrand(tags.brand || tags.name || '');
-    if(!name) continue;
+    const sb = normBrand(tags.brand || ''), sn = normBrand(tags.name || '');
+    if(!sb && !sn) continue;
     const eLat = el.lat ?? el.center?.lat, eLon = el.lon ?? el.center?.lon;
     if(eLat == null) continue;
-    for(const b of brands){
-      const nb = normBrand(b);
-      const na = OSM_ALIASES[b] ? normBrand(OSM_ALIASES[b]) : null;
-      if(name.includes(nb) || nb.includes(name) || (na && (name.includes(na) || na.includes(name)))){
+    const foodPlace = FOOD_PLACE.test(tags.amenity || '') || FOOD_SHOP.test(tags.shop || '');
+    for(const x of info){
+      // Brand tag: the chain's name inside it ("Walmart Supercenter"), or a food place whose
+      // brand tag is the short form of our name ("Mezeh"). Name tag: must start with the
+      // full name, so "Lacava Coffee" is never taken for Cava.
+      const hit = (sb && (sb.includes(x.nb)
+          || (foodPlace && sb.length >= 4 && sb.length >= x.nc.length && x.nb.startsWith(sb))
+          || (x.na && (sb.includes(x.na) || (sb.length >= 4 && x.na.includes(sb))))))
+        || (sn && (sn.startsWith(x.nb) || (x.na && sn.startsWith(x.na))));
+      if(hit){
         const mi = haversineMiles(lat, lon, eLat, eLon);
-        if(best[nb] == null || mi < best[nb]){ best[nb] = mi; hours[nb] = tags.opening_hours || null; }
+        if(best[x.nb] == null || mi < best[x.nb]){ best[x.nb] = mi; hours[x.nb] = tags.opening_hours || null; }
       }
     }
   }
@@ -1507,23 +1614,26 @@ function showLocTip(msg){
 function clearLocTip(){ const t = document.getElementById('locTip'); if(t) t.remove(); }
 locBtn.addEventListener('click', () => {
   // Reuse a same-day cached result to be gentle on the free OSM servers.
-  try{
-    const c = JSON.parse(localStorage.getItem('db_dist2') || 'null');
-    if(c && Date.now() - c.t < 86400000 && !c.m){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; QB = c.b ? new Set(c.b) : null; syncLocUI(); render(); return; }
-  }catch(e){}
+  const c = readLocCache();
+  if(c && c.d && c.v === 2 && Date.now() - c.t < 86400000 && !c.m){ DIST = c.d; STATE = c.s || null; CITY = c.c || null; HOURS = c.h || null; QB = c.b ? new Set(c.b) : null; syncLocUI(); render(); return; }
   if(!navigator.geolocation){ locBtn.textContent = 'Not supported'; return; }
   locBtn.textContent = 'Locating\u2026';
   navigator.geolocation.getCurrentPosition(async pos => {
-    try{
-      locBtn.textContent = 'Finding restaurants\u2026';
-      const res = await loadDistances(pos.coords.latitude, pos.coords.longitude);
-      DIST = res.best; HOURS = res.hours; QB = new Set(res.qb);
-      try{ const loc = await stateLookup(pos.coords.latitude, pos.coords.longitude); STATE = loc && loc.state; CITY = loc && loc.city; }catch(e){ STATE = null; CITY = null; }
-      localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, b: res.qb, ll: [pos.coords.latitude, pos.coords.longitude]}));
-      syncLocUI();
-      clearLocTip();
-      render();
-    }catch(e){ locBtn.textContent = 'Distances unavailable'; }
+    const ll = [pos.coords.latitude, pos.coords.longitude];
+    locBtn.textContent = 'Finding restaurants\u2026';
+    // The place name and the distances come from two separate services: one failing
+    // must not take the other down with it.
+    const [res, loc] = await Promise.all([
+      loadDistances(ll[0], ll[1]).catch(() => null),
+      stateLookup(ll[0], ll[1]).catch(() => null)
+    ]);
+    const old = readLocCache();
+    if(!res && !(loc && loc.state) && !(old && old.d && sameSpot(old.ll, ll))){
+      locBtn.textContent = 'Distances unavailable \u2014 tap to retry';
+      showLocTip(BUSY_TIP);
+      return;
+    }
+    settleLocation(res, loc && loc.state, loc && loc.city, ll, false);
   }, err => {
     if(err && err.code === 1){
       locBtn.textContent = 'Location blocked';
@@ -1555,12 +1665,9 @@ async function applyManualLocation(query){
   const a = hit.address || {};
   const state = a.state || a.region || null;
   const city = a.city || a.town || a.village || a.suburb || a.hamlet || a.county || null;
-  const res = await loadDistances(+hit.lat, +hit.lon);
-  DIST = res.best; HOURS = res.hours; STATE = state; CITY = city; QB = new Set(res.qb);
-  localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, m: 1, b: res.qb, ll: [+hit.lat, +hit.lon]}));
-  syncLocUI();
-  clearLocTip();
-  render();
+  const ll = [+hit.lat, +hit.lon];
+  const res = await loadDistances(ll[0], ll[1]).catch(() => null);
+  settleLocation(res, state, city, ll, true);
   return true;
 }
 async function runManualLookup(){
@@ -1587,21 +1694,26 @@ locInput.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDe
 
 
 // Restore the visitor's place on every visit (2026-09-26: location is remembered, not
-// re-asked). Distances are reused for 24h; after that the place still applies at once
-// (so the list is filtered on first paint) and distances refresh quietly in the
-// background from the stored coordinates.
+// re-asked). Saved distances show at once however old they are (2026-11-16: they used
+// to be dropped after 24h, so a busy map server left the page with a place and no
+// distances). They refresh quietly in the background when over a day old, or when
+// today's list has a chain the saved lookup never searched; a failed refresh keeps
+// what is saved, and is retried at most once an hour.
 try{
-  const c0 = JSON.parse(localStorage.getItem('db_dist2') || 'null');
+  const c0 = readLocCache();
   if(c0 && c0.s){
     STATE = c0.s || null;
     CITY = c0.c || null;
-    const fresh = Date.now() - c0.t < 86400000;
-    if(fresh){ DIST = c0.d; HOURS = c0.h || null; QB = c0.b ? new Set(c0.b) : null; }
+    if(c0.d){ DIST = c0.d; HOURS = c0.h || null; QB = c0.b ? new Set(c0.b) : null; }
     syncLocUI();
-    if(!fresh && Array.isArray(c0.ll)){
+    const stale = Date.now() - c0.t >= 86400000 || c0.v !== 2;
+    const unseen = !Array.isArray(c0.b) || DEALS.some(d => !c0.b.includes(normBrand(d.brand)));
+    let lastTry = 0;
+    try{ lastTry = +localStorage.getItem('db_dist_try') || 0; }catch(e){}
+    if((stale || unseen) && Array.isArray(c0.ll) && Date.now() - lastTry > 3600000){
+      try{ localStorage.setItem('db_dist_try', String(Date.now())); }catch(e){}
       loadDistances(c0.ll[0], c0.ll[1]).then(res => {
-        DIST = res.best; HOURS = res.hours; QB = new Set(res.qb);
-        localStorage.setItem('db_dist2', JSON.stringify({t: Date.now(), d: DIST, s: STATE, c: CITY, h: HOURS, m: c0.m, b: res.qb, ll: c0.ll}));
+        applyLookup(res, c0.ll, !!c0.m);
         render();
       }).catch(()=>{});
     }
