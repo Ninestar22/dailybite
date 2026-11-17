@@ -84,6 +84,14 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // CAVA Community Day, read on CAVA's own Eventbrite listings on 2026-11-17 (organizer "CAVA", eventbrite.com/o/8584224871):
+    // "Join us for Community Day at The Grove!" 4757 The Grove Drive, Windermere FL 34786, start times 2026-11-21 10:30 and
+    // 2026-11-22 10:30 (event metadata); "Join us for a celebratory lunch or dinner on the house before our grand opening";
+    // slots 10:30am-2pm, 2-5pm, 5-8pm; "Limit one bowl or pita per person"; each guest needs a digital ticket. Tickets were
+    // available on both days. The same event at Westfield Montgomery Mall, Bethesda MD (Nov 23) showed SOLD OUT, so it is
+    // not listed. Shows before the day because the ticket has to be reserved ahead. CAVA runs one of these for every new
+    // restaurant: check the organizer page in each daily pass.
+    { until: "2026-11-22", alongside: true, deal: { "brand":"CAVA","cat":"Mediterranean","color":"#f4b400","ic":"CV","deal":"Free Bowl or Pita at CAVA's Community Day in Windermere: Reserve a Free Ticket","desc":"Saturday, November 21 and Sunday, November 22: CAVA is giving one free bowl or pita per person at its new restaurant at 4757 The Grove Drive in Windermere, before it opens. You need a free ticket for a time slot (10:30 AM to 2 PM, 2 to 5 PM or 5 to 8 PM), reserved ahead on CAVA's own Eventbrite page, and each guest needs their own ticket. Tickets are limited: CAVA's Bethesda, Maryland day on November 23 is already sold out, so reserve now. CAVA invites a donation to a local food charity, but the meal is free.","tags":["free"],"value":5,"expires":"Through November 22, 2026","url":"https://www.eventbrite.com/o/8584224871","best":false,"region":"Windermere, FL only (near Orlando)","est_savings":13 } },
     // MORE SUSHI DAYS (owner, 2026-11-16: the sushi-day pages are the site's top traffic source; "include the highest value
     // deals possible"). Each one read on the chain's own site on 2026-11-16:
     // Raley's, raleys.com/category/PMC271/sushi: rolls tagged "MEMBER PRICE $6 Sushi Wednesdays" (10 tags on the page; rolls
