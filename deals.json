@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-17",
-  "updatedAt": "2026-11-17T11:06:08.674Z",
+  "updatedAt": "2026-11-17T20:08:26.688Z",
   "deals": [
     {
       "brand": "Potbelly",
@@ -371,7 +371,7 @@
       "region": "National",
       "est_savings": 3,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-17",
       "verified_on": "2026-11-17",
       "id": "86e694bf"
@@ -649,7 +649,7 @@
       "region": "VA, MD, TX, IL, FL, CO, NJ, OK, TN & WI",
       "est_savings": 12,
       "isNew": true,
-      "endingSoon": true,
+      "endingSoon": false,
       "expires_on": "2026-11-17",
       "verified_on": "2026-11-17",
       "id": "82adddf3"
