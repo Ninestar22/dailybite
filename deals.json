@@ -633,6 +633,26 @@
       "expires_on": "2026-11-22",
       "verified_on": "2026-11-17",
       "id": "4242d34b"
+    },
+    {
+      "brand": "Uncle Julio's",
+      "cat": "Mexican",
+      "color": "#7a1f1f",
+      "ic": "UJ",
+      "deal": "40th Anniversary: Fajitas at 1986 Prices, from $8.14, Today Only",
+      "desc": "Tuesday, November 17 only: Uncle Julio's is selling its fajitas at 1986 prices for its 40th anniversary. Vegetable fajitas are $8.14, chicken $9.25, shrimp $9.64 and steak $9.95, served with guacamole, sour cream, cheese, rice, charro beans, peppers and onions and flour tortillas. No code or account is mentioned; the chain's announcement gives the hours as 11 AM to 9 PM. The Northern Virginia restaurants are in Reston, Fairfax, Ashburn, Gainesville and Woodbridge. Stated on Uncle Julio's own anniversary page.",
+      "tags": [],
+      "value": 5,
+      "expires": "November 17, 2026 only",
+      "url": "https://unclejulios.com/anniversary/",
+      "best": false,
+      "region": "VA, MD, TX, IL, FL, CO, NJ, OK, TN & WI",
+      "est_savings": 12,
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-17",
+      "verified_on": "2026-11-17",
+      "id": "82adddf3"
     }
   ]
 }

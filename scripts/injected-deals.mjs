@@ -84,6 +84,12 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // Uncle Julio's 40th anniversary, read on unclejulios.com and unclejulios.com/anniversary on 2026-11-17: "40TH ANNIVERSARY
+    // NOVEMBER 17, 2026 ... AT 1986 PRICES VEGETABLE $8.14 CHICKEN $9.25 SHRIMP $9.64 STEAK $9.95". Hours 11 a.m. to 9 p.m. come
+    // from the chain's PR Newswire release of 2026-11-10. Locator: VA (Ashburn, Fairfax, Gainesville, Reston, Woodbridge), CO,
+    // FL, IL, MD, NJ, OK, TN, TX, WI. A sit-down Tex-Mex chain added for this one day (owner, 2026-11-17: "deals that people
+    // actually get excited about"); not in the HEALTHY set. One-day card.
+    { from: "2026-11-17", until: "2026-11-17", deal: { "brand":"Uncle Julio's","cat":"Mexican","color":"#7a1f1f","ic":"UJ","deal":"40th Anniversary: Fajitas at 1986 Prices, from $8.14, Today Only","desc":"Tuesday, November 17 only: Uncle Julio's is selling its fajitas at 1986 prices for its 40th anniversary. Vegetable fajitas are $8.14, chicken $9.25, shrimp $9.64 and steak $9.95, served with guacamole, sour cream, cheese, rice, charro beans, peppers and onions and flour tortillas. No code or account is mentioned; the chain's announcement gives the hours as 11 AM to 9 PM. The Northern Virginia restaurants are in Reston, Fairfax, Ashburn, Gainesville and Woodbridge. Stated on Uncle Julio's own anniversary page.","tags":[],"value":5,"expires":"November 17, 2026 only","url":"https://unclejulios.com/anniversary/","best":false,"region":"VA, MD, TX, IL, FL, CO, NJ, OK, TN & WI","est_savings":12 } },
     // CAVA Community Day, read on CAVA's own Eventbrite listings on 2026-11-17 (organizer "CAVA", eventbrite.com/o/8584224871):
     // "Join us for Community Day at The Grove!" 4757 The Grove Drive, Windermere FL 34786, start times 2026-11-21 10:30 and
     // 2026-11-22 10:30 (event metadata); "Join us for a celebratory lunch or dinner on the house before our grand opening";
