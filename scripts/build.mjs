@@ -1584,6 +1584,10 @@ function main() {
       // Rubio's "2 Entrees for $16" (2026-11-10): a Rubio's Rewards email reward "valid over the next 14 days"; rubios.com,
       // /rewards and /weekly-deals do not state it. Account-specific reward, not a chain-wide deal.
       { brand: /rubio/i, title: /2 entrees for \$16/i },
+      // 2026-11-17: a $5 charity refill cup is a drink purchase, not a food deal; under the roughly $3 floor per visit.
+      { brand: /pollo campero/i, title: /care cup/i },
+      // 2026-11-17: "$5.99 rotisserie chicken (up to $2 off)": a $2 saving is below the floor.
+      { brand: /giant food/i, title: /rotisserie chicken \$5\.99/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
@@ -1748,7 +1752,7 @@ function main() {
   // before the check, so "bottomless non-alcoholic drink" (Chili's 3 For Me, wrongly
   // dropped 2026-08-20), "alcohol-free", "mocktail", "root/ginger beer" and the idiom
   // "for the sake of" never trip the filter. Word boundaries spare "drum", "school spirit".
-  const NON_ALCOHOLIC = /\b(?:non|zero|no)[- ]?alcohol(?:ic)?\b|\balcohol[- ]free\b|\bmocktails?\b|\b(?:root|ginger|birch) beer\b|\bfor the sake of\b/gi;
+  const NON_ALCOHOLIC = /\b(?:non|zero|no)[- ]?alcohol(?:ic)?\b|\balcohol[- ]free\b|\bmocktails?\b|\b(?:root|ginger|birch) beer\b|\bfor the sake of\b|\bsake grill\b/gi;
   const ALCOHOL = /\b(?:beer|margaritas?|margs?|cocktails?|sangria|mimosas?|tequila|vodka|whisk(?:e)?y|bourbon|rum|hard seltzer|wines?|prosecco|champagne|spirits|alcohol(?:ic)?|booze|liquor|cerveza|sake)\b/i;
   const beforeAlc = deals.length;
   deals = deals.filter(d => !ALCOHOL.test(((d.deal||"") + " " + (d.desc||"") + " " + (d.cat||"")).replace(NON_ALCOHOLIC, " ")));
