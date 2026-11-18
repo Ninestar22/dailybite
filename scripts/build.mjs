@@ -258,6 +258,17 @@ const instacartLink = brand => (INSTACART_URL && GROCERY.has(canonBrand(brand)))
 
 // One card per restaurant (owner request, 2026-09-07): every deal a chain has is listed
 // inside that chain's single card, each offer with its own Get deal button.
+// Shorter end dates on the card (owner, 2026-11-17: "too many words"): "Through November 22, 2026" reads "Ends Nov 22".
+// Display only: the data keeps the full text, which the filters and sorting read.
+function shortExpires(x){
+  let s = String(x || '');
+  s = s.replace(/,? 20\d\d\b/g, '');
+  s = s.replace(/\b(January|February|March|April|June|July|August|September|October|November|December)\b/g, m => m.slice(0, 3));
+  s = s.replace(/^Through /, 'Ends ');
+  s = s.replace(/^Mondays, Tuesdays, Wednesdays and Thursdays$/, 'Monday to Thursday').replace(/^Fridays, Saturdays and Sundays/, 'Friday to Sunday').replace(/^Saturdays and Sundays only$/, 'Weekends only');
+  s = s.replace(/^Ongoing \(changes weekly\)$/, 'Ongoing');
+  return s;
+}
 function offerHTML(d) {
   const tags = (d.tags || []).map(t =>
     `<span class="pill ${t === "free" ? "free" : "app"}">${t === "free" ? "FREE" : "APP ONLY"}</span>`).join("");
@@ -266,7 +277,7 @@ function offerHTML(d) {
     <div class="desc">${esc(d.desc)}</div>
     <div class="metarow">${d.region && d.region !== "National" ? `<span class="pill region">${esc(d.region.toUpperCase())}</span>` : ""}${codeChip(d)}${tags}${d.via ? `<span class="pill via">VIA ${esc(String(d.via).toUpperCase())}</span>` : ""}${d.fulfillment ? `<span class="pill ful">${esc(String(d.fulfillment).toUpperCase())}</span>` : ""}${Number.isFinite(d.est_savings) && d.est_savings > 0 ? `<span class="pill save" title="Estimated savings vs regular price">SAVE ~$${d.est_savings % 1 ? d.est_savings.toFixed(2) : d.est_savings}</span>` : ""}</div>
     <div class="foot">
-      <span class="expires">${esc(d.expires)}</span>
+      <span class="expires">${esc(shortExpires(d.expires))}</span>
       <a class="cta" href="${esc(d.url)}" target="_blank" rel="noopener" data-goatcounter-click="deal/${esc(norm(d.brand))}" data-goatcounter-title="${esc(d.brand)}: ${esc(d.deal)}">Get deal &rarr;</a>
     </div>
   </div>`;
@@ -1757,6 +1768,11 @@ function main() {
   const beforeAlc = deals.length;
   deals = deals.filter(d => !ALCOHOL.test(((d.deal||"") + " " + (d.desc||"") + " " + (d.cat||"")).replace(NON_ALCOHOLIC, " ")));
   if (deals.length < beforeAlc) console.log(`Excluded ${beforeAlc - deals.length} alcoholic-drink deal(s) (owner rule: no alcohol).`);
+  // Owner rule (Jacob, 2026-11-17): no gift card deals ("try not to include gift card deals"). A bonus card for buying a
+  // gift card is not a meal deal. The headline is checked, plus a description that says to buy a gift card.
+  const beforeGift = deals.length;
+  deals = deals.filter(d => !/\bgift ?cards?\b|\be-?gift\b|\bbonus cards?\b|\breward cards?\b/i.test(d.deal || "") && !/\b(?:buy|purchase)\b[^.]{0,40}\bgift ?cards?\b/i.test(d.desc || ""));
+  if (deals.length < beforeGift) console.log("Excluded " + (beforeGift - deals.length) + " gift card deal(s) (owner rule: no gift cards).");
   deals = deals.filter(d => !["mcdonalds", "burgerking"].includes(canonBrand(d.brand))); // owner: quality focus - McDonald's and Burger King never listed
   // Grocery stores may require their FREE loyalty card or app (Kroger Plus, VIC, for U): practically
   // every shopper has one, so those deals stay; the paid-membership filter above still applies.
@@ -1881,6 +1897,32 @@ function main() {
   let upgraded = 0;
   for (const d of deals) { const u = bestDealUrl(d.brand, d.url); if (u !== d.url) { d.url = u; upgraded++; } }
   if (upgraded) console.log(`Upgraded ${upgraded} homepage link(s) to the chain's deal page.`);
+  // PLAIN WORDS (owner, 2026-11-17: "too many words ... make it more simple to identify what the deal actually is").
+  // The refresh is told to write short headlines and descriptions; this is the safety net for when it does not.
+  // Headline: a long one that opens with a campaign name ("Taco Tuesdaze: ...", "Red Cup Day: ...") keeps only what follows.
+  // Description: sourcing notes are dropped and it is cut to its first sentences (about 170 characters), keeping any promo code.
+  const tidyTitle = s => {
+    let t = String(s || "").trim();
+    const m = t.match(/^([^:$\d]{3,32}):\s+(.{12,})$/);
+    if (m && t.length > 48 && m[1].trim().split(/\s+/).length <= 4) t = m[2].trim();
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+  const PROVENANCE = /\s*(?:Stated|Shown|Listed|Seen|Read|Announced|Posted)\s+(?:on|in|under|by)\b[^.]*\.\s*$/i;
+  const ABBREV = /\b(?:St|Jr|Dr|vs|oz|ct|No|Mt|Ave|Blvd|a\.m|p\.m|e\.g|i\.e|U\.S)\.$/i;
+  const CODE_RX = /\bcode[:\s]+[A-Z0-9]{3,14}\b/;
+  const tidyDesc = s => {
+    let t = String(s || "").trim();
+    for (let i = 0; i < 2; i++) t = t.replace(PROVENANCE, "").trim();
+    if (t.length <= 170) return t;
+    const raw = t.split(/(?<=[.!?])\s+(?=[A-Z0-9$"(])/);
+    const parts = [];
+    for (const p of raw) { if (parts.length && ABBREV.test(parts[parts.length - 1])) parts[parts.length - 1] += " " + p; else parts.push(p); }
+    let out = parts[0];
+    for (const p of parts.slice(1)) { if ((out + " " + p).length > 170) break; out += " " + p; }
+    if (!CODE_RX.test(out)) { const c = parts.find(p => CODE_RX.test(p)); if (c) out += " " + c; }
+    return out;
+  };
+  for (const d of deals) { d.deal = tidyTitle(d.deal); d.desc = tidyDesc(d.desc); }
   const assigned = assignDealIds(deals);
   for (const d of deals) applyAffiliate(d); // platform links become tracking links once a template exists (affiliates.json)
   const feedOut = { ...data, deals };

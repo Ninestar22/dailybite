@@ -143,8 +143,11 @@ Rules:
 - In "expires", always give an explicit end date when one is published ("Through July 20, 2026"); use "Ongoing" for standing menus. Only write "Limited time" if genuinely no end date is published anywhere.
 - Add "region":"National" for nationwide deals, or the specific region if limited (e.g. "Texas only", "California"). Leave out unverifiable regional deals.
 
+- PLAIN WORDS (owner, 2026-11-17: "too many words ... make it more simple to identify what the deal actually is"). "deal" is a headline of at most 7 words and about 40 characters that says exactly what the customer gets, leading with the price or the free item: "$5 Sushi Rolls", "Buy One Bowl, Get One Free", "Kids Eat Free", "50% Off a Sandwich with a Bowl", "Free Queso and Chips". No campaign or promotion names, no day names, no promo codes, no colons, no "for Rewards Members", no restaurant name. "desc" is one or two short sentences, at most 150 characters in total, saying only how to claim it and the one catch that matters most (the promo code, "free account", "dine-in only", "online orders only"). No history, no sourcing notes such as "announced by email" or "stated on the site", no lists of stores or items. Dates and days belong in "expires", not in the headline.
+- NO GIFT CARD OFFERS (owner, 2026-11-17): never list a gift card bonus, a "buy a gift card, get a reward" promotion or any offer that requires buying a gift card. The build drops them in code.
+
 Output ONLY a single MINIFIED JSON object (no newlines or indentation), no prose, no markdown fences, exactly this shape:
-{"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one sentence","tags":["free","app"],"value":1-5,"expires":"e.g. Through July 20 | This week | Ongoing","url":"https://...","best":true,"est_savings":4,"via":"Uber Eats","fulfillment":"pickup"}]}`;
+{"deals":[{"brand":"...","cat":"Burgers|Chicken|Mexican|Pizza|Coffee|Cafe|...","color":"#rrggbb","ic":"M","deal":"...","desc":"one or two short sentences, 150 characters at most","tags":["free","app"],"value":1-5,"expires":"e.g. Through July 20 | This week | Ongoing","url":"https://...","best":true,"est_savings":4,"via":"Uber Eats","fulfillment":"pickup"}]}`;
 
 
 async function validateDealUrls(deals) {
