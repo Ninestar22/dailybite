@@ -2038,6 +2038,14 @@ function main() {
     }
   }
   if (retired) console.log(`Retired ${retired} expired holiday page(s) to noindex redirects.`);
+  // Pages deleted outright in July 2026, before the redirect rule above existed. Google still had the
+  // URLs and reported "Not found (404)" for the first one on 2026-11-19 (Search Console email). They get
+  // the same noindex redirect to the homepage so the old URLs resolve instead of failing.
+  const REMOVED_PAGES = ["national-french-fry-day-deals", "national-ice-cream-day-deals"];
+  for (const slug of REMOVED_PAGES) {
+    const file = join(root, `${slug}.html`);
+    if (!existsSync(file)) writeFileSync(file, redirectPage(null, SITE + "/"));
+  }
 
   // 2c. Free-food hub + sushi hub + RSS feed
   writeFileSync(join(root, "free-food-today.html"), freeFoodPage(deals));
