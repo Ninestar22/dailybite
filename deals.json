@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-19",
-  "updatedAt": "2026-11-19T11:05:55.082Z",
+  "updatedAt": "2026-11-19T17:07:39.152Z",
   "deals": [
     {
       "brand": "Smoothie King",
@@ -412,6 +412,26 @@
       "expires_on": null,
       "verified_on": "2026-11-19",
       "id": "55a8faa4"
+    },
+    {
+      "brand": "Hy-Vee",
+      "cat": "Deli",
+      "color": "#e2231a",
+      "ic": "H",
+      "deal": "15% Off $25+ Meals To Go",
+      "desc": "Announced by email on 2026-11-19. Free Hy-Vee PERKS account required, applies to Meals To Go orders of $25 or more.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://www.hy-vee.com/deals/weekly-ads",
+      "region": "Midwest",
+      "est_savings": 4,
+      "id": "30a7b23f",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-19",
+      "best": false
     }
   ]
 }
