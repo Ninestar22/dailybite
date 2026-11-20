@@ -1,6 +1,6 @@
 {
   "updated": "2026-11-20",
-  "updatedAt": "2026-11-20T11:05:57.356Z",
+  "updatedAt": "2026-11-20T17:07:41.883Z",
   "deals": [
     {
       "brand": "Subway",
@@ -382,6 +382,28 @@
       "expires_on": null,
       "verified_on": "2026-11-20",
       "id": "11f6c09e"
+    },
+    {
+      "brand": "Honeygrow",
+      "cat": "Bowls",
+      "color": "#f26522",
+      "ic": "H",
+      "deal": "25% Off a Stir-Fry or Salad",
+      "desc": "Rewards members get 25% off the Sriracha Tahini stir-fry or Fall Harvest Salad. Free account required, in app or online.",
+      "tags": [
+        "app"
+      ],
+      "value": 3,
+      "expires": "Through November 22, 2026",
+      "url": "https://order.honeygrow.com/",
+      "region": "Mid-Atlantic & Northeast",
+      "est_savings": 3.5,
+      "id": "3ce0a523",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-22",
+      "verified_on": "2026-11-20",
+      "best": false
     }
   ]
 }
