@@ -66,12 +66,12 @@ export const EVERGREEN = [
     { until: "2026-12-31", dow: 3, deal: { brand: "Hannaford", cat: "Sushi", color: "#7a1f1f", ic: "H", deal: "$5 Sushi Rolls", desc: "Five Wago rolls, including California and Classic Vegan, usually $7 to $8. In store only.", tags: [], value: 3, expires: "Wednesdays only", url: "https://www.wagosushi.com/faqs/", best: false, region: "ME, NH, VT, MA & NY" } },
     { until: "2026-12-31", dow: 2, deal: { brand: "Dierbergs", cat: "Sushi", color: "#00703c", ic: "D", deal: "$6 Sushi Rolls", desc: "Select hand-rolled Bento sushi, usually $8 to $10. In store.", tags: [], value: 3, expires: "Tuesdays only", url: "https://www.dierbergs.com/department/deli-and-prepared-foods", best: false, region: "St. Louis area" } },
     // Island Fin Poke publishes Topping Tuesday on its own Daily Specials page (verified 2026-09-22).
-    { until: "2026-12-31", dow: 2, deal: { brand: "Island Fin Poke", cat: "Poke", color: "#0e8c8c", ic: "IF", deal: "Free Premium Topping", desc: "Avocado, masago and more, free on any poke bowl. Ask at the counter.", tags: [], value: 2, expires: "Tuesdays only", url: "https://www.islandfinpoke.com/custom-content-1/", best: false, region: "FL & Select states" } },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). Island Fin free topping: worth under $2.
     // Pokeworks September codes, from the chain's own 2026-09-02 press release (open to all
     // guests, in store and online). Each self-expires.
     { from: "2026-09-21", until: "2026-09-27", deal: { brand: "Pokeworks", cat: "Poke", color: "#1b3a6b", ic: "PW", deal: "Free Extra Scoop of Ahi or Chicken with Code POWERUP", desc: "Through September 27, order the High-Protein Surf & Turf bowl and add a free extra scoop of ahi tuna or chicken with code POWERUP, in store or online. Open to all guests, no rewards account needed.", tags: [], value: 4, expires: "Through September 27, 2026", url: "https://pokeworks.com/rewards/", best: false, region: "Select states" } },
     { from: "2026-09-28", until: "2026-09-30", deal: { brand: "Pokeworks", cat: "Poke", color: "#1b3a6b", ic: "PW", deal: "International Poke Day: Free Extra Protein Scoop with Code POKEDAY", desc: "September 28 to 30, get a free extra scoop of protein with any regular or large poke entree using code POKEDAY, in store or online. Open to all guests, no rewards account needed.", tags: [], value: 4, expires: "Through September 30, 2026", url: "https://pokeworks.com/rewards/", best: false, region: "Select states" } },
-    { until: "2026-12-31", deal: { brand: "Publix", cat: "Deli", color: "#3d8b37", ic: "PX", deal: "$2 Off the Sub of the Week", desc: "One featured whole deli sub each week, at the counter, online or in the app.", tags: [], value: 3, expires: "Ongoing (changes weekly)", url: "https://www.publix.com/mc/order-ahead/weekly-specials", best: false, region: "FL & Southeast" } },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). Publix sub of the week: saves $2.
     // VALUE-MENU FLOOR (2026-09-15, cost + depth pass; Subway removed 2026-09-21, see
     // STANDING_MENU_BLOCK below). These standing value menus
     // were verified by the refresh itself on 2026-09-08 (titles, prices and URLs copied
@@ -84,6 +84,12 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // EASY AND WORTH IT (owner, 2026-11-20, after the CAVA Community Day card: "you could not redeem the deal from their
+    // own app even, there was no promo code, and people had to jump through hoops and hurdles to get a ticket ... I want
+    // these deals to be easy accessible ones that provide real value"). A deal goes here only if (1) you claim it by
+    // ordering as usual, by entering a code the chain publishes, or by tapping an offer every member sees in the chain's
+    // own app, and (2) it saves about $4 or 25% on food that visit. Never: tickets, RSVP, first-N-in-line events, offers
+    // for select members, free delivery alone, drink add-ons, toppings, points or a reward for a later visit.
     // WRITING RULE (owner, 2026-11-17: "too many words ... make it more simple to identify what the deal actually is"):
     // the headline says what you get in a few words ("$5 Sushi Rolls", "Buy 2 Tacos, Get 1 Free", "Kids Eat Free"), at most
     // about 40 characters, with no campaign name, day name or promo code. The description is one or two short sentences, at
@@ -102,7 +108,7 @@ export const EVERGREEN = [
     // available on both days. The same event at Westfield Montgomery Mall, Bethesda MD (Nov 23) showed SOLD OUT, so it is
     // not listed. Shows before the day because the ticket has to be reserved ahead. CAVA runs one of these for every new
     // restaurant: check the organizer page in each daily pass.
-    { until: "2026-11-22", alongside: true, deal: { "brand":"CAVA","cat":"Mediterranean","color":"#f4b400","ic":"CV","deal":"Free Bowl or Pita (Free Ticket Needed)","desc":"November 21 and 22 at the new Windermere, Florida restaurant. Reserve a free ticket on CAVA's Eventbrite page; they run out.","tags":["free"],"value":5,"expires":"Through November 22, 2026","url":"https://www.eventbrite.com/o/8584224871","best":false,"region":"Windermere, FL only (near Orlando)","est_savings":13 } },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). CAVA Community Day free meal: needs an Eventbrite ticket, no promo code, not redeemable in CAVA's app.
     // MORE SUSHI DAYS (owner, 2026-11-16: the sushi-day pages are the site's top traffic source; "include the highest value
     // deals possible"). Each one read on the chain's own site on 2026-11-16:
     // Raley's, raleys.com/category/PMC271/sushi: rolls tagged "MEMBER PRICE $6 Sushi Wednesdays" (10 tags on the page; rolls
@@ -230,7 +236,7 @@ export const EVERGREEN = [
     // with Birria on us with any purchase thru Nov. 22nd." Fine print (moes.com/media/birria): "From 11/4 - 11/22/2026 select
     // Moe Rewards members can get one (1) Grilled Burrito Dipper (1 ct.) on us with any purchase ... single use ... participating
     // locations." Was rejected Nov 4 when only Sporked reported it; the chain now states it. alongside: Moe Monday also runs.
-    { until: "2026-11-22", alongside: true, deal: { brand: "Moe's Southwest Grill", cat: "Mexican", color: "#5a9e3a", ic: "M", deal: "Free Birria Burrito Dipper", desc: "With any purchase for Moe Rewards members (free account). Check the Rewards tab first: not every member gets it.", tags: ["app", "free"], value: 3, expires: "Through November 22, 2026", url: "https://www.moes.com/", best: false, region: "35 states (Southeast, Northeast & Midwest)", est_savings: 4 } },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). Moe's free birria dipper: only select members get it.
     // Chipotle "Tatted Like a Chipotle Bag" BOGO, read from newsroom.chipotle.com (Nov 9, 2026 release) on 2026-11-09:
     // "Valid only on November 13, 2026, from 3 to 4 p.m. local time. Redeemable in-restaurant only ... Permanent ink, temporary
     // tattoos and drawn-on designs all count." One-day deal, shows Nov 13 only.
@@ -251,7 +257,7 @@ export const EVERGREEN = [
     { until: "2026-12-31", deal: { brand: "Yoshinoya", cat: "Asian", color: "#f58220", ic: "Y", deal: "$5 Off Two Rice Bowls", desc: "Regular chicken, beef or veggie bowls. Enter code CE41FLDF in store, online or in the app.", tags: ["code"], value: 4, expires: "Ongoing", url: "https://www.yoshinoyaamerica.com/coupons/", best: false, region: "California only", est_savings: 5 } },
     // Mezeh free delivery, read from mezeh.com homepage on 2026-11-05: "free delivery on every order / now through the end of
     // 2026 / ORDER NOW" (Mezeh's own app and site). No minimum stated. Mid-Atlantic Mediterranean chain (Herndon/Sterling VA).
-    { until: "2026-12-31", deal: { brand: "Mezeh Mediterranean Grill", cat: "Mediterranean", color: "#e8542c", ic: "MZ", deal: "Free Delivery", desc: "On every order placed on mezeh.com or in the Mezeh app. No code needed.", tags: [], value: 3, expires: "Through December 31, 2026", url: "https://www.mezeh.com/", best: false, region: "VA, MD, DC, PA, NC, SC, GA, FL & TX", est_savings: 4 } },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). Mezeh free delivery: not a discount on food.
     // Schlotzsky's BOGO Wednesday, read from schlotzskys.com/about-us/faqs (BOGO Wednesdays terms) on 2026-11-04:
     // "Participating stores only. Available all day every Wednesday. Excludes kids pizzas. Free pizza, calzone, flatbread is
     // of equal or lesser value ... Cannot be combined with any other offer." Standing weekly special of an approved chain
@@ -276,7 +282,7 @@ export const EVERGREEN = [
     // on 2026-11-03 ("Join PERi-Perks and unlock $1 Bottomless Drinks with your meal"; no end date). The refresh had
     // found it on 11/1 and 11/2 but, being undated, it is never carried over, so it vanished on 11/3. Standing
     // injection until the chain pulls it. Regional chain: never National, never best.
-    { until: "2026-12-31", alongside: true, deal: {"brand":"Nando's PERi-PERi","cat":"Drinks","color":"#d32a2a","ic":"N","deal":"$1 Bottomless Fountain Drink","desc":"With any meal for PERi-Perks members (free account). Usually $3.99.","tags":["app"],"value":3,"expires":"Ongoing","url":"https://www.nandosperiperi.com/promotions","region":"DC, MD, VA, IL, TX & GA","est_savings":3,"best":false} },
+    // Retired 2026-11-20 (owner: deals must be easy to claim and give real value). Nando's $1 fountain drink: a drink add-on, not a meal deal.
     // Jimmy John's National Sandwich Day BOGO, read from the jimmyjohns.com homepage pop-up on 2026-11-03: "JJ Rewards
     // members ... Today only, buy one Sandwich or Wrap and get a second on us with the promo code Sandwich." Terms:
     // "Valid for JJ Rewards members on web/app 11/3. Buy any 8\" Original, Favorite, Toasted (excl. Brisket), Plain

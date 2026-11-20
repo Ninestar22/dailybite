@@ -1599,6 +1599,8 @@ function main() {
       { brand: /pollo campero/i, title: /care cup/i },
       // 2026-11-17: "$5.99 rotisserie chicken (up to $2 off)": a $2 saving is below the floor.
       { brand: /giant food/i, title: /rotisserie chicken \$5\.99/i },
+      // 2026-11-20: 15% off a $25 order is under the "real value" bar (about $4 or 25% off).
+      { brand: /hy-vee/i, title: /15% off \$25/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));
@@ -1773,6 +1775,15 @@ function main() {
   const beforeGift = deals.length;
   deals = deals.filter(d => !/\bgift ?cards?\b|\be-?gift\b|\bbonus cards?\b|\breward cards?\b/i.test(d.deal || "") && !/\b(?:buy|purchase)\b[^.]{0,40}\bgift ?cards?\b/i.test(d.desc || ""));
   if (deals.length < beforeGift) console.log("Excluded " + (beforeGift - deals.length) + " gift card deal(s) (owner rule: no gift cards).");
+  // EASY AND WORTH IT (Jacob, 2026-11-20): "I want these deals to be easy accessible ones that provide real value." Dropped:
+  // anything that needs a ticket, RSVP or a place in line; offers only some members get; a reward or points for a later
+  // visit instead of money off today; and free delivery on its own.
+  const HOOPS = /\btickets?\b|\brsvp\b|\beventbrite\b|\bregistration\b|\bregister (?:in advance|ahead|online|for)\b|\bfirst \d+ (?:guests|people|customers|in line)\b|\bselect members\b|\bnot every member\b|\btargeted\b/i;
+  const LATER = /\$\d+(?:\.\d\d)? reward\b|\bbonus points\b|\b\d+x points\b|\bdouble points\b|\btriple points\b/i;
+  const NOT_FOOD = /^(?:free|\$0) delivery\b/i;
+  const beforeEasy = deals.length;
+  deals = deals.filter(d => !HOOPS.test((d.deal || "") + " " + (d.desc || "")) && !LATER.test(d.deal || "") && !NOT_FOOD.test(d.deal || ""));
+  if (deals.length < beforeEasy) console.log("Excluded " + (beforeEasy - deals.length) + " deal(s) that are not easy to claim or not money off today (owner rule).");
   deals = deals.filter(d => !["mcdonalds", "burgerking"].includes(canonBrand(d.brand))); // owner: quality focus - McDonald's and Burger King never listed
   // Grocery stores may require their FREE loyalty card or app (Kroger Plus, VIC, for U): practically
   // every shopper has one, so those deals stay; the paid-membership filter above still applies.
