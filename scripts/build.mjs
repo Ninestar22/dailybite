@@ -1601,6 +1601,9 @@ function main() {
       { brand: /giant food/i, title: /rotisserie chicken \$5\.99/i },
       // 2026-11-20: 15% off a $25 order is under the "real value" bar (about $4 or 25% off).
       { brand: /hy-vee/i, title: /15% off \$25/i },
+      // 2026-11-20: Potbelly code BOWLS (50% off a sandwich with a bowl, Nov 16-22) was only ever quoted on Slickdeals; the
+      // code is not on potbelly.com, and the standing rule is that a promo code must appear on the chain's own property.
+      { brand: /potbelly/i, title: /50% off a(?:n original)? sandwich/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));

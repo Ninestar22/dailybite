@@ -3,28 +3,6 @@
   "updatedAt": "2026-11-19T17:07:39.152Z",
   "deals": [
     {
-      "brand": "Potbelly",
-      "cat": "Sandwiches",
-      "color": "#8b1c23",
-      "ic": "P",
-      "deal": "50% Off a Sandwich When You Buy a Bowl",
-      "desc": "Online or in the app through Sunday. Enter code BOWLS; the cheaper of the two is half off.",
-      "tags": [
-        "app"
-      ],
-      "value": 4,
-      "expires": "Through November 22, 2026",
-      "url": "https://www.potbelly.com/",
-      "best": true,
-      "est_savings": 4,
-      "id": "2fdb8591",
-      "expires_on": "2026-11-22",
-      "verified_on": "2026-11-20",
-      "region": "National",
-      "isNew": false,
-      "endingSoon": true
-    },
-    {
       "brand": "Pancheros Mexican Grill",
       "cat": "Mexican",
       "color": "#c8102e",
