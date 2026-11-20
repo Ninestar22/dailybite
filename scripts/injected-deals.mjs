@@ -84,6 +84,17 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // Chipotle "Back Home BOGO", read on chipotle.com/back-home-bogo on 2026-11-20: "BOGO exclusive to Chipotle Rewards members
+    // who scan for Rewards at point of sale ... Limited to five free entree items per check ... Valid only on November 25, 2026,
+    // 5 p.m. to 9 p.m. local time. Redeemable in-restaurant only ... not valid for ... mobile, online or delivery orders ... Kids'
+    // meals do not count as an entree purchase." One-day card.
+    { from: "2026-11-25", until: "2026-11-25", alongside: true, deal: { "brand":"Chipotle","cat":"Mexican","color":"#a81612","ic":"Ch","deal":"Buy One Entree, Get One Free","desc":"Wednesday from 5 to 9 PM, in the restaurant only. Scan your Chipotle Rewards account (free) at the register.","tags":["free","app"],"value":5,"expires":"November 25, 2026, 5 to 9 PM","url":"https://www.chipotle.com/back-home-bogo","best":false,"region":"National","est_savings":11 } },
+    // Jason's Deli 50th birthday, from the chain's press release of 2026-11-18 (Beaumont, TX; read on restaurantnews.com on
+    // 2026-11-20): "On Monday, Nov. 30, all Jason's Deli locations will celebrate with a special $5 Birthday Menu ($5 entrees
+    // limited to one per guest), available for dine-in only and featuring eight favorites: The Plain Jane, Bowl of Chicken
+    // Chili, California Club, Club Royale, Turkey Wrap, Amy's Turkey-O, Chipotle Chicken & Avocado Panini and the Garden-Fresh
+    // Salad Bar." jasonsdeli.com showed only the member poll that day, so re-read it on Nov 28-29 before the day.
+    { from: "2026-11-30", until: "2026-11-30", alongside: true, deal: { "brand":"Jason's Deli","cat":"Sandwiches","color":"#00703c","ic":"JD","deal":"$5 Sandwiches, Chili and Salad Bar","desc":"Eight $5 entrees for the chain's 50th birthday, including the Club Royale and the salad bar. Dine-in only, one per guest.","tags":[],"value":5,"expires":"November 30, 2026 only","url":"https://www.jasonsdeli.com/","best":false,"region":"27 states (South & Central)","est_savings":6 } },
     // EASY AND WORTH IT (owner, 2026-11-20, after the CAVA Community Day card: "you could not redeem the deal from their
     // own app even, there was no promo code, and people had to jump through hoops and hurdles to get a ticket ... I want
     // these deals to be easy accessible ones that provide real value"). A deal goes here only if (1) you claim it by
