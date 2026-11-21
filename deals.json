@@ -1,7 +1,70 @@
 {
-  "updated": "2026-11-20",
-  "updatedAt": "2026-11-20T17:07:41.883Z",
+  "updated": "2026-11-21",
+  "updatedAt": "2026-11-21T11:05:59.974Z",
   "deals": [
+    {
+      "brand": "Honeygrow",
+      "cat": "Bowls",
+      "color": "#f4a300",
+      "ic": "H",
+      "deal": "25% Off a Stir-Fry or Salad",
+      "desc": "Rewards members get 25% off the Sriracha Tahini stir-fry or Fall Harvest Salad. Free account required, one use.",
+      "tags": [
+        "app",
+        "free"
+      ],
+      "value": 3,
+      "expires": "Through November 22, 2026",
+      "url": "https://order.honeygrow.com/",
+      "region": "Mid-Atlantic & Northeast",
+      "est_savings": 3.5,
+      "id": "3ce0a523",
+      "isNew": false,
+      "endingSoon": true,
+      "expires_on": "2026-11-22",
+      "verified_on": "2026-11-21",
+      "best": false
+    },
+    {
+      "brand": "Pressed Juicery",
+      "cat": "Juice",
+      "color": "#2e7d32",
+      "ic": "P",
+      "deal": "$5 Off a 6-Pack of Juices or Shots",
+      "desc": "Discount applies automatically at checkout on select 6-packs, no membership needed.",
+      "tags": [],
+      "value": 3,
+      "expires": "Limited time",
+      "url": "https://pressed.com/",
+      "region": "Select states",
+      "est_savings": 5,
+      "id": "770445be",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-21",
+      "best": false
+    },
+    {
+      "brand": "Publix",
+      "cat": "Deli",
+      "color": "#2c7a3d",
+      "ic": "P",
+      "deal": "$2 Off the Sub of the Week",
+      "desc": "Save $2 on this week's featured whole deli sub, in store or order ahead online.",
+      "tags": [],
+      "value": 3,
+      "expires": "This week",
+      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
+      "region": "FL & Southeast",
+      "est_savings": 2,
+      "id": "cc1f4d95",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-21",
+      "best": false
+    },
     {
       "brand": "Subway",
       "cat": "Sandwiches",
@@ -18,11 +81,11 @@
       "url": "https://www.subway.com/en-us",
       "est_savings": 9.5,
       "id": "825ff910",
-      "isNew": true,
-      "endingSoon": false,
       "expires_on": "2026-11-26",
-      "verified_on": "2026-11-20",
-      "best": true
+      "verified_on": "2026-11-21",
+      "best": true,
+      "isNew": false,
+      "endingSoon": false
     },
     {
       "brand": "Subway",
@@ -40,11 +103,11 @@
       "url": "https://www.subway.com/en-us",
       "est_savings": 6,
       "id": "44089bfd",
-      "isNew": true,
-      "endingSoon": false,
       "expires_on": "2026-12-03",
-      "verified_on": "2026-11-20",
-      "best": false
+      "verified_on": "2026-11-21",
+      "best": false,
+      "isNew": false,
+      "endingSoon": false
     },
     {
       "brand": "Pancheros Mexican Grill",
@@ -64,7 +127,7 @@
       "region": "12 states (IA, NJ, MN, MO & Midwest)",
       "est_savings": 5,
       "expires_on": "2026-11-30",
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "3ad8f8fd",
       "isNew": false,
       "endingSoon": false
@@ -87,7 +150,7 @@
       "est_savings": 4.5,
       "id": "1cc3181f",
       "expires_on": "2026-11-22",
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "best": false,
       "isNew": false,
       "endingSoon": true
@@ -107,69 +170,30 @@
       "region": "Freehold, NJ & Amherst, NY only",
       "est_savings": 8,
       "expires_on": "2026-11-21",
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "3c12fbf8",
       "isNew": false,
       "endingSoon": true
     },
     {
-      "brand": "Safeway",
-      "cat": "Sushi",
-      "color": "#e31837",
-      "ic": "SF",
-      "deal": "$5 Sushi Rolls",
-      "desc": "Part of $5 Friday at California stores. Needs a free Safeway for U account.",
-      "tags": [],
-      "value": 4,
-      "expires": "Fridays only",
-      "url": "https://www.safeway.com/weeklyad/",
-      "best": false,
-      "region": "California only",
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-20",
-      "id": "483128c2"
-    },
-    {
-      "brand": "Harris Teeter",
-      "cat": "Sushi",
-      "color": "#00529b",
-      "ic": "HT",
-      "deal": "$6 Sushi Rolls",
-      "desc": "California, Vegetable, Spicy Tuna and Spicy Salmon rolls, usually about $10. A free VIC card may be needed.",
-      "tags": [],
-      "value": 4,
-      "est_savings": 3.5,
-      "expires": "Fridays only",
-      "url": "https://www.harristeeter.com/",
-      "best": false,
-      "region": "Southeast & Mid-Atlantic",
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-20",
-      "id": "1705f8d3"
-    },
-    {
-      "brand": "Taco Rock",
+      "brand": "Tijuana Flats",
       "cat": "Mexican",
-      "color": "#111111",
-      "ic": "TR",
-      "deal": "$3 Off Fajitas",
-      "desc": "Dine-in only at Taco Rock's five Northern Virginia restaurants.",
+      "color": "#d0342c",
+      "ic": "TF",
+      "deal": "Two Entrees, Drinks and a Starter for $24",
+      "desc": "In store, online or in the app. Select menu items.",
       "tags": [],
-      "value": 3,
-      "expires": "Fridays only",
-      "url": "https://www.thetacorock.com/specials",
+      "value": 4,
+      "expires": "Saturdays only",
+      "url": "https://www.tijuanaflats.com/promotions/offer-terms",
       "best": false,
-      "region": "Northern Virginia only",
-      "est_savings": 3,
-      "isNew": false,
+      "region": "FL & Southeast",
+      "est_savings": 8,
+      "isNew": true,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
-      "id": "9522f1d5"
+      "verified_on": "2026-11-21",
+      "id": "f33afdf4"
     },
     {
       "brand": "Pita Way",
@@ -190,8 +214,28 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "43255cdd"
+    },
+    {
+      "brand": "Pita Way",
+      "cat": "Mediterranean",
+      "color": "#e4572e",
+      "ic": "PW",
+      "tags": [],
+      "best": false,
+      "region": "MI, OH, TN & IN",
+      "url": "https://pitaway.com/specials",
+      "deal": "Platter for Four for $34.99",
+      "desc": "The Mini Combo Platter, usually $49.99. Pickup or delivery.",
+      "value": 4,
+      "expires": "Saturdays and Sundays only",
+      "est_savings": 15,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-21",
+      "id": "f4e72a37"
     },
     {
       "brand": "Roots Natural Kitchen",
@@ -212,7 +256,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "e8405f00"
     },
     {
@@ -232,7 +276,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "f70ab7f0"
     },
     {
@@ -240,20 +284,23 @@
       "cat": "Mexican",
       "color": "#f47b20",
       "ic": "FB",
-      "deal": "$40 Meal Kit for Five",
-      "desc": "Builds five burritos or ten tacos. Mention the deal in store, or order online.",
-      "tags": [],
+      "deal": "Kids Eat Free",
+      "desc": "Kids under 12 with an adult entree. Online, use code KIDSEATFREE.",
+      "tags": [
+        "code",
+        "free"
+      ],
       "value": 4,
-      "expires": "Fridays only",
+      "expires": "Saturdays and Sundays only",
       "url": "https://freebirds.com/",
       "best": false,
       "region": "Texas only",
-      "est_savings": 10,
-      "isNew": false,
+      "est_savings": 6,
+      "isNew": true,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
-      "id": "263e6ac0"
+      "verified_on": "2026-11-21",
+      "id": "c62efff7"
     },
     {
       "brand": "The Great Greek Mediterranean Grill",
@@ -275,7 +322,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "8b327ebc"
     },
     {
@@ -297,7 +344,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "bfead20d"
     },
     {
@@ -317,7 +364,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "e28f4b18"
     },
     {
@@ -339,7 +386,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "f954f784"
     },
     {
@@ -359,51 +406,8 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-20",
+      "verified_on": "2026-11-21",
       "id": "dc1705e8"
-    },
-    {
-      "brand": "Smoothie King",
-      "cat": "Smoothies",
-      "color": "#c8102e",
-      "ic": "SK",
-      "deal": "Free Upsize to a 32 oz Smoothie",
-      "desc": "Pay the 20 oz price when you order in the Smoothie King app (free account).",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Fridays only",
-      "url": "https://www.smoothieking.com/rewards/",
-      "best": false,
-      "region": "National",
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-20",
-      "id": "11f6c09e"
-    },
-    {
-      "brand": "Honeygrow",
-      "cat": "Bowls",
-      "color": "#f26522",
-      "ic": "H",
-      "deal": "25% Off a Stir-Fry or Salad",
-      "desc": "Rewards members get 25% off the Sriracha Tahini stir-fry or Fall Harvest Salad. Free account required, in app or online.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through November 22, 2026",
-      "url": "https://order.honeygrow.com/",
-      "region": "Mid-Atlantic & Northeast",
-      "est_savings": 3.5,
-      "id": "3ce0a523",
-      "isNew": true,
-      "endingSoon": true,
-      "expires_on": "2026-11-22",
-      "verified_on": "2026-11-20",
-      "best": false
     }
   ]
 }
