@@ -84,6 +84,22 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // Read on the chains' own pages on 2026-11-22 (sweep for easy, real-value deals for Thanksgiving week):
+    // Crisp & Green 10th anniversary, crispandgreen.com/rewards: "Day Seven November 27. Enjoy a regular entree and a smoothie
+    //   for just $10. Valid in-store only at participating locations on 11/27/2026. Must be an active loyalty member and check
+    //   in at the register. Bundle includes one regular entree and one standard 16 oz smoothie for $10 plus tax ... Not valid on
+    //   app, web, or 3rd-party orders." and "Day Eight November 28. Purchase an adult entree and receive a free kids meal".
+    //   Locations page: MN 29, CO 5, FL 5, IL 5, IA 3, NE 3, TX 3, AR 2, ND 2, WI 2, IN, MT, OH, SD, TN, UT 1 each.
+    // Smoothie King, its PR Newswire release of 2026-11-19: "stop by participating locations nationwide on December 1 for a
+    //   free 12 oz. Vanilla Peppermint D-Lite Smoothie. New and existing Healthy Rewards members ... while supplies last."
+    //   Not yet on smoothieking.com: re-check Nov 30.
+    // Schlotzsky's, schlotzskys.com/offers: "$2.99 Small Original. Offer valid only on 12/3/26 for in-store and online orders at
+    //   participating locations ... Valid only on Small Original, Cheese Original, Ham and Cheese Original, and Turkey Original
+    //   ... Limit 10 per order."
+    { from: "2026-11-27", until: "2026-11-27", alongside: true, deal: { "brand":"Crisp & Green","cat":"Bowls","color":"#2e7d32","ic":"CG","best":false,"region":"MN, CO, FL, IL, IA, NE, TX & 9 more states","url":"https://crispandgreen.com/rewards","deal":"Entree and a Smoothie for $10","desc":"Black Friday, in store only. Join CRISP Rewards (free) and check in at the register. One per member.","tags":["app"],"value":5,"expires":"November 27, 2026 only","est_savings":8 } },
+    { from: "2026-11-28", until: "2026-11-28", alongside: true, deal: { "brand":"Crisp & Green","cat":"Bowls","color":"#2e7d32","ic":"CG","best":false,"region":"MN, CO, FL, IL, IA, NE, TX & 9 more states","url":"https://crispandgreen.com/rewards","deal":"Free Kids Meal with an Adult Entree","desc":"Saturday, in store only, for CRISP Rewards members (free). Check in at the register. Kids 12 and under.","tags":["free","app"],"value":4,"expires":"November 28, 2026 only","est_savings":7 } },
+    { from: "2026-12-01", until: "2026-12-01", alongside: true, deal: { "brand":"Smoothie King","cat":"Smoothies","color":"#c8102e","ic":"SK","deal":"Free 12 oz Peppermint Smoothie","desc":"Tuesday, December 1, for Healthy Rewards members (free account), while supplies last. No purchase is mentioned.","tags":["free","app"],"value":5,"expires":"December 1, 2026 only","url":"https://www.smoothieking.com/","best":false,"region":"National","est_savings":5 } },
+    { from: "2026-12-03", until: "2026-12-03", alongside: true, deal: { "brand":"Schlotzsky's","cat":"Sandwiches","color":"#c8202f","ic":"SZ","deal":"$2.99 Small Original Sandwich","desc":"Thursday, December 3, in store or online. Original, Cheese, Ham and Cheese or Turkey. Up to 10 per order.","tags":[],"value":5,"expires":"December 3, 2026 only","url":"https://www.schlotzskys.com/offers","best":false,"region":"24 states (TX, South & Midwest)","est_savings":4 } },
     // Chipotle "Back Home BOGO", read on chipotle.com/back-home-bogo on 2026-11-20: "BOGO exclusive to Chipotle Rewards members
     // who scan for Rewards at point of sale ... Limited to five free entree items per check ... Valid only on November 25, 2026,
     // 5 p.m. to 9 p.m. local time. Redeemable in-restaurant only ... not valid for ... mobile, online or delivery orders ... Kids'
