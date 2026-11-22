@@ -1,7 +1,49 @@
 {
-  "updated": "2026-11-21",
-  "updatedAt": "2026-11-21T11:05:59.974Z",
+  "updated": "2026-11-22",
+  "updatedAt": "2026-11-22T11:05:49.883Z",
   "deals": [
+    {
+      "brand": "El Pollo Loco",
+      "cat": "Chicken",
+      "color": "#da291c",
+      "ic": "EPL",
+      "deal": "25% Off Orders All Weekend",
+      "desc": "Loco Rewards members get 25% off app or online orders through Sunday. Free account required.",
+      "tags": [
+        "app"
+      ],
+      "value": 4,
+      "expires": "Through November 22, 2026",
+      "region": "CA, NV, TX, AZ & UT",
+      "url": "https://www.elpolloloco.com/promotions",
+      "best": false,
+      "est_savings": 3,
+      "id": "1bdf903e",
+      "isNew": true,
+      "endingSoon": true,
+      "expires_on": "2026-11-22",
+      "verified_on": "2026-11-22"
+    },
+    {
+      "brand": "Publix",
+      "cat": "Deli",
+      "color": "#007a33",
+      "ic": "PUB",
+      "deal": "$2 Off Sub of the Week",
+      "desc": "Save $2 on this week's featured whole deli sub at Publix. No card needed, changes weekly.",
+      "tags": [],
+      "value": 3,
+      "expires": "This week",
+      "region": "FL & Southeast",
+      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
+      "est_savings": 2,
+      "id": "cb01916a",
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-22",
+      "best": false
+    },
     {
       "brand": "Honeygrow",
       "cat": "Bowls",
@@ -19,51 +61,11 @@
       "region": "Mid-Atlantic & Northeast",
       "est_savings": 3.5,
       "id": "3ce0a523",
-      "isNew": false,
-      "endingSoon": true,
       "expires_on": "2026-11-22",
-      "verified_on": "2026-11-21",
-      "best": false
-    },
-    {
-      "brand": "Pressed Juicery",
-      "cat": "Juice",
-      "color": "#2e7d32",
-      "ic": "P",
-      "deal": "$5 Off a 6-Pack of Juices or Shots",
-      "desc": "Discount applies automatically at checkout on select 6-packs, no membership needed.",
-      "tags": [],
-      "value": 3,
-      "expires": "Limited time",
-      "url": "https://pressed.com/",
-      "region": "Select states",
-      "est_savings": 5,
-      "id": "770445be",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-21",
-      "best": false
-    },
-    {
-      "brand": "Publix",
-      "cat": "Deli",
-      "color": "#2c7a3d",
-      "ic": "P",
-      "deal": "$2 Off the Sub of the Week",
-      "desc": "Save $2 on this week's featured whole deli sub, in store or order ahead online.",
-      "tags": [],
-      "value": 3,
-      "expires": "This week",
-      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
-      "region": "FL & Southeast",
-      "est_savings": 2,
-      "id": "cc1f4d95",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-21",
-      "best": false
+      "verified_on": "2026-11-22",
+      "best": false,
+      "isNew": false,
+      "endingSoon": true
     },
     {
       "brand": "Subway",
@@ -82,7 +84,7 @@
       "est_savings": 9.5,
       "id": "825ff910",
       "expires_on": "2026-11-26",
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "best": true,
       "isNew": false,
       "endingSoon": false
@@ -104,7 +106,7 @@
       "est_savings": 6,
       "id": "44089bfd",
       "expires_on": "2026-12-03",
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "best": false,
       "isNew": false,
       "endingSoon": false
@@ -127,7 +129,7 @@
       "region": "12 states (IA, NJ, MN, MO & Midwest)",
       "est_savings": 5,
       "expires_on": "2026-11-30",
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "3ad8f8fd",
       "isNew": false,
       "endingSoon": false
@@ -150,50 +152,10 @@
       "est_savings": 4.5,
       "id": "1cc3181f",
       "expires_on": "2026-11-22",
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "best": false,
       "isNew": false,
       "endingSoon": true
-    },
-    {
-      "brand": "Just Salad",
-      "cat": "Salads",
-      "color": "#f15a29",
-      "ic": "JS",
-      "deal": "$5 Salads, Wraps and Bowls",
-      "desc": "November 20 and 21 at the new Freehold, NJ and Amherst, NY stores. One per person, in store.",
-      "tags": [],
-      "value": 5,
-      "expires": "November 20 to 21, 2026",
-      "url": "https://www.justsalad.com/grandopening",
-      "best": true,
-      "region": "Freehold, NJ & Amherst, NY only",
-      "est_savings": 8,
-      "expires_on": "2026-11-21",
-      "verified_on": "2026-11-21",
-      "id": "3c12fbf8",
-      "isNew": false,
-      "endingSoon": true
-    },
-    {
-      "brand": "Tijuana Flats",
-      "cat": "Mexican",
-      "color": "#d0342c",
-      "ic": "TF",
-      "deal": "Two Entrees, Drinks and a Starter for $24",
-      "desc": "In store, online or in the app. Select menu items.",
-      "tags": [],
-      "value": 4,
-      "expires": "Saturdays only",
-      "url": "https://www.tijuanaflats.com/promotions/offer-terms",
-      "best": false,
-      "region": "FL & Southeast",
-      "est_savings": 8,
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-21",
-      "id": "f33afdf4"
     },
     {
       "brand": "Pita Way",
@@ -214,7 +176,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "43255cdd"
     },
     {
@@ -231,10 +193,10 @@
       "value": 4,
       "expires": "Saturdays and Sundays only",
       "est_savings": 15,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "f4e72a37"
     },
     {
@@ -256,7 +218,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "e8405f00"
     },
     {
@@ -276,7 +238,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "f70ab7f0"
     },
     {
@@ -296,10 +258,10 @@
       "best": false,
       "region": "Texas only",
       "est_savings": 6,
-      "isNew": true,
+      "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "c62efff7"
     },
     {
@@ -322,7 +284,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "8b327ebc"
     },
     {
@@ -344,7 +306,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "bfead20d"
     },
     {
@@ -364,7 +326,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "e28f4b18"
     },
     {
@@ -386,7 +348,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "f954f784"
     },
     {
@@ -406,7 +368,7 @@
       "isNew": false,
       "endingSoon": false,
       "expires_on": null,
-      "verified_on": "2026-11-21",
+      "verified_on": "2026-11-22",
       "id": "dc1705e8"
     }
   ]
