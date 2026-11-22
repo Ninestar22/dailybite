@@ -1604,6 +1604,9 @@ function main() {
       // 2026-11-20: Potbelly code BOWLS (50% off a sandwich with a bowl, Nov 16-22) was only ever quoted on Slickdeals; the
       // code is not on potbelly.com, and the standing rule is that a promo code must appear on the chain's own property.
       { brand: /potbelly/i, title: /50% off a(?:n original)? sandwich/i },
+      // 2026-11-22: Publix "$2 off the sub of the week" saves $2, under the value bar; the refresh re-added it after the
+      // injected card was retired on 2026-11-20.
+      { brand: /publix/i, title: /\$2 off (?:the )?sub of the week/i },
     ];
     const beforeRejected = deals.length;
     deals = deals.filter(d => !REJECTED.some(r => r.brand.test(String(d.brand || "")) && r.title.test(String(d.deal || ""))));

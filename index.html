@@ -199,25 +199,6 @@
 <div class="card">
   
   <div class="brandrow">
-    <div class="brand-ic" style="background:#007a33"><span>PUB</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=publix.com&amp;sz=128" alt="Publix logo" loading="lazy" onerror="this.remove()"></div>
-    <div class="brandtxt"><h2 class="brand-name">Publix</h2><div class="brand-cat">Deli</div></div>
-    <a class="near" href="https://www.google.com/maps/search/Publix+near+me" target="_blank" rel="noopener">Nearest</a>
-  </div>
-  <div class="offers">
-<div class="offer">
-    <h3 class="deal">$2 Off Sub of the Week</h3>
-    <div class="desc">Save $2 on this week&#39;s featured whole deli sub at Publix. No card needed, changes weekly.</div>
-    <div class="metarow"><span class="pill region">FL &amp; SOUTHEAST</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$2</span></div>
-    <div class="foot">
-      <span class="expires">This week</span>
-      <a class="cta" href="https://www.publix.com/mc/order-ahead/weekly-specials" target="_blank" rel="noopener" data-goatcounter-click="deal/publix" data-goatcounter-title="Publix: $2 Off Sub of the Week">Get deal &rarr;</a>
-    </div>
-  </div>
-  </div>
-</div>
-<div class="card">
-  
-  <div class="brandrow">
     <div class="brand-ic" style="background:#f4a300"><span>H</span><img class="brand-logo" src="https://www.google.com/s2/favicons?domain=honeygrow.com&amp;sz=128" alt="Honeygrow logo" loading="lazy" onerror="this.remove()"></div>
     <div class="brandtxt"><h2 class="brand-name">Honeygrow</h2><div class="brand-cat">Bowls</div></div>
     <a class="near" href="https://www.google.com/maps/search/Honeygrow+near+me" target="_blank" rel="noopener">Nearest</a>
@@ -244,7 +225,7 @@
   <div class="offers">
 <div class="offer">
     <h3 class="deal">Buy 2 Footlongs, Get 1 Free</h3>
-    <div class="desc">Sub Club members get a third footlong free online or in the app. Free account required.</div>
+    <div class="desc">For Sub Club members (free account), online or in the Subway app.</div>
     <div class="metarow"><span class="pill free">FREE</span><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$9.50</span></div>
     <div class="foot">
       <span class="expires">Ends Nov 26</span>
@@ -253,8 +234,8 @@
   </div>
 <div class="offer">
     <h3 class="deal">Two Footlongs for $12.99</h3>
-    <div class="desc">Sub Club members use code 1299FL in the app or at subway.com. Free account required.</div>
-    <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('1299FL');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: 1299FL</button><span class="pill free">FREE</span><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$6</span></div>
+    <div class="desc">Enter code 1299FL in the Subway app or at subway.com. Two footlongs are $19.38 at the Reston store.</div>
+    <div class="metarow"><button class="pill codechip" onclick="navigator.clipboard&&navigator.clipboard.writeText('1299FL');this.textContent='✓ COPIED!'" title="Tap to copy">CODE: 1299FL</button><span class="pill app">APP ONLY</span><span class="pill save" title="Estimated savings vs regular price">SAVE ~$6</span></div>
     <div class="foot">
       <span class="expires">Ends Dec 3</span>
       <a class="cta" href="https://www.subway.com/en-us" target="_blank" rel="noopener" data-goatcounter-click="deal/subway" data-goatcounter-title="Subway: Two Footlongs for $12.99">Get deal &rarr;</a>
@@ -537,26 +518,6 @@ const DEALS = [
     "verified_on": "2026-11-22"
   },
   {
-    "brand": "Publix",
-    "cat": "Deli",
-    "color": "#007a33",
-    "ic": "PUB",
-    "deal": "$2 Off Sub of the Week",
-    "desc": "Save $2 on this week's featured whole deli sub at Publix. No card needed, changes weekly.",
-    "tags": [],
-    "value": 3,
-    "expires": "This week",
-    "region": "FL & Southeast",
-    "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
-    "est_savings": 2,
-    "id": "cb01916a",
-    "isNew": true,
-    "endingSoon": false,
-    "expires_on": null,
-    "verified_on": "2026-11-22",
-    "best": false
-  },
-  {
     "brand": "Honeygrow",
     "cat": "Bowls",
     "color": "#f4a300",
@@ -585,7 +546,7 @@ const DEALS = [
     "color": "#008938",
     "ic": "S",
     "deal": "Buy 2 Footlongs, Get 1 Free",
-    "desc": "Sub Club members get a third footlong free online or in the app. Free account required.",
+    "desc": "For Sub Club members (free account), online or in the Subway app.",
     "tags": [
       "free",
       "app"
@@ -599,7 +560,8 @@ const DEALS = [
     "verified_on": "2026-11-22",
     "best": true,
     "isNew": false,
-    "endingSoon": false
+    "endingSoon": false,
+    "region": "National"
   },
   {
     "brand": "Subway",
@@ -607,10 +569,9 @@ const DEALS = [
     "color": "#008938",
     "ic": "S",
     "deal": "Two Footlongs for $12.99",
-    "desc": "Sub Club members use code 1299FL in the app or at subway.com. Free account required.",
+    "desc": "Enter code 1299FL in the Subway app or at subway.com. Two footlongs are $19.38 at the Reston store.",
     "tags": [
-      "free",
-      "app"
+      "code"
     ],
     "value": 4,
     "expires": "Through December 3, 2026",
@@ -621,7 +582,8 @@ const DEALS = [
     "verified_on": "2026-11-22",
     "best": false,
     "isNew": false,
-    "endingSoon": false
+    "endingSoon": false,
+    "region": "National"
   },
   {
     "brand": "Pancheros Mexican Grill",
@@ -884,7 +846,7 @@ const DEALS = [
     "id": "dc1705e8"
   }
 ];
-const META = {"verifiedAt":"2026-11-22T11:06:18.093Z"};
+const META = {"verifiedAt":"2026-11-22T13:43:48.983Z"};
 const AFFILIATES = {"instacart":"","grocery":["publix","sprouts","kroger","fred meyer","ralphs","fry's","king soopers","smith's","qfc","harris teeter","safeway","albertsons","vons","jewel-osco","acme markets","shaw's","tom thumb","randalls","food lion","lowe's foods","wegmans","h-e-b","hy-vee","meijer","giant eagle","whole foods market","winn-dixie","shoprite","stop & shop","giant food","market district","walmart","weis markets","lowes foods","hannaford","dierbergs","target","aldi","raley's","lunds & byerlys","heinen's","earth fare","rouses markets"],"active":false};
 /* DEALS:END */
 const today = new Date();

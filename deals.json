@@ -25,26 +25,6 @@
       "verified_on": "2026-11-22"
     },
     {
-      "brand": "Publix",
-      "cat": "Deli",
-      "color": "#007a33",
-      "ic": "PUB",
-      "deal": "$2 Off Sub of the Week",
-      "desc": "Save $2 on this week's featured whole deli sub at Publix. No card needed, changes weekly.",
-      "tags": [],
-      "value": 3,
-      "expires": "This week",
-      "region": "FL & Southeast",
-      "url": "https://www.publix.com/mc/order-ahead/weekly-specials",
-      "est_savings": 2,
-      "id": "cb01916a",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-22",
-      "best": false
-    },
-    {
       "brand": "Honeygrow",
       "cat": "Bowls",
       "color": "#f4a300",
@@ -73,7 +53,7 @@
       "color": "#008938",
       "ic": "S",
       "deal": "Buy 2 Footlongs, Get 1 Free",
-      "desc": "Sub Club members get a third footlong free online or in the app. Free account required.",
+      "desc": "For Sub Club members (free account), online or in the Subway app.",
       "tags": [
         "free",
         "app"
@@ -87,7 +67,8 @@
       "verified_on": "2026-11-22",
       "best": true,
       "isNew": false,
-      "endingSoon": false
+      "endingSoon": false,
+      "region": "National"
     },
     {
       "brand": "Subway",
@@ -95,10 +76,9 @@
       "color": "#008938",
       "ic": "S",
       "deal": "Two Footlongs for $12.99",
-      "desc": "Sub Club members use code 1299FL in the app or at subway.com. Free account required.",
+      "desc": "Enter code 1299FL in the Subway app or at subway.com. Two footlongs are $19.38 at the Reston store.",
       "tags": [
-        "free",
-        "app"
+        "code"
       ],
       "value": 4,
       "expires": "Through December 3, 2026",
@@ -109,7 +89,8 @@
       "verified_on": "2026-11-22",
       "best": false,
       "isNew": false,
-      "endingSoon": false
+      "endingSoon": false,
+      "region": "National"
     },
     {
       "brand": "Pancheros Mexican Grill",
