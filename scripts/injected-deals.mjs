@@ -84,6 +84,12 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // The Big Greek Cafe (12 Maryland stores; Virginia: Sterling, Leesburg, Oakton, Alexandria), read on biggreekcafe.com/menu/
+    //   on 2026-11-23: "HOME OF THE $7 GYRO WEDNESDAYS. Every Wednesday we offer our famous Gyros for only $7!" The homepage
+    //   menu also links "$7 GYRO WEDNESDAY". Regular price: "Our Famous Gyro Pita Sandwich" $11.99 on the Sterling store's
+    //   ordering menu (biggreekcafesterling.hrpos.heartland.us/menu, read by the research pass on a Monday). No end date or
+    //   fine print is posted: re-check monthly.
+    { until: "2027-02-28", dow: 3, deal: { "brand":"The Big Greek Cafe","cat":"Mediterranean","color":"#1565c0","ic":"BG","deal":"$7 Gyros","desc":"Every Wednesday. A gyro pita is $11.99 on other days at the Sterling store. Just order as usual.","tags":[],"value":5,"expires":"Wednesdays only","url":"https://biggreekcafe.com/menu/","best":false,"region":"Maryland & Northern Virginia","est_savings":5 } },
     // Read on the chains' own pages on 2026-11-22 (sweep for easy, real-value deals for Thanksgiving week):
     // Crisp & Green 10th anniversary, crispandgreen.com/rewards: "Day Seven November 27. Enjoy a regular entree and a smoothie
     //   for just $10. Valid in-store only at participating locations on 11/27/2026. Must be an active loyalty member and check
@@ -272,7 +278,7 @@ export const EVERGREEN = [
     // Saturday and Sunday ... Core Pizzas: $5 (Double Cheese, Pepperoni & Double Cheese), Premium Pizzas: $7 (Meaty, Supreme,
     // Veggie, BBQ Chicken & Jalapeno) after 5PM on Fri-Sun ... select locations while supplies last." Standing weekend special
     // of an approved chain (owner exception 2026-09-30); shows Fri/Sat/Sun only.
-    { until: "2026-12-31", dow: [5, 6, 0], alongside: true, deal: { brand: "Schlotzsky's", cat: "Pizza", color: "#c8202f", ic: "SZ", deal: "$5 and $7 Pizzas After 5 PM", desc: "Cheese or pepperoni for $5, specialty pizzas for $7, at select locations.", tags: [], value: 4, expires: "Fridays, Saturdays and Sundays after 5 PM", url: "https://www.schlotzskys.com/offers", best: false, region: "24 states (TX, South & Midwest)", est_savings: 5 } },
+    // Retired 2026-11-23: pizza is not a healthy item (owner rule of 2026-09-07; owner asked again for quality healthy deals). Was: $5 and $7 Pizzas After 5 PM
     // Luna Grill Medi Mondays, read from lunagrill.com/rewards on 2026-11-06: "Club Luna members may choose from $5 off Build
     // Your Own Bowl or $10 off Family Meals every Monday." Free account; offer lives in the app. Shows Mondays only.
     { until: "2026-12-31", dow: 1, alongside: true, deal: { brand: "Luna Grill", cat: "Mediterranean", color: "#f26522", ic: "LG", deal: "$5 Off a Bowl or $10 Off a Family Meal", desc: "For Club Luna members (free account), in the Luna Grill app.", tags: ["app"], value: 4, expires: "Mondays only", url: "https://lunagrill.com/rewards/", best: false, region: "SoCal & Texas", est_savings: 5 } },
@@ -289,7 +295,7 @@ export const EVERGREEN = [
     // "Participating stores only. Available all day every Wednesday. Excludes kids pizzas. Free pizza, calzone, flatbread is
     // of equal or lesser value ... Cannot be combined with any other offer." Standing weekly special of an approved chain
     // (owner exception 2026-09-30); shows Wednesdays only.
-    { until: "2026-12-31", dow: 3, deal: { brand: "Schlotzsky's", cat: "Sandwiches", color: "#c8202f", ic: "SZ", deal: "Buy One Pizza, Get One Free", desc: "Pizzas, flatbreads and calzones, all day, in store or online. Some stores run it in the app only.", tags: ["free"], value: 4, expires: "Wednesdays only", url: "https://www.schlotzskys.com/about-us/faqs", best: false, region: "24 states (TX, South & Midwest)", est_savings: 9 } },
+    // Retired 2026-11-23: pizza is not a healthy item (owner rule of 2026-09-07; owner asked again for quality healthy deals). Was: Buy One Pizza, Get One Free
     // Flame Broiler Double Fire Deal, read from flamebroilerusa.com homepage on 2026-11-04: "Two charbroiled chicken or tofu
     // bowls with two add-ons for just $20. Available for a limited time at participating locations." No end date: re-check
     // the homepage before 2026-11-30 and extend or drop.
