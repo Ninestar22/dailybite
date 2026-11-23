@@ -65,51 +65,6 @@
       "best": false
     },
     {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008938",
-      "ic": "S",
-      "deal": "Buy 2 Footlongs, Get 1 Free",
-      "desc": "For Sub Club members (free account), online or in the Subway app.",
-      "tags": [
-        "free",
-        "app"
-      ],
-      "value": 5,
-      "expires": "Through November 26, 2026",
-      "url": "https://www.subway.com/en-us",
-      "est_savings": 9.5,
-      "id": "825ff910",
-      "expires_on": "2026-11-26",
-      "verified_on": "2026-11-23",
-      "best": false,
-      "region": "National",
-      "isNew": false,
-      "endingSoon": false
-    },
-    {
-      "brand": "Subway",
-      "cat": "Sandwiches",
-      "color": "#008938",
-      "ic": "S",
-      "deal": "Two Footlongs for $12.99",
-      "desc": "Enter code 1299FL in the Subway app or at subway.com. Two footlongs are $19.38 at the Reston store.",
-      "tags": [
-        "code"
-      ],
-      "value": 4,
-      "expires": "Through December 3, 2026",
-      "url": "https://www.subway.com/en-us",
-      "est_savings": 6,
-      "id": "44089bfd",
-      "expires_on": "2026-12-03",
-      "verified_on": "2026-11-23",
-      "best": false,
-      "region": "National",
-      "isNew": false,
-      "endingSoon": false
-    },
-    {
       "brand": "Pancheros Mexican Grill",
       "cat": "Mexican",
       "color": "#c8102e",
