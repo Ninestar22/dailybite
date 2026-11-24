@@ -84,6 +84,13 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // El Pollo Loco 12 Days of Pollo, read on elpolloloco.com/promotions/12-days-of-pollo-offer-terms on 2026-11-24: "On 12/1/26 only,
+    //   buy an a la carte Burrito and get an a la carte Burrito free. Choose from Guacamole Chicken, Chipotle Chicken, or Queso
+    //   Chicken. Offer available to valid Loco Rewards members, redeemable through the Loco Rewards account online or in the App by
+    //   applying the reward at checkout, or in store by scanning the QR code ... Limit one offer per person, per day. Not valid on
+    //   third-party delivery platforms." Other days were left off: $10 tostada combo (Dec 2), 20% off (Dec 4), $10 off $35 (Dec 5),
+    //   3 tacos for $6 (Dec 8), $9 Double Chicken Bowl (Dec 11, regular price not checked).
+    { from: "2026-12-01", until: "2026-12-01", alongside: true, deal: { "brand":"El Pollo Loco","cat":"Chicken","color":"#e4002b","ic":"EPL","deal":"Buy One Chicken Burrito, Get One Free","desc":"Tuesday only, for Loco Rewards members (free account). Apply the reward in the app or online, or scan the app in store.","tags":["free","app"],"value":5,"expires":"December 1, 2026 only","url":"https://www.elpolloloco.com/promotions/12-days-of-pollo-offer-terms","best":false,"region":"West & Southwest","est_savings":9 } },
     // Tropical Smoothie Cafe code SCORE, read on tropicalsmoothiecafe.com/football on 2026-11-24 (the page redirected to the
     //   homepage on Nov 17, and the owner's test on Oct 26 failed when no code was published): "$2 24 oz. smoothie with purchase
     //   of any regular price food item or Tropic Bowl (excludes sides, sweets, snacks and kids food items) when you use promo
