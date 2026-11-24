@@ -464,6 +464,28 @@
       "expires_on": "2026-11-24",
       "verified_on": "2026-11-24",
       "id": "f99d40e0"
+    },
+    {
+      "brand": "SoBoL",
+      "cat": "Bowls",
+      "color": "#5d287f",
+      "ic": "SB",
+      "deal": "Kids Eat Free",
+      "desc": "Buy a classic acai or smoothie bowl in the shop and each child gets a free kids-size bowl.",
+      "tags": [
+        "free"
+      ],
+      "value": 4,
+      "expires": "Tuesdays only",
+      "url": "https://mysobol.com/",
+      "best": false,
+      "region": "NY, CT, MA, NJ, FL, NC & 5 more states",
+      "est_savings": 9,
+      "isNew": true,
+      "endingSoon": false,
+      "expires_on": null,
+      "verified_on": "2026-11-24",
+      "id": "c6ebdf27"
     }
   ]
 }

@@ -84,6 +84,12 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // SoBoL (acai and smoothie bowls; 86 shops: NY 59, CT 6, MA 5, NJ 5, FL 4, NC 3, DE, MD, NH, PA and VA [Gainesville] 1 each),
+    //   read on the mysobol.com homepage on 2026-11-24: "Every Tuesday at SoBoL: Kids Eat Free. Buy a classic bowl. Your kid's
+    //   bowl is on us. 1 Come in on a Tuesday 2 Order a classic and kids size bowl 3 Kids get a free kids-size bowl. One free
+    //   kids-size bowl per child, every Tuesday." Kids bowls run about $8.58 to $10.35 on the Astoria NY ordering menu. No end
+    //   date: re-check monthly.
+    { until: "2027-02-28", dow: 2, deal: { "brand":"SoBoL","cat":"Bowls","color":"#5d287f","ic":"SB","deal":"Kids Eat Free","desc":"Buy a classic acai or smoothie bowl in the shop and each child gets a free kids-size bowl.","tags":["free"],"value":4,"expires":"Tuesdays only","url":"https://mysobol.com/","best":false,"region":"NY, CT, MA, NJ, FL, NC & 5 more states","est_savings":9 } },
     // El Pollo Loco 12 Days of Pollo, read on elpolloloco.com/promotions/12-days-of-pollo-offer-terms on 2026-11-24: "On 12/1/26 only,
     //   buy an a la carte Burrito and get an a la carte Burrito free. Choose from Guacamole Chicken, Chipotle Chicken, or Queso
     //   Chicken. Offer available to valid Loco Rewards members, redeemable through the Loco Rewards account online or in the App by
