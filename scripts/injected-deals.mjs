@@ -84,6 +84,13 @@ export const EVERGREEN = [
     // Naf Naf Grill "$9.99 Pita Meal Deal" retired 2026-11-15: nafnafgrill.com shows it only as a January 2026 press headline
     // and the chain's own order menu (order.thanx.com/nafnafgrill) lists no meal deal (Stuffed Pita Sandwich $9.95 alone).
     // (Edit scripts used the old line as an insertion anchor: deal: "$9.99 Pita Meal Deal" -- insert new entries below.)
+    // Tropical Smoothie Cafe code SCORE, read on tropicalsmoothiecafe.com/football on 2026-11-24 (the page redirected to the
+    //   homepage on Nov 17, and the owner's test on Oct 26 failed when no code was published): "$2 24 oz. smoothie with purchase
+    //   of any regular price food item or Tropic Bowl (excludes sides, sweets, snacks and kids food items) when you use promo
+    //   code SCORE at checkout on orders from participating locations every Sunday and Monday between September 13, 2026 and
+    //   January 11, 2027. Must provide promo code at checkout online at tropicalsmoothiecafe.com or via the Tropical Smoothie
+    //   Cafe app ... Not valid with any other reward, offer or discount, third-party services, or on in-cafe purchases."
+    { until: "2027-01-11", dow: [0, 1], alongside: true, deal: { "brand":"Tropical Smoothie Cafe","cat":"Smoothies","color":"#00A651","ic":"TSC","deal":"$2 Smoothie with Any Food Item","desc":"A 24 oz smoothie for $2 when you buy a wrap, flatbread or bowl. Enter code SCORE online or in the app. Not valid in the cafe.","tags":["code"],"value":5,"expires":"Sundays and Mondays only","url":"https://www.tropicalsmoothiecafe.com/football","best":false,"region":"National","est_savings":5 } },
     // The Big Greek Cafe (12 Maryland stores; Virginia: Sterling, Leesburg, Oakton, Alexandria), read on biggreekcafe.com/menu/
     //   on 2026-11-23: "HOME OF THE $7 GYRO WEDNESDAYS. Every Wednesday we offer our famous Gyros for only $7!" The homepage
     //   menu also links "$7 GYRO WEDNESDAY". Regular price: "Our Famous Gyro Pita Sandwich" $11.99 on the Sterling store's
@@ -264,7 +271,8 @@ export const EVERGREEN = [
     // third-party delivery sites. Valid at selected location only. Promo code required. Limited-time offer." Offers are per
     // cafe: $8.99/1551 at cafes in DC, GA, IL, MD, PA, TN, TX and VA (Fair Oaks; not Innsbrook); most CA cafes show $9.99 with
     // code 806; CO/OR/UT/WA show a Tuesday-only $10.99. No end date: re-check the page monthly.
-    { until: "2026-12-31", deal: { brand: "Corner Bakery Cafe", cat: "Sandwiches", color: "#6b4a2b", ic: "CB", deal: "Pick Two Plus a Side for $8.99", desc: "Two of a half salad, soup, sandwich or pasta, at select cafes. Use code 1551 online or say it in the cafe.", tags: ["code"], value: 4, expires: "Limited time", url: "https://cornerbakerycafe.com/offers/", best: false, region: "Select cafes: DC, MD, VA, IL, TX, GA, PA & TN", est_savings: 3 } },
+    // Retired 2026-11-23/24: Corner Bakery "Pick Two Plus a Side for $8.99" (code 1551). A bakery-cafe like Panera, which the owner
+    // does not count as healthy, and the saving is about $3, under the value bar.
     // Moe's Birria Dipper, read from moes.com homepage on 2026-11-09: "Moe Rewards members can try a Grilled Burrito Dipper
     // with Birria on us with any purchase thru Nov. 22nd." Fine print (moes.com/media/birria): "From 11/4 - 11/22/2026 select
     // Moe Rewards members can get one (1) Grilled Burrito Dipper (1 ct.) on us with any purchase ... single use ... participating
@@ -454,7 +462,7 @@ export const EVERGREEN = [
     // queso and chips with a full-size entree for Rewards members on every 2026 full moon. One entry
     // per remaining date so each shows on its day only.
     { from: "2026-10-26", until: "2026-10-26", deal: { brand: "Qdoba", cat: "Mexican", color: "#8c1d40", ic: "Q", deal: "Full Moon: Free Regular Queso and Chips with Any Full-Size Entree", desc: "Monday, October 26 only: QDOBA Rewards members (free account required) get a free regular 4 oz queso and chips with a full-size entree, one per customer, in the app, online or by scanning the Rewards code in the restaurant. Qdoba runs this on every full moon in 2026; the remaining dates are October 26, November 24 and December 23. Not valid on delivery or catering.", tags: ["app", "free"], value: 3, expires: "Monday, October 26 only", url: "https://www.qdoba.com/full-moon-queso", best: false, region: "National", est_savings: 4.5 } },
-    { from: "2026-11-24", until: "2026-11-24", deal: { brand: "Qdoba", cat: "Mexican", color: "#8c1d40", ic: "Q", deal: "Full Moon: Free Regular Queso and Chips with Any Full-Size Entree", desc: "Tuesday, November 24 only: QDOBA Rewards members (free account required) get a free regular 4 oz queso and chips with a full-size entree, one per customer, in the app, online or by scanning the Rewards code in the restaurant. Qdoba runs this on every full moon in 2026; the remaining dates are October 26, November 24 and December 23. Not valid on delivery or catering.", tags: ["app", "free"], value: 3, expires: "Tuesday, November 24 only", url: "https://www.qdoba.com/full-moon-queso", best: false, region: "National", est_savings: 4.5 } },
+    { from: "2026-11-24", until: "2026-11-24", deal: { "brand":"Qdoba","cat":"Mexican","color":"#8c1d40","ic":"Q","deal":"Free Queso and Chips","desc":"With any full-size entree for Qdoba Rewards members (free account), on the full moon.","tags":["app","free"],"value":3,"expires":"Tuesday, November 24 only","url":"https://www.qdoba.com/full-moon-queso","best":false,"region":"National","est_savings":4.5 } },
     { from: "2026-12-23", until: "2026-12-23", deal: { brand: "Qdoba", cat: "Mexican", color: "#8c1d40", ic: "Q", deal: "Free Queso and Chips", desc: "With any full-size entree for Qdoba Rewards members (free account), on the full moon.", tags: ["app", "free"], value: 3, expires: "Wednesday, December 23 only", url: "https://www.qdoba.com/full-moon-queso", best: false, region: "National", est_savings: 4.5 } },
 ];
 

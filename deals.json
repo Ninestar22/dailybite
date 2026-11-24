@@ -23,67 +23,6 @@
       "verified_on": "2026-11-24"
     },
     {
-      "brand": "El Pollo Loco",
-      "cat": "Chicken",
-      "color": "#e4002b",
-      "ic": "EPL",
-      "deal": "Buy 2 Holiday Sides, Get 1 Free",
-      "desc": "Buy two holiday sides and get a third free. Order in the app or at the register.",
-      "tags": [
-        "app"
-      ],
-      "value": 3,
-      "expires": "Through November 29, 2026",
-      "url": "https://www.elpolloloco.com/promotions",
-      "est_savings": 3.5,
-      "region": "Southwest & West states",
-      "id": "1f336a5a",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": "2026-11-29",
-      "verified_on": "2026-11-24",
-      "best": false
-    },
-    {
-      "brand": "Giant Food",
-      "cat": "Deli",
-      "color": "#ed1c24",
-      "ic": "GF",
-      "deal": "$5.99 8-Piece Fried or Baked Chicken",
-      "desc": "Dark meat fried or baked chicken, 8 pieces, hot or cold from the deli counter.",
-      "tags": [],
-      "value": 3,
-      "expires": "Through November 26, 2026",
-      "url": "https://giantfood.com/coupons-weekly-circular/weekly-circular/",
-      "est_savings": 3,
-      "region": "DC, MD, VA & DE",
-      "id": "d36db336",
-      "isNew": true,
-      "endingSoon": true,
-      "expires_on": "2026-11-26",
-      "verified_on": "2026-11-24",
-      "best": false
-    },
-    {
-      "brand": "Rubio's Coastal Grill",
-      "cat": "Mexican",
-      "color": "#c8102e",
-      "ic": "R",
-      "deal": "Meals From $7 to $10",
-      "desc": "Value meal menu including the new Fish and Chips for $7.99, every day.",
-      "tags": [],
-      "value": 3,
-      "expires": "Ongoing",
-      "url": "https://www.rubios.com/menu",
-      "region": "CA, AZ & NV",
-      "id": "217ece13",
-      "isNew": true,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-24",
-      "best": false
-    },
-    {
       "brand": "Rubio's Coastal Grill",
       "cat": "Mexican",
       "color": "#00a19a",
@@ -397,28 +336,6 @@
       "id": "8b327ebc"
     },
     {
-      "brand": "Corner Bakery Cafe",
-      "cat": "Sandwiches",
-      "color": "#6b4a2b",
-      "ic": "CB",
-      "deal": "Pick Two Plus a Side for $8.99",
-      "desc": "Two of a half salad, soup, sandwich or pasta, at select cafes. Use code 1551 online or say it in the cafe.",
-      "tags": [
-        "code"
-      ],
-      "value": 4,
-      "expires": "Limited time",
-      "url": "https://cornerbakerycafe.com/offers/",
-      "best": false,
-      "region": "Select cafes: DC, MD, VA, IL, TX, GA, PA & TN",
-      "est_savings": 3,
-      "isNew": false,
-      "endingSoon": false,
-      "expires_on": null,
-      "verified_on": "2026-11-24",
-      "id": "bfead20d"
-    },
-    {
       "brand": "Yoshinoya",
       "cat": "Asian",
       "color": "#f58220",
@@ -530,8 +447,8 @@
       "cat": "Mexican",
       "color": "#8c1d40",
       "ic": "Q",
-      "deal": "Free Regular Queso and Chips with Any Full-Size Entree",
-      "desc": "Tuesday, November 24 only: QDOBA Rewards members (free account required) get a free regular 4 oz queso and chips with a full-size entree, one per customer, in the app, online or by scanning the Rewards code in the restaurant.",
+      "deal": "Free Queso and Chips",
+      "desc": "With any full-size entree for Qdoba Rewards members (free account), on the full moon.",
       "tags": [
         "app",
         "free"

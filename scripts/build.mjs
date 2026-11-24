@@ -1550,9 +1550,12 @@ function main() {
     // Escape regex metacharacters in these titles (\$, \+, \.). Six patterns lost their backslashes in shell-written
     // edits and silently never matched until 2026-11-14 (Rubio's $7+ menu came back three times).
     const REJECTED = [
-      // Tropical Smoothie "$2 24oz smoothie with any food purchase, Sundays and Mondays": owner tried it on
-      // 2026-10-26, no promo code anywhere and no reward in the app.
-      { brand: /tropical smoothie/i, title: /\$2 24 ?oz smoothie/i },
+      // Tropical Smoothie "$2 24oz smoothie" was rejected here from 2026-10-26 (owner's test failed, no code published) until
+      // 2026-11-24, when the chain's own /football page showed code SCORE and its terms. The injected card carries the code.
+      // 2026-11-24 (owner asked again for quality healthy deals): everyday value menu, fried chicken and a side-dish perk.
+      { brand: /rubio/i, title: /meals? from \$7/i },
+      { brand: /giant food/i, title: /fried/i },
+      { brand: /el pollo loco/i, title: /holiday sides/i },
       // Jamba "50% Off Your Order, Up to $20" (2026-11-02): jamba.com states only the new-member welcome offer
       // ("Join Jamba Rewards and get 50% off any smoothie"); the "50% Off Ends Soon" email behind the card reached the
       // deals mailbox as a fresh signup. Welcome offer, not a chain-wide deal.
